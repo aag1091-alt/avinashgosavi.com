@@ -1,0 +1,36 @@
+title: Avinash Gosavi
+tagline: Software Engineer
+description: Personal blog and portfolio of Avinash Gosavi.
+baseurl: ""
+url: "https://www.avinashgosavi.com"
+
+# Color theme (CSS): white | off-white | light-gray | sepia | soft-blue | dark
+color_theme: sepia
+
+author:
+  name: Avinash Gosavi
+  username: aag1091
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
+
+highlighter: rouge
+
+permalink: /post/:title/
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - codex-skills-wix-copy.txt

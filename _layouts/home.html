@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="home">
+  <section class="hero">
+    <h1 class="hero-title">{{ site.title }}</h1>
+    <p class="hero-tagline">{{ site.tagline }}</p>
+  </section>
+
+  <section class="recent-posts">
+    <h2>Recent Posts</h2>
+    <ul class="post-list">
+      {% assign sorted_posts = site.posts | sort: 'date' %}
+{% for post in sorted_posts reversed limit: 5 %}
+      <li class="post-list-item">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <div class="post-list-meta">
+          <span>{{ site.author.username }}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+          {% if post.read_time %}<span>{{ post.read_time }} min read</span>{% endif %}
+        </div>
+        <p class="post-list-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="all-posts-link"><a href="{{ '/blog' | relative_url }}">All Posts →</a></p>
+  </section>
+</div>

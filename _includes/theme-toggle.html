@@ -1,0 +1,42 @@
+<div class="theme-toggle" aria-label="Theme">
+  <span class="theme-toggle-label">Sepia</span>
+  <button type="button" class="theme-slider" role="switch" aria-checked="false" aria-label="Dark mode">
+    <span class="theme-slider-thumb"></span>
+  </button>
+  <span class="theme-toggle-label">Dark</span>
+</div>
+
+<script>
+(function() {
+  var STORAGE_KEY = 'blog_color_theme';
+  var SLIDER = document.querySelector('.theme-slider');
+  if (!SLIDER) return;
+
+  function getStored() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+  function setStored(theme) {
+    try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+  }
+
+  function apply(theme) {
+    document.body.className = 'theme-' + theme;
+    setStored(theme);
+    var isDark = theme === 'dark';
+    SLIDER.setAttribute('aria-checked', isDark ? 'true' : 'false');
+    SLIDER.classList.toggle('is-dark', isDark);
+  }
+
+  var stored = getStored();
+  if (stored === 'dark' || stored === 'sepia') {
+    apply(stored);
+  } else {
+    var current = (document.body.className.match(/theme-(\w+)/) || [])[1];
+    apply(current === 'dark' ? 'dark' : 'sepia');
+  }
+
+  SLIDER.addEventListener('click', function() {
+    apply(SLIDER.getAttribute('aria-checked') === 'true' ? 'sepia' : 'dark');
+  });
+})();
+</script>
