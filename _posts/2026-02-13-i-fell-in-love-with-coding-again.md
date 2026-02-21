@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "I Fell in Love with Coding Again"
+permalink: /post/i-fell-in-love-with-coding-again/
 read_time: 3
 ---
 

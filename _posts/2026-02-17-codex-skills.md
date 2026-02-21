@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Codex Skills: Baking Your Workflow Into the Tool"
+permalink: /post/codex-skills-baking-your-workflow-into-the-tool/
 read_time: 2
 ---
 
