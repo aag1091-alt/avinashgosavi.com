@@ -22,6 +22,8 @@ kramdown:
 
 highlighter: rouge
 
+future: true
+
 permalink: /post/:title/
 
 plugins:
