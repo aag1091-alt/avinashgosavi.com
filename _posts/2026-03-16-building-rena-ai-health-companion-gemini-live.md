@@ -7,7 +7,11 @@ read_time: 10
 
 I built Rena for the **Gemini Live Agent Challenge 2026** — a personal AI health companion where you never have to open a logging screen. You just talk.
 
-> **Try it:** [rena-490107-f0f28.web.app](https://rena-490107-f0f28.web.app) · **Code:** [github.com/aag1091-alt/Rena](https://github.com/aag1091-alt/Rena)
+> **Try it:** [rena-490107-f0f28.web.app](https://rena-490107-f0f28.web.app) · **Code:** [github.com/aag1091-alt/Rena](https://github.com/aag1091-alt/Rena) · **Demo:** [Watch on YouTube](https://www.youtube.com/watch?v=f-ZZw0CTivU)
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:1.5rem 0;">
+  <iframe src="https://www.youtube.com/embed/f-ZZw0CTivU" title="Rena demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;"></iframe>
+</div>
 
 ---
 
