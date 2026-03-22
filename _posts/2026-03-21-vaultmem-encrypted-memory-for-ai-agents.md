@@ -5,7 +5,11 @@ permalink: /post/vaultmem-encrypted-memory-for-ai-agents/
 read_time: 8
 ---
 
-I spent the last few months building something I couldn't find anywhere else: a memory library for AI agents where the platform developer cryptographically **cannot read what the user stores**.
+While building [Rena](https://github.com/aag1091-alt/rena) — a voice AI health agent I submitted for the Google Gemini Live Agent Challenge — I needed persistent memory. Something that could build a user profile from conversations across sessions and recall it the next time you speak to the agent. Libraries like mem0 or Zep would have worked fine for that use case.
+
+But the more I thought about it, the more a different question started bothering me: what if I wanted a *truly* private agent — one where the platform running it genuinely cannot read my conversations? And beyond that, how do you store raw conversations as structured memory in the first place?
+
+I couldn't find anything that answered both. So I spent a few days building it: a memory library for AI agents where the platform developer cryptographically **cannot read what the user stores**.
 
 > **Install:** `pip install vaultmem` · **Code:** [github.com/aag1091-alt/vaultmem-sdk](https://github.com/aag1091-alt/vaultmem-sdk) · **Preprint:** [doi.org/10.5281/zenodo.19154079](https://doi.org/10.5281/zenodo.19154079)
 
@@ -18,6 +22,16 @@ Every AI memory library I looked at — mem0, Zep, LangMem, Letta — stores use
 This matters more than it sounds. The deepest use case for persistent AI memory isn't task management — it's candor. An agent that remembers across sessions only becomes genuinely useful when you can be completely honest with it. A person working through a difficult decision. Someone with early-stage dementia building a longitudinal record of their life. A user who just wants their preferences remembered without those preferences living in a corporate database.
 
 For that to work, the privacy guarantee has to be mathematical, not a privacy policy.
+
+---
+
+## Where the research led
+
+While digging into how existing systems handle memory, I stumbled on a paper: [Memory as Asset](https://arxiv.org/abs/2603.14212) by Pan, Huang & Yang (2026). It formalizes something I'd been circling around informally — that personal memory isn't just data to be stored; it's an asset that belongs to the user, with ownership, permissions, and portability as first-class concerns.
+
+The paper defines a layered architecture. Layer 1 is personal storage: encrypted, user-owned, portable. Layer 2 is cross-session intelligence. Layer 3 is collaborative memory between agents. No existing library implements even Layer 1 with real cryptographic guarantees.
+
+What the paper gave me more than anything was vocabulary. Before reading it, I was thinking vaguely about "storing conversations." After, I was thinking about episodic memory, semantic memory, significance decay, and granularity hierarchies. That shift changed what I built — instead of a simple key-value store with embeddings, VaultMem ended up with a proper memory model grounded in the framework. The paper became the specification.
 
 ---
 
@@ -81,7 +95,7 @@ Two things I'm particularly happy with:
 
 ## The memory model
 
-Memories are stored as `MemoryObject` instances implementing the [Memory-as-Asset 5-tuple](https://arxiv.org/abs/2603.14212): content, context, owner, permissions, versioning state.
+The Memory-as-Asset paper defines memory as a 5-tuple: content, context, owner, permissions, versioning state. VaultMem's `MemoryObject` implements this directly.
 
 Four memory types: **EPISODIC** (things that happened), **SEMANTIC** (facts), **PERSONA** (preferences and habits), **PROCEDURAL** (how-to knowledge). Type is assigned by a deterministic classifier — no LLM call, no network request.
 
@@ -138,7 +152,7 @@ The format is designed to be the interoperability layer for a future where encry
 
 ## What's in the library
 
-About 2,100 lines of Python, 39 unit tests, three core dependencies (`cryptography`, `argon2-cffi`, `numpy`). Sentence-transformers or a local Ollama instance for embeddings — or bring your own.
+About 2,250 lines of Python, 39 unit tests, three core dependencies (`cryptography`, `argon2-cffi`, `numpy`). Sentence-transformers or a local Ollama instance for embeddings — or bring your own.
 
 ```python
 # LocalEmbedder — no network, runs on CPU
@@ -160,9 +174,9 @@ class MyEmbedder:
 
 ## The research angle
 
-VaultMem is also a research paper — the first implementation of Layer 1 of the [Memory-as-Asset framework](https://arxiv.org/abs/2603.14212) (Pan, Huang & Yang, 2026). The paper formalizes the threat model, scores ten existing AI memory systems against a four-dimension privacy taxonomy (no prior system achieves all four properties simultaneously), and specifies the `.vmem` format as a portable standard.
+The work turned into a paper. VaultMem is the first implementation of Layer 1 of the [Memory-as-Asset framework](https://arxiv.org/abs/2603.14212) — the paper I stumbled on during the initial research that ended up shaping the entire design. The paper formalizes the threat model, scores ten existing AI memory systems against a four-dimension privacy taxonomy (no prior system achieves all four properties simultaneously), and specifies the `.vmem` format as a portable standard.
 
-I submitted the preprint to Zenodo and I'm targeting ACM CCS 2026 for the full paper.
+The preprint is live on Zenodo and I'm targeting ACM CCS 2026 for the full paper.
 
 ---
 
