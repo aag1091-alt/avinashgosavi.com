@@ -190,3 +190,9 @@ pip install "vaultmem[local]"          # + local embeddings (sentence-transforme
 The library is intentionally small — the code is the specification. If you're building an AI agent and want to give your users memory that's actually theirs, this is the starting point.
 
 [github.com/aag1091-alt/vaultmem-sdk](https://github.com/aag1091-alt/vaultmem-sdk)
+
+---
+
+**Part 2** covers what was built on top of this foundation in v0.2.0 and v0.2.1: multi-modal memory ingestion, temporal search, pluggable storage backends, HNSW vector indexing, and a query normalizer Protocol — including a live interactive demo.
+
+[VaultMem Part 2 — Multi-Modal, Temporal Search, and Pluggable Backends →](/post/vaultmem-part-2-multimodal-temporal-backends/)
