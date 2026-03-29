@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="480" fill="#faf8f5" rx="16"/>
+
+  <!-- ── Left panel: User side ── -->
+  <rect x="30" y="30" width="240" height="420" rx="14" fill="#fff" stroke="#e8e0d4" stroke-width="1.5"/>
+  <text x="150" y="62" text-anchor="middle" font-size="13" font-weight="600" fill="#7c6f5e" letter-spacing="1">YOUR SIDE</text>
+
+  <!-- Person icon -->
+  <circle cx="150" cy="110" r="28" fill="#e8f0fe" stroke="#4a7de8" stroke-width="2"/>
+  <text x="150" y="117" text-anchor="middle" font-size="24">🧠</text>
+
+  <!-- Memory bubbles -->
+  <rect x="50" y="155" width="200" height="38" rx="8" fill="#f0f7ee" stroke="#82c47a" stroke-width="1.2"/>
+  <text x="150" y="170" text-anchor="middle" font-size="11" fill="#3a7a32" font-weight="500">Met Sarah at NeurIPS</text>
+  <text x="150" y="184" text-anchor="middle" font-size="10" fill="#5a9a52">📍 EPISODIC</text>
+
+  <rect x="50" y="202" width="200" height="38" rx="8" fill="#fff4e6" stroke="#f4a236" stroke-width="1.2"/>
+  <text x="150" y="217" text-anchor="middle" font-size="11" fill="#8a5a10" font-weight="500">I prefer dark mode</text>
+  <text x="150" y="231" text-anchor="middle" font-size="10" fill="#aa7a30">🧩 PERSONA</text>
+
+  <rect x="50" y="249" width="200" height="38" rx="8" fill="#fde8f0" stroke="#e4729a" stroke-width="1.2"/>
+  <text x="150" y="264" text-anchor="middle" font-size="11" fill="#8a2050" font-weight="500">Two coffees every morning</text>
+  <text x="150" y="278" text-anchor="middle" font-size="10" fill="#aa4070">🔁 AFFINITY</text>
+
+  <rect x="50" y="296" width="200" height="38" rx="8" fill="#eef2ff" stroke="#7b8fe8" stroke-width="1.2"/>
+  <text x="150" y="311" text-anchor="middle" font-size="11" fill="#2a3a90" font-weight="500">AES-256-GCM explained</text>
+  <text x="150" y="325" text-anchor="middle" font-size="10" fill="#4a5ab0">📚 SEMANTIC</text>
+
+  <!-- Key icon -->
+  <rect x="80" y="360" width="140" height="44" rx="10" fill="#4a7de8" />
+  <text x="150" y="377" text-anchor="middle" font-size="11" fill="white" font-weight="600">Your passphrase</text>
+  <text x="150" y="393" text-anchor="middle" font-size="11" fill="#c8d8ff">→ Argon2id → AES-256-GCM</text>
+
+  <text x="150" y="435" text-anchor="middle" font-size="11" fill="#9a8a78" font-style="italic">Key never leaves your session</text>
+
+  <!-- ── Middle: VaultMem lock ── -->
+  <rect x="320" y="140" width="260" height="200" rx="20" fill="#2d2d2d" stroke="#555" stroke-width="2"/>
+
+  <!-- Lock body -->
+  <rect x="380" y="210" width="140" height="100" rx="10" fill="#f0c040" stroke="#c09820" stroke-width="2"/>
+  <!-- Lock shackle -->
+  <path d="M405 210 Q405 170 450 170 Q495 170 495 210" fill="none" stroke="#f0c040" stroke-width="14" stroke-linecap="round"/>
+  <!-- Keyhole -->
+  <circle cx="450" cy="248" r="14" fill="#2d2d2d"/>
+  <rect x="444" y="254" width="12" height="22" rx="4" fill="#2d2d2d"/>
+
+  <text x="450" y="360" text-anchor="middle" font-size="14" font-weight="700" fill="#2d2d2d" letter-spacing="1">VaultMem</text>
+  <text x="450" y="378" text-anchor="middle" font-size="11" fill="#7c6f5e">encrypts before storing</text>
+
+  <!-- Arrows left → middle -->
+  <line x1="270" y1="240" x2="318" y2="240" stroke="#4a7de8" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="318,236 326,240 318,244" fill="#4a7de8"/>
+
+  <!-- Arrow middle → right -->
+  <line x1="582" y1="240" x2="628" y2="240" stroke="#cc4444" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="628,236 636,240 628,244" fill="#cc4444"/>
+
+  <!-- ── Right panel: Platform side ── -->
+  <rect x="638" y="30" width="232" height="420" rx="14" fill="#fff" stroke="#e8e0d4" stroke-width="1.5"/>
+  <text x="754" y="62" text-anchor="middle" font-size="13" font-weight="600" fill="#7c6f5e" letter-spacing="1">PLATFORM SEES</text>
+
+  <!-- Server icon -->
+  <rect x="724" y="78" width="60" height="50" rx="6" fill="#f0ece8" stroke="#c0b8b0" stroke-width="1.5"/>
+  <rect x="729" y="84" width="50" height="8" rx="3" fill="#c0b8b0"/>
+  <rect x="729" y="96" width="50" height="8" rx="3" fill="#c0b8b0"/>
+  <rect x="729" y="108" width="50" height="8" rx="3" fill="#c0b8b0"/>
+
+  <!-- Encrypted blobs -->
+  <rect x="658" y="152" width="212" height="52" rx="8" fill="#f8f4f0" stroke="#d0c8c0" stroke-width="1"/>
+  <text x="764" y="170" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">a3f8 9c12 e847 3b91 0d55</text>
+  <text x="764" y="183" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">f20e 77a4 1c39 8854 2b6d</text>
+  <text x="764" y="196" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">9e01 4f73 b2a8 5c16 d390</text>
+
+  <rect x="658" y="214" width="212" height="52" rx="8" fill="#f8f4f0" stroke="#d0c8c0" stroke-width="1"/>
+  <text x="764" y="232" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">7d4b c8e2 3190 a75f 6b2c</text>
+  <text x="764" y="245" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">0f83 d941 52e7 b4a0 9c63</text>
+  <text x="764" y="258" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">e518 2b7d 4fa3 c096 8d21</text>
+
+  <rect x="658" y="276" width="212" height="52" rx="8" fill="#f8f4f0" stroke="#d0c8c0" stroke-width="1"/>
+  <text x="764" y="294" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">3c9a f061 7e4d 28b5 a193</text>
+  <text x="764" y="307" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">b847 1d52 9f30 e6c4 7a08</text>
+  <text x="764" y="320" text-anchor="middle" font-size="9.5" fill="#8a8078" font-family="monospace">5e29 c71b 0a84 f365 d2e9</text>
+
+  <!-- Cannot read badge -->
+  <rect x="678" y="346" width="172" height="36" rx="10" fill="#fde8e8" stroke="#e87a7a" stroke-width="1.5"/>
+  <text x="764" y="360" text-anchor="middle" font-size="11" fill="#cc2222" font-weight="600">🔒 Cannot read</text>
+  <text x="764" y="375" text-anchor="middle" font-size="10" fill="#cc5555">without your passphrase</text>
+
+  <text x="754" y="430" text-anchor="middle" font-size="11" fill="#9a8a78" font-style="italic">Mathematically unreadable</text>
+
+  <!-- Bottom title -->
+  <text x="450" y="458" text-anchor="middle" font-size="12" fill="#9a8a78">VaultMem — operator-blind encrypted memory for AI agents · pip install vaultmem</text>
+
+</svg>
