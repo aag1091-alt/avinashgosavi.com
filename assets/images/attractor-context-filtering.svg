@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 380" font-family="Georgia, serif">
+  <rect width="820" height="380" fill="#0f1117"/>
+
+  <!-- Title -->
+  <text x="410" y="30" text-anchor="middle" fill="#e0e0e0" font-size="16" font-weight="bold">Context Filtering — Same Query, Different Results</text>
+
+  <!-- Query box -->
+  <rect x="260" y="55" width="300" height="50" rx="8" fill="#1e1f2e" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="410" y="76" text-anchor="middle" fill="#e0e0e0" font-size="13">Query: "why did we change auth"</text>
+  <text x="410" y="94" text-anchor="middle" fill="#6b7280" font-size="11">+ 384-dim embedding</text>
+
+  <!-- Arrow down to two paths -->
+  <line x1="300" y1="105" x2="200" y2="155" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="520" y1="105" x2="620" y2="155" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Left: no filter -->
+  <rect x="80" y="158" width="220" height="50" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+  <text x="190" y="179" text-anchor="middle" fill="#818cf8" font-size="12">No context filter</text>
+  <text x="190" y="196" text-anchor="middle" fill="#6b7280" font-size="11">vector search only</text>
+
+  <!-- Right: with filter -->
+  <rect x="510" y="158" width="230" height="50" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+  <text x="625" y="179" text-anchor="middle" fill="#34d399" font-size="12">context_filter:</text>
+  <text x="625" y="196" text-anchor="middle" fill="#6b7280" font-size="11">topic = "auth refactor"</text>
+
+  <!-- Arrows down to results -->
+  <line x1="190" y1="208" x2="190" y2="248" stroke="#818cf8" stroke-width="1.5" marker-end="url(#arrPurple)"/>
+  <line x1="625" y1="208" x2="625" y2="248" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrGreen)"/>
+
+  <!-- Left results -->
+  <rect x="30" y="250" width="320" height="100" rx="8" fill="#1e293b" stroke="#374151" stroke-width="1"/>
+  <text x="190" y="272" text-anchor="middle" fill="#6b7280" font-size="11" font-style="italic">Both memories surface:</text>
+  <rect x="45" y="280" width="290" height="28" rx="4" fill="#2d2f45"/>
+  <text x="55" y="299" fill="#818cf8" font-size="11">▸ "switched from JWT to session tokens..."</text>
+  <rect x="45" y="312" width="290" height="28" rx="4" fill="#2d2f45"/>
+  <text x="55" y="331" fill="#818cf8" font-size="11">▸ "auth tokens should never be stored in..."</text>
+
+  <!-- Right results -->
+  <rect x="470" y="250" width="320" height="100" rx="8" fill="#1e293b" stroke="#374151" stroke-width="1"/>
+  <text x="630" y="272" text-anchor="middle" fill="#6b7280" font-size="11" font-style="italic">Only the relevant memory surfaces:</text>
+  <rect x="485" y="280" width="290" height="28" rx="4" fill="#1a2e25"/>
+  <text x="495" y="299" fill="#34d399" font-size="11">▸ "switched from JWT to session tokens..."</text>
+  <rect x="485" y="312" width="290" height="28" rx="4" fill="#2d2f45" opacity="0.4"/>
+  <text x="495" y="331" fill="#374151" font-size="11">  "auth tokens should never be stored in..."</text>
+
+  <!-- Labels below -->
+  <text x="190" y="368" text-anchor="middle" fill="#6b7280" font-size="11">semantic match, no context</text>
+  <text x="630" y="368" text-anchor="middle" fill="#34d399" font-size="11">semantic match + context = precision</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6366f1"/>
+    </marker>
+    <marker id="arrPurple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#34d399"/>
+    </marker>
+  </defs>
+</svg>
