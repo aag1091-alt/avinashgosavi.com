@@ -101,6 +101,18 @@ Phase 1 is the foundation. The more interesting work is ahead:
 
 **Phase 4 — Hopfield retrieval**: Replace vector similarity with a proper Hopfield weight matrix. Retrieval becomes pattern completion — give the network a partial cue and it converges to the full memory. This is the step that moves from "semantic search with context" to something genuinely brain-inspired.
 
+## Isn't This Already Being Done?
+
+Honestly — yes, in parts. Vector search with metadata filtering exists in Pinecone, Weaviate, and Qdrant. Memory layers for agents exist in LangChain and LlamaIndex. And the "Hopfield Networks is All You Need" paper already showed that transformer attention *is mathematically a Hopfield update* — so in a sense, every LLM is already doing content-addressable retrieval implicitly.
+
+Phase 1 of Attractor is not novel. It's a clean, focused implementation of something that exists in various forms.
+
+The bet is on Phases 3 and 4. Most agent memory systems don't implement decay — memories don't weaken over time unless reinforced, they don't consolidate the way biological memory does, and retrieval is always ranking rather than convergence. That's the gap Attractor is trying to close.
+
+Whether that gap matters in practice is an open question — and the honest answer is that it depends entirely on whether the difference shows up in real use. That's why I'm building **memlog** on top of Attractor as a daily-use testbed: log thoughts, decisions, and notes every day, and see whether context-aware retrieval with decay actually surfaces better results than a plain vector search would. If it does, the model is right. If it doesn't, the model needs revision.
+
+Theory is cheap. The feedback loop is the thing.
+
 ## Why This Matters for AI Agents
 
 Most AI agents today are stateless between sessions or rely on crude context windows. The ones that do have memory bolt it on as an afterthought — store the last N messages, embed them, retrieve by cosine similarity.
