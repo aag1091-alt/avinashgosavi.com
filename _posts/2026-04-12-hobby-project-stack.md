@@ -24,6 +24,34 @@ Before comparing services, the constraints matter:
 
 ---
 
+## The architecture at a glance
+
+Before diving into each choice, here's how all the pieces connect:
+
+<div class="mermaid">
+graph TD
+    Phone["📱 Phone / Browser\nCloudflare Pages PWA"]
+    Rails["Rails API\ndaylog-rails-api.fly.dev\n─────────────\nAuth · routing · proxy"]
+    Postgres[("Neon Postgres\nusers · sessions · tokens")]
+    Vault["Vault Service\nFastAPI + vaultmem\n─────────────\ntranscription · search · storage"]
+    Redis[("Upstash Redis\nvault locks")]
+    Volume[/"Fly Volume\nAES-256 .vmem files"/]
+    Whisper["faster-whisper\ntiny · int8 · CPU"]
+    Embed["sentence-transformers\nsemantic search"]
+
+    Phone -->|"HTTPS"| Rails
+    Rails -->|"SQL"| Postgres
+    Rails -->|"Fly internal network\n:8000 — never public"| Vault
+    Vault -->|"distributed lock"| Redis
+    Vault -->|"read / write"| Volume
+    Vault --- Whisper
+    Vault --- Embed
+</div>
+
+The key insight: the vault service is **never exposed to the internet**. Rails acts as the public face — it handles auth, verifies the JWT, and only then forwards requests to the vault service over Fly's private network. The vault service doesn't need its own auth layer, rate limiting, or TLS. That's what makes this setup so lean.
+
+---
+
 ## The stack, and why
 
 ### Frontend: Cloudflare Pages
@@ -216,3 +244,8 @@ I'm putting the finishing touches on a proper demo — the full flow of opening 
 If you want to see what a privacy-first, AI-powered personal knowledge tool looks like when it costs nothing to run — keep an eye out. Demo coming soon.
 
 *vaultmem is on PyPI. daylog is coming.*
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
