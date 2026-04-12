@@ -13,157 +13,181 @@ This post walks through exactly what goes where, what's encrypted and when, and 
 
 ---
 
-## The architecture
+## How your words travel
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        Your phone                           │
-│                                                             │
-│   Safari (daylog PWA)                                       │
-│   ┌──────────────────────────────────────────────────────┐  │
-│   │  passphrase (derived from password, never sent)      │  │
-│   │  sessionStorage: session_id, passphrase              │  │
-│   │  Web Speech API → text (on-device, Apple neural)     │  │
-│   └──────────────────────────────────────────────────────┘  │
-│                     │ HTTPS                                  │
-└─────────────────────┼───────────────────────────────────────┘
-                      │
-          ┌───────────▼────────────┐
-          │     Rails API          │
-          │   (Fly.io, iad)        │
-          │                        │
-          │  • auth (JWT tokens)   │
-          │  • proxies vault ops   │──────────────────────────┐
-          │  • calls Groq for      │                          │
-          │    summarise only      │                          │
-          └────────────────────────┘                          │
-                      │ internal (Fly private network)        │
-          ┌───────────▼────────────┐                          │
-          │   vault service        │                          │
-          │   (Fly.io, iad)        │                          │
-          │                        │                          │
-          │  vaultmem SDK          │                          │
-          │  AES-256-GCM at rest   │                          │
-          │  sentence-transformers │                          │
-          │  (on-device, no API)   │                          │
-          │  /data volume          │                          │
-          └────────────────────────┘                          │
-                                                              │
-          ┌───────────────────────────────────────────────────┘
-          │
-          ▼
-   ┌──────────────────┐
-   │   Groq API       │
-   │ (api.groq.com)   │
-   │                  │
-   │  receives only:  │
-   │  "time: content" │
-   │  lines for the   │
-   │  day you asked   │
-   │  to summarise    │
-   └──────────────────┘
-```
+The diagram below traces a single diary entry — "went for a run today" — from your mouth to disk, and back to your eyes.
+
+<svg viewBox="0 0 700 290" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;display:block;margin:2rem 0;font-family:system-ui,sans-serif;font-size:12px">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- ── SAVING label ── -->
+  <text x="10" y="14" font-size="10" fill="#64748b" font-weight="700" letter-spacing="0.12em">SAVING AN ENTRY</text>
+
+  <!-- Write box 1: Speak -->
+  <rect x="10" y="22" width="120" height="72" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="70" y="46" text-anchor="middle" font-size="16">🎤</text>
+  <text x="70" y="63" text-anchor="middle" font-size="10" fill="#15803d" font-weight="600">You speak</text>
+  <text x="70" y="78" text-anchor="middle" font-size="9" fill="#166534">"went for a run today"</text>
+
+  <line x1="130" y1="58" x2="148" y2="58" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Write box 2: Browser -->
+  <rect x="150" y="22" width="120" height="72" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="210" y="43" text-anchor="middle" font-size="10" fill="#15803d" font-weight="600">Browser</text>
+  <text x="210" y="57" text-anchor="middle" font-size="9" fill="#166534">"went for a run today"</text>
+  <text x="210" y="70" text-anchor="middle" font-size="8" fill="#22c55e">transcribed on-device</text>
+  <text x="210" y="83" text-anchor="middle" font-size="8" fill="#22c55e">nothing sent yet ✓</text>
+
+  <line x1="270" y1="58" x2="288" y2="58" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Write box 3: HTTPS -->
+  <rect x="290" y="22" width="120" height="72" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="350" y="46" text-anchor="middle" font-size="10" fill="#1d4ed8" font-weight="600">HTTPS</text>
+  <text x="350" y="60" text-anchor="middle" font-size="9" fill="#1d4ed8">"went for a run today"</text>
+  <text x="350" y="74" text-anchor="middle" font-size="8" fill="#3b82f6">content encrypted</text>
+  <text x="350" y="86" text-anchor="middle" font-size="8" fill="#3b82f6">in transit by TLS</text>
+
+  <line x1="410" y1="58" x2="428" y2="58" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Write box 4: Vault encrypts -->
+  <rect x="430" y="22" width="120" height="72" rx="7" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="490" y="43" text-anchor="middle" font-size="10" fill="#854d0e" font-weight="600">Vault encrypts</text>
+  <text x="490" y="57" text-anchor="middle" font-size="8" fill="#92400e">AES-256-GCM</text>
+  <text x="490" y="70" text-anchor="middle" font-size="8" fill="#92400e">🔑 using your key</text>
+  <text x="490" y="83" text-anchor="middle" font-size="8" fill="#92400e">derived from password</text>
+
+  <line x1="550" y1="58" x2="568" y2="58" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Write box 5: Disk -->
+  <rect x="570" y="22" width="120" height="72" rx="7" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="630" y="43" text-anchor="middle" font-size="14">💾</text>
+  <text x="630" y="59" text-anchor="middle" font-size="10" fill="#991b1b" font-weight="600">Stored on disk</text>
+  <text x="630" y="73" text-anchor="middle" font-size="9" fill="#b91c1c">7f3a·a4c8·e12d·...</text>
+  <text x="630" y="86" text-anchor="middle" font-size="8" fill="#dc2626">ciphertext — unreadable</text>
+
+  <!-- ── Divider ── -->
+  <line x1="10" y1="112" x2="690" y2="112" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <!-- ── READING label ── -->
+  <text x="10" y="130" font-size="10" fill="#64748b" font-weight="700" letter-spacing="0.12em">READING YOUR ENTRIES</text>
+
+  <!-- Read box 1: Disk -->
+  <rect x="10" y="138" width="120" height="72" rx="7" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="70" y="157" text-anchor="middle" font-size="14">💾</text>
+  <text x="70" y="174" text-anchor="middle" font-size="10" fill="#991b1b" font-weight="600">Stored on disk</text>
+  <text x="70" y="188" text-anchor="middle" font-size="9" fill="#b91c1c">7f3a·a4c8·e12d·...</text>
+  <text x="70" y="201" text-anchor="middle" font-size="8" fill="#dc2626">ciphertext</text>
+
+  <line x1="130" y1="174" x2="148" y2="174" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Read box 2: Vault decrypts -->
+  <rect x="150" y="138" width="120" height="72" rx="7" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="210" y="159" text-anchor="middle" font-size="10" fill="#854d0e" font-weight="600">Vault decrypts</text>
+  <text x="210" y="173" text-anchor="middle" font-size="9" fill="#166534">"went for a run today"</text>
+  <text x="210" y="186" text-anchor="middle" font-size="8" fill="#92400e">🔑 your key only</text>
+  <text x="210" y="199" text-anchor="middle" font-size="8" fill="#92400e">in memory, not logged</text>
+
+  <line x1="270" y1="174" x2="288" y2="174" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Read box 3: HTTPS -->
+  <rect x="290" y="138" width="120" height="72" rx="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="350" y="162" text-anchor="middle" font-size="10" fill="#1d4ed8" font-weight="600">HTTPS</text>
+  <text x="350" y="176" text-anchor="middle" font-size="9" fill="#166534">"went for a run today"</text>
+  <text x="350" y="190" text-anchor="middle" font-size="8" fill="#3b82f6">content encrypted</text>
+  <text x="350" y="202" text-anchor="middle" font-size="8" fill="#3b82f6">in transit by TLS</text>
+
+  <line x1="410" y1="174" x2="428" y2="174" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Read box 4: Browser -->
+  <rect x="430" y="138" width="120" height="72" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="490" y="159" text-anchor="middle" font-size="10" fill="#15803d" font-weight="600">Browser</text>
+  <text x="490" y="173" text-anchor="middle" font-size="9" fill="#166534">"went for a run today"</text>
+  <text x="490" y="186" text-anchor="middle" font-size="8" fill="#22c55e">plain text ✓</text>
+
+  <line x1="550" y1="174" x2="568" y2="174" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Read box 5: You see it -->
+  <rect x="570" y="138" width="120" height="72" rx="7" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="630" y="159" text-anchor="middle" font-size="14">📱</text>
+  <text x="630" y="175" text-anchor="middle" font-size="10" fill="#15803d" font-weight="600">You see it</text>
+  <text x="630" y="189" text-anchor="middle" font-size="9" fill="#166534">"went for a run today"</text>
+
+  <!-- ── Legend ── -->
+  <rect x="10" y="230" width="11" height="11" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" rx="2"/>
+  <text x="25" y="240" font-size="9" fill="#64748b">Readable text</text>
+
+  <rect x="120" y="230" width="11" height="11" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" rx="2"/>
+  <text x="135" y="240" font-size="9" fill="#64748b">Encrypted — unreadable</text>
+
+  <rect x="278" y="230" width="11" height="11" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" rx="2"/>
+  <text x="293" y="240" font-size="9" fill="#64748b">Secured in transit (TLS)</text>
+
+  <rect x="445" y="230" width="11" height="11" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5" rx="2"/>
+  <text x="460" y="240" font-size="9" fill="#64748b">Encryption / decryption point</text>
+</svg>
+
+The key thing to notice: your words are readable on your device, and readable in your browser when you read them back. **Everything in between — transit, storage — is ciphertext.** The only thing that can decrypt your entries is the key that lives in the vault service's RAM, derived from your passphrase, which never leaves your browser.
 
 ---
 
-## Encryption: what, where, how
+## The one exception: AI summarise
 
-### Your passphrase never leaves your device
+When you tap **Summarise this day**, the browser sends that day's already-decrypted entries to the Rails API, which forwards them to [Groq](https://groq.com) (Llama 3.3 70B). What Groq receives:
 
-When you first set up daylog, you choose a password. The app derives a cryptographic passphrase from it using PBKDF2-SHA256 — 100,000 iterations, salted with your email:
-
-```js
-// In the browser, using WebCrypto
-const key = await crypto.subtle.importKey("raw", passwordBytes, "PBKDF2", false, ["deriveBits"]);
-const bits = await crypto.subtle.deriveBits(
-  { name: "PBKDF2", hash: "SHA-256", salt: encoder.encode(`daylog:${email}`), iterations: 100_000 },
-  key, 256
-);
-const passphrase = Array.from(new Uint8Array(bits)).map(b => b.toString(16).padStart(2, "0")).join("");
+```
+09:10 AM: Went for a run today.
+08:30 PM: Good session, finally fixed that bug.
 ```
 
-This passphrase is stored in `sessionStorage` only (cleared when the browser tab closes). **It is never sent to any server.** The Rails API never sees it. The vault service receives it once per session to derive the vault's master encryption key (MEK), then keeps the MEK in RAM for that session only.
+Just time + text for the one day you asked to summarise. No name, no metadata, nothing from other days. The summary is never saved back to the vault.
 
-### Your entries are encrypted before touching disk
-
-The vault service uses [vaultmem](https://github.com/aag1091-alt/vaultmem) — a zero-knowledge encrypted memory library. Each atom (diary entry) is encrypted with AES-256-GCM using the MEK before being written to the `/data` volume on Fly.io. The encrypted file is a `.vmem` file containing a header, an index, and individually encrypted atom blocks.
-
-What's on disk: ciphertext. What the vault service needs to read it: the MEK, which it derives from your passphrase at session-open time and holds in RAM until the session expires or you sign out.
-
-### Search is fully on-device
-
-Semantic search uses `sentence-transformers/all-MiniLM-L6-v2` — a 384-dim embedding model running locally inside the vault service container. Your query is embedded on the same machine as your entries. The cosine similarity calculation happens in RAM. No text leaves the vault service for search.
+This is the deliberate trade-off: everything else is vault-only, but summarise sends content to an external API. It's a button you tap explicitly, not something that runs automatically. If that's not acceptable, remove `GROK_API_KEY` from the config and the rest of the app works unchanged.
 
 ---
 
-## The one trade-off: AI summarise
+## Encryption: the details
 
-This is the honest part.
+**Your passphrase never leaves your device.** When you log in, your password is run through PBKDF2-SHA256 (100,000 rounds, salted with your email) entirely in the browser using WebCrypto. The result is stored in `sessionStorage` — cleared when the tab closes — and passed once to the vault service to open a session. The vault service derives a master encryption key (MEK) from it in RAM and never writes the passphrase or MEK to disk.
 
-When you tap **Summarise this day**, your entries for that day are sent to [Groq](https://groq.com) — specifically to `api.groq.com/openai/v1/chat/completions` — running Llama 3.3 70B. Groq is a fast inference API; Llama 3.3 is an open-weight model.
+**Entries are encrypted before touching disk.** Each diary entry is encrypted with AES-256-GCM and stored in a `.vmem` file on the vault service's Fly.io volume. What's on disk is ciphertext. To read it back, the vault service needs the MEK — which only exists in RAM during an active session.
 
-What's sent:
-
-```
-09:10 AM: Starting fresh. Cleared everything and decided to actually use this properly.
-09:30 PM: Good day. Got a lot done. Need to sleep earlier.
-```
-
-Just the time and text of each entry from that day. No name, no account info, no metadata. The Rails API holds the Groq key and makes the call server-side — your phone never talks to Groq directly.
-
-What this means in practice:
-
-- **Groq sees your diary content for the day you summarise.** Their [privacy policy](https://groq.com/privacy-policy/) governs what they do with it.
-- **Nothing else goes to Groq.** Navigation, search, adding entries, viewing past days — all of this is vault-only.
-- **You choose when to summarise.** It's a button you tap, not something that runs automatically.
-
-If this trade-off isn't acceptable for you, the summarise feature can be disabled by removing `GROK_API_KEY` from the Rails API config. Everything else continues to work.
+**Search never leaves the vault service.** Semantic search uses `sentence-transformers/all-MiniLM-L6-v2` running locally inside the vault container. Your query is embedded on the same machine as your entries. Nothing goes to any external API.
 
 ---
 
-## What the Rails API can and can't see
+## What the Rails API sees
 
-The Rails API owns authentication (JWT tokens, bcrypt passwords stored in Postgres). It proxies vault operations to the vault service over Fly's private network.
+The Rails API handles auth (JWT tokens, bcrypt passwords). It proxies vault requests to the vault service over Fly's private internal network.
 
-What it can see:
-- Your email address and hashed password
-- That you opened a session (but not the passphrase it received — that's passed through to the vault service immediately)
-- Timing of requests
+It can see: your email, that you opened a session, request timing.
 
-What it can't see:
-- Your diary content (always encrypted at the vault service layer)
-- Your passphrase (it's in the proxy body but the Rails API passes it through without logging or storing it)
-- Your search queries (same — passed through to vault service)
+It cannot see: your diary content (always ciphertext at the vault layer), your passphrase (passed through immediately without logging), your search queries.
 
-The vault service's internal endpoint is only reachable via Fly's private network (`*.internal`), so it's not accessible from the public internet — only from the Rails API machine.
+The vault service is not reachable from the public internet — only from the Rails API over `*.internal`.
 
 ---
 
 ## Data at rest
 
-| Location | What's there | Encrypted? |
+| Where | What | Encrypted? |
 |---|---|---|
-| Fly.io volume (`/data/vaults/`) | `.vmem` files — atom ciphertext + index | Yes — AES-256-GCM |
-| Postgres (Neon) | email, bcrypt password hash, session tokens | Passwords hashed; DB encrypted at rest |
+| Fly.io volume | `.vmem` ciphertext | AES-256-GCM |
+| Postgres (Neon) | email, bcrypt hash, session tokens | Passwords hashed; DB encrypted at rest |
 | Browser sessionStorage | session_id, passphrase | Cleared on tab close |
 | Browser localStorage | auth JWT | Cleared on sign out |
 
 ---
 
-## Data in transit
-
-All external traffic is HTTPS. The Rails API ↔ vault service communication uses Fly's private IPv6 network, which is encrypted at the Wireguard layer.
-
----
-
 ## The short version
 
-- **Voice transcription**: on-device (Apple's neural engine via Web Speech API). Nothing leaves your phone.
-- **Adding and reading entries**: passphrase stays in your browser; entries are encrypted before touching disk.
-- **Search**: fully on-device inside the vault service. No external API.
-- **AI summarise**: sends that day's entries to Groq. Optional, explicit, one day at a time.
-
-The goal was to make something that feels like a private notebook — where the default is that your thoughts stay yours, and you explicitly opt in to the parts that touch the cloud.
+- **Speaking**: transcribed on-device by Apple's neural engine. Nothing leaves your phone.
+- **Saving**: encrypted with your key before hitting disk. Vault service holds the key in RAM only.
+- **Searching**: runs inside the vault service. No external API.
+- **Summarising**: sends that day's entries to Groq. Your choice, one day at a time.
 
 ---
 
