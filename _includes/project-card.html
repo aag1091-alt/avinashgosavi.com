@@ -1,0 +1,15 @@
+<article class="project-card">
+  <h3 class="project-name">{{ include.project.name }}</h3>
+  <p class="project-tagline">{{ include.project.tagline }}</p>
+  <p class="project-description">{{ include.project.description }}</p>
+  <ul class="project-tags">
+    {% for tag in include.project.tags %}
+    <li>{{ tag }}</li>
+    {% endfor %}
+  </ul>
+  <p class="project-links">
+    {% if include.project.github %}<a href="{{ include.project.github }}" target="_blank" rel="noopener">Code</a>{% endif %}
+    {% if include.project.demo %}<a href="{{ include.project.demo }}" target="_blank" rel="noopener">Live</a>{% endif %}
+    {% if include.project.post %}<a href="{{ include.project.post | relative_url }}">Write-up</a>{% endif %}
+  </p>
+</article>

@@ -1,10 +1,9 @@
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-left">
-      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
-      <p class="site-tagline">{{ site.tagline }}</p>
+    <a href="{{ '/' | relative_url }}" class="site-title"><span class="site-mark" aria-hidden="true">AG</span>{{ site.title }}</a>
+    <div class="header-right">
       {% include nav.html %}
+      {% include theme-toggle.html %}
     </div>
-    {% include theme-toggle.html %}
   </div>
 </header>

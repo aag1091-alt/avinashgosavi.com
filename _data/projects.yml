@@ -1,0 +1,66 @@
+# Featured projects shown on the homepage and /projects.
+# `featured: true` items appear on the homepage (first 4).
+- name: VaultMem
+  tagline: Encrypted memory for AI agents
+  description: >-
+    A Python memory library where the platform running the agent
+    cryptographically cannot read what users store. Client-side encryption,
+    encrypted semantic search, PII sanitization. Published on PyPI with a
+    preprint on Zenodo.
+  tags: [Python, Cryptography, AI Agents]
+  github: https://github.com/aag1091-alt/vaultmem-sdk
+  post: /post/vaultmem-encrypted-memory-for-ai-agents/
+  featured: true
+
+- name: Rena
+  tagline: Voice-first AI health companion
+  description: >-
+    Built for the Gemini Live Agent Challenge 2026 — a health companion you
+    talk to instead of tapping through logging screens. Gemini Live, Veo 2,
+    and Google ADK.
+  tags: [Gemini Live, Google ADK, Voice AI]
+  github: https://github.com/aag1091-alt/Rena
+  demo: https://rena-490107-f0f28.web.app
+  post: /post/building-rena-ai-health-companion-gemini-live/
+  featured: true
+
+- name: Attractor
+  tagline: Brain-inspired memory engine
+  description: >-
+    A memory engine modeled on Hopfield-style attractor dynamics — retrieval
+    by partial cues and context rather than keys or nearest-neighbour
+    distance.
+  tags: [Python, Hopfield Networks, Memory]
+  github: https://github.com/aag1091-alt/attractor
+  post: /post/attractor-memory-engine/
+  featured: true
+
+- name: daylog
+  tagline: Private voice diary
+  description: >-
+    A voice diary with semantic search where entries and the search index are
+    encrypted at rest, and no content leaves the device to answer a query.
+  tags: [Encryption, Semantic Search, Local-first]
+  github: https://github.com/aag1091-alt/daylog
+  post: /post/daylog-security-architecture/
+  featured: true
+
+- name: whisper-live-transcribe
+  tagline: Live transcription on a $0 server
+  description: >-
+    Near real-time audio transcription service running entirely on your own
+    hardware with faster-whisper — no third-party APIs. Extracted from
+    daylog.
+  tags: [Whisper, Python, Self-hosted]
+  github: https://github.com/aag1091-alt/whisper-live-transcribe
+  post: /post/live-audio-transcription-whisper/
+
+- name: AI History Blog Generator
+  tagline: Autonomous blog-writing agent
+  description: >-
+    An agent that turns any historical topic into a fully-functioning Jekyll
+    blog, one milestone at a time — powered by local models via Ollama.
+  tags: [Ollama, Agents, Jekyll]
+  github: https://github.com/aag1091-alt/AI-History-Blog-Generator
+  demo: https://aag1091-alt.github.io/AI-History-Blog/
+  post: /post/ai-history-blog-generator/

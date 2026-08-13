@@ -2,25 +2,46 @@
 layout: default
 ---
 
-<div class="home">
+<div class="home portfolio">
   <section class="hero">
-    <h1 class="hero-title">{{ site.title }}</h1>
-    <p class="hero-tagline">{{ site.tagline }}</p>
+    <p class="hero-kicker">Staff Software Engineer · Cisco Meraki · San Francisco Bay Area</p>
+    <h1 class="hero-title">Avinash Gosavi</h1>
+    <p class="hero-intro">
+      Staff engineer building <strong>privacy-first AI tools</strong> —
+      encrypted memory for agents, voice interfaces, local-first apps —
+      and writing about the craft of software engineering.
+    </p>
+    <div class="hero-links">
+      <a class="hero-btn hero-btn-primary" href="{{ '/projects' | relative_url }}">View Projects</a>
+      <a class="hero-btn" href="{{ '/blog' | relative_url }}">Writing</a>
+      <span class="hero-links-divider" aria-hidden="true"></span>
+      {% include social-icons.html %}
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      {% assign featured = site.data.projects | where: 'featured', true %}
+      {% for project in featured limit: 4 %}
+        {% include project-card.html project=project %}
+      {% endfor %}
+    </div>
+    <p class="all-posts-link"><a href="{{ '/projects' | relative_url }}">All Projects →</a></p>
   </section>
 
   <section class="recent-posts">
-    <h2>Recent Posts</h2>
+    <h2>Recent Writing</h2>
     <ul class="post-list">
       {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-{% for post in sorted_posts limit: 5 %}
+      {% for post in sorted_posts limit: 3 %}
       <li class="post-list-item">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         <div class="post-list-meta">
-          <span>{{ site.author.username }}</span>
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
           {% if post.read_time %}<span>{{ post.read_time }} min read</span>{% endif %}
         </div>
-        <p class="post-list-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+        <p class="post-list-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
       </li>
       {% endfor %}
     </ul>

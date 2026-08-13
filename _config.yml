@@ -1,6 +1,6 @@
 title: Avinash Gosavi
-tagline: Engineering Leader
-description: Personal blog and portfolio of Avinash Gosavi.
+tagline: Staff Software Engineer
+description: Portfolio and blog of Avinash Gosavi — Staff Software Engineer at Cisco Meraki building privacy-first AI tools.
 baseurl: ""
 url: "https://www.avinashgosavi.com"
 
@@ -10,6 +10,11 @@ color_theme: sepia
 author:
   name: Avinash Gosavi
   username: aag1091
+
+social_links:
+  github: https://github.com/aag1091-alt
+  linkedin: https://www.linkedin.com/in/aag1091/
+  x: https://x.com/aag1091
 
 markdown: kramdown
 kramdown:
