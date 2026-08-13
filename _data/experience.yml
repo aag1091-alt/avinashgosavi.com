@@ -1,0 +1,169 @@
+# Work history shown on /experience (full) and the homepage (company, label, span, summary).
+- company: Cisco Meraki
+  location: San Francisco, CA
+  label: Staff Software Engineer
+  span: 2021 – Present
+  summary: >-
+    Own platform-level systems for Cisco Catalyst on the Meraki cloud — from
+    shipping GA for Catalyst Switching, Wireless, and Routing to architecting
+    the company-wide topology data service featured at Cisco Live 2026.
+  tags: [Ruby on Rails, React, Kafka, Kubernetes, gRPC, Electron]
+  roles:
+    - title: Staff Software Engineer
+      period: Oct 2025 – Present
+      highlights:
+        - Architected Cisco Cloud Control — the canonical topology data
+          service for all Meraki devices and organizations, serving network
+          state via a pull REST API and a Kafka-backed push path — featured
+          at Cisco Live 2026 as the company's unified topology platform.
+        - Set API and integration standards now adopted across 20+ public
+          APIs; design docs for Config History and Topology APIs became
+          shared components across all Network Platform teams.
+        - Go-to integration expert for Catalyst hardware on the Meraki
+          platform; mentor 5–10 engineers and serve as subject-matter expert
+          during Sev1 incidents.
+    - title: Technical Lead
+      period: Oct 2021 – Oct 2025
+      highlights:
+        - Shipped General Availability for Catalyst Switching, Wireless, and
+          Routing in the Meraki Dashboard, expanding support across the full
+          Catalyst portfolio.
+        - Built Catalyst Wireless onboarding from the ground up — no Catalyst
+          wireless support existed on the platform before — scaling to 100K+
+          devices.
+        - Cut Global Overview dashboard response times from 30s+ timeouts to
+          under 5s with a sharded, low-latency data fetching architecture.
+
+- company: Handshake
+  location: San Francisco, CA
+  label: Software Engineer II
+  span: 2020 – 2021
+  summary: >-
+    Scaled the Rails APIs powering mobile clients for millions of students,
+    and built the search infrastructure behind them.
+  tags: [Ruby on Rails, Elasticsearch, React]
+  roles:
+    - title: Software Engineer II
+      period: Feb 2020 – Oct 2021
+      highlights:
+        - Designed, optimized, and versioned high-traffic Rails APIs powering
+          mobile clients for millions of active users.
+        - Built Elasticsearch indexing and sync pipelines powering search and
+          API-driven experiences across the platform.
+        - Shipped Virtual Career Fair infrastructure, resume parser
+          integration, and external job apply flows.
+
+- company: CoStar Group
+  location: San Francisco & Norfolk, VA
+  label: Software Engineer II
+  span: 2018 – 2020
+  summary: >-
+    Full-stack work across the BizBuySell and Apartments networks — .NET
+    APIs, revenue and data initiatives, and post-acquisition data
+    integration.
+  tags: [.NET, AngularJS, Elasticsearch, MS SQL]
+  roles:
+    - title: Software Engineer II · BizBuySell
+      period: May 2019 – Feb 2020
+      highlights:
+        - Built .NET Core REST APIs and asynchronous background workloads
+          across BizBuySell, BizQuest, and FindaFranchise.
+        - Delivered revenue and data initiatives — stabilized the sales
+          forecasting pipeline, ingested analytics into MS SQL, and shipped
+          Logstash sync jobs into Elasticsearch.
+    - title: Senior Software Engineer · Apartments Network
+      period: Feb 2018 – May 2019
+      highlights:
+        - Consolidated ForRent inventory into core CoStar systems after the
+          acquisition, aligning schemas for a unified source of truth.
+
+- company: Dominion Enterprises — ForRent Media Solutions
+  location: Norfolk, VA
+  label: Intern → Senior Software Engineer
+  span: 2015 – 2018
+  summary: >-
+    Grew from intern to senior engineer while modernizing ForRent.com and
+    building its data and search infrastructure.
+  tags: [Java, Spring, Elasticsearch, Kafka, AngularJS]
+  roles:
+    - title: Web Developer Intern → Senior Software Engineer
+      period: May 2015 – Feb 2018
+      highlights:
+        - Modernized ForRent.com by migrating to an API-driven AngularJS
+          front end, decoupling rendering from direct SQL queries.
+        - Built Elasticsearch-backed reporting with Java/Spring ETL jobs, and
+          Kafka/Logstash ingestion pipelines for low-latency content
+          delivery.
+
+- company: Old Dominion University
+  location: Norfolk, VA
+  label: Teaching & Research Assistant
+  span: 2014 – 2015
+  summary: >-
+    Teaching and research assistantship during my M.S. in Computer Science —
+    lab projects across PHP, Java, and Ruby services.
+  tags: [PHP, Java, Ruby, Heroku]
+  roles:
+    - title: Teaching & Research Assistant
+      period: Aug 2014 – May 2015
+      highlights:
+        - Built components for an indoor localization prototype tracking
+          hospital staff using iPhone gyroscope readings and building layout
+          data.
+        - Supported an undergraduate course through grading, labs, and office
+          hours; maintained and ported the VSO Doves application to Heroku.
+
+- company: Freewave Tech Solutions
+  location: Mumbai, India
+  label: Software Developer
+  span: 2013 – 2014
+  summary: >-
+    Built YoWoTo.com, a parenting advice platform — owned database and
+    feature design across the Rails backend.
+  tags: [Ruby on Rails, PostgreSQL, Zurb Foundation]
+  roles:
+    - title: Software Developer
+      period: Jul 2013 – Jun 2014
+      highlights:
+        - Owned database and feature design for YoWoTo.com, a parenting
+          advice platform — Rails backend with keyword and property-based
+          content search via pg_search.
+        - Shipped key engagement UX — infinite-scroll home feed, post
+          ratings, and a unified listing page across content types.
+
+- company: Indiavidual (via Neosoft Technologies)
+  location: Mumbai, India
+  label: Ruby on Rails Developer
+  span: "2013"
+  summary: >-
+    Supported Embibe.com, a test-prep platform for IIT-JEE and other
+    competitive exams.
+  tags: [Ruby on Rails, MongoDB, SQL]
+  roles:
+    - title: Ruby on Rails Developer
+      period: Feb 2013 – Jun 2013
+      highlights:
+        - Enhanced Embibe.com's quiz-authoring portal used by teachers to
+          build the question bank — rich academic content including math
+          equations, diagrams, and charts.
+        - Refactored and optimized a slow "next question" engine with complex
+          adaptive selection logic for choosing each student's optimal next
+          quiz question.
+
+- company: Allerin Tech
+  location: Navi Mumbai, India
+  label: Ruby on Rails Developer
+  span: 2011 – 2013
+  summary: >-
+    Where my software career started — greenfield Rails products including a
+    currency conversion platform and a golf social network.
+  tags: [Ruby on Rails, Oracle, MongoDB, Salesforce]
+  roles:
+    - title: Ruby on Rails Developer
+      period: Sep 2011 – Jan 2013
+      highlights:
+        - Built CCYware, a currency conversion platform with a
+          per-organization Oracle multi-tenancy model and Salesforce
+          integration for customer and transaction sync.
+        - Built Golf2Compete social features including score sharing and a
+          Facebook-style player wall backed by MongoDB.

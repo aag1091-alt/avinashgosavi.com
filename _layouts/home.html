@@ -7,9 +7,14 @@ layout: default
     <p class="hero-kicker">Staff Software Engineer · Cisco Meraki · San Francisco Bay Area</p>
     <h1 class="hero-title">Avinash Gosavi</h1>
     <p class="hero-intro">
-      Staff engineer building <strong>privacy-first AI tools</strong> —
-      encrypted memory for agents, voice interfaces, local-first apps —
-      and writing about the craft of software engineering.
+      13+ years building <strong>production systems at enterprise scale</strong>.
+      At Cisco Meraki, I architected the company's unified topology platform —
+      featured at <strong>Cisco Live 2026</strong> — shipped General Availability
+      for Catalyst Switching, Wireless, and Routing, and set API standards now
+      adopted across 20+ public APIs. Off hours, I build
+      <strong>privacy-first AI tools</strong> — an encrypted memory SDK
+      published to PyPI, a voice health companion — and write about the
+      craft of software engineering.
     </p>
     <div class="hero-links">
       <a class="hero-btn hero-btn-primary" href="{{ '/projects' | relative_url }}">View Projects</a>
@@ -20,7 +25,7 @@ layout: default
   </section>
 
   <section class="projects-section">
-    <h2>Featured Projects</h2>
+    <h2>Hobby Projects</h2>
     <div class="project-grid">
       {% assign featured = site.data.projects | where: 'featured', true %}
       {% for project in featured limit: 4 %}
@@ -28,6 +33,22 @@ layout: default
       {% endfor %}
     </div>
     <p class="all-posts-link"><a href="{{ '/projects' | relative_url }}">All Projects →</a></p>
+  </section>
+
+  <section class="experience-section">
+    <h2>Experience</h2>
+    <ul class="experience-list">
+      {% for job in site.data.experience %}
+      <li class="experience-row">
+        <div class="experience-row-main">
+          <span class="experience-company">{{ job.company }}</span>
+          <span class="experience-label">{{ job.label }}</span>
+        </div>
+        <span class="experience-span">{{ job.span }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="all-posts-link"><a href="{{ '/experience' | relative_url }}">Full Experience →</a></p>
   </section>
 
   <section class="recent-posts">

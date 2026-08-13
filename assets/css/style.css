@@ -260,7 +260,8 @@ input:focus-visible {
 
 /* Home / portfolio */
 .main:has(.portfolio),
-.main:has(.projects-page) {
+.main:has(.projects-page),
+.main:has(.experience-page) {
   max-width: 52rem;
 }
 
@@ -286,11 +287,10 @@ input:focus-visible {
 }
 
 .hero-intro {
-  margin: 1.1rem 0 0;
-  font-size: 1.1rem;
-  line-height: 1.65;
+  margin: 1.2rem 0 0;
+  font-size: 1.22rem;
+  line-height: 1.7;
   color: var(--text-muted);
-  max-width: 34rem;
 }
 
 .hero-intro strong {
@@ -475,6 +475,184 @@ input:focus-visible {
 
 .project-links a:hover {
   text-decoration: underline;
+}
+
+/* Experience — homepage compact list */
+.experience-section {
+  margin-bottom: 3rem;
+}
+
+.experience-section h2 {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.experience-section h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.experience-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.experience-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.experience-row:last-child {
+  border-bottom: none;
+}
+
+.experience-row-main {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.experience-company {
+  font-weight: 600;
+}
+
+.experience-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.experience-span {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Experience page — timeline */
+.experience-page h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.experience-lede {
+  color: var(--text-muted);
+  margin: 0 0 2rem;
+  max-width: 38rem;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.3rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.6rem;
+  top: 0.45rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.timeline-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.timeline-company {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.timeline-span {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.timeline-location {
+  margin: 0.1rem 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.timeline-role {
+  margin-bottom: 1rem;
+}
+
+.timeline-role-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 0.4rem;
+}
+
+.timeline-highlights {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.timeline-highlights li {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-tags {
+  margin-top: 0.25rem;
 }
 
 .projects-page h1 {
