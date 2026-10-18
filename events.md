@@ -7,8 +7,8 @@ description: Conferences, hackathons and community events Avinash Gosavi has att
 
 {% assign upcoming = site.data.events | where: "status", "upcoming" | sort: "date" %}
 {% assign past = site.data.events | where: "status", "past" | sort: "date" | reverse %}
-{% assign confs = site.data.events | where: "role", "attended" %}
-{% assign hacks = site.data.events | where: "role", "hacker" %}
+{% assign past_events = site.data.events | where: "status", "past" %}{% assign confs = past_events | where: "role", "attended" %}
+{% assign hacks = past_events | where: "role", "hacker" %}
 <div class="events-page">
   <h1>Conferences &amp; Community</h1>
   <p class="page-lede">I've been showing up to Ruby conferences since RubyConf India 2013 — {{ confs.size }} conferences and {{ hacks.size }} hackathons so far, plus regular SF Ruby and East Bay Ruby meetups (including the ones hosted at Cisco Meraki). Where I wrote up what I learned, it's linked — and my favorite recordings are on <a href="{{ '/talks/' | relative_url }}">talks worth watching</a>.</p>
