@@ -1,0 +1,42 @@
+---
+layout: default
+title: Research & Interests
+permalink: /research/
+description: Topics Avinash Gosavi researches and builds around — private memory for AI agents, brain-inspired retrieval, local-first AI and API design at scale — plus a papershelf with TL;DRs.
+---
+
+<div class="research-page">
+  <h1>Research &amp; Interests</h1>
+  <p class="page-lede">What I keep coming back to, at work and off hours — and the papers that shaped how I think about it. Each paper gets a TL;DR and a note on how it showed up in something I built.</p>
+
+  <h2>Topics I follow</h2>
+  <ul class="interest-list">
+    <li><strong>Private, user-owned memory for AI agents.</strong> If an agent remembers your life, the platform running it shouldn't be able to read that memory. <a href="{{ '/series/' | relative_url }}#vaultmem">VaultMem</a>, <a href="{{ '/post/daylog-security-architecture/' | relative_url }}">daylog</a>.</li>
+    <li><strong>Brain-inspired retrieval.</strong> Associative memory, attractor dynamics and consolidation as alternatives to plain vector search. <a href="{{ '/post/attractor-memory-engine/' | relative_url }}">Attractor</a>.</li>
+    <li><strong>Local-first AI.</strong> Running useful models on hardware you own — transcription, embeddings and chat without sending data to third parties. <a href="{{ '/post/live-audio-transcription-whisper/' | relative_url }}">Whisper on a $0 server</a>, <a href="{{ '/uses/' | relative_url }}">my setup</a>.</li>
+    <li><strong>Distributed systems &amp; API design at scale.</strong> My day job: aggregating data across shards and products into APIs that stay fast for the biggest customers. <a href="{{ '/experience/' | relative_url }}">Experience</a>.</li>
+    <li><strong>AI-assisted software engineering.</strong> Where AI genuinely speeds up engineering work — and how to keep its output honest. <a href="{{ '/post/doing-the-right-thing-fast/' | relative_url }}">Doing the right thing, fast</a>, <a href="{{ '/post/reviewing-ai-generated-tests-istqb-framework/' | relative_url }}">reviewing AI-generated tests</a>.</li>
+    <li><strong>Ruby &amp; Rails architecture.</strong> Thirteen years in the community, from RubyConf India 2013 to SF Ruby 2025. <a href="{{ '/events/' | relative_url }}">Events</a>.</li>
+  </ul>
+
+  <h2>My own work</h2>
+  <ul class="interest-list">
+    <li><strong>VaultMem: zero-knowledge encrypted memory for AI agents</strong> — research preprint, 2026. <a href="https://doi.org/10.5281/zenodo.19154079" rel="noopener">Zenodo (DOI)</a> · <a href="https://pypi.org/project/vaultmem/" rel="noopener">PyPI</a> · <a href="https://github.com/aag1091-alt/vaultmem-sdk" rel="noopener">Code</a></li>
+  </ul>
+
+  <h2 id="papershelf">Papershelf</h2>
+  {% assign groups = site.data.papers | group_by: "topic" %}
+  {% for g in groups %}
+  <h3 class="paper-topic">{{ g.name }}</h3>
+  <ul class="paper-list">
+    {% for p in g.items %}
+    <li class="paper">
+      <a class="paper-title" href="{{ p.url }}" rel="noopener">{{ p.title }}</a>
+      <div class="paper-meta">{{ p.authors }} · {{ p.year }} · {{ p.venue }}</div>
+      <p class="paper-tldr"><span class="paper-label">TL;DR</span> {{ p.tldr }}</p>
+      <p class="paper-why"><span class="paper-label">Why it matters to me</span> {{ p.why }}{% if p.post %} <a href="{{ p.post | relative_url }}">Read more →</a>{% endif %}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</div>

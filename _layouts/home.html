@@ -23,6 +23,24 @@ layout: default
     </div>
   </section>
 
+  <section class="home-stats" aria-label="At a glance">
+    <a class="stat" href="{{ '/experience' | relative_url }}"><span class="stat-num">15+</span><span class="stat-label">years shipping production systems</span></a>
+    <a class="stat" href="{{ '/achievements' | relative_url }}"><span class="stat-num">1M+</span><span class="stat-label">devices behind the Global Overview API I built</span></a>
+    <a class="stat" href="{{ '/achievements' | relative_url }}"><span class="stat-num">30+</span><span class="stat-label">public APIs following standards I set</span></a>
+    {% assign confs = site.data.events | where: "status", "past" %}
+    <a class="stat" href="{{ '/events' | relative_url }}"><span class="stat-num">{{ confs.size }}</span><span class="stat-label">conferences &amp; hackathons since 2013</span></a>
+  </section>
+
+  <section class="home-now">
+    <h2>Now</h2>
+    <dl class="now-list now-list-compact">
+      {% for item in site.data.now.items limit: 4 %}
+      <div class="now-item"><dt>{{ item.label }}</dt><dd>{{ item.text }}</dd></div>
+      {% endfor %}
+    </dl>
+    <p class="all-posts-link"><a href="{{ '/now' | relative_url }}">What else I'm up to →</a></p>
+  </section>
+
   <section class="projects-section">
     <h2>Hobby Projects</h2>
     <div class="project-grid">
