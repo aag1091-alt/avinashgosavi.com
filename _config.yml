@@ -16,6 +16,23 @@ social_links:
   linkedin: https://www.linkedin.com/in/aag1091/
   x: https://x.com/aag1091
 
+# SEO / social previews (jekyll-seo-tag)
+logo: /assets/images/about.jpg
+twitter:
+  username: aag1091
+  card: summary
+social:
+  name: Avinash Gosavi
+  links:
+    - https://github.com/aag1091-alt
+    - https://www.linkedin.com/in/aag1091/
+    - https://x.com/aag1091
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/about.jpg
+
 markdown: kramdown
 kramdown:
   input: GFM

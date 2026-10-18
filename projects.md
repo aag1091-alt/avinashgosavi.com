@@ -1,5 +1,6 @@
 ---
 layout: default
+description: "Open-source side projects by Avinash Gosavi — encrypted memory for AI agents, voice AI, local-first tools and developer utilities."
 title: Hobby Projects
 permalink: /projects/
 ---

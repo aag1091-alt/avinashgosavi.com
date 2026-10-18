@@ -1,0 +1,79 @@
+# Talks I recommend, shown on /talks. take = my one-line reason to watch.
+- title: The Role of Software Design in an AI World
+  speaker: Sarah Mei
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/the-role-of-software-design-in-an-ai-world
+  topic: Engineering in the AI era
+  take: One of my top picks — decades of industry context on how AI changes what design work matters.
+- title: Programming Language Evolution in the AI Era
+  speaker: José Valim
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/programming-language-evolution-in-the-ai-era
+  topic: Engineering in the AI era
+  take: How languages have to adapt to AI assistants, with a demo of Tidewave, his browser-based AI dev tool.
+- title: "Rails Expertise, Distilled: AI Agents That Get Your Monolith"
+  speaker: Brandon Weaver
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/rails-expertise-distilled-ai-agents-that-get-your-monolith
+  topic: Engineering in the AI era
+  take: Practical ways agents can help a team understand and work in a large Rails codebase.
+- title: "RubyLLM: One API, One Person, One Machine for AI"
+  speaker: Carmine Paolino
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/keynote-rubyllm-one-api-one-person-one-machine-for-ai
+  topic: Engineering in the AI era
+  take: Shows how little code it takes to put LLMs into a Rails app.
+- title: Start Writing Ruby (Stop Using Classes)
+  speaker: Dave Thomas
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/start-writing-ruby-stop-using-classes
+  topic: Architecture & design
+  take: Modules, plain functions and state-free boundaries — it challenged my "everything is a class" Rails habits.
+- title: "Pack It Up: Why Packwerk Can't Save Your Messy Rails App (But You Can)"
+  speaker: Stephan Hagemann
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/pack-it-up-why-packwerk-can-t-save-your-messy-rails-app-but-you-can
+  topic: Architecture & design
+  take: Architecture is driven by people, not tools — domain clarity and enforced boundaries do the real work.
+- title: "Derailing Our Application: How and Why We Are Decoupling Our Code from Rails"
+  speaker: Alan Ridlehoover & Fito von Zastrow
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/derailing-our-application-how-and-why-we-are-decoupling-our-code-from-rails-san-francisco-ruby-conference-2025
+  topic: Architecture & design
+  take: My Cisco Meraki colleagues on breaking apart a massive Rails codebase, driven by real product needs.
+- title: Scaling Rails to Two Million MySQL Requests per Second
+  speaker: Eugene Kenny
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/scaling-rails-to-two-million-mysql-requests-per-second
+  topic: Performance & scale
+  take: Intercom's sharding, replication, caching and connection-routing trade-offs — directly useful for distributed systems work.
+- title: "ZJIT: The Future of Ruby Performance"
+  speaker: Takashi Kokubun
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/zjit-the-future-of-ruby-performance
+  topic: Performance & scale
+  take: A must-see on Ruby internals — where the JIT is heading and why Ruby is about to get much faster.
+- title: "Sidekiq: Open Source, Business and the Future"
+  speaker: Mike Perham
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/sidekiq-open-source-business-and-the-future
+  topic: Open source & craft
+  take: An honest look at business models that make open source sustainable.
+- title: The Thin CLIent Approach
+  speaker: Jeremy Evans
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/the-thin-client-approach
+  topic: Open source & craft
+  take: Clean, very Ruby patterns for lightweight CLI tools — something I want to try.
+- title: "From Code to Customers: Technical Marketing for People Who'd Rather Be Building"
+  speaker: Colleen Schnettler
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/from-code-to-customers-technical-marketing-for-people-who-d-rather-be-building
+  topic: Open source & craft
+  take: Gold for anyone building a product (or a personal site) who'd rather write code than market it.
+- title: Play With Your Code
+  speaker: Rachael Wright-Munn
+  event: SF Ruby 2025
+  url: https://www.rubyevents.org/talks/play-with-your-code-san-francisco-ruby-conference-2025
+  topic: Open source & craft
+  take: Why programming games are more fun than day jobs, and how to bring that curiosity back to work.

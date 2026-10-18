@@ -1,5 +1,6 @@
 ---
 layout: default
+description: "Work history of Avinash Gosavi — Staff Software Engineer at Cisco Meraki building Catalyst cloud management, Global Overview and Cisco Cloud Control topology."
 title: Experience
 permalink: /experience/
 ---

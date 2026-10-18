@@ -1,5 +1,6 @@
 ---
 layout: default
+description: "Writing by Avinash Gosavi on distributed systems, API design, privacy-first AI tools, agent memory and the craft of software engineering."
 title: All Posts
 ---
 

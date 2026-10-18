@@ -25,6 +25,7 @@ description: Topics Avinash Gosavi researches and builds around — private memo
   </ul>
 
   <h2 id="papershelf">Papershelf</h2>
+  <p>Prefer video? See <a href="{{ '/talks/' | relative_url }}">talks worth watching</a>.</p>
   {% assign groups = site.data.papers | group_by: "topic" %}
   {% for g in groups %}
   <h3 class="paper-topic">{{ g.name }}</h3>
