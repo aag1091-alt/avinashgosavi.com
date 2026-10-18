@@ -83,6 +83,7 @@
   year: 2019
   venue: arXiv:1908.10084
   url: https://arxiv.org/abs/1908.10084
+  tldr_post: /post/paper-tldr-sentence-bert/
   topic: Retrieval & embeddings
   tldr: >-
     Fine-tunes BERT in a siamese setup so each sentence gets its own
