@@ -7,7 +7,7 @@ description: Engineering impact, open-source work, community roles and education
 
 <div class="achievements-page">
   <h1>Achievements</h1>
-  <p class="page-lede">The highlights, with links wherever there's something public to check.</p>
+  <p class="page-lede">A few things I've worked on that I'm glad I got to be part of — with links wherever there's something public to look at.</p>
   {% for group in site.data.achievements %}
   <section class="achievement-group">
     <h2>{{ group.section }}</h2>

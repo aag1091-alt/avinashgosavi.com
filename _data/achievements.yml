@@ -1,32 +1,28 @@
 # Achievements shown on /achievements, grouped by section.
 # Each item: title, year, detail, optional link (url + label).
-- section: Engineering impact
+- section: Work I'm proud of
   items:
-    - title: Cisco Cloud Control featured at Cisco Live 2026
+    - title: Helping bring Cisco Catalyst into the Meraki cloud
+      year: 2021–now
+      detail: >-
+        Five years of laying the groundwork so Catalyst switches, wireless
+        and routers can be managed from the Meraki Dashboard — starting with a
+        small Electron app to onboard the very first switches.
+    - title: Building wireless support from scratch
+      detail: >-
+        There was no Catalyst wireless on the platform when we started. Adding
+        the wireless controller as a new kind of device, and watching real
+        networks come online through it, is still one of my favorite projects.
+    - title: Making one view of every network fast
+      detail: >-
+        The Global Overview API pulls Catalyst Center and Meraki data together
+        across shards. Getting the biggest customers from timeouts to a
+        few seconds taught me more about aggregation than any book.
+    - title: Topology for Cisco Cloud Control
       year: 2026
       detail: >-
-        Architected the canonical topology data service for all Meraki devices
-        and organizations (pull REST API + Kafka-backed push path), presented
-        at Cisco Live 2026 as Cisco's unified topology platform.
-    - title: API standards followed by 30+ public APIs
-      year: 2025
-      detail: >-
-        Set the API and integration standards used across Meraki's public
-        APIs; my Config History and Topology API design docs became shared
-        components for all Network Platform teams.
-    - title: Catalyst Switching, Wireless & Routing GA in the Meraki Dashboard
-      year: 2021–2025
-      detail: >-
-        Designed the foundation for managing Cisco Catalyst from the Meraki
-        cloud — now 200K+ switches and 400K+ wireless devices — including
-        Catalyst wireless onboarding built from scratch (100K+ devices in its
-        first year).
-    - title: Meraki Global Overview API — 1M+ devices, 30s+ to under 5s
-      year: 2025
-      detail: >-
-        Designed and built a multi-shard aggregator combining Catalyst Center
-        and Meraki data for every Meraki customer; cut large-organization
-        response times from 30s+ timeouts to under 5s.
+        Designing the topology data service behind Cisco Cloud Control, and
+        seeing it shown at Cisco Live 2026, was a proud moment for the team.
 
 - section: Open source & research
   items:
