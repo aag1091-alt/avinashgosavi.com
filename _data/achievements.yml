@@ -8,7 +8,7 @@
         Architected the canonical topology data service for all Meraki devices
         and organizations (pull REST API + Kafka-backed push path), presented
         at Cisco Live 2026 as Cisco's unified topology platform.
-    - title: API standards adopted across 20+ public APIs
+    - title: API standards followed by 30+ public APIs
       year: 2025
       detail: >-
         Set the API and integration standards used across Meraki's public
@@ -17,13 +17,16 @@
     - title: Catalyst Switching, Wireless & Routing GA in the Meraki Dashboard
       year: 2021–2025
       detail: >-
-        Shipped general availability for Cisco Catalyst hardware on the Meraki
-        cloud — including Catalyst Wireless onboarding built from scratch and
-        scaled to 100K+ devices.
-    - title: Global Overview from 30s+ timeouts to under 5s
+        Designed the foundation for managing Cisco Catalyst from the Meraki
+        cloud — now 200K+ switches and 400K+ wireless devices — including
+        Catalyst wireless onboarding built from scratch (100K+ devices in its
+        first year).
+    - title: Meraki Global Overview API — 1M+ devices, 30s+ to under 5s
+      year: 2025
       detail: >-
-        Redesigned data fetching for the Global Overview dashboard into a
-        sharded, low-latency architecture.
+        Designed and built a multi-shard aggregator combining Catalyst Center
+        and Meraki data for every Meraki customer; cut large-organization
+        response times from 30s+ timeouts to under 5s.
 
 - section: Open source & research
   items:
@@ -70,3 +73,4 @@
     - title: M.S. in Computer Science, Old Dominion University
       year: 2015
       detail: Teaching and research assistant during the program.
+    - title: B.E. in Information Technology, Mumbai University

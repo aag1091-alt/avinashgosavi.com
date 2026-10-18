@@ -4,35 +4,60 @@
   label: Staff Software Engineer
   span: 2021 – Present
   summary: >-
-    Own platform-level systems for Cisco Catalyst on the Meraki cloud — from
-    shipping GA for Catalyst Switching, Wireless, and Routing to architecting
-    the company-wide topology data service featured at Cisco Live 2026.
-  tags: [Ruby on Rails, React, Kafka, Kubernetes, gRPC, Electron]
+    Technical lead for the team that brought Cisco Catalyst switching and
+    wireless under Meraki cloud management. Architected the topology data
+    service behind Cisco Cloud Control and the Global Overview API serving
+    every Meraki customer.
+  tags: [Ruby on Rails, React, Scala, Kafka, Kubernetes, gRPC, Electron]
   roles:
     - title: Staff Software Engineer
-      period: Oct 2025 – Present
+      period: Apr 2026 – Present
       highlights:
-        - Architected Cisco Cloud Control — the canonical topology data
-          service for all Meraki devices and organizations, serving network
-          state via a pull REST API and a Kafka-backed push path — featured
-          at Cisco Live 2026 as the company's unified topology platform.
-        - Set API and integration standards now adopted across 20+ public
-          APIs; design docs for Config History and Topology APIs became
-          shared components across all Network Platform teams.
-        - Go-to integration expert for Catalyst hardware on the Meraki
-          platform; mentor 5–10 engineers and serve as subject-matter expert
-          during Sev1 incidents.
+        - Architected the topology data service for Cisco Cloud Control (C3),
+          Cisco's unified platform across networking, security, compute and
+          observability — combined Catalyst and Meraki inventory and topology
+          for all organizations via a pull REST API and a Kafka-backed push
+          path that sends delta-compressed topology changes by webhook.
+          Featured at Cisco Live 2026 as Cisco's unified topology platform.
+        - Set the API and integration standards for federation services, now
+          followed by 30+ public APIs. Authored design docs for Config
+          History, StackWise Virtual formation and the Topology APIs; Config
+          History became a shared component adopted by all Network Platform
+          teams.
+        - Own on-call for Catalyst platform services — defined the responder
+          SLOs and serve as subject-matter expert during Sev1 incidents.
+        - Building an AI-assisted config discovery service that correlates
+          live device running config with telemetry and error logs to suggest
+          improvements to network operators.
     - title: Technical Lead
-      period: Oct 2021 – Oct 2025
+      period: Mar 2023 – Apr 2026
       highlights:
-        - Shipped General Availability for Catalyst Switching, Wireless, and
-          Routing in the Meraki Dashboard, expanding support across the full
-          Catalyst portfolio.
-        - Built Catalyst Wireless onboarding from the ground up — no Catalyst
-          wireless support existed on the platform before — scaling to 100K+
-          devices.
-        - Cut Global Overview dashboard response times from 30s+ timeouts to
-          under 5s with a sharded, low-latency data fetching architecture.
+        - Designed the foundation for moving Cisco Catalyst from on-prem
+          management to the Meraki cloud — switches first, then wireless, and
+          advised the Meraki MX team on routers. Catalyst switching, wireless
+          and routing are now GA in the Meraki Dashboard, which manages 200K+
+          Catalyst switches and 400K+ Catalyst wireless devices.
+        - Brought Catalyst wireless to Meraki from scratch — introduced the
+          wireless LAN controller as a new Dashboard device type and built
+          the onboarding path that brought 100K+ devices onto the Meraki
+          cloud in its first year.
+        - Designed and built the Meraki Global Overview API, a multi-shard
+          aggregator combining Catalyst Center and Meraki data for every
+          Meraki customer — launched Dec 2025, now covering 1M+ devices — and
+          cut large-organization response times from 30s+ timeouts to under
+          5s.
+        - Tech lead and mentor for 6–7 engineers; led cross-team design
+          reviews for Catalyst wireless and Global Overview; conducted 40+
+          technical interviews.
+    - title: Software Engineer
+      period: Oct 2021 – Mar 2023
+      highlights:
+        - Built an Electron desktop app to onboard the first Catalyst
+          switches — reading and updating switch configuration directly and
+          driving onboarding through Meraki APIs — then supported switching's
+          migration to direct-to-cloud onboarding.
+        - Re-engineered Dashboard switch workflows (Rails/React) to support
+          Catalyst switching at enterprise scale.
 
 - company: Handshake
   location: San Francisco, CA
@@ -51,7 +76,8 @@
         - Built Elasticsearch indexing and sync pipelines powering search and
           API-driven experiences across the platform.
         - Shipped Virtual Career Fair infrastructure, resume parser
-          integration, and external job apply flows.
+          integration, and external job apply flows; wrote the ADRs that
+          drove API and search/indexing changes.
 
 - company: CoStar Group
   location: San Francisco & Norfolk, VA

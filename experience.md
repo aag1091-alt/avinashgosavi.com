@@ -6,7 +6,7 @@ permalink: /experience/
 
 <div class="experience-page">
   <h1>Experience</h1>
-  <p class="experience-lede">13+ years building and operating production systems at enterprise scale — currently a Staff Software Engineer at Cisco Meraki.</p>
+  <p class="experience-lede">15+ years building and operating production systems at enterprise scale — currently a Staff Software Engineer at Cisco Meraki.</p>
 
   <div class="timeline">
     {% for job in site.data.experience %}
