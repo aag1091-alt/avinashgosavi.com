@@ -20,7 +20,7 @@ social_links:
 logo: /assets/images/about.jpg
 twitter:
   username: aag1091
-  card: summary
+  card: summary_large_image
 social:
   name: Avinash Gosavi
   links:
@@ -54,6 +54,7 @@ plugins:
   - jekyll-seo-tag
 
 exclude:
+  - scripts
   - Gemfile
   - Gemfile.lock
   - README.md

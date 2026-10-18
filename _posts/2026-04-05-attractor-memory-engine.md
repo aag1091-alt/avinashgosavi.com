@@ -4,6 +4,7 @@ title: "Attractor: Building a Memory Engine Inspired by How the Brain Works"
 permalink: /post/attractor-memory-engine/
 read_time: 7
 tags: ["Agent memory", "Research"]
+image: /assets/og/attractor-memory-engine.png
 ---
 
 I've been thinking about memory — not human memory, but how machines store and retrieve it. Most systems today are either key-value stores (fast, exact, dumb) or vector databases (semantic, but still just nearest-neighbour). Neither of them works the way a brain does.

@@ -4,6 +4,7 @@ title: "Building Your Website with Jekyll and GitHub Pages"
 permalink: /post/building-your-website-with-jekyll-and-github-pages/
 read_time: 6
 tags: ["Tutorials", "Web"]
+image: /assets/og/building-your-website-with-jekyll-and-github-pages.png
 ---
 
 A static site on Jekyll + GitHub Pages is fast, free to host, and works great with an AI-assisted editor. This post assumes you're using something like Cursor, Codex, or Copilot to generate most of the code—so we'll focus on **what to ask for**, **what to configure**, and **where to read more** instead of typing everything by hand.

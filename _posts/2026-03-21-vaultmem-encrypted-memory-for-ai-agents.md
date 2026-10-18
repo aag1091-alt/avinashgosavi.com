@@ -6,6 +6,7 @@ series: vaultmem
 series_order: 1
 read_time: 8
 tags: ["Agent memory", "Privacy"]
+image: /assets/og/vaultmem-encrypted-memory-for-ai-agents.png
 ---
 
 While building [Rena](https://github.com/aag1091-alt/rena) — a voice AI health agent I submitted for the Google Gemini Live Agent Challenge — I needed persistent memory. Something that could build a user profile from conversations across sessions and recall it the next time you speak to the agent. Libraries like mem0 or Zep would have worked fine for that use case.

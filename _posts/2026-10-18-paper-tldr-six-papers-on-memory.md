@@ -7,6 +7,7 @@ series: paper-tldr
 series_order: 1
 read_time: 6
 tags: ["Research", "Agent memory"]
+image: /assets/og/paper-tldr-six-papers-on-memory.png
 ---
 
 Most of my side projects over the past year have circled one question: **how should an AI system remember things?** Not just "where do we put the vectors," but how memory gets formed, found again, strengthened or forgotten — and who gets to read it.
