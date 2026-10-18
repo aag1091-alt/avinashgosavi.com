@@ -37,6 +37,7 @@
   year: 1982
   venue: PNAS 79(8)
   url: https://www.pnas.org/doi/10.1073/pnas.79.8.2554
+  tldr_post: /post/paper-tldr-hopfield-1982/
   topic: Brain-inspired memory
   tldr: >-
     A network of simple binary neurons with symmetric connections has an
