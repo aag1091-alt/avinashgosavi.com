@@ -64,3 +64,49 @@
   github: https://github.com/aag1091-alt/AI-History-Blog-Generator
   demo: https://aag1091-alt.github.io/AI-History-Blog/
   post: /post/ai-history-blog-generator/
+
+- name: Drafting Desk
+  tagline: A writing desk where the AI doesn't write for you
+  description: >-
+    A browser-only app for drafting blog posts with notes and research beside
+    the draft. An optional assistant fixes grammar, flags unclear sentences
+    and asks questions when you're stuck — but never writes the post. Bring
+    your own model (OpenRouter, Anthropic, OpenAI, Gemini or local Ollama);
+    exports Markdown with Jekyll front matter.
+  tags: [JavaScript, LLMs, Writing tools, Local-first]
+  github: https://github.com/aag1091-alt/drafting-desk
+
+- name: VideoOnly Browser
+  tagline: Just the video, nothing else
+  description: >-
+    A small Electron/Chromium desktop browser that blocks popups, redirects,
+    downloads, permission prompts and trackers, then hides everything except
+    the player once a video starts. Windows, macOS and Linux installers.
+  tags: [Electron, Chromium, Privacy]
+  github: https://github.com/aag1091-alt/videoonly-browser
+
+- name: What's New in AI
+  tagline: A daily AI newsletter written by agents
+  description: >-
+    A pipeline that pulls RSS feeds, arXiv papers and company blogs every six
+    hours, analyzes each item with a local model, stores it in Qdrant and
+    publishes a daily Jekyll issue. Claude curates the source list weekly.
+  tags: [Agents, Qdrant, Ollama, Jekyll]
+  github: https://github.com/aag1091-alt/ai-newsletter
+
+- name: Spanning the Gate
+  tagline: Golden Gate Bridge history, era by era
+  description: >-
+    An illustrated history of the Golden Gate Bridge — eras, people and a
+    timeline — built as a Jekyll site.
+  tags: [Jekyll, History, Bay Area]
+  github: https://github.com/aag1091-alt/Golden-Gate-History
+
+- name: Ruby Maze Game
+  tagline: A J2ME classic, ported to Ruby
+  description: >-
+    Procedurally generated mazes (randomized depth-first search) in the
+    terminal, ported from Carol Hamer's J2ME maze game — a curses version
+    and a dependency-free one.
+  tags: [Ruby, Algorithms, Games]
+  github: https://github.com/aag1091-alt/Maze-Game
