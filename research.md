@@ -34,7 +34,7 @@ description: Topics Avinash Gosavi researches and builds around — private memo
     <li class="paper">
       <a class="paper-title" href="{{ p.url }}" rel="noopener">{{ p.title }}</a>
       <div class="paper-meta">{{ p.authors }} · {{ p.year }} · {{ p.venue }}</div>
-      <p class="paper-tldr"><span class="paper-label">TL;DR</span> {{ p.tldr }}</p>
+      <p class="paper-tldr"><span class="paper-label">TL;DR</span> {{ p.tldr }}{% if p.tldr_post %} <a href="{{ p.tldr_post | relative_url }}">Full write-up →</a>{% endif %}</p>
       <p class="paper-why"><span class="paper-label">Why it matters to me</span> {{ p.why }}{% if p.post %} <a href="{{ p.post | relative_url }}">Read more →</a>{% endif %}</p>
     </li>
     {% endfor %}

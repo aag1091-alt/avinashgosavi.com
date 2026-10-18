@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2026-10-18 09:00:00 -0700
 title: "Paper TL;DR: Six Papers That Shaped How I Think About AI Memory"
 permalink: /post/paper-tldr-six-papers-on-memory/
 description: "Short, plain-language summaries of six papers behind my AI memory side projects — from Hopfield's 1982 associative memory to user-owned memory for agents."

@@ -20,6 +20,7 @@
   year: 2024
   venue: arXiv:2402.17753
   url: https://arxiv.org/abs/2402.17753
+  tldr_post: /post/paper-tldr-locomo-long-term-memory-benchmark/
   topic: Agent memory & privacy
   tldr: >-
     Introduces LoCoMo, a benchmark of very long multi-session conversations
@@ -50,6 +51,7 @@
   year: 2020
   venue: arXiv:2008.02217
   url: https://arxiv.org/abs/2008.02217
+  tldr_post: /post/paper-tldr-hopfield-networks-is-all-you-need/
   topic: Brain-inspired memory
   tldr: >-
     A continuous "modern" Hopfield network can store exponentially many
@@ -64,6 +66,7 @@
   year: 1995
   venue: Psychological Review 102(3)
   url: https://doi.org/10.1037/0033-295X.102.3.419
+  tldr_post: /post/paper-tldr-complementary-learning-systems/
   topic: Brain-inspired memory
   tldr: >-
     The brain pairs a fast learner (hippocampus) that captures specific
