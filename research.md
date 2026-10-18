@@ -40,4 +40,14 @@ description: Topics Avinash Gosavi researches and builds around — private memo
     {% endfor %}
   </ul>
   {% endfor %}
+
+  <h2 id="reading">Newsletters I read</h2>
+  <ul class="interest-list">
+    <li><a href="https://every.to" rel="noopener">Every</a> — essays on AI and how people actually work with it.</li>
+    <li><a href="https://sfruby.substack.com" rel="noopener">SF Ruby</a> and the <a href="https://rubycentral.org" rel="noopener">Ruby Central</a> README — what's happening in the Ruby community.</li>
+    <li><a href="https://softwareengineeringdaily.com" rel="noopener">Software Engineering Daily</a> — infrastructure and engineering deep dives.</li>
+    <li>We Love Open Source — a weekly roundup of open-source projects and people.</li>
+    <li><a href="https://www.indiehackers.com" rel="noopener">Indie Hackers</a> — people shipping small products on their own.</li>
+    <li><a href="https://technews.acm.org" rel="noopener">ACM TechNews</a> — a quick scan of computing research news.</li>
+  </ul>
 </div>
