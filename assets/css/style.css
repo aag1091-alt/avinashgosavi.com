@@ -1204,3 +1204,4 @@ body.theme-dark .about-image img {
   color: var(--text-muted);
 }
 .post-tags a:hover { border-color: var(--accent); color: var(--accent); }
+.home-curious { margin-bottom: 2.5rem; }
