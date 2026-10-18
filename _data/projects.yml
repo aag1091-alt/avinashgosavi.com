@@ -10,6 +10,7 @@
     preprint on Zenodo.
   tags: [Python, Cryptography, AI Agents]
   github: https://github.com/aag1091-alt/vaultmem-sdk
+  demo: https://vaultmem-demo.streamlit.app
   post: /post/vaultmem-encrypted-memory-for-ai-agents/
   featured: true
 
@@ -46,6 +47,7 @@
     encrypted at rest, and no content leaves the device to answer a query.
   tags: [Encryption, Semantic Search, Local-first]
   github: https://github.com/aag1091-alt/daylog
+  demo: https://daylog-ds3.pages.dev
   post: /post/daylog-security-architecture/
   featured: true
 
@@ -111,6 +113,7 @@
     timeline — built as a Jekyll site.
   tags: [Jekyll, History, Bay Area]
   github: https://github.com/aag1091-alt/Golden-Gate-History
+  demo: https://aag1091-alt.github.io/Golden-Gate-History/
 
 - name: Ruby Maze Game
   category: Just for fun
