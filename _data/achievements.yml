@@ -10,19 +10,19 @@
         small Electron app to onboard the very first switches.
     - title: Building wireless support from scratch
       detail: >-
-        There was no Catalyst wireless on the platform when we started. Adding
-        the wireless controller as a new kind of device, and watching real
-        networks come online through it, is still one of my favorite projects.
+        There was no Catalyst wireless on the platform when we started. We
+        added the wireless controller as a new kind of device, along with its
+        access points, and built the path that brings them onto the cloud.
     - title: Making one view of every network fast
       detail: >-
         The Global Overview API pulls Catalyst Center and Meraki data together
-        across shards. Getting the biggest customers from timeouts to a
-        few seconds taught me more about aggregation than any book.
+        across shards. The fun part was getting the largest organizations from
+        timeouts down to a few seconds.
     - title: Topology for Cisco Cloud Control
       year: 2026
       detail: >-
-        Designing the topology data service behind Cisco Cloud Control, and
-        seeing it shown at Cisco Live 2026, was a proud moment for the team.
+        Designing the topology data service behind Cisco Cloud Control, which
+        the team got to see shown at Cisco Live 2026.
 
 - section: Open source & research
   items:
