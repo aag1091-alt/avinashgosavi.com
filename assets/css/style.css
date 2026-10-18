@@ -1192,3 +1192,11 @@ body.theme-dark .about-image img {
 .prose-page ul { padding-left: 1.2rem; }
 .prose-page li { margin: 0.45rem 0; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+/* ---------- Read next ---------- */
+.read-next { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.read-next-title { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin: 0 0 0.75rem; }
+.read-next-list { list-style: none; padding: 0; margin: 0; }
+.read-next-list li { margin: 0.5rem 0; }
+.read-next-label { display: inline-block; min-width: 4rem; color: var(--text-muted); font-size: 0.85rem; }
+.read-next-more { color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; }
