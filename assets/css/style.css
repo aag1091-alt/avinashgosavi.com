@@ -1091,3 +1091,30 @@ body.theme-dark .about-image img {
 .series-description { color: var(--text-muted); margin-top: 0; }
 .series-parts li { margin: 0.4rem 0; }
 .series-meta { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }
+
+/* ---------- Events ---------- */
+.event-list { list-style: none; padding: 0; margin: 0 0 2.5rem; }
+.event-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.event-when { color: var(--text-muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.event-name { font-weight: 600; }
+.event-location { color: var(--text-muted); font-size: 0.9rem; }
+.event-recap { font-size: 0.9rem; }
+.event-role {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--accent-soft, rgba(25,118,210,.12));
+  color: var(--accent);
+  vertical-align: middle;
+}
+@media (max-width: 480px) {
+  .event-row { grid-template-columns: 1fr; gap: 0.2rem; }
+}

@@ -1,0 +1,81 @@
+# Conferences, hackathons and community roles shown on /events.
+# role: attended | judge | hacker | speaker   status: upcoming | past
+# recap: optional URL of a blog post about the event
+- name: HackUMass XIV
+  date: 2026-11-15
+  when: Nov 2026
+  location: UMass Amherst, MA
+  role: judge
+  status: upcoming
+- name: OSA Con 2026 — Open Source Analytics & AI
+  date: 2026-11-02
+  when: Nov 2026
+  location: San Francisco, CA
+  role: attended
+  status: upcoming
+- name: SF Ruby Hack Day
+  date: 2025-11-21
+  when: Nov 2025
+  location: AngelList, San Francisco
+  role: hacker
+  status: past
+- name: The San Francisco Ruby Conference (SF Ruby 2025)
+  date: 2025-11-19
+  when: Nov 2025
+  location: Fort Mason, San Francisco
+  role: attended
+  status: past
+  recap: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- name: SF Ruby AI Hackathon
+  date: 2025-07-19
+  when: Jul 2025
+  location: Sentry, San Francisco
+  role: hacker
+  status: past
+- name: RubyConf 2022
+  date: 2022-11-29
+  when: Nov 2022
+  location: Houston, TX
+  role: attended
+  status: past
+- name: DeveloperWeek 2020 Hackathon
+  date: 2020-02-15
+  when: Feb 2020
+  location: San Francisco, CA
+  role: hacker
+  status: past
+- name: All Things Open 2018
+  date: 2018-10-01
+  when: Oct 2018
+  location: Raleigh, NC
+  role: attended
+  status: past
+- name: DevFest 2015
+  date: 2015-11-13
+  when: Nov 2015
+  role: attended
+  status: past
+- name: Deccan RubyConf 2014
+  date: 2014-08-01
+  when: 2014
+  location: Pune, India
+  role: attended
+  status: past
+- name: RubyConf India 2014
+  date: 2014-03-01
+  when: 2014
+  location: Goa, India
+  role: attended
+  status: past
+- name: Garden City RubyConf 2014
+  date: 2014-01-01
+  when: 2014
+  location: Bangalore, India
+  role: attended
+  status: past
+- name: RubyConf India 2013
+  date: 2013-06-01
+  when: 2013
+  location: Pune, India
+  role: attended
+  status: past

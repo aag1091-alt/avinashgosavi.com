@@ -1,0 +1,9 @@
+<li class="event-row">
+  <span class="event-when">{{ include.e.when }}</span>
+  <div class="event-main">
+    <span class="event-name">{{ include.e.name }}</span>
+    {% if include.e.role != "attended" %}<span class="event-role event-role-{{ include.e.role }}">{{ include.e.role | capitalize }}</span>{% endif %}
+    {% if include.e.location %}<div class="event-location">{{ include.e.location }}</div>{% endif %}
+    {% if include.e.recap %}<a class="event-recap" href="{{ include.e.recap | relative_url }}">Read my recap →</a>{% endif %}
+  </div>
+</li>
