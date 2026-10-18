@@ -6,6 +6,7 @@ date: 2026-04-01
 series: vaultmem
 series_order: 3
 read_time: 8
+tags: ["Agent memory", "Privacy"]
 ---
 
 [Part 1](/post/vaultmem-encrypted-memory-for-ai-agents/) covered the core encryption model. [Part 2](/post/vaultmem-part-2-multimodal-temporal-backends/) covered multi-modal ingestion and pluggable backends. This post covers v0.3.x — a new layer of privacy that addresses a problem encryption at rest cannot solve.

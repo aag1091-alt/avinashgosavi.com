@@ -3,6 +3,7 @@ layout: post
 title: "AI History Blog Generator"
 permalink: /post/ai-history-blog-generator/
 read_time: 5
+tags: ["Agents"]
 ---
 
 I was curious how AI had evolved over the years — not just the big headline moments but the smaller steps in between that actually moved things forward. I wanted something I could browse casually, not a research paper or a Wikipedia rabbit hole. Just a clean walkthrough: milestone by milestone, a bit of context, who was involved, when it happened.

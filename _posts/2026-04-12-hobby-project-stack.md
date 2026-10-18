@@ -3,6 +3,7 @@ layout: post
 title: "What Should You Actually Use to Build Your Next Hobby Project?"
 permalink: /post/hobby-project-stack/
 read_time: 9
+tags: ["Tutorials", "Infrastructure"]
 ---
 
 I recently built **daylog** — a personal diary app where you speak or type your thoughts and they get encrypted and stored privately, with AI transcription happening server-side using Whisper. The interesting technical core is [vaultmem](https://pypi.org/project/vaultmem/), a Python SDK for building encrypted memory vaults for AI apps. Daylog is essentially a live demo of it.

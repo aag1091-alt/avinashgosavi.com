@@ -10,11 +10,12 @@ layout: default
       <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %d, %Y" }}</time>
       {% if page.read_time %} <span class="post-read-time">{{ page.read_time }} min read</span>{% endif %}
     </div>
+    {% if page.tags.size > 0 %}<ul class="post-tags">{% for t in page.tags %}<li><a href="{{ '/blog/' | relative_url }}#{{ t | slugify }}">{{ t }}</a></li>{% endfor %}</ul>{% endif %}
   </header>
   {% include series-box.html %}
   <div class="post-content">
     {{ content }}
   </div>
-  {% if page.series %}{% include series-box.html %}{% endif %}
+  {% if page.series %}{% include series-box.html position="bottom" %}{% endif %}
   {% include read-next.html %}
 </article>

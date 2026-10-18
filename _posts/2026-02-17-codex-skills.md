@@ -3,6 +3,7 @@ layout: post
 title: "Codex Skills: Baking Your Workflow Into the Tool"
 permalink: /post/codex-skills-baking-your-workflow-into-the-tool/
 read_time: 2
+tags: ["AI tools"]
 ---
 
 *A follow-up to [I Fell in Love with Coding Again]({% post_url 2026-02-13-i-fell-in-love-with-coding-again %})*

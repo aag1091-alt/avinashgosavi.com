@@ -4,6 +4,7 @@ title: "Your AI Agent Shouldn't Be Able to Read Your Diary"
 permalink: /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/
 date: 2026-03-28
 read_time: 4
+tags: ["Agent memory", "Privacy"]
 ---
 
 Imagine you have a personal AI assistant. Over months, you tell it everything — your health worries, your relationship friction, your career anxieties, the habits you're trying to break. It remembers. It helps.

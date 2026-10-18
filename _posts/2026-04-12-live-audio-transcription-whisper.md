@@ -3,6 +3,7 @@ layout: post
 title: "Live Audio Transcription on a $0 Server Using Whisper"
 permalink: /post/live-audio-transcription-whisper/
 read_time: 6
+tags: ["Local-first", "Tutorials"]
 ---
 
 While building [daylog](https://github.com/aag1091-alt/daylog) — a private voice diary app — I needed a way to transcribe audio from a phone in near real-time, running entirely on my own server. No OpenAI API, no Google, no third-party services. Just a microphone, a chunk of audio, and text back.

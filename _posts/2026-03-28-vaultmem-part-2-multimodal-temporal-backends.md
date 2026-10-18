@@ -6,6 +6,7 @@ date: 2026-03-28
 series: vaultmem
 series_order: 2
 read_time: 10
+tags: ["Agent memory", "Privacy"]
 ---
 
 [Part 1](/post/vaultmem-encrypted-memory-for-ai-agents/) covered why I built VaultMem, how the encryption works, and the core memory model. This post covers what came next in v0.2.0 and v0.2.1 — the parts that took the library from a solid foundation to something that can handle real-world agent use cases: multi-modal memory ingestion, time-aware retrieval, production-grade storage backends, O(log N) ANN search, and a pluggable query normalizer.

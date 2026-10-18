@@ -1,6 +1,7 @@
 {% if page.series %}
 {% assign s = site.data.series | where: "slug", page.series | first %}
 {% assign parts = site.posts | where: "series", page.series | sort: "series_order" %}
+{% unless include.position == "bottom" and parts.size < 2 %}
 <aside class="series-box" aria-label="Series">
   <p class="series-box-label">Part {{ page.series_order }} of {{ parts.size }} · <a href="{{ '/series/' | relative_url }}#{{ page.series }}">{{ s.title | default: page.series }}</a></p>
   <ol class="series-box-list">
@@ -9,4 +10,5 @@
     {% endfor %}
   </ol>
 </aside>
+{% endunless %}
 {% endif %}

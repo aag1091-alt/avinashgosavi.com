@@ -3,6 +3,7 @@ layout: post
 title: "Are These AI-Generated Tests Good?"
 permalink: /post/reviewing-ai-generated-tests-istqb-framework/
 read_time: 8
+tags: ["AI tools", "Testing"]
 ---
 
 I use AI to generate a lot of tests now. It saves time, but fast output can create false confidence.

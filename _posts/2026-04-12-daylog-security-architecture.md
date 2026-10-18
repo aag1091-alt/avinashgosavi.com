@@ -3,6 +3,7 @@ layout: post
 title: "How daylog Keeps Your Diary Private (Even from Itself)"
 permalink: /post/daylog-security-architecture/
 read_time: 8
+tags: ["Privacy", "Local-first"]
 ---
 
 daylog is a voice diary. You open it, tap the mic, say what's on your mind, and it saves. You can search your entries semantically — type "frustrated" and it surfaces the day you wrote *"couldn't make progress, everything felt blocked"* even though that exact word never appears.
