@@ -6,3 +6,9 @@
     Designing an encrypted memory library for AI agents — client-side
     encryption, multi-modal and temporal search, pluggable backends, and
     keeping PII away from the LLM provider.
+
+- slug: paper-tldr
+  title: Paper TL;DR
+  description: >-
+    Plain-language summaries of papers I've read, and what each one changed
+    in how I build things.
