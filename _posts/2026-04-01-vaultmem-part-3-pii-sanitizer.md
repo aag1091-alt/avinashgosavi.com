@@ -3,6 +3,8 @@ layout: post
 title: "VaultMem Part 3 — Hiding PII from Your LLM Provider"
 permalink: /post/vaultmem-part-3-pii-sanitizer/
 date: 2026-04-01
+series: vaultmem
+series_order: 3
 read_time: 8
 ---
 

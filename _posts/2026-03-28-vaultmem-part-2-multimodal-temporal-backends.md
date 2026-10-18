@@ -3,6 +3,8 @@ layout: post
 title: "VaultMem Part 2 — Multi-Modal Memory, Temporal Search, and Pluggable Backends"
 permalink: /post/vaultmem-part-2-multimodal-temporal-backends/
 date: 2026-03-28
+series: vaultmem
+series_order: 2
 read_time: 10
 ---
 

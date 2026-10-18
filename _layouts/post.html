@@ -11,7 +11,9 @@ layout: default
       {% if page.read_time %} <span class="post-read-time">{{ page.read_time }} min read</span>{% endif %}
     </div>
   </header>
+  {% include series-box.html %}
   <div class="post-content">
     {{ content }}
   </div>
+  {% if page.series %}{% include series-box.html %}{% endif %}
 </article>

@@ -1060,3 +1060,34 @@ body.theme-dark .about-image img {
 .site-footer a:hover {
   text-decoration: underline;
 }
+
+/* ---------- Shared page lede ---------- */
+.page-lede {
+  color: var(--text-muted);
+  margin: 0 0 2rem;
+}
+
+/* ---------- Blog series ---------- */
+.series-box {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+.series-box-label {
+  margin: 0 0 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.series-box-list { margin: 0; padding-left: 1.3rem; }
+.series-box-list li { margin: 0.2rem 0; }
+.series-section { margin-bottom: 2.5rem; }
+.series-section h2 { margin-bottom: 0.3rem; }
+.series-description { color: var(--text-muted); margin-top: 0; }
+.series-parts li { margin: 0.4rem 0; }
+.series-meta { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }

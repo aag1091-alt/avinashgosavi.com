@@ -2,6 +2,8 @@
 layout: post
 title: "VaultMem — Building Encrypted Memory for AI Agents"
 permalink: /post/vaultmem-encrypted-memory-for-ai-agents/
+series: vaultmem
+series_order: 1
 read_time: 8
 ---
 

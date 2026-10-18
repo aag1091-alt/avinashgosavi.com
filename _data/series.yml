@@ -1,0 +1,8 @@
+# Blog series. Tag a post with `series: <slug>` and `series_order: <n>` in its
+# front matter; it then shows a "Part n of N" box and appears on /series.
+- slug: vaultmem
+  title: Building VaultMem
+  description: >-
+    Designing an encrypted memory library for AI agents — client-side
+    encryption, multi-modal and temporal search, pluggable backends, and
+    keeping PII away from the LLM provider.
