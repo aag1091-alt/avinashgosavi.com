@@ -1118,3 +1118,13 @@ body.theme-dark .about-image img {
 @media (max-width: 480px) {
   .event-row { grid-template-columns: 1fr; gap: 0.2rem; }
 }
+
+/* ---------- Achievements ---------- */
+.achievement-group { margin-bottom: 2.25rem; }
+.achievement-list { list-style: none; padding: 0; margin: 0; }
+.achievement { padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+.achievement-head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+.achievement-title { font-weight: 600; }
+.achievement-year { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.achievement-detail { margin: 0.3rem 0 0; color: var(--text-muted); font-size: 0.95rem; }
+.achievement-links { margin: 0.35rem 0 0; font-size: 0.9rem; }

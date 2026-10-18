@@ -1,0 +1,72 @@
+# Achievements shown on /achievements, grouped by section.
+# Each item: title, year, detail, optional link (url + label).
+- section: Engineering impact
+  items:
+    - title: Cisco Cloud Control featured at Cisco Live 2026
+      year: 2026
+      detail: >-
+        Architected the canonical topology data service for all Meraki devices
+        and organizations (pull REST API + Kafka-backed push path), presented
+        at Cisco Live 2026 as Cisco's unified topology platform.
+    - title: API standards adopted across 20+ public APIs
+      year: 2025
+      detail: >-
+        Set the API and integration standards used across Meraki's public
+        APIs; my Config History and Topology API design docs became shared
+        components for all Network Platform teams.
+    - title: Catalyst Switching, Wireless & Routing GA in the Meraki Dashboard
+      year: 2021–2025
+      detail: >-
+        Shipped general availability for Cisco Catalyst hardware on the Meraki
+        cloud — including Catalyst Wireless onboarding built from scratch and
+        scaled to 100K+ devices.
+    - title: Global Overview from 30s+ timeouts to under 5s
+      detail: >-
+        Redesigned data fetching for the Global Overview dashboard into a
+        sharded, low-latency architecture.
+
+- section: Open source & research
+  items:
+    - title: VaultMem published on PyPI, with a Zenodo preprint
+      year: 2026
+      detail: >-
+        Open-source encrypted memory for AI agents — client-side encryption,
+        encrypted semantic search and PII sanitization.
+      links:
+        - label: PyPI
+          url: https://pypi.org/project/vaultmem/
+        - label: Preprint (DOI)
+          url: https://doi.org/10.5281/zenodo.19154079
+        - label: Series
+          url: /series/#vaultmem
+    - title: Gemini Live Agent Challenge 2026 entry — Rena
+      year: 2026
+      detail: >-
+        A voice-first AI health companion built on Gemini Live, Veo 2 and
+        Google ADK.
+      links:
+        - label: Write-up
+          url: /post/building-rena-ai-health-companion-gemini-live/
+
+- section: Community
+  items:
+    - title: Hackathon judge — HackUMass XIV
+      year: 2026
+      detail: Selected to judge at UMass Amherst's student hackathon.
+      links:
+        - label: All events
+          url: /events/
+    - title: 13 years in the Ruby community
+      year: 2013–now
+      detail: >-
+        From RubyConf India 2013 to SF Ruby 2025, plus hackathons and regular
+        Bay Area Ruby meetups.
+      links:
+        - label: Conferences & community
+          url: /events/
+
+- section: Education
+  items:
+    - title: M.S. in Computer Science, Old Dominion University
+      year: 2015
+      detail: Teaching and research assistant during the program.
