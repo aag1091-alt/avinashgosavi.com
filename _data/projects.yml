@@ -1,6 +1,7 @@
 # Featured projects shown on the homepage and /projects.
 # `featured: true` items appear on the homepage (first 4).
 - name: VaultMem
+  category: Memory & privacy for AI
   tagline: Encrypted memory for AI agents
   description: >-
     A Python memory library where the platform running the agent
@@ -13,6 +14,7 @@
   featured: true
 
 - name: Rena
+  category: Agents & voice
   tagline: Voice-first AI health companion
   description: >-
     Built for the Gemini Live Agent Challenge 2026 — a health companion you
@@ -25,6 +27,7 @@
   featured: true
 
 - name: Attractor
+  category: Memory & privacy for AI
   tagline: Brain-inspired memory engine
   description: >-
     A memory engine modeled on Hopfield-style attractor dynamics — retrieval
@@ -36,6 +39,7 @@
   featured: true
 
 - name: daylog
+  category: Memory & privacy for AI
   tagline: Private voice diary
   description: >-
     A voice diary with semantic search where entries and the search index are
@@ -46,6 +50,7 @@
   featured: true
 
 - name: whisper-live-transcribe
+  category: Tools I wanted for myself
   tagline: Live transcription on a $0 server
   description: >-
     Near real-time audio transcription service running entirely on your own
@@ -56,6 +61,7 @@
   post: /post/live-audio-transcription-whisper/
 
 - name: AI History Blog Generator
+  category: Agents & voice
   tagline: Autonomous blog-writing agent
   description: >-
     An agent that turns any historical topic into a fully-functioning Jekyll
@@ -66,6 +72,7 @@
   post: /post/ai-history-blog-generator/
 
 - name: Drafting Desk
+  category: Tools I wanted for myself
   tagline: A writing desk where the AI doesn't write for you
   description: >-
     A browser-only app for drafting blog posts with notes and research beside
@@ -77,6 +84,7 @@
   github: https://github.com/aag1091-alt/drafting-desk
 
 - name: VideoOnly Browser
+  category: Tools I wanted for myself
   tagline: Just the video, nothing else
   description: >-
     A small Electron/Chromium desktop browser that blocks popups, redirects,
@@ -86,6 +94,7 @@
   github: https://github.com/aag1091-alt/videoonly-browser
 
 - name: What's New in AI
+  category: Agents & voice
   tagline: A daily AI newsletter written by agents
   description: >-
     A pipeline that pulls RSS feeds, arXiv papers and company blogs every six
@@ -95,6 +104,7 @@
   github: https://github.com/aag1091-alt/ai-newsletter
 
 - name: Spanning the Gate
+  category: Just for fun
   tagline: Golden Gate Bridge history, era by era
   description: >-
     An illustrated history of the Golden Gate Bridge — eras, people and a
@@ -103,6 +113,7 @@
   github: https://github.com/aag1091-alt/Golden-Gate-History
 
 - name: Ruby Maze Game
+  category: Just for fun
   tagline: A J2ME classic, ported to Ruby
   description: >-
     Procedurally generated mazes (randomized depth-first search) in the

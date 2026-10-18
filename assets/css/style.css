@@ -1205,3 +1205,4 @@ body.theme-dark .about-image img {
 }
 .post-tags a:hover { border-color: var(--accent); color: var(--accent); }
 .home-curious { margin-bottom: 2.5rem; }
+.project-category { margin: 2.25rem 0 1rem; font-size: 1.15rem; }
