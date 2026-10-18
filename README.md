@@ -48,3 +48,41 @@ read_time: 3
 ```
 
 Then write in Markdown. Code fences get syntax highlighting automatically.
+
+## Content you can update without touching layouts
+
+Most pages are driven by YAML files in `_data/`. Edit the file, push, and the page updates.
+
+| Page | File | Notes |
+| --- | --- | --- |
+| `/projects` and homepage cards | `_data/projects.yml` | `category` groups cards; `featured: true` puts it on the homepage (first 4); `demo`, `post`, `github` add links |
+| `/experience` and homepage list | `_data/experience.yml` | One entry per company, `roles` with `highlights` |
+| `/events` | `_data/events.yml` | `role`: attended / hacker / judge / speaker; `status`: upcoming / past; optional `recap` post URL |
+| `/achievements` | `_data/achievements.yml` | Grouped by `section`; items take `title`, `year`, `detail`, `links` |
+| `/research` papershelf | `_data/papers.yml` | `tldr`, `why`, `post` (related project post), `tldr_post` (full Paper TL;DR write-up) |
+| `/talks` | `_data/talks.yml` | `take` is a one-line reason to watch, grouped by `topic` |
+| `/now` and homepage Now | `_data/now.yml` | Bump `updated` when you edit; first 4 items show on the homepage |
+| `/series` | `_data/series.yml` | Define a series slug, then add `series: <slug>` and `series_order: <n>` to posts |
+
+Hand-written pages: `about.md`, `research.md` (topics + newsletters), `uses.md`.
+
+## Posts
+
+Front matter used by the layouts:
+
+```yaml
+title: "..."
+permalink: /post/my-slug/
+description: "One sentence for search results and share previews"
+tags: ["Agent memory", "Research"]   # drives the filter chips on /blog
+series: paper-tldr                    # optional
+series_order: 3                       # optional
+image: /assets/og/my-slug.png         # share-preview image
+read_time: 5
+```
+
+Generate share-preview cards for any post without an `image:` (needs Pillow):
+
+```bash
+python3 scripts/og_cards.py
+```
