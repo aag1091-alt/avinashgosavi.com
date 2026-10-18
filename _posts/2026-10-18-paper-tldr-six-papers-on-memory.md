@@ -57,9 +57,9 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 ## 6. Pan, Huang & Yang (2026) — whose memory is it?
 
-[*Memory as Asset*](https://arxiv.org/abs/2603.14212) · arXiv
+[*Memory as Asset: From Agent-centric to Human-centric Memory Management*](https://arxiv.org/abs/2603.14212) · arXiv
 
-**TL;DR:** Treats the memory an AI keeps about you as an asset that belongs to you — with ownership, permissions and portability built in — and lays out a layered framework and threat model for building systems that respect that.
+**TL;DR:** Argues that agent memory today is built for the agent rather than the person, and proposes treating the memory an AI keeps about you as an asset you own, share under your own permissions, and grow over time.
 
 **What I took from it:** this one reshaped [VaultMem](/series/#vaultmem) entirely. It gave words to the feeling that an agent's memory of your life shouldn't be readable by whoever runs the agent. VaultMem ended up implementing its first layer.
 

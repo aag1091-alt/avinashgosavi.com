@@ -1,16 +1,17 @@
 # Papershelf on /research. Each: title, authors, year, venue, url, topic,
 # tldr (what the paper says), why (how it shaped my work), post (optional).
-- title: "Memory as Asset: a framework for user-owned AI memory"
+- title: "Memory as Asset: From Agent-centric to Human-centric Memory Management"
   authors: Pan, Huang & Yang
   year: 2026
   venue: arXiv:2603.14212
   url: https://arxiv.org/abs/2603.14212
+  tldr_post: /post/paper-tldr-memory-as-asset/
   topic: Agent memory & privacy
   tldr: >-
-    Treats personal memory held by AI systems as an asset that belongs to
-    the user — with ownership, permissions and portability as first-class
-    properties — and lays out a layered framework and threat model for
-    building it.
+    Argues that today's agent memory is built for the agent, not the person,
+    and proposes treating personal memories as assets people own, share
+    under permissions and evolve over time — with a three-layer design of
+    personal storage, an evolution layer and a memory exchange network.
   why: >-
     The paper that shaped VaultMem's whole design. VaultMem implements its
     first layer: memory the platform operator cryptographically cannot read.
