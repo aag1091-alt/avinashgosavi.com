@@ -6,7 +6,7 @@ title: All Posts
 
 <div class="blog-page">
   <h1>All Posts</h1>
-  <p class="page-lede">Prefer reading in order? <a href="{{ '/series/' | relative_url }}">Browse the series →</a></p>
+  <p class="page-lede">Prefer reading in order? <a href="{{ '/series/' | relative_url }}">Browse the series →</a> · <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a></p>
 
   <div id="search" class="search-box" role="search">
     <label for="post-search" class="visually-hidden">Search posts</label>

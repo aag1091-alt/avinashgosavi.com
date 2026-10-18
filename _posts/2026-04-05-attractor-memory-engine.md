@@ -25,7 +25,7 @@ In 1982, John Hopfield described a type of recurrent neural network that stores 
 
 This is called **content-addressable memory**. You don't need the exact key. You need something close enough to fall into the right basin.
 
-<img src="{{ '/assets/images/attractor-energy-landscape.svg' | relative_url }}" alt="Energy landscape showing memories as basins of attraction" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
+<img loading="lazy" decoding="async" src="{{ '/assets/images/attractor-energy-landscape.svg' | relative_url }}" alt="Energy landscape showing memories as basins of attraction" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
 
 The name Attractor comes directly from this. In dynamical systems, an attractor is a state that a system converges to over time. Hopfield memories are attractors. Retrieval is the process of finding which attractor your input belongs to.
 
@@ -37,7 +37,7 @@ What's also interesting: in 2020, researchers showed that modern Hopfield networ
 
 Attractor is a standalone memory service. Right now it's Phase 1: a working foundation that stores memories with context and retrieves them by meaning.
 
-<img src="{{ '/assets/images/attractor-architecture.svg' | relative_url }}" alt="Attractor Phase 1 architecture diagram" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
+<img loading="lazy" decoding="async" src="{{ '/assets/images/attractor-architecture.svg' | relative_url }}" alt="Attractor Phase 1 architecture diagram" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
 
 **The data model** is built around something I call a `ContextFrame` — the situational state at the time a memory was formed:
 
@@ -85,7 +85,7 @@ Here's what makes it different from a plain vector search. Say you store these t
 
 Now you search: `"why did we change the auth approach"` with `context_filter: { topic: "auth refactor" }`.
 
-<img src="{{ '/assets/images/attractor-context-filtering.svg' | relative_url }}" alt="Context filtering showing same query returning different results with and without context" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
+<img loading="lazy" decoding="async" src="{{ '/assets/images/attractor-context-filtering.svg' | relative_url }}" alt="Context filtering showing same query returning different results with and without context" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
 
 The second memory surfaces — not because the words match, but because:
 1. The embedding is semantically close to the query
