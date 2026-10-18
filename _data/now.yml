@@ -19,10 +19,9 @@ items:
     link: /events/
   - label: Reading
     text: >-
-      Papers on memory for AI agents — modern Hopfield networks,
-      complementary learning systems and long-term conversational memory
-      benchmarks.
-    link: /research/
+      Papers on memory for AI agents — and writing them up in plain language
+      as a Paper TL;DR series, starting with the six that shaped my projects.
+    link: /post/paper-tldr-six-papers-on-memory/
   - label: Running
     text: >-
       A home inference server (Ryzen AI 9 HX 370, Radeon 890M) serving
