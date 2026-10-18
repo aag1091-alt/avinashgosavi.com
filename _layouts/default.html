@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {% feed_meta %}
   {% seo %}
+  {% if page.layout == "home" %}{% include person-jsonld.html %}{% endif %}
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLR5GMVQKW"></script>
   <script>
