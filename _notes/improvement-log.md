@@ -219,6 +219,15 @@ Engineer backlog additions:
 Engineer/Designer backlog additions:
 - [ ] Contrast: `.post-toc-list a:hover` uses --accent on --surface = 4.2:1 in sepia (below 4.5) — darken sepia hover or use underline only
 
+## Done (Oct 19, 2026, 1:35pm PT)
+
+- Events (beat d): Gmail shows a Cal Hacks 13.0 mentor acceptance (Oct 14; event Fri Oct 23 – Sun Oct 25, Palace of Fine Arts, SF) and he joined the event Slack. Added to `_data/events.yml` as role `mentor`, status upcoming (new role value; generic `.event-role` pill styles it). New "Mentoring" item on /now (shows on homepage). /events description mentions mentoring. Nothing past-dated yet.
+
+Editor backlog additions:
+- [ ] After Oct 25: move Cal Hacks 13.0 to past — keep role `mentor` only if a shift/QR/check-in email supports attendance; otherwise ask Avinash
+- [ ] Waiting on Avinash: OSA Con (Nov 2) — a Luma email asked him to complete his registration; confirm he's still going before Nov 2
+- [ ] llms.txt events line still says "attended, hacked at or judged" — add "mentored" next time llms.txt is touched
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -241,3 +250,4 @@ Engineer/Designer backlog additions:
 - 2026-10-19 10:35 PT — DESIGNER — theme-aware three-tier retrieval diagram on /post/vaultmem-encrypted-memory-for-ai-agents/ (Actions deploy green).
 - 2026-10-19 11:35 PT — ENGINEER — related posts skip same-series posts; width/height on post images to stop layout shift (Actions deploy green).
 - 2026-10-19 12:35 PT — ENGINEER — TOC highlights the current section; back-to-top button on long posts (Actions deploy green).
+- 2026-10-19 13:35 PT — EDITOR — Cal Hacks 13.0 (mentor, Oct 23–25) added to /events and /now from Gmail acceptance (Actions deploy green).
