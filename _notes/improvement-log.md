@@ -146,6 +146,16 @@ Engineer backlog additions:
 Editor backlog additions:
 - [ ] Waiting on Avinash: has he used MemGPT/Letta or compared it to VaultMem? If so, a "what I took from it" line for the MemGPT TL;DR and a `why` in papers.yml
 
+## Done (Oct 19, 2026, 4:35am PT)
+
+- First weekly roundup (beat c): /post/this-week-in-agent-memory-2026-10-19/ — 7 arXiv papers submitted Oct 13–16 (Bemula unlearning benchmark, MemCut, QEMem, JointCore, TEM, multimodal memory survey, memory-centric compression survey), grouped by theme, each read from its arXiv abs page, neutral voice, links to glossary/LoCoMo/MemGPT posts. Tags Agent memory, Roundup, Research. Post count Oct 19 PT: 2.
+- Source tip: WebSearch "arxiv.org/abs/2610 agent memory" surfaces this month's IDs; abs pages fetched fine this run. Check submission dates — many 2610.* hits were Oct 7–10 (outside the 7-day window).
+
+Editor backlog additions:
+- [ ] Paper TL;DR candidates from the roundup: Bemula (2610.18052) or MemCut (2610.21405) — ties to VaultMem's privacy theme only if his own posts support it; otherwise neutral
+- [ ] Glossary: add "memory unlearning / forget requests" and "sufficient evidence" entries, linking the roundup
+- [ ] Next roundup: Monday Oct 26 (cover Oct 19–25)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -159,3 +169,4 @@ Editor backlog additions:
 - 2026-10-19 01:35 PT — ENGINEER — "On this page" table of contents on posts over 1,200 words (Actions deploy green).
 - 2026-10-19 02:35 PT — ENGINEER — site-wide search at /search/ with header icon and / shortcut (Actions deploy green).
 - 2026-10-19 03:35 PT — EDITOR — Paper TL;DR on MemGPT (/post/paper-tldr-memgpt/) + glossary virtual-context entry (Actions deploy green).
+- 2026-10-19 04:35 PT — EDITOR — weekly roundup "This week in agent memory" (/post/this-week-in-agent-memory-2026-10-19/) (Actions deploy green).
