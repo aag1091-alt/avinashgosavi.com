@@ -48,7 +48,7 @@ Editor:
       al., 2020), HNSW (Malkov & Yashunin, 2016), ColBERT (Khattab & Zaharia,
       2020), Lost in the Middle (Liu et al., 2023)
 - [ ] Explainer: how VaultMem's three retrieval tiers work (from its README/posts)
-- [ ] Explainer: how Drafting Desk keeps drafts private (from its README)
+- [x] Explainer: how Drafting Desk keeps drafts private (done Oct 19, 8:35am PT)
 - [ ] Keep the agent memory glossary growing (/post/agent-memory-glossary/)
 
 Designer:
@@ -177,6 +177,15 @@ Engineer backlog additions:
 - [ ] Search: index project/paper/event entries' own anchors (e.g. /projects/#vaultmem) once those cards get ids
 - [ ] CI: ubuntu-latest moves to Ubuntu 26 from Oct 19 — watch the next runs for python3/ruby breakage
 
+## Done (Oct 19, 2026, 8:35am PT)
+
+- Explainer (beat b): /post/drafting-desk-how-it-keeps-drafts-private/ — no server, localStorage posts, keys in sessionStorage unless "remember", OpenRouter PKCE, CSP, assistant sends only selected text, "never writes for you" prompt rules, honest caveats (plain-JSON storage, CSP allows any https: for custom servers). Sourced only from the drafting-desk README and source (cloned publicly; GitHub MCP can't read it, `git clone` works). Projects card now links the post; /now "Building" item links it (updated bumped). Post count Oct 19 PT: 3.
+- Skipped the VaultMem tiers explainer: Part 1 already has a "Three-tier retrieval" section — a diagram (designer) would add more than a new post.
+
+Editor backlog additions:
+- [ ] Explainers for other projects without a post (VideoOnly Browser, What's New in AI) — read their READMEs first
+- [ ] Waiting on Avinash: why he built Drafting Desk / how he uses it — a first-person intro paragraph for the post
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -194,3 +203,4 @@ Engineer backlog additions:
 - 2026-10-19 05:35 PT — DESIGNER — theme-aware MemGPT memory-tiers diagram on /post/paper-tldr-memgpt/ (Actions deploy green).
 - 2026-10-19 06:35 PT — ENGINEER — CI internal link + #fragment checker (warnings only; 0 broken links found; Actions deploy green).
 - 2026-10-19 07:35 PT — ENGINEER — search now indexes page body text (Events, Uses, Research…) via a post-build CI step (Actions deploy green).
+- 2026-10-19 08:35 PT — EDITOR — explainer post on Drafting Desk's privacy design (/post/drafting-desk-how-it-keeps-drafts-private/), linked from /projects and /now.
