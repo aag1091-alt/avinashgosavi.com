@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-18
   desk: Writing
+  text: Each Paper TL;DR now ends with a pointer to the glossary terms it uses, like Recall@k, consolidation and re-ranking.
+  link: /post/paper-tldr-six-papers-on-memory/
+- date: 2026-10-18
+  desk: Writing
   text: The VaultMem, Attractor and Paper TL;DR posts now point to the agent memory glossary for quick definitions.
   link: /post/agent-memory-glossary/
 - date: 2026-10-18

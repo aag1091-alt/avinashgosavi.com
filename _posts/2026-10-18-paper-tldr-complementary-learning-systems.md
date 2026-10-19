@@ -50,3 +50,5 @@ This is the model I borrowed for [Attractor](/post/attractor-memory-engine/): me
 - Brains aren't databases; the analogy is a guide for design choices, not a blueprint.
 
 Next in the series: the benchmark that told me how good my own memory system actually was. Earlier parts: [six papers on AI memory](/post/paper-tldr-six-papers-on-memory/) and [Hopfield Networks Is All You Need](/post/paper-tldr-hopfield-networks-is-all-you-need/).
+
+Quick definitions of *consolidation* and *decay* are in the [agent memory glossary](/post/agent-memory-glossary/#how-memories-change-over-time).
