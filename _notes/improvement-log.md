@@ -57,7 +57,6 @@ Designer:
 - [ ] About page layout on mobile; 404 illustration
 
 Engineer:
-- [ ] Table of contents for posts longer than ~1,200 words
 - [ ] Site-wide search (JSON index of posts + pages)
 - [ ] CI: html-proofer for internal links only (don't fail on external links)
 - [ ] Related posts: tag series posts so they don't crowd out non-series matches (maybe exclude same-series posts since the series box already lists them)
@@ -126,6 +125,13 @@ Designer backlog additions:
 - [ ] Reuse `.diagram` for more posts: VaultMem retrieval tiers (from README), LoCoMo eval flow, Hopfield store/recall
 - [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams
 
+## Done (Oct 19, 2026, 1:35am PT)
+
+- Table of contents: posts with >= 1,200 words get a collapsible "On this page" box (h2 sections, needs >= 3) above the content; open by default at >= 700px, collapsed on phones. Opt out per post with `toc: false` in front matter. Markup in `_layouts/post.html`, built by JS in `_includes/post-tools.html`, styles `.post-toc` in style.css (theme tokens).
+
+Engineer backlog additions:
+- [ ] TOC: highlight the current section while scrolling (IntersectionObserver), if it stays tiny
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -136,3 +142,4 @@ Designer backlog additions:
 - 2026-10-18 22:35 PT — EDITOR — glossary cross-links added to 4 posts (daily post cap already reached; Actions deploy green).
 - 2026-10-18 23:35 PT — EDITOR — Paper TL;DRs link back to glossary sections; internal-link audit clean (post cap reached; Actions deploy green).
 - 2026-10-19 00:35 PT — DESIGNER — theme-aware SVG diagram on /post/paper-tldr-complementary-learning-systems/ (Actions deploy green).
+- 2026-10-19 01:35 PT — ENGINEER — "On this page" table of contents on posts over 1,200 words (Actions deploy green).
