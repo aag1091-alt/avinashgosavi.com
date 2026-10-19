@@ -1,0 +1,18 @@
+# Public changelog shown on /changelog and (latest 3) on the homepage.
+# Newest first. desk: Writing | Design | Engineering
+- date: 2026-10-18
+  desk: Engineering
+  text: Read times are now calculated from each post's length, and every post has a proper search description.
+  link: /blog/
+- date: 2026-10-18
+  desk: Writing
+  text: Finished the Paper TL;DR series — a plain-language write-up for each of the six papers behind my memory projects.
+  link: /series/#paper-tldr
+- date: 2026-10-18
+  desk: Design
+  text: Projects are grouped by theme, posts have topic tags you can filter by, and every post has its own share card.
+  link: /projects/
+- date: 2026-10-18
+  desk: Writing
+  text: New pages for the papers I read, the talks worth watching, the events I've been to, and what I'm up to now.
+  link: /research/

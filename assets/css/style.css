@@ -1208,3 +1208,24 @@ body.theme-dark .about-image img {
 .project-category { margin: 2.25rem 0 1rem; font-size: 1.15rem; }
 .skip-link { position: absolute; left: -9999px; top: 0; padding: 0.5rem 1rem; background: var(--bg); color: var(--text); z-index: 100; }
 .skip-link:focus { left: 1rem; top: 1rem; }
+
+/* ---------- Changelog ---------- */
+.changelog-day { margin-bottom: 2rem; }
+.changelog-date { font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.changelog-list { list-style: none; padding: 0; margin: 0; }
+.changelog-list li { padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
+.changelog-desk {
+  display: inline-block;
+  min-width: 6.2rem;
+  margin-right: 0.4rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: var(--code-bg);
+  color: var(--text-muted);
+}
+.home-updates { margin-bottom: 2.5rem; }
