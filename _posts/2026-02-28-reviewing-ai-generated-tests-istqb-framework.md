@@ -5,6 +5,7 @@ permalink: /post/reviewing-ai-generated-tests-istqb-framework/
 read_time: 8
 tags: ["AI tools", "Testing"]
 image: /assets/og/reviewing-ai-generated-tests-istqb-framework.png
+description: "A simple, repeatable way to review AI-generated tests, using ISTQB test-design ideas to spot the cases fast output tends to miss."
 ---
 
 I use AI to generate a lot of tests now. It saves time, but fast output can create false confidence.

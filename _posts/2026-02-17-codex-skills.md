@@ -5,6 +5,7 @@ permalink: /post/codex-skills-baking-your-workflow-into-the-tool/
 read_time: 2
 tags: ["AI tools"]
 image: /assets/og/codex-skills.png
+description: "How I stopped repeating the same instructions to my coding agent by encoding my workflow as Codex Skills — and when to use a skill vs. the agent."
 ---
 
 *A follow-up to [I Fell in Love with Coding Again]({% post_url 2026-02-13-i-fell-in-love-with-coding-again %})*

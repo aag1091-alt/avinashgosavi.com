@@ -5,6 +5,7 @@ permalink: /post/ai-history-blog-generator/
 read_time: 5
 tags: ["Agents"]
 image: /assets/og/ai-history-blog-generator.png
+description: "Building an agent that turns any historical topic into a Jekyll blog, milestone by milestone, using local models through Ollama."
 ---
 
 I was curious how AI had evolved over the years — not just the big headline moments but the smaller steps in between that actually moved things forward. I wanted something I could browse casually, not a research paper or a Wikipedia rabbit hole. Just a clean walkthrough: milestone by milestone, a bit of context, who was involved, when it happened.

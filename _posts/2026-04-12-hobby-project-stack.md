@@ -5,6 +5,7 @@ permalink: /post/hobby-project-stack/
 read_time: 9
 tags: ["Tutorials", "Infrastructure"]
 image: /assets/og/hobby-project-stack.png
+description: "What to use for your next hobby project in 2025: the zero-cost stack I chose for daylog — Cloudflare Pages, Fly.io, Neon, Upstash — and why."
 ---
 
 I recently built **daylog** — a personal diary app where you speak or type your thoughts and they get encrypted and stored privately, with AI transcription happening server-side using Whisper. The interesting technical core is [vaultmem](https://pypi.org/project/vaultmem/), a Python SDK for building encrypted memory vaults for AI apps. Daylog is essentially a live demo of it.

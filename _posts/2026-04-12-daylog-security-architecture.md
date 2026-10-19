@@ -5,6 +5,7 @@ permalink: /post/daylog-security-architecture/
 read_time: 8
 tags: ["Privacy", "Local-first"]
 image: /assets/og/daylog-security-architecture.png
+description: "How daylog, a voice diary, keeps entries and its semantic search index encrypted, with nothing leaving the device to answer a query."
 ---
 
 daylog is a voice diary. You open it, tap the mic, say what's on your mind, and it saves. You can search your entries semantically — type "frustrated" and it surfaces the day you wrote *"couldn't make progress, everything felt blocked"* even though that exact word never appears.

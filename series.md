@@ -16,7 +16,7 @@ description: Multi-part blog series by Avinash Gosavi, read in order.
     <p class="series-description">{{ s.description }}</p>
     <ol class="series-parts">
       {% for p in parts %}
-      <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a> <span class="series-meta">{{ p.date | date: "%b %d, %Y" }}{% if p.read_time %} · {{ p.read_time }} min{% endif %}</span></li>
+      <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a> <span class="series-meta">{{ p.date | date: "%b %d, %Y" }} · {% include read-time.html content=p.content %}</span></li>
       {% endfor %}
     </ol>
   </section>

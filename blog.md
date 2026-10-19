@@ -27,7 +27,7 @@ title: All Posts
       <div class="post-list-meta">
         <span>{{ site.author.username }}</span>
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
-        {% if post.read_time %}<span>{{ post.read_time }} min read</span>{% endif %}
+        <span>{% include read-time.html content=post.content %}</span>
       </div>
       <p class="post-list-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
     </li>

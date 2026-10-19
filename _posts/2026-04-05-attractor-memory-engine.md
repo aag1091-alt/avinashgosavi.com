@@ -5,6 +5,7 @@ permalink: /post/attractor-memory-engine/
 read_time: 7
 tags: ["Agent memory", "Research"]
 image: /assets/og/attractor-memory-engine.png
+description: "Attractor, a memory engine inspired by how brains remember — Hopfield-style retrieval by partial cues and context instead of keys or nearest neighbors."
 ---
 
 I've been thinking about memory — not human memory, but how machines store and retrieve it. Most systems today are either key-value stores (fast, exact, dumb) or vector databases (semantic, but still just nearest-neighbour). Neither of them works the way a brain does.

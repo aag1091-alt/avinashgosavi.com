@@ -5,6 +5,7 @@ permalink: /post/doing-the-right-thing-fast/
 read_time: 3
 tags: ["Engineering at work", "AI tools"]
 image: /assets/og/doing-the-right-thing-fast.png
+description: "Cleaning up after deprecating the first Catalyst Cloud Monitoring: splitting it into focused work streams and shipping it all in two weeks with AI help."
 ---
 
 We recently deprecated the initial version of Cisco Catalyst Cloud Monitoring. That means the code that drove it — onboarding flows, device-specific paths, integrations that only existed for those devices — needed to go.

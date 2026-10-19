@@ -5,6 +5,7 @@ permalink: /post/i-fell-in-love-with-coding-again/
 read_time: 3
 tags: ["Craft"]
 image: /assets/og/i-fell-in-love-with-coding-again.png
+description: "Why working with LLMs made coding fun for me again — talking through ideas, validating them fast, and two examples that made it click."
 ---
 
 I didn't expect to say this, but I fell in love with coding again.

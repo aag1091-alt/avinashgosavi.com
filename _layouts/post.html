@@ -8,7 +8,7 @@ layout: default
     <div class="post-meta">
       <span class="post-author">{{ site.author.username }}</span>
       <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %d, %Y" }}</time>
-      {% if page.read_time %} <span class="post-read-time">{{ page.read_time }} min read</span>{% endif %}
+       <span class="post-read-time">{% include read-time.html content=content %}</span>
     </div>
     {% if page.tags.size > 0 %}<ul class="post-tags">{% for t in page.tags %}<li><a href="{{ '/blog/' | relative_url }}#{{ t | slugify }}">{{ t }}</a></li>{% endfor %}</ul>{% endif %}
   </header>
