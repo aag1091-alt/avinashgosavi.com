@@ -44,7 +44,7 @@ homepage). Max 4 new posts/day, 1 per run.
 ## Backlog (pick from the top; move to Done with a date)
 
 Editor:
-- [ ] Paper TL;DR candidates (read before writing): ~~MemGPT~~ (done Oct 19), Generative Agents memory stream (Park et al., 2023), RAG (Lewis et
+- [ ] Paper TL;DR candidates (read before writing): ~~MemGPT~~ (done Oct 19), ~~Generative Agents~~ (done Oct 19, 2:35pm PT), RAG (Lewis et
       al., 2020), HNSW (Malkov & Yashunin, 2016), ColBERT (Khattab & Zaharia,
       2020), Lost in the Middle (Liu et al., 2023)
 - [ ] Explainer: how VaultMem's three retrieval tiers work (from its README/posts)
@@ -228,6 +228,15 @@ Editor backlog additions:
 - [ ] Waiting on Avinash: OSA Con (Nov 2) — a Luma email asked him to complete his registration; confirm he's still going before Nov 2
 - [ ] llms.txt events line still says "attended, hacked at or judged" — add "mentored" next time llms.txt is touched
 
+## Done (Oct 19, 2026, 2:35pm PT)
+
+- Paper TL;DR #9: Generative Agents (Park et al., UIST 2023) at /post/paper-tldr-generative-agents/ — read from the arXiv PDF; neutral voice (no repo source ties it to his work; VaultMem link is a factual comparison to its significance re-ranking). Added to `_data/papers.yml` (no `why`). Glossary: new "Reflection" entry under How memories change over time. Post count Oct 19 PT: 4 — daily cap reached, no more new posts today.
+- Note: og_cards.py skips posts that already have `image:` — don't pre-write it in front matter.
+
+Editor backlog additions:
+- [ ] Waiting on Avinash: has Generative Agents' recency/importance/relevance scoring influenced VaultMem's significance score? If yes, a `why` in papers.yml and a first-person line in the TL;DR
+- [ ] Designer: diagram for Generative Agents (memory stream → retrieval score → reflection tree)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -251,3 +260,4 @@ Editor backlog additions:
 - 2026-10-19 11:35 PT — ENGINEER — related posts skip same-series posts; width/height on post images to stop layout shift (Actions deploy green).
 - 2026-10-19 12:35 PT — ENGINEER — TOC highlights the current section; back-to-top button on long posts (Actions deploy green).
 - 2026-10-19 13:35 PT — EDITOR — Cal Hacks 13.0 (mentor, Oct 23–25) added to /events and /now from Gmail acceptance (Actions deploy green).
+- 2026-10-19 14:35 PT — EDITOR — Paper TL;DR on Generative Agents (/post/paper-tldr-generative-agents/) + glossary reflection entry; daily post cap now reached (Actions deploy green).
