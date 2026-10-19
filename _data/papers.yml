@@ -94,3 +94,15 @@
     The sentence-transformers models behind semantic search in Attractor,
     VaultMem and daylog all descend from this paper.
   post: /post/attractor-memory-engine/
+- title: "MemGPT: Towards LLMs as Operating Systems"
+  authors: Packer et al.
+  year: 2023
+  venue: arXiv:2310.08560
+  url: https://arxiv.org/abs/2310.08560
+  tldr_post: /post/paper-tldr-memgpt/
+  topic: Agent memory & privacy
+  tldr: >-
+    Treats the context window like RAM: the LLM uses function calls to page
+    information between a small in-prompt working context and external
+    recall and archival storage, with warnings and summaries when the
+    prompt fills up.

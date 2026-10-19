@@ -1,6 +1,14 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Writing
+  text: New Paper TL;DR on MemGPT, the paper that treats an LLM's context window like RAM and lets the model page memories in and out itself.
+  link: /post/paper-tldr-memgpt/
+- date: 2026-10-19
+  desk: Writing
+  text: The agent memory glossary has a new entry for virtual context, the MemGPT-style idea of paging memories in and out of the prompt.
+  link: /post/agent-memory-glossary/
+- date: 2026-10-19
   desk: Engineering
   text: There's now a search page that looks through every post, project, paper and event at once — click the magnifier in the header or press / on any page.
   link: /search/

@@ -22,6 +22,8 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 
 **Persona (profile) memory.** Stable facts about the person the agent works with — name, role, standing preferences. Small, high-value and read on almost every turn.
 
+**Virtual context (paging).** Treating the context window like a computer's RAM: the agent moves information in and out of the prompt — saving facts to external storage, searching old messages, summarizing what gets pushed out — usually through function calls. Popularized by [MemGPT](/post/paper-tldr-memgpt/).
+
 ## Storing and finding memories
 
 **Embedding.** A list of numbers that represents the meaning of a piece of text, so that similar meanings land close together. Most memory systems store an embedding next to each memory. See the [Sentence-BERT TL;DR](/post/paper-tldr-sentence-bert/) for where modern sentence embeddings come from.
