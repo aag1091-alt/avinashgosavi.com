@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-18
+  desk: Writing
+  text: "New explainer: an agent memory glossary — 20 terms in plain language."
+  link: /post/agent-memory-glossary/
+- date: 2026-10-18
   desk: Engineering
   text: Read times are now calculated from each post's length, and every post has a proper search description.
   link: /blog/

@@ -1,0 +1,67 @@
+---
+layout: post
+date: 2026-10-18 19:45:00 -0700
+title: "An Agent Memory Glossary: 20 Terms in Plain Language"
+permalink: /post/agent-memory-glossary/
+description: "Plain-language definitions of the terms that come up when building memory for AI agents — episodic vs. semantic memory, embeddings, HNSW, re-ranking, consolidation, Recall@k, zero-knowledge storage and more."
+tags: ["Agent memory", "Explainers"]
+image: /assets/og/agent-memory-glossary.png
+---
+
+The vocabulary around AI agent memory borrows from neuroscience, databases, search and cryptography all at once, which makes it easy to talk past each other. This is a working glossary — short, plain definitions, with links to where each idea shows up in my own projects. I'll keep adding to it.
+
+## Kinds of memory
+
+**Context window (working memory).** What the model can see right now: the prompt, the recent conversation and anything retrieved for this turn. Fast and precise, but limited in size and gone when the session ends. Everything else on this list exists because of that limit.
+
+**Episodic memory.** Specific events: *what happened, when, with whom.* "On Tuesday you said the demo slipped to Friday." In [VaultMem](/post/vaultmem-encrypted-memory-for-ai-agents/) these are one of the memory types the agent can store and retrieve.
+
+**Semantic memory.** General facts and knowledge, detached from when they were learned. "Flash Attention reduces memory traffic by tiling." Often distilled from many episodes.
+
+**Procedural memory.** How to do things: workflows, preferences about process, steps that worked before. "When debugging, check the logs before the config."
+
+**Persona (profile) memory.** Stable facts about the person the agent works with — name, role, standing preferences. Small, high-value and read on almost every turn.
+
+## Storing and finding memories
+
+**Embedding.** A list of numbers that represents the meaning of a piece of text, so that similar meanings land close together. Most memory systems store an embedding next to each memory. See the [Sentence-BERT TL;DR](/post/paper-tldr-sentence-bert/) for where modern sentence embeddings come from.
+
+**Semantic search.** Finding memories by meaning instead of exact words: embed the query, then return the stored memories whose embeddings are closest.
+
+**Top-k retrieval.** Returning the *k* closest matches (say, the top 10) and putting them into the context window. Simple and effective; also where most retrieval mistakes start.
+
+**Vector index (HNSW).** A data structure that makes "find the closest vectors" fast at scale. HNSW (Hierarchical Navigable Small World) builds layered graphs of neighbors so a search can hop quickly toward the right region instead of comparing against every vector.
+
+**Re-ranking.** A second, slower and more careful pass over the top results — often a cross-encoder that reads the query and each candidate together — to put the truly relevant ones first.
+
+**Hybrid search.** Combining meaning-based search with keyword search (or filters like dates and tags), because embeddings are bad at exact names, numbers and IDs.
+
+**Context frame.** The situation a memory was formed in — topic, people involved, task, session — stored alongside it so retrieval can filter by context, not just content. This is the core idea in [Attractor](/post/attractor-memory-engine/).
+
+## How memories change over time
+
+**Consolidation.** Turning many specific episodes into durable, general knowledge — summarizing a month of conversations into "prefers short answers," for example. The brain's version is covered in the [Complementary Learning Systems TL;DR](/post/paper-tldr-complementary-learning-systems/).
+
+**Decay (forgetting).** Letting memories that are never used fade in importance, so old noise doesn't crowd out what matters. Forgetting is a feature.
+
+**Associative (content-addressable) memory.** Retrieving a whole memory from a partial or noisy piece of it, rather than by key or address. Hopfield networks are the classic example — see [Hopfield (1982)](/post/paper-tldr-hopfield-1982/) and [the modern version](/post/paper-tldr-hopfield-networks-is-all-you-need/).
+
+## Privacy
+
+**Zero-knowledge storage.** The service storing your data cannot read it, because it's encrypted with a key only you hold. The operator sees ciphertext. This is VaultMem's core design.
+
+**Client-side encryption.** Encrypting data before it leaves your device (or your session), so the server only ever handles encrypted bytes. The usual way to get zero-knowledge storage.
+
+**PII sanitization.** Detecting and masking personal details — names, emails, phone numbers — before text is sent to a model provider, then restoring them in the response. It closes a gap encryption at rest can't: the model still has to read the text. See [VaultMem Part 3](/post/vaultmem-part-3-pii-sanitizer/).
+
+## Measuring it
+
+**Recall@k.** Of the questions asked, how often the right memory appears somewhere in the top *k* results. Measures "did we find it at all."
+
+**MRR (mean reciprocal rank).** Rewards putting the right memory near the top: 1 if it's first, ½ if second, ⅓ if third, averaged over all questions.
+
+**LoCoMo.** A benchmark of very long, multi-session conversations with questions across single-hop, multi-hop, temporal, open-domain and adversarial categories. See the [LoCoMo TL;DR](/post/paper-tldr-locomo-long-term-memory-benchmark/).
+
+---
+
+Missing a term, or think one of these is off? I'd like to hear it — I'll keep this page up to date.
