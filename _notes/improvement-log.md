@@ -20,6 +20,14 @@ Working notes for the recurring "improve avinashgosavi.com" task. Not published
 - Bigger content (new posts) must cite sources and stay factual; paper
   write-ups go in the `paper-tldr` series.
 
+## Team model (since Oct 18, 2026, 7:40pm PT)
+
+Avinash wants the site to feel like 10 editors, 5 designers and 10 engineers
+work on it daily. The hourly scheduled task picks one role per run by UTC hour
+(H mod 5: 0,1 Editor · 2 Designer · 3,4 Engineer). Every user-visible change
+gets an entry at the top of `_data/changelog.yml` (shown on /changelog and the
+homepage). Max 4 new posts/day, 1 per run.
+
 ## Done (Oct 18, 2026)
 
 - New pages: /events, /achievements, /research (papershelf + newsletters),
@@ -33,6 +41,30 @@ Working notes for the recurring "improve avinashgosavi.com" task. Not published
   lazy-loading; skip link; README documents data files
 
 ## Backlog (pick from the top; move to Done with a date)
+
+Editor:
+- [ ] Paper TL;DR candidates (read before writing): MemGPT (Packer et al.,
+      2023), Generative Agents memory stream (Park et al., 2023), RAG (Lewis et
+      al., 2020), HNSW (Malkov & Yashunin, 2016), ColBERT (Khattab & Zaharia,
+      2020), Lost in the Middle (Liu et al., 2023)
+- [ ] Explainer: how VaultMem's three retrieval tiers work (from its README/posts)
+- [ ] Explainer: how Drafting Desk keeps drafts private (from its README)
+- [ ] Keep the agent memory glossary growing (/post/agent-memory-glossary/)
+
+Designer:
+- [ ] Simple SVG diagram for the CLS post (fast store → replay → slow store)
+- [ ] Project cards: consistent visual header (icon or tinted band per category)
+- [ ] About page layout on mobile; 404 illustration
+
+Engineer:
+- [ ] Related posts by shared tag at the end of each post
+- [ ] Table of contents for posts longer than ~1,200 words
+- [ ] Copy buttons on code blocks; heading anchor links
+- [ ] Site-wide search (JSON index of posts + pages)
+- [ ] JSON-LD BlogPosting on posts
+- [ ] CI: html-proofer for internal links only (don't fail on external links)
+
+General:
 
 - [ ] Projects: short "what I learned" line per project — ONLY from facts in
       the project's own post/README
@@ -54,3 +86,4 @@ Working notes for the recurring "improve avinashgosavi.com" task. Not published
 
 - 2026-10-18 — manual session: everything under "Done".
 - 2026-10-18 evening — manual session: descriptions, computed read times, contrast fix.
+- 2026-10-18 7:45pm PT — manual — changelog page + homepage strip; agent memory glossary post; team model set up.
