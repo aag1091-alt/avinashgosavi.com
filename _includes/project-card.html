@@ -1,4 +1,4 @@
-<article class="project-card">
+<article class="project-card" id="{{ include.project.name | slugify }}">
   <h3 class="project-name">{{ include.project.name }}</h3>
   <p class="project-tagline">{{ include.project.tagline }}</p>
   <p class="project-description">{{ include.project.description }}</p>

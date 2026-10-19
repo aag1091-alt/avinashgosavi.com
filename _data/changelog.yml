@@ -1,6 +1,14 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Engineering
+  text: "Search results for projects and papers without a write-up now jump straight to their card on /projects or /research, which lights up when you land."
+  link: /search/
+- date: 2026-10-19
+  desk: Engineering
+  text: "Fixed empty \"Why it matters to me\" labels on papershelf entries that don't have a note yet."
+  link: /research/
+- date: 2026-10-19
   desk: Design
   text: "The Generative Agents TL;DR now has a diagram of the memory stream, the three-part retrieval score and the reflection loop."
   link: /post/paper-tldr-generative-agents/

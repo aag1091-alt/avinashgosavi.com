@@ -7,7 +7,7 @@ description: Topics Avinash Gosavi researches and builds around — private memo
 
 <div class="research-page">
   <h1>Research &amp; Interests</h1>
-  <p class="page-lede">What I keep coming back to, at work and off hours — and the papers that shaped how I think about it. Each paper gets a TL;DR and a note on how it showed up in something I built.</p>
+  <p class="page-lede">What I keep coming back to, at work and off hours — and the papers that shaped how I think about it. Each paper gets a TL;DR, and the ones that shaped something I built get a note on how.</p>
 
   <h2>Topics I follow</h2>
   <ul class="interest-list">
@@ -31,11 +31,11 @@ description: Topics Avinash Gosavi researches and builds around — private memo
   <h3 class="paper-topic">{{ g.name }}</h3>
   <ul class="paper-list">
     {% for p in g.items %}
-    <li class="paper">
+    <li class="paper" id="paper-{{ p.title | slugify }}">
       <a class="paper-title" href="{{ p.url }}" rel="noopener">{{ p.title }}</a>
       <div class="paper-meta">{{ p.authors }} · {{ p.year }} · {{ p.venue }}</div>
       <p class="paper-tldr"><span class="paper-label">TL;DR</span> {{ p.tldr }}{% if p.tldr_post %} <a href="{{ p.tldr_post | relative_url }}">Full write-up →</a>{% endif %}</p>
-      <p class="paper-why"><span class="paper-label">Why it matters to me</span> {{ p.why }}{% if p.post %} <a href="{{ p.post | relative_url }}">Read more →</a>{% endif %}</p>
+      {% if p.why %}<p class="paper-why"><span class="paper-label">Why it matters to me</span> {{ p.why }}{% if p.post %} <a href="{{ p.post | relative_url }}">Read more →</a>{% endif %}</p>{% endif %}
     </li>
     {% endfor %}
   </ul>

@@ -34,7 +34,8 @@ sitemap: false
   {
     "type": "Project",
     "title": {{ pr.name | append: " — " | append: pr.tagline | jsonify }},
-    "url": {{ pr.post | default: "/projects/" | relative_url | jsonify }},
+    {%- capture pr_anchor %}/projects/#{{ pr.name | slugify }}{% endcapture %}
+    "url": {{ pr.post | default: pr_anchor | relative_url | jsonify }},
     "date": "",
     "tags": {{ pr.tags | join: " " | append: " " | append: pr.category | jsonify }},
     "desc": {{ pr.description | normalize_whitespace | jsonify }},
@@ -45,7 +46,8 @@ sitemap: false
   {
     "type": "Paper",
     "title": {{ pa.title | jsonify }},
-    "url": {{ pa.tldr_post | default: "/research/" | relative_url | jsonify }},
+    {%- capture pa_anchor %}/research/#paper-{{ pa.title | slugify }}{% endcapture %}
+    "url": {{ pa.tldr_post | default: pa_anchor | relative_url | jsonify }},
     "date": {{ pa.year | append: "" | jsonify }},
     "tags": {{ pa.authors | append: " " | append: pa.topic | jsonify }},
     "desc": {{ pa.tldr | normalize_whitespace | jsonify }},
