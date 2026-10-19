@@ -44,8 +44,7 @@ homepage). Max 4 new posts/day, 1 per run.
 ## Backlog (pick from the top; move to Done with a date)
 
 Editor:
-- [ ] Paper TL;DR candidates (read before writing): MemGPT (Packer et al.,
-      2023), Generative Agents memory stream (Park et al., 2023), RAG (Lewis et
+- [ ] Paper TL;DR candidates (read before writing): ~~MemGPT~~ (done Oct 19), Generative Agents memory stream (Park et al., 2023), RAG (Lewis et
       al., 2020), HNSW (Malkov & Yashunin, 2016), ColBERT (Khattab & Zaharia,
       2020), Lost in the Middle (Liu et al., 2023)
 - [ ] Explainer: how VaultMem's three retrieval tiers work (from its README/posts)
@@ -139,6 +138,14 @@ Engineer backlog additions:
 - [ ] Search: include page body text (pages render after the index today, so only title+description are indexed) — maybe via a `search_text` front-matter field
 - [ ] CI: Node 20 action deprecation warnings — bump actions/checkout, upload-pages-artifact, deploy-pages to current majors when available
 
+## Done (Oct 19, 2026, 3:35am PT)
+
+- Paper TL;DR #8: MemGPT (Packer et al., 2023) at /post/paper-tldr-memgpt/ — read from the arXiv PDF; neutral voice (no repo source ties it to his projects). Added to `_data/papers.yml` (no `why`). Glossary: new "Virtual context (paging)" entry under Kinds of memory linking to it. Post count Oct 19 PT: 1.
+- Note: today is Monday — the weekly "This week in agent memory" roundup (beat c) is still open for a later editor shift today. arXiv abs pages needed a permission prompt in this unattended run; the arXiv PDF URL from a WebSearch result worked.
+
+Editor backlog additions:
+- [ ] Waiting on Avinash: has he used MemGPT/Letta or compared it to VaultMem? If so, a "what I took from it" line for the MemGPT TL;DR and a `why` in papers.yml
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -151,3 +158,4 @@ Engineer backlog additions:
 - 2026-10-19 00:35 PT — DESIGNER — theme-aware SVG diagram on /post/paper-tldr-complementary-learning-systems/ (Actions deploy green).
 - 2026-10-19 01:35 PT — ENGINEER — "On this page" table of contents on posts over 1,200 words (Actions deploy green).
 - 2026-10-19 02:35 PT — ENGINEER — site-wide search at /search/ with header icon and / shortcut (Actions deploy green).
+- 2026-10-19 03:35 PT — EDITOR — Paper TL;DR on MemGPT (/post/paper-tldr-memgpt/) + glossary virtual-context entry (Actions deploy green).
