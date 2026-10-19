@@ -30,6 +30,8 @@ class Page(HTMLParser):
         for key in ("id", "name"):
             if a.get(key) and (key == "id" or tag == "a"):
                 self.ids.add(a[key])
+        if a.get("data-tag"):  # /blog/#tag opens the blog filtered by that tag (JS)
+            self.ids.add(a["data-tag"])
         line = self.getpos()[0]
         if tag in ("a", "link", "area") and a.get("href"):
             # rel=preconnect/dns-prefetch etc. point at hosts, not pages
@@ -98,7 +100,13 @@ def main():
 
     for rel, line, url, why in problems:
         print(f"::warning file={rel},line={line}::Broken internal link {url} ({why})")
-    print(f"Checked {checked} internal links on {len(pages)} pages: {len(problems)} broken.")
+    summary = f"Checked {checked} internal links on {len(pages)} pages: {len(problems)} broken."
+    print(summary)
+    if os.environ.get("GITHUB_STEP_SUMMARY"):  # full list (annotations are capped at 10)
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as fh:
+            fh.write(f"### Internal links\n\n{summary}\n\n")
+            for rel, line, url, why in problems:
+                fh.write(f"- `{rel}` line {line}: `{url}` ({why})\n")
     if problems and strict:
         sys.exit(1)
 
