@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2026-10-18 19:45:00 -0700
-title: "An Agent Memory Glossary: 20 Terms in Plain Language"
+title: "An Agent Memory Glossary: Terms in Plain Language"
 permalink: /post/agent-memory-glossary/
 description: "Plain-language definitions of the terms that come up when building memory for AI agents — episodic vs. semantic memory, embeddings, HNSW, re-ranking, consolidation, Recall@k, zero-knowledge storage and more."
 tags: ["Agent memory", "Explainers"]
@@ -40,6 +40,8 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 
 **Context frame.** The situation a memory was formed in — topic, people involved, task, session — stored alongside it so retrieval can filter by context, not just content. This is the core idea in [Attractor](/post/attractor-memory-engine/).
 
+**Sufficient evidence.** The idea that a memory system's job isn't just to return *relevant* memories but a set that is *enough* to answer. Ranking memories one at a time can miss this: several records may say the same thing (so the set gets bloated), or two weak-looking records may only make sense together (so both get dropped). One recent paper defines a sufficient set as a small subset that leads the agent to the same decision it would make with its full memory ([Beyond Marginal Influence](https://neurips.cc/virtual/2026/169578)). See [this week's roundup](/post/this-week-in-agent-memory-2026-10-19/#theme-2-relevant-isnt-the-same-as-enough).
+
 ## How memories change over time
 
 **Consolidation.** Turning many specific episodes into durable, general knowledge — summarizing a month of conversations into "prefers short answers," for example. The brain's version is covered in the [Complementary Learning Systems TL;DR](/post/paper-tldr-complementary-learning-systems/).
@@ -55,6 +57,8 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 **Client-side encryption.** Encrypting data before it leaves your device (or your session), so the server only ever handles encrypted bytes. The usual way to get zero-knowledge storage.
 
 **PII sanitization.** Detecting and masking personal details — names, emails, phone numbers — before text is sent to a model provider, then restoring them in the response. It closes a gap encryption at rest can't: the model still has to read the text. See [VaultMem Part 3](/post/vaultmem-part-3-pii-sanitizer/).
+
+**Memory unlearning (forget requests).** Deleting a specific fact when the user asks — and only that fact. Done well, the fact can no longer be recalled or pieced together from other memories, while everything unrelated survives. The [Bemula benchmark](https://www.emergentmind.com/papers/2610.18052) tests exactly this and reports two common failures: the fact stays extractable with simple prompts, or the system deletes far more than it was asked to. See [this week's roundup](/post/this-week-in-agent-memory-2026-10-19/#theme-1-can-an-agent-forget-when-you-ask-it-to).
 
 ## Measuring it
 

@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
   desk: Writing
+  text: Two new glossary entries from this week's papers — memory unlearning (forgetting exactly what you're asked to) and sufficient evidence (retrieving enough, not just what's relevant).
+  link: /post/agent-memory-glossary/
+- date: 2026-10-19
+  desk: Writing
   text: Wrote up how Drafting Desk keeps drafts in your browser — no server, keys that can live in one tab only, a strict CSP, and an assistant that only sees what you ask about.
   link: /post/drafting-desk-how-it-keeps-drafts-private/
 - date: 2026-10-19
