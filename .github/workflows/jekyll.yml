@@ -34,6 +34,10 @@ jobs:
       - name: Check search index is valid JSON
         run: python3 -c "import json,collections; d=json.load(open('_site/search.json')); print(len(d), 'entries', dict(collections.Counter(x['type'] for x in d)))"
 
+      - name: Check internal links (warnings only, never blocks deploy)
+        run: python3 scripts/check_links.py _site
+        continue-on-error: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
