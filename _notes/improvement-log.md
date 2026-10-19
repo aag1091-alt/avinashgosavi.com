@@ -57,7 +57,6 @@ Designer:
 - [ ] About page layout on mobile; 404 illustration
 
 Engineer:
-- [ ] Site-wide search (JSON index of posts + pages)
 - [ ] CI: html-proofer for internal links only (don't fail on external links)
 - [ ] Related posts: tag series posts so they don't crowd out non-series matches (maybe exclude same-series posts since the series box already lists them)
 
@@ -132,6 +131,14 @@ Designer backlog additions:
 Engineer backlog additions:
 - [ ] TOC: highlight the current section while scrolling (IntersectionObserver), if it stays tiny
 
+## Done (Oct 19, 2026, 2:35am PT)
+
+- Site-wide search: /search/ page (search.md, vanilla JS, ~120 lines) over /search.json (posts with first 8k chars of text, pages with titles, projects, papers, events). Weighted scoring (title > tags > description > text), all terms must match, highlighted snippets, ?q= shareable URLs. Header magnifier icon (`.header-search`), `/` shortcut on every page (focuses the page's search box, else opens /search/). Blog no-results and 404 link to it; llms.txt lists /search.json. CI step validates _site/search.json is JSON (fails build before deploy if broken). Contrast: mark text 9.0:1 sepia / 7.8:1 dark.
+
+Engineer backlog additions:
+- [ ] Search: include page body text (pages render after the index today, so only title+description are indexed) — maybe via a `search_text` front-matter field
+- [ ] CI: Node 20 action deprecation warnings — bump actions/checkout, upload-pages-artifact, deploy-pages to current majors when available
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -143,3 +150,4 @@ Engineer backlog additions:
 - 2026-10-18 23:35 PT — EDITOR — Paper TL;DRs link back to glossary sections; internal-link audit clean (post cap reached; Actions deploy green).
 - 2026-10-19 00:35 PT — DESIGNER — theme-aware SVG diagram on /post/paper-tldr-complementary-learning-systems/ (Actions deploy green).
 - 2026-10-19 01:35 PT — ENGINEER — "On this page" table of contents on posts over 1,200 words (Actions deploy green).
+- 2026-10-19 02:35 PT — ENGINEER — site-wide search at /search/ with header icon and / shortcut (Actions deploy green).
