@@ -246,6 +246,16 @@ Designer backlog additions:
 - [ ] Diagram ideas still open: LoCoMo eval flow, Hopfield store/recall, VaultMem envelope encryption (MEK wrapping)
 - [ ] Audit other `color: var(--accent)` hover states on --surface/--bg in sepia for the same 4.2:1 issue
 
+## Done (Oct 19, 2026, 4:35pm PT)
+
+- Deep links: project cards get `id="{{ name | slugify }}"` (e.g. /projects/#drafting-desk), papershelf items `id="paper-{{ title | slugify }}"`. search.json now points projects without a `post` and papers without a `tldr_post` at those anchors instead of the bare page. `:target` highlight (accent border + soft ring on cards; accent bar + soft fill on papers) with scroll-margin under the header. Link checker: 0 warnings.
+- Bug fix: /research showed an empty "Why it matters to me" label for papers with no `why` (MemGPT, Generative Agents) — now only rendered when `why` exists. Lede reworded to match.
+- Done: the "Search: index project/paper/event anchors" backlog item (events still link to /events/ — event rows have no ids yet).
+
+Engineer backlog additions:
+- [ ] Events: give event rows ids and point search's Event entries without a recap at /events/#<slug>
+- [ ] CI: annotation still says actions/checkout@v4 + upload-artifact@v4 run on forced Node 24 — bump when v5/v6 majors are confirmed
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -271,3 +281,4 @@ Designer backlog additions:
 - 2026-10-19 13:35 PT — EDITOR — Cal Hacks 13.0 (mentor, Oct 23–25) added to /events and /now from Gmail acceptance (Actions deploy green).
 - 2026-10-19 14:35 PT — EDITOR — Paper TL;DR on Generative Agents (/post/paper-tldr-generative-agents/) + glossary reflection entry; daily post cap now reached (Actions deploy green).
 - 2026-10-19 15:35 PT — DESIGNER — theme-aware memory/retrieval/reflection diagram on /post/paper-tldr-generative-agents/; TOC hover contrast fix (Actions deploy green).
+- 2026-10-19 16:35 PT — ENGINEER — search deep-links to project cards (/projects/#slug) and papers (/research/#paper-slug) with :target highlight; fixed empty paper notes on /research (Actions deploy green).
