@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Engineering
+  text: "Related posts at the end of a series post now skip the other parts of that series (the series box already lists them), so you see something new instead. Post images also reserve their space while loading, so the page no longer jumps."
+  link: /post/paper-tldr-memgpt/
+- date: 2026-10-19
   desk: Design
   text: Drew a diagram of VaultMem's three-tier retrieval — the order it searches, the global re-rank, and why the coffee-habit query stops falling for the decoy.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/

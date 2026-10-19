@@ -4,12 +4,13 @@
 {% assign older_i = idx | plus: 1 %}
 {% assign newer = site.posts[newer_i] %}
 {% assign older = site.posts[older_i] %}
-{% comment %} Related posts: rank other posts by number of shared tags (ties: newer first), skipping the newer/older links below. {% endcomment %}
+{% comment %} Related posts: rank other posts by number of shared tags (ties: newer first), skipping the newer/older links below and posts in the same series (the series box already lists those). {% endcomment %}
 {% assign related_keys = "" | split: "" %}
 {% if page.tags.size > 0 %}
 {% for p in site.posts %}
   {% assign pi = forloop.index0 %}
-  {% if p.url != page.url and pi != newer_i and pi != older_i %}
+  {% assign same_series = false %}{% if page.series and p.series == page.series %}{% assign same_series = true %}{% endif %}
+  {% if p.url != page.url and pi != newer_i and pi != older_i and same_series == false %}
     {% assign shared = 0 %}
     {% for t in p.tags %}{% if page.tags contains t %}{% assign shared = shared | plus: 1 %}{% endif %}{% endfor %}
     {% if shared > 0 %}
