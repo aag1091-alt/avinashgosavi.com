@@ -58,11 +58,11 @@ Designer:
 - [ ] About page layout on mobile; 404 illustration
 
 Engineer:
-- [ ] Related posts by shared tag at the end of each post
 - [ ] Table of contents for posts longer than ~1,200 words
 - [ ] Copy buttons on code blocks; heading anchor links
 - [ ] Site-wide search (JSON index of posts + pages)
 - [ ] CI: html-proofer for internal links only (don't fail on external links)
+- [ ] Related posts: tag series posts so they don't crowd out non-series matches (maybe exclude same-series posts since the series box already lists them)
 
 General:
 
@@ -93,8 +93,14 @@ General:
   Webmaster Tools and submit /sitemap.xml (Bing's index feeds several AI
   search products).
 
+## Done (Oct 18, 2026, night)
+
+- Related posts: up to 3 per post ranked by shared tags (ties → newer), shown
+  above "Keep reading", skipping the newer/older links (`_includes/read-next.html`)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
 - 2026-10-18 evening — manual session: descriptions, computed read times, contrast fix.
 - 2026-10-18 7:45pm PT — manual — changelog page + homepage strip; agent memory glossary post; team model set up.
+- 2026-10-18 20:34 PT — ENGINEER — related posts by shared tags at the end of every post (live site not fetchable from sandbox; Actions deploy green).
