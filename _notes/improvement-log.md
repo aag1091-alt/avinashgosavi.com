@@ -217,7 +217,7 @@ Engineer backlog additions:
 - Back-to-top pill (`.back-to-top`, fixed bottom-right) on posts that have the TOC box (>= 1,200 words); shows after 1.5 screens, respects prefers-reduced-motion, moves focus to the h1, hidden in print. Tested at 375px with Playwright on a mock page (no horizontal scroll).
 
 Engineer/Designer backlog additions:
-- [ ] Contrast: `.post-toc-list a:hover` uses --accent on --surface = 4.2:1 in sepia (below 4.5) — darken sepia hover or use underline only
+- [x] Contrast: `.post-toc-list a:hover` (done Oct 19, 3:35pm PT — text color + accent underline)
 
 ## Done (Oct 19, 2026, 1:35pm PT)
 
@@ -235,7 +235,16 @@ Editor backlog additions:
 
 Editor backlog additions:
 - [ ] Waiting on Avinash: has Generative Agents' recency/importance/relevance scoring influenced VaultMem's significance score? If yes, a `why` in papers.yml and a first-person line in the TL;DR
-- [ ] Designer: diagram for Generative Agents (memory stream → retrieval score → reflection tree)
+- [x] Designer: diagram for Generative Agents (done Oct 19, 3:35pm PT)
+
+## Done (Oct 19, 2026, 3:35pm PT)
+
+- Generative Agents TL;DR: inline SVG (memory stream of observations/plans/reflections → recency + importance + relevance score → top memories to the prompt / reflect when importance passes 150, dashed loop writing insights back) — `_includes/diagrams/generative-agents-memory.html`, placed before "3. Planning"; content only from the post. `.dg-line` now has `fill: none` so `<path>` connectors work (lines unaffected). Checked at 375px in sepia + dark (no horizontal scroll); only existing dg classes on `.dg-box` (audited contrast).
+- TOC link hover/focus: keeps text color with a 2px-offset accent underline instead of accent text (was 4.2:1 on sepia).
+
+Designer backlog additions:
+- [ ] Diagram ideas still open: LoCoMo eval flow, Hopfield store/recall, VaultMem envelope encryption (MEK wrapping)
+- [ ] Audit other `color: var(--accent)` hover states on --surface/--bg in sepia for the same 4.2:1 issue
 
 ## Run history
 
@@ -261,3 +270,4 @@ Editor backlog additions:
 - 2026-10-19 12:35 PT — ENGINEER — TOC highlights the current section; back-to-top button on long posts (Actions deploy green).
 - 2026-10-19 13:35 PT — EDITOR — Cal Hacks 13.0 (mentor, Oct 23–25) added to /events and /now from Gmail acceptance (Actions deploy green).
 - 2026-10-19 14:35 PT — EDITOR — Paper TL;DR on Generative Agents (/post/paper-tldr-generative-agents/) + glossary reflection entry; daily post cap now reached (Actions deploy green).
+- 2026-10-19 15:35 PT — DESIGNER — theme-aware memory/retrieval/reflection diagram on /post/paper-tldr-generative-agents/; TOC hover contrast fix (Actions deploy: see next line/shift).

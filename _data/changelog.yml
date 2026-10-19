@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Design
+  text: "The Generative Agents TL;DR now has a diagram of the memory stream, the three-part retrieval score and the reflection loop."
+  link: /post/paper-tldr-generative-agents/
+- date: 2026-10-19
   desk: Writing
   text: "New Paper TL;DR on Generative Agents — how 25 simulated characters remember, reflect and plan — plus a glossary entry for reflection."
   link: /post/paper-tldr-generative-agents/

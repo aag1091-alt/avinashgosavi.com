@@ -40,6 +40,8 @@ So characters **reflect**. When the summed importance of recent memories passes 
 
 Those insights go back into the same memory stream, where they can be retrieved — and reflected on again. The result is a **reflection tree**: raw observations at the leaves, more abstract conclusions higher up.
 
+{% include diagrams/generative-agents-memory.html %}
+
 ## 3. Planning
 
 To keep behavior coherent across a day, each character drafts a rough plan (about five to eight chunks), then breaks each chunk into hour-long actions, then into 5–15 minute steps. Plans are stored in the memory stream too. At every step, the model decides whether something it just noticed is worth reacting to; if so, it rewrites the plan from that point.

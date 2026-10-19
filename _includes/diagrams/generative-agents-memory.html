@@ -1,0 +1,52 @@
+<figure class="diagram">
+<svg viewBox="0 0 378 366" role="img" aria-labelledby="ga-dg-title ga-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="ga-dg-title">How a generative agent remembers, retrieves and reflects</title>
+  <desc id="ga-dg-desc">Each character keeps a memory stream of natural-language entries with a creation time and a last-accessed time: observations, plans and reflections. When the character needs to act, every memory is scored on recency (decaying each game hour), importance (rated 1 to 10 by the model) and relevance (cosine similarity of embeddings); the scores are scaled to 0 to 1 and added. The top memories go into the prompt to choose the next action. When the importance of recent memories adds up past a threshold, the character reflects, and the insights it writes are stored back in the memory stream.</desc>
+  <defs>
+    <marker id="ga-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-group" x="6" y="4" width="348" height="118" rx="12"/>
+  <text class="dg-label" x="22" y="26">Memory stream</text>
+  <text class="dg-note" x="338" y="26" text-anchor="end">text + created + last used</text>
+  <rect class="dg-box" x="22" y="40" width="96" height="66" rx="8"/>
+  <text class="dg-body" x="70" y="66" text-anchor="middle">Observations</text>
+  <text class="dg-note" x="70" y="86" text-anchor="middle">what it saw</text>
+  <rect class="dg-box" x="132" y="40" width="96" height="66" rx="8"/>
+  <text class="dg-body" x="180" y="66" text-anchor="middle">Plans</text>
+  <text class="dg-note" x="180" y="86" text-anchor="middle">day → minutes</text>
+  <rect class="dg-box" x="242" y="40" width="96" height="66" rx="8"/>
+  <text class="dg-body" x="290" y="66" text-anchor="middle">Reflections</text>
+  <text class="dg-note" x="290" y="86" text-anchor="middle">insights</text>
+  <line class="dg-line" x1="180" y1="122" x2="180" y2="150" marker-end="url(#ga-dg-arrow)"/>
+  <rect class="dg-group" x="6" y="152" width="348" height="112" rx="12"/>
+  <text class="dg-label" x="22" y="174">Score each memory · sum of 0–1</text>
+  <rect class="dg-box" x="22" y="186" width="92" height="64" rx="8"/>
+  <text class="dg-body" x="68" y="208" text-anchor="middle">Recency</text>
+  <text class="dg-note" x="68" y="226" text-anchor="middle">decays each</text>
+  <text class="dg-note" x="68" y="241" text-anchor="middle">game hour</text>
+  <text class="dg-strong" x="124" y="224" text-anchor="middle">+</text>
+  <rect class="dg-box" x="134" y="186" width="92" height="64" rx="8"/>
+  <text class="dg-body" x="180" y="208" text-anchor="middle">Importance</text>
+  <text class="dg-note" x="180" y="226" text-anchor="middle">rated 1–10</text>
+  <text class="dg-note" x="180" y="241" text-anchor="middle">by the model</text>
+  <text class="dg-strong" x="236" y="224" text-anchor="middle">+</text>
+  <rect class="dg-box" x="246" y="186" width="92" height="64" rx="8"/>
+  <text class="dg-body" x="292" y="208" text-anchor="middle">Relevance</text>
+  <text class="dg-note" x="292" y="226" text-anchor="middle">cosine</text>
+  <text class="dg-note" x="292" y="241" text-anchor="middle">similarity</text>
+  <line class="dg-line" x1="98" y1="264" x2="98" y2="292" marker-end="url(#ga-dg-arrow)"/>
+  <line class="dg-line" x1="262" y1="264" x2="262" y2="292" marker-end="url(#ga-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="294" width="152" height="66" rx="8"/>
+  <text class="dg-strong" x="98" y="318" text-anchor="middle">Top memories</text>
+  <text class="dg-note" x="98" y="338" text-anchor="middle">go into the prompt</text>
+  <text class="dg-note" x="98" y="353" text-anchor="middle">→ next action</text>
+  <rect class="dg-box" x="186" y="294" width="152" height="66" rx="8"/>
+  <text class="dg-strong" x="262" y="318" text-anchor="middle">Reflect</text>
+  <text class="dg-note" x="262" y="338" text-anchor="middle">when importance</text>
+  <text class="dg-note" x="262" y="353" text-anchor="middle">adds up past 150</text>
+  <path class="dg-line dg-dash" d="M338 327 H368 V73 H341" marker-end="url(#ga-dg-arrow)"/>
+</svg>
+<figcaption>Everything lives in one stream. Retrieval ranks it three ways; reflection writes new, higher-level memories back into it (dashed loop).</figcaption>
+</figure>
