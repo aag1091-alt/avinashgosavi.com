@@ -129,7 +129,7 @@ Designer backlog additions:
 - Table of contents: posts with >= 1,200 words get a collapsible "On this page" box (h2 sections, needs >= 3) above the content; open by default at >= 700px, collapsed on phones. Opt out per post with `toc: false` in front matter. Markup in `_layouts/post.html`, built by JS in `_includes/post-tools.html`, styles `.post-toc` in style.css (theme tokens).
 
 Engineer backlog additions:
-- [ ] TOC: highlight the current section while scrolling (IntersectionObserver), if it stays tiny
+- [x] TOC: highlight the current section while scrolling (done Oct 19, 12:35pm PT)
 
 ## Done (Oct 19, 2026, 2:35am PT)
 
@@ -209,7 +209,15 @@ Designer backlog additions:
 
 Engineer backlog additions:
 - [ ] Images on non-post pages (projects, about) — check width/height if any are added
-- [ ] Reading progress bar or back-to-top on long posts (tiny CSS/JS)
+- [x] Back-to-top on long posts (done Oct 19, 12:35pm PT); reading progress bar skipped — TOC highlight covers it
+
+## Done (Oct 19, 2026, 12:35pm PT)
+
+- TOC scrollspy: IntersectionObserver on h2s in `_includes/post-tools.html`; current item = last h2 above 30% of the viewport, marked `aria-current` (bold + 2px accent underline — accent text on sepia surface is only 4.2:1, so the active item keeps text color).
+- Back-to-top pill (`.back-to-top`, fixed bottom-right) on posts that have the TOC box (>= 1,200 words); shows after 1.5 screens, respects prefers-reduced-motion, moves focus to the h1, hidden in print. Tested at 375px with Playwright on a mock page (no horizontal scroll).
+
+Engineer/Designer backlog additions:
+- [ ] Contrast: `.post-toc-list a:hover` uses --accent on --surface = 4.2:1 in sepia (below 4.5) — darken sepia hover or use underline only
 
 ## Run history
 
@@ -232,3 +240,4 @@ Engineer backlog additions:
 - 2026-10-19 09:35 PT — EDITOR — glossary entries for memory unlearning and sufficient evidence (/post/agent-memory-glossary/); title no longer hard-codes a term count (Actions deploy green).
 - 2026-10-19 10:35 PT — DESIGNER — theme-aware three-tier retrieval diagram on /post/vaultmem-encrypted-memory-for-ai-agents/ (Actions deploy green).
 - 2026-10-19 11:35 PT — ENGINEER — related posts skip same-series posts; width/height on post images to stop layout shift (Actions deploy green).
+- 2026-10-19 12:35 PT — ENGINEER — TOC highlights the current section; back-to-top button on long posts (Actions deploy green).
