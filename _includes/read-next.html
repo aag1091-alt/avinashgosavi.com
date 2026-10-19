@@ -4,6 +4,32 @@
 {% assign older_i = idx | plus: 1 %}
 {% assign newer = site.posts[newer_i] %}
 {% assign older = site.posts[older_i] %}
+{% comment %} Related posts: rank other posts by number of shared tags (ties: newer first), skipping the newer/older links below. {% endcomment %}
+{% assign related_keys = "" | split: "" %}
+{% if page.tags.size > 0 %}
+{% for p in site.posts %}
+  {% assign pi = forloop.index0 %}
+  {% if p.url != page.url and pi != newer_i and pi != older_i %}
+    {% assign shared = 0 %}
+    {% for t in p.tags %}{% if page.tags contains t %}{% assign shared = shared | plus: 1 %}{% endif %}{% endfor %}
+    {% if shared > 0 %}
+      {% assign rank = 999 | minus: pi %}
+      {% assign key = shared | append: ":" | append: rank %}
+      {% assign related_keys = related_keys | push: key %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% assign related_keys = related_keys | sort | reverse %}
+{% endif %}
+{% if related_keys.size > 0 %}
+<nav class="read-next related-posts" aria-label="Related posts">
+  <h2 class="read-next-title">Related posts</h2>
+  <ul class="read-next-list">
+    {% for key in related_keys limit: 3 %}{% assign parts = key | split: ":" %}{% assign rank = parts[1] | plus: 0 %}{% assign ri = 999 | minus: rank %}{% assign rp = site.posts[ri] %}
+    <li><a href="{{ rp.url | relative_url }}">{{ rp.title }}</a>{% if rp.description %}<span class="related-desc">{{ rp.description | truncatewords: 18 }}</span>{% endif %}</li>{% endfor %}
+  </ul>
+</nav>
+{% endif %}
 <nav class="read-next" aria-label="Read next">
   <h2 class="read-next-title">Keep reading</h2>
   <ul class="read-next-list">

@@ -1177,6 +1177,9 @@ body.theme-dark .about-image img {
 .read-next-list { list-style: none; padding: 0; margin: 0; }
 .read-next-list li { margin: 0.5rem 0; }
 .read-next-label { display: inline-block; min-width: 4rem; color: var(--text-muted); font-size: 0.85rem; }
+.related-posts + .read-next { margin-top: 2rem; }
+.related-posts .read-next-list li { margin: 0.75rem 0; }
+.related-desc { display: block; color: var(--text-muted); font-size: 0.88rem; line-height: 1.45; margin-top: 0.15rem; }
 .read-next-more { color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; }
 
 /* ---------- Tags ---------- */

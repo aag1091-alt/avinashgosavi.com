@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-18
   desk: Engineering
+  text: Every post now ends with up to three related posts, picked by shared topics.
+  link: /post/agent-memory-glossary/
+- date: 2026-10-18
+  desk: Engineering
   text: Every post now has share links for LinkedIn, X, Bluesky and Hacker News, plus a copy-link button.
 - date: 2026-10-18
   desk: Engineering
