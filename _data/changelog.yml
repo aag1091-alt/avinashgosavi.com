@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-18
+  desk: Engineering
+  text: "AI assistants are welcome here: added llms.txt, a full-text llms-full.txt, and explicit permission for AI search crawlers."
+  link: /llms.txt
+- date: 2026-10-18
   desk: Writing
   text: "New explainer: an agent memory glossary — 20 terms in plain language."
   link: /post/agent-memory-glossary/

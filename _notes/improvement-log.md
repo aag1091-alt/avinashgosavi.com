@@ -61,7 +61,6 @@ Engineer:
 - [ ] Table of contents for posts longer than ~1,200 words
 - [ ] Copy buttons on code blocks; heading anchor links
 - [ ] Site-wide search (JSON index of posts + pages)
-- [ ] JSON-LD BlogPosting on posts
 - [ ] CI: html-proofer for internal links only (don't fail on external links)
 
 General:
@@ -81,6 +80,17 @@ General:
   front-matter `read_time` is ignored
 - Alt text audit: no images missing alt
 - Dark-theme contrast audit: fixed active topic chip (was 2.0:1, now 7.4:1)
+
+## AI-agent discoverability (Oct 18, 2026)
+
+- robots.txt explicitly allows AI search/training crawlers; /llms.txt index
+  and /llms-full.txt (all post text) generated from site data — keep them
+  working when adding pages (add new top-level pages to llms.txt "Pages").
+- jekyll-seo-tag already emits BlogPosting JSON-LD on posts; homepage has
+  Person JSON-LD.
+- Waiting on Avinash: verify the site in Google Search Console and Bing
+  Webmaster Tools and submit /sitemap.xml (Bing's index feeds several AI
+  search products).
 
 ## Run history
 

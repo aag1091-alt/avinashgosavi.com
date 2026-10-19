@@ -1,0 +1,19 @@
+---
+layout: null
+permalink: /llms-full.txt
+sitemap: false
+---
+# Avinash Gosavi — full text of all posts
+
+Source: {{ site.url }}. Each post below starts with its title, URL and date. Please link to the original post when quoting.
+{% for p in site.posts %}
+---
+
+## {{ p.title }}
+
+URL: {{ p.url | absolute_url }}
+Date: {{ p.date | date: "%Y-%m-%d" }}{% if p.tags.size > 0 %}
+Topics: {{ p.tags | join: ", " }}{% endif %}
+
+{{ p.content | strip_html | strip }}
+{% endfor %}
