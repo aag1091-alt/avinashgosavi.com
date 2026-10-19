@@ -136,7 +136,7 @@ Engineer backlog additions:
 - Site-wide search: /search/ page (search.md, vanilla JS, ~120 lines) over /search.json (posts with first 8k chars of text, pages with titles, projects, papers, events). Weighted scoring (title > tags > description > text), all terms must match, highlighted snippets, ?q= shareable URLs. Header magnifier icon (`.header-search`), `/` shortcut on every page (focuses the page's search box, else opens /search/). Blog no-results and 404 link to it; llms.txt lists /search.json. CI step validates _site/search.json is JSON (fails build before deploy if broken). Contrast: mark text 9.0:1 sepia / 7.8:1 dark.
 
 Engineer backlog additions:
-- [ ] Search: include page body text (pages render after the index today, so only title+description are indexed) — maybe via a `search_text` front-matter field
+- [x] Search: include page body text (done Oct 19, 7:35am PT)
 - [ ] CI: Node 20 action deprecation warnings — bump actions/checkout, upload-pages-artifact, deploy-pages to current majors when available
 
 ## Done (Oct 19, 2026, 3:35am PT)
@@ -169,6 +169,14 @@ Designer backlog additions:
 - CI internal link checker: `scripts/check_links.py` (stdlib only, offline) scans every href/src in `_site`, verifies on-site targets exist and that `#fragments` match a real id (or a `data-tag`, for `/blog/#tag` filter links). Runs in the workflow with `continue-on-error: true`, so it never blocks deploys; problems appear as ::warning annotations (`gh run view <id>` shows them) and as a full list in the job summary. Run locally: `python3 scripts/check_links.py _site [--strict]`. First run: 0 broken after allowing tag-filter hashes.
 - Tip: `gh run view --log` and artifact downloads are Forbidden from the sandbox, but `gh run view <id>` (annotations) works.
 
+## Done (Oct 19, 2026, 7:35am PT)
+
+- Search indexes page body text: `scripts/enrich_search_index.py` (stdlib, offline) runs in CI right after `jekyll build`, reads each Page entry's built HTML, takes the visible text inside `<main>` (skips script/style/svg/button), and writes up to 8k chars into `_site/search.json`. `continue-on-error: true` and atomic rewrite, so a failure just leaves the old title+description index. Missing pages show as ::warning annotations (none on first run). Step tip: `gh api repos/aag1091-alt/avinashgosavi.com/actions/jobs/<job id> --jq '.steps[]'` shows per-step conclusions (continue-on-error hides failures from the run summary).
+
+Engineer backlog additions:
+- [ ] Search: index project/paper/event entries' own anchors (e.g. /projects/#vaultmem) once those cards get ids
+- [ ] CI: ubuntu-latest moves to Ubuntu 26 from Oct 19 — watch the next runs for python3/ruby breakage
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -185,3 +193,4 @@ Designer backlog additions:
 - 2026-10-19 04:35 PT — EDITOR — weekly roundup "This week in agent memory" (/post/this-week-in-agent-memory-2026-10-19/) (Actions deploy green).
 - 2026-10-19 05:35 PT — DESIGNER — theme-aware MemGPT memory-tiers diagram on /post/paper-tldr-memgpt/ (Actions deploy green).
 - 2026-10-19 06:35 PT — ENGINEER — CI internal link + #fragment checker (warnings only; 0 broken links found; Actions deploy green).
+- 2026-10-19 07:35 PT — ENGINEER — search now indexes page body text (Events, Uses, Research…) via a post-build CI step (Actions deploy green).
