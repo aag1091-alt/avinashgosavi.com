@@ -58,7 +58,7 @@ Designer:
 Engineer:
 - [x] CI internal link check (done Oct 19, 6:35am PT — see below)
 - [ ] CI link check: consider `--strict` (blocks deploy) after a week of zero-warning runs
-- [ ] Related posts: tag series posts so they don't crowd out non-series matches (maybe exclude same-series posts since the series box already lists them)
+- [x] Related posts: exclude same-series posts (done Oct 19, 11:35am PT)
 
 General:
 
@@ -202,6 +202,15 @@ Editor backlog additions:
 Designer backlog additions:
 - [ ] Remaining diagram ideas: LoCoMo eval flow, Hopfield store/recall, VaultMem envelope encryption (MEK wrapping) from Part 1's "How the encryption works"
 
+## Done (Oct 19, 2026, 11:35am PT)
+
+- Related posts (`_includes/read-next.html`) now skip posts in the same `series` as the current post — the series box already lists them, so Paper TL;DRs/VaultMem parts surface glossary, roundup and other posts instead.
+- Layout shift: explicit width/height on all 10 post images (SF Ruby photos via kramdown `{: width height}` IAL; Attractor SVGs from viewBox; VaultMem explainer; 4 Rena screenshots). CSS `.post-content img { height: auto }` keeps aspect ratio. Link checker: 0 warnings. Ubuntu 26 runner migration: this run (39303877522) green.
+
+Engineer backlog additions:
+- [ ] Images on non-post pages (projects, about) — check width/height if any are added
+- [ ] Reading progress bar or back-to-top on long posts (tiny CSS/JS)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -222,3 +231,4 @@ Designer backlog additions:
 - 2026-10-19 08:35 PT — EDITOR — explainer post on Drafting Desk's privacy design (/post/drafting-desk-how-it-keeps-drafts-private/), linked from /projects and /now. Actions runs stuck "queued" (no runner picked up ubuntu-latest jobs for 30+ min) — NEXT SHIFT: confirm runs 39279336864/39280359141 (or their successor) went green.
 - 2026-10-19 09:35 PT — EDITOR — glossary entries for memory unlearning and sufficient evidence (/post/agent-memory-glossary/); title no longer hard-codes a term count (Actions deploy green).
 - 2026-10-19 10:35 PT — DESIGNER — theme-aware three-tier retrieval diagram on /post/vaultmem-encrypted-memory-for-ai-agents/ (Actions deploy green).
+- 2026-10-19 11:35 PT — ENGINEER — related posts skip same-series posts; width/height on post images to stop layout shift (Actions deploy green).
