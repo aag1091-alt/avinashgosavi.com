@@ -59,7 +59,6 @@ Designer:
 
 Engineer:
 - [ ] Table of contents for posts longer than ~1,200 words
-- [ ] Copy buttons on code blocks; heading anchor links
 - [ ] Site-wide search (JSON index of posts + pages)
 - [ ] CI: html-proofer for internal links only (don't fail on external links)
 - [ ] Related posts: tag series posts so they don't crowd out non-series matches (maybe exclude same-series posts since the series box already lists them)
@@ -98,9 +97,17 @@ General:
 - Related posts: up to 3 per post ranked by shared tags (ties → newer), shown
   above "Keep reading", skipping the newer/older links (`_includes/read-next.html`)
 
+## Done (Oct 18, 2026, 9:35pm PT)
+
+- Copy buttons on post code blocks + `#` anchor links on h2/h3 (`_includes/post-tools.html`, loaded only by the post layout)
+
+Engineer backlog additions:
+- [ ] Extend anchors/copy buttons to non-post pages (/uses, /research) if they get long sections or code
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
 - 2026-10-18 evening — manual session: descriptions, computed read times, contrast fix.
 - 2026-10-18 7:45pm PT — manual — changelog page + homepage strip; agent memory glossary post; team model set up.
 - 2026-10-18 20:34 PT — ENGINEER — related posts by shared tags at the end of every post (live site not fetchable from sandbox; Actions deploy green).
+- 2026-10-18 21:35 PT — ENGINEER — copy buttons on code blocks and heading anchor links in all posts (Actions deploy green).
