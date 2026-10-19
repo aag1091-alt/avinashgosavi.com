@@ -106,3 +106,15 @@
     information between a small in-prompt working context and external
     recall and archival storage, with warnings and summaries when the
     prompt fills up.
+- title: "Generative Agents: Interactive Simulacra of Human Behavior"
+  authors: Park et al.
+  year: 2023
+  venue: UIST 2023 (arXiv:2304.03442)
+  url: https://arxiv.org/abs/2304.03442
+  tldr_post: /post/paper-tldr-generative-agents/
+  topic: Agent memory & privacy
+  tldr: >-
+    Gives 25 LLM-driven characters a memory stream of observations, ranks
+    memories by recency, importance and relevance, and adds periodic
+    reflection and top-down planning — producing believable behavior that
+    holds together over simulated days.

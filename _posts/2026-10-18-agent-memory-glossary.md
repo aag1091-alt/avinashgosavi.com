@@ -46,6 +46,8 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 
 **Consolidation.** Turning many specific episodes into durable, general knowledge — summarizing a month of conversations into "prefers short answers," for example. The brain's version is covered in the [Complementary Learning Systems TL;DR](/post/paper-tldr-complementary-learning-systems/).
 
+**Reflection.** Having the agent periodically read its recent memories and write down higher-level conclusions ("she cares a lot about her research"), stored back as memories that point to the evidence they came from. Introduced for LLM agents in [Generative Agents](/post/paper-tldr-generative-agents/), which also ranks memories by recency, importance and relevance together.
+
 **Decay (forgetting).** Letting memories that are never used fade in importance, so old noise doesn't crowd out what matters. Forgetting is a feature.
 
 **Associative (content-addressable) memory.** Retrieving a whole memory from a partial or noisy piece of it, rather than by key or address. Hopfield networks are the classic example — see [Hopfield (1982)](/post/paper-tldr-hopfield-1982/) and [the modern version](/post/paper-tldr-hopfield-networks-is-all-you-need/).
