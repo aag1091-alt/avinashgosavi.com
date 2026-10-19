@@ -1127,6 +1127,28 @@ body.theme-dark .about-image img {
 .series-parts li { margin: 0.4rem 0; }
 .series-meta { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }
 
+/* Table of contents on long posts (_layouts/post.html + _includes/post-tools.html) */
+.post-toc {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 0.7rem 1.1rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+.post-toc summary {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.post-toc summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.post-toc-list { margin: 0.5rem 0 0.1rem; padding-left: 1.3rem; }
+.post-toc-list li { margin: 0.25rem 0; }
+.post-toc-list a { color: var(--text); text-decoration: none; }
+.post-toc-list a:hover, .post-toc-list a:focus-visible { color: var(--accent); text-decoration: underline; }
+
 /* ---------- Events ---------- */
 .event-list { list-style: none; padding: 0; margin: 0 0 2.5rem; }
 .event-row {

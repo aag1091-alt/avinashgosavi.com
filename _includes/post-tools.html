@@ -1,6 +1,20 @@
 <script>
 (function(){
   var root=document.querySelector('.post-content'); if(!root) return;
+  // Table of contents for long posts (box rendered by _layouts/post.html when >= 1,200 words)
+  var toc=document.querySelector('.post-toc');
+  if(toc){
+    var hs=root.querySelectorAll('h2[id]'), list=toc.querySelector('ol');
+    if(hs.length>=3){
+      hs.forEach(function(h){
+        var li=document.createElement('li'), a=document.createElement('a');
+        a.href='#'+h.id; a.textContent=h.textContent.trim();
+        li.appendChild(a); list.appendChild(li);
+      });
+      if(window.matchMedia('(min-width: 700px)').matches) toc.open=true;
+      toc.hidden=false;
+    }
+  }
   // Heading anchor links (kramdown gives h2/h3 ids)
   root.querySelectorAll('h2[id], h3[id]').forEach(function(h){
     var a=document.createElement('a');
