@@ -1,0 +1,21 @@
+{% assign share_url = page.url | absolute_url | url_encode %}
+{% assign share_title = page.title | url_encode %}
+<div class="share" aria-label="Share this post">
+  <span class="share-label">Share</span>
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}" target="_blank" rel="noopener">LinkedIn</a>
+  <a href="https://x.com/intent/post?text={{ share_title }}&amp;url={{ share_url }}&amp;via=aag1091" target="_blank" rel="noopener">X</a>
+  <a href="https://bsky.app/intent/compose?text={{ share_title }}%20{{ share_url }}" target="_blank" rel="noopener">Bluesky</a>
+  <a href="https://news.ycombinator.com/submitlink?u={{ share_url }}&amp;t={{ share_title }}" target="_blank" rel="noopener">Hacker News</a>
+  <button type="button" class="share-copy" data-url="{{ page.url | absolute_url }}">Copy link</button>
+</div>
+<script>
+(function(){
+  var b=document.querySelector('.share-copy'); if(!b) return;
+  b.addEventListener('click',function(){
+    var u=b.getAttribute('data-url');
+    function done(){ b.textContent='Copied'; setTimeout(function(){ b.textContent='Copy link'; },1500); }
+    try { navigator.clipboard.writeText(u).then(done, function(){ window.prompt('Copy this link:', u); }); }
+    catch(e){ window.prompt('Copy this link:', u); }
+  });
+})();
+</script>

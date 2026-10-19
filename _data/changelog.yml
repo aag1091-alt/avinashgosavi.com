@@ -2,6 +2,9 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-18
   desk: Engineering
+  text: Every post now has share links for LinkedIn, X, Bluesky and Hacker News, plus a copy-link button.
+- date: 2026-10-18
+  desk: Engineering
   text: "AI assistants are welcome here: added llms.txt, a full-text llms-full.txt, and explicit permission for AI search crawlers."
   link: /llms.txt
 - date: 2026-10-18
