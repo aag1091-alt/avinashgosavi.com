@@ -11,6 +11,7 @@ Working notes for the recurring "improve avinashgosavi.com" task. Not published
   facts from: this repo's existing posts/data, the resume in Google Drive
   (Avinash_Gosavi_Resume.pdf), Gmail ticket/registration emails, his public
   GitHub repos, and published papers/pages you actually read.
+- **No current-work details:** don't describe what he is building at Cisco Meraki right now (he removed the "At work" Now item on Oct 18).
 - **Privacy:** never publish health, finances, family, immigration, job-search
   or interview details, or anything from personal email beyond event tickets.
 - **Small steps:** one focused change per commit, pushed to `main`; confirm the

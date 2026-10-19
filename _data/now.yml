@@ -1,11 +1,6 @@
 # Shown on /now and (first 4) on the homepage. Update `updated` when editing.
 updated: 2026-10-18
 items:
-  - label: At work
-    text: >-
-      Building an AI-assisted config discovery service at Cisco Meraki — it
-      reads a device's live running config, correlates it with telemetry and
-      error logs, and suggests improvements to network operators.
   - label: Building
     text: >-
       Drafting Desk, a writing app where the AI edits and asks questions but
