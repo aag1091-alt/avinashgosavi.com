@@ -156,6 +156,13 @@ Editor backlog additions:
 - [ ] Glossary: add "memory unlearning / forget requests" and "sufficient evidence" entries, linking the roundup
 - [ ] Next roundup: Monday Oct 26 (cover Oct 19–25)
 
+## Done (Oct 19, 2026, 5:35am PT)
+
+- MemGPT Paper TL;DR: inline SVG diagram of main context (system instructions / working context / FIFO queue) vs external context (recall / archival), with eviction and function-call arrows — `_includes/diagrams/memgpt-virtual-context.html`, content taken only from the post. New `.dg-group` (dashed container) and `.dg-label` (small caps label) classes in style.css. Contrast: muted text 5.7:1 sepia / 5.2:1 dark on box fill; checked at 375px in both themes (Playwright needs `executablePath: '/opt/pw-browsers/chromium'`).
+
+Designer backlog additions:
+- [ ] Diagram for the weekly roundup? (probably not — keep roundups text-only); LoCoMo eval flow diagram next
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -170,3 +177,4 @@ Editor backlog additions:
 - 2026-10-19 02:35 PT — ENGINEER — site-wide search at /search/ with header icon and / shortcut (Actions deploy green).
 - 2026-10-19 03:35 PT — EDITOR — Paper TL;DR on MemGPT (/post/paper-tldr-memgpt/) + glossary virtual-context entry (Actions deploy green).
 - 2026-10-19 04:35 PT — EDITOR — weekly roundup "This week in agent memory" (/post/this-week-in-agent-memory-2026-10-19/) (Actions deploy green).
+- 2026-10-19 05:35 PT — DESIGNER — theme-aware MemGPT memory-tiers diagram on /post/paper-tldr-memgpt/ (Actions deploy green).
