@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Design
+  text: Added a diagram to the MemGPT TL;DR showing the prompt's two memory tiers and how the model moves information between them.
+  link: /post/paper-tldr-memgpt/
+- date: 2026-10-19
   desk: Writing
   text: First weekly "This week in agent memory" roundup — seven new papers on forgetting when asked, picking enough evidence, and facts that change over time.
   link: /post/this-week-in-agent-memory-2026-10-19/

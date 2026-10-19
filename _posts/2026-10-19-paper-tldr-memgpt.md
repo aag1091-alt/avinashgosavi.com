@@ -33,6 +33,8 @@ MemGPT splits memory into two places.
 - **Recall storage:** the full message history, searchable on demand.
 - **Archival storage:** a store for arbitrary text the model chooses to save or look up later.
 
+{% include diagrams/memgpt-virtual-context.html %}
+
 The clever part is who moves things around: **the model does**. Its output is parsed as function calls (search recall, write to archival, edit working context), and the results are fed back in. A few mechanics make this work:
 
 - **Memory pressure warnings.** When the prompt gets close to full (the paper's example uses 70%), the system adds a warning so the model can save what matters before it's lost.

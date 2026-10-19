@@ -1,0 +1,39 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 432" role="img" aria-labelledby="memgpt-dg-title memgpt-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="memgpt-dg-title">MemGPT's two tiers of memory</title>
+  <desc id="memgpt-dg-desc">Main context is what is in the prompt: read-only system instructions, a small working context of key facts edited through function calls, and a FIFO message queue that starts with a summary of older messages. External context sits outside the prompt: recall storage holds the full message history and archival storage holds any text the model chooses to save. The oldest messages are evicted from the queue into recall storage, and the model searches and saves across both tiers with function calls.</desc>
+  <defs>
+    <marker id="memgpt-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-group" x="6" y="4" width="348" height="206" rx="12"/>
+  <text class="dg-label" x="22" y="26">Main context · in the prompt</text>
+  <rect class="dg-box" x="22" y="38" width="316" height="48" rx="8"/>
+  <text class="dg-strong" x="180" y="59" text-anchor="middle">System instructions</text>
+  <text class="dg-note" x="180" y="77" text-anchor="middle">read-only rules, incl. the memory functions</text>
+  <rect class="dg-box" x="22" y="94" width="316" height="48" rx="8"/>
+  <text class="dg-strong" x="180" y="115" text-anchor="middle">Working context</text>
+  <text class="dg-note" x="180" y="133" text-anchor="middle">small scratchpad of key facts</text>
+  <rect class="dg-box" x="22" y="150" width="316" height="48" rx="8"/>
+  <text class="dg-strong" x="180" y="171" text-anchor="middle">FIFO message queue</text>
+  <text class="dg-note" x="180" y="189" text-anchor="middle">running summary + recent messages</text>
+  <line class="dg-line dg-dash" x1="80" y1="200" x2="80" y2="302" marker-end="url(#memgpt-dg-arrow)"/>
+  <text class="dg-note" x="90" y="228">oldest messages</text>
+  <text class="dg-note" x="90" y="244">evicted, not deleted</text>
+  <line class="dg-line" x1="280" y1="202" x2="280" y2="302" marker-start="url(#memgpt-dg-arrow)" marker-end="url(#memgpt-dg-arrow)"/>
+  <text class="dg-note" x="270" y="266" text-anchor="end">function calls:</text>
+  <text class="dg-note" x="270" y="282" text-anchor="end">search, save, edit</text>
+  <rect class="dg-group" x="6" y="290" width="348" height="138" rx="12"/>
+  <rect class="dg-box" x="22" y="306" width="152" height="86" rx="8"/>
+  <text class="dg-strong" x="98" y="332" text-anchor="middle">Recall storage</text>
+  <text class="dg-note" x="98" y="354" text-anchor="middle">full message history,</text>
+  <text class="dg-note" x="98" y="372" text-anchor="middle">searchable</text>
+  <rect class="dg-box" x="186" y="306" width="152" height="86" rx="8"/>
+  <text class="dg-strong" x="262" y="332" text-anchor="middle">Archival storage</text>
+  <text class="dg-note" x="262" y="354" text-anchor="middle">any text the model</text>
+  <text class="dg-note" x="262" y="372" text-anchor="middle">chooses to keep</text>
+  <text class="dg-label" x="22" y="416">External context · outside the prompt</text>
+</svg>
+<figcaption>Main context is the prompt; external context is everything the model can page back in. The model itself moves information between them.</figcaption>
+</figure>
