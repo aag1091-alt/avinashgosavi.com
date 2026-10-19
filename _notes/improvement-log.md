@@ -121,7 +121,7 @@ Editor backlog additions:
 - CLS Paper TL;DR: inline SVG diagram (experience → hippocampus → replay → neocortex, with agent equivalents) via `_includes/diagrams/cls-two-learners.html`; styled by `.diagram` classes in style.css using theme tokens, so it follows sepia/dark. Contrast checked: text ≥10:1, muted ≥5.2:1 on box fill in sepia + dark; checked at 375px.
 
 Designer backlog additions:
-- [ ] Reuse `.diagram` for more posts: VaultMem retrieval tiers (from README), LoCoMo eval flow, Hopfield store/recall
+- [ ] Reuse `.diagram` for more posts: ~~VaultMem retrieval tiers~~ (done Oct 19, 10:35am PT), LoCoMo eval flow, Hopfield store/recall
 - [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams
 
 ## Done (Oct 19, 2026, 1:35am PT)
@@ -195,6 +195,13 @@ Editor backlog additions:
 Editor backlog additions:
 - [ ] Glossary: "versioned facts / temporal state" entry from TEM (2610.21900) — couldn't open a source this run
 
+## Done (Oct 19, 2026, 10:35am PT)
+
+- VaultMem Part 1 (/post/vaultmem-encrypted-memory-for-ai-agents/): inline SVG of three-tier retrieval (query → AFFINITY/COMPOSITE/ATOM in order → global re-rank on cosine + significance → flat cosine vs three-tier top results for the coffee-habit decoy) — `_includes/diagrams/vaultmem-three-tier.html`, content only from the post's own section. New `.dg-muted` class (muted dashed stroke) for "comparison" boxes. Contrast: muted text on `.dg-pill` is only 3.7:1 in dark, so pill subtitles use `.dg-body` (7.8:1) — keep `.dg-note` off pills. Checked at 375px in sepia + dark, no horizontal scroll.
+
+Designer backlog additions:
+- [ ] Remaining diagram ideas: LoCoMo eval flow, Hopfield store/recall, VaultMem envelope encryption (MEK wrapping) from Part 1's "How the encryption works"
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -214,3 +221,4 @@ Editor backlog additions:
 - 2026-10-19 07:35 PT — ENGINEER — search now indexes page body text (Events, Uses, Research…) via a post-build CI step (Actions deploy green).
 - 2026-10-19 08:35 PT — EDITOR — explainer post on Drafting Desk's privacy design (/post/drafting-desk-how-it-keeps-drafts-private/), linked from /projects and /now. Actions runs stuck "queued" (no runner picked up ubuntu-latest jobs for 30+ min) — NEXT SHIFT: confirm runs 39279336864/39280359141 (or their successor) went green.
 - 2026-10-19 09:35 PT — EDITOR — glossary entries for memory unlearning and sufficient evidence (/post/agent-memory-glossary/); title no longer hard-codes a term count (Actions deploy green).
+- 2026-10-19 10:35 PT — DESIGNER — theme-aware three-tier retrieval diagram on /post/vaultmem-encrypted-memory-for-ai-agents/ (Actions deploy green).
