@@ -56,7 +56,8 @@ Designer:
 - [ ] About page layout on mobile; 404 illustration
 
 Engineer:
-- [ ] CI: html-proofer for internal links only (don't fail on external links)
+- [x] CI internal link check (done Oct 19, 6:35am PT — see below)
+- [ ] CI link check: consider `--strict` (blocks deploy) after a week of zero-warning runs
 - [ ] Related posts: tag series posts so they don't crowd out non-series matches (maybe exclude same-series posts since the series box already lists them)
 
 General:
@@ -163,6 +164,11 @@ Editor backlog additions:
 Designer backlog additions:
 - [ ] Diagram for the weekly roundup? (probably not — keep roundups text-only); LoCoMo eval flow diagram next
 
+## Done (Oct 19, 2026, 6:35am PT)
+
+- CI internal link checker: `scripts/check_links.py` (stdlib only, offline) scans every href/src in `_site`, verifies on-site targets exist and that `#fragments` match a real id (or a `data-tag`, for `/blog/#tag` filter links). Runs in the workflow with `continue-on-error: true`, so it never blocks deploys; problems appear as ::warning annotations (`gh run view <id>` shows them) and as a full list in the job summary. Run locally: `python3 scripts/check_links.py _site [--strict]`. First run: 0 broken after allowing tag-filter hashes.
+- Tip: `gh run view --log` and artifact downloads are Forbidden from the sandbox, but `gh run view <id>` (annotations) works.
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -178,3 +184,4 @@ Designer backlog additions:
 - 2026-10-19 03:35 PT — EDITOR — Paper TL;DR on MemGPT (/post/paper-tldr-memgpt/) + glossary virtual-context entry (Actions deploy green).
 - 2026-10-19 04:35 PT — EDITOR — weekly roundup "This week in agent memory" (/post/this-week-in-agent-memory-2026-10-19/) (Actions deploy green).
 - 2026-10-19 05:35 PT — DESIGNER — theme-aware MemGPT memory-tiers diagram on /post/paper-tldr-memgpt/ (Actions deploy green).
+- 2026-10-19 06:35 PT — ENGINEER — CI internal link + #fragment checker (warnings only; 0 broken links found; Actions deploy green).
