@@ -201,3 +201,5 @@ The library is intentionally small — the code is the specification. If you're 
 **Part 2** covers what was built on top of this foundation in v0.2.0 and v0.2.1: multi-modal memory ingestion, temporal search, pluggable storage backends, HNSW vector indexing, and a query normalizer Protocol — including a live interactive demo.
 
 [VaultMem Part 2 — Multi-Modal, Temporal Search, and Pluggable Backends →](/post/vaultmem-part-2-multimodal-temporal-backends/)
+
+*New to terms like zero-knowledge storage, client-side encryption or episodic memory? The [agent memory glossary](/post/agent-memory-glossary/) explains them in plain language.*

@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-18
+  desk: Writing
+  text: The VaultMem, Attractor and Paper TL;DR posts now point to the agent memory glossary for quick definitions.
+  link: /post/agent-memory-glossary/
+- date: 2026-10-18
   desk: Engineering
   text: Code blocks in posts now have a copy button, and every section heading has a # link you can share.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/

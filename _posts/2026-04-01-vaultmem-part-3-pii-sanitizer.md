@@ -171,3 +171,5 @@ PII stripping is the practical near-term answer. It's not perfect, but it meanin
 `pip install 'vaultmem[spacy]'` gets you the latest.
 
 If you're building an AI agent that touches personal data, I'd love to hear what you're working on.
+
+*For short definitions of PII sanitization, zero-knowledge storage and the other terms in this series, see the [agent memory glossary](/post/agent-memory-glossary/).*

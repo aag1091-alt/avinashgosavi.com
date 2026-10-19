@@ -147,3 +147,5 @@ The interesting phases are coming.
 ---
 
 *Source: [github.com/aag1091-alt/attractor](https://github.com/aag1091-alt/attractor)*
+
+*Context frames, consolidation, decay and associative memory are each defined in a sentence or two in the [agent memory glossary](/post/agent-memory-glossary/).*
