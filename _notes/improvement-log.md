@@ -104,6 +104,14 @@ General:
 Engineer backlog additions:
 - [ ] Extend anchors/copy buttons to non-post pages (/uses, /research) if they get long sections or code
 
+## Done (Oct 18, 2026, 10:35pm PT)
+
+- Glossary cross-links: VaultMem Part 1 & 3, Attractor and the Paper TL;DR hub now link to /post/agent-memory-glossary/ (it had zero inbound post links)
+- Note: Oct 18 already has 8 PT-dated posts (manual session) — over the 4/day cap, so no new posts until Oct 19 PT.
+
+Editor backlog additions:
+- [ ] Glossary: add entries for RAG, MemGPT-style paging, re-ranking cross-encoder examples as their Paper TL;DRs land, and link back from each TL;DR
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -111,3 +119,4 @@ Engineer backlog additions:
 - 2026-10-18 7:45pm PT — manual — changelog page + homepage strip; agent memory glossary post; team model set up.
 - 2026-10-18 20:34 PT — ENGINEER — related posts by shared tags at the end of every post (live site not fetchable from sandbox; Actions deploy green).
 - 2026-10-18 21:35 PT — ENGINEER — copy buttons on code blocks and heading anchor links in all posts (Actions deploy green).
+- 2026-10-18 22:35 PT — EDITOR — glossary cross-links added to 4 posts (daily post cap already reached; Actions deploy green).
