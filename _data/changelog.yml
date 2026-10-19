@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-18
   desk: Engineering
+  text: Code blocks in posts now have a copy button, and every section heading has a # link you can share.
+  link: /post/vaultmem-encrypted-memory-for-ai-agents/
+- date: 2026-10-18
+  desk: Engineering
   text: Every post now ends with up to three related posts, picked by shared topics.
   link: /post/agent-memory-glossary/
 - date: 2026-10-18

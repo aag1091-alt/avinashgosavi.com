@@ -1247,3 +1247,37 @@ body.theme-dark .about-image img {
   cursor: pointer;
 }
 .share a:hover, .share-copy:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Heading anchors + code copy buttons (_includes/post-tools.html) */
+.post-content .heading-anchor {
+  margin-left: 0.4em;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.post-content h2:hover .heading-anchor,
+.post-content h3:hover .heading-anchor,
+.post-content .heading-anchor:focus-visible { opacity: 1; }
+.post-content .heading-anchor:hover { color: var(--accent); }
+@media (hover: none) { .post-content .heading-anchor { opacity: 0.6; } }
+.post-content h2[id], .post-content h3[id] { scroll-margin-top: 5rem; }
+.post-content .has-copy { position: relative; }
+.code-copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.2rem 0.55rem;
+  font: 500 0.75rem var(--font-sans);
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.has-copy:hover .code-copy, .code-copy:focus-visible { opacity: 1; }
+@media (hover: none) { .code-copy { opacity: 1; } }
+.code-copy:hover { color: var(--accent); border-color: var(--accent); }

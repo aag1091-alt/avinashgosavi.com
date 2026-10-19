@@ -1,0 +1,30 @@
+<script>
+(function(){
+  var root=document.querySelector('.post-content'); if(!root) return;
+  // Heading anchor links (kramdown gives h2/h3 ids)
+  root.querySelectorAll('h2[id], h3[id]').forEach(function(h){
+    var a=document.createElement('a');
+    a.className='heading-anchor'; a.href='#'+h.id;
+    a.setAttribute('aria-label','Link to section: '+h.textContent.trim());
+    a.textContent='#';
+    h.appendChild(a);
+  });
+  // Copy buttons on code blocks
+  if(!navigator.clipboard) return;
+  root.querySelectorAll('pre').forEach(function(pre){
+    var box=pre.closest('.highlighter-rouge')||pre;
+    if(box.querySelector('.code-copy')) return;
+    var b=document.createElement('button');
+    b.type='button'; b.className='code-copy'; b.textContent='Copy';
+    b.setAttribute('aria-label','Copy code to clipboard');
+    b.addEventListener('click',function(){
+      var code=pre.querySelector('code')||pre;
+      navigator.clipboard.writeText(code.innerText.replace(/\n$/,'')).then(function(){
+        b.textContent='Copied'; setTimeout(function(){ b.textContent='Copy'; },1500);
+      },function(){ b.textContent='Press Ctrl+C'; });
+    });
+    box.classList.add('has-copy');
+    box.appendChild(b);
+  });
+})();
+</script>
