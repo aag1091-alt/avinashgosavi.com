@@ -893,6 +893,7 @@ input:focus-visible {
   stroke-width: 1.5;
 }
 .diagram .dg-pill { fill: var(--accent-soft); }
+.diagram .dg-muted { stroke: var(--text-muted); stroke-dasharray: 5 4; }
 .diagram .dg-line {
   stroke: var(--accent);
   stroke-width: 2;

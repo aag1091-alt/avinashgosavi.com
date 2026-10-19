@@ -128,6 +128,8 @@ I ran a benchmark to verify this. Three topic clusters (coffee habits, Python us
 
 For the query *"my morning coffee habits"*, flat cosine ranks the decoy atom first (it contains the words "coffee habits" and "morning") and the AFFINITY second. Three-tier flips this — the AFFINITY's significance score (~0.92 for a well-established habit) outweighs the cosine advantage of the decoy.
 
+{% include diagrams/vaultmem-three-tier.html %}
+
 | Metric | Flat cosine | Three-tier | Δ |
 |--------|:-----------:|:----------:|:---:|
 | MRR (pattern queries) | 0.50 | **1.00** | **+0.50** |

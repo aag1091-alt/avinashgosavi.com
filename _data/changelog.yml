@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Design
+  text: Drew a diagram of VaultMem's three-tier retrieval — the order it searches, the global re-rank, and why the coffee-habit query stops falling for the decoy.
+  link: /post/vaultmem-encrypted-memory-for-ai-agents/
+- date: 2026-10-19
   desk: Writing
   text: Two new glossary entries from this week's papers — memory unlearning (forgetting exactly what you're asked to) and sufficient evidence (retrieving enough, not just what's relevant).
   link: /post/agent-memory-glossary/

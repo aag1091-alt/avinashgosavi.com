@@ -1,0 +1,40 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 496" role="img" aria-labelledby="vm3-dg-title vm3-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="vm3-dg-title">VaultMem's three-tier retrieval</title>
+  <desc id="vm3-dg-desc">A query is searched against three tiers in order: AFFINITY atoms, which are derived recurring patterns that carry a significance score; COMPOSITE groupings of related atoms; and individual ATOM statements. All results are then re-ranked globally using cosine similarity plus significance. For the query "my morning coffee habits", flat cosine ranks a decoy atom first and the AFFINITY second, while three-tier retrieval ranks the AFFINITY first.</desc>
+  <defs>
+    <marker id="vm3-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-pill" x="40" y="4" width="280" height="44" rx="22"/>
+  <text class="dg-body" x="180" y="31" text-anchor="middle">Query: “my morning coffee habits”</text>
+  <line class="dg-line" x1="180" y1="48" x2="180" y2="74" marker-end="url(#vm3-dg-arrow)"/>
+  <rect class="dg-group" x="6" y="78" width="348" height="196" rx="12"/>
+  <text class="dg-label" x="22" y="99">Searched in order</text>
+  <rect class="dg-box" x="22" y="108" width="316" height="48" rx="8"/>
+  <text class="dg-strong" x="180" y="129" text-anchor="middle">1 · AFFINITY</text>
+  <text class="dg-note" x="180" y="147" text-anchor="middle">derived pattern, carries significance σ</text>
+  <rect class="dg-box" x="22" y="164" width="316" height="48" rx="8"/>
+  <text class="dg-strong" x="180" y="185" text-anchor="middle">2 · COMPOSITE</text>
+  <text class="dg-note" x="180" y="203" text-anchor="middle">grouping of related atoms</text>
+  <rect class="dg-box" x="22" y="220" width="316" height="48" rx="8"/>
+  <text class="dg-strong" x="180" y="241" text-anchor="middle">3 · ATOM</text>
+  <text class="dg-note" x="180" y="259" text-anchor="middle">a single memory statement</text>
+  <line class="dg-line" x1="180" y1="274" x2="180" y2="300" marker-end="url(#vm3-dg-arrow)"/>
+  <rect class="dg-pill" x="40" y="304" width="280" height="52" rx="26"/>
+  <text class="dg-strong" x="180" y="326" text-anchor="middle">Global re-rank</text>
+  <text class="dg-body" x="180" y="345" text-anchor="middle">cosine similarity + significance σ</text>
+  <line class="dg-line" x1="262" y1="356" x2="262" y2="394" marker-end="url(#vm3-dg-arrow)"/>
+  <text class="dg-label" x="22" y="384">Top results</text>
+  <rect class="dg-box dg-muted" x="22" y="398" width="152" height="92" rx="8"/>
+  <text class="dg-strong" x="98" y="422" text-anchor="middle">Flat cosine</text>
+  <text class="dg-body" x="98" y="448" text-anchor="middle">1. decoy atom</text>
+  <text class="dg-body" x="98" y="470" text-anchor="middle">2. AFFINITY</text>
+  <rect class="dg-box" x="186" y="398" width="152" height="92" rx="8"/>
+  <text class="dg-strong" x="262" y="422" text-anchor="middle">Three-tier</text>
+  <text class="dg-body" x="262" y="448" text-anchor="middle">1. AFFINITY</text>
+  <text class="dg-body" x="262" y="470" text-anchor="middle">2. decoy atom</text>
+</svg>
+<figcaption>The decoy repeats the query's words, so flat cosine puts it first. The AFFINITY's significance score lifts the real habit to the top; specific queries rank the same as flat cosine.</figcaption>
+</figure>
