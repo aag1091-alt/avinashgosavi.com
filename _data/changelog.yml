@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Engineering
+  text: Search now looks inside pages like Events, Uses and Research, not just their titles — so searching for a tool or an event finds the page it lives on.
+  link: /search/
+- date: 2026-10-19
   desk: Design
   text: Added a diagram to the MemGPT TL;DR showing the prompt's two memory tiers and how the model moves information between them.
   link: /post/paper-tldr-memgpt/
