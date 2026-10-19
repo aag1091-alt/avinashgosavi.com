@@ -1,11 +1,11 @@
 # Shown on /now and (first 4) on the homepage. Update `updated` when editing.
-updated: 2026-10-18
+updated: 2026-10-19
 items:
   - label: Building
     text: >-
       Drafting Desk, a writing app where the AI edits and asks questions but
       never writes the post for you.
-    link: /projects/
+    link: /post/drafting-desk-how-it-keeps-drafts-private/
   - label: Judging
     text: Judging student projects at HackUMass XIV (UMass Amherst) on Nov 15.
     link: /events/

@@ -84,6 +84,7 @@
     exports Markdown with Jekyll front matter.
   tags: [JavaScript, LLMs, Writing tools, Local-first]
   github: https://github.com/aag1091-alt/drafting-desk
+  post: /post/drafting-desk-how-it-keeps-drafts-private/
 
 - name: VideoOnly Browser
   category: Tools I wanted for myself

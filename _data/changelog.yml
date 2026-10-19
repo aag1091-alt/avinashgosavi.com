@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Writing
+  text: Wrote up how Drafting Desk keeps drafts in your browser — no server, keys that can live in one tab only, a strict CSP, and an assistant that only sees what you ask about.
+  link: /post/drafting-desk-how-it-keeps-drafts-private/
+- date: 2026-10-19
   desk: Engineering
   text: Search now looks inside pages like Events, Uses and Research, not just their titles — so searching for a tool or an event finds the page it lives on.
   link: /search/
