@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Writing
+  text: Added Cal Hacks 13.0 to my events — I'll be mentoring hackers there at the Palace of Fine Arts, Oct 23–25.
+  link: /events/
+- date: 2026-10-19
   desk: Engineering
   text: "Long posts now underline the section you're reading in the \"On this page\" box, and a small \"Top\" button appears once you've scrolled a while."
   link: /post/vaultmem-encrypted-memory-for-ai-agents/
