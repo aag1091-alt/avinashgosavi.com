@@ -34,5 +34,6 @@ Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 - [Conferences & community]({{ "/events/" | absolute_url }}): events attended, hacked at or judged
 - [Uses]({{ "/uses/" | absolute_url }}): hardware, home inference server, tools and hosting stack
 - [Now]({{ "/now/" | absolute_url }}): current focus
+- [Search index]({{ "/search.json" | absolute_url }}): JSON list of every post (with text), page, project, paper and event
 - [Changelog]({{ "/changelog/" | absolute_url }}): what changed on the site recently
 - [RSS feed]({{ "/feed.xml" | absolute_url }})

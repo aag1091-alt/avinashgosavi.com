@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
   desk: Engineering
+  text: There's now a search page that looks through every post, project, paper and event at once — click the magnifier in the header or press / on any page.
+  link: /search/
+- date: 2026-10-19
+  desk: Engineering
   text: Longer posts now open with an "On this page" list of their sections, so you can jump straight to the part you want.
   link: /post/hobby-project-stack/
 - date: 2026-10-19

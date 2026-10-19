@@ -34,7 +34,7 @@ title: All Posts
     {% endfor %}
   </ul>
 
-  <p id="no-results" class="no-results" hidden>No posts match your search.</p>
+  <p id="no-results" class="no-results" hidden>No posts match your search. <a href="{{ '/search/' | relative_url }}">Search projects, papers and pages too →</a></p>
 </div>
 
 <script>

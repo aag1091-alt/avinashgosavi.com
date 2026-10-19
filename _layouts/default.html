@@ -26,5 +26,15 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  <script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target, tag = t && t.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
+    var box = document.getElementById('site-search') || document.getElementById('post-search');
+    e.preventDefault();
+    if (box) box.focus(); else location.href = '{{ "/search/" | relative_url }}';
+  });
+  </script>
 </body>
 </html>
