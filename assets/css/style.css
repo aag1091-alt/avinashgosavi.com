@@ -1192,7 +1192,7 @@ body.theme-dark .about-image img {
   cursor: pointer;
 }
 .tag-chip:hover { border-color: var(--accent); }
-.tag-chip.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tag-chip.is-active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .tag-count { opacity: 0.6; font-size: 0.75rem; margin-left: 0.15rem; }
 .post-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0.6rem 0 0; }
 .post-tags a {

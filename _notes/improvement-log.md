@@ -34,19 +34,23 @@ Working notes for the recurring "improve avinashgosavi.com" task. Not published
 
 ## Backlog (pick from the top; move to Done with a date)
 
-- [ ] Add `description:` front matter to older posts that lack one (better
-      search snippets than the auto excerpt)
-- [ ] Check every post's `read_time` roughly matches word count (~230 wpm)
-- [ ] Add alt text to any images missing it
 - [ ] Projects: short "what I learned" line per project — ONLY from facts in
       the project's own post/README
 - [ ] Events: link any other event to a recap if a post exists
-- [ ] Dark-theme contrast check for new components (chips, labels, cards)
 - [ ] Waiting on Avinash: favorite talks beyond SF Ruby, podcasts/YouTube,
       books, next papers to read (then add to /talks, a bookshelf, Paper TL;DR)
 - [ ] Waiting on Avinash: LinkedIn post for the Paper TL;DR series (draft
       ready in chat; never post without his OK)
 
+## Done (Oct 18, 2026, evening)
+
+- Search descriptions on all 16 older posts
+- Read times now computed from word count (`_includes/read-time.html`);
+  front-matter `read_time` is ignored
+- Alt text audit: no images missing alt
+- Dark-theme contrast audit: fixed active topic chip (was 2.0:1, now 7.4:1)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
+- 2026-10-18 evening — manual session: descriptions, computed read times, contrast fix.
