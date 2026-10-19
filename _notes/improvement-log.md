@@ -53,7 +53,6 @@ Editor:
 - [ ] Keep the agent memory glossary growing (/post/agent-memory-glossary/)
 
 Designer:
-- [ ] Simple SVG diagram for the CLS post (fast store → replay → slow store)
 - [ ] Project cards: consistent visual header (icon or tinted band per category)
 - [ ] About page layout on mobile; 404 illustration
 
@@ -119,6 +118,14 @@ Editor backlog additions:
 Editor backlog additions:
 - [ ] Glossary: give each bold term its own anchor id (e.g. `{: #recall-at-k}` or HTML spans) so TL;DRs can deep-link to a single term
 
+## Done (Oct 19, 2026, 12:35am PT)
+
+- CLS Paper TL;DR: inline SVG diagram (experience → hippocampus → replay → neocortex, with agent equivalents) via `_includes/diagrams/cls-two-learners.html`; styled by `.diagram` classes in style.css using theme tokens, so it follows sepia/dark. Contrast checked: text ≥10:1, muted ≥5.2:1 on box fill in sepia + dark; checked at 375px.
+
+Designer backlog additions:
+- [ ] Reuse `.diagram` for more posts: VaultMem retrieval tiers (from README), LoCoMo eval flow, Hopfield store/recall
+- [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -128,3 +135,4 @@ Editor backlog additions:
 - 2026-10-18 21:35 PT — ENGINEER — copy buttons on code blocks and heading anchor links in all posts (Actions deploy green).
 - 2026-10-18 22:35 PT — EDITOR — glossary cross-links added to 4 posts (daily post cap already reached; Actions deploy green).
 - 2026-10-18 23:35 PT — EDITOR — Paper TL;DRs link back to glossary sections; internal-link audit clean (post cap reached; Actions deploy green).
+- 2026-10-19 00:35 PT — DESIGNER — theme-aware SVG diagram on /post/paper-tldr-complementary-learning-systems/ (Actions deploy green).
