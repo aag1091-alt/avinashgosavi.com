@@ -186,6 +186,15 @@ Editor backlog additions:
 - [ ] Explainers for other projects without a post (VideoOnly Browser, What's New in AI) — read their READMEs first
 - [ ] Waiting on Avinash: why he built Drafting Desk / how he uses it — a first-person intro paragraph for the post
 
+## Done (Oct 19, 2026, 9:35am PT)
+
+- Glossary (beat e): two new entries — "Sufficient evidence" (Storing and finding; source: Beyond Marginal Influence on neurips.cc) and "Memory unlearning (forget requests)" (Privacy; source: Bemula on emergentmind.com) — each deep-links the matching theme of the Oct 19 roundup (anchors verified by CI link check). Title dropped the stale "20 Terms" count (now 24) and its share card regenerated. No new post (Oct 19 PT count stays 3).
+- Confirmed: previous shift's runs finished — 39282542875 green (39280359141 cancelled by concurrency; superseded).
+- Source tip: arXiv abs URLs need permission in unattended runs (withdrawn). Search for the title and fetch emergentmind.com/papers/<id> or the neurips.cc virtual page instead.
+
+Editor backlog additions:
+- [ ] Glossary: "versioned facts / temporal state" entry from TEM (2610.21900) — couldn't open a source this run
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -204,3 +213,4 @@ Editor backlog additions:
 - 2026-10-19 06:35 PT — ENGINEER — CI internal link + #fragment checker (warnings only; 0 broken links found; Actions deploy green).
 - 2026-10-19 07:35 PT — ENGINEER — search now indexes page body text (Events, Uses, Research…) via a post-build CI step (Actions deploy green).
 - 2026-10-19 08:35 PT — EDITOR — explainer post on Drafting Desk's privacy design (/post/drafting-desk-how-it-keeps-drafts-private/), linked from /projects and /now. Actions runs stuck "queued" (no runner picked up ubuntu-latest jobs for 30+ min) — NEXT SHIFT: confirm runs 39279336864/39280359141 (or their successor) went green.
+- 2026-10-19 09:35 PT — EDITOR — glossary entries for memory unlearning and sufficient evidence (/post/agent-memory-glossary/); title no longer hard-codes a term count (Actions deploy green).
