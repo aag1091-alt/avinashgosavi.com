@@ -1,0 +1,27 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 372" role="img" aria-labelledby="cls-dg-title cls-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="cls-dg-title">Two learners connected by replay</title>
+  <desc id="cls-dg-desc">A new experience is written quickly into the hippocampus, the fast learner that stores specific episodes; in an agent this is an episodic log or vector store. Replay, interleaved with older knowledge, slowly teaches the neocortex, the slow learner that extracts general structure; in an agent this is consolidated facts and preferences.</desc>
+  <defs>
+    <marker id="cls-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-pill" x="105" y="4" width="150" height="36" rx="18"/>
+  <text class="dg-strong" x="180" y="27" text-anchor="middle">New experience</text>
+  <line class="dg-line" x1="180" y1="42" x2="180" y2="86" marker-end="url(#cls-dg-arrow)"/>
+  <text class="dg-note" x="192" y="69">written once, fast</text>
+  <rect class="dg-box" x="20" y="90" width="320" height="92" rx="10"/>
+  <text class="dg-strong" x="180" y="118" text-anchor="middle">Hippocampus · fast learner</text>
+  <text class="dg-body" x="180" y="140" text-anchor="middle">keeps specific episodes apart</text>
+  <text class="dg-agent" x="180" y="166" text-anchor="middle">agent: episodic log / vector store</text>
+  <line class="dg-line dg-dash" x1="180" y1="184" x2="180" y2="254" marker-end="url(#cls-dg-arrow)"/>
+  <text class="dg-note" x="192" y="214">replay, mixed with</text>
+  <text class="dg-note" x="192" y="232">older knowledge</text>
+  <rect class="dg-box" x="20" y="258" width="320" height="92" rx="10"/>
+  <text class="dg-strong" x="180" y="286" text-anchor="middle">Neocortex · slow learner</text>
+  <text class="dg-body" x="180" y="308" text-anchor="middle">extracts general structure</text>
+  <text class="dg-agent" x="180" y="334" text-anchor="middle">agent: consolidated facts &amp; preferences</text>
+</svg>
+<figcaption>The two-learner idea from the paper, with the agent-memory equivalent of each part.</figcaption>
+</figure>

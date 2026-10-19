@@ -32,6 +32,8 @@ The authors argue the brain splits the job:
 
 The bridge between them is **replay**. Over time — notably during sleep — the hippocampus reactivates recent episodes, and the neocortex learns from those replays *interleaved* with older knowledge. That's consolidation: specific memories slowly become general knowledge without overwriting what came before.
 
+{% include diagrams/cls-two-learners.html %}
+
 The paper backs this with evidence from people with hippocampal damage, who struggle to form new episodic memories yet keep older knowledge, and with network simulations showing why interleaved learning avoids interference.
 
 ## Why it matters for AI agents

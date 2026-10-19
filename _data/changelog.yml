@@ -1,5 +1,9 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
+- date: 2026-10-19
+  desk: Design
+  text: The Complementary Learning Systems TL;DR now has a small diagram of the fast and slow learners, with the agent-memory version of each, in both sepia and dark.
+  link: /post/paper-tldr-complementary-learning-systems/
 - date: 2026-10-18
   desk: Writing
   text: Each Paper TL;DR now ends with a pointer to the glossary terms it uses, like Recall@k, consolidation and re-ranking.

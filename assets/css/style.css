@@ -875,6 +875,41 @@ input:focus-visible {
   border-radius: 8px;
 }
 
+/* Inline SVG diagrams in posts (theme-aware via CSS tokens) */
+.diagram {
+  margin: 2rem auto;
+  max-width: 400px;
+}
+.diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-sans);
+}
+.diagram .dg-box,
+.diagram .dg-pill {
+  fill: var(--code-bg);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+.diagram .dg-pill { fill: var(--accent-soft); }
+.diagram .dg-line {
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+.diagram .dg-dash { stroke-dasharray: 6 5; }
+.diagram .dg-head { fill: var(--accent); }
+.diagram .dg-strong { fill: var(--text); font-size: 16px; font-weight: 700; }
+.diagram .dg-body { fill: var(--text); font-size: 14px; }
+.diagram .dg-agent { fill: var(--text-muted); font-size: 13px; font-style: italic; }
+.diagram .dg-note { fill: var(--text-muted); font-size: 12.5px; }
+.diagram figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
 /* Tables */
 .post-content table {
   width: 100%;
