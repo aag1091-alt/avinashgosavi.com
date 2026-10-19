@@ -13,7 +13,42 @@
       });
       if(window.matchMedia('(min-width: 700px)').matches) toc.open=true;
       toc.hidden=false;
+      // Highlight the section being read
+      if('IntersectionObserver' in window){
+        var links={}, cur=null;
+        list.querySelectorAll('a').forEach(function(a){ links[a.hash.slice(1)]=a; });
+        var mark=function(id){
+          if(cur===id||!links[id]) return;
+          if(cur&&links[cur]) links[cur].removeAttribute('aria-current');
+          links[id].setAttribute('aria-current','true'); cur=id;
+        };
+        var io=new IntersectionObserver(function(){
+          // current = last h2 whose top is above 30% of the viewport
+          var line=window.innerHeight*0.3, id=hs[0].id;
+          hs.forEach(function(h){ if(h.getBoundingClientRect().top<=line) id=h.id; });
+          mark(id);
+        },{rootMargin:'0px 0px -70% 0px'});
+        hs.forEach(function(h){ io.observe(h); });
+      }
     }
+  }
+  // Back-to-top button on long posts (appears after scrolling 1.5 screens)
+  if(toc){
+    var top=document.createElement('a');
+    top.href='#'; top.className='back-to-top'; top.hidden=true;
+    top.setAttribute('aria-label','Back to top'); top.textContent='\u2191 Top';
+    top.addEventListener('click',function(ev){
+      ev.preventDefault();
+      var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({top:0,behavior:still?'auto':'smooth'});
+      var h1=document.querySelector('h1'); if(h1){ h1.setAttribute('tabindex','-1'); h1.focus({preventScroll:true}); }
+    });
+    document.body.appendChild(top);
+    var ticking=false;
+    window.addEventListener('scroll',function(){
+      if(ticking) return; ticking=true;
+      requestAnimationFrame(function(){ top.hidden=window.scrollY<window.innerHeight*1.5; ticking=false; });
+    },{passive:true});
   }
   // Heading anchor links (kramdown gives h2/h3 ids)
   root.querySelectorAll('h2[id], h3[id]').forEach(function(h){

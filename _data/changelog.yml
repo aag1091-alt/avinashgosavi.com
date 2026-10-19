@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
   desk: Engineering
+  text: "Long posts now underline the section you're reading in the \"On this page\" box, and a small \"Top\" button appears once you've scrolled a while."
+  link: /post/vaultmem-encrypted-memory-for-ai-agents/
+- date: 2026-10-19
+  desk: Engineering
   text: "Related posts at the end of a series post now skip the other parts of that series (the series box already lists them), so you see something new instead. Post images also reserve their space while loading, so the page no longer jumps."
   link: /post/paper-tldr-memgpt/
 - date: 2026-10-19
