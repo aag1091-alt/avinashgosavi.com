@@ -333,6 +333,14 @@ Engineer backlog additions:
 - [ ] Theme flash: the saved dark theme is applied by the header script (after the skip link renders) — consider setting a class on `<html>` in the head script and keying tokens off it to remove any first-paint flash
 - [ ] If theme colors change in style.css, update the hex values in default.html + theme-toggle.html too
 
+## Done (Oct 20, 2026, 2:34am PT)
+
+- Theme flash fix: an inline script right after `<body>` in `_layouts/default.html` sets `document.body.className` to the saved theme (localStorage `blog_color_theme`) before the skip link/header parse, so dark readers no longer get a sepia first paint. theme-toggle.html still runs `apply()` later (slider state, metas). Tested with Playwright on a mock page: class is theme-dark before any content when stored, theme-sepia otherwise, no JS errors. Run 39401816939 green.
+- Done: the "Theme flash" backlog item.
+
+Engineer backlog additions:
+- [ ] Theme: consider honoring `prefers-color-scheme: dark` for first-time visitors (no stored choice) — design call, ask Avinash first (default is sepia)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -368,3 +376,4 @@ Engineer backlog additions:
 - 2026-10-19 23:34 PT — EDITOR — older posts (coding again, AI tests, Jekyll, AI History generator, Rena, Whisper) cross-link each other (Actions deploy green).
 - 2026-10-20 00:34 PT — DESIGNER — project cards get a category icon + colored top band; homepage cards name the category (/projects/, /) (Actions deploy green).
 - 2026-10-20 01:34 PT — ENGINEER — mobile browser bar tint (theme-color) and native color-scheme follow sepia/dark, synced on toggle (Actions deploy green).
+- 2026-10-20 02:34 PT — ENGINEER — saved dark theme applied before first paint, no more sepia flash (Actions deploy green).
