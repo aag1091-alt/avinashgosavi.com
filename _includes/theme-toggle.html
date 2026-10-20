@@ -25,6 +25,10 @@
     var isDark = theme === 'dark';
     SLIDER.setAttribute('aria-checked', isDark ? 'true' : 'false');
     SLIDER.classList.toggle('is-dark', isDark);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', isDark ? '#1e1b16' : '#e8e0cc');
+    var scheme = document.querySelector('meta[name="color-scheme"]');
+    if (scheme) scheme.setAttribute('content', isDark ? 'dark' : 'light');
   }
 
   var stored = getStored();

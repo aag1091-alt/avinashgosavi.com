@@ -52,6 +52,7 @@ body.theme-sepia {
   --border: #dfd8c8;
   --border-header: #d5ccb8;
   --code-bg: #ebe4d2;
+  color-scheme: light;
 }
 
 /* 4. Soft blue-gray */
@@ -76,6 +77,8 @@ body.theme-dark {
   --border: #403a32;
   --border-header: #2d2822;
   --code-bg: #322e26;
+  /* native scrollbars, form controls and autofill follow the dark theme */
+  color-scheme: dark;
 }
 
 *,

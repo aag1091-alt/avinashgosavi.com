@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Engineering
+  text: "On phones, the browser's address bar now takes on the site's sepia or dark color, and scrollbars and form fields go dark with the dark theme."
+  link: /
+- date: 2026-10-20
   desk: Design
   text: "Project cards now carry a small icon and a colored top edge for their theme (memory & privacy, agents & voice, tools, just for fun), and the homepage cards name the theme too."
   link: /projects/

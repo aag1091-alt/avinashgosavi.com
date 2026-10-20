@@ -3,6 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- assign tc_theme = site.color_theme | default: 'white' -%}
+  {%- if tc_theme == 'dark' -%}{%- assign tc = '#1e1b16' -%}{%- elsif tc_theme == 'sepia' -%}{%- assign tc = '#e8e0cc' -%}{%- else -%}{%- assign tc = '#ffffff' -%}{%- endif %}
+  <meta name="theme-color" content="{{ tc }}">
+  <meta name="color-scheme" content="{% if tc_theme == 'dark' %}dark{% else %}light{% endif %}">
+  <script>
+    /* Tint the mobile browser bar to the saved theme before first paint (theme-toggle.html keeps it in sync). */
+    (function () { try {
+      var t = localStorage.getItem('blog_color_theme');
+      if (t === 'dark' || t === 'sepia') {
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#1e1b16' : '#e8e0cc');
+        document.querySelector('meta[name="color-scheme"]').setAttribute('content', t === 'dark' ? 'dark' : 'light');
+      }
+    } catch (e) {} })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
