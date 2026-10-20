@@ -45,7 +45,7 @@ homepage). Max 4 new posts/day, 1 per run.
 
 Editor:
 - [ ] Paper TL;DR candidates (read before writing): ~~MemGPT~~ (done Oct 19), ~~Generative Agents~~ (done Oct 19, 2:35pm PT), RAG (Lewis et
-      al., 2020), HNSW (Malkov & Yashunin, 2016), ColBERT (Khattab & Zaharia,
+      al., 2020) (done Oct 20, 8:35am PT), HNSW (Malkov & Yashunin, 2016), ColBERT (Khattab & Zaharia,
       2020), ~~Lost in the Middle~~ (done Oct 20, 3:34am PT)
 - [ ] Explainer: how VaultMem's three retrieval tiers work (from its README/posts)
 - [x] Explainer: how Drafting Desk keeps drafts private (done Oct 19, 8:35am PT)
@@ -379,6 +379,15 @@ Engineer backlog additions:
 - [ ] a11y lint: add checks for link text like "here"/"click here", `target=_blank` without rel=noopener, and tables without header cells; consider `--strict` after a week at 0
 - [ ] Color contrast can't be linted statically — keep the Playwright contrast scripts for designer shifts
 
+## Done (Oct 20, 2026, 8:35am PT)
+
+- Paper TL;DR #11: RAG (Lewis et al., 2020) at /post/paper-tldr-retrieval-augmented-generation/ — read from the arXiv abs v4 + PDF (affiliations, intro framing, Table 1, Jeopardy human eval, index hot-swap, retrieval collapse, broader impact). Venue left as arXiv (the PDF has no NeurIPS footer). Added to `_data/papers.yml` (no `why`). Glossary: new `#rag` entry after top-k retrieval. Post count Oct 20 PT: 3. Run 39450093496 green, no link/a11y warnings.
+- Events (beat d) checked: no new registrations in Gmail since Oct 19; nothing past-dated (Cal Hacks Oct 23).
+
+Editor backlog additions:
+- [ ] Waiting on Avinash: does VaultMem/daylog count as RAG in his framing, or did the RAG paper shape his work? If yes, a `why` in papers.yml + first-person line
+- [ ] Designer: RAG diagram (query encoder → index top-k → generator; swap-the-index callout), content only from the post
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -420,3 +429,4 @@ Engineer backlog additions:
 - 2026-10-20 05:35 PT — DESIGNER — U-shaped curve sketch on /post/paper-tldr-lost-in-the-middle/ (Actions deploy green).
 - 2026-10-20 06:35 PT — ENGINEER — per-series RSS feeds (/feed/paper-tldr.xml, /feed/vaultmem.xml) linked from /series and each series part; CI validates feeds (Actions deploy green).
 - 2026-10-20 07:35 PT — ENGINEER — CI accessibility lint on every deploy; task-list checkboxes in /post/reviewing-ai-generated-tests-istqb-framework/ now labelled for screen readers (Actions deploy green, 0 a11y warnings).
+- 2026-10-20 08:35 PT — EDITOR — Paper TL;DR on RAG (/post/paper-tldr-retrieval-augmented-generation/) + glossary RAG entry (Actions deploy green).
