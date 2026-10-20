@@ -53,7 +53,7 @@ Editor:
 
 Designer:
 - [ ] Project cards: consistent visual header (icon or tinted band per category)
-- [ ] About page layout on mobile; 404 illustration
+- [ ] About page layout on mobile (404 illustration done Oct 19, 7:35pm PT)
 
 Engineer:
 - [x] CI internal link check (done Oct 19, 6:35am PT — see below)
@@ -272,6 +272,16 @@ Editor backlog additions:
 Editor backlog additions:
 - [ ] Cross-link sweep of the other older posts (Attractor, Daylog, Hobby stack, Whisper transcription) to glossary terms where they already use them
 
+## Done (Oct 19, 2026, 7:35pm PT)
+
+- Sepia accent-text contrast: new `--accent-ink: #0a5f58` (sepia only) and all 17 `color: var(--accent)` rules now use `var(--accent-ink, var(--accent))` (fallback evaluated per element, so other themes keep --accent). Sepia accent text was 4.16:1 on --surface / 4.32:1 on --code-bg; now 5.7 / 5.9 / 6.6 on bg, and 4.56 on --accent-soft over surface. Dark unchanged (≥4.66 everywhere). Borders/fills/diagram strokes still use --accent.
+- 404 illustration: inline theme-aware SVG (sheet of paper + dotted trail + "?" ring), `.notfound-art` styles; trail dots drift only without prefers-reduced-motion. Checked at 375px in sepia + dark with Playwright (no horizontal scroll).
+- Done: the "Audit other color: var(--accent) hover states" and "404 illustration" backlog items.
+
+Designer backlog additions:
+- [ ] New accent-colored TEXT should use `var(--accent-ink, var(--accent))`, not `var(--accent)`
+- [ ] /papers :target note (style.css "accent links on --accent-soft drop to 3.8:1") — now 4.56:1 with --accent-ink; the tinted fill could come back
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -300,3 +310,4 @@ Editor backlog additions:
 - 2026-10-19 16:35 PT — ENGINEER — search deep-links to project cards (/projects/#slug) and papers (/research/#paper-slug) with :target highlight; fixed empty paper notes on /research (Actions deploy green).
 - 2026-10-19 17:34 PT — EDITOR — glossary terms get their own anchors; Paper TL;DRs deep-link exact terms (/post/agent-memory-glossary/) (Actions deploy green).
 - 2026-10-19 18:35 PT — EDITOR — glossary entries for versioned facts and event vs. write time (/post/agent-memory-glossary/#versioned-facts); VaultMem Part 2 links LoCoMo TL;DR + metric terms (Actions deploy green).
+- 2026-10-19 19:35 PT — DESIGNER — darker sepia accent text for WCAG contrast site-wide; illustrated 404 page (Actions deploy green).
