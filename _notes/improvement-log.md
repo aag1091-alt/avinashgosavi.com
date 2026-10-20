@@ -413,6 +413,13 @@ Engineer backlog additions:
 - [ ] a11y lint: links built by JS (search results, TOC) aren't covered — a Playwright pass in a designer/engineer shift could check them
 - [ ] Consider `--strict` for check_a11y.py after a week at 0 warnings (from Oct 27)
 
+## Done (Oct 20, 2026, 12:34pm PT)
+
+- /search/ type filter: chips (All / Posts / Projects / Papers / Events / Pages, with counts; only types that have hits; hidden when <2 kinds) built in search.md, `aria-pressed`, choice kept in the URL as `?q=…&type=Paper` (falls back to All if that type has no hits). Keyboard: ↓ from the box focuses the first result title, ↑/↓ walk results, ↑ on the first returns to the box, Esc clears (box) / returns to the box (results). Small "Tip" line with `<kbd>` only on hover+fine-pointer devices (`.search-hint`). Blog tag chips now set `aria-pressed` too. Tested with Playwright on a mock page at 375px dark (filter, URL, keys, no horizontal scroll, no JS errors). Run 39484888509 green, no link/a11y warnings.
+
+Engineer backlog additions:
+- [ ] Search: Enter could open the top result when the query hasn't changed since results rendered (ask whether that surprises people first — current Enter just re-renders)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -458,3 +465,4 @@ Engineer backlog additions:
 - 2026-10-20 09:35 PT — EDITOR — RAG TL;DR cross-linked from Lost in the Middle, LoCoMo, Sentence-BERT and the six-papers intro (Actions deploy green).
 - 2026-10-20 10:35 PT — DESIGNER — theme-aware retrieve-then-generate diagram on /post/paper-tldr-retrieval-augmented-generation/ (Actions deploy green).
 - 2026-10-20 11:34 PT — ENGINEER — a11y lint now flags vague link text, target=_blank without noopener and header-less tables; /research "Read more" links labelled per paper (Actions deploy green).
+- 2026-10-20 12:34 PT — ENGINEER — /search/ results filter by type (posts, projects, papers, events, pages) with shareable URL + arrow-key navigation; blog tag chips expose aria-pressed (Actions deploy green).
