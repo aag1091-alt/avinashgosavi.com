@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Design
+  text: "The HNSW TL;DR now has a small diagram of how a search hops across the top layers and drops down to finish up close."
+  link: /post/paper-tldr-hnsw/
+- date: 2026-10-20
   desk: Writing
   text: "The Sentence-BERT, Hopfield, Attractor and VaultMem Part 1 posts now point to the HNSW TL;DR wherever they mention vector indexes."
   link: /post/paper-tldr-hnsw/

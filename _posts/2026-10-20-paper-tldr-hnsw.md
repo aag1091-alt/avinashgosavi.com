@@ -29,6 +29,8 @@ The paper describes the idea as a [skip list](https://en.wikipedia.org/wiki/Skip
 - **Insertion.** A new item is placed by running the same descent, then — on each layer from its own top layer down — linking to up to `M` neighbors found by a wider search (`efConstruction`). If a neighbor ends up with too many links, its list is pruned back to a cap.
 - **A smarter way to pick neighbors.** Rather than always linking to the closest candidates, the heuristic keeps a candidate only if it's closer to the new item than to any neighbor already chosen. That spreads links out in different directions, which keeps separate clusters connected — exactly where plain NSW got stuck.
 
+{% include diagrams/hnsw-layered-search.html %}
+
 The knobs the paper discusses are few: `M` (links per item; it suggests roughly 5–48, higher for high-recall or high-dimensional data), `efConstruction` (build quality) and `ef` (search effort). The graph links cost roughly 60–450 bytes per item on top of the vectors themselves.
 
 ## What they found
