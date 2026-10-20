@@ -175,7 +175,7 @@ At small scale, exact cosine search over all atoms in RAM is fine. At 10,000 ato
 | 10,000 | ~148ms | ~0.8ms |
 | 100,000 | ~1,500ms | ~1.2ms |
 
-Below 1,000 atoms, the implementation falls back to exact cosine automatically — the HNSW graph has overhead that isn't worth paying at small N.
+Below 1,000 atoms, the implementation falls back to exact cosine automatically — the HNSW graph has overhead that isn't worth paying at small N. (For how the HNSW graph itself works, see the [Paper TL;DR on HNSW](/post/paper-tldr-hnsw/).)
 
 ```bash
 pip install "vaultmem[ann]"   # hnswlib

@@ -44,7 +44,7 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 **Retrieval-augmented generation (RAG).** Search first, then write: fetch the passages most relevant to the input and have the model generate its answer from them, instead of relying only on what's stored in its weights. The term comes from a 2020 paper that also showed you can update what the system knows by swapping the search index — see the [RAG TL;DR](/post/paper-tldr-retrieval-augmented-generation/).
 {: #rag .glossary-term}
 
-**Vector index (HNSW).** A data structure that makes "find the closest vectors" fast at scale. HNSW (Hierarchical Navigable Small World) builds layered graphs of neighbors so a search can hop quickly toward the right region instead of comparing against every vector.
+**Vector index (HNSW).** A data structure that makes "find the closest vectors" fast at scale. HNSW (Hierarchical Navigable Small World) builds layered graphs of neighbors so a search can hop quickly toward the right region instead of comparing against every vector. ([Paper TL;DR](/post/paper-tldr-hnsw/))
 {: #hnsw .glossary-term}
 
 **Re-ranking.** A second, slower and more careful pass over the top results — often a cross-encoder that reads the query and each candidate together — to put the truly relevant ones first.

@@ -140,3 +140,19 @@
     Pairs a seq2seq generator with a dense Wikipedia index, trains the
     retriever and generator together, and shows you can update what the
     model knows by swapping the index instead of retraining.
+- title: "Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs"
+  authors: Malkov & Yashunin
+  year: 2016
+  venue: arXiv:1603.09320 (IEEE TPAMI, 2018)
+  url: https://arxiv.org/abs/1603.09320
+  tldr_post: /post/paper-tldr-hnsw/
+  topic: Retrieval & embeddings
+  tldr: >-
+    Stacks sparse long-range neighbor graphs over a dense bottom layer so
+    nearest-neighbor search can hop down the layers in roughly logarithmic
+    time instead of comparing a query against every vector.
+  why: >-
+    VaultMem's optional HNSWVectorIndex (via hnswlib) is built on this
+    index, taking over from exact cosine search once a vault passes 1,000
+    memories.
+  post: /post/vaultmem-part-2-multimodal-temporal-backends/
