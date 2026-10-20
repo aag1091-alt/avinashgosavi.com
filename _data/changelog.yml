@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Design
+  text: "The Lost in the Middle TL;DR now has a small sketch of its U-shaped curve: passages help most at the start or end of a prompt, least in the middle."
+  link: /post/paper-tldr-lost-in-the-middle/
+- date: 2026-10-20
   desk: Writing
   text: "New explainer on VideoOnly Browser: how it says no to popups, redirects and downloads, and hides everything but the player with a single CSS rule."
   link: /post/videoonly-browser-how-it-works/

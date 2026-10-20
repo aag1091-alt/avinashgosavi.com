@@ -35,6 +35,8 @@ They ran open models (MPT-30B-Instruct, LongChat-13B) and API models (GPT-3.5-Tu
 - **More retrieved documents stop helping early.** In an open-domain QA case study, the retriever kept finding the answer more often as it returned more passages, but the model's accuracy flattened out well before that. Going from 20 to 50 passages bought only a point or two, at much higher cost and latency.
 - **Asking the question twice helps for lookups.** Putting the query both before and after the data made key-value retrieval near-perfect, but it barely changed the multi-document QA results.
 
+{% include diagrams/lost-in-the-middle-u-curve.html %}
+
 ## Why it matters for builders
 
 1. **Order is part of retrieval.** Ranking isn't just about *which* passages make the cut but *where* they land. Putting the best matches first (and not burying them under weaker ones) is cheap and directly addresses this. A [re-ranking](/post/agent-memory-glossary/#re-ranking) pass earns its keep here.

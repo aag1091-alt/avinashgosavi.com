@@ -905,6 +905,9 @@ input:focus-visible {
   stroke-width: 2;
 }
 .diagram .dg-dash { stroke-dasharray: 6 5; }
+.diagram .dg-curve { stroke-width: 3; stroke-linecap: round; }
+.diagram .dg-axis { fill: none; stroke: var(--text-muted); stroke-width: 1.25; }
+.diagram .dg-dot { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
 .diagram .dg-head { fill: var(--accent); }
 .diagram .dg-strong { fill: var(--text); font-size: 16px; font-weight: 700; }
 .diagram .dg-body { fill: var(--text); font-size: 14px; }
