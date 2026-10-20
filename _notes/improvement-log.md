@@ -324,6 +324,15 @@ Designer backlog additions:
 - [ ] Project cards: long hyphenated names (whisper-live-transcribe) wrap at the hyphen at 375px — fine, but consider `hyphens: none` / slightly smaller name size on phones
 - [ ] Reuse the category icons as small markers in /projects category headings
 
+## Done (Oct 20, 2026, 1:34am PT)
+
+- Browser UI follows the theme: `<meta name="theme-color">` (header surface: sepia #e8e0cc, dark #1e1b16) and `<meta name="color-scheme">` (light / dark) in `_layouts/default.html`, set from `site.color_theme`; a tiny head script reads the saved theme from localStorage before first paint, and `apply()` in `_includes/theme-toggle.html` updates both metas on toggle. CSS `color-scheme: light` on body.theme-sepia, `dark` on body.theme-dark (native scrollbars, inputs, autofill). Tested with Playwright on a mock page: toggle + reload keep metas in sync, no JS errors. Run 39394542822 green.
+- Done: the "`<meta name=\"theme-color\">` / `color-scheme` per theme" backlog item.
+
+Engineer backlog additions:
+- [ ] Theme flash: the saved dark theme is applied by the header script (after the skip link renders) — consider setting a class on `<html>` in the head script and keying tokens off it to remove any first-paint flash
+- [ ] If theme colors change in style.css, update the hex values in default.html + theme-toggle.html too
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -358,3 +367,4 @@ Designer backlog additions:
 - 2026-10-19 22:35 PT — EDITOR — daylog security, hobby stack and Whisper posts now cross-link each other, VaultMem, Sentence-BERT and glossary terms (Actions deploy green).
 - 2026-10-19 23:34 PT — EDITOR — older posts (coding again, AI tests, Jekyll, AI History generator, Rena, Whisper) cross-link each other (Actions deploy green).
 - 2026-10-20 00:34 PT — DESIGNER — project cards get a category icon + colored top band; homepage cards name the category (/projects/, /) (Actions deploy green).
+- 2026-10-20 01:34 PT — ENGINEER — mobile browser bar tint (theme-color) and native color-scheme follow sepia/dark, synced on toggle (Actions deploy green).
