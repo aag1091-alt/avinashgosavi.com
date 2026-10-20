@@ -9,6 +9,10 @@ Offline, stdlib only, runs in a second or two. For every HTML page it checks:
     aria-labelledby, title, img alt or svg <title>; aria-hidden parts ignored)
   - form fields have a label (aria-label, aria-labelledby, title or <label for>)
   - no duplicate id values on a page
+  - link text is not vague on its own ("here", "click here", "read more"...)
+    unless an aria-label gives the full purpose
+  - target="_blank" links carry rel="noopener" (or noreferrer)
+  - data tables have header cells (<th>); role="presentation" tables skipped
 
 Usage: python3 scripts/check_a11y.py [_site] [--strict]
 Exit code is 1 with --strict when anything is found, else always 0.
@@ -25,6 +29,14 @@ VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
         "meta", "param", "source", "track", "wbr"}
 FIELDS = {"input", "select", "textarea"}
 UNLABELLED_INPUT_TYPES = {"hidden", "submit", "button", "reset", "image"}
+# link text that says nothing out of context (WCAG 2.4.4); compared after
+# lower-casing and dropping punctuation/arrows
+VAGUE_LINK_TEXT = {"here", "click here", "click", "read more", "more", "link",
+                   "this", "this link", "learn more", "go", "details", "continue"}
+
+
+def norm(text):
+    return " ".join("".join(c if c.isalnum() or c.isspace() else " " for c in text.lower()).split())
 
 
 class Page(HTMLParser):
@@ -41,6 +53,7 @@ class Page(HTMLParser):
         self.stack = []  # open elements: dict(tag, hidden, name_parts, needs_name, line, desc)
         self.text_by_id = defaultdict(str)
         self.labelledby = []  # (rule, line, ids, desc)
+        self.tables = []  # open tables: [line, has_th, presentational]
 
     # -- helpers ---------------------------------------------------------
     def hidden(self):
@@ -68,6 +81,14 @@ class Page(HTMLParser):
             self.headings.append((int(tag[1]), line))
         if tag == "label" and a.get("for"):
             self.label_for.add(a["for"])
+        if tag == "a" and a.get("target") == "_blank":
+            rel = a.get("rel", "").lower().split()
+            if "noopener" not in rel and "noreferrer" not in rel:
+                self.issues.append(("blank-noopener", line, a.get("href", "")[:80]))
+        if tag == "table":
+            self.tables.append([line, False, a.get("role") in ("presentation", "none")])
+        if tag == "th" and self.tables:
+            self.tables[-1][1] = True
 
         hidden = a.get("aria-hidden") == "true" or "hidden" in a
         labelled = a.get("aria-label", "").strip() or a.get("title", "").strip()
@@ -115,6 +136,10 @@ class Page(HTMLParser):
             self.in_title = False
         if tag in VOID:
             return
+        if tag == "table" and self.tables:
+            tline, has_th, pres = self.tables.pop()
+            if not has_th and not pres:
+                self.issues.append(("table-header", tline, "<table> without <th>"))
         # pop to the matching open tag (tolerates sloppy HTML)
         for i in range(len(self.stack) - 1, -1, -1):
             if self.stack[i]["tag"] == tag:
@@ -129,6 +154,8 @@ class Page(HTMLParser):
                         self.add_name(name)
                     if e["needs"] and not name:
                         self.issues.append(("name", e["line"], e["desc"]))
+                    elif e["needs"] and e["tag"] == "a" and norm(name) in VAGUE_LINK_TEXT:
+                        self.issues.append(("link-text", e["line"], f'"{name}" {e["desc"]}'))
                 return
 
     def handle_data(self, data):
@@ -171,6 +198,9 @@ RULES = {
     "name": "link/button without an accessible name",
     "field-label": "form field without a label",
     "duplicate-id": "duplicate id",
+    "link-text": "vague link text",
+    "blank-noopener": "target=_blank without rel=noopener",
+    "table-header": "table without header cells",
 }
 
 

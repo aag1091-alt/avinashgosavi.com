@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Engineering
+  text: "The deploy-time accessibility check now also catches vague link text like \"click here\", new-tab links missing rel=noopener, and tables without header cells. The \"Read more\" links on /research now tell screen readers which paper they lead to."
+  link: /research/
+- date: 2026-10-20
   desk: Design
   text: "The RAG TL;DR now has a diagram of the whole loop: query encoder, the swappable Wikipedia index, the generator, and the one training signal that teaches them both."
   link: /post/paper-tldr-retrieval-augmented-generation/
