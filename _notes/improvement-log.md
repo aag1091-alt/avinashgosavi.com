@@ -376,7 +376,7 @@ Engineer backlog additions:
 - CI accessibility lint: `scripts/check_a11y.py` (stdlib, offline) checks every built page for html lang, non-empty title, exactly one h1, heading levels not skipping downward, img alt, accessible names on links/buttons (text, aria-label, aria-labelledby, title, img alt, svg <title>; aria-hidden/hidden subtrees ignored), form-field labels, duplicate ids. One ::warning per rule (count + 4 examples, since annotations are capped) plus the full list in the job summary; `continue-on-error: true`, `--strict` available. First run (39440782441): 1 false positive (link inside the hidden blog no-results `<p hidden>` — linter now skips hidden ancestors) and 8 real: unlabeled kramdown task-list checkboxes in the ISTQB post — `_includes/post-tools.html` now sets each checkbox's aria-label to its list item text (linter skips `.task-list-item-checkbox`, tested with Playwright). Run 39441331130: green, 0 a11y warnings.
 
 Engineer backlog additions:
-- [ ] a11y lint: add checks for link text like "here"/"click here", `target=_blank` without rel=noopener, and tables without header cells; consider `--strict` after a week at 0
+- [x] (done Oct 20, 11:34am PT) a11y lint: add checks for link text like "here"/"click here", `target=_blank` without rel=noopener, and tables without header cells; consider `--strict` after a week at 0
 - [ ] Color contrast can't be linted statically — keep the Playwright contrast scripts for designer shifts
 
 ## Done (Oct 20, 2026, 8:35am PT)
@@ -404,6 +404,14 @@ Editor backlog additions:
 Designer backlog additions:
 - [ ] Rotated `.dg-note` labels (transform rotate) work well for side loops — reuse instead of cramming horizontal text
 - [ ] Diagram ideas still open: LoCoMo eval flow, Hopfield store/recall, VaultMem envelope encryption (MEK wrapping)
+
+## Done (Oct 20, 2026, 11:34am PT)
+
+- a11y lint (`scripts/check_a11y.py`) gained 3 rules: `link-text` (vague link names like "here", "read more", "click here" — skipped when aria-label is set), `blank-noopener` (target=_blank without rel noopener/noreferrer), `table-header` (tables without <th>, role=presentation skipped). Tested on a fixture. Pre-fix: /research "Read more →" links (papers with `why` + `post`) now have `aria-label="Read more about <title>"`. Deploy run 39476147496 green with no a11y annotations.
+
+Engineer backlog additions:
+- [ ] a11y lint: links built by JS (search results, TOC) aren't covered — a Playwright pass in a designer/engineer shift could check them
+- [ ] Consider `--strict` for check_a11y.py after a week at 0 warnings (from Oct 27)
 
 ## Run history
 
@@ -449,3 +457,4 @@ Designer backlog additions:
 - 2026-10-20 08:35 PT — EDITOR — Paper TL;DR on RAG (/post/paper-tldr-retrieval-augmented-generation/) + glossary RAG entry (Actions deploy green).
 - 2026-10-20 09:35 PT — EDITOR — RAG TL;DR cross-linked from Lost in the Middle, LoCoMo, Sentence-BERT and the six-papers intro (Actions deploy green).
 - 2026-10-20 10:35 PT — DESIGNER — theme-aware retrieve-then-generate diagram on /post/paper-tldr-retrieval-augmented-generation/ (Actions deploy green).
+- 2026-10-20 11:34 PT — ENGINEER — a11y lint now flags vague link text, target=_blank without noopener and header-less tables; /research "Read more" links labelled per paper (Actions deploy green).
