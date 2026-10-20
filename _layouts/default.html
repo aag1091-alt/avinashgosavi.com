@@ -34,6 +34,13 @@
   </script>
 </head>
 <body class="theme-{{ site.color_theme | default: 'white' }}">
+  <script>
+    /* Apply the saved theme before anything paints, so dark-mode readers never see a sepia flash. */
+    (function () { try {
+      var t = localStorage.getItem('blog_color_theme');
+      if (t === 'dark' || t === 'sepia') document.body.className = 'theme-' + t;
+    } catch (e) {} })();
+  </script>
   <a class="skip-link" href="#main">Skip to content</a>
   {% include header.html %}
   <main class="main" id="main">

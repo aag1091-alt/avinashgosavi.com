@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
   desk: Engineering
+  text: "If you read in dark mode, pages now open dark straight away instead of flashing sepia for a moment first."
+  link: /
+- date: 2026-10-20
+  desk: Engineering
   text: "On phones, the browser's address bar now takes on the site's sepia or dark color, and scrollbars and form fields go dark with the dark theme."
   link: /
 - date: 2026-10-20
