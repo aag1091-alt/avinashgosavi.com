@@ -348,6 +348,14 @@ Engineer backlog additions:
 Editor backlog additions:
 - [ ] Optional diagram for Lost in the Middle: U-shaped accuracy vs. position sketch (qualitative only, no invented numbers)
 
+## Done (Oct 20, 2026, 4:35am PT)
+
+- Explainer (beat b): /post/videoonly-browser-how-it-works/ — popups (setWindowOpenHandler deny + app-wide fallback), redirect guard (user-started or same base domain; non-web schemes refused), leave-page traps, downloads/permissions denied, Ghostery + EasyList/EasyPrivacy, isolated-world preload, auto-pick scoring (≥300×150, area × 3 if playing, 1.3× rule after manual off), the `[data-vo-keep] > :not(...)` CSS rule, cross-origin iframe walk, e2e test + release workflow, honest limits (no DRM, unsigned Windows). Sourced only from the repo README + main.js/content-preload.js/urlutil.js (cloned publicly). Projects card links it (`post:`). Post count Oct 20 PT: 2. Run 39416144924 green, 0 link warnings.
+
+Editor backlog additions:
+- [ ] Explainer still open: What's New in AI (ai-newsletter repo) — read README first
+- [ ] Waiting on Avinash: why he built VideoOnly Browser — a first-person intro line for the post
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -385,3 +393,4 @@ Editor backlog additions:
 - 2026-10-20 01:34 PT — ENGINEER — mobile browser bar tint (theme-color) and native color-scheme follow sepia/dark, synced on toggle (Actions deploy green).
 - 2026-10-20 02:34 PT — ENGINEER — saved dark theme applied before first paint, no more sepia flash (Actions deploy green).
 - 2026-10-20 03:34 PT — EDITOR — Paper TL;DR on Lost in the Middle (/post/paper-tldr-lost-in-the-middle/) + glossary position-bias entry (Actions deploy green).
+- 2026-10-20 04:35 PT — EDITOR — explainer post on how VideoOnly Browser works (/post/videoonly-browser-how-it-works/), linked from /projects (Actions deploy green).
