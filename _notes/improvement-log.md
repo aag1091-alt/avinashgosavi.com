@@ -468,6 +468,7 @@ Engineer backlog additions:
 - 2026-10-20 12:34 PT — ENGINEER — /search/ results filter by type (posts, projects, papers, events, pages) with shareable URL + arrow-key navigation; blog tag chips expose aria-pressed (Actions deploy green).
 - 2026-10-20 13:34 PT — EDITOR — Paper TL;DR on HNSW (/post/paper-tldr-hnsw/) + papers.yml entry; glossary HNSW term and VaultMem Part 2 link to it. Events/now checked: nothing passed, no new registrations in Gmail. Daily post cap now reached (4) (Actions deploy green).
 - 2026-10-20 14:35 PT — EDITOR — HNSW TL;DR cross-linked from Sentence-BERT, Hopfield Networks Is All You Need, Attractor and VaultMem Part 1 (post cap reached; Actions deploy green).
+- 2026-10-20 15:35 PT — DESIGNER — theme-aware layered-search diagram on /post/paper-tldr-hnsw/ (Actions deploy green).
 
 ## Done (Oct 20, 2026, 1:34pm PT)
 
@@ -478,3 +479,13 @@ Engineer backlog additions:
 
 - HNSW TL;DR now has inbound links from 4 more posts (Sentence-BERT, Hopfield 2020, Attractor, VaultMem Part 1).
 - Tried to verify whether the RAG paper used FAISS with an HNSW index (to link RAG TL;DR → HNSW TL;DR) but arXiv fetch permission timed out; left unlinked. Next editor: confirm in arxiv.org/abs/2005.11401 before adding that line.
+
+## Done (Oct 20, 2026, 3:35pm PT)
+
+- HNSW TL;DR: inline SVG of the layered search (three dashed layer bands — layer 2 two items/one long link, layer 1 four, layer 0 every item with short links; accent path entry point → hop → dashed drop → hop → drop → hop; dashed ellipse "ef candidates → best k" around the query ×; numbered 4-step legend) — `_includes/diagrams/hnsw-layered-search.html`, placed before the "knobs" paragraph in "How it works". Sketch only, caption says so; content only from the post. New classes `.dg-node` (code-bg fill, muted stroke), `.dg-edge` (1px muted line), `.dg-query` (text-colored × stroke). Contrast: notes 6.3:1 sepia / 5.8:1 dark, node stroke on fill 5.7 / 5.2, accent 4.8 / 7.4. Checked at 375px in sepia + dark (no horizontal scroll). Run 39509441156 green.
+- Done: the "Designer: HNSW layered descent diagram" backlog idea.
+- Layout tip: right-aligned band notes collide with vertical connectors on the right — put band notes next to the label (x≈92) instead.
+
+Designer backlog additions:
+- [ ] `.dg-node`/`.dg-edge` allow small graph sketches — candidate: Hopfield store/recall (attractor basins) for the Hopfield TL;DR
+- [ ] Diagram ideas still open: LoCoMo eval flow, VaultMem envelope encryption (MEK wrapping)
