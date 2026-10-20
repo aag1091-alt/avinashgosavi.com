@@ -1,0 +1,43 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 428" role="img" aria-labelledby="rag-dg-title rag-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="rag-dg-title">How RAG retrieves, then generates</title>
+  <desc id="rag-dg-desc">The input goes to a BERT query encoder, which turns it into a query vector. The vector searches a FAISS index of about 21 million 100-word Wikipedia chunks from December 2018, whose document encoder stays frozen. The top-k passages go to a BART generator, the model's parametric memory, which writes the answer. The only training signal is whether the final answer is right, and it updates just the query encoder and the generator. The index can be swapped for one built from a 2016 Wikipedia dump, which changes what the model knows without retraining.</desc>
+  <defs>
+    <marker id="rag-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-pill" x="22" y="8" width="268" height="40" rx="20"/>
+  <text class="dg-body" x="156" y="33" text-anchor="middle">Input: a question or claim</text>
+  <line class="dg-line" x1="156" y1="48" x2="156" y2="70" marker-end="url(#rag-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="72" width="268" height="48" rx="8"/>
+  <text class="dg-strong" x="156" y="93" text-anchor="middle">Query encoder</text>
+  <text class="dg-note" x="156" y="111" text-anchor="middle">BERT · trained</text>
+  <line class="dg-line" x1="156" y1="120" x2="156" y2="152" marker-end="url(#rag-dg-arrow)"/>
+  <text class="dg-note" x="166" y="141">query vector</text>
+  <rect class="dg-group" x="10" y="154" width="292" height="124" rx="12"/>
+  <text class="dg-label" x="22" y="174">Non-parametric memory</text>
+  <rect class="dg-box" x="22" y="184" width="112" height="62" rx="8"/>
+  <text class="dg-strong" x="78" y="206" text-anchor="middle">Wikipedia</text>
+  <text class="dg-note" x="78" y="224" text-anchor="middle">Dec 2018 dump</text>
+  <text class="dg-note" x="78" y="240" text-anchor="middle">~21M chunks</text>
+  <line class="dg-line" x1="140" y1="215" x2="172" y2="215" marker-start="url(#rag-dg-arrow)" marker-end="url(#rag-dg-arrow)"/>
+  <rect class="dg-box dg-muted" x="178" y="184" width="112" height="62" rx="8"/>
+  <text class="dg-strong" x="234" y="206" text-anchor="middle">Wikipedia</text>
+  <text class="dg-note" x="234" y="224" text-anchor="middle">2016 dump</text>
+  <text class="dg-note" x="234" y="240" text-anchor="middle">no retraining</text>
+  <text class="dg-note" x="156" y="266" text-anchor="middle">FAISS + HNSW · document encoder frozen</text>
+  <line class="dg-line" x1="156" y1="278" x2="156" y2="310" marker-end="url(#rag-dg-arrow)"/>
+  <text class="dg-note" x="166" y="299">top-k passages</text>
+  <rect class="dg-box" x="22" y="312" width="268" height="48" rx="8"/>
+  <text class="dg-strong" x="156" y="333" text-anchor="middle">Generator</text>
+  <text class="dg-note" x="156" y="351" text-anchor="middle">BART · trained · parametric memory</text>
+  <line class="dg-line" x1="156" y1="360" x2="156" y2="382" marker-end="url(#rag-dg-arrow)"/>
+  <rect class="dg-pill" x="22" y="384" width="268" height="40" rx="20"/>
+  <text class="dg-body" x="156" y="409" text-anchor="middle">Answer, written from the passages</text>
+  <path class="dg-line dg-dash" d="M290 404 H326 V96 H294" marker-end="url(#rag-dg-arrow)"/>
+  <path class="dg-line dg-dash" d="M326 336 H294" marker-end="url(#rag-dg-arrow)"/>
+  <text class="dg-note" transform="translate(346 250) rotate(-90)" text-anchor="middle">learns only from the final answer</text>
+</svg>
+<figcaption>Only the query encoder and the generator are trained. The index stays frozen, so swapping it for an older Wikipedia dump changes what the model knows.</figcaption>
+</figure>

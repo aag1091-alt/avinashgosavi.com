@@ -34,6 +34,8 @@ Two variants decide how the passages get combined:
 
 One practical shortcut: only the query encoder and the generator are trained. The document encoder — and so the whole 21-million-vector index — stays frozen, because re-embedding Wikipedia during training is expensive. The authors report they didn't need that step for strong results.
 
+{% include diagrams/rag-retrieve-then-generate.html %}
+
 ## What they found
 
 - **Strong open-domain question answering.** On Natural Questions, WebQuestions and CuratedTrec, RAG beat the previous best systems in the paper's comparison, while writing answers instead of copying spans. On TriviaQA the picture is mixed: it led on one test split but not the standard one.

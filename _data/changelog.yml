@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Design
+  text: "The RAG TL;DR now has a diagram of the whole loop: query encoder, the swappable Wikipedia index, the generator, and the one training signal that teaches them both."
+  link: /post/paper-tldr-retrieval-augmented-generation/
+- date: 2026-10-20
   desk: Writing
   text: "The new RAG TL;DR is now woven into the series: Lost in the Middle, LoCoMo, Sentence-BERT and the six-papers intro link to it where they already talk about retrieval-augmented generation."
   link: /post/paper-tldr-retrieval-augmented-generation/
