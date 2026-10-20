@@ -299,6 +299,14 @@ Engineer backlog additions:
 - [ ] Print: check a real diagram post prints well (SVG text uses tokens, should follow the light override); maybe show the post URL + date under the title in print
 - [ ] `<meta name="theme-color">` / `color-scheme` per theme (browser UI tint on mobile)
 
+## Done (Oct 19, 2026, 10:35pm PT)
+
+- Cross-link sweep (beat e) of the daylog posts: daylog security links VaultMem Part 1 (on "vaultmem"), the Sentence-BERT TL;DR (after the all-MiniLM-L6-v2 paragraph) and ends with a footer to the hobby stack + glossary anchors (episodic/semantic/procedural/persona memory, embedding, semantic search, decay). Hobby stack's Whisper and vaultmem sections link the Whisper post, daylog security and VaultMem Part 1; the Whisper post ends with links to both. Wording only — no facts changed. Skipped zero-knowledge/client-side-encryption glossary links on daylog: its vault decrypts in server RAM, so those terms don't fit exactly. Attractor already had its glossary footer. CI link checker: 0 warnings. Oct 19 PT post cap already reached.
+- Done: the "Cross-link sweep of the other older posts" backlog item.
+
+Editor backlog additions:
+- [ ] Older non-memory posts (Codex skills, Jekyll site, ISTQB tests, AI history generator, Rena) — check for sensible links between them (e.g. Jekyll post ↔ /changelog, Rena ↔ Whisper/live audio) — only where the posts already discuss the topic
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -330,3 +338,4 @@ Engineer backlog additions:
 - 2026-10-19 19:35 PT — DESIGNER — darker sepia accent text for WCAG contrast site-wide; illustrated 404 page (Actions deploy green).
 - 2026-10-19 20:34 PT — ENGINEER — per-event anchors on /events; search results and /now link straight to each event (Actions deploy green).
 - 2026-10-19 21:35 PT — ENGINEER — print stylesheet: posts print/save-as-PDF as clean light pages with link URLs and wrapped code (Actions deploy green).
+- 2026-10-19 22:35 PT — EDITOR — daylog security, hobby stack and Whisper posts now cross-link each other, VaultMem, Sentence-BERT and glossary terms (Actions deploy green).
