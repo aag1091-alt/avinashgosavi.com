@@ -51,7 +51,7 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 [*Evaluating Very Long-Term Conversational Memory of LLM Agents* (LoCoMo)](https://arxiv.org/abs/2402.17753) · arXiv
 
-**TL;DR:** A benchmark of very long, multi-session conversations with questions that need single facts, multi-step reasoning, time awareness, or the sense to say "that never happened." Even strong long-context models and RAG setups struggle with it.
+**TL;DR:** A benchmark of very long, multi-session conversations with questions that need single facts, multi-step reasoning, time awareness, or the sense to say "that never happened." Even strong long-context models and [RAG](/post/agent-memory-glossary/#rag) setups struggle with it.
 
 **What I took from it:** my own little synthetic test was flattering me. Running [VaultMem against LoCoMo](/post/vaultmem-part-2-multimodal-temporal-backends/) gave me numbers I could actually trust — and showed me where retrieval was weak.
 

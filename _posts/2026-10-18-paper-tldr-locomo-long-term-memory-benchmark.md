@@ -31,7 +31,7 @@ On top of the conversations they built three tasks: answering questions, summari
 
 ## What they found
 
-Even with long context windows or retrieval-augmented generation, models trail human performance by a wide margin. Retrieval helps, but the hard categories stay hard — especially reasoning about time and resisting the urge to make up answers to adversarial questions. Bigger context alone doesn't fix it.
+Even with long context windows or [retrieval-augmented generation](/post/paper-tldr-retrieval-augmented-generation/), models trail human performance by a wide margin. Retrieval helps, but the hard categories stay hard — especially reasoning about time and resisting the urge to make up answers to adversarial questions. Bigger context alone doesn't fix it.
 
 ## How I used it
 

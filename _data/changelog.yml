@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
   desk: Writing
+  text: "The new RAG TL;DR is now woven into the series: Lost in the Middle, LoCoMo, Sentence-BERT and the six-papers intro link to it where they already talk about retrieval-augmented generation."
+  link: /post/paper-tldr-retrieval-augmented-generation/
+- date: 2026-10-20
+  desk: Writing
   text: "New Paper TL;DR on RAG (Lewis et al., 2020), the paper that named retrieval-augmented generation, including the neat trick of updating what a model knows by swapping its search index. The glossary has a new RAG entry too."
   link: /post/paper-tldr-retrieval-augmented-generation/
 - date: 2026-10-20

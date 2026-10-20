@@ -51,6 +51,6 @@ They ran open models (MPT-30B-Instruct, LongChat-13B) and API models (GPT-3.5-Tu
 - **One answer per prompt.** Each test has a single relevant passage. Real questions often need several facts combined, which this setup doesn't measure.
 - **Greedy decoding only,** and the key-value task is deliberately artificial, so it shows a capability gap rather than typical real-world behavior.
 
-Earlier in the series: [MemGPT](/post/paper-tldr-memgpt/) (paging what goes into the context window), [Generative Agents](/post/paper-tldr-generative-agents/) (ranking memories by recency, importance and relevance) and [Sentence-BERT](/post/paper-tldr-sentence-bert/) (the embeddings behind most of the retrieval step).
+Earlier in the series: [MemGPT](/post/paper-tldr-memgpt/) (paging what goes into the context window), [Generative Agents](/post/paper-tldr-generative-agents/) (ranking memories by recency, importance and relevance) and [Sentence-BERT](/post/paper-tldr-sentence-bert/) (the embeddings behind most of the retrieval step). Next in the series: [RAG](/post/paper-tldr-retrieval-augmented-generation/), the 2020 paper that named the retrieve-then-generate setup this paper stress-tests.
 
 Terms like [*context window*](/post/agent-memory-glossary/#context-window), [*position bias*](/post/agent-memory-glossary/#position-bias), [*re-ranking*](/post/agent-memory-glossary/#re-ranking) and [*top-k retrieval*](/post/agent-memory-glossary/#top-k-retrieval) are defined in the [agent memory glossary](/post/agent-memory-glossary/).
