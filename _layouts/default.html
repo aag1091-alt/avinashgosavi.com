@@ -52,6 +52,7 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  {%- if page.layout == 'default' %}{% include page-anchors.html %}{% endif %}
   <script>
   document.addEventListener('keydown', function(e) {
     if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;

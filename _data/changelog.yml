@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Engineering
+  text: "Section headings on pages like Uses, Research, Events and the changelog now have a # link, so you can share a link straight to one section."
+  link: /uses/
+- date: 2026-10-20
   desk: Design
   text: "The HNSW TL;DR now has a small diagram of how a search hops across the top layers and drops down to finish up close."
   link: /post/paper-tldr-hnsw/

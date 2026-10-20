@@ -1373,6 +1373,20 @@ h1[tabindex="-1"]:focus { outline: none; }
 .post-content .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
 @media (hover: none) { .post-content .heading-anchor { opacity: 0.6; } }
 .post-content h2[id], .post-content h3[id] { scroll-margin-top: 5rem; }
+/* Same "#" section links on regular pages (_includes/page-anchors.html) */
+h2.has-anchor { scroll-margin-top: 5rem; }
+h2.has-anchor .heading-anchor {
+  margin-left: 0.4em;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+h2.has-anchor:hover .heading-anchor,
+h2.has-anchor .heading-anchor:focus-visible { opacity: 1; }
+h2.has-anchor .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
+@media (hover: none) { h2.has-anchor .heading-anchor { opacity: 0.6; } }
 .post-content .has-copy { position: relative; }
 .code-copy {
   position: absolute;
