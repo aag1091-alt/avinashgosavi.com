@@ -79,13 +79,18 @@ class Page(HTMLParser):
         elif labelled and not hidden:
             self.add_name(labelled)
 
-        if tag in FIELDS and not hidden and a.get("type", "text") not in UNLABELLED_INPUT_TYPES:
+        # kramdown task-list checkboxes get an aria-label from their item text in
+        # _includes/post-tools.html (they are disabled, display-only)
+        task_box = "task-list-item-checkbox" in a.get("class", "")
+        if tag in FIELDS and not hidden and not task_box and not self.hidden() \
+                and a.get("type", "text") not in UNLABELLED_INPUT_TYPES:
             if not (labelled or a.get("aria-labelledby") or self.stack_has("label")):
                 self.fields.append((line, a.get("id", ""), f"<{tag} {a.get('type', '')}>".replace(" >", ">")))
 
         if tag in VOID:
             return
-        needs = tag in ("a", "button") and not hidden and (tag == "button" or "href" in a)
+        # skip elements that are hidden themselves or inside a hidden ancestor
+        needs = tag in ("a", "button") and not hidden and not self.hidden() and (tag == "button" or "href" in a)
         desc = f"<{tag}>" + (f" {a.get('href', '')[:80]}" if tag == "a" else "") + (f" .{a['class'].split()[0]}" if a.get("class") else "")
         if needs and a.get("aria-labelledby"):
             self.labelledby.append(("name", line, a["aria-labelledby"].split(), desc))

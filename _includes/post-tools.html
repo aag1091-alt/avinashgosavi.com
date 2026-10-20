@@ -58,6 +58,12 @@
     a.textContent='#';
     h.appendChild(a);
   });
+  // GFM task-list checkboxes (kramdown) have no label: name each one after its list item text
+  root.querySelectorAll('input.task-list-item-checkbox, li.task-list-item > input[type=checkbox]').forEach(function(c){
+    if(c.getAttribute('aria-label')||c.labels&&c.labels.length) return;
+    var t=(c.parentNode.textContent||'').replace(/\s+/g,' ').trim();
+    if(t) c.setAttribute('aria-label',t);
+  });
   // Copy buttons on code blocks
   if(!navigator.clipboard) return;
   root.querySelectorAll('pre').forEach(function(pre){

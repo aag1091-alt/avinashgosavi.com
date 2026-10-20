@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
   desk: Engineering
+  text: "Every deploy now runs a quick accessibility check (headings, alt text, link and form labels). Its one real catch is fixed: the checklist boxes in my AI-tests post now tell screen readers which item they belong to."
+  link: /post/reviewing-ai-generated-tests-istqb-framework/
+- date: 2026-10-20
+  desk: Engineering
   text: "Each series now has its own RSS feed, so you can follow just the Paper TL;DRs (or just VaultMem) without getting every post. Links are on /series and at the end of each part."
   link: /series/
 - date: 2026-10-20
