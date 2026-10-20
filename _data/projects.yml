@@ -95,6 +95,7 @@
     the player once a video starts. Windows, macOS and Linux installers.
   tags: [Electron, Chromium, Privacy]
   github: https://github.com/aag1091-alt/videoonly-browser
+  post: /post/videoonly-browser-how-it-works/
 
 - name: What's New in AI
   category: Agents & voice
