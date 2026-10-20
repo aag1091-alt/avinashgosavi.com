@@ -282,6 +282,15 @@ Designer backlog additions:
 - [ ] New accent-colored TEXT should use `var(--accent-ink, var(--accent))`, not `var(--accent)`
 - [ ] /papers :target note (style.css "accent links on --accent-soft drop to 3.8:1") — now 4.56:1 with --accent-ink; the tinted fill could come back
 
+## Done (Oct 19, 2026, 8:34pm PT)
+
+- Event deep links: each row on /events gets `id="{{ name | slugify }}"` (e.g. /events/#cal-hacks-13-0); search.json Event entries without a recap now point at that anchor; /now items (Mentoring, Judging, Going to) link their event's anchor. `.event-row:target` = accent bar only (no fill behind the role pill), scroll-margin under the header. CI link checker: 0 warnings (anchors resolve).
+- Done: the "Events: give event rows ids" backlog item.
+- Git tip: the persistent clone can be on a detached HEAD after a rebase — push with `git push origin HEAD:main`.
+
+Engineer backlog additions:
+- [ ] When an event moves to past and gets a recap, keep /now links pointing at the anchor or recap
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -311,3 +320,4 @@ Designer backlog additions:
 - 2026-10-19 17:34 PT — EDITOR — glossary terms get their own anchors; Paper TL;DRs deep-link exact terms (/post/agent-memory-glossary/) (Actions deploy green).
 - 2026-10-19 18:35 PT — EDITOR — glossary entries for versioned facts and event vs. write time (/post/agent-memory-glossary/#versioned-facts); VaultMem Part 2 links LoCoMo TL;DR + metric terms (Actions deploy green).
 - 2026-10-19 19:35 PT — DESIGNER — darker sepia accent text for WCAG contrast site-wide; illustrated 404 page (Actions deploy green).
+- 2026-10-19 20:34 PT — ENGINEER — per-event anchors on /events; search results and /now link straight to each event (Actions deploy green).
