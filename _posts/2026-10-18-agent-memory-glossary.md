@@ -47,6 +47,9 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 **Re-ranking.** A second, slower and more careful pass over the top results — often a cross-encoder that reads the query and each candidate together — to put the truly relevant ones first.
 {: #re-ranking .glossary-term}
 
+**Position bias (lost in the middle).** Models tend to use information at the start and end of a long prompt better than information buried in the middle, so *where* retrieved memories land in the prompt affects whether they get used. Putting the strongest matches first, and keeping top-k small, helps. See the [Lost in the Middle TL;DR](/post/paper-tldr-lost-in-the-middle/).
+{: #position-bias .glossary-term}
+
 **Hybrid search.** Combining meaning-based search with keyword search (or filters like dates and tags), because embeddings are bad at exact names, numbers and IDs.
 {: #hybrid-search .glossary-term}
 

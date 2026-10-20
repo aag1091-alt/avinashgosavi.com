@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Writing
+  text: "New Paper TL;DR on Lost in the Middle: models read the start and end of a long prompt far better than the middle, which changes how you should order retrieved context. The glossary gets a matching position-bias entry."
+  link: /post/paper-tldr-lost-in-the-middle/
+- date: 2026-10-20
   desk: Engineering
   text: "If you read in dark mode, pages now open dark straight away instead of flashing sepia for a moment first."
   link: /

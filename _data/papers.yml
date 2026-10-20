@@ -118,3 +118,14 @@
     memories by recency, importance and relevance, and adds periodic
     reflection and top-down planning — producing believable behavior that
     holds together over simulated days.
+- title: "Lost in the Middle: How Language Models Use Long Contexts"
+  authors: Liu et al.
+  year: 2023
+  venue: arXiv:2307.03172
+  url: https://arxiv.org/abs/2307.03172
+  tldr_post: /post/paper-tldr-lost-in-the-middle/
+  topic: Retrieval & embeddings
+  tldr: >-
+    Moves one relevant passage around a long prompt and finds a U-shaped
+    curve: models use information at the start or end far better than in
+    the middle, and longer context windows alone don't fix it.
