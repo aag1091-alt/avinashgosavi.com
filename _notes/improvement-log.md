@@ -256,6 +256,14 @@ Engineer backlog additions:
 - [ ] Events: give event rows ids and point search's Event entries without a recap at /events/#<slug>
 - [ ] CI: annotation still says actions/checkout@v4 + upload-artifact@v4 run on forced Node 24 — bump when v5/v6 majors are confirmed
 
+## Done (Oct 19, 2026, 5:35pm PT)
+
+- Glossary per-term anchors (beat e): all 25 definitions got a kramdown IAL `{: #slug .glossary-term}` (e.g. #reflection, #recall-at-k, #virtual-context, #hnsw). `.glossary-term:target` shows an accent bar (no tinted fill — accent links on --accent-soft are 3.8:1 in sepia), scroll-margin under the header. All 8 Paper TL;DR glossary footers now link each term to its own anchor (MemGPT adds virtual context, Generative Agents adds reflection). CI link checker: 0 fragment warnings, so the ids render. llms.txt events line now includes "mentored". Oct 19 PT post cap already reached, so no new post.
+- Done: the "Glossary: give each bold term its own anchor id" backlog item.
+
+Editor backlog additions:
+- [ ] New glossary terms must get a `{: #slug .glossary-term}` line right under the paragraph (no blank line)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -282,3 +290,4 @@ Engineer backlog additions:
 - 2026-10-19 14:35 PT — EDITOR — Paper TL;DR on Generative Agents (/post/paper-tldr-generative-agents/) + glossary reflection entry; daily post cap now reached (Actions deploy green).
 - 2026-10-19 15:35 PT — DESIGNER — theme-aware memory/retrieval/reflection diagram on /post/paper-tldr-generative-agents/; TOC hover contrast fix (Actions deploy green).
 - 2026-10-19 16:35 PT — ENGINEER — search deep-links to project cards (/projects/#slug) and papers (/research/#paper-slug) with :target highlight; fixed empty paper notes on /research (Actions deploy green).
+- 2026-10-19 17:34 PT — EDITOR — glossary terms get their own anchors; Paper TL;DRs deep-link exact terms (/post/agent-memory-glossary/) (Actions deploy green).
