@@ -48,7 +48,7 @@ layout: default
     <div class="project-grid">
       {% assign featured = site.data.projects | where: 'featured', true %}
       {% for project in featured limit: 4 %}
-        {% include project-card.html project=project %}
+        {% include project-card.html project=project show_category=true %}
       {% endfor %}
     </div>
     <p class="all-posts-link"><a href="{{ '/projects' | relative_url }}">All Projects →</a></p>

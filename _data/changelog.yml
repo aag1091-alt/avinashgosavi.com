@@ -1,5 +1,9 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
+- date: 2026-10-20
+  desk: Design
+  text: "Project cards now carry a small icon and a colored top edge for their theme (memory & privacy, agents & voice, tools, just for fun), and the homepage cards name the theme too."
+  link: /projects/
 - date: 2026-10-19
   desk: Writing
   text: "My older posts on working with LLMs, AI-generated tests, Jekyll, the AI History Blog Generator, Rena and live Whisper transcription now point to each other where they cover the same ground."

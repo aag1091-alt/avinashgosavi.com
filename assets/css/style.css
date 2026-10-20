@@ -1495,3 +1495,51 @@ h1[tabindex="-1"]:focus { outline: none; }
   h1, h2, h3 { break-after: avoid; }
   .post-content img { max-width: 100% !important; }
 }
+
+/* ---------- Project cards: category band + icon ---------- */
+/* Decorative only (non-text); each hue >= 3:1 on --surface in its theme. Text stays --text / --text-muted. */
+:root {
+  --cat-agents: #a3462a;
+  --cat-tools: #6f5f12;
+  --cat-fun: #7a4688;
+}
+body.theme-dark {
+  --cat-agents: #e39472;
+  --cat-tools: #b5c47e;
+  --cat-fun: #c9a3dc;
+}
+.project-card { position: relative; overflow: hidden; --cat: var(--accent); } /* memory = theme accent */
+.project-card[data-cat="agents-voice"] { --cat: var(--cat-agents); }
+.project-card[data-cat="tools-i-wanted-for-myself"] { --cat: var(--cat-tools); }
+.project-card[data-cat="just-for-fun"] { --cat: var(--cat-fun); }
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--cat);
+}
+.project-head { display: flex; align-items: center; gap: 0.65rem; }
+.project-icon {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  color: var(--cat);
+  background: color-mix(in srgb, var(--cat) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cat) 35%, transparent);
+}
+.project-head-text { min-width: 0; }
+.project-kicker {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+.project-head + .project-tagline { margin-top: 0.4rem; }
+@media print { .project-card::before { display: none; } }
