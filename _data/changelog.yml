@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
   desk: Engineering
+  text: "Printing a post (or saving it as a PDF) now gives a clean, light page: no menus, share buttons or table of contents, code wraps instead of getting cut off, and outside links show their address."
+  link: /post/paper-tldr-memgpt/
+- date: 2026-10-19
+  desk: Engineering
   text: "Every event on the events page now has its own link, so search results and the Now list jump straight to that event (Cal Hacks, OSA Con, HackUMass) instead of the top of the page."
   link: /events/#cal-hacks-13-0
 - date: 2026-10-19
