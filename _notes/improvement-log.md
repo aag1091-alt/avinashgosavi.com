@@ -45,9 +45,9 @@ homepage). Max 4 new posts/day, 1 per run.
 
 Editor:
 - [ ] Paper TL;DR candidates (read before writing): ~~MemGPT~~ (done Oct 19), ~~Generative Agents~~ (done Oct 19, 2:35pm PT), RAG (Lewis et
-      al., 2020) (done Oct 20, 8:35am PT), HNSW (Malkov & Yashunin, 2016), ColBERT (Khattab & Zaharia,
+      al., 2020) (done Oct 20, 8:35am PT), ~~HNSW (Malkov & Yashunin, 2016)~~ (done Oct 20, 1:34pm PT), ColBERT (Khattab & Zaharia,
       2020), ~~Lost in the Middle~~ (done Oct 20, 3:34am PT)
-- [ ] Explainer: how VaultMem's three retrieval tiers work (from its README/posts)
+- [ ] Explainer: how VaultMem's three retrieval tiers work — SKIP unless adding new material: already covered with diagram + benchmark in /post/vaultmem-encrypted-memory-for-ai-agents/ (checked Oct 20)
 - [x] Explainer: how Drafting Desk keeps drafts private (done Oct 19, 8:35am PT)
 - [ ] Keep the agent memory glossary growing (/post/agent-memory-glossary/)
 
@@ -466,3 +466,9 @@ Engineer backlog additions:
 - 2026-10-20 10:35 PT — DESIGNER — theme-aware retrieve-then-generate diagram on /post/paper-tldr-retrieval-augmented-generation/ (Actions deploy green).
 - 2026-10-20 11:34 PT — ENGINEER — a11y lint now flags vague link text, target=_blank without noopener and header-less tables; /research "Read more" links labelled per paper (Actions deploy green).
 - 2026-10-20 12:34 PT — ENGINEER — /search/ results filter by type (posts, projects, papers, events, pages) with shareable URL + arrow-key navigation; blog tag chips expose aria-pressed (Actions deploy green).
+- 2026-10-20 13:34 PT — EDITOR — Paper TL;DR on HNSW (/post/paper-tldr-hnsw/) + papers.yml entry; glossary HNSW term and VaultMem Part 2 link to it. Events/now checked: nothing passed, no new registrations in Gmail. Daily post cap now reached (4) (Actions deploy green).
+
+## Done (Oct 20, 2026, 1:34pm PT)
+
+- Paper TL;DR #12: HNSW, read from arXiv PDF (latest version) + abs v2 page; TPAMI DOI from opentrain.ai listing. Next candidates: ColBERT, DPR (Karpukhin et al., 2020 — RAG's retriever), product quantization (Jégou et al.).
+- Backlog idea (Designer): small theme-aware diagram of HNSW's layered descent for /post/paper-tldr-hnsw/.
