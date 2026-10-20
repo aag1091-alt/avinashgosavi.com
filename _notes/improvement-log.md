@@ -52,7 +52,7 @@ Editor:
 - [ ] Keep the agent memory glossary growing (/post/agent-memory-glossary/)
 
 Designer:
-- [ ] Project cards: consistent visual header (icon or tinted band per category)
+- [x] Project cards: consistent visual header (done Oct 20, 12:34am PT)
 - [ ] About page layout on mobile (404 illustration done Oct 19, 7:35pm PT)
 
 Engineer:
@@ -315,6 +315,15 @@ Editor backlog additions:
 Editor backlog additions:
 - [ ] Codex Skills post has no inbound/outbound links beyond fell-in-love/doing-right-thing — consider linking it from the AI-tests post if Avinash adds a test-review skill (waiting on him)
 
+## Done (Oct 20, 2026, 12:34am PT)
+
+- Project cards (`_includes/project-card.html`): 3px category band (`.project-card::before`) + 2rem icon chip with an inline stroke SVG per category (lock = Memory & privacy, mic = Agents & voice, wrench = Tools, sparkle = Just for fun), keyed by `data-cat="{{ category | slugify }}"`. Homepage passes `show_category=true` to add a small uppercase kicker with the category name (/projects already has category headings). Tokens `--cat-agents/--cat-tools/--cat-fun` on :root with dark overrides; memory uses the theme `--accent` (set on `.project-card`, not :root — :root resolves --accent to the white theme's blue). Decorative hues ≥4.16:1 sepia / ≥7.1:1 dark on --surface; kicker uses --text-muted (5.5 / 6.6). Checked at 375px + 900px in sepia and dark with Playwright on a mock page (no horizontal scroll). Run 39387695071 green, 0 link warnings.
+- Done: the "Project cards: consistent visual header" backlog item.
+
+Designer backlog additions:
+- [ ] Project cards: long hyphenated names (whisper-live-transcribe) wrap at the hyphen at 375px — fine, but consider `hyphens: none` / slightly smaller name size on phones
+- [ ] Reuse the category icons as small markers in /projects category headings
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -348,3 +357,4 @@ Editor backlog additions:
 - 2026-10-19 21:35 PT — ENGINEER — print stylesheet: posts print/save-as-PDF as clean light pages with link URLs and wrapped code (Actions deploy green).
 - 2026-10-19 22:35 PT — EDITOR — daylog security, hobby stack and Whisper posts now cross-link each other, VaultMem, Sentence-BERT and glossary terms (Actions deploy green).
 - 2026-10-19 23:34 PT — EDITOR — older posts (coding again, AI tests, Jekyll, AI History generator, Rena, Whisper) cross-link each other (Actions deploy green).
+- 2026-10-20 00:34 PT — DESIGNER — project cards get a category icon + colored top band; homepage cards name the category (/projects/, /) (Actions deploy green).
