@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
   desk: Writing
+  text: "The Sentence-BERT, Hopfield, Attractor and VaultMem Part 1 posts now point to the HNSW TL;DR wherever they mention vector indexes."
+  link: /post/paper-tldr-hnsw/
+- date: 2026-10-20
+  desk: Writing
   text: "New Paper TL;DR on HNSW, the layered neighbor graph behind most vector search, including the one VaultMem switches to past 1,000 memories. The glossary and VaultMem Part 2 now link to it."
   link: /post/paper-tldr-hnsw/
 - date: 2026-10-20

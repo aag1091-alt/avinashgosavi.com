@@ -38,7 +38,7 @@ That same 10,000-sentence search drops to about **5 seconds**.
 
 ## Why it still matters
 
-- **It made vector search practical.** Embed once, store in an index (pgvector, Qdrant, HNSW), and query in milliseconds. That's the foundation of nearly every [RAG](/post/paper-tldr-retrieval-augmented-generation/) system and agent memory store.
+- **It made vector search practical.** Embed once, store in an index (pgvector, Qdrant, [HNSW](/post/paper-tldr-hnsw/)), and query in milliseconds. That's the foundation of nearly every [RAG](/post/paper-tldr-retrieval-augmented-generation/) system and agent memory store.
 - **The library outlived the paper.** The `sentence-transformers` package that came out of this work is still how most people get embedding models running in a few lines.
 - **Small models are often enough.** The 384-dimension model I use in [Attractor](/post/attractor-memory-engine/) runs comfortably on a CPU — handy when the whole point is [keeping data on hardware you own](/uses/).
 

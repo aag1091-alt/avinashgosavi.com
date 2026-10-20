@@ -78,7 +78,7 @@ One step takes a pattern that's only loosely related to the target back to a per
 
 ## Why I care, as someone building agent memory
 
-Most agent memory today is "embed everything, return the top-k nearest neighbors." This paper reframes that: nearest-neighbor search is a crude, non-differentiable cousin of what attention already does well. It nudged me to build [Attractor](/post/attractor-memory-engine/) around retrieval by partial cues and context, and to think of memory as something that *settles* rather than something you *look up*.
+Most agent memory today is "embed everything, return the top-k nearest neighbors" (usually through an index like [HNSW](/post/paper-tldr-hnsw/)). This paper reframes that: nearest-neighbor search is a crude, non-differentiable cousin of what attention already does well. It nudged me to build [Attractor](/post/attractor-memory-engine/) around retrieval by partial cues and context, and to think of memory as something that *settles* rather than something you *look up*.
 
 ## Caveats worth knowing
 

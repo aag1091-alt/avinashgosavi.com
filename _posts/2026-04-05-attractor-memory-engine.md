@@ -14,7 +14,7 @@ So I started building something different. I called it **Attractor**.
 
 ## The Problem with How Machines Remember
 
-When you search a database, you give it a key and it returns a value. When you search a vector database, you give it a query and it returns the closest vectors by distance. Both are useful. But neither captures something important about how biological memory works — **context**.
+When you search a database, you give it a key and it returns a value. When you search a vector database, you give it a query and it returns the closest vectors by distance (usually via an approximate index like [HNSW](/post/paper-tldr-hnsw/)). Both are useful. But neither captures something important about how biological memory works — **context**.
 
 Think about how you remember things. You don't retrieve memories by key. You retrieve them by *partial cues* — a smell, a phrase, a situation. And the retrieval is shaped by context: what you were doing, who you were with, what problem you were trying to solve. Two memories with identical content mean different things depending on when and why they were formed.
 

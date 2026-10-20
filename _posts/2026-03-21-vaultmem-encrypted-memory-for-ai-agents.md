@@ -200,7 +200,7 @@ The library is intentionally small — the code is the specification. If you're 
 
 ---
 
-**Part 2** covers what was built on top of this foundation in v0.2.0 and v0.2.1: multi-modal memory ingestion, temporal search, pluggable storage backends, HNSW vector indexing, and a query normalizer Protocol — including a live interactive demo.
+**Part 2** covers what was built on top of this foundation in v0.2.0 and v0.2.1: multi-modal memory ingestion, temporal search, pluggable storage backends, HNSW vector indexing ([how HNSW works](/post/paper-tldr-hnsw/)), and a query normalizer Protocol — including a live interactive demo.
 
 [VaultMem Part 2 — Multi-Modal, Temporal Search, and Pluggable Backends →](/post/vaultmem-part-2-multimodal-temporal-backends/)
 
