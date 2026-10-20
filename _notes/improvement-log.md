@@ -469,6 +469,7 @@ Engineer backlog additions:
 - 2026-10-20 13:34 PT — EDITOR — Paper TL;DR on HNSW (/post/paper-tldr-hnsw/) + papers.yml entry; glossary HNSW term and VaultMem Part 2 link to it. Events/now checked: nothing passed, no new registrations in Gmail. Daily post cap now reached (4) (Actions deploy green).
 - 2026-10-20 14:35 PT — EDITOR — HNSW TL;DR cross-linked from Sentence-BERT, Hopfield Networks Is All You Need, Attractor and VaultMem Part 1 (post cap reached; Actions deploy green).
 - 2026-10-20 15:35 PT — DESIGNER — theme-aware layered-search diagram on /post/paper-tldr-hnsw/ (Actions deploy green).
+- 2026-10-20 16:35 PT — ENGINEER — # section links on h2s of all regular pages (/uses, /research, /events, /changelog, /projects…) (Actions deploy green).
 
 ## Done (Oct 20, 2026, 1:34pm PT)
 
@@ -489,3 +490,11 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] `.dg-node`/`.dg-edge` allow small graph sketches — candidate: Hopfield store/recall (attractor basins) for the Hopfield TL;DR
 - [ ] Diagram ideas still open: LoCoMo eval flow, VaultMem envelope encryption (MEK wrapping)
+
+## Done (Oct 20, 2026, 4:35pm PT)
+
+- Section links on regular pages: `_includes/page-anchors.html` (loaded by default.html only when `page.layout == 'default'`) gives every h2 in `<main>` an id (keeps existing ones like #papershelf; slug of the text, `&` → "and", `-2` suffix on collisions with project/event ids) and a hover `#` link (`h2.has-anchor`, same look as post anchors; 0.6 opacity on touch). Because ids are added after load, a shared #link gets one `scrollIntoView` (smooth scroll + 5rem scroll-margin). Changelog dates become e.g. /changelog/#october-20-2026. Tested with Playwright on a mock (375px dark): ids, labels, hash jump, no horizontal scroll, no JS errors. Run 39516140453 green, no annotations.
+- Done: the "Extend anchors/copy buttons to non-post pages" backlog item (anchors only; no code blocks on those pages).
+
+Engineer backlog additions:
+- [ ] Page anchor ids are JS-only, so the CI link checker can't verify links to them — if posts start linking /uses/#… etc., render those ids server-side instead
