@@ -371,6 +371,14 @@ Designer backlog additions:
 Engineer backlog additions:
 - [ ] New series in `_data/series.yml` need a stub `feed/<slug>.xml` (copy an existing one) — or the series box links a 404 (CI link checker would warn)
 
+## Done (Oct 20, 2026, 7:35am PT)
+
+- CI accessibility lint: `scripts/check_a11y.py` (stdlib, offline) checks every built page for html lang, non-empty title, exactly one h1, heading levels not skipping downward, img alt, accessible names on links/buttons (text, aria-label, aria-labelledby, title, img alt, svg <title>; aria-hidden/hidden subtrees ignored), form-field labels, duplicate ids. One ::warning per rule (count + 4 examples, since annotations are capped) plus the full list in the job summary; `continue-on-error: true`, `--strict` available. First run (39440782441): 1 false positive (link inside the hidden blog no-results `<p hidden>` — linter now skips hidden ancestors) and 8 real: unlabeled kramdown task-list checkboxes in the ISTQB post — `_includes/post-tools.html` now sets each checkbox's aria-label to its list item text (linter skips `.task-list-item-checkbox`, tested with Playwright). Run 39441331130: green, 0 a11y warnings.
+
+Engineer backlog additions:
+- [ ] a11y lint: add checks for link text like "here"/"click here", `target=_blank` without rel=noopener, and tables without header cells; consider `--strict` after a week at 0
+- [ ] Color contrast can't be linted statically — keep the Playwright contrast scripts for designer shifts
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -411,3 +419,4 @@ Engineer backlog additions:
 - 2026-10-20 04:35 PT — EDITOR — explainer post on how VideoOnly Browser works (/post/videoonly-browser-how-it-works/), linked from /projects (Actions deploy green).
 - 2026-10-20 05:35 PT — DESIGNER — U-shaped curve sketch on /post/paper-tldr-lost-in-the-middle/ (Actions deploy green).
 - 2026-10-20 06:35 PT — ENGINEER — per-series RSS feeds (/feed/paper-tldr.xml, /feed/vaultmem.xml) linked from /series and each series part; CI validates feeds (Actions deploy green).
+- 2026-10-20 07:35 PT — ENGINEER — CI accessibility lint on every deploy; task-list checkboxes in /post/reviewing-ai-generated-tests-istqb-framework/ now labelled for screen readers (Actions deploy green, 0 a11y warnings).
