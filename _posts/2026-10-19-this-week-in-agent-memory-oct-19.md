@@ -28,7 +28,7 @@ Why builders might care: "delete this" is a privacy feature users expect, and bo
 
 - **[TEM: Temporal State Tracking Memory for Large Language Model Agents](https://arxiv.org/abs/2610.21900)** (Song et al., Oct 15). A training-free approach that keeps each fact as a list of versions linked to their sources, orders retrieved versions, and labels older ones as historical before the answering model sees them. Event memory and raw dialogue turns fill in details the structured facts miss. The authors report better hit rates than session-aware RAG on two evaluations while using noticeably fewer evidence tokens.
 
-This connects to the older idea of [consolidation and memory updating](/post/agent-memory-glossary/#how-memories-change-over-time): rather than overwriting "I live in Austin" with "I moved to Denver", keep both and say which is current.
+This connects to the older idea of [consolidation and memory updating](/post/agent-memory-glossary/#how-memories-change-over-time): rather than overwriting "I live in Austin" with "I moved to Denver", keep both and say which is current. The glossary now has short entries on [versioned facts](/post/agent-memory-glossary/#versioned-facts) and [event time vs. write time](/post/agent-memory-glossary/#event-time).
 
 ## Two surveys worth bookmarking
 

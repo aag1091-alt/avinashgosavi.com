@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
   desk: Writing
+  text: "Two new glossary entries on time — versioned facts (keeping every value a fact has had) and event time vs. write time — plus links from VaultMem Part 2's benchmark section to the LoCoMo TL;DR and metric definitions."
+  link: /post/agent-memory-glossary/#versioned-facts
+- date: 2026-10-19
+  desk: Writing
   text: "Every term in the agent memory glossary now has its own link, and the Paper TL;DRs point straight at the exact definition (say, reflection or Recall@k) instead of a whole section."
   link: /post/agent-memory-glossary/#reflection
 - date: 2026-10-19

@@ -259,9 +259,9 @@ VaultSession.create("./health_vault", passphrase, owner="alice", data_class="MED
 
 ## The LoCoMo benchmark
 
-I wanted a more rigorous evaluation than the 18-atom synthetic benchmark I described in Part 1. The [LoCoMo dataset](https://arxiv.org/abs/2402.17753) is a collection of long-form conversational memory — 1,982 QA pairs across five categories (single-hop factual, multi-hop reasoning, temporal, adversarial, open-domain). It's the closest thing to a realistic test of a personal memory system.
+I wanted a more rigorous evaluation than the 18-atom synthetic benchmark I described in Part 1. The [LoCoMo dataset](https://arxiv.org/abs/2402.17753) is a collection of long-form conversational memory — 1,982 QA pairs across five categories (single-hop factual, multi-hop reasoning, temporal, adversarial, open-domain). It's the closest thing to a realistic test of a personal memory system. (For how the benchmark was built, see the [LoCoMo Paper TL;DR](/post/paper-tldr-locomo-long-term-memory-benchmark/).)
 
-VaultMem's Recall@10 and MRR scores on a random sample:
+VaultMem's [Recall@10](/post/agent-memory-glossary/#recall-at-k) and [MRR](/post/agent-memory-glossary/#mrr) scores on a random sample:
 
 | Category | Recall@10 | MRR |
 |----------|:---------:|:---:|

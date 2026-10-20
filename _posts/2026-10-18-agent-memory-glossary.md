@@ -67,6 +67,12 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 **Decay (forgetting).** Letting memories that are never used fade in importance, so old noise doesn't crowd out what matters. Forgetting is a feature.
 {: #decay .glossary-term}
 
+**Event time vs. write time.** Two different timestamps for one memory: when the thing happened, and when it was saved. A photo from 2019 imported today should come back for "what did I do in 2019?", not for "what did I add today?". [VaultMem Part 2](/post/vaultmem-part-2-multimodal-temporal-backends/#temporal-search) keeps them as separate fields (`captured_at` and `created_at`) for exactly this reason.
+{: #event-time .glossary-term}
+
+**Versioned facts (temporal state).** Keeping every value a fact has had — "lives in Boston", then "lives in Seattle" — as a list of versions linked to where each came from, instead of overwriting the old one. The newest version answers "where does she live?", while the older ones still answer "where did she live before?". The [TEM paper](https://www.emergentmind.com/papers/2610.21900) adds one more step: older versions are marked as historical before the model sees them, and the authors report that this label alone gave large gains on questions about repeatedly updated facts. See [this week's roundup](/post/this-week-in-agent-memory-2026-10-19/#theme-3-facts-that-change-over-time).
+{: #versioned-facts .glossary-term}
+
 **Associative (content-addressable) memory.** Retrieving a whole memory from a partial or noisy piece of it, rather than by key or address. Hopfield networks are the classic example — see [Hopfield (1982)](/post/paper-tldr-hopfield-1982/) and [the modern version](/post/paper-tldr-hopfield-networks-is-all-you-need/).
 {: #associative-memory .glossary-term}
 
