@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Writing
+  text: "New Paper TL;DR on RAG (Lewis et al., 2020), the paper that named retrieval-augmented generation, including the neat trick of updating what a model knows by swapping its search index. The glossary has a new RAG entry too."
+  link: /post/paper-tldr-retrieval-augmented-generation/
+- date: 2026-10-20
   desk: Engineering
   text: "Every deploy now runs a quick accessibility check (headings, alt text, link and form labels). Its one real catch is fixed: the checklist boxes in my AI-tests post now tell screen readers which item they belong to."
   link: /post/reviewing-ai-generated-tests-istqb-framework/
