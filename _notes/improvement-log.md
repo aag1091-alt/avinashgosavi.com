@@ -388,6 +388,14 @@ Editor backlog additions:
 - [ ] Waiting on Avinash: does VaultMem/daylog count as RAG in his framing, or did the RAG paper shape his work? If yes, a `why` in papers.yml + first-person line
 - [ ] Designer: RAG diagram (query encoder → index top-k → generator; swap-the-index callout), content only from the post
 
+## Done (Oct 20, 2026, 9:35am PT)
+
+- Cross-links (beat e) for the new RAG TL;DR: Lost in the Middle footer ("Next in the series: RAG"), LoCoMo's "retrieval-augmented generation", Sentence-BERT's "RAG system" and the six-papers intro's "RAG setups" (→ glossary #rag; his post, link only, wording unchanged). No new post (Oct 20 PT count stays 3). Run 39458912798 green, 0 link warnings.
+- External link sweep attempted: curl to arXiv/github.io/etc. returns 000 through the sandbox proxy, so external links can't be checked from here — don't retry; rely on CI or a manual check.
+
+Editor backlog additions:
+- [ ] Projects "what I learned" line: only AI History Blog Generator ("What Surprised Me") and whisper-live-transcribe ("what I learned") have sourced lessons — not enough for a site-wide field yet; ask Avinash or do per-card only where the post states it
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -430,3 +438,4 @@ Editor backlog additions:
 - 2026-10-20 06:35 PT — ENGINEER — per-series RSS feeds (/feed/paper-tldr.xml, /feed/vaultmem.xml) linked from /series and each series part; CI validates feeds (Actions deploy green).
 - 2026-10-20 07:35 PT — ENGINEER — CI accessibility lint on every deploy; task-list checkboxes in /post/reviewing-ai-generated-tests-istqb-framework/ now labelled for screen readers (Actions deploy green, 0 a11y warnings).
 - 2026-10-20 08:35 PT — EDITOR — Paper TL;DR on RAG (/post/paper-tldr-retrieval-augmented-generation/) + glossary RAG entry (Actions deploy green).
+- 2026-10-20 09:35 PT — EDITOR — RAG TL;DR cross-linked from Lost in the Middle, LoCoMo, Sentence-BERT and the six-papers intro (Actions deploy green).
