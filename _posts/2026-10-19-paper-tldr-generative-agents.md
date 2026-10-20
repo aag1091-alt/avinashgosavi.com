@@ -68,4 +68,4 @@ To keep behavior coherent across a day, each character drafts a rough plan (abou
 
 Earlier in the series: [MemGPT](/post/paper-tldr-memgpt/) (an OS-style alternative where the model pages its own memory), [Complementary Learning Systems](/post/paper-tldr-complementary-learning-systems/) (the brain's version of turning episodes into general knowledge — close in spirit to reflection), and [Sentence-BERT](/post/paper-tldr-sentence-bert/) (the kind of embeddings behind the relevance score).
 
-Terms like *consolidation* and *decay* are defined in the [agent memory glossary](/post/agent-memory-glossary/#how-memories-change-over-time).
+Terms like [*reflection*](/post/agent-memory-glossary/#reflection), [*consolidation*](/post/agent-memory-glossary/#consolidation) and [*decay*](/post/agent-memory-glossary/#decay) are defined in the [agent memory glossary](/post/agent-memory-glossary/#how-memories-change-over-time).

@@ -64,4 +64,4 @@ Two settings, each with a "can it really remember?" task:
 
 Earlier in the series: [LoCoMo](/post/paper-tldr-locomo-long-term-memory-benchmark/) (a benchmark for exactly this kind of long-term memory), [Sentence-BERT](/post/paper-tldr-sentence-bert/) (the embeddings behind most semantic search), and [Complementary Learning Systems](/post/paper-tldr-complementary-learning-systems/) (a brain-inspired split between fast and slow memory).
 
-Terms like *context window*, *episodic memory* and *top-k retrieval* are defined in the [agent memory glossary](/post/agent-memory-glossary/#kinds-of-memory).
+Terms like [*virtual context*](/post/agent-memory-glossary/#virtual-context), [*context window*](/post/agent-memory-glossary/#context-window), [*episodic memory*](/post/agent-memory-glossary/#episodic-memory) and [*top-k retrieval*](/post/agent-memory-glossary/#top-k-retrieval) are defined in the [agent memory glossary](/post/agent-memory-glossary/).

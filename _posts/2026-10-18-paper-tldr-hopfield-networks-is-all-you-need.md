@@ -88,4 +88,4 @@ Most agent memory today is "embed everything, return the top-k nearest neighbors
 
 If you read only one modern paper about associative memory, make it this one. The rest of what I'm reading is on my [papershelf](/research/#papershelf), and [Part 1 of this series](/post/paper-tldr-six-papers-on-memory/) covers the other papers behind my memory projects.
 
-Terms like *top-k retrieval* and *associative memory* are defined in plain language in the [agent memory glossary](/post/agent-memory-glossary/#storing-and-finding-memories).
+Terms like [*top-k retrieval*](/post/agent-memory-glossary/#top-k-retrieval) and [*associative memory*](/post/agent-memory-glossary/#associative-memory) are defined in plain language in the [agent memory glossary](/post/agent-memory-glossary/).

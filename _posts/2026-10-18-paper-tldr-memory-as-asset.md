@@ -53,4 +53,4 @@ I still think it's the right question to ask before building any memory feature:
 
 Earlier in the series: [six papers on AI memory](/post/paper-tldr-six-papers-on-memory/), [Hopfield Networks Is All You Need](/post/paper-tldr-hopfield-networks-is-all-you-need/), [Complementary Learning Systems](/post/paper-tldr-complementary-learning-systems/) and [LoCoMo](/post/paper-tldr-locomo-long-term-memory-benchmark/).
 
-*Zero-knowledge storage* and *client-side encryption* are defined in the privacy section of the [agent memory glossary](/post/agent-memory-glossary/#privacy).
+[*Zero-knowledge storage*](/post/agent-memory-glossary/#zero-knowledge-storage) and [*client-side encryption*](/post/agent-memory-glossary/#client-side-encryption) are defined in the privacy section of the [agent memory glossary](/post/agent-memory-glossary/#privacy).

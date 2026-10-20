@@ -45,4 +45,4 @@ When I built [VaultMem](/series/#vaultmem), my first benchmark was 18 synthetic 
 
 Earlier in the series: [six papers on AI memory](/post/paper-tldr-six-papers-on-memory/), [Hopfield Networks Is All You Need](/post/paper-tldr-hopfield-networks-is-all-you-need/), and [Complementary Learning Systems](/post/paper-tldr-complementary-learning-systems/).
 
-*Recall@k* and *MRR*, the usual ways to score retrieval, are explained in the [agent memory glossary](/post/agent-memory-glossary/#measuring-it).
+[*Recall@k*](/post/agent-memory-glossary/#recall-at-k) and [*MRR*](/post/agent-memory-glossary/#mrr), the usual ways to score retrieval, are explained in the [agent memory glossary](/post/agent-memory-glossary/#measuring-it).

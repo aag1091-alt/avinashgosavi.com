@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Writing
+  text: "Every term in the agent memory glossary now has its own link, and the Paper TL;DRs point straight at the exact definition (say, reflection or Recall@k) instead of a whole section."
+  link: /post/agent-memory-glossary/#reflection
+- date: 2026-10-19
   desk: Engineering
   text: "Search results for projects and papers without a write-up now jump straight to their card on /projects or /research, which lights up when you land."
   link: /search/

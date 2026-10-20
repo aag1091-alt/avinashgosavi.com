@@ -50,4 +50,4 @@ That same 10,000-sentence search drops to about **5 seconds**.
 
 Earlier in the series: [six papers on AI memory](/post/paper-tldr-six-papers-on-memory/), [Hopfield Networks Is All You Need](/post/paper-tldr-hopfield-networks-is-all-you-need/), [Complementary Learning Systems](/post/paper-tldr-complementary-learning-systems/), [LoCoMo](/post/paper-tldr-locomo-long-term-memory-benchmark/) and [Memory as Asset](/post/paper-tldr-memory-as-asset/).
 
-*Embeddings*, *HNSW* and *re-ranking* each get a short definition in the [agent memory glossary](/post/agent-memory-glossary/#storing-and-finding-memories).
+[*Embeddings*](/post/agent-memory-glossary/#embedding), [*HNSW*](/post/agent-memory-glossary/#hnsw) and [*re-ranking*](/post/agent-memory-glossary/#re-ranking) each get a short definition in the [agent memory glossary](/post/agent-memory-glossary/#storing-and-finding-memories).

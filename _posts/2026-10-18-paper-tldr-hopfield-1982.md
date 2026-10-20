@@ -78,4 +78,4 @@ Databases retrieve by key. Vector stores retrieve by nearest neighbor. Hopfield 
 
 That completes the six papers from [Part 1](/post/paper-tldr-six-papers-on-memory/). The whole list, with short TL;DRs, lives on my [papershelf](/research/#papershelf).
 
-For a one-paragraph definition of *associative (content-addressable) memory*, see the [agent memory glossary](/post/agent-memory-glossary/#how-memories-change-over-time).
+For a one-paragraph definition of [*associative (content-addressable) memory*](/post/agent-memory-glossary/#associative-memory), see the [agent memory glossary](/post/agent-memory-glossary/).

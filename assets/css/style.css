@@ -1425,6 +1425,13 @@ h1[tabindex="-1"]:focus { outline: none; }
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
+/* Glossary terms: each definition has its own id so posts can deep-link one term */
+.post-content .glossary-term { scroll-margin-top: 5rem; }
+.post-content .glossary-term:target {
+  /* bar only, no tinted fill: accent links on --accent-soft drop to 3.8:1 in sepia */
+  box-shadow: inset 3px 0 0 var(--accent);
+  padding-left: 0.85rem;
+}
 .paper:target {
   box-shadow: inset 3px 0 0 var(--accent);
   padding-left: 0.85rem;

@@ -31,7 +31,7 @@ Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 
 - [Experience]({{ "/experience/" | absolute_url }}): work history
 - [Talks worth watching]({{ "/talks/" | absolute_url }}): recommended conference talks with one-line reasons
-- [Conferences & community]({{ "/events/" | absolute_url }}): events attended, hacked at or judged
+- [Conferences & community]({{ "/events/" | absolute_url }}): events attended, hacked at, judged or mentored
 - [Uses]({{ "/uses/" | absolute_url }}): hardware, home inference server, tools and hosting stack
 - [Now]({{ "/now/" | absolute_url }}): current focus
 - [Search index]({{ "/search.json" | absolute_url }}): JSON list of every post (with text), page, project, paper and event
