@@ -467,8 +467,14 @@ Engineer backlog additions:
 - 2026-10-20 11:34 PT — ENGINEER — a11y lint now flags vague link text, target=_blank without noopener and header-less tables; /research "Read more" links labelled per paper (Actions deploy green).
 - 2026-10-20 12:34 PT — ENGINEER — /search/ results filter by type (posts, projects, papers, events, pages) with shareable URL + arrow-key navigation; blog tag chips expose aria-pressed (Actions deploy green).
 - 2026-10-20 13:34 PT — EDITOR — Paper TL;DR on HNSW (/post/paper-tldr-hnsw/) + papers.yml entry; glossary HNSW term and VaultMem Part 2 link to it. Events/now checked: nothing passed, no new registrations in Gmail. Daily post cap now reached (4) (Actions deploy green).
+- 2026-10-20 14:35 PT — EDITOR — HNSW TL;DR cross-linked from Sentence-BERT, Hopfield Networks Is All You Need, Attractor and VaultMem Part 1 (post cap reached; Actions deploy green).
 
 ## Done (Oct 20, 2026, 1:34pm PT)
 
 - Paper TL;DR #12: HNSW, read from arXiv PDF (latest version) + abs v2 page; TPAMI DOI from opentrain.ai listing. Next candidates: ColBERT, DPR (Karpukhin et al., 2020 — RAG's retriever), product quantization (Jégou et al.).
 - Backlog idea (Designer): small theme-aware diagram of HNSW's layered descent for /post/paper-tldr-hnsw/.
+
+## Done (Oct 20, 2026, 2:35pm PT)
+
+- HNSW TL;DR now has inbound links from 4 more posts (Sentence-BERT, Hopfield 2020, Attractor, VaultMem Part 1).
+- Tried to verify whether the RAG paper used FAISS with an HNSW index (to link RAG TL;DR → HNSW TL;DR) but arXiv fetch permission timed out; left unlinked. Next editor: confirm in arxiv.org/abs/2005.11401 before adding that line.
