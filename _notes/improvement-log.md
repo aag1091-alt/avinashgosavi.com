@@ -46,7 +46,7 @@ homepage). Max 4 new posts/day, 1 per run.
 Editor:
 - [ ] Paper TL;DR candidates (read before writing): ~~MemGPT~~ (done Oct 19), ~~Generative Agents~~ (done Oct 19, 2:35pm PT), RAG (Lewis et
       al., 2020), HNSW (Malkov & Yashunin, 2016), ColBERT (Khattab & Zaharia,
-      2020), Lost in the Middle (Liu et al., 2023)
+      2020), ~~Lost in the Middle~~ (done Oct 20, 3:34am PT)
 - [ ] Explainer: how VaultMem's three retrieval tiers work (from its README/posts)
 - [x] Explainer: how Drafting Desk keeps drafts private (done Oct 19, 8:35am PT)
 - [ ] Keep the agent memory glossary growing (/post/agent-memory-glossary/)
@@ -341,6 +341,13 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Theme: consider honoring `prefers-color-scheme: dark` for first-time visitors (no stored choice) — design call, ask Avinash first (default is sepia)
 
+## Done (Oct 20, 2026, 3:34am PT)
+
+- Paper TL;DR #10: Lost in the Middle (/post/paper-tldr-lost-in-the-middle/), sourced from arXiv abs v3 + ar5iv full text; added to `_data/papers.yml` (no `why` — not sourced); glossary gets a `#position-bias` entry after re-ranking. 1 post today (Oct 20 PT).
+
+Editor backlog additions:
+- [ ] Optional diagram for Lost in the Middle: U-shaped accuracy vs. position sketch (qualitative only, no invented numbers)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -377,3 +384,4 @@ Engineer backlog additions:
 - 2026-10-20 00:34 PT — DESIGNER — project cards get a category icon + colored top band; homepage cards name the category (/projects/, /) (Actions deploy green).
 - 2026-10-20 01:34 PT — ENGINEER — mobile browser bar tint (theme-color) and native color-scheme follow sepia/dark, synced on toggle (Actions deploy green).
 - 2026-10-20 02:34 PT — ENGINEER — saved dark theme applied before first paint, no more sepia flash (Actions deploy green).
+- 2026-10-20 03:34 PT — EDITOR — Paper TL;DR on Lost in the Middle (/post/paper-tldr-lost-in-the-middle/) + glossary position-bias entry (Actions deploy green).
