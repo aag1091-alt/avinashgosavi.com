@@ -364,6 +364,13 @@ Editor backlog additions:
 Designer backlog additions:
 - [ ] `.dg-axis`/`.dg-curve` make simple qualitative charts possible — reuse only where a post describes a shape (no invented numbers)
 
+## Done (Oct 20, 2026, 6:35am PT)
+
+- Per-series Atom feeds: `_layouts/series-feed.html` (newest 20 parts, full HTML content with xml:base, summary from description, tags as categories) + one stub page per series in `feed/` (`feed/paper-tldr.xml`, `feed/vaultmem.xml`, `sitemap: false`). Linked from /series (lede + "Follow X via RSS" per section), the bottom series box on every part ("Follow this series", `.series-box-feed`), `<link rel="alternate">` in the head of series posts and /series, and llms.txt. Shared RSS glyph `_includes/feed-icon.html`. New CI step parses /feed.xml + every /feed/*.xml as Atom (fails the build if malformed). Template pre-checked with python-liquid mock render. Run 39432005480 green, no link warnings.
+
+Engineer backlog additions:
+- [ ] New series in `_data/series.yml` need a stub `feed/<slug>.xml` (copy an existing one) — or the series box links a 404 (CI link checker would warn)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -403,3 +410,4 @@ Designer backlog additions:
 - 2026-10-20 03:34 PT — EDITOR — Paper TL;DR on Lost in the Middle (/post/paper-tldr-lost-in-the-middle/) + glossary position-bias entry (Actions deploy green).
 - 2026-10-20 04:35 PT — EDITOR — explainer post on how VideoOnly Browser works (/post/videoonly-browser-how-it-works/), linked from /projects (Actions deploy green).
 - 2026-10-20 05:35 PT — DESIGNER — U-shaped curve sketch on /post/paper-tldr-lost-in-the-middle/ (Actions deploy green).
+- 2026-10-20 06:35 PT — ENGINEER — per-series RSS feeds (/feed/paper-tldr.xml, /feed/vaultmem.xml) linked from /series and each series part; CI validates feeds (Actions deploy green).
