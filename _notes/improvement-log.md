@@ -291,6 +291,14 @@ Designer backlog additions:
 Engineer backlog additions:
 - [ ] When an event moves to past and gets a recap, keep /now links pointing at the anchor or recap
 
+## Done (Oct 19, 2026, 9:35pm PT)
+
+- Print stylesheet (end of style.css, `@media print`): any theme prints light (tokens overridden on `body[class]`, dark Rouge spans forced to #111); hides header, footer, skip link, theme toggle, share, read-next, TOC, series boxes, heading anchors, copy buttons, back-to-top; code blocks wrap (pre-wrap); external post links print their URL; no page breaks inside code, tables, images, diagrams. Verified with Playwright `emulateMedia({media:'print'})` on a mock dark-theme post.
+
+Engineer backlog additions:
+- [ ] Print: check a real diagram post prints well (SVG text uses tokens, should follow the light override); maybe show the post URL + date under the title in print
+- [ ] `<meta name="theme-color">` / `color-scheme` per theme (browser UI tint on mobile)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -321,3 +329,4 @@ Engineer backlog additions:
 - 2026-10-19 18:35 PT — EDITOR — glossary entries for versioned facts and event vs. write time (/post/agent-memory-glossary/#versioned-facts); VaultMem Part 2 links LoCoMo TL;DR + metric terms (Actions deploy green).
 - 2026-10-19 19:35 PT — DESIGNER — darker sepia accent text for WCAG contrast site-wide; illustrated 404 page (Actions deploy green).
 - 2026-10-19 20:34 PT — ENGINEER — per-event anchors on /events; search results and /now link straight to each event (Actions deploy green).
+- 2026-10-19 21:35 PT — ENGINEER — print stylesheet: posts print/save-as-PDF as clean light pages with link URLs and wrapped code (Actions deploy green).
