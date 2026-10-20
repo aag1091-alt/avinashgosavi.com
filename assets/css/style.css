@@ -47,6 +47,8 @@ body.theme-sepia {
   --text-muted: #5c5650;
   --accent: #0f766e;
   --accent-soft: rgba(15, 118, 110, 0.18);
+  /* darker teal for accent-colored TEXT: 4.5:1+ on --surface, --code-bg and --accent-soft (plain --accent is 4.2:1 on --surface) */
+  --accent-ink: #0a5f58;
   --border: #dfd8c8;
   --border-header: #d5ccb8;
   --code-bg: #ebe4d2;
@@ -159,7 +161,7 @@ input:focus-visible {
 }
 
 .site-title:hover {
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
 }
 
 .site-mark {
@@ -203,7 +205,7 @@ input:focus-visible {
 }
 
 .site-nav a:hover {
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
 }
 
 .site-nav a.active {
@@ -274,7 +276,7 @@ input:focus-visible {
   font-size: 0.78rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
   margin: 0 0 0.9rem;
 }
 
@@ -333,7 +335,7 @@ input:focus-visible {
 
 .icon-btn:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
   background: var(--accent-soft);
 }
 
@@ -351,7 +353,7 @@ input:focus-visible {
 
 .hero-btn:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
   background: var(--accent-soft);
 }
 
@@ -467,7 +469,7 @@ input:focus-visible {
 }
 
 .project-links a {
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -691,7 +693,7 @@ input:focus-visible {
 }
 
 .post-list-item a:hover {
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
 }
 
 .post-list-meta {
@@ -717,7 +719,7 @@ input:focus-visible {
 }
 
 .all-posts-link a {
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
   text-decoration: none;
   font-weight: 500;
 }
@@ -852,7 +854,7 @@ input:focus-visible {
 }
 
 .post-content a {
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
   text-decoration: none;
 }
 
@@ -1103,7 +1105,7 @@ body.theme-dark .about-image img {
 }
 
 .site-footer a {
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
   text-decoration: none;
 }
 
@@ -1204,7 +1206,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   border-radius: 999px;
   font-size: 0.75rem;
   background: var(--accent-soft, rgba(25,118,210,.12));
-  color: var(--accent);
+  color: var(--accent-ink, var(--accent));
   vertical-align: middle;
 }
 @media (max-width: 480px) {
@@ -1298,7 +1300,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   text-decoration: none;
   color: var(--text-muted);
 }
-.post-tags a:hover { border-color: var(--accent); color: var(--accent); }
+.post-tags a:hover { border-color: var(--accent); color: var(--accent-ink, var(--accent)); }
 .home-curious { margin-bottom: 2.5rem; }
 .project-category { margin: 2.25rem 0 1rem; font-size: 1.15rem; }
 .skip-link { position: absolute; left: -9999px; top: 0; padding: 0.5rem 1rem; background: var(--bg); color: var(--text); z-index: 100; }
@@ -1338,7 +1340,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   font: inherit;
   cursor: pointer;
 }
-.share a:hover, .share-copy:hover { border-color: var(--accent); color: var(--accent); }
+.share a:hover, .share-copy:hover { border-color: var(--accent); color: var(--accent-ink, var(--accent)); }
 
 /* Heading anchors + code copy buttons (_includes/post-tools.html) */
 .post-content .heading-anchor {
@@ -1352,7 +1354,7 @@ h1[tabindex="-1"]:focus { outline: none; }
 .post-content h2:hover .heading-anchor,
 .post-content h3:hover .heading-anchor,
 .post-content .heading-anchor:focus-visible { opacity: 1; }
-.post-content .heading-anchor:hover { color: var(--accent); }
+.post-content .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
 @media (hover: none) { .post-content .heading-anchor { opacity: 0.6; } }
 .post-content h2[id], .post-content h3[id] { scroll-margin-top: 5rem; }
 .post-content .has-copy { position: relative; }
@@ -1372,7 +1374,7 @@ h1[tabindex="-1"]:focus { outline: none; }
 }
 .has-copy:hover .code-copy, .code-copy:focus-visible { opacity: 1; }
 @media (hover: none) { .code-copy { opacity: 1; } }
-.code-copy:hover { color: var(--accent); border-color: var(--accent); }
+.code-copy:hover { color: var(--accent-ink, var(--accent)); border-color: var(--accent); }
 
 /* Site search: header icon + /search page */
 .header-search {
@@ -1386,7 +1388,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   transition: color 0.15s ease, background 0.15s ease;
 }
 .header-search:hover,
-.header-search.active { color: var(--accent); background: var(--accent-soft); }
+.header-search.active { color: var(--accent-ink, var(--accent)); background: var(--accent-soft); }
 
 .site-search-form { margin: 0 0 1rem; }
 #site-search {
@@ -1415,7 +1417,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   margin-bottom: 0.25rem;
 }
 .search-result-title { font-weight: 600; font-size: 1.05rem; color: var(--text); text-decoration: none; }
-.search-result-title:hover { color: var(--accent); text-decoration: underline; }
+.search-result-title:hover { color: var(--accent-ink, var(--accent)); text-decoration: underline; }
 .search-result-snippet { margin: 0.35rem 0 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; overflow-wrap: anywhere; }
 .search-results mark { background: var(--accent-soft); color: var(--text); border-radius: 3px; padding: 0 0.1em; }
 
@@ -1436,4 +1438,17 @@ h1[tabindex="-1"]:focus { outline: none; }
   box-shadow: inset 3px 0 0 var(--accent);
   padding-left: 0.85rem;
   background: var(--accent-soft);
+}
+
+/* 404 illustration (theme tokens, follows sepia/dark) */
+.notfound-art { display: block; width: 100%; max-width: 320px; height: auto; margin: 0 0 1.5rem; }
+.notfound-art .nf-sheet { fill: var(--code-bg); stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.notfound-art .nf-fold { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.notfound-art .nf-text { stroke: var(--text-muted); stroke-width: 3; stroke-linecap: round; }
+.notfound-art .nf-trail { fill: none; stroke: var(--text-muted); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 9; }
+.notfound-art .nf-ring { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.notfound-art .nf-q { fill: var(--text); font-family: var(--font-sans); font-size: 24px; font-weight: 700; }
+@media (prefers-reduced-motion: no-preference) {
+  .notfound-art .nf-trail { animation: nf-walk 2.4s linear infinite; }
+  @keyframes nf-walk { to { stroke-dashoffset: -18; } }
 }

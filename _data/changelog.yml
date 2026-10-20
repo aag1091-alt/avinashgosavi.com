@@ -1,6 +1,14 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Design
+  text: "The 404 page now has a small drawing of a page wandering off down a dotted trail, in both the sepia and dark themes."
+  link: /404.html
+- date: 2026-10-19
+  desk: Design
+  text: "Teal link and hover text in the sepia theme is a shade darker, so it stays easy to read on the tinted cards and code blocks."
+  link: /blog/
+- date: 2026-10-19
   desk: Writing
   text: "Two new glossary entries on time — versioned facts (keeping every value a fact has had) and event time vs. write time — plus links from VaultMem Part 2's benchmark section to the LoCoMo TL;DR and metric definitions."
   link: /post/agent-memory-glossary/#versioned-facts
