@@ -356,6 +356,14 @@ Editor backlog additions:
 - [ ] Explainer still open: What's New in AI (ai-newsletter repo) — read README first
 - [ ] Waiting on Avinash: why he built VideoOnly Browser — a first-person intro line for the post
 
+## Done (Oct 20, 2026, 5:35am PT)
+
+- Lost in the Middle TL;DR: inline SVG U-curve sketch (accuracy vs. answer-passage position; primacy / "lost in the middle" / recency; a strip of 9 prompt passages with the first and last highlighted) — `_includes/diagrams/lost-in-the-middle-u-curve.html`, placed before "Why it matters for builders". Qualitative only (no axis numbers), caption says so. New classes `.dg-curve` (3px round stroke), `.dg-axis` (muted solid), `.dg-dot` (accent with --bg halo). Contrast: curve 4.8:1 sepia / 7.4:1 dark on bg, muted labels 6.3 / 5.8. Checked at 375px in sepia + dark (no horizontal scroll). Run 39423606119 green.
+- Done: the "Optional diagram for Lost in the Middle" backlog item.
+
+Designer backlog additions:
+- [ ] `.dg-axis`/`.dg-curve` make simple qualitative charts possible — reuse only where a post describes a shape (no invented numbers)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -394,3 +402,4 @@ Editor backlog additions:
 - 2026-10-20 02:34 PT — ENGINEER — saved dark theme applied before first paint, no more sepia flash (Actions deploy green).
 - 2026-10-20 03:34 PT — EDITOR — Paper TL;DR on Lost in the Middle (/post/paper-tldr-lost-in-the-middle/) + glossary position-bias entry (Actions deploy green).
 - 2026-10-20 04:35 PT — EDITOR — explainer post on how VideoOnly Browser works (/post/videoonly-browser-how-it-works/), linked from /projects (Actions deploy green).
+- 2026-10-20 05:35 PT — DESIGNER — U-shaped curve sketch on /post/paper-tldr-lost-in-the-middle/ (Actions deploy green).
