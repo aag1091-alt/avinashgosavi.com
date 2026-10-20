@@ -116,7 +116,7 @@ Your words are readable on your device and readable back in your browser. Everyt
 
 ## What vaultmem actually does
 
-The vault service uses vaultmem — a library I built for giving AI agents a private, searchable long-term memory. In daylog it does three things every time you save an entry:
+The vault service uses [vaultmem](/post/vaultmem-encrypted-memory-for-ai-agents/) — a library I built for giving AI agents a private, searchable long-term memory. In daylog it does three things every time you save an entry:
 
 **1. Classifies the entry automatically.**
 
@@ -131,7 +131,7 @@ Most diary entries classify as EPISODIC. The type determines how the memory is w
 
 **2. Embeds the entry as a 384-dimensional vector.**
 
-Before the entry is encrypted, it is run through `sentence-transformers/all-MiniLM-L6-v2` — a 22M parameter model running locally inside the vault container. The model converts your text into a 384-float vector that captures the semantic meaning of what you wrote.
+Before the entry is encrypted, it is run through `sentence-transformers/all-MiniLM-L6-v2` — a 22M parameter model running locally inside the vault container. The model converts your text into a 384-float vector that captures the semantic meaning of what you wrote. (`sentence-transformers` is the library that came out of the [Sentence-BERT paper](/post/paper-tldr-sentence-bert/).)
 
 *"went for a run today"* → `[0.312, -0.087, 0.441, ..., 0.198]` (384 values)
 
@@ -243,3 +243,5 @@ Things worth trying:
 - **Search** (bottom nav → Search tab): type `frustrated`, `flow state`, `couldn't sleep`, or `good run` — these find entries by meaning, not exact words
 - **Summarise**: navigate to any day that has entries, scroll past the list, tap **Summarize this day** — it reads everything you logged that day and reflects back themes and mood
 - **Voice**: tap the mic, say something, watch the live transcription appear word by word
+
+*The rest of the stack (hosting, transcription, costs) is in [my hobby project stack](/post/hobby-project-stack/). [Episodic](/post/agent-memory-glossary/#episodic-memory), [semantic](/post/agent-memory-glossary/#semantic-memory), [procedural](/post/agent-memory-glossary/#procedural-memory) and [persona](/post/agent-memory-glossary/#persona-memory) memory, [embeddings](/post/agent-memory-glossary/#embedding), [semantic search](/post/agent-memory-glossary/#semantic-search) and [decay](/post/agent-memory-glossary/#decay) each get a short definition in the [agent memory glossary](/post/agent-memory-glossary/).*

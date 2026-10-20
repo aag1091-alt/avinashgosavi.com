@@ -153,7 +153,7 @@ The practical setup:
 - **tiny model with int8 quantization** — fits in memory, transcribes a 5-second chunk in ~2-3 seconds on a shared CPU
 - **Model baked into the Docker image** — no cold download on VM restart
 
-The tradeoff: it's slower than the API (3-5s per chunk vs instant), and `tiny` makes occasional errors. For a private diary that's fine. For a customer-facing product, you'd probably use the API.
+The tradeoff: it's slower than the API (3-5s per chunk vs instant), and `tiny` makes occasional errors. For a private diary that's fine. For a customer-facing product, you'd probably use the API. (The streaming setup itself is written up in [Live Audio Transcription on a $0 Server Using Whisper](/post/live-audio-transcription-whisper/).)
 
 **What this teaches you:** The "serverless AI API" path is usually the right default for hobby projects — OpenAI, Replicate, Together AI all have generous free tiers or pay-per-use pricing that rounds to zero at hobby scale. Only run models yourself if you have a specific reason (cost at scale, privacy, customisation).
 
@@ -179,7 +179,7 @@ session.add("Had a great meeting with the team today")
 session.flush()
 ```
 
-And you get encrypted storage with semantic search for free.
+And you get encrypted storage with semantic search for free. (How the encryption and the encrypted search index work is in [the daylog security post](/post/daylog-security-architecture/); the library itself is explained in [VaultMem Part 1](/post/vaultmem-encrypted-memory-for-ai-agents/).)
 
 This is what makes the whole stack work at hobby scale — instead of a Postgres schema for diary entries + a vector database for search + an encryption layer + blob storage for audio, you have one SDK and one file.
 

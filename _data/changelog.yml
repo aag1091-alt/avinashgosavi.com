@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Writing
+  text: "My three daylog posts (security, hobby stack, Whisper transcription) now link to each other, to VaultMem and Sentence-BERT, and to the glossary terms they use."
+  link: /post/daylog-security-architecture/
+- date: 2026-10-19
   desk: Engineering
   text: "Printing a post (or saving it as a PDF) now gives a clean, light page: no menus, share buttons or table of contents, code wraps instead of getting cut off, and outside links show their address."
   link: /post/paper-tldr-memgpt/
