@@ -1149,6 +1149,10 @@ body.theme-dark .about-image img {
 .series-description { color: var(--text-muted); margin-top: 0; }
 .series-parts li { margin: 0.4rem 0; }
 .series-meta { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }
+.feed-icon { width: 0.85em; height: 0.85em; margin-right: 0.35em; vertical-align: -0.05em; }
+.series-box-feed { margin: 0.6rem 0 0; padding-top: 0.55rem; border-top: 1px dashed var(--border); font-size: 0.85rem; }
+.series-box-feed span { color: var(--text-muted); }
+.series-feed-link { margin: -0.3rem 0 0.6rem; font-size: 0.9rem; }
 
 /* Table of contents on long posts (_layouts/post.html + _includes/post-tools.html) */
 .post-toc {

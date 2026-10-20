@@ -37,3 +37,5 @@ Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 - [Search index]({{ "/search.json" | absolute_url }}): JSON list of every post (with text), page, project, paper and event
 - [Changelog]({{ "/changelog/" | absolute_url }}): what changed on the site recently
 - [RSS feed]({{ "/feed.xml" | absolute_url }})
+{% for s in site.data.series %}- [{{ s.title }} series feed]({{ "/feed/" | append: s.slug | append: ".xml" | absolute_url }}): Atom feed of just this series
+{% endfor %}

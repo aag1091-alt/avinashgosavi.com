@@ -38,6 +38,9 @@ jobs:
       - name: Check search index is valid JSON
         run: python3 -c "import json,collections; d=json.load(open('_site/search.json')); print(len(d), 'entries', dict(collections.Counter(x['type'] for x in d)))"
 
+      - name: Check feeds are well-formed Atom
+        run: python3 -c "import glob,xml.etree.ElementTree as E; fs=['_site/feed.xml']+sorted(glob.glob('_site/feed/*.xml')); [print(f, len(E.parse(f).getroot().findall('{http://www.w3.org/2005/Atom}entry')), 'entries') for f in fs]"
+
       - name: Check internal links (warnings only, never blocks deploy)
         run: python3 scripts/check_links.py _site
         continue-on-error: true

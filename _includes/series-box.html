@@ -9,6 +9,7 @@
     <li>{% if p.url == page.url %}<strong>{{ p.title }}</strong>{% else %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% endif %}</li>
     {% endfor %}
   </ol>
+  {% if include.position == "bottom" or parts.size < 2 %}<p class="series-box-feed"><a href="{{ '/feed/' | append: page.series | append: '.xml' | relative_url }}" type="application/atom+xml">{% include feed-icon.html %}Follow this series</a> <span>· new parts only, via RSS</span></p>{% endif %}
 </aside>
 {% endunless %}
 {% endif %}
