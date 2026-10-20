@@ -15,8 +15,8 @@ title: All Posts
 
   {% assign all_tags = site.tags | sort %}
   <div class="tag-filter" role="group" aria-label="Filter by topic">
-    <button type="button" class="tag-chip is-active" data-tag="">All</button>
-    {% for t in all_tags %}<button type="button" class="tag-chip" data-tag="{{ t[0] | slugify }}">{{ t[0] }} <span class="tag-count">{{ t[1].size }}</span></button>{% endfor %}
+    <button type="button" class="tag-chip is-active" data-tag="" aria-pressed="true">All</button>
+    {% for t in all_tags %}<button type="button" class="tag-chip" data-tag="{{ t[0] | slugify }}" aria-pressed="false">{{ t[0] }} <span class="tag-count">{{ t[1].size }}</span></button>{% endfor %}
   </div>
 
   <ul id="post-list" class="post-list blog-list">
@@ -66,7 +66,7 @@ title: All Posts
   chips.forEach(function(chip) {
     chip.addEventListener('click', function() {
       activeTag = chip.getAttribute('data-tag') || '';
-      chips.forEach(function(c) { c.classList.toggle('is-active', c === chip); });
+      chips.forEach(function(c) { c.classList.toggle('is-active', c === chip); c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
       apply();
     });
   });

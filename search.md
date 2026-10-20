@@ -15,7 +15,9 @@ sitemap: false
     <input type="search" id="site-search" name="q" placeholder="Try “embeddings” or “VaultMem”…" autocomplete="off" spellcheck="false">
   </form>
 
+  <p class="search-hint" aria-hidden="true">Tip: press <kbd>↓</kbd> to move through results, <kbd>Esc</kbd> to clear.</p>
   <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+  <div id="search-filter" class="tag-filter search-filter" role="group" aria-label="Show only one kind of result" hidden></div>
   <ol id="search-results" class="search-results"></ol>
   <noscript><p>Search needs JavaScript. You can <a href="{{ '/blog/' | relative_url }}">browse all posts</a> instead.</p></noscript>
 </div>
@@ -26,8 +28,13 @@ sitemap: false
   var list = document.getElementById('search-results');
   var status = document.getElementById('search-status');
   var form = input.form;
+  var filter = document.getElementById('search-filter');
   var index = null, timer = null;
   var W = { title: 10, tags: 5, desc: 3, text: 1 };
+  var TYPES = ['Post', 'Project', 'Paper', 'Event', 'Page'];
+  var PLURAL = { Post: 'Posts', Project: 'Projects', Paper: 'Papers', Event: 'Events', Page: 'Pages' };
+  var params = new URLSearchParams(location.search);
+  var activeType = TYPES.indexOf(params.get('type')) !== -1 ? params.get('type') : '';
 
   function terms(q) {
     return q.toLowerCase().split(/\s+/).filter(function(t) { return t.length > 1; });
@@ -74,20 +81,56 @@ sitemap: false
     el.appendChild(document.createTextNode(str.slice(last)));
   }
 
-  function render() {
+  function chip(type, label, count) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tag-chip' + (type === activeType ? ' is-active' : '');
+    b.setAttribute('aria-pressed', type === activeType ? 'true' : 'false');
+    b.setAttribute('data-type', type);
+    b.appendChild(document.createTextNode(label + ' '));
+    var c = document.createElement('span');
+    c.className = 'tag-count';
+    c.textContent = count;
+    b.appendChild(c);
+    return b;
+  }
+
+  function renderFilter(all, counts, refocus) {
+    filter.innerHTML = '';
+    var kinds = TYPES.filter(function(t) { return counts[t]; });
+    if (kinds.length < 2) { filter.hidden = true; return; }
+    filter.appendChild(chip('', 'All', all));
+    kinds.forEach(function(t) { filter.appendChild(chip(t, PLURAL[t], counts[t])); });
+    filter.hidden = false;
+    if (refocus) {
+      var on = filter.querySelector('.is-active');
+      if (on) on.focus();
+    }
+  }
+
+  function render(refocus) {
     var q = input.value.trim();
-    var url = q ? '?q=' + encodeURIComponent(q) : location.pathname;
-    history.replaceState(null, '', url);
+    var qs = [];
+    if (q) qs.push('q=' + encodeURIComponent(q));
+    if (q && activeType) qs.push('type=' + activeType);
+    history.replaceState(null, '', qs.length ? '?' + qs.join('&') : location.pathname);
     list.innerHTML = '';
+    filter.hidden = true;
     if (!q) { status.textContent = ''; return; }
     if (!index) { status.textContent = 'Loading…'; return; }
     var ts = terms(q);
     if (!ts.length) { status.textContent = 'Type at least two letters.'; return; }
-    var hits = index.map(function(it) { return { it: it, s: score(it, ts) }; })
+    var all = index.map(function(it) { return { it: it, s: score(it, ts) }; })
       .filter(function(h) { return h.s > 0; })
-      .sort(function(a, b) { return b.s - a.s; })
-      .slice(0, 30);
-    status.textContent = hits.length ? hits.length + (hits.length === 1 ? ' result' : ' results') + ' for “' + q + '”' : 'Nothing matches “' + q + '”. Try a shorter or different word.';
+      .sort(function(a, b) { return b.s - a.s; });
+    var counts = {};
+    all.forEach(function(h) { counts[h.it.type] = (counts[h.it.type] || 0) + 1; });
+    if (activeType && !counts[activeType]) activeType = '';
+    renderFilter(all.length, counts, refocus);
+    var hits = all.filter(function(h) { return !activeType || h.it.type === activeType; }).slice(0, 30);
+    status.textContent = hits.length
+      ? hits.length + (hits.length === 1 ? ' result' : ' results') + (activeType ? ' (' + PLURAL[activeType].toLowerCase() + ')' : '') + ' for “' + q + '”'
+      : 'Nothing matches “' + q + '”. Try a shorter or different word.';
     hits.forEach(function(h) {
       var it = h.it;
       var li = document.createElement('li');
@@ -107,10 +150,40 @@ sitemap: false
     });
   }
 
+  filter.addEventListener('click', function(e) {
+    var b = e.target.closest('button[data-type]');
+    if (!b) return;
+    activeType = b.getAttribute('data-type');
+    render(true);
+  });
+
+  // Keyboard: ↓ from the box walks the result titles, ↑ walks back (and returns to the box); Esc clears.
+  function links() { return Array.prototype.slice.call(list.querySelectorAll('.search-result-title')); }
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown') {
+      var ls = links();
+      if (ls.length) { e.preventDefault(); ls[0].focus(); }
+    } else if (e.key === 'Escape' && input.value) {
+      e.preventDefault();
+      input.value = '';
+      render();
+    }
+  });
+  list.addEventListener('keydown', function(e) {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Escape') return;
+    var ls = links(), i = ls.indexOf(document.activeElement);
+    if (i === -1) return;
+    e.preventDefault();
+    if (e.key === 'Escape') { input.focus(); return; }
+    var next = e.key === 'ArrowDown' ? i + 1 : i - 1;
+    if (next < 0) input.focus();
+    else if (next < ls.length) { ls[next].focus(); ls[next].scrollIntoView({ block: 'nearest' }); }
+  });
+
   form.addEventListener('submit', function(e) { e.preventDefault(); render(); });
   input.addEventListener('input', function() { clearTimeout(timer); timer = setTimeout(render, 120); });
 
-  var initial = new URLSearchParams(location.search).get('q');
+  var initial = params.get('q');
   if (initial) input.value = initial;
   input.focus();
 

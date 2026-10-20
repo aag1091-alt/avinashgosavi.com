@@ -1433,6 +1433,20 @@ h1[tabindex="-1"]:focus { outline: none; }
 .search-result-title:hover { color: var(--accent-ink, var(--accent)); text-decoration: underline; }
 .search-result-snippet { margin: 0.35rem 0 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; overflow-wrap: anywhere; }
 .search-results mark { background: var(--accent-soft); color: var(--text); border-radius: 3px; padding: 0 0.1em; }
+.search-filter { margin: 0.25rem 0 0.5rem; }
+.search-hint { display: none; margin: -0.5rem 0 0.75rem; color: var(--text-muted); font-size: 0.8rem; }
+@media (hover: hover) and (pointer: fine) { .search-hint { display: block; } }
+.search-hint kbd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0 0.35em;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text);
+}
+.search-result-title:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
 /* ---------- Deep links to project cards and papers (search results) ---------- */
 .project-card[id], .paper[id] { scroll-margin-top: 5rem; }
