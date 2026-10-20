@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
   desk: Writing
+  text: "My older posts on working with LLMs, AI-generated tests, Jekyll, the AI History Blog Generator, Rena and live Whisper transcription now point to each other where they cover the same ground."
+  link: /post/i-fell-in-love-with-coding-again/
+- date: 2026-10-19
+  desk: Writing
   text: "My three daylog posts (security, hobby stack, Whisper transcription) now link to each other, to VaultMem and Sentence-BERT, and to the glossary terms they use."
   link: /post/daylog-security-architecture/
 - date: 2026-10-19

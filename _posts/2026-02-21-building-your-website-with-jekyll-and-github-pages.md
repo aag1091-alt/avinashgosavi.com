@@ -114,3 +114,5 @@ read_time: 4
 Use your AI to scaffold a minimal Jekyll site, then refine with prompts about config, themes, and content. Rely on **official Jekyll and GitHub docs** for deep dives; use this post as a map to *what* to configure and *what* to ask for so you spend less time on boilerplate and more on content and design.
 
 **Further reading:** [Jekyll docs](https://jekyllrb.com/docs/), [GitHub Pages docs](https://docs.github.com/en/pages), [Liquid](https://shopify.github.io/liquid/).
+
+*This site runs on the same setup — the [changelog](/changelog/) lists what's changed on it lately. For a Jekyll blog that an agent writes for you, see [AI History Blog Generator]({% post_url 2026-03-14-ai-history-blog-generator %}).*

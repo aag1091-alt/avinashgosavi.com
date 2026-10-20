@@ -147,3 +147,7 @@ The self-critique loop was the most interesting part to build. Early versions wo
 The other thing that exceeded my expectations was the image pipeline. Wikimedia Commons has an enormous archive, and the relevance filtering (matching image title keywords against the milestone title) produces surprisingly good results. The NSFW filter — checking filenames, metadata restrictions, and category labels — has never let anything through in my testing.
 
 What started as wanting a casual way to browse AI history turned into something I keep finding new uses for. If you have a topic you've always wanted a proper reference for, this is a pretty fast way to build one.
+
+---
+
+*Related: [Building Your Website with Jekyll and GitHub Pages]({% post_url 2026-02-21-building-your-website-with-jekyll-and-github-pages %}) walks through the Jekyll + GitHub Pages setup the generated blogs are published with, and [/uses](/uses/) lists the home server I run local models on with Ollama.*

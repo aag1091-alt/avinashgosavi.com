@@ -164,4 +164,4 @@ The service is sitting open-source on GitHub if you want to use it. Swap in `bas
 
 *[whisper-live-transcribe on GitHub](https://github.com/aag1091-alt/whisper-live-transcribe) — PRs welcome.*
 
-*Where this fits in daylog: [the hobby project stack](/post/hobby-project-stack/) covers the rest of the setup, and [daylog's security architecture](/post/daylog-security-architecture/) covers how entries are encrypted once they're transcribed.*
+*Where this fits in daylog: [the hobby project stack](/post/hobby-project-stack/) covers the rest of the setup, and [daylog's security architecture](/post/daylog-security-architecture/) covers how entries are encrypted once they're transcribed. For live audio sent to a hosted model instead, [Rena]({% post_url 2026-03-16-building-rena-ai-health-companion-gemini-live %}) streams 16 kHz PCM over a WebSocket to a backend that passes it to Gemini Live.*

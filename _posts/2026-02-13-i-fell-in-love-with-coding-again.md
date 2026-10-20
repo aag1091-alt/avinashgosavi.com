@@ -44,4 +44,4 @@ It also doesn't really matter which tool you use — Codex, Claude, or anything 
 
 It's not that the fun is gone. For me, it's back — and I'm excited to see where this goes.
 
-*You can read the follow-up on turning that workflow into repeatable [Codex Skills]({% post_url 2026-02-17-codex-skills %}).*
+*You can read the follow-up on turning that workflow into repeatable [Codex Skills]({% post_url 2026-02-17-codex-skills %}), and a later post on the same shift — chores I used to put off, now just done — in [Doing the Right Thing, Fast]({% post_url 2026-04-25-doing-the-right-thing-fast %}). For reviewing the tests an LLM writes, see [Are These AI-Generated Tests Good?]({% post_url 2026-02-28-reviewing-ai-generated-tests-istqb-framework %}).*

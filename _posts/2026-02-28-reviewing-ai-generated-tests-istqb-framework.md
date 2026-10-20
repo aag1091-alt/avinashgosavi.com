@@ -137,3 +137,5 @@ AI helps me generate tests faster. This framework helps me trust what I ship.
 - [ISTQB Glossary: Test Level](https://istqb-glossary.page/test-level/)
 - [ISTQB Glossary: Test Type](https://istqb-glossary.page/test-type/)
 - [ASTQB: Test Levels and Test Types](https://astqb.org/2-2-test-levels-and-test-types/)
+
+*Related: how I work with LLMs day to day is in [I Fell in Love with Coding Again]({% post_url 2026-02-13-i-fell-in-love-with-coding-again %}), and how I review AI-generated changes diff by diff is in [Doing the Right Thing, Fast]({% post_url 2026-04-25-doing-the-right-thing-fast %}).*

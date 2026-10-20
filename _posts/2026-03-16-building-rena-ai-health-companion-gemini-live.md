@@ -240,3 +240,5 @@ Fix: use Rena's own TTS voice (`en-US-Neural2-F`) for the coaching audio. Unexpe
 ---
 
 *Built with Google Cloud, Gemini Live API, Veo 2, Imagen, and Google ADK for the Gemini Live Agent Challenge 2026.*
+
+*Another take on streaming live audio from a phone: [near real-time transcription with faster-whisper on my own server]({% post_url 2026-04-12-live-audio-transcription-whisper %}).*
