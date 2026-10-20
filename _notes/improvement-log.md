@@ -307,6 +307,14 @@ Engineer backlog additions:
 Editor backlog additions:
 - [ ] Older non-memory posts (Codex skills, Jekyll site, ISTQB tests, AI history generator, Rena) — check for sensible links between them (e.g. Jekyll post ↔ /changelog, Rena ↔ Whisper/live audio) — only where the posts already discuss the topic
 
+## Done (Oct 19, 2026, 11:34pm PT)
+
+- Cross-link sweep (beat e) of the older non-memory posts: I Fell in Love with Coding Again → Doing the Right Thing, Fast + AI-tests post; AI-tests post → both workflow posts; Jekyll tutorial → /changelog + AI History Blog Generator; AI History generator → Jekyll tutorial + /uses (Ollama); Rena ↔ Whisper transcription (both stream live phone audio; Rena's 16 kHz PCM → backend → Gemini Live). Footer lines only, no facts changed. Events/now checked: nothing past-dated (Cal Hacks Oct 23). CI link checker: 0 warnings (run 39381310405). Oct 19 PT post cap already reached.
+- Done: the "Older non-memory posts — check for sensible links" backlog item.
+
+Editor backlog additions:
+- [ ] Codex Skills post has no inbound/outbound links beyond fell-in-love/doing-right-thing — consider linking it from the AI-tests post if Avinash adds a test-review skill (waiting on him)
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -339,3 +347,4 @@ Editor backlog additions:
 - 2026-10-19 20:34 PT — ENGINEER — per-event anchors on /events; search results and /now link straight to each event (Actions deploy green).
 - 2026-10-19 21:35 PT — ENGINEER — print stylesheet: posts print/save-as-PDF as clean light pages with link URLs and wrapped code (Actions deploy green).
 - 2026-10-19 22:35 PT — EDITOR — daylog security, hobby stack and Whisper posts now cross-link each other, VaultMem, Sentence-BERT and glossary terms (Actions deploy green).
+- 2026-10-19 23:34 PT — EDITOR — older posts (coding again, AI tests, Jekyll, AI History generator, Rena, Whisper) cross-link each other (Actions deploy green).
