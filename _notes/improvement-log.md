@@ -386,7 +386,7 @@ Engineer backlog additions:
 
 Editor backlog additions:
 - [ ] Waiting on Avinash: does VaultMem/daylog count as RAG in his framing, or did the RAG paper shape his work? If yes, a `why` in papers.yml + first-person line
-- [ ] Designer: RAG diagram (query encoder → index top-k → generator; swap-the-index callout), content only from the post
+- [x] Designer: RAG diagram (done Oct 20, 10:35am PT) (query encoder → index top-k → generator; swap-the-index callout), content only from the post
 
 ## Done (Oct 20, 2026, 9:35am PT)
 
@@ -395,6 +395,15 @@ Editor backlog additions:
 
 Editor backlog additions:
 - [ ] Projects "what I learned" line: only AI History Blog Generator ("What Surprised Me") and whisper-live-transcribe ("what I learned") have sourced lessons — not enough for a site-wide field yet; ask Avinash or do per-card only where the post states it
+
+## Done (Oct 20, 2026, 10:35am PT)
+
+- RAG TL;DR: inline SVG of retrieve-then-generate (input pill → BERT query encoder → non-parametric memory group with the Dec 2018 Wikipedia index ⇄ dashed 2016 index "no retraining", FAISS + HNSW / frozen doc encoder note → top-k passages → BART generator → answer pill; dashed training-signal loop back to both trained parts, rotated label "learns only from the final answer") — `_includes/diagrams/rag-retrieve-then-generate.html`, placed at the end of "How it works". Content only from the post. Contrast: notes 5.7:1 sepia / 5.2:1 dark on box fill, pill text 9.0 / 7.9, accent lines 4.8 / 7.4 on bg. Checked at 375px in sepia + dark (no horizontal scroll). Run 39467588245 green, no link/a11y warnings.
+- Done: the "Designer: RAG diagram" backlog item.
+
+Designer backlog additions:
+- [ ] Rotated `.dg-note` labels (transform rotate) work well for side loops — reuse instead of cramming horizontal text
+- [ ] Diagram ideas still open: LoCoMo eval flow, Hopfield store/recall, VaultMem envelope encryption (MEK wrapping)
 
 ## Run history
 
@@ -439,3 +448,4 @@ Editor backlog additions:
 - 2026-10-20 07:35 PT — ENGINEER — CI accessibility lint on every deploy; task-list checkboxes in /post/reviewing-ai-generated-tests-istqb-framework/ now labelled for screen readers (Actions deploy green, 0 a11y warnings).
 - 2026-10-20 08:35 PT — EDITOR — Paper TL;DR on RAG (/post/paper-tldr-retrieval-augmented-generation/) + glossary RAG entry (Actions deploy green).
 - 2026-10-20 09:35 PT — EDITOR — RAG TL;DR cross-linked from Lost in the Middle, LoCoMo, Sentence-BERT and the six-papers intro (Actions deploy green).
+- 2026-10-20 10:35 PT — DESIGNER — theme-aware retrieve-then-generate diagram on /post/paper-tldr-retrieval-augmented-generation/ (Actions deploy green).
