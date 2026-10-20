@@ -8,13 +8,13 @@ items:
     link: /post/drafting-desk-how-it-keeps-drafts-private/
   - label: Mentoring
     text: Mentoring hackers at Cal Hacks 13.0 in San Francisco, Oct 23–25.
-    link: /events/
+    link: /events/#cal-hacks-13-0
   - label: Judging
     text: Judging student projects at HackUMass XIV (UMass Amherst) on Nov 15.
-    link: /events/
+    link: /events/#hackumass-xiv
   - label: Going to
     text: OSA Con 2026, the open-source analytics & AI conference in San Francisco, on Nov 2.
-    link: /events/
+    link: /events/#osa-con-2026-open-source-analytics-ai
   - label: Reading
     text: >-
       Papers on memory for AI agents — and writing them up in plain language

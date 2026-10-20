@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-19
+  desk: Engineering
+  text: "Every event on the events page now has its own link, so search results and the Now list jump straight to that event (Cal Hacks, OSA Con, HackUMass) instead of the top of the page."
+  link: /events/#cal-hacks-13-0
+- date: 2026-10-19
   desk: Design
   text: "The 404 page now has a small drawing of a page wandering off down a dotted trail, in both the sepia and dark themes."
   link: /404.html

@@ -55,10 +55,11 @@ sitemap: false
   },
 {%- endfor -%}
 {%- for ev in site.data.events -%}
+  {%- assign ev_anchor = ev.name | slugify | prepend: "/events/#" -%}
   {
     "type": "Event",
     "title": {{ ev.name | jsonify }},
-    "url": {{ ev.recap | default: "/events/" | relative_url | jsonify }},
+    "url": {{ ev.recap | default: ev_anchor | relative_url | jsonify }},
     "date": {{ ev.date | date: "%b %d, %Y" | jsonify }},
     "tags": {{ ev.role | jsonify }},
     "desc": {{ ev.location | jsonify }},
