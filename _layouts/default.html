@@ -21,9 +21,7 @@
   <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
   <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="{{ '/assets/fonts/dm-sans-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {% feed_meta %}
   {%- if page.series %}{% assign fs = site.data.series | where: "slug", page.series | first %}
