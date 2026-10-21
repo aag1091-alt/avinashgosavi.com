@@ -8,6 +8,7 @@ description: What's new on avinashgosavi.com — new writing, design changes and
 <div class="changelog-page">
   <h1>Changelog</h1>
   <p class="page-lede">This site is a work in progress, and I like it that way. Here's what changed recently — new writing, design tweaks and under-the-hood fixes. New posts also go out via <a href="{{ '/feed.xml' | relative_url }}">RSS</a>. The site runs on Jekyll and GitHub Pages — <a href="{{ '/post/building-your-website-with-jekyll-and-github-pages/' | relative_url }}">here's how that setup works</a>.</p>
+  <p class="series-feed-link"><a href="{{ '/feed/changelog.xml' | relative_url }}" type="application/atom+xml">{% include feed-icon.html %}Follow the changelog via RSS</a></p>
   {% assign by_date = site.data.changelog | group_by: "date" %}
   {% for day in by_date %}
   <section class="changelog-day">

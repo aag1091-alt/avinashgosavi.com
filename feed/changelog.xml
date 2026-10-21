@@ -1,0 +1,35 @@
+---
+layout: null
+permalink: /feed/changelog.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="utf-8"?>
+{%- comment -%}
+  Atom feed of _data/changelog.yml (newest first, latest 50). Entry ids count
+  up from the oldest entry, so they stay stable as new entries are added on top.
+{%- endcomment -%}
+{%- assign log = site.data.changelog -%}
+{%- assign total = log.size -%}
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Changelog · {{ site.title | xml_escape }}</title>
+  <subtitle>What's new on avinashgosavi.com: writing fixes, design changes and site improvements.</subtitle>
+  <id>{{ page.url | absolute_url | xml_escape }}</id>
+  <link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ '/changelog/' | absolute_url }}" rel="alternate" type="text/html"/>
+  <updated>{% if total > 0 %}{{ log.first.date | date_to_xmlschema }}{% else %}{{ site.time | date_to_xmlschema }}{% endif %}</updated>
+  <author><name>{{ site.author.name | xml_escape }}</name><uri>{{ '/' | absolute_url }}</uri></author>
+  {%- for c in log limit: 50 %}
+  {%- assign n = total | minus: forloop.index0 %}
+  {%- assign day_anchor = c.date | date: '%B %-d, %Y' | slugify %}
+  {%- if c.link %}{% assign href = c.link | absolute_url %}{% else %}{% assign href = '/changelog/' | absolute_url | append: '#' | append: day_anchor %}{% endif %}
+  <entry>
+    <title>{{ c.desk | xml_escape }}: {{ c.text | truncatewords: 12 | xml_escape }}</title>
+    <link href="{{ href | xml_escape }}" rel="alternate" type="text/html"/>
+    <id>tag:www.avinashgosavi.com,2026:changelog-{{ n }}</id>
+    <published>{{ c.date | date_to_xmlschema }}</published>
+    <updated>{{ c.date | date_to_xmlschema }}</updated>
+    <category term="{{ c.desk | xml_escape }}"/>
+    <content type="html">{{ '<p>' | append: c.text | append: '</p>' | xml_escape }}{% if c.link %}{{ '<p><a href="' | append: href | append: '">See the change</a></p>' | xml_escape }}{% endif %}</content>
+  </entry>
+  {%- endfor %}
+</feed>

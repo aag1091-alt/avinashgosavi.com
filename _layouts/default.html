@@ -28,7 +28,9 @@
   <link rel="alternate" type="application/atom+xml" title="{{ fs.title | default: page.series | escape }} series" href="{{ '/feed/' | append: page.series | append: '.xml' | relative_url }}">
   {%- elsif page.url == '/series/' %}{% for fs in site.data.series %}
   <link rel="alternate" type="application/atom+xml" title="{{ fs.title | escape }} series" href="{{ '/feed/' | append: fs.slug | append: '.xml' | relative_url }}">
-  {%- endfor %}{% endif %}
+  {%- endfor %}{% elsif page.url == '/changelog/' %}
+  <link rel="alternate" type="application/atom+xml" title="Changelog" href="{{ '/feed/changelog.xml' | relative_url }}">
+  {%- endif %}
   {% seo %}
   {% if page.layout == "home" %}{% include person-jsonld.html %}{% endif %}
   {% include breadcrumb-jsonld.html %}

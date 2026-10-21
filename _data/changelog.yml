@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Engineering
+  text: The changelog now has its own RSS feed, so you can follow site updates in a feed reader without waiting for new posts.
+  link: /changelog/
+- date: 2026-10-21
   desk: Design
   text: The LoCoMo Paper TL;DR now has a diagram of how the benchmark is built, from one long conversation to its three tasks and five question types, readable in both themes and on phones.
   link: /post/paper-tldr-locomo-long-term-memory-benchmark/
