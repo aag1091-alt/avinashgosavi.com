@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
   desk: Writing
+  text: The SF Ruby 2025 post now ends with a link to Talks Worth Watching, so the two pages point to each other.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- date: 2026-10-21
+  desk: Writing
   text: The Attractor post's references now point to the plain-language Paper TL;DRs for Hopfield 1982, Hopfield Networks Is All You Need, Sentence-BERT and Complementary Learning Systems.
   link: /post/attractor-memory-engine/#references
 - date: 2026-10-21
