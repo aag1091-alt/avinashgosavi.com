@@ -302,6 +302,8 @@ The library is at v0.2.1. The things I'm thinking about for v0.3.0:
 
 The paper targeting ACM CCS 2026 is in progress.
 
+[VaultMem Part 3 — Hiding PII from Your LLM Provider →](/post/vaultmem-part-3-pii-sanitizer/)
+
 ---
 
 > `pip install vaultmem` · [GitHub](https://github.com/aag1091-alt/vaultmem-sdk) · [Preprint](https://doi.org/10.5281/zenodo.19154079) · [Live demo](https://vaultmem-demo.streamlit.app)

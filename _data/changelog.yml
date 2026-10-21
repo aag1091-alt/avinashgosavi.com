@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Writing
+  text: VaultMem Part 2 now ends with a link straight to Part 3 on the PII sanitizer, the way Part 1 already leads into Part 2.
+  link: /post/vaultmem-part-2-multimodal-temporal-backends/
+- date: 2026-10-21
   desk: Engineering
   text: The site's fonts (DM Sans and JetBrains Mono) are now served from the site itself instead of Google Fonts, so pages make no third-party font requests, text renders sooner, and italics use the real italic face.
   link: /
