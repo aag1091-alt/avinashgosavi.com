@@ -617,7 +617,7 @@ Designer backlog additions:
 - Responsive WebP: /about photo is a `<picture>` (about-280.webp 19 KB / about-560.webp 65 KB, `sizes="(max-width: 640px) 176px, 280px"`, jpg fallback, `fetchpriority="high"` — it's the LCP image); SF Ruby post photos are `<picture>` with 720/1086 and 540/768 WebP (q78) + lazy jpg fallback. Originals kept (og/JSON-LD still use about.jpg / sf-ruby-1.jpg). Playwright: 375@2x picks about-560, 900@1x picks about-280; no horizontal scroll. `scripts/check_links.py` now checks every `srcset` candidate on img/source. Run 39618778763 green, no warnings.
 
 Engineer backlog additions:
-- [ ] vaultmem-explainer.jpg (1400w, 65 KB) and Rena screenshots could get WebP variants too (smaller win)
+- [x] vaultmem-explainer.jpg and Rena screenshots WebP variants (done Oct 21, 11:35am PT)
 
 - 2026-10-21 07:34 PT — ENGINEER — right-sized WebP photos on /about and /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/; link checker covers srcset (Actions deploy green).
 ## Done (Oct 21, 2026, 8:35am PT)
@@ -636,3 +636,7 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] Rule: never put `.dg-note` (muted) text on `.dg-pill` — fails 4.5:1 in dark (3.7:1); use `.dg-body` or `.dg-box`
 - 2026-10-21 10:34 PT — DESIGNER — theme-aware, phone-friendly architecture diagram on /post/attractor-memory-engine/ (Actions deploy green).
+## Done (Oct 21, 2026, 11:35am PT)
+- WebP for the remaining post images: Rena post's 4 screenshots wrapped in `<picture>` with `rena-<name>.webp` (360w, same size; 137 KB → 44 KB total); VaultMem diary post's explainer image `<picture>` with `vaultmem-explainer-720.webp` (13 KB) / `-1400.webp` (34 KB), `sizes="(max-width: 42rem) 100vw, 42rem"`, jpg fallbacks kept. All post images now have WebP.
+- Run 39654172680 green.
+- 2026-10-21 11:35 PT — ENGINEER — WebP images on /post/building-rena-ai-health-companion-gemini-live/ and /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/ (Actions deploy green).
