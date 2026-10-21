@@ -293,7 +293,7 @@ Engineer backlog additions:
 - Print stylesheet (end of style.css, `@media print`): any theme prints light (tokens overridden on `body[class]`, dark Rouge spans forced to #111); hides header, footer, skip link, theme toggle, share, read-next, TOC, series boxes, heading anchors, copy buttons, back-to-top; code blocks wrap (pre-wrap); external post links print their URL; no page breaks inside code, tables, images, diagrams. Verified with Playwright `emulateMedia({media:'print'})` on a mock dark-theme post.
 
 Engineer backlog additions:
-- [ ] Print: check a real diagram post prints well (SVG text uses tokens, should follow the light override); maybe show the post URL + date under the title in print
+- [ ] Print: check a real diagram post prints well (SVG text uses tokens, should follow the light override); ~~post URL under the title~~ (done Oct 21, 6:34am PT)
 - [ ] `<meta name="theme-color">` / `color-scheme` per theme (browser UI tint on mobile)
 
 ## Done (Oct 19, 2026, 10:35pm PT)
@@ -608,3 +608,8 @@ Designer backlog additions:
 - [ ] Attractor architecture SVG (820×380) is the last hard-coded dark image in that post — convert to a stacked 360-wide include
 
 - 2026-10-21 05:35 PT — DESIGNER — theme-aware, phone-friendly energy-landscape diagram on /post/attractor-memory-engine/ (Actions deploy green).
+## Done (Oct 21, 2026, 6:34am PT)
+- Print: `_layouts/post.html` adds `<p class="post-print-source">` (absolute post URL) under the meta line — `display:none` on screen, shown in `@media print`; print also hides tag chips and appends " (avinashgosavi.com/path)" after internal `/…` links in post content (external links already showed their URL).
+- Local `jekyll build` impossible in the sandbox (rubygems.org unreachable) — CI is the build check.
+- Run 39609752255 green.
+- 2026-10-21 06:34 PT — ENGINEER — printed/PDF posts show their source URL and internal link targets (all /post/* pages) (Actions deploy green).
