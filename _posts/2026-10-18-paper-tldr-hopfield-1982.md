@@ -76,6 +76,6 @@ Those limits are exactly what the 2020 follow-up fixes: [modern Hopfield network
 
 Databases retrieve by key. Vector stores retrieve by nearest neighbor. Hopfield networks retrieve by **settling** — pattern completion from a partial cue, which is much closer to how remembering feels. That idea is the reason [Attractor](/post/attractor-memory-engine/) is called Attractor.
 
-That completes the six papers from [Part 1](/post/paper-tldr-six-papers-on-memory/). The whole list, with short TL;DRs, lives on my [papershelf](/research/#papershelf).
+That completes the six papers from [Part 1](/post/paper-tldr-six-papers-on-memory/). The whole list, with short TL;DRs, lives on my [papershelf](/research/#papershelf). The series keeps going with [MemGPT](/post/paper-tldr-memgpt/), which treats an LLM's context window like an operating system's memory.
 
 For a one-paragraph definition of [*associative (content-addressable) memory*](/post/agent-memory-glossary/#associative-memory), see the [agent memory glossary](/post/agent-memory-glossary/).

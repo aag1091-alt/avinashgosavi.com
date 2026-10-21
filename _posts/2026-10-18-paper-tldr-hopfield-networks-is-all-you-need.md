@@ -86,6 +86,6 @@ Most agent memory today is "embed everything, return the top-k nearest neighbors
 - The one-step convergence holds when β is large enough relative to how similar the stored patterns are — similar memories still blur together.
 - Treating attention as memory is a lens, not a full explanation of what transformers learn.
 
-If you read only one modern paper about associative memory, make it this one. The rest of what I'm reading is on my [papershelf](/research/#papershelf), and [Part 1 of this series](/post/paper-tldr-six-papers-on-memory/) covers the other papers behind my memory projects.
+If you read only one modern paper about associative memory, make it this one. Next in the series: [Complementary Learning Systems](/post/paper-tldr-complementary-learning-systems/), the brain's split between a fast and a slow learner. The rest of what I'm reading is on my [papershelf](/research/#papershelf), and [Part 1 of this series](/post/paper-tldr-six-papers-on-memory/) covers the other papers behind my memory projects.
 
 Terms like [*top-k retrieval*](/post/agent-memory-glossary/#top-k-retrieval) and [*associative memory*](/post/agent-memory-glossary/#associative-memory) are defined in plain language in the [agent memory glossary](/post/agent-memory-glossary/).

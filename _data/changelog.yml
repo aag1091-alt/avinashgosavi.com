@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
   desk: Writing
+  text: "Every Paper TL;DR now ends with a link to the next one, so you can read the whole series in order from Hopfield Networks Is All You Need through HNSW."
+  link: /series/
+- date: 2026-10-20
+  desk: Writing
   text: "The newer Paper TL;DRs now point to the next one in the series, and the RAG write-up links straight to the HNSW explainer for the index it uses."
   link: /post/paper-tldr-retrieval-augmented-generation/
 - date: 2026-10-20

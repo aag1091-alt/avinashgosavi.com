@@ -43,6 +43,6 @@ When I built [VaultMem](/series/#vaultmem), my first benchmark was 18 synthetic 
 2. **Score by category, not just overall.** "85% accurate" hides that temporal and multi-hop questions might be failing.
 3. **Measure the "I don't know."** A memory that confidently invents a past is worse than one that admits a gap.
 
-Earlier in the series: [six papers on AI memory](/post/paper-tldr-six-papers-on-memory/), [Hopfield Networks Is All You Need](/post/paper-tldr-hopfield-networks-is-all-you-need/), and [Complementary Learning Systems](/post/paper-tldr-complementary-learning-systems/).
+Earlier in the series: [six papers on AI memory](/post/paper-tldr-six-papers-on-memory/), [Hopfield Networks Is All You Need](/post/paper-tldr-hopfield-networks-is-all-you-need/), and [Complementary Learning Systems](/post/paper-tldr-complementary-learning-systems/). Next in the series: [Memory as Asset](/post/paper-tldr-memory-as-asset/), on who should own an agent's memory.
 
 [*Recall@k*](/post/agent-memory-glossary/#recall-at-k) and [*MRR*](/post/agent-memory-glossary/#mrr), the usual ways to score retrieval, are explained in the [agent memory glossary](/post/agent-memory-glossary/#measuring-it).
