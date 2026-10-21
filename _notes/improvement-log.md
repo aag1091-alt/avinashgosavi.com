@@ -644,3 +644,8 @@ Designer backlog additions:
 - Page h2 section ids now server-rendered (was JS-only): /uses, /research, /events (upcoming/past), /achievements, /changelog (dates), /experience (companies), /projects (categories), /talks (topics). Slug rule matches page-anchors.html (`replace: '&', ' and ' | slugify`), so ids are identical to the old JS ones and existing shared links keep working; JS still adds the `#` link and covers any new h2. /series h2s left to JS (their section already has the slug id). Closes the "Page anchor ids are JS-only" backlog item; CI link checker can now verify links to these anchors. Logs/site unreachable from sandbox (proxy 403). Run 39663096915 green.
 
 - 2026-10-21 12:35 PT — ENGINEER — server-rendered section ids on /uses, /projects, /events, /talks, /experience, /achievements, /changelog, /research (Actions deploy green).
+## Done (Oct 21, 2026, 1:34pm PT)
+- Low-inbound posts: /uses Ollama line now links the AI History Blog Generator post (its post-writing model is qwen2.5:14b via Ollama, per the post's stack table); /changelog lede links the Jekyll + GitHub Pages setup post. Both posts had only 2 inbound links.
+- Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations; llms.txt Pages in step.
+- Run 39671612886 green.
+- 2026-10-21 13:34 PT — EDITOR — cross-links to the AI History generator and Jekyll setup posts from /uses and /changelog (Actions deploy green).
