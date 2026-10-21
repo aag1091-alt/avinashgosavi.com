@@ -23,7 +23,7 @@ By 2020, large language models clearly stored a lot of facts in their weights. B
 The paper splits knowledge into two kinds of memory:
 
 - **Parametric memory** — what's baked into the model's weights. Here that's BART-large, a pre-trained sequence-to-sequence generator.
-- **Non-parametric memory** — an external index you can search. Here that's a December 2018 Wikipedia dump cut into 100-word chunks (about 21 million of them), each turned into an [embedding](/post/agent-memory-glossary/#embedding) by a BERT document encoder from DPR (Dense Passage Retrieval). The vectors live in a FAISS index using an [HNSW](/post/agent-memory-glossary/#hnsw) approximation, so lookups stay fast.
+- **Non-parametric memory** — an external index you can search. Here that's a December 2018 Wikipedia dump cut into 100-word chunks (about 21 million of them), each turned into an [embedding](/post/agent-memory-glossary/#embedding) by a BERT document encoder from DPR (Dense Passage Retrieval). The vectors live in a FAISS index using an [HNSW](/post/paper-tldr-hnsw/) approximation, so lookups stay fast.
 
 At question time, a second BERT encoder turns the input into a query vector, the index returns the [top-k](/post/agent-memory-glossary/#top-k-retrieval) passages, and BART generates an answer conditioned on the input plus each passage. Nobody labels which passage is "right": the retriever learns only from whether the final answer comes out well.
 
@@ -59,6 +59,6 @@ One practical shortcut: only the query encoder and the generator are trained. Th
 - **The index is only as good as its source.** The authors note that Wikipedia will likely never be fully factual or free of bias, and that the same misuse concerns as other text generators apply.
 - **Big infrastructure for its time.** The paper notes the Wikipedia index initially needed about 100 GB of CPU memory, cut to 36 GB with FAISS compression.
 
-Earlier in the series: [Sentence-BERT](/post/paper-tldr-sentence-bert/) (the kind of embeddings that make the search step work), [Lost in the Middle](/post/paper-tldr-lost-in-the-middle/) (where retrieved passages land in the prompt) and [MemGPT](/post/paper-tldr-memgpt/) (an agent that pages its own memory in and out).
+Earlier in the series: [Sentence-BERT](/post/paper-tldr-sentence-bert/) (the kind of embeddings that make the search step work), [Lost in the Middle](/post/paper-tldr-lost-in-the-middle/) (where retrieved passages land in the prompt) and [MemGPT](/post/paper-tldr-memgpt/) (an agent that pages its own memory in and out). Next in the series: [HNSW](/post/paper-tldr-hnsw/), the graph index behind fast nearest-neighbor lookups like this one.
 
 Terms like [*retrieval-augmented generation*](/post/agent-memory-glossary/#rag), [*embedding*](/post/agent-memory-glossary/#embedding), [*semantic search*](/post/agent-memory-glossary/#semantic-search), [*top-k retrieval*](/post/agent-memory-glossary/#top-k-retrieval) and [*HNSW*](/post/agent-memory-glossary/#hnsw) are defined in the [agent memory glossary](/post/agent-memory-glossary/).
