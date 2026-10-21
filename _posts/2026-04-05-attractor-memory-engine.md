@@ -38,7 +38,7 @@ What's also interesting: in 2020, researchers showed that modern Hopfield networ
 
 Attractor is a standalone memory service. Right now it's Phase 1: a working foundation that stores memories with context and retrieves them by meaning.
 
-<img width="820" height="380" loading="lazy" decoding="async" src="{{ '/assets/images/attractor-architecture.svg' | relative_url }}" alt="Attractor Phase 1 architecture diagram" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
+{% include diagrams/attractor-architecture.html %}
 
 **The data model** is built around something I call a `ContextFrame` — the situational state at the time a memory was formed:
 

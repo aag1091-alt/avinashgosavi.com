@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Design
+  text: The Attractor post's architecture diagram is redrawn to follow the sepia and dark themes and stack neatly on phones.
+  link: /post/attractor-memory-engine/
+- date: 2026-10-21
   desk: Writing
   text: The SF Ruby 2025 post now ends with a link to Talks Worth Watching, so the two pages point to each other.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/

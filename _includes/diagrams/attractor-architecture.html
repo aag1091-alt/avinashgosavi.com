@@ -1,0 +1,56 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 522" role="img" aria-labelledby="attractor-arch-title attractor-arch-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="attractor-arch-title">Attractor Phase 1 architecture</title>
+  <desc id="attractor-arch-desc">A client — memlog, an agent, or any HTTP client — calls a FastAPI service over REST. FastAPI exposes POST /memories, POST /memories/search, GET /memories/:id and DELETE /memories/:id. It uses an encoder (sentence-transformers all-MiniLM-L6-v2, producing a 384-dimensional vector) and PgStore (an asyncpg connection pool for write, get, search and delete). Both lead to PostgreSQL with pgvector, which stores content as TEXT, context and tags as JSONB, vector as vector(384), access_count as INT and created_at as TIMESTAMPTZ. The service runs on port 7747, "loci" on a phone keypad.</desc>
+  <defs>
+    <marker id="attractor-arch-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-box" x="40" y="6" width="280" height="52" rx="26"/>
+  <text class="dg-strong" x="180" y="28" text-anchor="middle">Client</text>
+  <text class="dg-note" x="180" y="47" text-anchor="middle">memlog, an agent, or any HTTP client</text>
+
+  <line class="dg-line" x1="180" y1="58" x2="180" y2="88" marker-end="url(#attractor-arch-arrow)"/>
+  <text class="dg-note" x="192" y="78">REST</text>
+
+  <rect class="dg-box" x="6" y="92" width="348" height="112" rx="8"/>
+  <text class="dg-strong" x="22" y="116">FastAPI</text>
+  <text class="dg-body dg-mono" x="22" y="140">POST   /memories</text>
+  <text class="dg-body dg-mono" x="22" y="158">POST   /memories/search</text>
+  <text class="dg-body dg-mono" x="22" y="176">GET    /memories/:id</text>
+  <text class="dg-body dg-mono" x="22" y="194">DELETE /memories/:id</text>
+
+  <line class="dg-line" x1="130" y1="204" x2="92" y2="234" marker-end="url(#attractor-arch-arrow)"/>
+  <line class="dg-line" x1="230" y1="204" x2="268" y2="234" marker-end="url(#attractor-arch-arrow)"/>
+
+  <rect class="dg-box" x="6" y="238" width="170" height="88" rx="8"/>
+  <text class="dg-strong" x="20" y="261">Encoder</text>
+  <text class="dg-note" x="20" y="281">sentence-transformers</text>
+  <text class="dg-note dg-mono" x="20" y="299">all-MiniLM-L6-v2</text>
+  <text class="dg-note" x="20" y="317">→ 384-dim vector</text>
+
+  <rect class="dg-box" x="184" y="238" width="170" height="88" rx="8"/>
+  <text class="dg-strong" x="198" y="261">PgStore</text>
+  <text class="dg-note" x="198" y="281">asyncpg connection pool</text>
+  <text class="dg-note" x="198" y="299">write / get /</text>
+  <text class="dg-note" x="198" y="317">search / delete</text>
+
+  <line class="dg-line" x1="92" y1="326" x2="140" y2="358" marker-end="url(#attractor-arch-arrow)"/>
+  <line class="dg-line" x1="268" y1="326" x2="220" y2="358" marker-end="url(#attractor-arch-arrow)"/>
+
+  <rect class="dg-box" x="6" y="362" width="348" height="126" rx="8"/>
+  <text class="dg-strong" x="22" y="386">PostgreSQL + pgvector</text>
+  <line class="dg-edge" x1="22" y1="398" x2="338" y2="398"/>
+  <text class="dg-note dg-mono" x="22" y="420">content TEXT</text>
+  <text class="dg-note dg-mono" x="22" y="439">context JSONB</text>
+  <text class="dg-note dg-mono" x="22" y="458">tags JSONB</text>
+  <text class="dg-note dg-mono" x="22" y="477">created_at TIMESTAMPTZ</text>
+  <text class="dg-note dg-mono" x="200" y="420">vector vector(384)</text>
+  <text class="dg-note dg-mono" x="200" y="439">access_count INT</text>
+
+  <text class="dg-note" x="180" y="512" text-anchor="middle">Service runs on port 7747 — “loci” on a phone keypad</text>
+</svg>
+<figcaption>Phase 1: a FastAPI service that embeds each memory and stores it, with its context, in Postgres + pgvector.</figcaption>
+</figure>
