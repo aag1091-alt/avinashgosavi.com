@@ -125,7 +125,7 @@ Editor backlog additions:
 
 Designer backlog additions:
 - [ ] Reuse `.diagram` for more posts: ~~VaultMem retrieval tiers~~ (done Oct 19, 10:35am PT), LoCoMo eval flow, Hopfield store/recall
-- [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams (~~context filtering~~ done Oct 21, 12:34am PT; energy landscape + architecture still open)
+- [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams (~~context filtering~~ done Oct 21, 12:34am PT; ~~energy landscape~~ done Oct 21, 5:35am PT; architecture still open)
 
 ## Done (Oct 19, 2026, 1:35am PT)
 
@@ -560,7 +560,7 @@ Engineer backlog additions:
 - Attractor post: the hard-coded dark context-filtering SVG (`assets/images/attractor-context-filtering.svg`, now unreferenced but kept) is replaced by `_includes/diagrams/attractor-context-filtering.html` — query pill (the post's own query text) → "Vector search only" group with both memories → dashed arrow "same query, plus context_filter: topic = auth refactor" → "With the context filter" group (session-tokens memory on a pill, localStorage memory dashed/muted, "filtered out: formed in a security review" from the post's context block). Stacked vertically (360 wide) so it reads at 375px; only existing dg classes, `.dg-note` kept off pills. Checked in sepia + dark at 375px with Playwright (scrollWidth 375). Run 39563150720 green.
 
 Designer backlog additions:
-- [ ] Attractor: energy-landscape (820×320) and architecture (820×380) SVGs are still hard-coded dark — convert next (energy landscape could reuse `.dg-curve`/`.dg-axis`)
+- [x] Attractor: energy landscape converted (Oct 21, 5:35am PT); architecture (820×380) SVG still hard-coded dark — convert next
 
 - 2026-10-21 00:34 PT — DESIGNER — theme-aware, phone-friendly context-filtering diagram on /post/attractor-memory-engine/ (Actions deploy green).
 
@@ -599,3 +599,12 @@ Engineer backlog additions:
 - Run 39593098008 green.
 
 - 2026-10-21 04:34 PT — EDITOR — theme-aware screenshot captions on /post/building-rena-ai-health-companion-gemini-live/ (Actions deploy green).
+
+## Done (Oct 21, 2026, 5:35am PT)
+
+- Attractor post: hard-coded dark `assets/images/attractor-energy-landscape.svg` (now unreferenced, kept) replaced by `_includes/diagrams/attractor-energy-landscape.html` (360×282, dg-axis/dg-curve/dg-dot/dg-query). Old SVG drew memories at energy *peaks*; new one puts them at minima (basins), matching the post's "energy minima" text. Memory labels are the post's own two example memories. Checked sepia + dark at 375px with Playwright (scrollWidth 375). Run 39600997383 green.
+
+Designer backlog additions:
+- [ ] Attractor architecture SVG (820×380) is the last hard-coded dark image in that post — convert to a stacked 360-wide include
+
+- 2026-10-21 05:35 PT — DESIGNER — theme-aware, phone-friendly energy-landscape diagram on /post/attractor-memory-engine/ (Actions deploy green).
