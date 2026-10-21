@@ -654,3 +654,7 @@ Designer backlog additions:
 - Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations.
 - Run 39680043307 green.
 - 2026-10-21 14:34 PT — EDITOR — VaultMem posts link the Memory as Asset TL;DR (/post/vaultmem-encrypted-memory-for-ai-agents/, /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/, /post/vaultmem-part-3-pii-sanitizer/) (Actions deploy green).
+## Done (Oct 21, 2026, 3:34pm PT)
+- LoCoMo Paper TL;DR: `_includes/diagrams/locomo-benchmark.html` (360×548) after the category list — conversation pill (~300 turns · ~9K tokens avg; S1…S35 session nodes, "up to 35 sessions") → "Three tasks" group (QA highlighted, event summary, dialogue generation) → "Question categories" (single-hop, multi-hop, temporal, open-domain, adversarial dashed). Numbers from the arXiv 2402.17753 abstract (opened this run); categories from the post. Muted text only on `.dg-box`/page bg. Playwright at 375px sepia + dark: scrollWidth 375, no text outside viewBox. Jekyll not installable in sandbox (rubygems unreachable); CI is the build check. Run 39688379264 green.
+- Diagram ideas still open: Hopfield store/recall, VaultMem envelope encryption (MEK wrapping).
+- 2026-10-21 15:34 PT — DESIGNER — theme-aware LoCoMo benchmark diagram on /post/paper-tldr-locomo-long-term-memory-benchmark/ (Actions deploy green).
