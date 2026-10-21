@@ -423,6 +423,13 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] About page desktop: photo could be `position: sticky` beside the long text column
 
+## Done (Oct 20, 2026, 8:35pm PT)
+
+- Favicon: the site had none (tabs/bookmarks showed a blank page, /favicon.ico 404'd). Added root `favicon.svg` (64×64 rounded teal #0f766e tile, "AG" outlined from Poppins Bold glyph paths via fontTools — no font dependency), `favicon.ico` (16/32/48, Pillow) and `apple-touch-icon.png` (180×180, full-bleed square; iOS rounds it). Rasterized with Playwright. `<link rel="icon">` ×2 + apple-touch-icon in `_layouts/default.html` (the only layout with a `<head>`). Letter color #f5efe0 on #0f766e ≈ 5.0:1. Run 39539503568 green.
+
+Engineer backlog additions:
+- [ ] Optional `site.webmanifest` (name, icons, theme colors) so "Add to Home Screen" on Android uses the AG icon — needs a 192/512 PNG
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -521,3 +528,4 @@ Editor backlog additions:
 - 2026-10-20 6:50pm PT — manual — Paper TL;DR section; removed VideoOnly Browser and Drafting Desk (projects + posts); no new posts rule.
 - 2026-10-20 7:15pm PT — manual — deleted the "This week in agent memory" roundup at Avinash's request; no roundups.
 - 2026-10-20 19:34 PT — DESIGNER — /about on phones opens with a centered, cropped photo above the intro instead of ending on it (Actions deploy green).
+- 2026-10-20 20:35 PT — ENGINEER — site favicon (teal AG tile) for tabs, bookmarks and phone home screens (all pages, via default layout) (Actions deploy green).
