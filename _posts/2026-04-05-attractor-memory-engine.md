@@ -86,7 +86,7 @@ Here's what makes it different from a plain vector search. Say you store these t
 
 Now you search: `"why did we change the auth approach"` with `context_filter: { topic: "auth refactor" }`.
 
-<img width="800" height="400" loading="lazy" decoding="async" src="{{ '/assets/images/attractor-context-filtering.svg' | relative_url }}" alt="Context filtering showing same query returning different results with and without context" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
+{% include diagrams/attractor-context-filtering.html %}
 
 The second memory surfaces — not because the words match, but because:
 1. The embedding is semantically close to the query

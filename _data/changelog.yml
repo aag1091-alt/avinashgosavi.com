@@ -1,5 +1,9 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
+- date: 2026-10-21
+  desk: Design
+  text: The context-filtering diagram in the Attractor post is redrawn to follow the sepia and dark themes (it used to be a dark box on every page) and stacks to read cleanly on phones.
+  link: /post/attractor-memory-engine/
 - date: 2026-10-20
   desk: Writing
   text: "\"Your AI Agent Shouldn't Be Able to Read Your Diary\" is now linked from VaultMem Part 1 and the glossary, and it points on to VaultMem Part 3."

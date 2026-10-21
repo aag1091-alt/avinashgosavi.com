@@ -1,0 +1,39 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 476" role="img" aria-labelledby="attractor-cf-title attractor-cf-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="attractor-cf-title">Context filtering: same query, different results</title>
+  <desc id="attractor-cf-desc">The query "why did we change the auth approach" is embedded as a 384-dimensional vector. With vector search only, both memories surface: "switched from JWT to session tokens" and "auth tokens should never be stored in localStorage". Running the same query with the context filter topic equals "auth refactor" surfaces only the session-tokens memory; the localStorage memory, formed during a security review, is filtered out.</desc>
+  <defs>
+    <marker id="attractor-cf-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="22" y="6" width="316" height="54" rx="27"/>
+  <text class="dg-body" x="180" y="29" text-anchor="middle">“why did we change the auth approach”</text>
+  <text class="dg-body" x="180" y="48" text-anchor="middle">query + 384-dim embedding</text>
+
+  <line class="dg-line" x1="180" y1="60" x2="180" y2="90" marker-end="url(#attractor-cf-arrow)"/>
+
+  <rect class="dg-group" x="6" y="94" width="348" height="146" rx="12"/>
+  <text class="dg-label" x="22" y="116">Vector search only</text>
+  <rect class="dg-box" x="22" y="128" width="316" height="36" rx="6"/>
+  <text class="dg-body" x="36" y="151">“switched from JWT to session tokens…”</text>
+  <rect class="dg-box" x="22" y="172" width="316" height="36" rx="6"/>
+  <text class="dg-body" x="36" y="195">“auth tokens should never be stored in…”</text>
+  <text class="dg-note" x="180" y="228" text-anchor="middle">both surface: semantic match, no context</text>
+
+  <line class="dg-line dg-dash" x1="60" y1="240" x2="60" y2="298" marker-end="url(#attractor-cf-arrow)"/>
+  <text class="dg-note" x="74" y="264">same query, plus</text>
+  <text class="dg-note" x="74" y="282">context_filter: topic = “auth refactor”</text>
+
+  <rect class="dg-group" x="6" y="302" width="348" height="168" rx="12"/>
+  <text class="dg-label" x="22" y="324">With the context filter</text>
+  <rect class="dg-pill" x="22" y="336" width="316" height="36" rx="6"/>
+  <text class="dg-body" x="36" y="359">“switched from JWT to session tokens…”</text>
+  <rect class="dg-box dg-muted" x="22" y="380" width="316" height="36" rx="6"/>
+  <text class="dg-note" x="36" y="403">“auth tokens should never be stored in…”</text>
+  <text class="dg-note" x="180" y="438" text-anchor="middle">filtered out: formed in a security review</text>
+  <text class="dg-note" x="180" y="458" text-anchor="middle">semantic match + context = precision</text>
+</svg>
+<figcaption>Same query, two searches. Vector search alone returns both auth memories; adding the context filter keeps only the one formed during the auth refactor.</figcaption>
+</figure>
