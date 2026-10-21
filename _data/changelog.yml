@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Writing
+  text: The Attractor post's references now point to the plain-language Paper TL;DRs for Hopfield 1982, Hopfield Networks Is All You Need, Sentence-BERT and Complementary Learning Systems.
+  link: /post/attractor-memory-engine/#references
+- date: 2026-10-21
   desk: Engineering
   text: Photos on the About page and in the SF Ruby post now load as right-sized WebP images, so the About photo drops from about 185 KB to under 20 KB on most screens.
   link: /about/

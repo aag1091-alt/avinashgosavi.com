@@ -132,17 +132,17 @@ The interesting phases are coming.
 
 <a name="references"></a>
 
-1. Hopfield, J.J. (1982). [Neural networks and physical systems with emergent collective computational abilities](https://www.pnas.org/doi/10.1073/pnas.79.8.2554). *Proceedings of the National Academy of Sciences*, 79(8), 2554–2558.
+1. Hopfield, J.J. (1982). [Neural networks and physical systems with emergent collective computational abilities](https://www.pnas.org/doi/10.1073/pnas.79.8.2554). *Proceedings of the National Academy of Sciences*, 79(8), 2554–2558. Plain-language summary: [Paper TL;DR](/post/paper-tldr-hopfield-1982/).
 
-2. Ramsauer, H., Schäfl, B., Lehner, J., et al. (2020). [Hopfield Networks is All You Need](https://arxiv.org/abs/2008.02217). *arXiv:2008.02217*. *(Shows modern Hopfield networks have exponential capacity and that transformer attention is a Hopfield update.)*
+2. Ramsauer, H., Schäfl, B., Lehner, J., et al. (2020). [Hopfield Networks is All You Need](https://arxiv.org/abs/2008.02217). *arXiv:2008.02217*. *(Shows modern Hopfield networks have exponential capacity and that transformer attention is a Hopfield update.)* Plain-language summary: [Paper TL;DR](/post/paper-tldr-hopfield-networks-is-all-you-need/).
 
 3. pgvector. (2021). [Open-source vector similarity search for Postgres](https://github.com/pgvector/pgvector). GitHub.
 
-4. Reimers, N. & Gurevych, I. (2019). [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks](https://arxiv.org/abs/1908.10084). *arXiv:1908.10084*.
+4. Reimers, N. & Gurevych, I. (2019). [Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks](https://arxiv.org/abs/1908.10084). *arXiv:1908.10084*. Plain-language summary: [Paper TL;DR](/post/paper-tldr-sentence-bert/).
 
 5. Yates, F.A. (1966). *The Art of Memory*. University of Chicago Press. *(The definitive account of the method of loci — the memory palace technique.)*
 
-6. McClelland, J.L., McNaughton, B.L., & O'Reilly, R.C. (1995). [Why there are complementary learning systems in the hippocampus and neocortex](https://doi.org/10.1037/0033-295X.102.3.419). *Psychological Review*, 102(3), 419–457. *(The foundational paper on memory consolidation and why some memories strengthen while others decay.)*
+6. McClelland, J.L., McNaughton, B.L., & O'Reilly, R.C. (1995). [Why there are complementary learning systems in the hippocampus and neocortex](https://doi.org/10.1037/0033-295X.102.3.419). *Psychological Review*, 102(3), 419–457. *(The foundational paper on memory consolidation and why some memories strengthen while others decay.)* Plain-language summary: [Paper TL;DR](/post/paper-tldr-complementary-learning-systems/).
 
 ---
 
