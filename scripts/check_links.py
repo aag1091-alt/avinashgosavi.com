@@ -40,6 +40,11 @@ class Page(HTMLParser):
             self.links.append(("href", a["href"], line))
         if tag in ("img", "script", "source", "iframe", "audio", "video") and a.get("src"):
             self.links.append(("src", a["src"], line))
+        if tag in ("img", "source") and a.get("srcset"):
+            # "a.webp 280w, b.webp 560w" -> each candidate URL must exist
+            for cand in a["srcset"].split(","):
+                if cand.strip():
+                    self.links.append(("srcset", cand.split()[0], line))
 
     handle_startendtag = handle_starttag
 
