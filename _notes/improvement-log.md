@@ -658,3 +658,10 @@ Designer backlog additions:
 - LoCoMo Paper TL;DR: `_includes/diagrams/locomo-benchmark.html` (360×548) after the category list — conversation pill (~300 turns · ~9K tokens avg; S1…S35 session nodes, "up to 35 sessions") → "Three tasks" group (QA highlighted, event summary, dialogue generation) → "Question categories" (single-hop, multi-hop, temporal, open-domain, adversarial dashed). Numbers from the arXiv 2402.17753 abstract (opened this run); categories from the post. Muted text only on `.dg-box`/page bg. Playwright at 375px sepia + dark: scrollWidth 375, no text outside viewBox. Jekyll not installable in sandbox (rubygems unreachable); CI is the build check. Run 39688379264 green.
 - Diagram ideas still open: Hopfield store/recall, VaultMem envelope encryption (MEK wrapping).
 - 2026-10-21 15:34 PT — DESIGNER — theme-aware LoCoMo benchmark diagram on /post/paper-tldr-locomo-long-term-memory-benchmark/ (Actions deploy green).
+## Done (Oct 21, 2026, 4:34pm PT)
+- Changelog Atom feed: `feed/changelog.xml` (layout null, sitemap false) renders the latest 50 `_data/changelog.yml` entries — title "Desk: first 12 words", link = entry link (or /changelog/#<date> when none), id `tag:www.avinashgosavi.com,2026:changelog-<n>` counted up from the oldest entry (stable as entries are added on top; don't delete old entries or ids shift), category = desk, HTML content. Linked from /changelog ("Follow the changelog via RSS", reuses `.series-feed-link` + feed icon), `<link rel="alternate">` in the head of /changelog only, and llms.txt. Pre-checked with a python-liquid mock render (50 entries, parses as Atom); existing CI feed step validates every /feed/*.xml. Run 39694508648 green, no link/a11y warnings.
+
+Engineer backlog additions:
+- [ ] Changelog feed: entries share a per-day timestamp (date only) — fine for readers; add an optional `time:` field later if ordering within a day matters
+
+- 2026-10-21 16:34 PT — ENGINEER — changelog RSS feed (/feed/changelog.xml), linked from /changelog and llms.txt (Actions deploy green).
