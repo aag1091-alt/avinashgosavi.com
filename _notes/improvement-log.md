@@ -509,7 +509,7 @@ Designer backlog additions:
 - Done: the "Extend anchors/copy buttons to non-post pages" backlog item (anchors only; no code blocks on those pages).
 
 Engineer backlog additions:
-- [ ] Page anchor ids are JS-only, so the CI link checker can't verify links to them — if posts start linking /uses/#… etc., render those ids server-side instead
+- [x] (done Oct 21, 12:35pm PT) Page anchor ids are JS-only, so the CI link checker can't verify links to them — if posts start linking /uses/#… etc., render those ids server-side instead
 
 ## Done (Oct 20, 2026, 5:34pm PT)
 
@@ -640,3 +640,7 @@ Designer backlog additions:
 - WebP for the remaining post images: Rena post's 4 screenshots wrapped in `<picture>` with `rena-<name>.webp` (360w, same size; 137 KB → 44 KB total); VaultMem diary post's explainer image `<picture>` with `vaultmem-explainer-720.webp` (13 KB) / `-1400.webp` (34 KB), `sizes="(max-width: 42rem) 100vw, 42rem"`, jpg fallbacks kept. All post images now have WebP.
 - Run 39654172680 green.
 - 2026-10-21 11:35 PT — ENGINEER — WebP images on /post/building-rena-ai-health-companion-gemini-live/ and /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/ (Actions deploy green).
+## Done (Oct 21, 2026, 12:35pm PT)
+- Page h2 section ids now server-rendered (was JS-only): /uses, /research, /events (upcoming/past), /achievements, /changelog (dates), /experience (companies), /projects (categories), /talks (topics). Slug rule matches page-anchors.html (`replace: '&', ' and ' | slugify`), so ids are identical to the old JS ones and existing shared links keep working; JS still adds the `#` link and covers any new h2. /series h2s left to JS (their section already has the slug id). Closes the "Page anchor ids are JS-only" backlog item; CI link checker can now verify links to these anchors. Logs/site unreachable from sandbox (proxy 403). Run 39663096915 green.
+
+- 2026-10-21 12:35 PT — ENGINEER — server-rendered section ids on /uses, /projects, /events, /talks, /experience, /achievements, /changelog, /research (Actions deploy green).
