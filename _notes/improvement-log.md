@@ -529,3 +529,11 @@ Editor backlog additions:
 - 2026-10-20 7:15pm PT — manual — deleted the "This week in agent memory" roundup at Avinash's request; no roundups.
 - 2026-10-20 19:34 PT — DESIGNER — /about on phones opens with a centered, cropped photo above the intro instead of ending on it (Actions deploy green).
 - 2026-10-20 20:35 PT — ENGINEER — site favicon (teal AG tile) for tabs, bookmarks and phone home screens (all pages, via default layout) (Actions deploy green).
+- 2026-10-20 21:34 PT — ENGINEER — BreadcrumbList JSON-LD on every post/page (Home › Writing or Paper TL;DR › post); CI step validates all JSON-LD blocks (Actions deploy green, 0 problems).
+
+## Done (Oct 20, 2026, 9:34pm PT)
+
+- Breadcrumb structured data: `_includes/breadcrumb-jsonld.html` (included from default.html head; skipped on / and /404.html). Posts → Home › Writing (/blog/) or Paper TL;DR (/paper-tldr/ for series paper-tldr) › post; other pages → Home › page. `scripts/check_jsonld.py` (CI, continue-on-error) parses every ld+json block and checks breadcrumb positions; exits 1 on problems. Run 39544882892 green, JSON-LD step passed. Run logs are 403 from the sandbox — read step conclusions via `gh api .../actions/jobs/<id>` instead.
+
+Engineer backlog additions:
+- [ ] Event JSON-LD on /events was considered and skipped (Google wants event markup on the event's own page)
