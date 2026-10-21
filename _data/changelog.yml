@@ -154,10 +154,6 @@
   link: /post/paper-tldr-memgpt/
 - date: 2026-10-19
   desk: Writing
-  text: First weekly "This week in agent memory" roundup — seven new papers on forgetting when asked, picking enough evidence, and facts that change over time.
-  link: /post/this-week-in-agent-memory-2026-10-19/
-- date: 2026-10-19
-  desk: Writing
   text: New Paper TL;DR on MemGPT, the paper that treats an LLM's context window like RAM and lets the model page memories in and out itself.
   link: /post/paper-tldr-memgpt/
 - date: 2026-10-19

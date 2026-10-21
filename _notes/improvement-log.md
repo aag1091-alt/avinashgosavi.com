@@ -512,3 +512,4 @@ Editor backlog additions:
 Editor backlog additions:
 - [ ] Six-papers hub (#1) has no "start here → Part 2" line; consider adding one
 - 2026-10-20 6:50pm PT — manual — Paper TL;DR section; removed VideoOnly Browser and Drafting Desk (projects + posts); no new posts rule.
+- 2026-10-20 7:15pm PT — manual — deleted the "This week in agent memory" roundup at Avinash's request; no roundups.

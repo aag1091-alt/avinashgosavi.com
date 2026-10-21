@@ -59,7 +59,7 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 **Context frame.** The situation a memory was formed in — topic, people involved, task, session — stored alongside it so retrieval can filter by context, not just content. This is the core idea in [Attractor](/post/attractor-memory-engine/).
 {: #context-frame .glossary-term}
 
-**Sufficient evidence.** The idea that a memory system's job isn't just to return *relevant* memories but a set that is *enough* to answer. Ranking memories one at a time can miss this: several records may say the same thing (so the set gets bloated), or two weak-looking records may only make sense together (so both get dropped). One recent paper defines a sufficient set as a small subset that leads the agent to the same decision it would make with its full memory ([Beyond Marginal Influence](https://neurips.cc/virtual/2026/169578)). See [this week's roundup](/post/this-week-in-agent-memory-2026-10-19/#theme-2-relevant-isnt-the-same-as-enough).
+**Sufficient evidence.** The idea that a memory system's job isn't just to return *relevant* memories but a set that is *enough* to answer. Ranking memories one at a time can miss this: several records may say the same thing (so the set gets bloated), or two weak-looking records may only make sense together (so both get dropped). One recent paper defines a sufficient set as a small subset that leads the agent to the same decision it would make with its full memory ([Beyond Marginal Influence](https://neurips.cc/virtual/2026/169578)).
 {: #sufficient-evidence .glossary-term}
 
 ## How memories change over time
@@ -76,7 +76,7 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 **Event time vs. write time.** Two different timestamps for one memory: when the thing happened, and when it was saved. A photo from 2019 imported today should come back for "what did I do in 2019?", not for "what did I add today?". [VaultMem Part 2](/post/vaultmem-part-2-multimodal-temporal-backends/#temporal-search) keeps them as separate fields (`captured_at` and `created_at`) for exactly this reason.
 {: #event-time .glossary-term}
 
-**Versioned facts (temporal state).** Keeping every value a fact has had — "lives in Boston", then "lives in Seattle" — as a list of versions linked to where each came from, instead of overwriting the old one. The newest version answers "where does she live?", while the older ones still answer "where did she live before?". The [TEM paper](https://www.emergentmind.com/papers/2610.21900) adds one more step: older versions are marked as historical before the model sees them, and the authors report that this label alone gave large gains on questions about repeatedly updated facts. See [this week's roundup](/post/this-week-in-agent-memory-2026-10-19/#theme-3-facts-that-change-over-time).
+**Versioned facts (temporal state).** Keeping every value a fact has had — "lives in Boston", then "lives in Seattle" — as a list of versions linked to where each came from, instead of overwriting the old one. The newest version answers "where does she live?", while the older ones still answer "where did she live before?". The [TEM paper](https://www.emergentmind.com/papers/2610.21900) adds one more step: older versions are marked as historical before the model sees them, and the authors report that this label alone gave large gains on questions about repeatedly updated facts.
 {: #versioned-facts .glossary-term}
 
 **Associative (content-addressable) memory.** Retrieving a whole memory from a partial or noisy piece of it, rather than by key or address. Hopfield networks are the classic example — see [Hopfield (1982)](/post/paper-tldr-hopfield-1982/) and [the modern version](/post/paper-tldr-hopfield-networks-is-all-you-need/).
@@ -93,7 +93,7 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 **PII sanitization.** Detecting and masking personal details — names, emails, phone numbers — before text is sent to a model provider, then restoring them in the response. It closes a gap encryption at rest can't: the model still has to read the text. See [VaultMem Part 3](/post/vaultmem-part-3-pii-sanitizer/).
 {: #pii-sanitization .glossary-term}
 
-**Memory unlearning (forget requests).** Deleting a specific fact when the user asks — and only that fact. Done well, the fact can no longer be recalled or pieced together from other memories, while everything unrelated survives. The [Bemula benchmark](https://www.emergentmind.com/papers/2610.18052) tests exactly this and reports two common failures: the fact stays extractable with simple prompts, or the system deletes far more than it was asked to. See [this week's roundup](/post/this-week-in-agent-memory-2026-10-19/#theme-1-can-an-agent-forget-when-you-ask-it-to).
+**Memory unlearning (forget requests).** Deleting a specific fact when the user asks — and only that fact. Done well, the fact can no longer be recalled or pieced together from other memories, while everything unrelated survives. The [Bemula benchmark](https://www.emergentmind.com/papers/2610.18052) tests exactly this and reports two common failures: the fact stays extractable with simple prompts, or the system deletes far more than it was asked to.
 {: #memory-unlearning .glossary-term}
 
 ## Measuring it
