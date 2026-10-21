@@ -52,12 +52,7 @@ homepage). Max 4 new posts/day, 1 per run.
 ## Backlog (pick from the top; move to Done with a date)
 
 Editor:
-- [ ] Paper TL;DR candidates (read before writing): ~~MemGPT~~ (done Oct 19), ~~Generative Agents~~ (done Oct 19, 2:35pm PT), RAG (Lewis et
-      al., 2020) (done Oct 20, 8:35am PT), ~~HNSW (Malkov & Yashunin, 2016)~~ (done Oct 20, 1:34pm PT), ColBERT (Khattab & Zaharia,
-      2020), ~~Lost in the Middle~~ (done Oct 20, 3:34am PT)
-- [ ] Explainer: how VaultMem's three retrieval tiers work — SKIP unless adding new material: already covered with diagram + benchmark in /post/vaultmem-encrypted-memory-for-ai-agents/ (checked Oct 20)
 - [x] Explainer: how Drafting Desk keeps drafts private (done Oct 19, 8:35am PT)
-- [ ] Keep the agent memory glossary growing (/post/agent-memory-glossary/)
 
 Designer:
 - [x] Project cards: consistent visual header (done Oct 20, 12:34am PT)
@@ -161,16 +156,12 @@ Editor backlog additions:
 - Source tip: WebSearch "arxiv.org/abs/2610 agent memory" surfaces this month's IDs; abs pages fetched fine this run. Check submission dates — many 2610.* hits were Oct 7–10 (outside the 7-day window).
 
 Editor backlog additions:
-- [ ] Paper TL;DR candidates from the roundup: Bemula (2610.18052) or MemCut (2610.21405) — ties to VaultMem's privacy theme only if his own posts support it; otherwise neutral
-- [ ] Glossary: add "memory unlearning / forget requests" and "sufficient evidence" entries, linking the roundup
-- [ ] Next roundup: Monday Oct 26 (cover Oct 19–25)
 
 ## Done (Oct 19, 2026, 5:35am PT)
 
 - MemGPT Paper TL;DR: inline SVG diagram of main context (system instructions / working context / FIFO queue) vs external context (recall / archival), with eviction and function-call arrows — `_includes/diagrams/memgpt-virtual-context.html`, content taken only from the post. New `.dg-group` (dashed container) and `.dg-label` (small caps label) classes in style.css. Contrast: muted text 5.7:1 sepia / 5.2:1 dark on box fill; checked at 375px in both themes (Playwright needs `executablePath: '/opt/pw-browsers/chromium'`).
 
 Designer backlog additions:
-- [ ] Diagram for the weekly roundup? (probably not — keep roundups text-only); LoCoMo eval flow diagram next
 
 ## Done (Oct 19, 2026, 6:35am PT)
 
@@ -191,8 +182,6 @@ Engineer backlog additions:
 - Skipped the VaultMem tiers explainer: Part 1 already has a "Three-tier retrieval" section — a diagram (designer) would add more than a new post.
 
 Editor backlog additions:
-- [ ] Explainers for other projects without a post (VideoOnly Browser, What's New in AI) — read their READMEs first
-- [ ] Waiting on Avinash: why he built Drafting Desk / how he uses it — a first-person intro paragraph for the post
 
 ## Done (Oct 19, 2026, 9:35am PT)
 
@@ -362,7 +351,6 @@ Editor backlog additions:
 
 Editor backlog additions:
 - [ ] Explainer still open: What's New in AI (ai-newsletter repo) — read README first
-- [ ] Waiting on Avinash: why he built VideoOnly Browser — a first-person intro line for the post
 
 ## Done (Oct 20, 2026, 5:35am PT)
 
@@ -523,5 +511,4 @@ Editor backlog additions:
 
 Editor backlog additions:
 - [ ] Six-papers hub (#1) has no "start here → Part 2" line; consider adding one
-- [ ] Oct 21 PT: post cap resets — next Paper TL;DR candidates: ColBERT, DPR (Karpukhin et al., 2020), product quantization (Jégou et al.)
 - 2026-10-20 6:50pm PT — manual — Paper TL;DR section; removed VideoOnly Browser and Drafting Desk (projects + posts); no new posts rule.
