@@ -125,7 +125,7 @@ Editor backlog additions:
 
 Designer backlog additions:
 - [ ] Reuse `.diagram` for more posts: ~~VaultMem retrieval tiers~~ (done Oct 19, 10:35am PT), LoCoMo eval flow, Hopfield store/recall
-- [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams (~~context filtering~~ done Oct 21, 12:34am PT; ~~energy landscape~~ done Oct 21, 5:35am PT; architecture still open)
+- [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams (~~context filtering~~ done Oct 21, 12:34am PT; ~~energy landscape~~ done Oct 21, 5:35am PT; ~~architecture~~ done Oct 21, 10:34am PT)
 
 ## Done (Oct 19, 2026, 1:35am PT)
 
@@ -605,7 +605,7 @@ Engineer backlog additions:
 - Attractor post: hard-coded dark `assets/images/attractor-energy-landscape.svg` (now unreferenced, kept) replaced by `_includes/diagrams/attractor-energy-landscape.html` (360×282, dg-axis/dg-curve/dg-dot/dg-query). Old SVG drew memories at energy *peaks*; new one puts them at minima (basins), matching the post's "energy minima" text. Memory labels are the post's own two example memories. Checked sepia + dark at 375px with Playwright (scrollWidth 375). Run 39600997383 green.
 
 Designer backlog additions:
-- [ ] Attractor architecture SVG (820×380) is the last hard-coded dark image in that post — convert to a stacked 360-wide include
+- [x] Attractor architecture SVG converted (done Oct 21, 10:34am PT)
 
 - 2026-10-21 05:35 PT — DESIGNER — theme-aware, phone-friendly energy-landscape diagram on /post/attractor-memory-engine/ (Actions deploy green).
 ## Done (Oct 21, 2026, 6:34am PT)
@@ -630,3 +630,9 @@ Engineer backlog additions:
 - Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations. codespell over posts/pages: only "Rouge" false positives. External link check not possible from the sandbox (proxy returns 000/403).
 - Run 39636992584 green.
 - 2026-10-21 09:35 PT — EDITOR — SF Ruby post cross-links /talks/ (/post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/) (Actions deploy green).
+## Done (Oct 21, 2026, 10:34am PT)
+- Attractor post: hard-coded dark `assets/images/attractor-architecture.svg` (unreferenced now, kept) replaced by `_includes/diagrams/attractor-architecture.html` (360×522, stacked: Client → REST → FastAPI endpoints → Encoder | PgStore → PostgreSQL + pgvector columns → port 7747 note). Content only from the old SVG + post. New CSS class `.dg-mono` (JetBrains Mono 12.5px). `.dg-note` on `.dg-pill` is only 3.7:1 in dark — so all boxes use `.dg-box` (muted on code-bg 5.7 sepia / 5.2 dark). Playwright at 375px sepia + dark: scrollWidth 375, no text outside the viewBox. All three Attractor diagrams are now theme-aware. Run 39645326603 green.
+
+Designer backlog additions:
+- [ ] Rule: never put `.dg-note` (muted) text on `.dg-pill` — fails 4.5:1 in dark (3.7:1); use `.dg-body` or `.dg-box`
+- 2026-10-21 10:34 PT — DESIGNER — theme-aware, phone-friendly architecture diagram on /post/attractor-memory-engine/ (Actions deploy green).
