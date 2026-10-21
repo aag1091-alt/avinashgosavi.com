@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Engineering
+  text: The site finally has its own icon — a teal AG tile in browser tabs, bookmarks and on phone home screens (it used to show a blank page).
+  link: /
+- date: 2026-10-20
   desk: Design
   text: On phones, the About page now opens with my photo above the intro instead of leaving it at the very bottom.
   link: /about
