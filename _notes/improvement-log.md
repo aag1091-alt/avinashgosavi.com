@@ -572,3 +572,13 @@ Engineer backlog additions:
 - [ ] If favicon.svg changes, regenerate the 3 manifest PNGs + apple-touch-icon.png too
 
 - 2026-10-21 01:35 PT — ENGINEER — web app manifest + 192/512/maskable icons so Android home-screen shortcuts use the AG tile (/site.webmanifest) (Actions deploy green).
+
+## Done (Oct 21, 2026, 2:35am PT)
+
+- Self-hosted fonts: Google Fonts link + 2 preconnects removed from `_layouts/default.html`; `assets/fonts/` holds Fontsource 5.3.0 variable woff2 files (DM Sans wght 100–1000 normal + italic, JetBrains Mono wght 100–800 normal; latin + latin-ext each, unicode-range split so latin-ext only loads when used; ~170 KB total, a typical page loads ~37–77 KB) with OFL license files. `@font-face` block at the top of style.css keeps the family names "DM Sans"/"JetBrains Mono", so `--font-sans`/`--font-mono` are unchanged. Preload for dm-sans-latin-wght-normal only. Italic now uses the real italic face (Google request only had 400 italic). Checked with Playwright (fonts load, italic/bold/accents render). Run 39578321708 green, no link/a11y warnings.
+
+Engineer backlog additions:
+- [ ] Mono italic isn't shipped (wasn't before either) — add jetbrains-mono-*-wght-italic.woff2 if code comments ever render in italic
+- [ ] Google Analytics (gtag) is now the only third-party request on page load
+
+- 2026-10-21 02:35 PT — ENGINEER — fonts self-hosted (assets/fonts/, all pages via default layout); no Google Fonts requests (Actions deploy green).
