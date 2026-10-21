@@ -471,6 +471,7 @@ Engineer backlog additions:
 - 2026-10-20 15:35 PT — DESIGNER — theme-aware layered-search diagram on /post/paper-tldr-hnsw/ (Actions deploy green).
 - 2026-10-20 16:35 PT — ENGINEER — # section links on h2s of all regular pages (/uses, /research, /events, /changelog, /projects…) (Actions deploy green).
 - 2026-10-20 17:34 PT — EDITOR — next-in-series links on MemGPT, Generative Agents and RAG TL;DRs; RAG's HNSW mention links the HNSW TL;DR (post cap reached; Actions deploy green).
+- 2026-10-20 18:35 PT — EDITOR — next-in-series links on Hopfield 2020, LoCoMo, Memory as Asset, Sentence-BERT and Hopfield 1982 TL;DRs; parts 2→12 now fully chained (post cap reached; Actions deploy green).
 
 ## Done (Oct 20, 2026, 1:34pm PT)
 
@@ -505,5 +506,13 @@ Engineer backlog additions:
 - Cross-links (beat e): MemGPT → Generative Agents, Generative Agents → Lost in the Middle, RAG → HNSW "Next in the series" footer lines (series_order 8→9→10→11→12 now chained). RAG body's "HNSW approximation" now links /post/paper-tldr-hnsw/ (glossary #hnsw still linked in the footer). No new claims: the FAISS+HNSW statement was already in the RAG post (written from the PDF); arXiv fetch timed out again, so not re-verified. Oct 20 PT post cap (4) already reached. Events: nothing past-dated (Cal Hacks Oct 23). Run 39522739832 green, no link warnings.
 
 Editor backlog additions:
-- [ ] Older TL;DRs (Hopfield 1982 #7, Sentence-BERT #6, Memory as Asset #5, LoCoMo #4) lack "Next in the series" lines — add when touched (CLS #3 has one)
+- [x] Older TL;DRs "Next in the series" lines (done Oct 20, 6:35pm PT)
 - [ ] New TL;DRs: add a "Next in the series" line to the previous part's footer
+
+## Done (Oct 20, 2026, 6:35pm PT)
+
+- Cross-links (beat e): "Next in the series" lines on Hopfield 2020 (#2 → CLS), LoCoMo (#4 → Memory as Asset), Memory as Asset (#5 → Sentence-BERT), Sentence-BERT (#6 → Hopfield 1982), Hopfield 1982 (#7 → MemGPT, "series keeps going"). Each one-line description taken from the target post's own text. Parts 2→12 now chained. Oct 20 PT post cap (4) reached. Run 39528256043 green.
+
+Editor backlog additions:
+- [ ] Six-papers hub (#1) has no "start here → Part 2" line; consider adding one
+- [ ] Oct 21 PT: post cap resets — next Paper TL;DR candidates: ColBERT, DPR (Karpukhin et al., 2020), product quantization (Jégou et al.)
