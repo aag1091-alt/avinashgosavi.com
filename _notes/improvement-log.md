@@ -625,3 +625,8 @@ Engineer backlog additions:
 - Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last 2 days had no new event registrations.
 - Run 39627238714 green.
 - 2026-10-21 08:35 PT — EDITOR — Attractor post references link to their Paper TL;DRs (/post/attractor-memory-engine/#references) (Actions deploy green).
+## Done (Oct 21, 2026, 9:35am PT)
+- SF Ruby 2025 post now ends with "See also: Talks Worth Watching" (/talks/) — /talks/ already linked the post, now reciprocal. Didn't claim recordings are out (couldn't open rubyevents.org this run).
+- Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations. codespell over posts/pages: only "Rouge" false positives. External link check not possible from the sandbox (proxy returns 000/403).
+- Run 39636992584 green.
+- 2026-10-21 09:35 PT — EDITOR — SF Ruby post cross-links /talks/ (/post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/) (Actions deploy green).
