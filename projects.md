@@ -12,7 +12,7 @@ permalink: /projects/
   {% for cat in order %}
   {% assign group = site.data.projects | where: "category", cat %}
   {% if group.size > 0 %}
-  <h2 class="project-category">{{ cat }}</h2>
+  <h2 class="project-category" id="{{ cat | replace: '&', ' and ' | slugify }}">{{ cat }}</h2>
   <div class="project-grid">
     {% for project in group %}
       {% include project-card.html project=project %}

@@ -1,6 +1,7 @@
 <script>
 /* Section links on regular pages (/uses, /research, /events, /changelog, ...): every h2 in <main>
-   gets an id (kept if it already has one) and a hover "#" link, like headings inside posts. */
+   gets a hover "#" link, like headings inside posts. Page h2s carry server-rendered ids (same slug
+   rule as below: '&' -> ' and ', non-alphanumerics -> '-') so links work without JS; the fallback covers new ones. */
 (function(){
   var main=document.getElementById('main'); if(!main) return;
   var made=false;

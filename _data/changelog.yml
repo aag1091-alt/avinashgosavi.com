@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
   desk: Engineering
+  text: Section headings on pages like Uses, Projects, Events, Talks and Experience now have their link anchors built into the page, so shared section links like /uses/#ai-tooling work even without JavaScript.
+  link: /uses/#ai-tooling
+- date: 2026-10-21
+  desk: Engineering
   text: The Rena app screenshots and the VaultMem explainer image now load as WebP, cutting those posts' image weight by roughly two thirds (about 137 KB to 44 KB for the four Rena screenshots).
   link: /post/building-rena-ai-health-companion-gemini-live/
 - date: 2026-10-21

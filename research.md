@@ -9,7 +9,7 @@ description: Topics Avinash Gosavi researches and builds around — private memo
   <h1>Research &amp; Interests</h1>
   <p class="page-lede">What I keep coming back to, at work and off hours — and the papers that shaped how I think about it. Each paper gets a TL;DR, and the ones that shaped something I built get a note on how.</p>
 
-  <h2>Topics I follow</h2>
+  <h2 id="topics-i-follow">Topics I follow</h2>
   <ul class="interest-list">
     <li><strong>Private, user-owned memory for AI agents.</strong> If an agent remembers your life, the platform running it shouldn't be able to read that memory. <a href="{{ '/series/' | relative_url }}#vaultmem">VaultMem</a>, <a href="{{ '/post/daylog-security-architecture/' | relative_url }}">daylog</a>.</li>
     <li><strong>Brain-inspired retrieval.</strong> Associative memory, attractor dynamics and consolidation as alternatives to plain vector search. <a href="{{ '/post/attractor-memory-engine/' | relative_url }}">Attractor</a>.</li>
@@ -19,7 +19,7 @@ description: Topics Avinash Gosavi researches and builds around — private memo
     <li><strong>Ruby &amp; Rails architecture.</strong> Thirteen years in the community, from RubyConf India 2013 to SF Ruby 2025. <a href="{{ '/events/' | relative_url }}">Events</a>.</li>
   </ul>
 
-  <h2>My own work</h2>
+  <h2 id="my-own-work">My own work</h2>
   <ul class="interest-list">
     <li><strong>VaultMem: zero-knowledge encrypted memory for AI agents</strong> — research preprint, 2026. <a href="https://doi.org/10.5281/zenodo.19154079" rel="noopener">Zenodo (DOI)</a> · <a href="https://pypi.org/project/vaultmem/" rel="noopener">PyPI</a> · <a href="https://github.com/aag1091-alt/vaultmem-sdk" rel="noopener">Code</a></li>
   </ul>

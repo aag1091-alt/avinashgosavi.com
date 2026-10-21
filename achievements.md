@@ -10,7 +10,7 @@ description: Engineering impact, open-source work, community roles and education
   <p class="page-lede">A few things I've worked on that I'm glad I got to be part of — with links wherever there's something public to look at.</p>
   {% for group in site.data.achievements %}
   <section class="achievement-group">
-    <h2>{{ group.section }}</h2>
+    <h2 id="{{ group.section | replace: '&', ' and ' | slugify }}">{{ group.section }}</h2>
     <ul class="achievement-list">
       {% for a in group.items %}
       <li class="achievement">

@@ -13,7 +13,7 @@ permalink: /experience/
     {% for job in site.data.experience %}
     <section class="timeline-item">
       <header class="timeline-header">
-        <h2 class="timeline-company">{{ job.company }}</h2>
+        <h2 class="timeline-company" id="{{ job.company | replace: '&', ' and ' | slugify }}">{{ job.company }}</h2>
         <span class="timeline-span">{{ job.span }}</span>
       </header>
       <p class="timeline-location">{{ job.location }}</p>
