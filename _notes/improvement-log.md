@@ -649,3 +649,8 @@ Designer backlog additions:
 - Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations; llms.txt Pages in step.
 - Run 39671612886 green.
 - 2026-10-21 13:34 PT — EDITOR — cross-links to the AI History generator and Jekyll setup posts from /uses and /changelog (Actions deploy green).
+## Done (Oct 21, 2026, 2:34pm PT)
+- Memory as Asset TL;DR (had 3 inbound) now linked as "plain-language TL;DR" next to the arXiv citation in VaultMem Part 1, the diary post and VaultMem Part 3. Remaining 3-inbound posts: doing-the-right-thing-fast, reviewing-ai-generated-tests, i-fell-in-love, codex-skills (4).
+- Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations.
+- Run 39680043307 green.
+- 2026-10-21 14:34 PT — EDITOR — VaultMem posts link the Memory as Asset TL;DR (/post/vaultmem-encrypted-memory-for-ai-agents/, /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/, /post/vaultmem-part-3-pii-sanitizer/) (Actions deploy green).
