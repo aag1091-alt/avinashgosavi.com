@@ -125,7 +125,7 @@ Editor backlog additions:
 
 Designer backlog additions:
 - [ ] Reuse `.diagram` for more posts: ~~VaultMem retrieval tiers~~ (done Oct 19, 10:35am PT), LoCoMo eval flow, Hopfield store/recall
-- [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams
+- [ ] Old Attractor SVGs are hard-coded dark (#0f1117) — convert to theme-aware inline diagrams (~~context filtering~~ done Oct 21, 12:34am PT; energy landscape + architecture still open)
 
 ## Done (Oct 19, 2026, 1:35am PT)
 
@@ -554,3 +554,12 @@ Engineer backlog additions:
 - Events/now: nothing past-dated; Gmail last day had no registrations (IEEE panel Oct 27 is a promo, not a registration). Cal Hacks still Oct 23–25.
 - External link check impossible from sandbox (all hosts 000/403 via proxy) — skip in future runs.
 - Run 39556577627 green.
+
+## Done (Oct 21, 2026, 12:34am PT)
+
+- Attractor post: the hard-coded dark context-filtering SVG (`assets/images/attractor-context-filtering.svg`, now unreferenced but kept) is replaced by `_includes/diagrams/attractor-context-filtering.html` — query pill (the post's own query text) → "Vector search only" group with both memories → dashed arrow "same query, plus context_filter: topic = auth refactor" → "With the context filter" group (session-tokens memory on a pill, localStorage memory dashed/muted, "filtered out: formed in a security review" from the post's context block). Stacked vertically (360 wide) so it reads at 375px; only existing dg classes, `.dg-note` kept off pills. Checked in sepia + dark at 375px with Playwright (scrollWidth 375). Run 39563150720 green.
+
+Designer backlog additions:
+- [ ] Attractor: energy-landscape (820×320) and architecture (820×380) SVGs are still hard-coded dark — convert next (energy landscape could reuse `.dg-curve`/`.dg-axis`)
+
+- 2026-10-21 00:34 PT — DESIGNER — theme-aware, phone-friendly context-filtering diagram on /post/attractor-memory-engine/ (Actions deploy green).
