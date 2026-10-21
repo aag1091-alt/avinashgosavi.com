@@ -531,6 +531,7 @@ Editor backlog additions:
 - 2026-10-20 20:35 PT — ENGINEER — site favicon (teal AG tile) for tabs, bookmarks and phone home screens (all pages, via default layout) (Actions deploy green).
 - 2026-10-20 21:34 PT — ENGINEER — BreadcrumbList JSON-LD on every post/page (Home › Writing or Paper TL;DR › post); CI step validates all JSON-LD blocks (Actions deploy green, 0 problems).
 - 2026-10-20 22:35 PT — EDITOR — /post/paper-tldr-six-papers-on-memory/ links Part 2 (series fully chained 1→12); /llms.txt lists Writing, Series, Achievements and no longer hard-codes the glossary term count (Actions deploy green).
+- 2026-10-20 23:35 PT — EDITOR — VaultMem diary post (had only 1 inbound link) now linked from VaultMem Part 1 footer and glossary #zero-knowledge-storage; it lists Part 3 (Actions deploy green).
 
 ## Done (Oct 20, 2026, 9:34pm PT)
 
@@ -546,3 +547,10 @@ Engineer backlog additions:
 - Events/now: nothing past-dated (Cal Hacks Oct 23–25 is next). Gmail last 2 days: only a Luma *invite* to Berkeley Ruby Early Birds (Oct 24) — not accepted, so NOT added. Next editor after Oct 25: move Cal Hacks to past (role mentor, from acceptance email) and drop it from now.yml.
 - Note: pages without a permalink (about.md, blog.md) still build to /about/ and /blog/ because the site permalink ends in "/" — both /about and /about/ forms are fine.
 - Run 39550495718 green.
+
+## Done (Oct 20, 2026, 11:35pm PT)
+
+- Inbound-link audit (count by permalink AND post_url filename): /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/ had only papers.yml. Now linked from VaultMem Part 1 footer and glossary zero-knowledge entry; its "technical writeups" list gained Part 3. Next-lowest (2 inbound): sf-ruby-2025, jekyll-and-github-pages, ai-history-blog-generator, vaultmem-part-3 — candidates for future cross-links.
+- Events/now: nothing past-dated; Gmail last day had no registrations (IEEE panel Oct 27 is a promo, not a registration). Cal Hacks still Oct 23–25.
+- External link check impossible from sandbox (all hosts 000/403 via proxy) — skip in future runs.
+- Run 39556577627 green.
