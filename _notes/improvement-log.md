@@ -56,7 +56,7 @@ Editor:
 
 Designer:
 - [x] Project cards: consistent visual header (done Oct 20, 12:34am PT)
-- [ ] About page layout on mobile (404 illustration done Oct 19, 7:35pm PT)
+- [x] About page layout on mobile (done Oct 20, 7:34pm PT; 404 illustration done Oct 19, 7:35pm PT)
 
 Engineer:
 - [x] CI internal link check (done Oct 19, 6:35am PT — see below)
@@ -416,6 +416,13 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Search: Enter could open the top result when the query hasn't changed since results rendered (ask whether that surprises people first — current Enter just re-renders)
 
+## Done (Oct 20, 2026, 7:34pm PT)
+
+- About page on phones (≤640px, style.css media query only): photo moves above the text (`order: -1`), centered (was stuck left — `align-items: flex-start` defeated `margin: auto`), 176px wide cropped 4:5 with `object-fit: cover; object-position: 62% 30%`; h1 centered at 1.6rem. Desktop unchanged. Checked at 375px + 900px in sepia + dark with Playwright on a mock page (no horizontal scroll). Run 39533905715 green. Note: about.md has no permalink, so link it as /about (not /about/).
+
+Designer backlog additions:
+- [ ] About page desktop: photo could be `position: sticky` beside the long text column
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -513,3 +520,4 @@ Editor backlog additions:
 - [ ] Six-papers hub (#1) has no "start here → Part 2" line; consider adding one
 - 2026-10-20 6:50pm PT — manual — Paper TL;DR section; removed VideoOnly Browser and Drafting Desk (projects + posts); no new posts rule.
 - 2026-10-20 7:15pm PT — manual — deleted the "This week in agent memory" roundup at Avinash's request; no roundups.
+- 2026-10-20 19:34 PT — DESIGNER — /about on phones opens with a centered, cropped photo above the intro instead of ending on it (Actions deploy green).
