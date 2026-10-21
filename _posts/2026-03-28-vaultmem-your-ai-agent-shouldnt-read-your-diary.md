@@ -102,7 +102,7 @@ pip install vaultmem
 - [Part 2 — multi-modal, temporal search, and production backends](/post/vaultmem-part-2-multimodal-temporal-backends/)
 - [Part 3 — hiding PII from your LLM provider](/post/vaultmem-part-3-pii-sanitizer/)
 
-**The research:** VaultMem implements Layer 1 of the [Memory-as-Asset framework](https://arxiv.org/abs/2603.14212) — a formal model for user-owned AI memory. The preprint is on [Zenodo](https://doi.org/10.5281/zenodo.19154079).
+**The research:** VaultMem implements Layer 1 of the [Memory-as-Asset framework](https://arxiv.org/abs/2603.14212) — a formal model for user-owned AI memory ([plain-language TL;DR](/post/paper-tldr-memory-as-asset/)). The preprint is on [Zenodo](https://doi.org/10.5281/zenodo.19154079).
 
 ---
 

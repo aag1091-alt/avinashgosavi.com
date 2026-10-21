@@ -32,7 +32,7 @@ For that to work, the privacy guarantee has to be mathematical, not a privacy po
 
 ## Where the research led
 
-While digging into how existing systems handle memory, I stumbled on a paper: [Memory as Asset](https://arxiv.org/abs/2603.14212) by Pan, Huang & Yang (2026). It formalizes something I'd been circling around informally — that personal memory isn't just data to be stored; it's an asset that belongs to the user, with ownership, permissions, and portability as first-class concerns.
+While digging into how existing systems handle memory, I stumbled on a paper: [Memory as Asset](https://arxiv.org/abs/2603.14212) by Pan, Huang & Yang (2026) ([plain-language TL;DR](/post/paper-tldr-memory-as-asset/)). It formalizes something I'd been circling around informally — that personal memory isn't just data to be stored; it's an asset that belongs to the user, with ownership, permissions, and portability as first-class concerns.
 
 The paper defines a layered architecture. Layer 1 is personal storage: encrypted, user-owned, portable. Layer 2 is cross-session intelligence. Layer 3 is collaborative memory between agents. No existing library implements even Layer 1 with real cryptographic guarantees.
 

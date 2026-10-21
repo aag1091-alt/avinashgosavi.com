@@ -19,7 +19,7 @@ description: "VaultMem v0.3: a PII sanitizer that keeps personal details away fr
 
 ## The gap encryption at rest doesn't close
 
-VaultMem stores every memory atom encrypted with AES-256-GCM. Your passphrase never leaves your device. The platform operator cryptographically cannot read your vault. The threat model comes from the Memory-as-Asset framework (Pan, Huang & Yang, [arXiv:2603.14212](https://arxiv.org/abs/2603.14212)): memory is a personal asset, not a platform resource.
+VaultMem stores every memory atom encrypted with AES-256-GCM. Your passphrase never leaves your device. The platform operator cryptographically cannot read your vault. The threat model comes from the Memory-as-Asset framework (Pan, Huang & Yang, [arXiv:2603.14212](https://arxiv.org/abs/2603.14212); [plain-language TL;DR](/post/paper-tldr-memory-as-asset/)): memory is a personal asset, not a platform resource.
 
 But there is a second exposure point I hadn't fully addressed: the moment you decrypt a memory and inject it into an LLM prompt.
 
