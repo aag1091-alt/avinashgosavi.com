@@ -620,3 +620,8 @@ Engineer backlog additions:
 - [ ] vaultmem-explainer.jpg (1400w, 65 KB) and Rena screenshots could get WebP variants too (smaller win)
 
 - 2026-10-21 07:34 PT — ENGINEER — right-sized WebP photos on /about and /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/; link checker covers srcset (Actions deploy green).
+## Done (Oct 21, 2026, 8:35am PT)
+- Attractor post references 1, 2, 4, 6 now end with "Plain-language summary: [Paper TL;DR](…)" linking the Hopfield 1982, Hopfield 2020, Sentence-BERT and CLS TL;DRs (it previously linked only the HNSW TL;DR and glossary).
+- Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last 2 days had no new event registrations.
+- Run 39627238714 green.
+- 2026-10-21 08:35 PT — EDITOR — Attractor post references link to their Paper TL;DRs (/post/attractor-memory-engine/#references) (Actions deploy green).
