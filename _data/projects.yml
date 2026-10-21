@@ -73,30 +73,6 @@
   demo: https://aag1091-alt.github.io/AI-History-Blog/
   post: /post/ai-history-blog-generator/
 
-- name: Drafting Desk
-  category: Tools I wanted for myself
-  tagline: A writing desk where the AI doesn't write for you
-  description: >-
-    A browser-only app for drafting blog posts with notes and research beside
-    the draft. An optional assistant fixes grammar, flags unclear sentences
-    and asks questions when you're stuck — but never writes the post. Bring
-    your own model (OpenRouter, Anthropic, OpenAI, Gemini or local Ollama);
-    exports Markdown with Jekyll front matter.
-  tags: [JavaScript, LLMs, Writing tools, Local-first]
-  github: https://github.com/aag1091-alt/drafting-desk
-  post: /post/drafting-desk-how-it-keeps-drafts-private/
-
-- name: VideoOnly Browser
-  category: Tools I wanted for myself
-  tagline: Just the video, nothing else
-  description: >-
-    A small Electron/Chromium desktop browser that blocks popups, redirects,
-    downloads, permission prompts and trackers, then hides everything except
-    the player once a video starts. Windows, macOS and Linux installers.
-  tags: [Electron, Chromium, Privacy]
-  github: https://github.com/aag1091-alt/videoonly-browser
-  post: /post/videoonly-browser-how-it-works/
-
 - name: What's New in AI
   category: Agents & voice
   tagline: A daily AI newsletter written by agents

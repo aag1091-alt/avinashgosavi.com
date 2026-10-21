@@ -6,21 +6,22 @@ title: All Posts
 
 <div class="blog-page">
   <h1>All Posts</h1>
-  <p class="page-lede">Prefer reading in order? <a href="{{ '/series/' | relative_url }}">Browse the series →</a> · <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a></p>
+  {% assign writing_posts = site.posts | where_exp: "p", "p.series != 'paper-tldr'" %}
+  <p class="page-lede">Paper summaries live in their own section: <a href="{{ '/paper-tldr/' | relative_url }}">Paper TL;DR →</a> · Prefer reading in order? <a href="{{ '/series/' | relative_url }}">Browse the series →</a> · <a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a></p>
 
   <div id="search" class="search-box" role="search">
     <label for="post-search" class="visually-hidden">Search posts</label>
     <input type="search" id="post-search" placeholder="Search posts…" aria-label="Search posts">
   </div>
 
-  {% assign all_tags = site.tags | sort %}
+  {% assign all_tags = writing_posts | map: "tags" | join: "," | split: "," | uniq | sort %}
   <div class="tag-filter" role="group" aria-label="Filter by topic">
     <button type="button" class="tag-chip is-active" data-tag="" aria-pressed="true">All</button>
-    {% for t in all_tags %}<button type="button" class="tag-chip" data-tag="{{ t[0] | slugify }}" aria-pressed="false">{{ t[0] }} <span class="tag-count">{{ t[1].size }}</span></button>{% endfor %}
+    {% for t in all_tags %}{% if t == "" %}{% continue %}{% endif %}{% assign tagged = writing_posts | where_exp: "p", "p.tags contains t" %}<button type="button" class="tag-chip" data-tag="{{ t | slugify }}" aria-pressed="false">{{ t }} <span class="tag-count">{{ tagged.size }}</span></button>{% endfor %}
   </div>
 
   <ul id="post-list" class="post-list blog-list">
-    {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+    {% assign sorted_posts = writing_posts | sort: 'date' | reverse %}
     {% for post in sorted_posts %}
     <li class="post-list-item blog-list-item" data-title="{{ post.title | downcase }}" data-excerpt="{{ post.excerpt | strip_html | downcase }}" data-tags="{% for t in post.tags %}{{ t | slugify }} {% endfor %}">
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>

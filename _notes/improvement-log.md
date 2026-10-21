@@ -5,6 +5,14 @@ Working notes for the recurring "improve avinashgosavi.com" task. Not published
 
 ## Ground rules (from Avinash)
 
+- **No posts on his behalf (Oct 20, 2026):** never create new posts in
+  `_posts/` — no Paper TL;DRs, explainers, roundups or glossaries. Existing
+  posts get small fixes only.
+- **Taken down (Oct 20, 2026):** VideoOnly Browser and Drafting Desk projects
+  and their posts — "both projects are not that good". Never re-add them.
+- **Paper TL;DR is its own section** at /paper-tldr/ (nav item), kept out of
+  the Writing list and homepage "Recent Writing".
+
 - **Tone:** personal and curious, not resume-like. No resume metrics or stat
   cards ("1M+ devices", "30+ APIs") — they feel braggy on a personal site.
 - **Never invent** opinions, experiences, attendance, awards or quotes. Only use
@@ -516,3 +524,4 @@ Editor backlog additions:
 Editor backlog additions:
 - [ ] Six-papers hub (#1) has no "start here → Part 2" line; consider adding one
 - [ ] Oct 21 PT: post cap resets — next Paper TL;DR candidates: ColBERT, DPR (Karpukhin et al., 2020), product quantization (Jégou et al.)
+- 2026-10-20 6:50pm PT — manual — Paper TL;DR section; removed VideoOnly Browser and Drafting Desk (projects + posts); no new posts rule.

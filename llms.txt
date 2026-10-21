@@ -29,6 +29,7 @@ Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 
 ## Pages
 
+- [Paper TL;DR]({{ "/paper-tldr/" | absolute_url }}): plain-language summaries of papers on AI memory, retrieval and search
 - [Experience]({{ "/experience/" | absolute_url }}): work history
 - [Talks worth watching]({{ "/talks/" | absolute_url }}): recommended conference talks with one-line reasons
 - [Conferences & community]({{ "/events/" | absolute_url }}): events attended, hacked at, judged or mentored

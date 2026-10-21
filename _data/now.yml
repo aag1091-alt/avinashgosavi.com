@@ -1,11 +1,6 @@
 # Shown on /now and (first 4) on the homepage. Update `updated` when editing.
-updated: 2026-10-19
+updated: 2026-10-20
 items:
-  - label: Building
-    text: >-
-      Drafting Desk, a writing app where the AI edits and asks questions but
-      never writes the post for you.
-    link: /post/drafting-desk-how-it-keeps-drafts-private/
   - label: Mentoring
     text: Mentoring hackers at Cal Hacks 13.0 in San Francisco, Oct 23–25.
     link: /events/#cal-hacks-13-0

@@ -1,128 +1,128 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
+  desk: Design
+  text: Paper TL;DR now has its own section in the menu, separate from my writing.
+  link: /paper-tldr/
+- date: 2026-10-20
   desk: Writing
-  text: "Every Paper TL;DR now ends with a link to the next one, so you can read the whole series in order from Hopfield Networks Is All You Need through HNSW."
+  text: Every Paper TL;DR now ends with a link to the next one, so you can read the whole series in order from Hopfield Networks Is All You Need through HNSW.
   link: /series/
 - date: 2026-10-20
   desk: Writing
-  text: "The newer Paper TL;DRs now point to the next one in the series, and the RAG write-up links straight to the HNSW explainer for the index it uses."
+  text: The newer Paper TL;DRs now point to the next one in the series, and the RAG write-up links straight to the HNSW explainer for the index it uses.
   link: /post/paper-tldr-retrieval-augmented-generation/
 - date: 2026-10-20
   desk: Engineering
-  text: "Section headings on pages like Uses, Research, Events and the changelog now have a # link, so you can share a link straight to one section."
+  text: 'Section headings on pages like Uses, Research, Events and the changelog now have a # link, so you can share a link straight to one section.'
   link: /uses/
 - date: 2026-10-20
   desk: Design
-  text: "The HNSW TL;DR now has a small diagram of how a search hops across the top layers and drops down to finish up close."
+  text: The HNSW TL;DR now has a small diagram of how a search hops across the top layers and drops down to finish up close.
   link: /post/paper-tldr-hnsw/
 - date: 2026-10-20
   desk: Writing
-  text: "The Sentence-BERT, Hopfield, Attractor and VaultMem Part 1 posts now point to the HNSW TL;DR wherever they mention vector indexes."
+  text: The Sentence-BERT, Hopfield, Attractor and VaultMem Part 1 posts now point to the HNSW TL;DR wherever they mention vector indexes.
   link: /post/paper-tldr-hnsw/
 - date: 2026-10-20
   desk: Writing
-  text: "New Paper TL;DR on HNSW, the layered neighbor graph behind most vector search, including the one VaultMem switches to past 1,000 memories. The glossary and VaultMem Part 2 now link to it."
+  text: New Paper TL;DR on HNSW, the layered neighbor graph behind most vector search, including the one VaultMem switches to past 1,000 memories. The glossary and VaultMem Part 2 now link to it.
   link: /post/paper-tldr-hnsw/
 - date: 2026-10-20
   desk: Engineering
-  text: "Search results can now be narrowed to just posts, projects, papers, events or pages (the choice stays in the shareable URL), and you can walk the results with the arrow keys and clear the box with Esc."
+  text: Search results can now be narrowed to just posts, projects, papers, events or pages (the choice stays in the shareable URL), and you can walk the results with the arrow keys and clear the box with Esc.
   link: /search/
 - date: 2026-10-20
   desk: Engineering
-  text: "The deploy-time accessibility check now also catches vague link text like \"click here\", new-tab links missing rel=noopener, and tables without header cells. The \"Read more\" links on /research now tell screen readers which paper they lead to."
+  text: The deploy-time accessibility check now also catches vague link text like "click here", new-tab links missing rel=noopener, and tables without header cells. The "Read more" links on /research now tell screen readers which paper they lead to.
   link: /research/
 - date: 2026-10-20
   desk: Design
-  text: "The RAG TL;DR now has a diagram of the whole loop: query encoder, the swappable Wikipedia index, the generator, and the one training signal that teaches them both."
+  text: 'The RAG TL;DR now has a diagram of the whole loop: query encoder, the swappable Wikipedia index, the generator, and the one training signal that teaches them both.'
   link: /post/paper-tldr-retrieval-augmented-generation/
 - date: 2026-10-20
   desk: Writing
-  text: "The new RAG TL;DR is now woven into the series: Lost in the Middle, LoCoMo, Sentence-BERT and the six-papers intro link to it where they already talk about retrieval-augmented generation."
+  text: 'The new RAG TL;DR is now woven into the series: Lost in the Middle, LoCoMo, Sentence-BERT and the six-papers intro link to it where they already talk about retrieval-augmented generation.'
   link: /post/paper-tldr-retrieval-augmented-generation/
 - date: 2026-10-20
   desk: Writing
-  text: "New Paper TL;DR on RAG (Lewis et al., 2020), the paper that named retrieval-augmented generation, including the neat trick of updating what a model knows by swapping its search index. The glossary has a new RAG entry too."
+  text: New Paper TL;DR on RAG (Lewis et al., 2020), the paper that named retrieval-augmented generation, including the neat trick of updating what a model knows by swapping its search index. The glossary has a new RAG entry too.
   link: /post/paper-tldr-retrieval-augmented-generation/
 - date: 2026-10-20
   desk: Engineering
-  text: "Every deploy now runs a quick accessibility check (headings, alt text, link and form labels). Its one real catch is fixed: the checklist boxes in my AI-tests post now tell screen readers which item they belong to."
+  text: 'Every deploy now runs a quick accessibility check (headings, alt text, link and form labels). Its one real catch is fixed: the checklist boxes in my AI-tests post now tell screen readers which item they belong to.'
   link: /post/reviewing-ai-generated-tests-istqb-framework/
 - date: 2026-10-20
   desk: Engineering
-  text: "Each series now has its own RSS feed, so you can follow just the Paper TL;DRs (or just VaultMem) without getting every post. Links are on /series and at the end of each part."
+  text: Each series now has its own RSS feed, so you can follow just the Paper TL;DRs (or just VaultMem) without getting every post. Links are on /series and at the end of each part.
   link: /series/
 - date: 2026-10-20
   desk: Design
-  text: "The Lost in the Middle TL;DR now has a small sketch of its U-shaped curve: passages help most at the start or end of a prompt, least in the middle."
+  text: 'The Lost in the Middle TL;DR now has a small sketch of its U-shaped curve: passages help most at the start or end of a prompt, least in the middle.'
   link: /post/paper-tldr-lost-in-the-middle/
 - date: 2026-10-20
   desk: Writing
-  text: "New explainer on VideoOnly Browser: how it says no to popups, redirects and downloads, and hides everything but the player with a single CSS rule."
-  link: /post/videoonly-browser-how-it-works/
-- date: 2026-10-20
-  desk: Writing
-  text: "New Paper TL;DR on Lost in the Middle: models read the start and end of a long prompt far better than the middle, which changes how you should order retrieved context. The glossary gets a matching position-bias entry."
+  text: 'New Paper TL;DR on Lost in the Middle: models read the start and end of a long prompt far better than the middle, which changes how you should order retrieved context. The glossary gets a matching position-bias entry.'
   link: /post/paper-tldr-lost-in-the-middle/
 - date: 2026-10-20
   desk: Engineering
-  text: "If you read in dark mode, pages now open dark straight away instead of flashing sepia for a moment first."
+  text: If you read in dark mode, pages now open dark straight away instead of flashing sepia for a moment first.
   link: /
 - date: 2026-10-20
   desk: Engineering
-  text: "On phones, the browser's address bar now takes on the site's sepia or dark color, and scrollbars and form fields go dark with the dark theme."
+  text: On phones, the browser's address bar now takes on the site's sepia or dark color, and scrollbars and form fields go dark with the dark theme.
   link: /
 - date: 2026-10-20
   desk: Design
-  text: "Project cards now carry a small icon and a colored top edge for their theme (memory & privacy, agents & voice, tools, just for fun), and the homepage cards name the theme too."
+  text: Project cards now carry a small icon and a colored top edge for their theme (memory & privacy, agents & voice, tools, just for fun), and the homepage cards name the theme too.
   link: /projects/
 - date: 2026-10-19
   desk: Writing
-  text: "My older posts on working with LLMs, AI-generated tests, Jekyll, the AI History Blog Generator, Rena and live Whisper transcription now point to each other where they cover the same ground."
+  text: My older posts on working with LLMs, AI-generated tests, Jekyll, the AI History Blog Generator, Rena and live Whisper transcription now point to each other where they cover the same ground.
   link: /post/i-fell-in-love-with-coding-again/
 - date: 2026-10-19
   desk: Writing
-  text: "My three daylog posts (security, hobby stack, Whisper transcription) now link to each other, to VaultMem and Sentence-BERT, and to the glossary terms they use."
+  text: My three daylog posts (security, hobby stack, Whisper transcription) now link to each other, to VaultMem and Sentence-BERT, and to the glossary terms they use.
   link: /post/daylog-security-architecture/
 - date: 2026-10-19
   desk: Engineering
-  text: "Printing a post (or saving it as a PDF) now gives a clean, light page: no menus, share buttons or table of contents, code wraps instead of getting cut off, and outside links show their address."
+  text: 'Printing a post (or saving it as a PDF) now gives a clean, light page: no menus, share buttons or table of contents, code wraps instead of getting cut off, and outside links show their address.'
   link: /post/paper-tldr-memgpt/
 - date: 2026-10-19
   desk: Engineering
-  text: "Every event on the events page now has its own link, so search results and the Now list jump straight to that event (Cal Hacks, OSA Con, HackUMass) instead of the top of the page."
+  text: Every event on the events page now has its own link, so search results and the Now list jump straight to that event (Cal Hacks, OSA Con, HackUMass) instead of the top of the page.
   link: /events/#cal-hacks-13-0
 - date: 2026-10-19
   desk: Design
-  text: "The 404 page now has a small drawing of a page wandering off down a dotted trail, in both the sepia and dark themes."
+  text: The 404 page now has a small drawing of a page wandering off down a dotted trail, in both the sepia and dark themes.
   link: /404.html
 - date: 2026-10-19
   desk: Design
-  text: "Teal link and hover text in the sepia theme is a shade darker, so it stays easy to read on the tinted cards and code blocks."
+  text: Teal link and hover text in the sepia theme is a shade darker, so it stays easy to read on the tinted cards and code blocks.
   link: /blog/
 - date: 2026-10-19
   desk: Writing
-  text: "Two new glossary entries on time — versioned facts (keeping every value a fact has had) and event time vs. write time — plus links from VaultMem Part 2's benchmark section to the LoCoMo TL;DR and metric definitions."
+  text: Two new glossary entries on time — versioned facts (keeping every value a fact has had) and event time vs. write time — plus links from VaultMem Part 2's benchmark section to the LoCoMo TL;DR and metric definitions.
   link: /post/agent-memory-glossary/#versioned-facts
 - date: 2026-10-19
   desk: Writing
-  text: "Every term in the agent memory glossary now has its own link, and the Paper TL;DRs point straight at the exact definition (say, reflection or Recall@k) instead of a whole section."
+  text: Every term in the agent memory glossary now has its own link, and the Paper TL;DRs point straight at the exact definition (say, reflection or Recall@k) instead of a whole section.
   link: /post/agent-memory-glossary/#reflection
 - date: 2026-10-19
   desk: Engineering
-  text: "Search results for projects and papers without a write-up now jump straight to their card on /projects or /research, which lights up when you land."
+  text: Search results for projects and papers without a write-up now jump straight to their card on /projects or /research, which lights up when you land.
   link: /search/
 - date: 2026-10-19
   desk: Engineering
-  text: "Fixed empty \"Why it matters to me\" labels on papershelf entries that don't have a note yet."
+  text: Fixed empty "Why it matters to me" labels on papershelf entries that don't have a note yet.
   link: /research/
 - date: 2026-10-19
   desk: Design
-  text: "The Generative Agents TL;DR now has a diagram of the memory stream, the three-part retrieval score and the reflection loop."
+  text: The Generative Agents TL;DR now has a diagram of the memory stream, the three-part retrieval score and the reflection loop.
   link: /post/paper-tldr-generative-agents/
 - date: 2026-10-19
   desk: Writing
-  text: "New Paper TL;DR on Generative Agents — how 25 simulated characters remember, reflect and plan — plus a glossary entry for reflection."
+  text: New Paper TL;DR on Generative Agents — how 25 simulated characters remember, reflect and plan — plus a glossary entry for reflection.
   link: /post/paper-tldr-generative-agents/
 - date: 2026-10-19
   desk: Writing
@@ -130,11 +130,11 @@
   link: /events/
 - date: 2026-10-19
   desk: Engineering
-  text: "Long posts now underline the section you're reading in the \"On this page\" box, and a small \"Top\" button appears once you've scrolled a while."
+  text: Long posts now underline the section you're reading in the "On this page" box, and a small "Top" button appears once you've scrolled a while.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/
 - date: 2026-10-19
   desk: Engineering
-  text: "Related posts at the end of a series post now skip the other parts of that series (the series box already lists them), so you see something new instead. Post images also reserve their space while loading, so the page no longer jumps."
+  text: Related posts at the end of a series post now skip the other parts of that series (the series box already lists them), so you see something new instead. Post images also reserve their space while loading, so the page no longer jumps.
   link: /post/paper-tldr-memgpt/
 - date: 2026-10-19
   desk: Design
@@ -144,10 +144,6 @@
   desk: Writing
   text: Two new glossary entries from this week's papers — memory unlearning (forgetting exactly what you're asked to) and sufficient evidence (retrieving enough, not just what's relevant).
   link: /post/agent-memory-glossary/
-- date: 2026-10-19
-  desk: Writing
-  text: Wrote up how Drafting Desk keeps drafts in your browser — no server, keys that can live in one tab only, a strict CSP, and an assistant that only sees what you ask about.
-  link: /post/drafting-desk-how-it-keeps-drafts-private/
 - date: 2026-10-19
   desk: Engineering
   text: Search now looks inside pages like Events, Uses and Research, not just their titles — so searching for a tool or an event finds the page it lives on.
@@ -190,7 +186,7 @@
   link: /post/agent-memory-glossary/
 - date: 2026-10-18
   desk: Engineering
-  text: Code blocks in posts now have a copy button, and every section heading has a # link you can share.
+  text: Code blocks in posts now have a copy button, and every section heading has a
   link: /post/vaultmem-encrypted-memory-for-ai-agents/
 - date: 2026-10-18
   desk: Engineering
@@ -201,11 +197,11 @@
   text: Every post now has share links for LinkedIn, X, Bluesky and Hacker News, plus a copy-link button.
 - date: 2026-10-18
   desk: Engineering
-  text: "AI assistants are welcome here: added llms.txt, a full-text llms-full.txt, and explicit permission for AI search crawlers."
+  text: 'AI assistants are welcome here: added llms.txt, a full-text llms-full.txt, and explicit permission for AI search crawlers.'
   link: /llms.txt
 - date: 2026-10-18
   desk: Writing
-  text: "New explainer: an agent memory glossary — 20 terms in plain language."
+  text: 'New explainer: an agent memory glossary — 20 terms in plain language.'
   link: /post/agent-memory-glossary/
 - date: 2026-10-18
   desk: Engineering

@@ -1584,3 +1584,10 @@ body.theme-dark {
 }
 .project-head + .project-tagline { margin-top: 0.4rem; }
 @media print { .project-card::before { display: none; } }
+
+/* ---------- Paper TL;DR section ---------- */
+.tldr-list { padding-left: 1.6rem; margin: 0 0 2rem; }
+.tldr-item { padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+.tldr-item::marker { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.tldr-title { font-weight: 600; }
+.tldr-desc { margin: 0.3rem 0 0.25rem; color: var(--text-muted); font-size: 0.95rem; }
