@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Engineering
+  text: Printed or saved-as-PDF posts now show the post's web address under the title and spell out the address of links to other pages on this site, so a paper copy still points back to the source.
+  link: /post/attractor-memory-engine/
+- date: 2026-10-21
   desk: Design
   text: The energy-landscape picture in the Attractor post is redrawn to follow the site theme and fit phones, with memories sitting at the bottom of their basins.
   link: /post/attractor-memory-engine/

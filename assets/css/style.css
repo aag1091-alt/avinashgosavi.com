@@ -860,6 +860,8 @@ input:focus-visible {
   color: var(--text-muted);
 }
 
+/* Printed copies carry their source URL under the title (hidden on screen) */
+.post-print-source { display: none; }
 .post-meta .post-author::after {
   content: " · ";
 }
@@ -1601,6 +1603,20 @@ h2.has-anchor .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
   .post-content table, .post-content img, .diagram, figure { break-inside: avoid; }
   h1, h2, h3 { break-after: avoid; }
   .post-content img { max-width: 100% !important; }
+  .post-print-source {
+    display: block;
+    margin: 0.25rem 0 0;
+    font-size: 0.8em;
+    color: #444;
+    word-break: break-all;
+  }
+  .post-tags { display: none; }
+  .post-content a[href^="/"]::after {
+    content: " (avinashgosavi.com" attr(href) ")";
+    font-size: 0.8em;
+    color: #444;
+    word-break: break-all;
+  }
 }
 
 /* ---------- Project cards: category band + icon ---------- */
