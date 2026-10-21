@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Design
+  text: The LoCoMo Paper TL;DR now has a diagram of how the benchmark is built, from one long conversation to its three tasks and five question types, readable in both themes and on phones.
+  link: /post/paper-tldr-locomo-long-term-memory-benchmark/
+- date: 2026-10-21
   desk: Writing
   text: VaultMem Parts 1 and 3 and the "shouldn't read your diary" post now link the plain-language TL;DR of the Memory as Asset paper they build on.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/

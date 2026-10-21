@@ -1,0 +1,55 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 548" role="img" aria-labelledby="locomo-dg-title locomo-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="locomo-dg-title">How the LoCoMo benchmark is built</title>
+  <desc id="locomo-dg-desc">Each LoCoMo conversation averages about 300 turns and 9 thousand tokens, over up to 35 sessions spread across simulated weeks and months. Three tasks are built on top: question answering, event summarization, and multi-modal dialogue generation. Question answering splits into five categories: single-hop, one fact from one place; multi-hop, connecting facts across sessions; temporal, when something happened or what came before or after; open-domain, combining the conversation with general knowledge; and adversarial, questions about things that never happened, where the right answer is that it was not mentioned.</desc>
+  <defs>
+    <marker id="locomo-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-pill" x="10" y="8" width="340" height="52" rx="26"/>
+  <text class="dg-strong" x="180" y="30" text-anchor="middle">One long conversation</text>
+  <text class="dg-body" x="180" y="50" text-anchor="middle">~300 turns · ~9K tokens on average</text>
+  <rect class="dg-node" x="10" y="74" width="60" height="28" rx="6"/>
+  <text class="dg-body" x="40" y="93" text-anchor="middle">S1</text>
+  <rect class="dg-node" x="78" y="74" width="60" height="28" rx="6"/>
+  <text class="dg-body" x="108" y="93" text-anchor="middle">S2</text>
+  <rect class="dg-node" x="146" y="74" width="60" height="28" rx="6"/>
+  <text class="dg-body" x="176" y="93" text-anchor="middle">S3</text>
+  <text class="dg-strong" x="248" y="93" text-anchor="middle">…</text>
+  <rect class="dg-node" x="290" y="74" width="60" height="28" rx="6"/>
+  <text class="dg-body" x="320" y="93" text-anchor="middle">S35</text>
+  <text class="dg-note" x="180" y="122" text-anchor="middle">up to 35 sessions over simulated weeks and months</text>
+  <line class="dg-line" x1="180" y1="130" x2="180" y2="150" marker-end="url(#locomo-dg-arrow)"/>
+  <rect class="dg-group" x="10" y="152" width="340" height="88" rx="12"/>
+  <text class="dg-label" x="22" y="172">Three tasks</text>
+  <rect class="dg-pill" x="20" y="182" width="104" height="48" rx="8"/>
+  <text class="dg-body" x="72" y="202" text-anchor="middle">Question</text>
+  <text class="dg-body" x="72" y="220" text-anchor="middle">answering</text>
+  <rect class="dg-box" x="128" y="182" width="104" height="48" rx="8"/>
+  <text class="dg-body" x="180" y="202" text-anchor="middle">Event</text>
+  <text class="dg-body" x="180" y="220" text-anchor="middle">summary</text>
+  <rect class="dg-box" x="236" y="182" width="104" height="48" rx="8"/>
+  <text class="dg-body" x="288" y="202" text-anchor="middle">Dialogue</text>
+  <text class="dg-body" x="288" y="220" text-anchor="middle">generation</text>
+  <line class="dg-line" x1="72" y1="230" x2="72" y2="266" marker-end="url(#locomo-dg-arrow)"/>
+  <rect class="dg-group" x="10" y="268" width="340" height="272" rx="12"/>
+  <text class="dg-label" x="22" y="288">Question categories</text>
+  <rect class="dg-box" x="20" y="298" width="320" height="40" rx="8"/>
+  <text class="dg-strong" x="34" y="323">Single-hop</text>
+  <text class="dg-note" x="326" y="323" text-anchor="end">one fact, one place</text>
+  <rect class="dg-box" x="20" y="346" width="320" height="40" rx="8"/>
+  <text class="dg-strong" x="34" y="371">Multi-hop</text>
+  <text class="dg-note" x="326" y="371" text-anchor="end">facts across sessions</text>
+  <rect class="dg-box" x="20" y="394" width="320" height="40" rx="8"/>
+  <text class="dg-strong" x="34" y="419">Temporal</text>
+  <text class="dg-note" x="326" y="419" text-anchor="end">when · before · after</text>
+  <rect class="dg-box" x="20" y="442" width="320" height="40" rx="8"/>
+  <text class="dg-strong" x="34" y="467">Open-domain</text>
+  <text class="dg-note" x="326" y="467" text-anchor="end">plus general knowledge</text>
+  <rect class="dg-box dg-muted" x="20" y="490" width="320" height="40" rx="8"/>
+  <text class="dg-strong" x="34" y="515">Adversarial</text>
+  <text class="dg-note" x="326" y="515" text-anchor="end">answer: “not mentioned”</text>
+</svg>
+<figcaption>Scoring each category on its own keeps a strong overall number from hiding weak temporal or multi-hop answers.</figcaption>
+</figure>

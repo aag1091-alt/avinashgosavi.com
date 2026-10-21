@@ -29,6 +29,8 @@ On top of the conversations they built three tasks: answering questions, summari
 - **Open-domain** — combine the conversation with general knowledge.
 - **Adversarial** — questions about things that *never* happened, where the right answer is "that wasn't mentioned."
 
+{% include diagrams/locomo-benchmark.html %}
+
 ## What they found
 
 Even with long context windows or [retrieval-augmented generation](/post/paper-tldr-retrieval-augmented-generation/), models trail human performance by a wide margin. Retrieval helps, but the hard categories stay hard — especially reasoning about time and resisting the urge to make up answers to adversarial questions. Bigger context alone doesn't fix it.
