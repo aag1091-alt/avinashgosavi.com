@@ -428,7 +428,7 @@ Designer backlog additions:
 - Favicon: the site had none (tabs/bookmarks showed a blank page, /favicon.ico 404'd). Added root `favicon.svg` (64×64 rounded teal #0f766e tile, "AG" outlined from Poppins Bold glyph paths via fontTools — no font dependency), `favicon.ico` (16/32/48, Pillow) and `apple-touch-icon.png` (180×180, full-bleed square; iOS rounds it). Rasterized with Playwright. `<link rel="icon">` ×2 + apple-touch-icon in `_layouts/default.html` (the only layout with a `<head>`). Letter color #f5efe0 on #0f766e ≈ 5.0:1. Run 39539503568 green.
 
 Engineer backlog additions:
-- [ ] Optional `site.webmanifest` (name, icons, theme colors) so "Add to Home Screen" on Android uses the AG icon — needs a 192/512 PNG
+- [x] `site.webmanifest` (done Oct 21, 1:35am PT)
 
 ## Run history
 
@@ -563,3 +563,12 @@ Designer backlog additions:
 - [ ] Attractor: energy-landscape (820×320) and architecture (820×380) SVGs are still hard-coded dark — convert next (energy landscape could reuse `.dg-curve`/`.dg-axis`)
 
 - 2026-10-21 00:34 PT — DESIGNER — theme-aware, phone-friendly context-filtering diagram on /post/attractor-memory-engine/ (Actions deploy green).
+
+## Done (Oct 21, 2026, 1:35am PT)
+
+- Web app manifest: root `site.webmanifest` (name, short_name, start_url/scope "/", display "browser" — no install/standalone behaviour change, sepia bg #f5efe0 + theme #e8e0cc) with `assets/icons/icon-192.png`, `icon-512.png` (rounded tile from favicon.svg) and `icon-maskable-512.png` (full-bleed, letters inside the 80% safe zone), rasterized with Playwright. `<link rel="manifest">` in `_layouts/default.html`. New CI step parses the manifest and stats each icon (fails build if missing). Run 39570532172 green, no link/a11y warnings.
+
+Engineer backlog additions:
+- [ ] If favicon.svg changes, regenerate the 3 manifest PNGs + apple-touch-icon.png too
+
+- 2026-10-21 01:35 PT — ENGINEER — web app manifest + 192/512/maskable icons so Android home-screen shortcuts use the AG tile (/site.webmanifest) (Actions deploy green).
