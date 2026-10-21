@@ -32,6 +32,7 @@
   {%- endfor %}{% endif %}
   {% seo %}
   {% if page.layout == "home" %}{% include person-jsonld.html %}{% endif %}
+  {% include breadcrumb-jsonld.html %}
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLR5GMVQKW"></script>
   <script>

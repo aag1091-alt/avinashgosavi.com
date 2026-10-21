@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""Check every <script type="application/ld+json"> block in the built site parses
+as JSON, and print a summary of @types found. Usage: check_jsonld.py _site"""
+import collections, glob, json, os, re, sys
+
+root = sys.argv[1] if len(sys.argv) > 1 else "_site"
+pat = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
+types, bad = collections.Counter(), 0
+for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)):
+    html = open(path, encoding="utf-8").read()
+    for block in pat.findall(html):
+        try:
+            data = json.loads(block)
+        except ValueError as e:
+            bad += 1
+            print(f"::warning file={os.path.relpath(path, root)}::invalid JSON-LD: {e}")
+            continue
+        for d in data if isinstance(data, list) else [data]:
+            t = d.get("@type", "?")
+            types[t if isinstance(t, str) else ",".join(t)] += 1
+            if t == "BreadcrumbList":
+                pos = [i.get("position") for i in d.get("itemListElement", [])]
+                if pos != list(range(1, len(pos) + 1)):
+                    bad += 1
+                    print(f"::warning file={os.path.relpath(path, root)}::breadcrumb positions {pos}")
+print("JSON-LD types:", dict(types))
+print(f"{bad} problem(s)")
+sys.exit(1 if bad else 0)

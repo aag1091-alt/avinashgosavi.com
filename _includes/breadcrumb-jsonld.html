@@ -1,0 +1,18 @@
+{% comment %} BreadcrumbList structured data (lets search results show "avinashgosavi.com › Writing › Post"). Posts: Home › Writing or Paper TL;DR › post. Other pages: Home › page. Not emitted on the homepage. {% endcomment %}
+{%- if page.url != '/' and page.url != '/404.html' and page.title -%}
+{%- if page.layout == 'post' -%}
+{%- if page.series == 'paper-tldr' -%}{%- assign bc_name = 'Paper TL;DR' -%}{%- assign bc_url = '/paper-tldr/' -%}
+{%- else -%}{%- assign bc_name = 'Writing' -%}{%- assign bc_url = '/blog/' -%}{%- endif -%}
+{%- endif %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":{{ '/' | absolute_url | jsonify }}},
+{%- if bc_name %}
+{"@type":"ListItem","position":2,"name":{{ bc_name | jsonify }},"item":{{ bc_url | absolute_url | jsonify }}},
+{"@type":"ListItem","position":3,"name":{{ page.title | strip_html | jsonify }},"item":{{ page.url | absolute_url | jsonify }}}
+{%- else %}
+{"@type":"ListItem","position":2,"name":{{ page.title | strip_html | jsonify }},"item":{{ page.url | absolute_url | jsonify }}}
+{%- endif %}
+]}
+</script>
+{%- endif -%}
