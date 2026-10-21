@@ -1074,13 +1074,28 @@ body.theme-dark .about-image img {
 }
 
 @media (max-width: 640px) {
+  /* Phones: photo first, centered and cropped a little shorter, so the
+     page opens with a face instead of ending on one after five paragraphs */
   .about-page {
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  .about-image {
+    order: -1;
+    align-self: center;
   }
   .about-image img {
-    max-width: 220px;
+    width: 176px;
+    max-width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 62% 30%;
     margin: 0 auto;
+  }
+  .about-content h1 {
+    text-align: center;
+    font-size: 1.6rem;
   }
 }
 
