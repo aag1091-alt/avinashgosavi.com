@@ -65,7 +65,10 @@ The same principle applies to a therapist AI, a relationship coach, a financial 
 ## What it does
 
 <div style="text-align:center; margin: 2rem 0;">
-  <img width="1400" height="746" loading="lazy" decoding="async" src="{{ '/assets/images/vaultmem-explainer.jpg' | relative_url }}" alt="VaultMem: your memories stay yours" style="width:100%; max-width:860px; border-radius:12px; box-shadow: 0 2px 16px rgba(0,0,0,0.08);"/>
+  <picture>
+    <source type="image/webp" sizes="(max-width: 42rem) 100vw, 42rem" srcset="{{ '/assets/images/vaultmem-explainer-720.webp' | relative_url }} 720w, {{ '/assets/images/vaultmem-explainer-1400.webp' | relative_url }} 1400w">
+    <img width="1400" height="746" loading="lazy" decoding="async" src="{{ '/assets/images/vaultmem-explainer.jpg' | relative_url }}" alt="VaultMem: your memories stay yours" style="width:100%; max-width:860px; border-radius:12px; box-shadow: 0 2px 16px rgba(0,0,0,0.08);"/>
+  </picture>
 </div>
 
 The library handles the full memory lifecycle — not just encryption:
