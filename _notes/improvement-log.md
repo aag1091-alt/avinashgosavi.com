@@ -613,3 +613,10 @@ Designer backlog additions:
 - Local `jekyll build` impossible in the sandbox (rubygems.org unreachable) — CI is the build check.
 - Run 39609752255 green.
 - 2026-10-21 06:34 PT — ENGINEER — printed/PDF posts show their source URL and internal link targets (all /post/* pages) (Actions deploy green).
+## Done (Oct 21, 2026, 7:34am PT)
+- Responsive WebP: /about photo is a `<picture>` (about-280.webp 19 KB / about-560.webp 65 KB, `sizes="(max-width: 640px) 176px, 280px"`, jpg fallback, `fetchpriority="high"` — it's the LCP image); SF Ruby post photos are `<picture>` with 720/1086 and 540/768 WebP (q78) + lazy jpg fallback. Originals kept (og/JSON-LD still use about.jpg / sf-ruby-1.jpg). Playwright: 375@2x picks about-560, 900@1x picks about-280; no horizontal scroll. `scripts/check_links.py` now checks every `srcset` candidate on img/source. Run 39618778763 green, no warnings.
+
+Engineer backlog additions:
+- [ ] vaultmem-explainer.jpg (1400w, 65 KB) and Rena screenshots could get WebP variants too (smaller win)
+
+- 2026-10-21 07:34 PT — ENGINEER — right-sized WebP photos on /about and /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/; link checker covers srcset (Actions deploy green).
