@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
   desk: Writing
+  text: The screenshot captions in the Rena post now use the site's muted text color, so they stay readable in the dark theme instead of a fixed grey.
+  link: /post/building-rena-ai-health-companion-gemini-live/
+- date: 2026-10-21
+  desk: Writing
   text: VaultMem Part 2 now ends with a link straight to Part 3 on the PII sanitizer, the way Part 1 already leads into Part 2.
   link: /post/vaultmem-part-2-multimodal-temporal-backends/
 - date: 2026-10-21
