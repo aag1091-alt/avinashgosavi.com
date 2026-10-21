@@ -84,7 +84,7 @@ The vocabulary around AI agent memory borrows from neuroscience, databases, sear
 
 ## Privacy
 
-**Zero-knowledge storage.** The service storing your data cannot read it, because it's encrypted with a key only you hold. The operator sees ciphertext. This is VaultMem's core design.
+**Zero-knowledge storage.** The service storing your data cannot read it, because it's encrypted with a key only you hold. The operator sees ciphertext. This is VaultMem's core design ([why it matters, in plain language](/post/vaultmem-your-ai-agent-shouldnt-read-your-diary/)).
 {: #zero-knowledge-storage .glossary-term}
 
 **Client-side encryption.** Encrypting data before it leaves your device (or your session), so the server only ever handles encrypted bytes. The usual way to get zero-knowledge storage.

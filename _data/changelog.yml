@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-20
   desk: Writing
+  text: "\"Your AI Agent Shouldn't Be Able to Read Your Diary\" is now linked from VaultMem Part 1 and the glossary, and it points on to VaultMem Part 3."
+  link: /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/
+- date: 2026-10-20
+  desk: Writing
   text: The opening Paper TL;DR (six papers on AI memory) now points to Part 2, so the series reads in order from the very first post.
   link: /post/paper-tldr-six-papers-on-memory/
 - date: 2026-10-20

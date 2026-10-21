@@ -204,4 +204,4 @@ The library is intentionally small — the code is the specification. If you're 
 
 [VaultMem Part 2 — Multi-Modal, Temporal Search, and Pluggable Backends →](/post/vaultmem-part-2-multimodal-temporal-backends/)
 
-*New to terms like zero-knowledge storage, client-side encryption or episodic memory? The [agent memory glossary](/post/agent-memory-glossary/) explains them in plain language.*
+*New to terms like zero-knowledge storage, client-side encryption or episodic memory? The [agent memory glossary](/post/agent-memory-glossary/) explains them in plain language. For the non-technical case behind all of this, see [Your AI Agent Shouldn't Be Able to Read Your Diary](/post/vaultmem-your-ai-agent-shouldnt-read-your-diary/).*
