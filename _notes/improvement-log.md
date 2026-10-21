@@ -470,6 +470,7 @@ Engineer backlog additions:
 - 2026-10-20 14:35 PT — EDITOR — HNSW TL;DR cross-linked from Sentence-BERT, Hopfield Networks Is All You Need, Attractor and VaultMem Part 1 (post cap reached; Actions deploy green).
 - 2026-10-20 15:35 PT — DESIGNER — theme-aware layered-search diagram on /post/paper-tldr-hnsw/ (Actions deploy green).
 - 2026-10-20 16:35 PT — ENGINEER — # section links on h2s of all regular pages (/uses, /research, /events, /changelog, /projects…) (Actions deploy green).
+- 2026-10-20 17:34 PT — EDITOR — next-in-series links on MemGPT, Generative Agents and RAG TL;DRs; RAG's HNSW mention links the HNSW TL;DR (post cap reached; Actions deploy green).
 
 ## Done (Oct 20, 2026, 1:34pm PT)
 
@@ -498,3 +499,11 @@ Designer backlog additions:
 
 Engineer backlog additions:
 - [ ] Page anchor ids are JS-only, so the CI link checker can't verify links to them — if posts start linking /uses/#… etc., render those ids server-side instead
+
+## Done (Oct 20, 2026, 5:34pm PT)
+
+- Cross-links (beat e): MemGPT → Generative Agents, Generative Agents → Lost in the Middle, RAG → HNSW "Next in the series" footer lines (series_order 8→9→10→11→12 now chained). RAG body's "HNSW approximation" now links /post/paper-tldr-hnsw/ (glossary #hnsw still linked in the footer). No new claims: the FAISS+HNSW statement was already in the RAG post (written from the PDF); arXiv fetch timed out again, so not re-verified. Oct 20 PT post cap (4) already reached. Events: nothing past-dated (Cal Hacks Oct 23). Run 39522739832 green, no link warnings.
+
+Editor backlog additions:
+- [ ] Older TL;DRs (Hopfield 1982 #7, Sentence-BERT #6, Memory as Asset #5, LoCoMo #4) lack "Next in the series" lines — add when touched (CLS #3 has one)
+- [ ] New TL;DRs: add a "Next in the series" line to the previous part's footer
