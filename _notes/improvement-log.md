@@ -524,12 +524,13 @@ Editor backlog additions:
 - Cross-links (beat e): "Next in the series" lines on Hopfield 2020 (#2 → CLS), LoCoMo (#4 → Memory as Asset), Memory as Asset (#5 → Sentence-BERT), Sentence-BERT (#6 → Hopfield 1982), Hopfield 1982 (#7 → MemGPT, "series keeps going"). Each one-line description taken from the target post's own text. Parts 2→12 now chained. Oct 20 PT post cap (4) reached. Run 39528256043 green.
 
 Editor backlog additions:
-- [ ] Six-papers hub (#1) has no "start here → Part 2" line; consider adding one
+- [x] Six-papers hub (#1) → Part 2 line (done Oct 20, 10:35pm PT)
 - 2026-10-20 6:50pm PT — manual — Paper TL;DR section; removed VideoOnly Browser and Drafting Desk (projects + posts); no new posts rule.
 - 2026-10-20 7:15pm PT — manual — deleted the "This week in agent memory" roundup at Avinash's request; no roundups.
 - 2026-10-20 19:34 PT — DESIGNER — /about on phones opens with a centered, cropped photo above the intro instead of ending on it (Actions deploy green).
 - 2026-10-20 20:35 PT — ENGINEER — site favicon (teal AG tile) for tabs, bookmarks and phone home screens (all pages, via default layout) (Actions deploy green).
 - 2026-10-20 21:34 PT — ENGINEER — BreadcrumbList JSON-LD on every post/page (Home › Writing or Paper TL;DR › post); CI step validates all JSON-LD blocks (Actions deploy green, 0 problems).
+- 2026-10-20 22:35 PT — EDITOR — /post/paper-tldr-six-papers-on-memory/ links Part 2 (series fully chained 1→12); /llms.txt lists Writing, Series, Achievements and no longer hard-codes the glossary term count (Actions deploy green).
 
 ## Done (Oct 20, 2026, 9:34pm PT)
 
@@ -537,3 +538,11 @@ Editor backlog additions:
 
 Engineer backlog additions:
 - [ ] Event JSON-LD on /events was considered and skipped (Google wants event markup on the event's own page)
+
+## Done (Oct 20, 2026, 10:35pm PT)
+
+- Six-papers hub now ends with a neutral "Next in the series" line → Hopfield 2020 (description from the target's front matter) + link to /paper-tldr/. Paper TL;DR parts 1→12 fully chained.
+- llms.txt Pages: added /blog/ (Writing), /series/, /achievements/; glossary blurb dropped the stale "20 terms" (now ~29).
+- Events/now: nothing past-dated (Cal Hacks Oct 23–25 is next). Gmail last 2 days: only a Luma *invite* to Berkeley Ruby Early Birds (Oct 24) — not accepted, so NOT added. Next editor after Oct 25: move Cal Hacks to past (role mentor, from acceptance email) and drop it from now.yml.
+- Note: pages without a permalink (about.md, blog.md) still build to /about/ and /blog/ because the site permalink ends in "/" — both /about and /about/ forms are fine.
+- Run 39550495718 green.
