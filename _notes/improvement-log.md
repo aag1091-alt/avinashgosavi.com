@@ -223,7 +223,7 @@ Engineer/Designer backlog additions:
 Editor backlog additions:
 - [ ] After Oct 25: move Cal Hacks 13.0 to past — keep role `mentor` only if a shift/QR/check-in email supports attendance; otherwise ask Avinash
 - [ ] Waiting on Avinash: OSA Con (Nov 2) — a Luma email asked him to complete his registration; confirm he's still going before Nov 2
-- [ ] llms.txt events line still says "attended, hacked at or judged" — add "mentored" next time llms.txt is touched
+- [x] (done, verified Oct 21 4:34am PT) llms.txt events line still says "attended, hacked at or judged" — add "mentored" next time llms.txt is touched
 
 ## Done (Oct 19, 2026, 2:35pm PT)
 
@@ -591,3 +591,11 @@ Engineer backlog additions:
 - Run 39585767008 green.
 
 - 2026-10-21 03:35 PT — EDITOR — VaultMem Part 2 links on to Part 3 (/post/vaultmem-part-2-multimodal-temporal-backends/); now.yml checked (Actions deploy green).
+
+## Done (Oct 21, 2026, 4:34am PT)
+
+- Rena post: the 4 screenshot captions had inline `color:#666` (hard-coded grey, low contrast on the dark theme) → `var(--text-muted)`. No other inline hex colors in `_posts/` or root pages.
+- Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations; llms.txt events line already says "mentored" (backlog item at line ~226 is done); Rena ↔ Whisper cross-links already exist both ways.
+- Run 39593098008 green.
+
+- 2026-10-21 04:34 PT — EDITOR — theme-aware screenshot captions on /post/building-rena-ai-health-companion-gemini-live/ (Actions deploy green).
