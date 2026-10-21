@@ -68,3 +68,5 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 Reading these in a row, I keep landing on the same picture: good memory is **found by meaning and context**, **changes over time**, and **belongs to the person it's about**. Most systems today nail the first, ignore the second, and get the third backwards.
 
 All six live on my [papershelf](/research/#papershelf) with the rest of what I'm reading. If any of the vocabulary here is new, the [agent memory glossary](/post/agent-memory-glossary/) has short definitions. If there's a paper on memory or agents you think I should read next, I'd genuinely love to hear about it.
+
+Next in the series: [Hopfield Networks Is All You Need](/post/paper-tldr-hopfield-networks-is-all-you-need/), how modern Hopfield networks store exponentially many memories and why their update rule is transformer attention. Every part is listed on the [Paper TL;DR](/paper-tldr/) page.

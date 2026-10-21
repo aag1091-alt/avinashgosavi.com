@@ -12,7 +12,7 @@ Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 ## Start here
 
 - [Paper TL;DR: Six Papers That Shaped How I Think About AI Memory]({{ "/post/paper-tldr-six-papers-on-memory/" | absolute_url }}): overview of the core papers behind agent memory, each in plain language
-- [An Agent Memory Glossary]({{ "/post/agent-memory-glossary/" | absolute_url }}): 20 agent-memory terms defined simply
+- [An Agent Memory Glossary]({{ "/post/agent-memory-glossary/" | absolute_url }}): agent-memory terms defined simply
 - [Research & Interests]({{ "/research/" | absolute_url }}): topics, papershelf with TL;DRs, newsletters
 - [Projects]({{ "/projects/" | absolute_url }}): open-source projects with code and demos
 - [About]({{ "/about/" | absolute_url }}): who Avinash is
@@ -30,6 +30,9 @@ Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 ## Pages
 
 - [Paper TL;DR]({{ "/paper-tldr/" | absolute_url }}): plain-language summaries of papers on AI memory, retrieval and search
+- [Writing]({{ "/blog/" | absolute_url }}): all posts outside the Paper TL;DR section, filterable by tag
+- [Series]({{ "/series/" | absolute_url }}): multi-part series (VaultMem, Paper TL;DR) in reading order
+- [Achievements]({{ "/achievements/" | absolute_url }}): engineering work, open source, community roles and education
 - [Experience]({{ "/experience/" | absolute_url }}): work history
 - [Talks worth watching]({{ "/talks/" | absolute_url }}): recommended conference talks with one-line reasons
 - [Conferences & community]({{ "/events/" | absolute_url }}): events attended, hacked at, judged or mentored
