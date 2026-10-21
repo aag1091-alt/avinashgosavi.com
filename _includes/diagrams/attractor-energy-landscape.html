@@ -1,0 +1,28 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 282" role="img" aria-labelledby="attractor-el-title attractor-el-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="attractor-el-title">Energy landscape: memories as basins of attraction</title>
+  <desc id="attractor-el-desc">A qualitative sketch. The vertical axis is energy and the horizontal axis is the space of possible states. The curve has two valleys. Memory A, "switched from JWT to session tokens", sits at the bottom of the first valley; Memory B, "auth tokens should never be stored in localStorage", sits at the bottom of the second. A query partway up the slope of the first valley rolls downhill and settles on Memory A, without needing an exact match.</desc>
+  <defs>
+    <marker id="attractor-el-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <text class="dg-label" x="40" y="18">Energy</text>
+  <line class="dg-axis" x1="40" y1="28" x2="40" y2="200"/>
+  <line class="dg-axis" x1="40" y1="200" x2="348" y2="200"/>
+  <path class="dg-line dg-curve" d="M52 48 C80 48 95 165 125 165 C155 165 170 80 195 80 C220 80 240 160 270 160 C300 160 315 58 340 55"/>
+  <line class="dg-edge dg-dash" x1="125" y1="172" x2="125" y2="200"/>
+  <line class="dg-edge dg-dash" x1="270" y1="167" x2="270" y2="200"/>
+  <circle class="dg-dot" cx="125" cy="165" r="6"/>
+  <circle class="dg-dot" cx="270" cy="160" r="6"/>
+  <circle class="dg-query" cx="160" cy="111" r="7"/>
+  <path class="dg-line dg-dash" d="M151 119 Q140 146 133 156" marker-end="url(#attractor-el-arrow)"/>
+  <text class="dg-agent" x="172" y="138">query</text>
+  <text class="dg-strong" x="125" y="224" text-anchor="middle">Memory A</text>
+  <text class="dg-note" x="125" y="242" text-anchor="middle">JWT → session tokens</text>
+  <text class="dg-strong" x="270" y="224" text-anchor="middle">Memory B</text>
+  <text class="dg-note" x="270" y="242" text-anchor="middle">no localStorage tokens</text>
+  <text class="dg-label" x="194" y="274" text-anchor="middle">Possible states</text>
+</svg>
+<figcaption>Memories sit at the bottom of basins. A partial cue doesn't need an exact match: it rolls downhill into the nearest one.</figcaption>
+</figure>

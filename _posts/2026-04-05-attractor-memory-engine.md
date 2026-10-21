@@ -26,7 +26,7 @@ In 1982, John Hopfield described a type of recurrent neural network that stores 
 
 This is called **content-addressable memory**. You don't need the exact key. You need something close enough to fall into the right basin.
 
-<img width="820" height="320" loading="lazy" decoding="async" src="{{ '/assets/images/attractor-energy-landscape.svg' | relative_url }}" alt="Energy landscape showing memories as basins of attraction" style="width:100%; max-width:820px; border-radius:10px; margin: 1.5rem 0;"/>
+{% include diagrams/attractor-energy-landscape.html %}
 
 The name Attractor comes directly from this. In dynamical systems, an attractor is a state that a system converges to over time. Hopfield memories are attractors. Retrieval is the process of finding which attractor your input belongs to.
 

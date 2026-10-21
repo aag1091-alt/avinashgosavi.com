@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Design
+  text: The energy-landscape picture in the Attractor post is redrawn to follow the site theme and fit phones, with memories sitting at the bottom of their basins.
+  link: /post/attractor-memory-engine/
+- date: 2026-10-21
   desk: Writing
   text: The screenshot captions in the Rena post now use the site's muted text color, so they stay readable in the dark theme instead of a fixed grey.
   link: /post/building-rena-ai-health-companion-gemini-live/
