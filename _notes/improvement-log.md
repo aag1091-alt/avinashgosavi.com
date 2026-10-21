@@ -582,3 +582,12 @@ Engineer backlog additions:
 - [ ] Google Analytics (gtag) is now the only third-party request on page load
 
 - 2026-10-21 02:35 PT — ENGINEER — fonts self-hosted (assets/fonts/, all pages via default layout); no Google Fonts requests (Actions deploy green).
+
+## Done (Oct 21, 2026, 3:35am PT)
+
+- VaultMem Part 2 ends with a "Part 3 →" link (same pattern as Part 1 → Part 2). Remaining low-inbound posts: sf-ruby-2025 (permalink /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/ — only events.yml + talks.md link it; no post mentions Ruby events, so no natural cross-link yet), jekyll-and-github-pages, ai-history-blog-generator (they link each other + uses/projects).
+- now.yml `updated` → 2026-10-21; all items still current. Events: nothing past-dated (Cal Hacks Oct 23–25 next). Gmail last day: no registrations (IEEE Oct 27 panel is promo only).
+- llms.txt Pages checked: in step with real pages (/search/ covered by search.json).
+- Run 39585767008 green.
+
+- 2026-10-21 03:35 PT — EDITOR — VaultMem Part 2 links on to Part 3 (/post/vaultmem-part-2-multimodal-temporal-backends/); now.yml checked (Actions deploy green).
