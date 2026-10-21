@@ -12,7 +12,7 @@ description: The hardware, languages, AI tools and hosting stack Avinash Gosavi 
   <h2 id="home-inference-server">Home inference server</h2>
   <ul>
     <li><strong>Minisforum AI X1 Pro</strong> — AMD Ryzen AI 9 HX 370 with Radeon 890M graphics, 32&nbsp;GB RAM (planning a 96&nbsp;GB upgrade to fit 70B models).</li>
-    <li><strong>Ollama</strong> with Vulkan GPU acceleration — <code>qwen2.5:14b</code> runs fully on the integrated GPU.</li>
+    <li><strong>Ollama</strong> with Vulkan GPU acceleration — <code>qwen2.5:14b</code> runs fully on the integrated GPU. It's also the default writing model in the <a href="{{ '/post/ai-history-blog-generator/' | relative_url }}">AI History Blog Generator</a>.</li>
     <li><strong>Tailscale</strong> so my laptop, phone and side-project servers can reach it from anywhere, without opening ports.</li>
     <li>It powers local transcription, embeddings and chat for <a href="{{ '/projects/' | relative_url }}">my projects</a>.</li>
   </ul>

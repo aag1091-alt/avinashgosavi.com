@@ -1,6 +1,14 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Writing
+  text: The Uses page's Ollama entry now links the AI History Blog Generator post, which uses the same qwen2.5:14b model to write its posts.
+  link: /uses/#home-inference-server
+- date: 2026-10-21
+  desk: Writing
+  text: The changelog intro now links the post on how this site is set up with Jekyll and GitHub Pages.
+  link: /changelog/
+- date: 2026-10-21
   desk: Engineering
   text: Section headings on pages like Uses, Projects, Events, Talks and Experience now have their link anchors built into the page, so shared section links like /uses/#ai-tooling work even without JavaScript.
   link: /uses/#ai-tooling
