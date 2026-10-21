@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Engineering
+  text: Adding the site to an Android home screen now uses the teal AG icon (with a proper full-bleed version for round launchers) instead of a blurry page screenshot.
+  link: /
+- date: 2026-10-21
   desk: Design
   text: The context-filtering diagram in the Attractor post is redrawn to follow the sepia and dark themes (it used to be a dark box on every page) and stacks to read cleanly on phones.
   link: /post/attractor-memory-engine/
