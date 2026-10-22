@@ -140,7 +140,10 @@ body.theme-dark {
 
 html {
   font-size: 18px;
-  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 body {
@@ -1704,3 +1707,15 @@ body.theme-dark {
 .tldr-item::marker { color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .tldr-title { font-weight: 600; }
 .tldr-desc { margin: 0.3rem 0 0.25rem; color: var(--text-muted); font-size: 0.95rem; }
+
+/* Reduced motion: anchor jumps are instant, hover lifts/rotations stay put,
+   colour fades are near-instant. Applies in both themes. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .site-title:hover .site-mark,
+  .project-card:hover { transform: none; }
+}

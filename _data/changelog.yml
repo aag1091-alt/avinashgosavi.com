@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
   desk: Engineering
+  text: If your device asks for reduced motion, the site now skips smooth scrolling, hover lifts and fades on every page.
+  link: /projects/
+- date: 2026-10-22
+  desk: Engineering
   text: Post tables now get their sideways-scroll box from the server, so they stay inside the screen on phones even with JavaScript off.
   link: /post/vaultmem-part-2-multimodal-temporal-backends/
 - date: 2026-10-22
