@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
   desk: Writing
+  text: The daylog security post now links the Live Audio Transcription post about the Whisper service extracted from daylog, so the three daylog posts all point to each other.
+  link: /post/daylog-security-architecture/
+- date: 2026-10-21
+  desk: Writing
   text: The Codex Skills post now points ahead to Doing the Right Thing, Fast, where the same jira-to-PR skill shows up, and that post links the guide to reviewing AI-generated tests.
   link: /post/codex-skills-baking-your-workflow-into-the-tool/
 - date: 2026-10-21
