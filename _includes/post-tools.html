@@ -90,6 +90,55 @@
     box.insertBefore(tag,box.firstChild);
     box.classList.add('has-lang');
   });
+  // Tap/click a post image to see it full size (only when it's shown noticeably smaller than its file)
+  if(window.HTMLDialogElement){
+    var biggest=function(img){
+      var best={w:+img.getAttribute('width')||0,src:img.src}, pic=img.closest('picture');
+      var sets=[img.getAttribute('srcset')||''];
+      if(pic) pic.querySelectorAll('source').forEach(function(s){ sets.push(s.getAttribute('srcset')||''); });
+      sets.forEach(function(set){
+        set.split(',').forEach(function(c){
+          var p=c.trim().split(/\s+/), m=/^(\d+)w$/.exec(p[1]||'');
+          if(p[0]&&m&&+m[1]>=best.w) best={w:+m[1],src:p[0]};
+          else if(p[0]&&!p[1]&&!best.webp&&pic){ best.src=p[0]; best.webp=true; }
+        });
+      });
+      return best;
+    };
+    var imgs=[].filter.call(root.querySelectorAll('img'),function(i){ return !i.closest('a, .diagram'); });
+    if(imgs.length){
+      var dlg=document.createElement('dialog'), big=document.createElement('img'), cap=document.createElement('p'), x=document.createElement('button'), opener=null;
+      dlg.className='img-viewer'; dlg.setAttribute('aria-label','Enlarged image');
+      x.type='button'; x.className='img-viewer-close'; x.textContent='Close';
+      cap.className='img-viewer-cap'; big.decoding='async';
+      dlg.appendChild(x); dlg.appendChild(big); dlg.appendChild(cap); document.body.appendChild(dlg);
+      x.addEventListener('click',function(){ dlg.close(); });
+      dlg.addEventListener('click',function(e){ if(e.target===dlg||e.target===big) dlg.close(); });
+      dlg.addEventListener('close',function(){ big.removeAttribute('src'); if(opener) opener.focus(); });
+      var open=function(img){
+        var b=biggest(img); opener=img;
+        big.src=b.src; big.alt=img.alt||''; cap.textContent=img.alt||''; cap.hidden=!img.alt;
+        dlg.showModal(); x.focus();
+      };
+      var fit=function(){
+        imgs.forEach(function(img){
+          var on=img.clientWidth>0&&biggest(img).w>img.clientWidth*1.25;
+          if(on===img.classList.contains('is-zoomable')) return;
+          img.classList.toggle('is-zoomable',on);
+          if(on){ img.tabIndex=0; img.setAttribute('role','button'); img.setAttribute('aria-label','Enlarge image'+(img.alt?': '+img.alt:'')); }
+          else { img.removeAttribute('tabindex'); img.removeAttribute('role'); img.removeAttribute('aria-label'); }
+        });
+      };
+      imgs.forEach(function(img){
+        img.addEventListener('click',function(){ if(img.classList.contains('is-zoomable')) open(img); });
+        img.addEventListener('keydown',function(e){
+          if(img.classList.contains('is-zoomable')&&(e.key==='Enter'||e.key===' ')){ e.preventDefault(); open(img); }
+        });
+      });
+      fit();
+      if('ResizeObserver' in window){ var ro=new ResizeObserver(fit); imgs.forEach(function(i){ ro.observe(i); }); }
+    }
+  }
   // Copy buttons on code blocks
   if(!navigator.clipboard) return;
   var said=document.createElement('span');

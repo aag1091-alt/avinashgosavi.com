@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
   desk: Engineering
+  text: Post images shown smaller than their file, like the Rena app screenshots, now open full size when you tap or press Enter on them.
+  link: /post/building-rena-ai-health-companion-gemini-live/#app-screenshots
+- date: 2026-10-22
+  desk: Engineering
   text: Code blocks in posts now show their language on a small tab, and screen readers hear when code is copied.
   link: /post/building-your-website-with-jekyll-and-github-pages/
 - date: 2026-10-22
