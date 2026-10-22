@@ -665,3 +665,8 @@ Engineer backlog additions:
 - [ ] Changelog feed: entries share a per-day timestamp (date only) — fine for readers; add an optional `time:` field later if ordering within a day matters
 
 - 2026-10-21 16:34 PT — ENGINEER — changelog RSS feed (/feed/changelog.xml), linked from /changelog and llms.txt (Actions deploy green).
+## Done (Oct 21, 2026, 5:34pm PT)
+- Codex Skills post (3 inbound) now ends with a "Next:" line → Doing the Right Thing, Fast (which names the jira-to-PR skill and the 20–25 work streams, both from that post's own text). Doing the Right Thing, Fast gains a "Related:" line → Are These AI-Generated Tests Good? (description from its front matter). Remaining 3-inbound: i-fell-in-love (well linked from its follow-ups), reviewing-ai-generated-tests (now 4).
+- Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations.
+- Run 39700592831 green.
+- 2026-10-21 17:34 PT — EDITOR — cross-links on /post/codex-skills-baking-your-workflow-into-the-tool/ and /post/doing-the-right-thing-fast/ (Actions deploy green).
