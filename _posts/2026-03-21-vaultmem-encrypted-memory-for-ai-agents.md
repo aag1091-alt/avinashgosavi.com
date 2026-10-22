@@ -88,6 +88,8 @@ User passphrase
 
 The Master Encryption Key (MEK) is generated once at vault creation and stored only as a ciphertext wrapped with the user's passphrase-derived key. It never touches disk in plaintext. When the session closes, it's zeroed from RAM.
 
+{% include diagrams/vaultmem-envelope-encryption.html %}
+
 A platform developer who integrates VaultMem receives encrypted blobs from their users. They can store them, back them up, sync them — but they cannot read them. The math makes this true regardless of what their privacy policy says.
 
 Two things I'm particularly happy with:

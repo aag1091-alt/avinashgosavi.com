@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
   desk: Design
+  text: VaultMem Part 1 now has a diagram of its two-layer key setup, showing which keys live only in RAM and what actually reaches disk.
+  link: /post/vaultmem-encrypted-memory-for-ai-agents/
+- date: 2026-10-22
+  desk: Design
   text: Moving between pages now crossfades softly while the header stays put, in browsers that support it; it's off if you've asked your device to reduce motion.
   link: /
 - date: 2026-10-22

@@ -1,0 +1,42 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 574" role="img" aria-labelledby="vmenv-dg-title vmenv-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="vmenv-dg-title">VaultMem's two-layer key architecture</title>
+  <desc id="vmenv-dg-desc">The user passphrase goes through Argon2id with a salt (64 MiB, 3 iterations) to derive the KEK, the key encryption key. The KEK lives in RAM only and decrypts the wrapped MEK with AES-GCM. The MEK, the master encryption key, stays in RAM during the session and is zeroed when it closes. The MEK encrypts each memory atom with AES-256-GCM, with a 128-bit authentication tag and the atom's UUID bound as additional authenticated data. On disk there is only the salt with the wrapped MEK, and the encrypted memory atoms.</desc>
+  <defs>
+    <marker id="vmenv-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-pill" x="40" y="4" width="280" height="44" rx="22"/>
+  <text class="dg-body" x="180" y="31" text-anchor="middle">User passphrase</text>
+  <line class="dg-line" x1="180" y1="48" x2="180" y2="74" marker-end="url(#vmenv-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="78" width="316" height="52" rx="8"/>
+  <text class="dg-strong" x="180" y="100" text-anchor="middle">Argon2id(passphrase, salt)</text>
+  <text class="dg-note" x="180" y="120" text-anchor="middle">64 MiB · 3 iterations</text>
+  <line class="dg-line" x1="180" y1="130" x2="180" y2="156" marker-end="url(#vmenv-dg-arrow)"/>
+  <rect class="dg-group" x="6" y="160" width="348" height="200" rx="12"/>
+  <text class="dg-label" x="22" y="181">In RAM only</text>
+  <rect class="dg-box" x="22" y="190" width="316" height="52" rx="8"/>
+  <text class="dg-strong" x="180" y="212" text-anchor="middle">KEK · key encryption key</text>
+  <text class="dg-note" x="180" y="232" text-anchor="middle">zeroed after open</text>
+  <line class="dg-line" x1="48" y1="242" x2="48" y2="290" marker-end="url(#vmenv-dg-arrow)"/>
+  <text class="dg-body dg-mono" x="62" y="271">AES-GCM-Dec(KEK, wrapped_MEK)</text>
+  <rect class="dg-box" x="22" y="294" width="316" height="52" rx="8"/>
+  <text class="dg-strong" x="180" y="316" text-anchor="middle">MEK · master encryption key</text>
+  <text class="dg-note" x="180" y="336" text-anchor="middle">zeroed when the session closes</text>
+  <line class="dg-line" x1="180" y1="360" x2="180" y2="386" marker-end="url(#vmenv-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="390" width="316" height="52" rx="8"/>
+  <text class="dg-strong" x="180" y="412" text-anchor="middle">AES-256-GCM(memory atom)</text>
+  <text class="dg-note" x="180" y="432" text-anchor="middle">128-bit tag · atom UUID bound as AAD</text>
+  <line class="dg-line" x1="180" y1="442" x2="180" y2="468" marker-end="url(#vmenv-dg-arrow)"/>
+  <rect class="dg-group" x="6" y="472" width="348" height="96" rx="12"/>
+  <text class="dg-label" x="22" y="493">On disk</text>
+  <rect class="dg-box" x="22" y="502" width="152" height="56" rx="8"/>
+  <text class="dg-strong" x="98" y="525" text-anchor="middle">wrapped_MEK</text>
+  <text class="dg-note" x="98" y="545" text-anchor="middle">+ salt</text>
+  <rect class="dg-box" x="186" y="502" width="152" height="56" rx="8"/>
+  <text class="dg-strong" x="262" y="525" text-anchor="middle">memory atoms</text>
+  <text class="dg-note" x="262" y="545" text-anchor="middle">encrypted blobs</text>
+</svg>
+<figcaption>Only ciphertext ever reaches disk. Because the MEK is wrapped separately from the data, a passphrase change re-wraps one key instead of re-encrypting every atom.</figcaption>
+</figure>
