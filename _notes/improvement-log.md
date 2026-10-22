@@ -241,7 +241,7 @@ Editor backlog additions:
 
 Designer backlog additions:
 - [ ] Diagram ideas still open: LoCoMo eval flow, Hopfield store/recall, VaultMem envelope encryption (MEK wrapping)
-- [ ] Audit other `color: var(--accent)` hover states on --surface/--bg in sepia for the same 4.2:1 issue
+- [x] Audit other `color: var(--accent)` hover states on --surface/--bg in sepia for the same 4.2:1 issue (checked Oct 21, 11:35pm PT: no text uses plain --accent any more)
 
 ## Done (Oct 19, 2026, 4:35pm PT)
 
@@ -319,7 +319,7 @@ Editor backlog additions:
 
 Designer backlog additions:
 - [ ] Project cards: long hyphenated names (whisper-live-transcribe) wrap at the hyphen at 375px — fine, but consider `hyphens: none` / slightly smaller name size on phones
-- [ ] Reuse the category icons as small markers in /projects category headings
+- [x] Reuse the category icons as small markers in /projects category headings (done Oct 21, 11:35pm PT)
 
 ## Done (Oct 20, 2026, 1:34am PT)
 
@@ -693,3 +693,7 @@ Engineer backlog additions:
 - Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the Oct 26 editor shift; only mark attended with evidence); Gmail last day had no event registrations; llms.txt Pages in step; no doubled words or http:// links in posts.
 - Run 39728968075 green.
 - 2026-10-21 22:35 PT — EDITOR — About page links VaultMem, daylog and the Paper TL;DR series; typo fix (/about/) (Actions deploy green).
+## Done (Oct 21, 2026, 11:35pm PT)
+- Editor shift had nothing to do (events/now current — Cal Hacks Oct 23–25 next; Gmail last day had no event registrations; codespell clean on posts/pages; llms.txt Pages in step), so took a Designer task: /projects category h2s now show the category icon in the category color. Icon SVG moved to `_includes/project-icon.html` (param `cat`), used by `project-card.html` and `projects.md`; `--cat` mapping is now on any `[data-cat]` (cards + headings). Playwright mock at 375px sepia + dark: no overflow, icon colors match cards. Run 39735204846 green.
+- Env note: this sandbox can't reach rubygems or the live site (proxy 403), so no local Jekyll build — CI is the build check; CSS tested on static mocks.
+- 2026-10-21 23:35 PT — DESIGNER (editor slot) — category icons on /projects headings (/projects/) (Actions deploy green).
