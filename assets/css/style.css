@@ -1719,3 +1719,21 @@ body.theme-dark {
   .site-title:hover .site-mark,
   .project-card:hover { transform: none; }
 }
+
+/* Typography rhythm: headings break into even lines (no lone last word),
+   body paragraphs avoid one-word orphans. Progressive enhancement — browsers
+   without text-wrap support simply wrap as before. */
+h1, h2, h3, .post-title, .hero-title, .paper-title, .tldr-title,
+.achievement-title, .read-next-list a, .search-result-title {
+  text-wrap: balance;
+}
+.post-content p, .post-content li, .post-list-excerpt, .project-description,
+.series-description, .tldr-desc, .related-desc {
+  text-wrap: pretty;
+}
+
+/* Selected text uses the theme's accent tint instead of the OS blue */
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}

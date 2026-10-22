@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Design
+  text: Headings now break into even lines instead of leaving one word dangling, paragraphs avoid lonely last words, and selected text takes the theme's own tint in sepia and dark.
+  link: /blog/
+- date: 2026-10-22
   desk: Writing
   text: The Sentence-BERT TL;DR and the six-papers intro now link Attractor, VaultMem and daylog where they say those projects search by meaning.
   link: /post/paper-tldr-sentence-bert/
