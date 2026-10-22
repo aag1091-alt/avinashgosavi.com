@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Engineering
+  text: Project Code, Live and Write-up links now tell screen readers which project they belong to, and links that open a new tab say so.
+  link: /projects/
+- date: 2026-10-22
   desk: Writing
   text: The Jekyll + GitHub Pages guide now points to the Codex Skills post for anyone tired of repeating the same instructions to their coding agent.
   link: /post/building-your-website-with-jekyll-and-github-pages/
