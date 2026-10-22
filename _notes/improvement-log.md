@@ -682,3 +682,9 @@ Engineer backlog additions:
 ## Done (Oct 21, 2026, 8:34pm PT)
 - OpenSearch: root `opensearch.xml` (layout null, sitemap false; ShortName "Avinash Gosavi", template `/search/?q={searchTerms}` — /search/ already reads `?q`, favicon.ico + icon-192 images, rel=self Url, moz:SearchForm). `<link rel="search" type="application/opensearchdescription+xml">` in `_layouts/default.html` head on every page; llms.txt lists it next to the search index. New CI step parses `_site/opensearch.xml` and asserts the search template (fails build if broken). Note: jekyll-seo-tag already emits WebSite JSON-LD on the homepage; SearchAction skipped (Google retired the sitelinks search box in 2024). Run 39717700005 green, OpenSearch/link/a11y/JSON-LD steps all passed.
 - 2026-10-21 20:34 PT — ENGINEER — OpenSearch description so browsers can search the site from the address bar (/opensearch.xml, all pages) (Actions deploy green).
+## Done (Oct 21, 2026, 9:35pm PT)
+- Speculation rules: `_layouts/default.html` ends with `<script type="speculationrules">` — prefetch, eagerness "moderate" (hover ~200ms / pointerdown), same-origin `/*` only, excluding `/feed/*`, `*.xml`, `*.txt`, `*.json`, `/assets/*`, `[download]` and `rel=nofollow` links. No JS; browsers without support ignore it; prefetch doesn't run gtag, so analytics only count real visits. Verified in Playwright Chromium on a static copy: hovering a page link fetched it, hovering a feed link did not, no console errors. `scripts/check_jsonld.py` now also validates every speculationrules block (warning only). Run 39723287146 green.
+
+Engineer backlog additions:
+- [ ] If any page ever gets side effects on GET (e.g. a logout or counter URL), add it to the speculation-rules exclusions
+- 2026-10-21 21:35 PT — ENGINEER — hover prefetch of internal pages via speculation rules (all pages, default layout) (Actions deploy green).
