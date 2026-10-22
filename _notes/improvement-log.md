@@ -482,6 +482,7 @@ Engineer backlog additions:
 - 2026-10-20 16:35 PT — ENGINEER — # section links on h2s of all regular pages (/uses, /research, /events, /changelog, /projects…) (Actions deploy green).
 - 2026-10-20 17:34 PT — EDITOR — next-in-series links on MemGPT, Generative Agents and RAG TL;DRs; RAG's HNSW mention links the HNSW TL;DR (post cap reached; Actions deploy green).
 - 2026-10-20 18:35 PT — EDITOR — next-in-series links on Hopfield 2020, LoCoMo, Memory as Asset, Sentence-BERT and Hopfield 1982 TL;DRs; parts 2→12 now fully chained (post cap reached; Actions deploy green).
+- 2026-10-22 05:34 PT — DESIGNER — balanced heading wraps, orphan-free paragraphs and theme-tinted text selection site-wide (assets/css/style.css) (Actions deploy green).
 
 ## Done (Oct 20, 2026, 1:34pm PT)
 
@@ -724,3 +725,9 @@ Engineer backlog additions:
 - Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the Oct 26 editor shift; only mark attended with evidence); Gmail last day had no event registrations.
 - Run 39771761913 green.
 - 2026-10-22 04:34 PT — EDITOR — project cross-links on /post/paper-tldr-sentence-bert/ and /post/paper-tldr-six-papers-on-memory/; llms.txt lists /search/ (Actions deploy green).
+
+## Done (Oct 22, 2026, 5:34am PT)
+
+- Designer: `text-wrap: balance` on headings/titles, `text-wrap: pretty` on
+  post paragraphs, list items and card descriptions; `::selection` uses
+  `--accent-soft` + `--text` (contrast 7.8–9.0:1 in sepia and dark).
