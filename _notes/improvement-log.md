@@ -715,3 +715,7 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Forced-colors (Windows high contrast) pass: check theme toggle thumb, tag chips and dg diagrams render visibly
 - 2026-10-22 02:34 PT — ENGINEER — site honours prefers-reduced-motion (assets/css/style.css, all pages) (Actions deploy green).
+## Done (Oct 22, 2026, 3:35am PT)
+- SF Ruby 2025 recap: all 13 bolded talk titles now link to their RubyEvents recordings (paths checked against rubyevents.org/events/sfruby-2025/talks this run; they match `_data/talks.yml`). Post wording kept as-is (e.g. Rachael's talk is "Play with your code" on RubyEvents). Run 39765184302 green.
+- Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the Oct 26 editor shift; only mark attended with evidence); Gmail last day had no event registrations; llms.txt Pages in step.
+- 2026-10-22 03:35 PT — EDITOR — SF Ruby recap talks link to recordings (/post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/) (Actions deploy green).
