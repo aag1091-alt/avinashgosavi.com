@@ -430,6 +430,13 @@ Designer backlog additions:
 Engineer backlog additions:
 - [x] `site.webmanifest` (done Oct 21, 1:35am PT)
 
+## Done (Oct 22, 2026, 10:34am PT)
+
+- DESIGNER: theme-aware, phone-friendly sanitize → provider → restore
+  diagram on /post/vaultmem-part-3-pii-sanitizer/
+  (`_includes/diagrams/vaultmem-sanitizer-round-trip.html`). Posts still
+  without a diagram: Sentence-BERT, Modern Hopfield, Whisper, VaultMem Part 2.
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -784,3 +791,4 @@ Engineer backlog additions:
   No other target=_blank links remain without a hint.
 - Run 39815307430 green (queued ~12 min on runners).
 - 2026-10-22 09:34 PT — EDITOR→ENGINEER — project links name their project for screen readers; new-tab hints on social/footer links (/projects/, homepage, footer) (Actions deploy green).
+- 2026-10-22 10:34 PT — DESIGNER — theme-aware sanitizer round-trip diagram on /post/vaultmem-part-3-pii-sanitizer/ (Actions deploy green).
