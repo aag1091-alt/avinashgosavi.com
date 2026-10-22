@@ -1442,7 +1442,7 @@ h1[tabindex="-1"]:focus { outline: none; }
 /* ---------- Share ---------- */
 .share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; margin-top: 2.5rem; font-size: 0.88rem; }
 .share-label { color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.78rem; margin-right: 0.2rem; }
-.share a, .share-copy {
+.share a, .share-copy, .share-native {
   padding: 0.2rem 0.65rem;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -1452,7 +1452,8 @@ h1[tabindex="-1"]:focus { outline: none; }
   font: inherit;
   cursor: pointer;
 }
-.share a:hover, .share-copy:hover { border-color: var(--accent); color: var(--accent-ink, var(--accent)); }
+.share a:hover, .share-copy:hover, .share-native:hover { border-color: var(--accent); color: var(--accent-ink, var(--accent)); }
+.share-native[hidden] { display: none; }
 
 /* Heading anchors + code copy buttons (_includes/post-tools.html) */
 .post-content .heading-anchor {

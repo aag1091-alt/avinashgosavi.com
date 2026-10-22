@@ -1,19 +1,31 @@
 {% assign share_url = page.url | absolute_url | url_encode %}
 {% assign share_title = page.title | url_encode %}
-<div class="share" aria-label="Share this post">
-  <span class="share-label">Share</span>
-  <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}" target="_blank" rel="noopener">LinkedIn</a>
-  <a href="https://x.com/intent/post?text={{ share_title }}&amp;url={{ share_url }}&amp;via=aag1091" target="_blank" rel="noopener">X</a>
-  <a href="https://bsky.app/intent/compose?text={{ share_title }}%20{{ share_url }}" target="_blank" rel="noopener">Bluesky</a>
-  <a href="https://news.ycombinator.com/submitlink?u={{ share_url }}&amp;t={{ share_title }}" target="_blank" rel="noopener">Hacker News</a>
+<div class="share" role="group" aria-labelledby="share-label">
+  <span class="share-label" id="share-label">Share</span>
+  <button type="button" class="share-native" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title | escape }}" hidden>Share…</button>
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
+  <a href="https://x.com/intent/post?text={{ share_title }}&amp;url={{ share_url }}&amp;via=aag1091" target="_blank" rel="noopener">X<span class="visually-hidden"> (opens in a new tab)</span></a>
+  <a href="https://bsky.app/intent/compose?text={{ share_title }}%20{{ share_url }}" target="_blank" rel="noopener">Bluesky<span class="visually-hidden"> (opens in a new tab)</span></a>
+  <a href="https://news.ycombinator.com/submitlink?u={{ share_url }}&amp;t={{ share_title }}" target="_blank" rel="noopener">Hacker News<span class="visually-hidden"> (opens in a new tab)</span></a>
   <button type="button" class="share-copy" data-url="{{ page.url | absolute_url }}">Copy link</button>
+  <span class="visually-hidden" role="status" aria-live="polite" id="share-status"></span>
 </div>
 <script>
 (function(){
+  var s=document.getElementById('share-status');
+  function say(t){ if(!s) return; s.textContent=''; setTimeout(function(){ s.textContent=t; },50); }
+  /* Native share sheet (phones, some desktops) — only shown where the browser supports it. */
+  var n=document.querySelector('.share-native');
+  if(n && navigator.share){
+    n.hidden=false;
+    n.addEventListener('click',function(){
+      navigator.share({ title:n.getAttribute('data-title'), url:n.getAttribute('data-url') }).catch(function(){});
+    });
+  }
   var b=document.querySelector('.share-copy'); if(!b) return;
   b.addEventListener('click',function(){
     var u=b.getAttribute('data-url');
-    function done(){ b.textContent='Copied'; setTimeout(function(){ b.textContent='Copy link'; },1500); }
+    function done(){ b.textContent='Copied'; say('Link copied to clipboard'); setTimeout(function(){ b.textContent='Copy link'; },1500); }
     try { navigator.clipboard.writeText(u).then(done, function(){ window.prompt('Copy this link:', u); }); }
     catch(e){ window.prompt('Copy this link:', u); }
   });
