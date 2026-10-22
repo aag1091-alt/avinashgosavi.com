@@ -834,3 +834,18 @@ Engineer backlog additions:
 - 2026-10-22 11:34 PT — ENGINEER — language tabs on post code blocks + screen-reader copy announcement (all /post/* with code) (Actions deploy green).
 - 2026-10-22 12:35 PT — ENGINEER — tap/Enter to view post images full size (/post/building-rena-ai-health-companion-gemini-live/, VaultMem diary, SF Ruby) (Actions deploy green).
 - 2026-10-22 13:34 PT — EDITOR — /now reading item points to Paper TL;DR shelf; OSA Con venue on /events (Actions deploy green).
+
+## Done (Oct 22, 2026, 2:34pm PT)
+
+- Editor shift had nothing to do (events/now checked an hour ago; Gmail last
+  day: no new registrations), so took a Designer task: cross-document view
+  transitions in style.css (inside `prefers-reduced-motion: no-preference`):
+  `@view-transition { navigation: auto }`, 180ms root crossfade, `.site-header`
+  gets `view-transition-name: site-header` with a 0s group so it stays put.
+  Playwright mock: rules parse, header name is `none` under reduce, navigation
+  works, no JS errors. Unsupported browsers just navigate. Run 39858630561 green.
+
+Designer backlog additions:
+- [ ] View transitions: if any page ever shows two `.site-header`s, the duplicate name aborts the transition — keep exactly one
+- [ ] Skipped this run: About photo `position: sticky` — the About text is only ~250 words, so the photo barely scrolls away; not worth it
+- 2026-10-22 14:34 PT — EDITOR→DESIGNER — soft crossfade between pages with a fixed header (assets/css/style.css, all pages) (Actions deploy green).
