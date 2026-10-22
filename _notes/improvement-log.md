@@ -747,3 +747,19 @@ Engineer backlog additions:
   Canvas). Normal-mode screenshot byte-identical before/after.
 - Run 39788383066 green.
 - 2026-10-22 06:35 PT — ENGINEER — Windows high-contrast (forced colors) support: theme switch, filter chips, search focus, :target highlights and all diagrams (assets/css/style.css, all pages) (Actions deploy green).
+
+## Done (Oct 22, 2026, 7:35am PT)
+
+- Share row on posts (`_includes/share.html`): "Share…" button using
+  `navigator.share` (hidden unless supported — phones, Safari/Edge desktop);
+  `role="group"` + `aria-labelledby` (aria-label on a plain div was ignored);
+  visually-hidden "(opens in a new tab)" on the four external share links;
+  polite status region announces "Link copied to clipboard". Playwright mock
+  at 375px: button hidden without `navigator.share`, shown with it; copy
+  announcement fires. Local Jekyll build not possible (rubygems.org blocked by
+  the sandbox proxy; Actions artifact download blocked too) — CI is the build check.
+- Run 39797274284 green (queued ~10 min on runners).
+
+Engineer backlog additions:
+- [ ] Share: consider the same "(opens in a new tab)" hint for other target=_blank links site-wide (demo/GitHub links on /projects) — check_a11y.py could flag missing hints
+- 2026-10-22 07:35 PT — ENGINEER — native "Share…" button and screen-reader announcements on post share row (all /post/* pages) (Actions deploy green).
