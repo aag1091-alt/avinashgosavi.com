@@ -719,3 +719,8 @@ Engineer backlog additions:
 - SF Ruby 2025 recap: all 13 bolded talk titles now link to their RubyEvents recordings (paths checked against rubyevents.org/events/sfruby-2025/talks this run; they match `_data/talks.yml`). Post wording kept as-is (e.g. Rachael's talk is "Play with your code" on RubyEvents). Run 39765184302 green.
 - Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the Oct 26 editor shift; only mark attended with evidence); Gmail last day had no event registrations; llms.txt Pages in step.
 - 2026-10-22 03:35 PT — EDITOR — SF Ruby recap talks link to recordings (/post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/) (Actions deploy green).
+## Done (Oct 22, 2026, 4:34am PT)
+- Sentence-BERT TL;DR's "Every time Attractor, VaultMem or daylog searches by meaning" line now links all three (Attractor post, /series/#vaultmem, daylog security post); six-papers intro's Sentence-BERT line links daylog (Attractor/VaultMem were already linked elsewhere in it). llms.txt Pages now lists the human /search/ page above the search index.
+- Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the Oct 26 editor shift; only mark attended with evidence); Gmail last day had no event registrations.
+- Run 39771761913 green.
+- 2026-10-22 04:34 PT — EDITOR — project cross-links on /post/paper-tldr-sentence-bert/ and /post/paper-tldr-six-papers-on-memory/; llms.txt lists /search/ (Actions deploy green).
