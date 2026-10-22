@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Writing
+  text: The About page now links the side projects and reading it mentions — VaultMem's encrypted agent memory, daylog's local-first voice diary and the Paper TL;DR series.
+  link: /about/
+- date: 2026-10-21
   desk: Engineering
   text: Pages now open faster in Chrome and Edge — hovering over a link to another page on the site quietly fetches it in advance, so the click feels instant.
   link: /blog/
