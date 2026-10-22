@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Writing
+  text: The Jekyll + GitHub Pages guide now points to the Codex Skills post for anyone tired of repeating the same instructions to their coding agent.
+  link: /post/building-your-website-with-jekyll-and-github-pages/
+- date: 2026-10-22
   desk: Engineering
   text: Posts now offer a "Share…" button that opens your phone's own share sheet, and screen readers hear when a link is copied or a share link opens a new tab.
   link: /post/i-fell-in-love-with-coding-again/

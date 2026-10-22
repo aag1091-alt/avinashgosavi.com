@@ -115,4 +115,4 @@ Use your AI to scaffold a minimal Jekyll site, then refine with prompts about co
 
 **Further reading:** [Jekyll docs](https://jekyllrb.com/docs/), [GitHub Pages docs](https://docs.github.com/en/pages), [Liquid](https://shopify.github.io/liquid/).
 
-*This site runs on the same setup — the [changelog](/changelog/) lists what's changed on it lately. For a Jekyll blog that an agent writes for you, see [AI History Blog Generator]({% post_url 2026-03-14-ai-history-blog-generator %}).*
+*This site runs on the same setup — the [changelog](/changelog/) lists what's changed on it lately. For a Jekyll blog that an agent writes for you, see [AI History Blog Generator]({% post_url 2026-03-14-ai-history-blog-generator %}). And if you catch yourself pasting the same instructions into your coding agent every time, [Codex Skills: Baking Your Workflow Into the Tool]({% post_url 2026-02-17-codex-skills %}) covers turning them into reusable skills.*
