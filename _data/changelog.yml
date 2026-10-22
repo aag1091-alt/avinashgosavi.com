@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Writing
+  text: Every talk in the SF Ruby 2025 recap now links straight to its recording on RubyEvents.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- date: 2026-10-22
   desk: Engineering
   text: If your device asks for reduced motion, the site now skips smooth scrolling, hover lifts and fades on every page.
   link: /projects/
