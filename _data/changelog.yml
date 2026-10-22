@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
   desk: Engineering
+  text: Pages now open faster in Chrome and Edge — hovering over a link to another page on the site quietly fetches it in advance, so the click feels instant.
+  link: /blog/
+- date: 2026-10-21
+  desk: Engineering
   text: The site now publishes an OpenSearch description, so browsers can add it as a search engine and search posts, projects and papers straight from the address bar.
   link: /search/
 - date: 2026-10-21

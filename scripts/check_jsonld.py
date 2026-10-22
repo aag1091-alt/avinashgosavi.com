@@ -23,6 +23,18 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
                 if pos != list(range(1, len(pos) + 1)):
                     bad += 1
                     print(f"::warning file={os.path.relpath(path, root)}::breadcrumb positions {pos}")
+# Speculation rules (link prefetch on hover) must also be valid JSON with a prefetch list.
+spec = re.compile(r'<script type="speculationrules">(.*?)</script>', re.S)
+nspec = 0
+for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)):
+    for block in spec.findall(open(path, encoding="utf-8").read()):
+        nspec += 1
+        try:
+            assert json.loads(block).get("prefetch")
+        except (ValueError, AssertionError) as e:
+            bad += 1
+            print(f"::warning file={os.path.relpath(path, root)}::invalid speculation rules: {e!r}")
+print("Pages with speculation rules:", nspec)
 print("JSON-LD types:", dict(types))
 print(f"{bad} problem(s)")
 sys.exit(1 if bad else 0)

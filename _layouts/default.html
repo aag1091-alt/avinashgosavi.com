@@ -69,5 +69,12 @@
     if (box) box.focus(); else location.href = '{{ "/search/" | relative_url }}';
   });
   </script>
+  <script type="speculationrules">
+  {"prefetch": [{"where": {"and": [
+    {"href_matches": "/*"},
+    {"not": {"href_matches": ["/feed/*", "/*.xml", "/*.txt", "/*.json", "/assets/*"]}},
+    {"not": {"selector_matches": "[download], [rel~=nofollow]"}}
+  ]}, "eagerness": "moderate"}]}
+  </script>
 </body>
 </html>
