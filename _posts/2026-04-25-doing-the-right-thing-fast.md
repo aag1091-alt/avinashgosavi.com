@@ -45,3 +45,5 @@ I'm genuinely excited to see where this goes next.
 ---
 
 *Read about how I approach repeatable workflows in Codex: [Codex Skills: Baking Your Workflow Into the Tool]({% post_url 2026-02-17-codex-skills %})*
+
+*Related: [Are These AI-Generated Tests Good?]({% post_url 2026-02-28-reviewing-ai-generated-tests-istqb-framework %}) — a repeatable way to review the tests an LLM writes.*

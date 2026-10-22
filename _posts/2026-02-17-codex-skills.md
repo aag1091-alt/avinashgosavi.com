@@ -207,3 +207,5 @@ So: **agent** for open-ended work, **skill** for repeatable workflows. Start wit
 ---
 
 *Further reading: [Codex Agent Skills](https://developers.openai.com/codex/skills), [Codex CLI features](https://developers.openai.com/codex/cli/features), [Slash commands](https://developers.openai.com/codex/guides/slash-commands/), [OpenAI skills on GitHub](https://github.com/openai/skills), and community resources like the [Codex Skills Catalog](https://jmerta.github.io/codex-skills/) and the [Habr deep dive on Codex Skills](https://habr.com/en/articles/984916/).*
+
+*Next: the jira-to-PR skill shows up again in [Doing the Right Thing, Fast]({% post_url 2026-04-25-doing-the-right-thing-fast %}), a two-week cleanup split into 20–25 work streams.*
