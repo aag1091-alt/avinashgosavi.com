@@ -1,5 +1,5 @@
 # Shown on /now and (first 4) on the homepage. Update `updated` when editing.
-updated: 2026-10-21
+updated: 2026-10-22
 items:
   - label: Mentoring
     text: Mentoring hackers at Cal Hacks 13.0 in San Francisco, Oct 23–25.
@@ -12,9 +12,9 @@ items:
     link: /events/#osa-con-2026-open-source-analytics-ai
   - label: Reading
     text: >-
-      Papers on memory for AI agents — and writing them up in plain language
-      as a Paper TL;DR series, starting with the six that shaped my projects.
-    link: /post/paper-tldr-six-papers-on-memory/
+      Papers on memory for AI agents — plain-language summaries of them are
+      collected on the Paper TL;DR shelf.
+    link: /paper-tldr/
   - label: Running
     text: >-
       A home inference server (Ryzen AI 9 HX 370, Radeon 890M) serving

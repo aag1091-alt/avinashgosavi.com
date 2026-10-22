@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Writing
+  text: The Now page's reading line now points to the Paper TL;DR shelf, and OSA Con on the events page lists its venue, the AWS Builder Loft.
+  link: /now/
+- date: 2026-10-22
   desk: Engineering
   text: Post images shown smaller than their file, like the Rena app screenshots, now open full size when you tap or press Enter on them.
   link: /post/building-rena-ai-health-companion-gemini-live/#app-screenshots
