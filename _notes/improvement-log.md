@@ -670,3 +670,8 @@ Engineer backlog additions:
 - Checked: events/now current (Cal Hacks Oct 23–25 next); Gmail last day had no event registrations.
 - Run 39700592831 green.
 - 2026-10-21 17:34 PT — EDITOR — cross-links on /post/codex-skills-baking-your-workflow-into-the-tool/ and /post/doing-the-right-thing-fast/ (Actions deploy green).
+## Done (Oct 21, 2026, 6:35pm PT)
+- daylog security post's closing note now links Live Audio Transcription (the Whisper service extracted from daylog, per that post's intro) — the three daylog posts (security, hobby stack, whisper) now all link each other. Didn't touch the apparent mismatch (security post says voice is transcribed on-device by Apple's neural engine; whisper post is server-side) — Avinash's text, not ours to reconcile.
+- Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the Oct 26 editor shift; only mark attended with evidence); Gmail last day had no event registrations; llms.txt Pages in step.
+- Run 39706645214 green.
+- 2026-10-21 18:35 PT — EDITOR — daylog security post cross-links the Whisper transcription post (/post/daylog-security-architecture/) (Actions deploy green).
