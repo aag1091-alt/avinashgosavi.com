@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Engineering
+  text: In Windows high-contrast mode the theme switch, selected filter chips, search focus rings, linked-to sections and every post diagram now stay visible in the system colors.
+  link: /post/paper-tldr-hnsw/
+- date: 2026-10-22
   desk: Design
   text: Headings now break into even lines instead of leaving one word dangling, paragraphs avoid lonely last words, and selected text takes the theme's own tint in sepia and dark.
   link: /blog/

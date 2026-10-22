@@ -1737,3 +1737,41 @@ h1, h2, h3, .post-title, .hero-title, .paper-title, .tldr-title,
   background: var(--accent-soft);
   color: var(--text);
 }
+
+/* Windows High Contrast / forced colors: the OS replaces our palette, which
+   drops backgrounds and box-shadows. Put back the cues that relied on them,
+   using system colors so they follow the user's chosen contrast theme. */
+@media (forced-colors: active) {
+  /* Theme switch thumb and timeline line/dots are background-only shapes */
+  .theme-slider-thumb,
+  .timeline::before,
+  .timeline-item::before { forced-color-adjust: none; background: CanvasText; box-shadow: none; }
+  .theme-slider.is-dark .theme-slider-thumb,
+  .theme-slider:hover .theme-slider-thumb { background: Highlight; }
+
+  /* Selected filter chip must look selected, not just be aria-pressed */
+  .tag-chip.is-active { forced-color-adjust: none; background: Highlight; border-color: Highlight; color: HighlightText; }
+
+  /* Search fields swapped their outline for a tinted ring — restore one */
+  #site-search:focus,
+  #post-search:focus { outline: 2px solid Highlight; outline-offset: 2px; }
+  .search-results mark { forced-color-adjust: none; background: Mark; color: MarkText; }
+
+  /* Deep-link (:target) highlights were inset box-shadows */
+  .event-row:target,
+  .post-content .glossary-term:target,
+  .paper:target,
+  .project-card:target { outline: 2px solid Highlight; outline-offset: 2px; }
+
+  /* Diagrams and the 404 sketch: map theme tokens to system colors */
+  .diagram svg,
+  .notfound-art {
+    forced-color-adjust: none;
+    --text: CanvasText;
+    --text-muted: CanvasText;
+    --accent: Highlight;
+    --accent-soft: Canvas;
+    --code-bg: Canvas;
+    --bg: Canvas;
+  }
+}
