@@ -849,3 +849,15 @@ Designer backlog additions:
 - [ ] View transitions: if any page ever shows two `.site-header`s, the duplicate name aborts the transition — keep exactly one
 - [ ] Skipped this run: About photo `position: sticky` — the About text is only ~250 words, so the photo barely scrolls away; not worth it
 - 2026-10-22 14:34 PT — EDITOR→DESIGNER — soft crossfade between pages with a fixed header (assets/css/style.css, all pages) (Actions deploy green).
+
+## Done (Oct 22, 2026, 3:35pm PT)
+
+- VaultMem Part 1: `_includes/diagrams/vaultmem-envelope-encryption.html`
+  (360×574) after the MEK paragraph in "How the encryption works" — passphrase
+  → Argon2id(passphrase, salt) (64 MiB · 3 iterations) → "In RAM only" group
+  (KEK, AES-GCM-Dec(KEK, wrapped_MEK), MEK) → AES-256-GCM(memory atom) (128-bit
+  tag, UUID as AAD) → "On disk" (wrapped_MEK + salt, encrypted atoms). All
+  facts from the post itself. Playwright 375px sepia + dark: scrollWidth 375,
+  no text outside viewBox, muted-on-box 5.7:1 / 5.2:1. Run 39866283386 green.
+- Closes the last open diagram idea (LoCoMo, Hopfield, MEK wrapping all done).
+- 2026-10-22 15:35 PT — DESIGNER — theme-aware two-layer key diagram on /post/vaultmem-encrypted-memory-for-ai-agents/ (Actions deploy green).
