@@ -1010,7 +1010,8 @@ input:focus-visible {
   font-weight: 600;
 }
 
-/* Wide tables scroll inside their own box (wrapper added by post-tools.html).
+/* Wide tables scroll inside their own box (wrapper added server-side by _layouts/post.html,
+   JS in post-tools.html adds .is-wide + region role when it overflows).
    Soft edge shadows hint there is more to the side; they follow the theme. */
 .table-scroll {
   margin: 1rem 0;

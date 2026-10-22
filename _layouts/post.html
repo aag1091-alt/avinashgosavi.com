@@ -22,7 +22,7 @@ layout: default
   </details>
   {% endif %}
   <div class="post-content">
-    {{ content }}
+    {{ content | replace: '<table>', '<div class="table-scroll"><table>' | replace: '</table>', '</table></div>' }}
   </div>
   {% if page.series %}{% include series-box.html position="bottom" %}{% endif %}
   {% include share.html %}

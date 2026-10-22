@@ -60,9 +60,9 @@
   });
   // Wide tables scroll sideways inside their own box instead of pushing the page wider on phones
   root.querySelectorAll('table').forEach(function(t){
-    if(t.parentNode.classList.contains('table-scroll')) return;
-    var w=document.createElement('div'); w.className='table-scroll';
-    t.parentNode.insertBefore(w,t); w.appendChild(t);
+    // The post layout already wraps tables server-side (works without JS); wrap any stragglers here
+    var w=t.parentNode;
+    if(!w.classList.contains('table-scroll')){ w=document.createElement('div'); w.className='table-scroll'; t.parentNode.insertBefore(w,t); w.appendChild(t); }
     var fit=function(){
       var wide=w.scrollWidth>w.clientWidth+1;
       w.classList.toggle('is-wide',wide);

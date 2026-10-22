@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Engineering
+  text: Post tables now get their sideways-scroll box from the server, so they stay inside the screen on phones even with JavaScript off.
+  link: /post/vaultmem-part-2-multimodal-temporal-backends/
+- date: 2026-10-22
   desk: Design
   text: Wide tables in posts now scroll sideways inside their own box on phones, with a soft edge shadow, instead of pushing the whole page wider.
   link: /post/codex-skills-baking-your-workflow-into-the-tool/
