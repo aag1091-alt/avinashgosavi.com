@@ -688,3 +688,8 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] If any page ever gets side effects on GET (e.g. a logout or counter URL), add it to the speculation-rules exclusions
 - 2026-10-21 21:35 PT — ENGINEER — hover prefetch of internal pages via speculation rules (all pages, default layout) (Actions deploy green).
+## Done (Oct 21, 2026, 10:35pm PT)
+- /about/: "Off hours" sentence now links encrypted memory for agents → VaultMem Part 1, local-first voice apps → daylog security post (tagged Local-first, voice diary), read papers → /paper-tldr/. Typo "Board games" → "board games". README events roles now list `mentor`.
+- Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the Oct 26 editor shift; only mark attended with evidence); Gmail last day had no event registrations; llms.txt Pages in step; no doubled words or http:// links in posts.
+- Run 39728968075 green.
+- 2026-10-21 22:35 PT — EDITOR — About page links VaultMem, daylog and the Paper TL;DR series; typo fix (/about/) (Actions deploy green).
