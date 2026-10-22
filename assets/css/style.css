@@ -1502,6 +1502,22 @@ h2.has-anchor .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
 .has-copy:hover .code-copy, .code-copy:focus-visible { opacity: 1; }
 @media (hover: none) { .code-copy { opacity: 1; } }
 .code-copy:hover { color: var(--accent-ink, var(--accent)); border-color: var(--accent); }
+/* Language tab on fenced code blocks (set by _includes/post-tools.html) */
+.post-content .highlighter-rouge.has-lang { position: relative; }
+.post-content .highlighter-rouge.has-lang > .highlight { margin-top: 1.9rem; }
+.code-lang {
+  position: absolute;
+  bottom: 100%;
+  left: 0.9rem;
+  padding: 0.3rem 0.6rem 0.2rem;
+  font: 500 0.72rem/1 var(--font-mono);
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  background: var(--code-bg);
+  border-radius: 6px 6px 0 0;
+  pointer-events: none;
+  user-select: none;
+}
 
 /* Site search: header icon + /search page */
 .header-search {

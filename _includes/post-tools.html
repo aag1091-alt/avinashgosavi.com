@@ -78,19 +78,37 @@
     var t=(c.parentNode.textContent||'').replace(/\s+/g,' ').trim();
     if(t) c.setAttribute('aria-label',t);
   });
+  // Language tab on fenced code blocks (kramdown/Rouge put it in the wrapper's class: language-python)
+  var langOf=function(box){
+    var m=/(?:^|\s)language-([\w+#-]+)/.exec(box.className||'');
+    return m&&!/^(plaintext|text|plain|none|console)$/i.test(m[1])?m[1].toLowerCase():'';
+  };
+  root.querySelectorAll('div.highlighter-rouge').forEach(function(box){
+    var lang=langOf(box); if(!lang||box.querySelector('.code-lang')) return;
+    var tag=document.createElement('span');
+    tag.className='code-lang'; tag.textContent=lang;
+    box.insertBefore(tag,box.firstChild);
+    box.classList.add('has-lang');
+  });
   // Copy buttons on code blocks
   if(!navigator.clipboard) return;
+  var said=document.createElement('span');
+  said.className='visually-hidden'; said.setAttribute('role','status'); said.setAttribute('aria-live','polite');
+  document.body.appendChild(said);
+  var say=function(t){ said.textContent=''; setTimeout(function(){ said.textContent=t; },50); };
   root.querySelectorAll('pre').forEach(function(pre){
     var box=pre.closest('.highlighter-rouge')||pre;
     if(box.querySelector('.code-copy')) return;
+    var lang=langOf(box);
     var b=document.createElement('button');
     b.type='button'; b.className='code-copy'; b.textContent='Copy';
-    b.setAttribute('aria-label','Copy code to clipboard');
+    b.setAttribute('aria-label','Copy '+(lang?lang+' ':'')+'code to clipboard');
     b.addEventListener('click',function(){
       var code=pre.querySelector('code')||pre;
       navigator.clipboard.writeText(code.innerText.replace(/\n$/,'')).then(function(){
-        b.textContent='Copied'; setTimeout(function(){ b.textContent='Copy'; },1500);
-      },function(){ b.textContent='Press Ctrl+C'; });
+        b.textContent='Copied'; say('Code copied to clipboard');
+        setTimeout(function(){ b.textContent='Copy'; },1500);
+      },function(){ b.textContent='Press Ctrl+C'; say('Copy failed. Select the code and press Ctrl+C'); });
     });
     box.classList.add('has-copy');
     box.appendChild(b);
