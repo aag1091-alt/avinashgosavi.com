@@ -714,7 +714,7 @@ Engineer backlog additions:
 - Reduced motion site-wide: `scroll-behavior: smooth` moved into `@media (prefers-reduced-motion: no-preference)` (anchor jumps, TOC and `scrollIntoView` were smooth for everyone before); a `prefers-reduced-motion: reduce` block at the END of style.css (must stay after the hover rules — same specificity) sets transitions/animations to 0.01ms and cancels the `.project-card:hover` lift and `.site-mark` rotation. Playwright: reduce → transform none, scroll auto; no-preference unchanged. Run 39756689247 green.
 
 Engineer backlog additions:
-- [ ] Forced-colors (Windows high contrast) pass: check theme toggle thumb, tag chips and dg diagrams render visibly
+- [x] Forced-colors (Windows high contrast) pass (done Oct 22, 6:35am PT)
 - 2026-10-22 02:34 PT — ENGINEER — site honours prefers-reduced-motion (assets/css/style.css, all pages) (Actions deploy green).
 ## Done (Oct 22, 2026, 3:35am PT)
 - SF Ruby 2025 recap: all 13 bolded talk titles now link to their RubyEvents recordings (paths checked against rubyevents.org/events/sfruby-2025/talks this run; they match `_data/talks.yml`). Post wording kept as-is (e.g. Rachael's talk is "Play with your code" on RubyEvents). Run 39765184302 green.
@@ -731,3 +731,19 @@ Engineer backlog additions:
 - Designer: `text-wrap: balance` on headings/titles, `text-wrap: pretty` on
   post paragraphs, list items and card descriptions; `::selection` uses
   `--accent-soft` + `--text` (contrast 7.8–9.0:1 in sepia and dark).
+
+## Done (Oct 22, 2026, 6:35am PT)
+
+- Forced colors: `@media (forced-colors: active)` block at the end of
+  style.css. Playwright `forced_colors='active'` mock confirmed before: theme
+  thumb invisible, active tag chip looked like the rest, glossary/:target
+  box-shadow bars gone, diagram muted text near-invisible. Fix: thumb +
+  timeline line/dots use CanvasText/Highlight (`forced-color-adjust: none`);
+  `.tag-chip.is-active` Highlight/HighlightText; `#site-search`/`#post-search`
+  focus get a Highlight outline (they used `outline: none` + tinted ring);
+  search `mark` uses Mark/MarkText; event-row/glossary-term/paper/project-card
+  `:target` get a Highlight outline; `.diagram svg` and `.notfound-art`
+  remap tokens (--text/--text-muted CanvasText, --accent Highlight, fills
+  Canvas). Normal-mode screenshot byte-identical before/after.
+- Run 39788383066 green.
+- 2026-10-22 06:35 PT — ENGINEER — Windows high-contrast (forced colors) support: theme switch, filter chips, search focus, :target highlights and all diagrams (assets/css/style.css, all pages) (Actions deploy green).
