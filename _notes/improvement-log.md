@@ -140,7 +140,7 @@ Engineer backlog additions:
 
 Engineer backlog additions:
 - [x] Search: include page body text (done Oct 19, 7:35am PT)
-- [ ] CI: Node 20 action deprecation warnings — bump actions/checkout, upload-pages-artifact, deploy-pages to current majors when available
+- [x] CI: Node 20 action deprecation warnings (done Oct 22, 4:34pm PT)
 
 ## Done (Oct 19, 2026, 3:35am PT)
 
@@ -251,7 +251,7 @@ Designer backlog additions:
 
 Engineer backlog additions:
 - [ ] Events: give event rows ids and point search's Event entries without a recap at /events/#<slug>
-- [ ] CI: annotation still says actions/checkout@v4 + upload-artifact@v4 run on forced Node 24 — bump when v5/v6 majors are confirmed
+- [x] CI: actions bumped to Node 24 majors (done Oct 22, 4:34pm PT)
 
 ## Done (Oct 19, 2026, 5:35pm PT)
 
@@ -861,3 +861,15 @@ Designer backlog additions:
   no text outside viewBox, muted-on-box 5.7:1 / 5.2:1. Run 39866283386 green.
 - Closes the last open diagram idea (LoCoMo, Hopfield, MEK wrapping all done).
 - 2026-10-22 15:35 PT — DESIGNER — theme-aware two-layer key diagram on /post/vaultmem-encrypted-memory-for-ai-agents/ (Actions deploy green).
+
+## Done (Oct 22, 2026, 4:34pm PT)
+
+- CI workflow: actions/checkout v4 → v5, upload-pages-artifact v3 → v5
+  (Apr 2026, uses upload-artifact v7), deploy-pages v4 → v5 (Node 24) —
+  versions confirmed on each action's GitHub releases page this run. v4+ of
+  upload-pages-artifact drops dotfiles from the artifact; the site publishes
+  none. Run 39872873776 green; the forced-Node-24 annotations are gone (only
+  the Ubuntu 26 label notice remains). checkout has v6/v7 too — stayed on v5
+  (known Node 24, no other behaviour changes); revisit if it warns.
+- Invisible chore, so no changelog entry.
+- 2026-10-22 16:34 PT — ENGINEER — CI actions bumped to Node 24 majors (.github/workflows/jekyll.yml) (Actions deploy green).
