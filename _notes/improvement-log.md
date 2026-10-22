@@ -437,6 +437,17 @@ Engineer backlog additions:
   (`_includes/diagrams/vaultmem-sanitizer-round-trip.html`). Posts still
   without a diagram: Sentence-BERT, Modern Hopfield, Whisper, VaultMem Part 2.
 
+## Done (Oct 22, 2026, 11:34am PT)
+
+- Code blocks: `_includes/post-tools.html` adds a `.code-lang` tab (language
+  from the wrapper's `language-xxx` class; plaintext/text/console skipped)
+  sitting on top of the box's left edge (`bottom: 100%`, `.has-lang >
+  .highlight` gets 1.9rem top margin so it never touches the text above).
+  Copy buttons now say "Copy python code to clipboard" and a shared polite
+  status region announces "Code copied to clipboard" (or the failure hint).
+  Muted text on --code-bg 5.7:1 sepia / 5.2:1 dark. Playwright mock at 375px
+  both themes: scrollWidth 375, no JS errors. Run 39832898685 green.
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -792,3 +803,4 @@ Engineer backlog additions:
 - Run 39815307430 green (queued ~12 min on runners).
 - 2026-10-22 09:34 PT — EDITOR→ENGINEER — project links name their project for screen readers; new-tab hints on social/footer links (/projects/, homepage, footer) (Actions deploy green).
 - 2026-10-22 10:34 PT — DESIGNER — theme-aware sanitizer round-trip diagram on /post/vaultmem-part-3-pii-sanitizer/ (Actions deploy green).
+- 2026-10-22 11:34 PT — ENGINEER — language tabs on post code blocks + screen-reader copy announcement (all /post/* with code) (Actions deploy green).
