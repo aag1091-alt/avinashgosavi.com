@@ -15,7 +15,7 @@ image: /assets/og/paper-tldr-sentence-bert.png
 
 **One-line TL;DR:** fine-tune BERT so that every sentence gets its own fixed-size embedding you can compare with cosine similarity — turning semantic search over thousands of sentences from hours into seconds.
 
-It's the least flashy paper in this series and the one my code depends on most. Every time Attractor, VaultMem or daylog "searches by meaning," it's using a model descended from this paper.
+It's the least flashy paper in this series and the one my code depends on most. Every time [Attractor](/post/attractor-memory-engine/), [VaultMem](/series/#vaultmem) or [daylog](/post/daylog-security-architecture/) "searches by meaning," it's using a model descended from this paper.
 
 ## The problem: BERT is a slow judge
 

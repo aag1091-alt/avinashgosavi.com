@@ -45,7 +45,7 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 **TL;DR:** Plain BERT has to compare sentences two at a time, which is painfully slow for search. Training it in a "siamese" setup gives every sentence its own embedding you can compare with cosine similarity, so finding the closest match among thousands takes seconds instead of hours.
 
-**What I took from it:** the unglamorous workhorse. The sentence-transformers models behind semantic search in Attractor, VaultMem and daylog all come from this line of work.
+**What I took from it:** the unglamorous workhorse. The sentence-transformers models behind semantic search in Attractor, VaultMem and [daylog](/post/daylog-security-architecture/) all come from this line of work.
 
 ## 5. Maharana et al. (2024) — testing memory honestly
 

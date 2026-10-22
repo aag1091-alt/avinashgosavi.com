@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
   desk: Writing
+  text: The Sentence-BERT TL;DR and the six-papers intro now link Attractor, VaultMem and daylog where they say those projects search by meaning.
+  link: /post/paper-tldr-sentence-bert/
+- date: 2026-10-22
+  desk: Writing
   text: Every talk in the SF Ruby 2025 recap now links straight to its recording on RubyEvents.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
 - date: 2026-10-22
