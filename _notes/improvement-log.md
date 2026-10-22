@@ -709,3 +709,9 @@ Designer backlog additions:
 Engineer backlog additions:
 - [ ] If a post table ever gets a kramdown IAL (`{: .class}`), it renders `<table class=…>` and skips the server wrapper — JS still wraps it
 - 2026-10-22 01:35 PT — ENGINEER — post tables wrapped in their scroll box server-side, so phones without JS don't overflow (/post/* with tables) (Actions deploy green).
+## Done (Oct 22, 2026, 2:34am PT)
+- Reduced motion site-wide: `scroll-behavior: smooth` moved into `@media (prefers-reduced-motion: no-preference)` (anchor jumps, TOC and `scrollIntoView` were smooth for everyone before); a `prefers-reduced-motion: reduce` block at the END of style.css (must stay after the hover rules — same specificity) sets transitions/animations to 0.01ms and cancels the `.project-card:hover` lift and `.site-mark` rotation. Playwright: reduce → transform none, scroll auto; no-preference unchanged. Run 39756689247 green.
+
+Engineer backlog additions:
+- [ ] Forced-colors (Windows high contrast) pass: check theme toggle thumb, tag chips and dg diagrams render visibly
+- 2026-10-22 02:34 PT — ENGINEER — site honours prefers-reduced-motion (assets/css/style.css, all pages) (Actions deploy green).
