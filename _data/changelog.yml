@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Design
+  text: Each category heading on the Projects page now carries the same small icon and color as its project cards.
+  link: /projects/
+- date: 2026-10-21
   desk: Writing
   text: The About page now links the side projects and reading it mentions — VaultMem's encrypted agent memory, daylog's local-first voice diary and the Paper TL;DR series.
   link: /about/

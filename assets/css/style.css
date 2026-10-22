@@ -1632,10 +1632,16 @@ body.theme-dark {
   --cat-tools: #b5c47e;
   --cat-fun: #c9a3dc;
 }
-.project-card { position: relative; overflow: hidden; --cat: var(--accent); } /* memory = theme accent */
-.project-card[data-cat="agents-voice"] { --cat: var(--cat-agents); }
-.project-card[data-cat="tools-i-wanted-for-myself"] { --cat: var(--cat-tools); }
-.project-card[data-cat="just-for-fun"] { --cat: var(--cat-fun); }
+.project-card { position: relative; overflow: hidden; }
+.project-card, .project-category { --cat: var(--accent); } /* memory = theme accent */
+[data-cat="agents-voice"] { --cat: var(--cat-agents); }
+[data-cat="tools-i-wanted-for-myself"] { --cat: var(--cat-tools); }
+[data-cat="just-for-fun"] { --cat: var(--cat-fun); }
+/* /projects headings carry the same category icon as their cards, a size smaller */
+.project-category { display: flex; align-items: center; gap: 0.55rem; }
+.project-category-icon { flex: none; display: inline-grid; place-items: center; color: var(--cat); }
+.project-category-icon svg { width: 1.25rem; height: 1.25rem; }
+.project-category .heading-anchor { margin-left: 0; }
 .project-card::before {
   content: "";
   position: absolute;
