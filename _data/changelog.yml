@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Engineering
+  text: The site now publishes an OpenSearch description, so browsers can add it as a search engine and search posts, projects and papers straight from the address bar.
+  link: /search/
+- date: 2026-10-21
   desk: Design
   text: The Hopfield (1982) TL;DR gets a theme-aware diagram of storing a pattern with the Hebbian rule and recalling it from a noisy cue as the energy rolls downhill.
   link: /post/paper-tldr-hopfield-1982/

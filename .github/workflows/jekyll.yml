@@ -44,6 +44,9 @@ jobs:
       - name: Check web app manifest and its icons exist
         run: python3 -c "import json,os; m=json.load(open('_site/site.webmanifest')); [print(i['src'], i['sizes']) or os.stat('_site'+i['src']) for i in m['icons']]"
 
+      - name: Check OpenSearch description is valid XML with a search template
+        run: python3 -c "import xml.etree.ElementTree as E; r=E.parse('_site/opensearch.xml').getroot(); u=[x.get('template') for x in r.iter('{http://a9.com/-/spec/opensearch/1.1/}Url')]; print(u); assert any('/search/?q={searchTerms}' in t for t in u)"
+
       - name: Check internal links (warnings only, never blocks deploy)
         run: python3 scripts/check_links.py _site
         continue-on-error: true

@@ -39,6 +39,7 @@ Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 - [Uses]({{ "/uses/" | absolute_url }}): hardware, home inference server, tools and hosting stack
 - [Now]({{ "/now/" | absolute_url }}): current focus
 - [Search index]({{ "/search.json" | absolute_url }}): JSON list of every post (with text), page, project, paper and event
+- [OpenSearch description]({{ "/opensearch.xml" | absolute_url }}): search the site from a browser address bar (/search/?q=…)
 - [Changelog]({{ "/changelog/" | absolute_url }}): what changed on the site recently
 - [RSS feed]({{ "/feed.xml" | absolute_url }})
 - [Changelog feed]({{ "/feed/changelog.xml" | absolute_url }}): Atom feed of site changes (latest 50)

@@ -1,0 +1,16 @@
+---
+layout: null
+permalink: /opensearch.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Avinash Gosavi</ShortName>
+  <Description>Search posts, projects, papers, events and pages on avinashgosavi.com</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">{{ '/favicon.ico' | absolute_url }}</Image>
+  <Image width="192" height="192" type="image/png">{{ '/assets/icons/icon-192.png' | absolute_url }}</Image>
+  <Url type="text/html" method="get" template="{{ '/search/' | absolute_url }}?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="{{ '/opensearch.xml' | absolute_url }}"/>
+  <moz:SearchForm>{{ '/search/' | absolute_url }}</moz:SearchForm>
+</OpenSearchDescription>
