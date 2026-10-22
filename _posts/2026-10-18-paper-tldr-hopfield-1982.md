@@ -30,6 +30,8 @@ Hopfield's move was to define an **energy** for the whole network's state and sh
 
 Stored patterns sit at the bottoms of valleys in that energy landscape. Start anywhere nearby — a corrupted photo, half a phone number — and the network slides down into the nearest stored memory. That's **content-addressable memory**: you retrieve by *what* you remember, not by *where* it's stored. It's also robust: knock out some neurons or connections and recall still mostly works.
 
+{% include diagrams/hopfield-store-recall.html %}
+
 ## Twenty-five lines of NumPy
 
 Store five random patterns in 100 neurons, flip 30% of the bits of one, and let it settle:

@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-21
+  desk: Design
+  text: The Hopfield (1982) TL;DR gets a theme-aware diagram of storing a pattern with the Hebbian rule and recalling it from a noisy cue as the energy rolls downhill.
+  link: /post/paper-tldr-hopfield-1982/
+- date: 2026-10-21
   desk: Writing
   text: The daylog security post now links the Live Audio Transcription post about the Whisper service extracted from daylog, so the three daylog posts all point to each other.
   link: /post/daylog-security-architecture/
