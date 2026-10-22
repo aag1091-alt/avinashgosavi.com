@@ -448,6 +448,22 @@ Engineer backlog additions:
   Muted text on --code-bg 5.7:1 sepia / 5.2:1 dark. Playwright mock at 375px
   both themes: scrollWidth 375, no JS errors. Run 39832898685 green.
 
+## Done (Oct 22, 2026, 12:35pm PT)
+
+- Image viewer on posts (`_includes/post-tools.html` + `.img-viewer` CSS):
+  any `.post-content img` not inside a link or `.diagram` whose largest source
+  (width attr, `srcset` w-descriptors of the img/`<source>`s, or a bare webp
+  `<source>`) is >1.25× its rendered width gets `.is-zoomable`, tabindex 0,
+  role=button, "Enlarge image: <alt>" (re-checked via ResizeObserver). Click /
+  Enter / Space opens a modal `<dialog>` with the largest source + alt caption;
+  Esc, Close, backdrop or image click closes and returns focus. Hidden in print.
+  Today that's the Rena screenshots, VaultMem explainer (opens the 1400w
+  webp) and SF Ruby photos. Playwright mock 375/1280, sepia + dark: no JS
+  errors, scrollWidth unchanged, focus restore works. Run 39841721519 green.
+
+Engineer backlog additions:
+- [ ] New post images: keep `width`/`height` attrs = the full file size — the viewer uses them to decide zoomability
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -804,3 +820,4 @@ Engineer backlog additions:
 - 2026-10-22 09:34 PT — EDITOR→ENGINEER — project links name their project for screen readers; new-tab hints on social/footer links (/projects/, homepage, footer) (Actions deploy green).
 - 2026-10-22 10:34 PT — DESIGNER — theme-aware sanitizer round-trip diagram on /post/vaultmem-part-3-pii-sanitizer/ (Actions deploy green).
 - 2026-10-22 11:34 PT — ENGINEER — language tabs on post code blocks + screen-reader copy announcement (all /post/* with code) (Actions deploy green).
+- 2026-10-22 12:35 PT — ENGINEER — tap/Enter to view post images full size (/post/building-rena-ai-health-companion-gemini-live/, VaultMem diary, SF Ruby) (Actions deploy green).
