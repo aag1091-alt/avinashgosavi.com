@@ -58,6 +58,20 @@
     a.textContent='#';
     h.appendChild(a);
   });
+  // Wide tables scroll sideways inside their own box instead of pushing the page wider on phones
+  root.querySelectorAll('table').forEach(function(t){
+    if(t.parentNode.classList.contains('table-scroll')) return;
+    var w=document.createElement('div'); w.className='table-scroll';
+    t.parentNode.insertBefore(w,t); w.appendChild(t);
+    var fit=function(){
+      var wide=w.scrollWidth>w.clientWidth+1;
+      w.classList.toggle('is-wide',wide);
+      if(wide){ w.tabIndex=0; w.setAttribute('role','region'); w.setAttribute('aria-label','Table, scrolls sideways'); }
+      else { w.removeAttribute('tabindex'); w.removeAttribute('role'); w.removeAttribute('aria-label'); }
+    };
+    fit();
+    if('ResizeObserver' in window) new ResizeObserver(fit).observe(w);
+  });
   // GFM task-list checkboxes (kramdown) have no label: name each one after its list item text
   root.querySelectorAll('input.task-list-item-checkbox, li.task-list-item > input[type=checkbox]').forEach(function(c){
     if(c.getAttribute('aria-label')||c.labels&&c.labels.length) return;

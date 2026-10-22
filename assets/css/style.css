@@ -1010,6 +1010,29 @@ input:focus-visible {
   font-weight: 600;
 }
 
+/* Wide tables scroll inside their own box (wrapper added by post-tools.html).
+   Soft edge shadows hint there is more to the side; they follow the theme. */
+.table-scroll {
+  margin: 1rem 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border-radius: 4px;
+}
+.table-scroll > table { margin: 0; }
+.table-scroll.is-wide {
+  background:
+    linear-gradient(to right, var(--bg) 30%, transparent) left / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--bg) 30%, transparent) right / 2.5rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, color-mix(in srgb, var(--text) 22%, transparent), transparent) left / 0.75rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, color-mix(in srgb, var(--text) 22%, transparent), transparent) right / 0.75rem 100% no-repeat scroll;
+}
+.table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  .post-content table { font-size: 0.875rem; }
+  .post-content th, .post-content td { padding: 0.4rem 0.55rem; }
+}
+
 /* Code – Rouge output */
 .post-content .highlight,
 .post-content pre {
@@ -1266,7 +1289,7 @@ body.theme-dark .about-image img {
 .back-to-top:hover, .back-to-top:focus-visible { border-color: var(--accent); }
 .back-to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 h1[tabindex="-1"]:focus { outline: none; }
-@media print { .back-to-top { display: none; } }
+@media print { .back-to-top { display: none; } .table-scroll { overflow: visible; background: none; } }
 
 /* ---------- Events ---------- */
 .event-list { list-style: none; padding: 0; margin: 0 0 2.5rem; }

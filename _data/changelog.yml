@@ -1,5 +1,9 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
+- date: 2026-10-22
+  desk: Design
+  text: Wide tables in posts now scroll sideways inside their own box on phones, with a soft edge shadow, instead of pushing the whole page wider.
+  link: /post/codex-skills-baking-your-workflow-into-the-tool/
 - date: 2026-10-21
   desk: Design
   text: Each category heading on the Projects page now carries the same small icon and color as its project cards.
