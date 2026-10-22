@@ -763,3 +763,13 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Share: consider the same "(opens in a new tab)" hint for other target=_blank links site-wide (demo/GitHub links on /projects) — check_a11y.py could flag missing hints
 - 2026-10-22 07:35 PT — ENGINEER — native "Share…" button and screen-reader announcements on post share row (all /post/* pages) (Actions deploy green).
+
+## Done (Oct 22, 2026, 8:34am PT)
+
+- Jekyll + GitHub Pages guide's closing note now links Codex Skills (lowest
+  inbound post, 2 → 3), wording from the Codex post's own description.
+- Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the
+  Oct 26 editor shift; only mark attended with evidence); Gmail last day had no
+  event registrations; llms.txt Pages in step.
+- Run 39806276219 green.
+- 2026-10-22 08:34 PT — EDITOR — Jekyll guide cross-links Codex Skills (/post/building-your-website-with-jekyll-and-github-pages/) (Actions deploy green).
