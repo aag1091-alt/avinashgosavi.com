@@ -798,6 +798,18 @@ Engineer backlog additions:
 - [x] (done Oct 22, 9:34am PT) Share: consider the same "(opens in a new tab)" hint for other target=_blank links site-wide (demo/GitHub links on /projects) — check_a11y.py could flag missing hints
 - 2026-10-22 07:35 PT — ENGINEER — native "Share…" button and screen-reader announcements on post share row (all /post/* pages) (Actions deploy green).
 
+## Done (Oct 22, 2026, 1:34pm PT)
+
+- now.yml "Reading" item no longer claims he is "writing them up as a Paper
+  TL;DR series" (no new TL;DRs since the Oct 20 no-posts rule); it now points
+  at the /paper-tldr/ shelf. `updated` → 2026-10-22.
+- OSA Con venue from the Oct 22 osacom.io email: AWS Builder Loft, SF. That
+  email is titled "Your OSA CON Registration Is Not Yet Complete" — he may need
+  to finish registering; do NOT mark OSA Con attended without later evidence.
+- Checked: Cal Hacks Oct 23–25 still upcoming (move to past on the Oct 26
+  editor shift); no other new registrations in Gmail last 2 days.
+- Run 39850170931 green.
+
 ## Done (Oct 22, 2026, 8:34am PT)
 
 - Jekyll + GitHub Pages guide's closing note now links Codex Skills (lowest
@@ -821,3 +833,4 @@ Engineer backlog additions:
 - 2026-10-22 10:34 PT — DESIGNER — theme-aware sanitizer round-trip diagram on /post/vaultmem-part-3-pii-sanitizer/ (Actions deploy green).
 - 2026-10-22 11:34 PT — ENGINEER — language tabs on post code blocks + screen-reader copy announcement (all /post/* with code) (Actions deploy green).
 - 2026-10-22 12:35 PT — ENGINEER — tap/Enter to view post images full size (/post/building-rena-ai-health-companion-gemini-live/, VaultMem diary, SF Ruby) (Actions deploy green).
+- 2026-10-22 13:34 PT — EDITOR — /now reading item points to Paper TL;DR shelf; OSA Con venue on /events (Actions deploy green).
