@@ -675,3 +675,7 @@ Engineer backlog additions:
 - Checked: events/now current (Cal Hacks Oct 23–25 next — move to past on the Oct 26 editor shift; only mark attended with evidence); Gmail last day had no event registrations; llms.txt Pages in step.
 - Run 39706645214 green.
 - 2026-10-21 18:35 PT — EDITOR — daylog security post cross-links the Whisper transcription post (/post/daylog-security-architecture/) (Actions deploy green).
+## Done (Oct 21, 2026, 7:35pm PT)
+- Hopfield 1982 TL;DR: `_includes/diagrams/hopfield-store-recall.html` (360×478) after "The key insight" — Store pill (Hebbian rule, patterns' weights added, from the post) → "Recall" group with three 5×5 bit grids (noisy cue with 6 flipped → settling with 2 → stored "H"; on = `.dg-head` accent, off = `.dg-node`) → qualitative energy staircase (only goes down or stays — the post's claim; no numbers). Labelled an illustration in the caption. Playwright at 375px sepia + dark: scrollWidth 375, no clipped text. Run 39712339629 green.
+- Closes the "Hopfield store/recall" diagram idea. Still open: VaultMem envelope encryption (MEK wrapping) — only if the VaultMem posts describe it.
+- 2026-10-21 19:35 PT — DESIGNER — theme-aware store/recall diagram on /post/paper-tldr-hopfield-1982/ (Actions deploy green).
