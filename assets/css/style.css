@@ -144,6 +144,14 @@ html {
 
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
+
+  /* Page-to-page crossfade (Chrome/Edge/Safari 18.2+; others just navigate).
+     The header keeps its own name so it stays put while the page fades. */
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-header; }
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: 180ms; }
+  ::view-transition-group(site-header) { animation-duration: 0s; }
 }
 
 body {
