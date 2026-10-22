@@ -761,7 +761,7 @@ Engineer backlog additions:
 - Run 39797274284 green (queued ~10 min on runners).
 
 Engineer backlog additions:
-- [ ] Share: consider the same "(opens in a new tab)" hint for other target=_blank links site-wide (demo/GitHub links on /projects) — check_a11y.py could flag missing hints
+- [x] (done Oct 22, 9:34am PT) Share: consider the same "(opens in a new tab)" hint for other target=_blank links site-wide (demo/GitHub links on /projects) — check_a11y.py could flag missing hints
 - 2026-10-22 07:35 PT — ENGINEER — native "Share…" button and screen-reader announcements on post share row (all /post/* pages) (Actions deploy green).
 
 ## Done (Oct 22, 2026, 8:34am PT)
@@ -773,3 +773,14 @@ Engineer backlog additions:
   event registrations; llms.txt Pages in step.
 - Run 39806276219 green.
 - 2026-10-22 08:34 PT — EDITOR — Jekyll guide cross-links Codex Skills (/post/building-your-website-with-jekyll-and-github-pages/) (Actions deploy green).
+
+## Done (Oct 22, 2026, 9:34am PT)
+
+- Editor shift had nothing to do (events/now checked an hour ago, codespell
+  clean apart from "Rouge", llms.txt in step), so took the Engineer backlog
+  item: project cards' Code/Live/Write-up links carry visually-hidden text
+  naming the project ("Code for VaultMem on GitHub (opens in a new tab)"),
+  social icon aria-labels and the footer Jekyll link say "(opens in a new tab)".
+  No other target=_blank links remain without a hint.
+- Run 39815307430 green (queued ~12 min on runners).
+- 2026-10-22 09:34 PT — EDITOR→ENGINEER — project links name their project for screen readers; new-tab hints on social/footer links (/projects/, homepage, footer) (Actions deploy green).
