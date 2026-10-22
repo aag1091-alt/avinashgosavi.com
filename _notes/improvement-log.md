@@ -701,5 +701,11 @@ Engineer backlog additions:
 - Wide post tables on phones: a python-markdown mock of all 18 post tables at 375px showed 8 overflowing (page scrollWidth up to 584 — Codex skills, Jekyll, AI History, VaultMem 1/2, daylog, Whisper). `_includes/post-tools.html` now wraps every `.post-content table` in `<div class="table-scroll">` (overflow-x auto); a ResizeObserver toggles `.is-wide` and, only when it overflows, `tabindex=0` + `role=region` + aria-label "Table, scrolls sideways". `.is-wide` gets theme-aware edge shadows (background-attachment local/scroll trick, `--bg` + `--text` color-mix). ≤640px: table font 0.875rem, cell padding 0.4/0.55rem. Print: wrapper overflow visible, no shadows. Playwright: scrollWidth 375 in sepia + dark (was 584), 900px has 0 wide tables, no JS errors; text colors unchanged. Run 39741744331 green.
 
 Designer backlog additions:
-- [ ] Tables are only wrapped by JS — without JS, phones still overflow (acceptable; could add a kramdown-side wrapper later)
+- [x] Tables are only wrapped by JS — fixed Oct 22, 1:35am PT (server-side wrapper in post layout)
 - 2026-10-22 00:35 PT — DESIGNER — wide post tables scroll inside their own box on phones (all /post/* with tables, e.g. /post/codex-skills-baking-your-workflow-into-the-tool/) (Actions deploy green).
+## Done (Oct 22, 2026, 1:35am PT)
+- No-JS table overflow: `_layouts/post.html` now wraps `<table>` in `<div class="table-scroll">` via Liquid `replace` on `content` (kramdown emits bare `<table>`); `post-tools.html` reuses an existing wrapper (still adds `.is-wide`, tabindex/role/label when it overflows) and wraps any stragglers. Without JS, the box still scrolls (no edge shadows/focus stop). Run 39748954340 green.
+
+Engineer backlog additions:
+- [ ] If a post table ever gets a kramdown IAL (`{: .class}`), it renders `<table class=…>` and skips the server wrapper — JS still wraps it
+- 2026-10-22 01:35 PT — ENGINEER — post tables wrapped in their scroll box server-side, so phones without JS don't overflow (/post/* with tables) (Actions deploy green).
