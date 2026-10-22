@@ -70,6 +70,8 @@ It reasons about this correctly, responds naturally, and VaultMem restores the r
 
 The provider never sees the real names, companies, or contact details.
 
+{% include diagrams/vaultmem-sanitizer-round-trip.html %}
+
 ---
 
 ## Pseudonyms, not tokens

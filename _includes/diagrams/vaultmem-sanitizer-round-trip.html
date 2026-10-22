@@ -1,0 +1,37 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 462" role="img" aria-labelledby="vm-san-title vm-san-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="vm-san-title">How the VaultMem sanitizer round-trips a prompt</title>
+  <desc id="vm-san-desc">On your device, memories are decrypted from the vault, for example Sarah Chen, who works at Google, and James's email address. Sanitizer.sanitize swaps them for a pseudonym, a fictional company and a typed token: Jordan, Globex and EMAIL_1, using one mapping for the whole session. Only that sanitized text goes to the LLM provider. The provider's reply mentions Jordan. On your device again, Sanitizer.restore maps Jordan back to Sarah Chen, so the answer you read uses the real names.</desc>
+  <defs>
+    <marker id="vm-san-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-group" x="8" y="8" width="320" height="170" rx="12"/>
+  <text class="dg-label" x="24" y="28">On your device</text>
+  <rect class="dg-box" x="24" y="38" width="288" height="52" rx="8"/>
+  <text class="dg-strong" x="168" y="59" text-anchor="middle">Vault memories, decrypted</text>
+  <text class="dg-note dg-mono" x="168" y="79" text-anchor="middle">Sarah Chen · Google · james@…</text>
+  <line class="dg-line" x1="168" y1="90" x2="168" y2="110" marker-end="url(#vm-san-arrow)"/>
+  <rect class="dg-box" x="24" y="112" width="288" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="134" text-anchor="middle">Sanitizer.sanitize()</text>
+  <text class="dg-note" x="168" y="155" text-anchor="middle">one stable mapping for the session</text>
+  <line class="dg-line" x1="168" y1="166" x2="168" y2="220" marker-end="url(#vm-san-arrow)"/>
+  <text class="dg-note" x="178" y="196">sends Jordan · Globex</text>
+  <text class="dg-note" x="178" y="212">and [EMAIL_1]</text>
+  <rect class="dg-box dg-muted" x="24" y="222" width="288" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="244" text-anchor="middle">LLM provider</text>
+  <text class="dg-note" x="168" y="265" text-anchor="middle">sees pseudonyms and tokens only</text>
+  <line class="dg-line" x1="168" y1="276" x2="168" y2="328" marker-end="url(#vm-san-arrow)"/>
+  <text class="dg-note" x="178" y="293">reply mentions Jordan</text>
+  <rect class="dg-group" x="8" y="302" width="320" height="152" rx="12"/>
+  <text class="dg-label" x="24" y="322">On your device</text>
+  <rect class="dg-box" x="24" y="330" width="288" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="352" text-anchor="middle">Sanitizer.restore()</text>
+  <text class="dg-note" x="168" y="373" text-anchor="middle">Jordan → Sarah Chen</text>
+  <line class="dg-line" x1="168" y1="384" x2="168" y2="402" marker-end="url(#vm-san-arrow)"/>
+  <rect class="dg-pill" x="24" y="404" width="288" height="40" rx="20"/>
+  <text class="dg-body" x="168" y="429" text-anchor="middle">The answer you read uses real names</text>
+</svg>
+<figcaption>Real names and contact details stay on your device; the provider only ever reasons about Jordan, Globex and [EMAIL_1].</figcaption>
+</figure>
