@@ -19,6 +19,7 @@ title: All Posts
     <button type="button" class="tag-chip is-active" data-tag="" aria-pressed="true">All</button>
     {% for t in all_tags %}{% if t == "" %}{% continue %}{% endif %}{% assign tagged = writing_posts | where_exp: "p", "p.tags contains t" %}<button type="button" class="tag-chip" data-tag="{{ t | slugify }}" aria-pressed="false">{{ t }} <span class="tag-count">{{ tagged.size }}</span></button>{% endfor %}
   </div>
+  <p id="post-count" class="search-status blog-count" role="status" aria-live="polite"></p>
 
   <ul id="post-list" class="post-list blog-list">
     {% assign sorted_posts = writing_posts | sort: 'date' | reverse %}
@@ -44,7 +45,9 @@ title: All Posts
   var list = document.getElementById('post-list');
   var items = list ? list.querySelectorAll('.blog-list-item') : [];
   var noResults = document.getElementById('no-results');
+  var count = document.getElementById('post-count');
   if (!input || !list) return;
+  var countTimer;
 
   var activeTag = '';
   var chips = document.querySelectorAll('.tag-chip');
@@ -62,6 +65,18 @@ title: All Posts
       if (show) visible++;
     });
     if (noResults) noResults.hidden = visible > 0;
+    /* Say how many posts are showing (screen readers hear it via role=status);
+       debounced so typing doesn't announce every keystroke. */
+    clearTimeout(countTimer);
+    countTimer = setTimeout(function() {
+      if (!count) return;
+      count.classList.toggle('visually-hidden', visible === 0);
+      if (!q && !activeTag) { count.textContent = ''; return; }
+      var chip = document.querySelector('.tag-chip.is-active');
+      var label = activeTag && chip ? chip.firstChild.textContent.trim() : '';
+      count.textContent = visible === 0 ? 'No posts match.' :
+        'Showing ' + visible + ' of ' + items.length + ' posts' + (label ? ' tagged \u201c' + label + '\u201d' : '') + (q ? ' matching \u201c' + input.value.trim() + '\u201d' : '') + '.';
+    }, q ? 400 : 0);
   }
   input.addEventListener('input', apply);
   chips.forEach(function(chip) {
@@ -69,9 +84,20 @@ title: All Posts
       activeTag = chip.getAttribute('data-tag') || '';
       chips.forEach(function(c) { c.classList.toggle('is-active', c === chip); c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
       apply();
+      /* Keep the address shareable: /blog/#agent-memory reopens this filter. */
+      if (!fromHash && history.replaceState) {
+        history.replaceState(null, '', activeTag ? '#' + activeTag : location.pathname + location.search);
+      }
     });
   });
-  var hash = (location.hash || '').replace('#', '');
-  if (hash) { chips.forEach(function(c) { if (c.getAttribute('data-tag') === hash) c.click(); }); }
+  var fromHash = false;
+  function applyHash() {
+    var hash = decodeURIComponent((location.hash || '').replace('#', ''));
+    fromHash = true;
+    chips.forEach(function(c) { if (c.getAttribute('data-tag') === hash) c.click(); });
+    fromHash = false;
+  }
+  if (location.hash) applyHash();
+  window.addEventListener('hashchange', applyHash);
 })();
 </script>

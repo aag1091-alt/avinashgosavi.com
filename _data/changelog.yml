@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
+  desk: Engineering
+  text: Filtering or searching the Writing list now shows how many posts match (also read out by screen readers), and picking a topic updates the address so the filtered list can be shared.
+  link: /blog/#agent-memory
+- date: 2026-10-23
   desk: Design
   text: The "how your words travel" diagram in the daylog privacy post was redrawn as a phone-friendly, theme-aware figure that stays readable at small sizes and in dark mode.
   link: /post/daylog-security-architecture/
