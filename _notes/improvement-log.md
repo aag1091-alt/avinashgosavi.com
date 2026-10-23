@@ -1185,3 +1185,18 @@ Engineer backlog additions:
 Designer backlog additions:
 - [x] Other posts with old hard-coded inline SVGs: none left (checked Oct 23, 10:35am PT)
 - 2026-10-23 10:35 PT — DESIGNER — phone-friendly, theme-aware entry-path diagram replaces the tiny hard-coded one on /post/daylog-security-architecture/ (Actions deploy green).
+
+## Done (Oct 23, 2026, 11:35am PT)
+
+- Engineer shift: /blog filters gave no feedback to screen readers and topic
+  chips didn't change the URL. Now a `role=status` line (`#post-count`,
+  `.blog-count`) says "Showing N of M posts tagged “X” matching “q”." (debounced
+  400ms while typing; "No posts match." is visually hidden since the visible
+  no-results line already shows), and chip clicks `history.replaceState` the
+  `#tag` hash (All clears it); `hashchange` re-applies a filter. Tested with a
+  Playwright mock (hash load, click, type, no match, All, hashchange; no JS
+  errors). Run 40004737946 green.
+
+Engineer backlog additions:
+- [ ] /blog search text isn't in the URL (`?q=`) — add if people share searches
+- 2026-10-23 11:35 PT — ENGINEER — /blog shows a live "Showing N of M posts" count for filters/search and topic chips update the #tag URL (blog.md, assets/css/style.css) (Actions deploy green).
