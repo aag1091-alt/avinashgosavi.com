@@ -920,13 +920,22 @@ input:focus-visible {
   font-style: italic;
 }
 
+/* Links in post prose keep a soft underline: the link color alone is only
+   ~1.7:1 against body text in both themes, so color can't be the only cue
+   (WCAG 1.4.1). Hover/focus darkens the underline to the full link color. */
 .post-content a {
   color: var(--accent-ink, var(--accent));
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: currentColor;
+  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+  transition: text-decoration-color 0.15s ease;
 }
 
-.post-content a:hover {
-  text-decoration: underline;
+.post-content a:hover,
+.post-content a:focus-visible {
+  text-decoration-color: currentColor;
 }
 
 .post-content hr {

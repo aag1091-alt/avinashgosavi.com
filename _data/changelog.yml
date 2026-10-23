@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
+  desk: Design
+  text: Links inside posts now carry a soft underline instead of relying on color alone, so they're easy to spot in both sepia and dark themes; it darkens on hover or keyboard focus.
+  link: /post/attractor-memory-engine/
+- date: 2026-10-23
   desk: Engineering
   text: Each summary on the Paper TL;DR page now names the original paper's authors and year, with a direct link to the paper itself.
   link: /paper-tldr/
