@@ -23,6 +23,11 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
                 if pos != list(range(1, len(pos) + 1)):
                     bad += 1
                     print(f"::warning file={os.path.relpath(path, root)}::breadcrumb positions {pos}")
+            if t == "ProfilePage":
+                me = d.get("mainEntity") or {}
+                if me.get("@type") != "Person" or not me.get("name"):
+                    bad += 1
+                    print(f"::warning file={os.path.relpath(path, root)}::ProfilePage needs a Person mainEntity with a name")
 # Speculation rules (link prefetch on hover) must also be valid JSON with a prefetch list.
 spec = re.compile(r'<script type="speculationrules">(.*?)</script>', re.S)
 nspec = 0

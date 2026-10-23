@@ -36,7 +36,7 @@
   {%- if page.noindex %}
   <meta name="robots" content="noindex">
   {%- endif %}
-  {% if page.layout == "home" %}{% include person-jsonld.html %}{% endif %}
+  {% if page.layout == "home" %}{% include person-jsonld.html %}{% elsif page.layout == "about" %}{% include person-jsonld.html profile=true %}{% endif %}
   {% include breadcrumb-jsonld.html %}
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLR5GMVQKW"></script>

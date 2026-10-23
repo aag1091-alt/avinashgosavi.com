@@ -1,7 +1,11 @@
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
+{%- comment -%}
+  Person markup. On the homepage it is emitted as a Person; on the About page it is
+  wrapped in a ProfilePage (Google's profile-page structured data) with the
+  same Person as mainEntity. Include with profile=true for the ProfilePage form.
+{%- endcomment -%}
+{%- capture person -%}
   "@type": "Person",
+  "@id": "{{ site.url }}/#person",
   "name": "Avinash Gosavi",
   "url": "{{ site.url }}/",
   "image": "{{ '/assets/images/about.jpg' | absolute_url }}",
@@ -19,5 +23,22 @@
     "https://x.com/aag1091",
     "https://pypi.org/project/vaultmem/"
   ]
+{%- endcapture %}
+<script type="application/ld+json">
+{%- if include.profile %}
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "{{ page.url | absolute_url }}",
+  "name": "{{ page.title | default: 'About' }} | {{ site.title }}",
+  "mainEntity": {
+  {{ person }}
+  }
 }
+{%- else %}
+{
+  "@context": "https://schema.org",
+  {{ person }}
+}
+{%- endif %}
 </script>
