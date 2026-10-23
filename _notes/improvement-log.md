@@ -907,3 +907,20 @@ Editor backlog additions (metadata only, small fixes allowed):
 - Events: Cal Hacks (Oct 23–25) still upcoming — move to past next editor
   shift after Oct 25 (only mark attended if Gmail supports it).
 - 2026-10-22 18:34 PT — EDITOR — Meta descriptions trimmed to ≤160 chars (homepage, /experience, /research, /talks, 12 posts) (Actions deploy green).
+
+## Done (Oct 22, 2026, 7:34pm PT)
+
+- Designer shift: theme-aware, phone-friendly diagram of TimeQueryParser on
+  /post/vaultmem-part-2-multimodal-temporal-backends/ (`_includes/diagrams/vaultmem-time-query.html`,
+  placed after the `parse_time=True` example). Content only from the post:
+  "what happened summer 2019" → time phrase (2019-06-01 → 2019-09-01) +
+  remainder embedded → search(parse_time=True). Playwright mock at 375px sepia +
+  dark: no text overflow. Run 39890489784 green.
+- Note: Playwright needs `executablePath: '/opt/pw-browsers/chromium'` (npm's
+  playwright version wants a headless shell that isn't installed).
+
+Designer backlog additions:
+- [ ] Diagram ideas still open: VaultMem Part 2 query normalizer (question
+      scaffolding stripped before embedding), Whisper WebM header fix (only if
+      the post describes the flow step by step)
+- 2026-10-22 19:34 PT — DESIGNER — theme-aware time-query diagram on /post/vaultmem-part-2-multimodal-temporal-backends/ (Actions deploy green).
