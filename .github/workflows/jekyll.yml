@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # full history: _plugins/git_last_modified.rb dates pages from git
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -61,6 +63,10 @@ jobs:
 
       - name: SEO lint — titles, descriptions, canonical, one h1 (warnings only, never blocks deploy)
         run: python3 scripts/check_seo.py _site
+        continue-on-error: true
+
+      - name: Check sitemap has lastmod dates
+        run: python3 -c "import xml.etree.ElementTree as E; n='{http://www.sitemaps.org/schemas/sitemap/0.9}'; u=E.parse('_site/sitemap.xml').getroot().findall(n+'url'); m=[x for x in u if x.find(n+'lastmod') is None]; print(len(u), 'urls,', len(m), 'without lastmod'); [print('  ', x.find(n+'loc').text) for x in m]"
         continue-on-error: true
 
       - name: Upload artifact
