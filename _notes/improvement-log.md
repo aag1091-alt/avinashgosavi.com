@@ -1264,3 +1264,16 @@ Designer backlog additions:
 Designer backlog additions:
 - [ ] Lone "→" link on /now items now gets an underline — consider `text-decoration: none` for arrow-only links if it looks odd
 - 2026-10-23 15:34 PT — DESIGNER — theme-colored soft underline for plain links in page text and footer instead of browser blue (assets/css/style.css; /about/, /uses/, /research/, page ledes) (Actions deploy green).
+
+## Done (Oct 23, 2026, 4:34pm PT)
+
+- Engineer shift (UTC 23): three visible dates were plain text — /changelog
+  day headings, the /now "Updated" line and /series part dates. Now wrapped in
+  `<time datetime>` (YYYY-MM-DD for changelog/now, `date_to_xmlschema` for
+  series), matching posts, /blog, homepage and /paper-tldr. New
+  `time-datetime` rule in `scripts/check_a11y.py` warns on any `<time>` without
+  an ISO datetime (outside SVG); tested on a mock (catches missing, "Oct 2026",
+  space-before-zone). Run 40040649691 green, no time-datetime warnings.
+  Invisible to readers, so no changelog entry.
+- Events: Cal Hacks (Oct 23–25) still upcoming/underway — move to past Oct 26.
+- 2026-10-23 16:34 PT — ENGINEER — machine-readable <time> dates on /changelog/, /now/, /series/ + a11y lint rule (scripts/check_a11y.py) (Actions deploy green).
