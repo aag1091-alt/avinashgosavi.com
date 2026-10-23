@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
+  desk: Writing
+  text: Upcoming events now show their exact dates — Cal Hacks 13.0 (Oct 23–25, starting today), OSA Con (Nov 2) and HackUMass XIV (Nov 15).
+  link: /events/#upcoming
+- date: 2026-10-23
   desk: Engineering
   text: Landing on a missing page now suggests the closest posts or pages based on the words in the broken link, and its links finally use the theme colors instead of browser blue.
   link: /404.html

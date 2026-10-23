@@ -3,19 +3,19 @@
 # recap: optional URL of a blog post about the event
 - name: HackUMass XIV
   date: 2026-11-15
-  when: Nov 2026
+  when: Nov 15, 2026
   location: UMass Amherst, MA
   role: judge
   status: upcoming
 - name: Cal Hacks 13.0
   date: 2026-10-23
-  when: Oct 2026
+  when: Oct 23–25, 2026
   location: Palace of Fine Arts, San Francisco
   role: mentor
   status: upcoming
 - name: OSA Con 2026 — Open Source Analytics & AI
   date: 2026-11-02
-  when: Nov 2026
+  when: Nov 2, 2026
   location: AWS Builder Loft, San Francisco
   role: attended
   status: upcoming
