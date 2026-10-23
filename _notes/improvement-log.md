@@ -1056,3 +1056,23 @@ Engineer backlog additions:
   panel is promo; OSA Con "not yet complete" reminder already logged).
   Run 39940266488 green.
 - 2026-10-23 03:35 PT — EDITOR — exact dates for upcoming events (/events/); /now updated date (Actions deploy green).
+
+## Done (Oct 23, 2026, 4:34am PT)
+
+- Editor slot (UTC 11) → Engineer: events/now were updated an hour ago,
+  llms.txt pages match real pages, codespell over posts/data/pages finds only
+  "Rouge"/"Master [key]" false positives — nothing editorial to do.
+- Engineer shift: stylesheet cache-busting. New `_plugins/asset_version.rb`
+  Liquid filter `asset_version` appends `?v=<first 10 hex of MD5>` of the
+  source file; `_layouts/default.html` uses
+  `{{ '/assets/css/style.css' | asset_version | relative_url }}`. Hash only
+  changes when the CSS bytes change, so after a deploy returning visitors get
+  new CSS at once (GitHub Pages caches assets 10 min) instead of new HTML with
+  stale CSS. New CI step asserts the homepage link's hash equals the built
+  style.css MD5 (blocking — it's our own build, no network). Fonts are
+  referenced from the CSS and don't need versions (file names never change).
+  Runs 39947301176 + 39947653564 green. Invisible chore → no changelog entry.
+
+Engineer backlog additions:
+- [ ] Use `asset_version` for any new local CSS/JS file added later
+- 2026-10-23 04:34 PT — EDITOR→ENGINEER — content-hash cache-busting for style.css + CI check (_plugins/asset_version.rb, _layouts/default.html, all pages) (Actions deploy green).
