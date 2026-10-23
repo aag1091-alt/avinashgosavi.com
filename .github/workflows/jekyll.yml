@@ -52,6 +52,9 @@ jobs:
       - name: Check OpenSearch description is valid XML with a search template
         run: python3 -c "import xml.etree.ElementTree as E; r=E.parse('_site/opensearch.xml').getroot(); u=[x.get('template') for x in r.iter('{http://a9.com/-/spec/opensearch/1.1/}Url')]; print(u); assert any('/search/?q={searchTerms}' in t for t in u)"
 
+      - name: Check stylesheet URL carries a content-hash version
+        run: python3 -c "import re,hashlib; h=open('_site/index.html').read(); m=re.search(r'/assets/css/style\.css\?v=([0-9a-f]{10})\"', h); assert m, 'style.css link has no ?v= hash'; d=hashlib.md5(open('_site/assets/css/style.css','rb').read()).hexdigest()[:10]; assert m.group(1)==d, (m.group(1), d); print('style.css?v='+d)"
+
       - name: Check internal links (warnings only, never blocks deploy)
         run: python3 scripts/check_links.py _site
         continue-on-error: true
