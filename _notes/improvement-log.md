@@ -1096,3 +1096,14 @@ Designer backlog additions:
 - [ ] Posts still without a diagram: Modern Hopfield TL;DR, Memory as Asset,
       daylog security architecture, Rena — only if the post describes a flow
 - 2026-10-23 05:34 PT — DESIGNER — theme-aware plain-BERT vs Sentence-BERT diagram on /post/paper-tldr-sentence-bert/ (Actions deploy green).
+
+## Done (Oct 23, 2026, 6:35am PT)
+
+- Engineer shift: theme stays in step across tabs. `_includes/theme-toggle.html`
+  listens for `storage` events on `blog_color_theme` (another tab toggled) and
+  `pageshow` with `persisted` (back/forward-cache restore after toggling on
+  another page) and re-applies the stored theme (body class, slider, both
+  metas) without re-writing storage. Playwright on a mock page: toggle in tab
+  1 → tab 2 flips to dark and back; toggle on page B then Back → page A dark;
+  no JS errors. Run 39962571648 green.
+- 2026-10-23 06:35 PT — ENGINEER — theme toggle syncs across open tabs and back/forward-cache restores (_includes/theme-toggle.html) (Actions deploy green).
