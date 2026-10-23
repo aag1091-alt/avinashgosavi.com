@@ -1850,3 +1850,21 @@ h1, h2, h3, .post-title, .hero-title, .paper-title, .tldr-title,
     --bg: Canvas;
   }
 }
+
+/* Glossary previews: definition card when hovering/focusing a link to a glossary term */
+.term-preview {
+  position: absolute;
+  z-index: 60;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--text) 18%, transparent);
+  pointer-events: auto;
+}
+.term-preview[hidden] { display: none; }
+@media print { .term-preview { display: none !important; } }

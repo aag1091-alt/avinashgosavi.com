@@ -139,6 +139,74 @@
       if('ResizeObserver' in window){ var ro=new ResizeObserver(fit); imgs.forEach(function(i){ ro.observe(i); }); }
     }
   }
+  // Glossary previews: hovering or focusing a link to a glossary term shows its definition
+  // (fetched once from the glossary page). Touch taps just follow the link as before.
+  (function(){
+    var G='/post/agent-memory-glossary/';
+    if(location.pathname===G||!window.fetch||!window.DOMParser) return;
+    var links=[].filter.call(root.querySelectorAll('a[href*="agent-memory-glossary/#"]'),function(a){
+      return a.pathname===G&&a.hash.length>1&&a.origin===location.origin;
+    });
+    if(!links.length) return;
+    var doc=null, loading=null, tip=null, owner=null, want=null, hideT=0;
+    var load=function(){
+      if(!loading) loading=fetch(G,{credentials:'same-origin'}).then(function(r){ return r.ok?r.text():''; })
+        .then(function(t){ doc=new DOMParser().parseFromString(t,'text/html'); return doc; },function(){ return null; });
+      return loading;
+    };
+    var defOf=function(id){
+      var p=doc&&doc.getElementById(id);
+      if(!p||!p.classList.contains('glossary-term')) return null;
+      var b=p.querySelector('strong'), term=b?b.textContent.trim():'';
+      var text=p.textContent.replace(/\s+/g,' ').trim();
+      if(term&&text.indexOf(term)===0) text=text.slice(term.length).trim();
+      if(text.length>260) text=text.slice(0,260).replace(/\s+\S*$/,'')+'…';
+      return {term:term,text:text};
+    };
+    var place=function(a){
+      var r=a.getBoundingClientRect(), vw=document.documentElement.clientWidth;
+      var w=Math.min(352,vw-32); tip.style.width=w+'px';
+      var left=Math.max(16,Math.min(r.left,vw-w-16));
+      var h=tip.offsetHeight, below=r.bottom+8+h<=window.innerHeight||r.top<h+8;
+      tip.style.left=(left+window.scrollX)+'px';
+      tip.style.top=((below?r.bottom+8:r.top-8-h)+window.scrollY)+'px';
+    };
+    var hide=function(){
+      clearTimeout(hideT); want=null;
+      if(tip){ tip.hidden=true; }
+      if(owner){ owner.removeAttribute('aria-describedby'); owner=null; }
+    };
+    var show=function(a){
+      clearTimeout(hideT); want=a;
+      load().then(function(){
+        if(want!==a) return;
+        var d=defOf(decodeURIComponent(a.hash.slice(1)));
+        if(!d){ hide(); return; }
+        if(owner&&owner!==a) owner.removeAttribute('aria-describedby');
+        if(!tip){
+          tip=document.createElement('div'); tip.id='term-preview'; tip.className='term-preview'; tip.setAttribute('role','tooltip');
+          tip.addEventListener('mouseenter',function(){ clearTimeout(hideT); });
+          tip.addEventListener('mouseleave',function(){ hideT=setTimeout(hide,150); });
+          document.body.appendChild(tip);
+        }
+        tip.textContent='';
+        var t=document.createElement('strong'); t.textContent=d.term;
+        var s=document.createElement('span'); s.textContent=' '+d.text;
+        tip.appendChild(t); tip.appendChild(s); tip.hidden=false;
+        owner=a; a.setAttribute('aria-describedby','term-preview');
+        place(a);
+      });
+    };
+    var hover=window.matchMedia('(hover: hover) and (pointer: fine)');
+    links.forEach(function(a){
+      a.addEventListener('mouseenter',function(){ if(hover.matches){ load(); hideT=setTimeout(function(){ show(a); },250); } });
+      a.addEventListener('mouseleave',function(){ clearTimeout(hideT); hideT=setTimeout(hide,150); });
+      a.addEventListener('focus',function(){ if(a.matches(':focus-visible')) show(a); });
+      a.addEventListener('blur',function(){ hideT=setTimeout(hide,150); });
+    });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&tip&&!tip.hidden) hide(); });
+    window.addEventListener('scroll',function(){ if(tip&&!tip.hidden&&owner&&!owner.matches(':focus')) hide(); },{passive:true});
+  })();
   // Copy buttons on code blocks
   if(!navigator.clipboard) return;
   var said=document.createElement('span');
