@@ -924,3 +924,22 @@ Designer backlog additions:
       scaffolding stripped before embedding), Whisper WebM header fix (only if
       the post describes the flow step by step)
 - 2026-10-22 19:34 PT — DESIGNER — theme-aware time-query diagram on /post/vaultmem-part-2-multimodal-temporal-backends/ (Actions deploy green).
+
+## Done (Oct 22, 2026, 8:35pm PT)
+
+- Engineer shift: `_plugins/git_last_modified.rb` (no new gem) sets
+  `last_modified_at` on posts/pages from their last git commit (front matter
+  wins; posts only when the commit is after the publish date). Feeds
+  jekyll-sitemap `<lastmod>` (pages had none before), jekyll-seo-tag
+  `dateModified` on posts, and jekyll-feed/series-feed `<updated>`.
+  Checkout uses `fetch-depth: 0`. New CI step (continue-on-error) emits a
+  `::notice title=sitemap::` — run 39896367595: 43 urls, 0 without lastmod.
+- Can't build locally (rubygems 403 via proxy) and can't fetch the live site
+  or the Pages artifact from the sandbox — read CI annotations instead.
+- Invisible (SEO metadata), so no changelog entry.
+
+Engineer backlog additions:
+- [ ] Posts could show "Updated <date>" from `last_modified_at` — skipped:
+      metadata-only commits (description trims) would mark every post updated;
+      would need a front-matter `updated:` set by hand for real content edits
+- 2026-10-22 20:35 PT — ENGINEER — sitemap lastmod + post dateModified from git history (_plugins/git_last_modified.rb, sitemap.xml) (Actions deploy green).
