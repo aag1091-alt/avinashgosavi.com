@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
   desk: Engineering
+  text: Landing on a missing page now suggests the closest posts or pages based on the words in the broken link, and its links finally use the theme colors instead of browser blue.
+  link: /404.html
+- date: 2026-10-23
+  desk: Engineering
   text: Clicking a search result now opens the post scrolled to the words you searched for, highlighted, in browsers that support text fragments.
   link: /search/
 - date: 2026-10-23

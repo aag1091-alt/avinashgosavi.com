@@ -1656,6 +1656,13 @@ h2.has-anchor .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
 .notfound-art .nf-trail { fill: none; stroke: var(--text-muted); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 9; }
 .notfound-art .nf-ring { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
 .notfound-art .nf-q { fill: var(--text); font-family: var(--font-sans); font-size: 24px; font-weight: 700; }
+.notfound-page a { color: var(--accent-ink, var(--accent)); text-decoration: none; }
+.notfound-page a:hover { text-decoration: underline; }
+.nf-suggest { margin: 0 0 1.5rem; padding: 0.9rem 1.1rem; border-left: 3px solid var(--accent); }
+.nf-suggest h2 { margin: 0 0 0.4rem; font-size: 1rem; }
+.nf-suggest ul { margin: 0; padding-left: 1.1rem; }
+.nf-suggest li { margin: 0.25rem 0; overflow-wrap: anywhere; }
+.nf-suggest .nf-kind { color: var(--text-muted); font-size: 0.9em; }
 @media (prefers-reduced-motion: no-preference) {
   .notfound-art .nf-trail { animation: nf-walk 2.4s linear infinite; }
   @keyframes nf-walk { to { stroke-dashoffset: -18; } }

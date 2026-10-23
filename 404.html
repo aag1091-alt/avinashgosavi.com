@@ -24,11 +24,75 @@ description: "This page doesn't exist on avinashgosavi.com — try the latest wr
   </svg>
   <h1>That page wandered off</h1>
   <p class="page-lede">The link may be old, or the post may have moved. Try one of these:</p>
+  <section class="nf-suggest" id="nf-suggest" aria-labelledby="nf-suggest-title" hidden>
+    <h2 id="nf-suggest-title">Maybe you were looking for</h2>
+    <ul id="nf-suggest-list"></ul>
+  </section>
   <ul>
-    <li><a href="{{ '/search/' | relative_url }}">Search the site</a></li>
+    <li><a id="nf-search" href="{{ '/search/' | relative_url }}">Search the site</a></li>
     <li><a href="{{ '/blog/' | relative_url }}">All writing</a></li>
     <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
     <li><a href="{{ '/research/' | relative_url }}">Research &amp; papershelf</a></li>
     <li><a href="{{ '/' | relative_url }}">Home</a></li>
   </ul>
 </div>
+
+<script>
+(function () {
+  var base = {{ site.baseurl | jsonify }};
+  var stop = { post: 1, posts: 1, blog: 1, html: 1, htm: 1, md: 1, php: 1, www: 1, index: 1, page: 1,
+    the: 1, and: 1, for: 1, how: 1, with: 1, a: 1, an: 1, of: 1, to: 1, in: 1, on: 1, is: 1, my: 1 };
+  function words(str) {
+    return (str || "").toLowerCase().split(/[^a-z0-9]+/).filter(function (w) {
+      return w.length > 1 && !stop[w] && !/^\d+$/.test(w);
+    });
+  }
+  var path = location.pathname.slice(base.length);
+  var want = words(decodeURIComponent(path));
+  if (!want.length) return;
+  var search = document.getElementById("nf-search");
+  if (search) search.href += "?q=" + encodeURIComponent(want.slice(0, 4).join(" "));
+
+  function hit(w, list) {
+    for (var i = 0; i < list.length; i++) {
+      var t = list[i];
+      if (t === w) return 1;
+      if (w.length >= 4 && t.length >= 4 && (t.indexOf(w) === 0 || w.indexOf(t) === 0)) return 0.6;
+    }
+    return 0;
+  }
+  fetch(base + "/search.json").then(function (r) { return r.json(); }).then(function (items) {
+    var seen = {}, scored = [];
+    items.forEach(function (it) {
+      if (!it.url || seen[it.url] || it.url === location.pathname) return;
+      seen[it.url] = 1;
+      var u = words(it.url.split("#")[0]), t = words(it.title), g = words(it.tags), score = 0, matched = 0;
+      want.forEach(function (w) {
+        var s = 3 * hit(w, u) + 2 * hit(w, t) + hit(w, g);
+        if (s) { score += s; matched++; }
+      });
+      if (matched >= Math.min(2, want.length) || score >= 5) {
+        scored.push({ it: it, score: score + (it.type === "Post" ? 0.5 : 0) });
+      }
+    });
+    scored.sort(function (a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 3);
+    if (!top.length) return;
+    var list = document.getElementById("nf-suggest-list");
+    top.forEach(function (s) {
+      var li = document.createElement("li"), a = document.createElement("a");
+      a.href = s.it.url;
+      a.textContent = s.it.title;
+      li.appendChild(a);
+      if (s.it.type !== "Page") {
+        var k = document.createElement("span");
+        k.className = "nf-kind";
+        k.textContent = " · " + s.it.type + (s.it.date ? ", " + s.it.date : "");
+        li.appendChild(k);
+      }
+      list.appendChild(li);
+    });
+    document.getElementById("nf-suggest").hidden = false;
+  }).catch(function () {});
+})();
+</script>
