@@ -59,6 +59,10 @@ jobs:
         run: python3 scripts/check_jsonld.py _site
         continue-on-error: true
 
+      - name: SEO lint — titles, descriptions, canonical, one h1 (warnings only, never blocks deploy)
+        run: python3 scripts/check_seo.py _site
+        continue-on-error: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
