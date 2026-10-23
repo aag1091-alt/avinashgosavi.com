@@ -1125,6 +1125,24 @@ Designer backlog additions:
   ≈11:1 sepia, ≈14:1 dark. Run 39971371306 green.
 
 Engineer backlog additions:
-- [ ] Term previews only cover glossary links — could extend to other in-site
-      post links (title + description from search.json) if it feels useful
+- [x] Term previews extended to post-to-post links (done Oct 23, 8:35am PT)
 - 2026-10-23 07:35 PT — ENGINEER — glossary term definitions on hover/focus in posts (_includes/post-tools.html, assets/css/style.css) (Actions deploy green).
+
+## Done (Oct 23, 2026, 8:35am PT)
+
+- Editor slot (UTC 15) → Engineer: events/now current (Cal Hacks underway
+  Oct 23–25 — move to past Oct 26 and drop the Mentoring Now item); Gmail last
+  day has no new registrations (OSA Con "not yet complete" + IEEE Oct 27 promo
+  already logged); llms.txt pages match; no unlinked mentions of posts in other
+  posts. External link check isn't possible from the sandbox (proxy returns
+  000/403 for every external host) — rely on CI.
+- Engineer shift: link previews for post-to-post links. `_includes/post-tools.html`
+  preview block now also covers `.post-content` links to any other `/post/...`
+  page (not the current one): on hover (250ms, fine pointer only) or
+  :focus-visible it fetches /search.json once, maps type=Post by url (also tries
+  a trailing slash), and shows title + desc (≤200 chars) + date line
+  (`.term-preview-meta`, --text-muted: 5.5:1 sepia, 6.6:1 dark on --surface).
+  Glossary term links unchanged; unknown posts and self-links show nothing.
+  Playwright mock sepia 1200 / dark 375+1200: previews correct, keyboard
+  aria-describedby set, no horizontal scroll, no JS errors. Run 39980018894 green.
+- 2026-10-23 08:35 PT — EDITOR→ENGINEER — post-to-post link previews (title, summary, date) on hover/focus (_includes/post-tools.html, assets/css/style.css) (Actions deploy green).
