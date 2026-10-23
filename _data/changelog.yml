@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
   desk: Engineering
+  text: Long posts now remember the last section you reached in this browser and offer a "pick up where you left off" link the next time you open them; finishing the post clears it.
+  link: /post/vaultmem-part-2-multimodal-temporal-backends/
+- date: 2026-10-23
+  desk: Engineering
   text: Links from one post to another now preview the linked post's title, summary and date when you hover over or tab to them, alongside the existing glossary definitions.
   link: /post/paper-tldr-six-papers-on-memory/
 - date: 2026-10-23

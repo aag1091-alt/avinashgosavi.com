@@ -50,6 +50,50 @@
       requestAnimationFrame(function(){ top.hidden=window.scrollY<window.innerHeight*1.5; ticking=false; });
     },{passive:true});
   }
+  // Long posts remember the last section you reached (this browser only) and offer to jump
+  // back to it on your next visit. Finishing the post or going back above the first heading clears it.
+  if(toc){
+    var RK='post_resume', path=location.pathname, secs=root.querySelectorAll('h2[id], h3[id]');
+    var load=function(){ try{ return JSON.parse(localStorage.getItem(RK))||{}; }catch(e){ return {}; } };
+    var save=function(m){ try{ localStorage.setItem(RK,JSON.stringify(m)); }catch(e){} };
+    var saved=load()[path];
+    if(saved&&!location.hash&&secs.length&&saved.id!==secs[0].id){
+      var target=document.getElementById(saved.id);
+      if(target&&root.contains(target)){
+        var note=document.createElement('p'); note.className='resume-reading';
+        var go=document.createElement('a'); go.href='#'+saved.id;
+        go.textContent='Pick up where you left off: “'+target.textContent.replace(/#$/,'').trim()+'” →';
+        var x=document.createElement('button'); x.type='button'; x.className='resume-dismiss';
+        x.setAttribute('aria-label','Dismiss'); x.textContent='×';
+        var drop=function(){ var m=load(); delete m[path]; save(m); note.remove(); };
+        go.addEventListener('click',function(){ note.remove(); });
+        x.addEventListener('click',drop);
+        note.appendChild(go); note.appendChild(x);
+        toc.parentNode.insertBefore(note,toc);
+      }
+    }
+    if(secs.length){
+      var rt=null;
+      window.addEventListener('scroll',function(){
+        clearTimeout(rt);
+        rt=setTimeout(function(){
+          var line=window.innerHeight*0.3, id=null;
+          secs.forEach(function(h){ if(h.getBoundingClientRect().top<=line) id=h.id; });
+          var m=load(), end=root.getBoundingClientRect().bottom<=window.innerHeight;
+          if(!id||end){ if(!m[path]) return; delete m[path]; }
+          else {
+            if(m[path]&&m[path].id===id) return;
+            m[path]={id:id,t:Date.now()};
+            // keep the 30 most recent posts, nothing older than 60 days
+            var keys=Object.keys(m).filter(function(k){ return m[k]&&Date.now()-m[k].t<5184e6; })
+              .sort(function(a,b){ return m[b].t-m[a].t; }).slice(0,30), k2={};
+            keys.forEach(function(k){ k2[k]=m[k]; }); m=k2;
+          }
+          save(m);
+        },400);
+      },{passive:true});
+    }
+  }
   // Heading anchor links (kramdown gives h2/h3 ids)
   root.querySelectorAll('h2[id], h3[id]').forEach(function(h){
     var a=document.createElement('a');
