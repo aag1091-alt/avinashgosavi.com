@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-18 14:00:00 -0700
 title: "Paper TL;DR: Sentence-BERT — The Quiet Workhorse Behind Semantic Search"
 permalink: /post/paper-tldr-sentence-bert/
-description: "A plain-language TL;DR of Sentence-BERT (Reimers & Gurevych, 2019): why plain BERT is too slow for search, how siamese training fixes it, and why it still powers most semantic search."
+description: "A TL;DR of Sentence-BERT (Reimers & Gurevych, 2019): why BERT is too slow for search, how siamese training fixes it, and why it still powers semantic search."
 series: paper-tldr
 series_order: 6
 tags: ["Research", "Agent memory"]

@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-19 14:40:00 -0700
 title: "Paper TL;DR: Generative Agents — Memory Streams, Reflection and Plans"
 permalink: /post/paper-tldr-generative-agents/
-description: "A plain-language TL;DR of Generative Agents (Park et al., 2023): how 25 LLM characters in a sandbox town remember, reflect and plan, and which parts of that memory design builders still copy."
+description: "A TL;DR of Generative Agents (Park et al., 2023): how 25 LLM characters in a sandbox town remember, reflect and plan, and which parts builders still copy."
 series: paper-tldr
 series_order: 9
 tags: ["Research", "Agent memory"]

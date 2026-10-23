@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-19 03:40:00 -0700
 title: "Paper TL;DR: MemGPT — Treating the Context Window Like RAM"
 permalink: /post/paper-tldr-memgpt/
-description: "A plain-language TL;DR of MemGPT (Packer et al., 2023): how an LLM can page information in and out of a small context window with function calls, the way an operating system manages memory."
+description: "A TL;DR of MemGPT (Packer et al., 2023): how an LLM can page information in and out of a small context window with function calls, like an operating system."
 series: paper-tldr
 series_order: 8
 tags: ["Research", "Agent memory"]

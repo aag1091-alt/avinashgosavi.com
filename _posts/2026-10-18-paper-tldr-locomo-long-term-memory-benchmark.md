@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-18 12:00:00 -0700
 title: "Paper TL;DR: LoCoMo — How Good Is Your Agent's Memory, Really?"
 permalink: /post/paper-tldr-locomo-long-term-memory-benchmark/
-description: "A plain-language TL;DR of the LoCoMo benchmark (Maharana et al., 2024) for very long-term conversational memory — what it tests, what it found, and how I used it to evaluate VaultMem."
+description: "A TL;DR of the LoCoMo benchmark (Maharana et al., 2024) for very long-term conversational memory — what it tests, what it found, and how I used it on VaultMem."
 series: paper-tldr
 series_order: 4
 tags: ["Research", "Agent memory"]

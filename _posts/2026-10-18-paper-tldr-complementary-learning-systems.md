@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-18 11:00:00 -0700
 title: "Paper TL;DR: Complementary Learning Systems — Why Agents Need Two Kinds of Memory"
 permalink: /post/paper-tldr-complementary-learning-systems/
-description: "A plain-language TL;DR of McClelland, McNaughton & O'Reilly (1995): the brain's fast and slow learners, catastrophic interference, and what it suggests for designing memory in AI agents."
+description: "A TL;DR of McClelland, McNaughton & O'Reilly (1995): the brain's fast and slow learners, catastrophic interference, and what it suggests for AI agent memory."
 series: paper-tldr
 series_order: 3
 tags: ["Research", "Agent memory"]

@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-20 08:45:00 -0700
 title: "Paper TL;DR: RAG — The Paper That Named Retrieval-Augmented Generation"
 permalink: /post/paper-tldr-retrieval-augmented-generation/
-description: "A plain-language TL;DR of Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al., 2020): a language model paired with a searchable Wikipedia index, trained together, and why you can update what it knows by swapping the index."
+description: "A TL;DR of the RAG paper (Lewis et al., 2020): a language model paired with a searchable Wikipedia index, so swapping the index updates what it knows."
 series: paper-tldr
 series_order: 11
 tags: ["Research", "Agent memory"]

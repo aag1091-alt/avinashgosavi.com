@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-20 13:45:00 -0700
 title: "Paper TL;DR: HNSW — How Vector Search Skips Most of the Haystack"
 permalink: /post/paper-tldr-hnsw/
-description: "A plain-language TL;DR of Hierarchical Navigable Small World graphs (Malkov & Yashunin): a layered neighbor graph that finds approximate nearest vectors in roughly logarithmic time, and the index behind a lot of today's vector search."
+description: "A TL;DR of HNSW (Malkov & Yashunin): a layered graph that finds approximate nearest vectors in roughly logarithmic time, behind much of today's vector search."
 series: paper-tldr
 series_order: 12
 tags: ["Research", "Agent memory"]

@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-20 03:45:00 -0700
 title: "Paper TL;DR: Lost in the Middle — Where You Put Context Matters"
 permalink: /post/paper-tldr-lost-in-the-middle/
-description: "A plain-language TL;DR of Lost in the Middle (Liu et al., 2023): language models use information at the start and end of a long prompt far better than information buried in the middle, and what that means for RAG and agent memory."
+description: "A TL;DR of Lost in the Middle (Liu et al., 2023): models use facts at the start and end of a long prompt far better than the middle, and what it means for RAG."
 series: paper-tldr
 series_order: 10
 tags: ["Research", "Agent memory"]

@@ -2,7 +2,7 @@
 layout: default
 title: Talks Worth Watching
 permalink: /talks/
-description: Conference talks Avinash Gosavi recommends — on engineering in the AI era, Rails architecture, performance at scale and open source — each with a one-line reason to watch.
+description: "Conference talks Avinash Gosavi recommends — engineering in the AI era, Rails architecture, performance at scale and open source — each with a reason to watch."
 ---
 
 <div class="talks-page">

@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Writing
+  text: Search-result summaries for the homepage, three pages and twelve posts were trimmed to fit in a results snippet without being cut off.
+  link: /paper-tldr/
+- date: 2026-10-22
   desk: Engineering
   text: Every deploy now runs an SEO check for missing or duplicate titles and descriptions; the "page not found" page got its own description and is kept out of search results.
   link: /changelog/

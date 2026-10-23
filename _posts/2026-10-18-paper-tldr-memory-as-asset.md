@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-18 13:00:00 -0700
 title: "Paper TL;DR: Memory as Asset — Whose Memory Is It Anyway?"
 permalink: /post/paper-tldr-memory-as-asset/
-description: "A plain-language TL;DR of Memory as Asset (Pan, Huang & Yang, 2026): moving AI memory from agent-centric to human-centric, its three principles and three layers, and how it shaped VaultMem."
+description: "A TL;DR of Memory as Asset (Pan, Huang & Yang, 2026): moving AI memory from agent-centric to human-centric, its three principles, and how it shaped VaultMem."
 series: paper-tldr
 series_order: 5
 tags: ["Research", "Agent memory", "Privacy"]

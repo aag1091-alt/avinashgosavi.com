@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-18 10:00:00 -0700
 title: "Paper TL;DR: Hopfield Networks Is All You Need — Attention Is a Memory Lookup"
 permalink: /post/paper-tldr-hopfield-networks-is-all-you-need/
-description: "A plain-language walkthrough of Ramsauer et al. (2020): how modern Hopfield networks store exponentially many memories and why their update rule is transformer attention — with 20 lines of NumPy."
+description: "A walkthrough of Ramsauer et al. (2020): how modern Hopfield networks store exponentially many memories and why their update rule is transformer attention."
 series: paper-tldr
 series_order: 2
 tags: ["Research", "Agent memory"]

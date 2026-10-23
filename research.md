@@ -2,7 +2,7 @@
 layout: default
 title: Research & Interests
 permalink: /research/
-description: Topics Avinash Gosavi researches and builds around — private memory for AI agents, brain-inspired retrieval, local-first AI and API design at scale — plus a papershelf with TL;DRs.
+description: "Topics Avinash Gosavi researches and builds around — private memory for AI agents, brain-inspired retrieval, local-first AI and API design — plus a papershelf."
 ---
 
 <div class="research-page">

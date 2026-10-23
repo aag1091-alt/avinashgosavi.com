@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-18 19:45:00 -0700
 title: "An Agent Memory Glossary: Terms in Plain Language"
 permalink: /post/agent-memory-glossary/
-description: "Plain-language definitions of the terms that come up when building memory for AI agents — episodic vs. semantic memory, embeddings, HNSW, re-ranking, consolidation, Recall@k, zero-knowledge storage and more."
+description: "Plain-language definitions of the terms that come up when building memory for AI agents — episodic vs. semantic memory, embeddings, HNSW, re-ranking and more."
 tags: ["Agent memory", "Explainers"]
 image: /assets/og/agent-memory-glossary.png
 ---

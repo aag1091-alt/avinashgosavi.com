@@ -3,7 +3,7 @@ layout: post
 date: 2026-10-18 15:00:00 -0700
 title: "Paper TL;DR: Hopfield (1982) — Memory as a Valley You Roll Into"
 permalink: /post/paper-tldr-hopfield-1982/
-description: "A plain-language TL;DR of John Hopfield's 1982 paper on associative memory: energy landscapes, Hebbian storage, recall from partial cues and its limits — with a 25-line NumPy demo."
+description: "A TL;DR of John Hopfield's 1982 paper on associative memory: energy landscapes, Hebbian storage, recall from partial cues and its limits — with a NumPy demo."
 series: paper-tldr
 series_order: 7
 tags: ["Research", "Agent memory"]
