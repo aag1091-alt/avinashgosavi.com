@@ -1230,3 +1230,19 @@ Backlog notes:
 - [x] Events rows have ids + search Event entries point at /events/#slug (already done; line ~253 stale)
 - [x] Search indexes /projects/#slug anchors (already done; line ~176 stale)
 - 2026-10-23 13:35 PT — EDITOR→ENGINEER — Paper TL;DR list shows each paper's authors, year and a link to the original (/paper-tldr/) (Actions deploy green).
+
+## Done (Oct 23, 2026, 2:34pm PT)
+
+- Editor slot (UTC 21) → Designer: events/now checked an hour ago and still
+  current (Cal Hacks Oct 23–25 underway); nothing for the editor desk. Post
+  prose links (`.post-content a`) were marked by color only — link vs body
+  text is 1.75:1 sepia / 1.69:1 dark (WCAG 1.4.1 wants a non-color cue). Now a
+  1px underline at 55% of the link color (`color-mix`, full-color fallback),
+  offset 0.2em, full color on hover/focus-visible. Heading `#` anchors stay
+  undecorated (higher specificity); resume/back-to-top links live outside
+  `.post-content`. Playwright mock at 375px sepia + dark: computed styles as
+  expected. Run 40028011958 green.
+
+Designer backlog additions:
+- [ ] Same color-only link cue may exist on /about prose and footer inline links (`.site-footer a` has no underline) — check contrast vs surrounding text
+- 2026-10-23 14:34 PT — EDITOR→DESIGNER — soft underline on links in post prose so they're not marked by color alone (assets/css/style.css, all /post/*) (Actions deploy green).
