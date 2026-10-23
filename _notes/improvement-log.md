@@ -1183,5 +1183,5 @@ Engineer backlog additions:
   39996600368 green.
 
 Designer backlog additions:
-- [ ] Other posts with old hard-coded inline SVGs? (grep `<svg viewBox` in _posts) — convert the same way
+- [x] Other posts with old hard-coded inline SVGs: none left (checked Oct 23, 10:35am PT)
 - 2026-10-23 10:35 PT — DESIGNER — phone-friendly, theme-aware entry-path diagram replaces the tiny hard-coded one on /post/daylog-security-architecture/ (Actions deploy green).
