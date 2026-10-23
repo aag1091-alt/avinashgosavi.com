@@ -1009,3 +1009,21 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] Diagram ideas still open: VaultMem Part 2 query normalizer
 - 2026-10-23 00:34 PT — DESIGNER — theme-aware WebM chunk diagram on /post/live-audio-transcription-whisper/ (Actions deploy green).
+
+## Done (Oct 23, 2026, 1:34am PT)
+
+- Engineer shift: /search/ result links for items with body text (posts,
+  pages) now end in a text fragment `#:~:text=<matched word + up to 2 words>`
+  (`fragment()` in search.md), so the target opens scrolled to the match with
+  the browser's native highlight. Expands partial terms to the full word (text
+  fragments need word boundaries), stops at punctuation, encodes `-`. Skipped
+  for URLs that already carry `#id` (projects/papers/events). Unsupported
+  browsers/failed matches just open at the top; Chromium strips the directive
+  from location.hash (page-anchors.html uses getElementById, safe anyway).
+  Tested in Playwright Chromium: click scrolls to the phrase. Run 39925819109
+  green.
+
+Engineer backlog additions:
+- [ ] Search: if text-fragment misses turn up (phrase spans a block boundary
+      in the rendered post), fall back to the single matched word
+- 2026-10-23 01:34 PT — ENGINEER — search results open posts scrolled to the matched words via text fragments (search.md) (Actions deploy green).
