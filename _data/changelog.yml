@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
+  desk: Engineering
+  text: Clicking a search result now opens the post scrolled to the words you searched for, highlighted, in browsers that support text fragments.
+  link: /search/
+- date: 2026-10-23
   desk: Design
   text: The live Whisper transcription post now has a diagram showing why a lone WebM chunk can't be decoded and why sending all the audio so far always works.
   link: /post/live-audio-transcription-whisper/

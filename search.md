@@ -68,6 +68,25 @@ sitemap: false
     return (start > 0 ? '…' : '') + out + (start + 200 < src.length ? '…' : '');
   }
 
+  // Text fragment (#:~:text=) so the post opens scrolled to the matched words, highlighted.
+  // Browsers without support just open the page at the top; anchored URLs keep their own #id.
+  var WORD = /[0-9A-Za-z_\u00C0-\u024F]/;
+  function fragment(item, ts) {
+    if (!item.text || item.url.indexOf('#') !== -1) return '';
+    var src = item.text, low = src.toLowerCase();
+    for (var i = 0; i < ts.length; i++) {
+      var at = low.indexOf(ts[i]);
+      if (at === -1) continue;
+      var s = at, e = at + ts[i].length;
+      while (s > 0 && WORD.test(src.charAt(s - 1))) s--;
+      while (e < src.length && WORD.test(src.charAt(e))) e++;
+      var more = src.slice(e, e + 50).match(/^(?: [0-9A-Za-z_\u00C0-\u024F]+){0,2}/);
+      var phrase = src.slice(s, e) + (more ? more[0] : '');
+      return '#:~:text=' + encodeURIComponent(phrase).replace(/-/g, '%2D');
+    }
+    return '';
+  }
+
   function highlight(el, str, ts) {
     var re = new RegExp('(' + ts.map(function(t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|') + ')', 'gi');
     var last = 0, m;
@@ -139,7 +158,7 @@ sitemap: false
       meta.className = 'search-result-meta';
       meta.textContent = it.type + (it.date ? ' · ' + it.date : '');
       var a = document.createElement('a');
-      a.href = it.url;
+      a.href = it.url + fragment(it, ts);
       a.className = 'search-result-title';
       highlight(a, it.title, ts);
       var p = document.createElement('p');
