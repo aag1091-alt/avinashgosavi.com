@@ -464,18 +464,6 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] New post images: keep `width`/`height` attrs = the full file size — the viewer uses them to decide zoomability
 
-## Done (Oct 23, 2026, 12:35pm PT)
-
-- Engineer shift: /blog search lives in the URL. Typing updates `?q=` via
-  `history.replaceState` (400ms debounce; keeps the `#tag` hash; empty box
-  drops `q`); chip clicks rebuild the URL the same way (`syncUrl()`); on load
-  `?q=` fills the box and filters (then `#tag` applies). The no-results
-  "Search projects, papers and pages too →" link now carries `?q=<words>` to
-  /search/. Playwright mock: `/blog/?q=hopfield#ruby` filters both, typing
-  updates URL, All keeps q, clearing restores `/blog/`, no JS errors.
-  Run 40012728937 green.
-- 2026-10-23 12:35 PT — ENGINEER — /blog search kept in the URL (?q=) and handed to /search/ on no results (blog.md) (Actions deploy green).
-
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -1212,3 +1200,15 @@ Designer backlog additions:
 Engineer backlog additions:
 - [x] /blog search text in the URL (`?q=`) (done Oct 23, 12:35pm PT)
 - 2026-10-23 11:35 PT — ENGINEER — /blog shows a live "Showing N of M posts" count for filters/search and topic chips update the #tag URL (blog.md, assets/css/style.css) (Actions deploy green).
+
+## Done (Oct 23, 2026, 12:35pm PT)
+
+- Engineer shift: /blog search lives in the URL. Typing updates `?q=` via
+  `history.replaceState` (400ms debounce; keeps the `#tag` hash; empty box
+  drops `q`); chip clicks rebuild the URL the same way (`syncUrl()`); on load
+  `?q=` fills the box and filters (then `#tag` applies). The no-results
+  "Search projects, papers and pages too →" link now carries `?q=<words>` to
+  /search/. Playwright mock: `/blog/?q=hopfield#ruby` filters both, typing
+  updates URL, All keeps q, clearing restores `/blog/`, no JS errors.
+  Run 40012728937 green.
+- 2026-10-23 12:35 PT — ENGINEER — /blog search kept in the URL (?q=) and handed to /search/ on no results (blog.md) (Actions deploy green).
