@@ -52,6 +52,8 @@ recorder.ondataavailable = async (e) => {
 };
 ```
 
+{% include diagrams/whisper-webm-chunks.html %}
+
 The trade-off: each request sends more data than the last. For a 60-second recording with 5-second chunks, the last request sends all 60 seconds. Acceptable for a personal tool, worth optimising for production.
 
 ### Whisper performance
