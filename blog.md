@@ -64,7 +64,12 @@ title: All Posts
       item.style.display = show ? '' : 'none';
       if (show) visible++;
     });
-    if (noResults) noResults.hidden = visible > 0;
+    if (noResults) {
+      noResults.hidden = visible > 0;
+      /* Carry the words over to the site-wide search. */
+      var more = noResults.querySelector('a');
+      if (more) more.href = more.href.split('?')[0] + (q ? '?q=' + encodeURIComponent(input.value.trim()) : '');
+    }
     /* Say how many posts are showing (screen readers hear it via role=status);
        debounced so typing doesn't announce every keystroke. */
     clearTimeout(countTimer);
@@ -78,7 +83,22 @@ title: All Posts
         'Showing ' + visible + ' of ' + items.length + ' posts' + (label ? ' tagged \u201c' + label + '\u201d' : '') + (q ? ' matching \u201c' + input.value.trim() + '\u201d' : '') + '.';
     }, q ? 400 : 0);
   }
-  input.addEventListener('input', apply);
+  /* Keep the search in the address too (/blog/?q=hopfield#paper-tldr) so a
+     filtered list can be shared or bookmarked. */
+  var urlTimer;
+  function syncUrl() {
+    if (!history.replaceState) return;
+    var params = new URLSearchParams(location.search);
+    var q = input.value.trim();
+    if (q) params.set('q', q); else params.delete('q');
+    var qs = params.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + (activeTag ? '#' + activeTag : ''));
+  }
+  input.addEventListener('input', function() {
+    apply();
+    clearTimeout(urlTimer);
+    urlTimer = setTimeout(syncUrl, 400);
+  });
   chips.forEach(function(chip) {
     chip.addEventListener('click', function() {
       activeTag = chip.getAttribute('data-tag') || '';
@@ -86,7 +106,7 @@ title: All Posts
       apply();
       /* Keep the address shareable: /blog/#agent-memory reopens this filter. */
       if (!fromHash && history.replaceState) {
-        history.replaceState(null, '', activeTag ? '#' + activeTag : location.pathname + location.search);
+        syncUrl();
       }
     });
   });
@@ -97,6 +117,8 @@ title: All Posts
     chips.forEach(function(c) { if (c.getAttribute('data-tag') === hash) c.click(); });
     fromHash = false;
   }
+  var startQ = new URLSearchParams(location.search).get('q');
+  if (startQ) { input.value = startQ; apply(); }
   if (location.hash) applyHash();
   window.addEventListener('hashchange', applyHash);
 })();
