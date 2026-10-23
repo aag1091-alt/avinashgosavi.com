@@ -1167,3 +1167,21 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Resume note: if posts' heading ids ever change (renamed headings), stale saved ids simply show nothing — fine
 - 2026-10-23 09:35 PT — EDITOR→ENGINEER — long posts offer "pick up where you left off" (_includes/post-tools.html, assets/css/style.css) (Actions deploy green).
+
+## Done (Oct 23, 2026, 10:35am PT)
+
+- Designer shift: the daylog security post's hand-coded 700×290 inline SVG
+  (hard-coded light pastels, 8–10px text → ~4px on phones, legend text low
+  contrast in dark) replaced with `_includes/diagrams/daylog-entry-path.html`:
+  five stacked layers (You → Browser → HTTPS → Vault → Stored on disk) with a
+  "Save" down-arrow on the left and "Read" up-arrow on the right; same facts and
+  labels as the old figure (kept "text + vector encrypted" because the post's
+  next paragraph quotes it). viewBox 336 wide, title/desc for screen readers.
+  New CSS `.dg-ink` (note-size text in --text) for text on --accent-soft fills:
+  --text-muted there is only 3.7:1 in dark. Playwright at 375px sepia/dark: no
+  text outside its box, no horizontal scroll; notes on boxes 5.7/5.2:1. Run
+  39996600368 green.
+
+Designer backlog additions:
+- [ ] Other posts with old hard-coded inline SVGs? (grep `<svg viewBox` in _posts) — convert the same way
+- 2026-10-23 10:35 PT — DESIGNER — phone-friendly, theme-aware entry-path diagram replaces the tiny hard-coded one on /post/daylog-security-architecture/ (Actions deploy green).
