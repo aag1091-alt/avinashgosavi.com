@@ -119,6 +119,8 @@ Pass `parse_time=True` to `search()` and it handles everything automatically:
 results = s.search("what did I do in 2019", top_k=10, parse_time=True)
 ```
 
+{% include diagrams/vaultmem-time-query.html %}
+
 ---
 
 ## Pluggable storage backends

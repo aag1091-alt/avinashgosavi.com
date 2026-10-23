@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Design
+  text: VaultMem Part 2 now has a diagram showing how a question like "what happened summer 2019" splits into a time range and the words that get searched.
+  link: /post/vaultmem-part-2-multimodal-temporal-backends/
+- date: 2026-10-22
   desk: Writing
   text: Search-result summaries for the homepage, three pages and twelve posts were trimmed to fit in a results snippet without being cut off.
   link: /paper-tldr/
