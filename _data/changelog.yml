@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-22
+  desk: Engineering
+  text: Every deploy now runs an SEO check for missing or duplicate titles and descriptions; the "page not found" page got its own description and is kept out of search results.
+  link: /changelog/
+- date: 2026-10-22
   desk: Design
   text: VaultMem Part 1 now has a diagram of its two-layer key setup, showing which keys live only in RAM and what actually reaches disk.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/

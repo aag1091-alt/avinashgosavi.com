@@ -6,7 +6,7 @@ For every HTML page that search engines may index, check:
   - a meta description, not shared with another page
   - a <link rel="canonical">
   - exactly one <h1>
-Long titles (> 70 chars) and descriptions (> 160 chars, where search results
+Long titles (> 70 chars, not counting the " | site" suffix) and descriptions (> 160 chars, where search results
 usually cut off) are reported as ::notice lines, not warnings.
 
 Pages with <meta name="robots" content="noindex..."> or a meta refresh
@@ -42,8 +42,9 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
         warn(rel, f"expected one non-empty <title>, found {t!r}")
     else:
         titles[t[0]].append(rel)
-        if len(t[0]) > 70:
-            note(rel, f"title is {len(t[0])} chars (> 70): {t[0]}")
+        bare = t[0].rsplit(" | ", 1)[0]  # ignore the " | Site name" suffix
+        if len(bare) > 70:
+            note(rel, f"title is {len(bare)} chars before the site name (> 70): {bare}")
     d = DESC.search(head)
     if not d or not d.group(1).strip():
         problems += 1

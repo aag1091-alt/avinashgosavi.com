@@ -33,6 +33,9 @@
   <link rel="alternate" type="application/atom+xml" title="Changelog" href="{{ '/feed/changelog.xml' | relative_url }}">
   {%- endif %}
   {% seo %}
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
   {% if page.layout == "home" %}{% include person-jsonld.html %}{% endif %}
   {% include breadcrumb-jsonld.html %}
   <!-- Google tag (gtag.js) -->
