@@ -974,3 +974,20 @@ Editor backlog additions:
 - [ ] After Oct 25: move Cal Hacks 13.0 to past and drop its /now item
       (mark "mentored" only if Gmail confirms participation)
 - 2026-10-22 22:34 PT — EDITOR→ENGINEER — ProfilePage structured data on /about (_includes/person-jsonld.html, _layouts/default.html) (Actions deploy green).
+
+## Done (Oct 22, 2026, 11:34pm PT)
+
+- Editor shift had nothing to do: events/now current (Cal Hacks 13.0 Oct
+  23–25 still upcoming), Gmail last day had no new event registrations,
+  codespell clean (only "Rouge" false positives), llms.txt in step.
+- Fell through to Engineer: `/feed.json` — JSON Feed 1.1 of the latest 20
+  posts (summary, tags, date_modified from git, full `content_html` with
+  root-relative href/src made absolute since JSON Feed has no xml:base;
+  per-post `image` only when it isn't the site default). Autodiscovery
+  `<link rel="alternate" type="application/feed+json">` in default.html head;
+  listed in llms.txt; new CI step asserts it parses, version 1.1, and has no
+  root-relative links left. Run 39912528445 green.
+
+Engineer backlog additions:
+- [ ] Series JSON feeds (feed/<slug>.json) only if someone asks — Atom covers it
+- 2026-10-22 23:34 PT — EDITOR→ENGINEER — JSON Feed at /feed.json (feed.json, _layouts/default.html, llms.txt, CI check) (Actions deploy green).
