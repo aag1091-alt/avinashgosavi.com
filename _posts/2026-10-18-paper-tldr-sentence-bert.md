@@ -36,6 +36,8 @@ They trained on natural-language-inference data (pairs labeled entailment / cont
 
 That same 10,000-sentence search drops to about **5 seconds**.
 
+{% include diagrams/sbert-cross-vs-siamese.html %}
+
 ## Why it still matters
 
 - **It made vector search practical.** Embed once, store in an index (pgvector, Qdrant, [HNSW](/post/paper-tldr-hnsw/)), and query in milliseconds. That's the foundation of nearly every [RAG](/post/paper-tldr-retrieval-augmented-generation/) system and agent memory store.

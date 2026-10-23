@@ -1,0 +1,54 @@
+<figure class="diagram">
+<svg viewBox="0 0 312 568" role="img" aria-labelledby="sbert-dg-title sbert-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="sbert-dg-title">Plain BERT versus Sentence-BERT for comparing sentences</title>
+  <desc id="sbert-dg-desc">Top: plain BERT reads both sentences together and outputs one similarity score for that pair, so nothing can be precomputed; finding the most similar pair among 10,000 sentences takes about 50 million passes, roughly 65 hours on a GPU. Bottom: Sentence-BERT runs each sentence through BERT on its own, with two copies sharing the same weights, pools the output into one vector per sentence, and compares the two vectors with cosine similarity. Each vector is computed once and stored, so the same search takes about 5 seconds.</desc>
+  <defs>
+    <marker id="sbert-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-group" x="10" y="8" width="292" height="238" rx="12"/>
+  <text class="dg-label" x="22" y="30">Plain BERT: reads both at once</text>
+  <rect class="dg-pill" x="22" y="42" width="268" height="36" rx="18"/>
+  <text class="dg-body" x="156" y="65" text-anchor="middle">Sentence A + Sentence B</text>
+  <line class="dg-line" x1="156" y1="78" x2="156" y2="96" marker-end="url(#sbert-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="98" width="268" height="40" rx="8"/>
+  <text class="dg-strong" x="156" y="123" text-anchor="middle">BERT</text>
+  <line class="dg-line" x1="156" y1="138" x2="156" y2="156" marker-end="url(#sbert-dg-arrow)"/>
+  <rect class="dg-pill" x="22" y="158" width="268" height="36" rx="18"/>
+  <text class="dg-body" x="156" y="181" text-anchor="middle">one score, for this pair only</text>
+  <text class="dg-note" x="156" y="215" text-anchor="middle">10,000 sentences ≈ 50M passes ≈ 65 hours</text>
+  <text class="dg-note" x="156" y="233" text-anchor="middle">nothing can be precomputed</text>
+
+  <rect class="dg-group" x="10" y="262" width="292" height="296" rx="12"/>
+  <text class="dg-label" x="22" y="284">Sentence-BERT: embeds each once</text>
+  <rect class="dg-pill" x="22" y="294" width="120" height="36" rx="18"/>
+  <text class="dg-body" x="82" y="317" text-anchor="middle">Sentence A</text>
+  <rect class="dg-pill" x="170" y="294" width="120" height="36" rx="18"/>
+  <text class="dg-body" x="230" y="317" text-anchor="middle">Sentence B</text>
+  <line class="dg-line" x1="82" y1="330" x2="82" y2="352" marker-end="url(#sbert-dg-arrow)"/>
+  <line class="dg-line" x1="230" y1="330" x2="230" y2="352" marker-end="url(#sbert-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="354" width="120" height="46" rx="8"/>
+  <text class="dg-strong" x="82" y="375" text-anchor="middle">BERT</text>
+  <text class="dg-note" x="82" y="392" text-anchor="middle">+ pooling</text>
+  <rect class="dg-box" x="170" y="354" width="120" height="46" rx="8"/>
+  <text class="dg-strong" x="230" y="375" text-anchor="middle">BERT</text>
+  <text class="dg-note" x="230" y="392" text-anchor="middle">+ pooling</text>
+  <line class="dg-line dg-dash" x1="142" y1="377" x2="170" y2="377"/>
+  <line class="dg-line dg-dash" x1="156" y1="352" x2="156" y2="377"/>
+  <text class="dg-note" x="156" y="346" text-anchor="middle">shared weights</text>
+  <line class="dg-line" x1="82" y1="400" x2="82" y2="418" marker-end="url(#sbert-dg-arrow)"/>
+  <line class="dg-line" x1="230" y1="400" x2="230" y2="418" marker-end="url(#sbert-dg-arrow)"/>
+  <rect class="dg-pill" x="22" y="420" width="120" height="34" rx="17"/>
+  <text class="dg-body" x="82" y="442" text-anchor="middle">vector u</text>
+  <rect class="dg-pill" x="170" y="420" width="120" height="34" rx="17"/>
+  <text class="dg-body" x="230" y="442" text-anchor="middle">vector v</text>
+  <path class="dg-line" d="M82 454 V466 H140 V476" marker-end="url(#sbert-dg-arrow)"/>
+  <path class="dg-line" d="M230 454 V466 H172 V476" marker-end="url(#sbert-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="478" width="268" height="40" rx="8"/>
+  <text class="dg-strong" x="156" y="503" text-anchor="middle">cosine similarity</text>
+  <text class="dg-note" x="156" y="542" text-anchor="middle">vectors stored once · same search ≈ 5 seconds</text>
+</svg>
+<figcaption>Plain BERT has to re-read every pair together. Sentence-BERT gives each sentence its own vector once, so comparing two is just a cosine similarity.</figcaption>
+</figure>
