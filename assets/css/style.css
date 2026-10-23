@@ -980,6 +980,7 @@ input:focus-visible {
 .diagram .dg-body { fill: var(--text); font-size: 14px; }
 .diagram .dg-agent { fill: var(--text-muted); font-size: 13px; font-style: italic; }
 .diagram .dg-note { fill: var(--text-muted); font-size: 12.5px; }
+.diagram .dg-ink { fill: var(--text); } /* note-size text on --accent-soft fills (muted is <4.5:1 there in dark) */
 .diagram .dg-mono { font-family: var(--font-mono); font-size: 12.5px; }
 .diagram .dg-group {
   fill: none;

@@ -1,0 +1,38 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 432" role="img" aria-labelledby="dl-path-title dl-path-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="dl-path-title">How a daylog entry travels to disk and back</title>
+  <desc id="dl-path-desc">Saving goes down five layers and reading comes back up the same layers. You speak, for example "went for a run today". The browser transcribes it on-device, so nothing is sent yet. HTTPS carries it encrypted in transit by TLS. The vault embeds the entry and encrypts text and vector together with AES-256-GCM using your key; when reading, it decrypts with your key only, in memory, not logged. On disk the entry is stored as ciphertext such as 7f3a a4c8 e12d, unreadable. Reading reverses the path: the vault decrypts, HTTPS carries it back, the browser shows plain text and you see it.</desc>
+  <defs>
+    <marker id="dl-path-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <text class="dg-label" x="22" y="20" text-anchor="middle">Save</text>
+  <text class="dg-label" x="314" y="20" text-anchor="middle">Read</text>
+  <line class="dg-line" x1="22" y1="30" x2="22" y2="418" marker-end="url(#dl-path-arrow)"/>
+  <line class="dg-line" x1="314" y1="422" x2="314" y2="32" marker-end="url(#dl-path-arrow)"/>
+
+  <rect class="dg-box" x="44" y="32" width="248" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="54" text-anchor="middle">You</text>
+  <text class="dg-note" x="168" y="75" text-anchor="middle">“went for a run today”</text>
+
+  <rect class="dg-box" x="44" y="108" width="248" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="130" text-anchor="middle">Browser</text>
+  <text class="dg-note" x="168" y="151" text-anchor="middle">transcribed on-device · plain text</text>
+
+  <rect class="dg-box dg-muted" x="44" y="184" width="248" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="206" text-anchor="middle">HTTPS</text>
+  <text class="dg-note" x="168" y="227" text-anchor="middle">encrypted in transit by TLS</text>
+
+  <rect class="dg-pill" x="44" y="260" width="248" height="70" rx="8"/>
+  <text class="dg-strong" x="168" y="282" text-anchor="middle">Vault</text>
+  <text class="dg-note dg-ink" x="168" y="302" text-anchor="middle">save: embed → AES-256-GCM</text>
+  <text class="dg-note dg-ink" x="168" y="320" text-anchor="middle">read: decrypt in memory, not logged</text>
+
+  <rect class="dg-box" x="44" y="352" width="248" height="68" rx="8"/>
+  <text class="dg-strong" x="168" y="374" text-anchor="middle">Stored on disk</text>
+  <text class="dg-note dg-mono" x="168" y="393" text-anchor="middle">7f3a·a4c8·e12d·…</text>
+  <text class="dg-note" x="168" y="411" text-anchor="middle">text + vector encrypted</text>
+</svg>
+<figcaption>Readable only at the top two layers. In transit and on disk it's ciphertext, and only the vault, with your key, turns it back into words.</figcaption>
+</figure>
