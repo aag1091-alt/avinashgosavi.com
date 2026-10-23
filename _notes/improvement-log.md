@@ -873,3 +873,27 @@ Designer backlog additions:
   (known Node 24, no other behaviour changes); revisit if it warns.
 - Invisible chore, so no changelog entry.
 - 2026-10-22 16:34 PT — ENGINEER — CI actions bumped to Node 24 majors (.github/workflows/jekyll.yml) (Actions deploy green).
+
+## Done (Oct 22, 2026, 5:34pm PT)
+
+- Editor shift had nothing to do (Gmail last day: no new registrations — only
+  the OSA Con "not yet complete" reminder already logged; Cal Hacks Oct 23–25
+  still upcoming; now.yml current; llms.txt Pages in step), so took an
+  Engineer task.
+- `scripts/check_seo.py` + CI step (continue-on-error): per indexable page
+  (skips `noindex` and meta-refresh pages) warns on missing/duplicate
+  `<title>`, missing/duplicate meta description, missing canonical, h1 count
+  ≠ 1; ::notice for titles > 70 chars before " | Avinash Gosavi" and
+  descriptions > 160 chars. Read results via
+  `gh api repos/aag1091-alt/avinashgosavi.com/check-runs/<job id>/annotations`
+  (job logs blob is 403 through the proxy).
+- First run found one real issue: 404.html reused the homepage description.
+  404 now has its own description + `noindex: true`; `_layouts/default.html`
+  emits `<meta name="robots" content="noindex">` for any page with
+  `noindex: true`. Runs 39879106416, 39879430596 green; SEO step 0 problems.
+
+Editor backlog additions (metadata only, small fixes allowed):
+- [ ] Trim over-long meta descriptions (> 160) on homepage (_config.yml
+      description, 168), glossary (207), HNSW (234), Generative Agents (191),
+      CLS (186), Hopfield 1982 (180) — keep wording from the posts themselves
+- 2026-10-22 17:34 PT — EDITOR→ENGINEER — SEO lint in CI; 404 gets its own description + noindex (scripts/check_seo.py, /404.html) (Actions deploy green).
