@@ -19,9 +19,9 @@
     try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
   }
 
-  function apply(theme) {
+  function apply(theme, fromStorage) {
     document.body.className = 'theme-' + theme;
-    setStored(theme);
+    if (!fromStorage) setStored(theme);
     var isDark = theme === 'dark';
     SLIDER.setAttribute('aria-checked', isDark ? 'true' : 'false');
     SLIDER.classList.toggle('is-dark', isDark);
@@ -41,6 +41,20 @@
 
   SLIDER.addEventListener('click', function() {
     apply(SLIDER.getAttribute('aria-checked') === 'true' ? 'sepia' : 'dark');
+  });
+
+  /* Keep every open tab in step: another tab toggled the theme (storage event),
+     or this page came back from the back/forward cache after a toggle elsewhere. */
+  function syncFromStore() {
+    var t = getStored();
+    var now = SLIDER.getAttribute('aria-checked') === 'true' ? 'dark' : 'sepia';
+    if ((t === 'dark' || t === 'sepia') && t !== now) apply(t, true);
+  }
+  window.addEventListener('storage', function(e) {
+    if (e.key === STORAGE_KEY) syncFromStore();
+  });
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) syncFromStore();
   });
 })();
 </script>

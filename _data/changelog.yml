@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
+  desk: Engineering
+  text: Switching between sepia and dark now updates every open tab at once, and pages you return to with the back button pick up the new theme too.
+  link: /
+- date: 2026-10-23
   desk: Design
   text: The Sentence-BERT TL;DR now has a diagram contrasting plain BERT, which must re-read every pair of sentences together, with Sentence-BERT, which embeds each sentence once and compares vectors.
   link: /post/paper-tldr-sentence-bert/
