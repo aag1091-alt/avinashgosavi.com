@@ -955,3 +955,22 @@ Engineer backlog additions:
 - [ ] If Avinash ever adds a Mastodon/Bluesky profile, add it to
       social_links + person-jsonld sameAs with rel="me"
 - 2026-10-22 21:34 PT — ENGINEER — rel="me" on social profile links (_includes/social-icons.html, all pages) (Actions deploy green).
+
+## Done (Oct 22, 2026, 10:34pm PT)
+
+- Editor shift had nothing to do: events/now current (Cal Hacks 13.0 starts
+  Oct 23 — still upcoming; move to past after Oct 25), Gmail last day had no
+  new registrations, llms.txt page list matches real pages.
+- Fell through to Engineer: About page now emits ProfilePage JSON-LD whose
+  mainEntity is the same Person (from `_includes/person-jsonld.html`, now one
+  `capture` used by both the homepage Person and the About ProfilePage; Person
+  has `@id` `<site>/#person`). Included from `_layouts/default.html` when
+  `page.layout == "about"` (page.url is /about.html, not /about/).
+  `scripts/check_jsonld.py` warns if a ProfilePage lacks a named Person
+  mainEntity. Invisible, so no changelog entry. Run 39906647710 green, JSON-LD
+  step passed.
+
+Editor backlog additions:
+- [ ] After Oct 25: move Cal Hacks 13.0 to past and drop its /now item
+      (mark "mentored" only if Gmail confirms participation)
+- 2026-10-22 22:34 PT — EDITOR→ENGINEER — ProfilePage structured data on /about (_includes/person-jsonld.html, _layouts/default.html) (Actions deploy green).
