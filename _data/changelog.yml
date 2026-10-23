@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
   desk: Design
+  text: Links in everyday page text — the About page, page intros, Uses, Research and the footer — now use the site's teal and gold with the same soft underline as posts, instead of the browser's default blue and purple.
+  link: /about/
+- date: 2026-10-23
+  desk: Design
   text: Links inside posts now carry a soft underline instead of relying on color alone, so they're easy to spot in both sepia and dark themes; it darkens on hover or keyboard focus.
   link: /post/attractor-memory-engine/
 - date: 2026-10-23

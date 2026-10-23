@@ -938,6 +938,22 @@ input:focus-visible {
   text-decoration-color: currentColor;
 }
 
+/* Plain links in page text (About, page ledes, Uses, Research, lists) had no
+   rule, so they showed the browser's default blue/purple. Same soft underline
+   as post prose. Zero specificity (:where) so every component link rule wins. */
+:where(.main :is(p, li, dd, blockquote, td) a:not([class])) {
+  color: var(--accent-ink, var(--accent));
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: currentColor;
+  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+  transition: text-decoration-color 0.15s ease;
+}
+:where(.main :is(p, li, dd, blockquote, td) a:not([class]):is(:hover, :focus-visible)) {
+  text-decoration-color: currentColor;
+}
+
 .post-content hr {
   border: none;
   border-top: 1px solid var(--border);
@@ -1234,6 +1250,18 @@ body.theme-dark .about-image img {
 
 .site-footer a:hover {
   text-decoration: underline;
+}
+
+/* The inline "Jekyll" link sits in muted text: underline it so it isn't
+   marked by color alone */
+.site-footer p a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+}
+.site-footer p a:hover,
+.site-footer p a:focus-visible {
+  text-decoration-color: currentColor;
 }
 
 /* ---------- Shared page lede ---------- */
