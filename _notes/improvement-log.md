@@ -1212,3 +1212,21 @@ Engineer backlog additions:
   updates URL, All keeps q, clearing restores `/blog/`, no JS errors.
   Run 40012728937 green.
 - 2026-10-23 12:35 PT — ENGINEER — /blog search kept in the URL (?q=) and handed to /search/ on no results (blog.md) (Actions deploy green).
+
+## Done (Oct 23, 2026, 1:35pm PT)
+
+- Editor slot (UTC 20) → Engineer: events/now current (Cal Hacks Oct 23–25
+  underway, OSA Con Nov 2, HackUMass Nov 15); Gmail last 2 days: no new
+  registrations (IEEE Oct 27 panel promo; OSA Con "not yet complete" reminder
+  already logged); llms.txt covers every page; older posts' cross-links already
+  swept. /paper-tldr/ items now show a `.tldr-paper` line — authors · year ·
+  venue linking the original paper — joined from `_data/papers.yml` via
+  `where: "tldr_post", p.url` (the six-papers overview has no match, so no
+  line). Link text = venue, aria-label "<venue>: read the original paper".
+  Couldn't build locally (rubygems unreachable from sandbox); CI built it.
+  Run 40020628533 green, no lint warnings.
+
+Backlog notes:
+- [x] Events rows have ids + search Event entries point at /events/#slug (already done; line ~253 stale)
+- [x] Search indexes /projects/#slug anchors (already done; line ~176 stale)
+- 2026-10-23 13:35 PT — EDITOR→ENGINEER — Paper TL;DR list shows each paper's authors, year and a link to the original (/paper-tldr/) (Actions deploy green).
