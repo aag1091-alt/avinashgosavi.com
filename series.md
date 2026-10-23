@@ -17,7 +17,7 @@ description: Multi-part blog series by Avinash Gosavi, read in order.
     <p class="series-feed-link"><a href="{{ '/feed/' | append: s.slug | append: '.xml' | relative_url }}" type="application/atom+xml">{% include feed-icon.html %}Follow {{ s.title }} via RSS</a></p>
     <ol class="series-parts">
       {% for p in parts %}
-      <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a> <span class="series-meta">{{ p.date | date: "%b %d, %Y" }} · {% include read-time.html content=p.content %}</span></li>
+      <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a> <span class="series-meta"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %d, %Y" }}</time> · {% include read-time.html content=p.content %}</span></li>
       {% endfor %}
     </ol>
   </section>

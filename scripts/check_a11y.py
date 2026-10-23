@@ -13,6 +13,8 @@ Offline, stdlib only, runs in a second or two. For every HTML page it checks:
     unless an aria-label gives the full purpose
   - target="_blank" links carry rel="noopener" (or noreferrer)
   - data tables have header cells (<th>); role="presentation" tables skipped
+  - <time> elements carry a machine-readable datetime (ISO date, e.g.
+    2026-10-23 or 2026-10-23T00:00:00-07:00), so dates aren't text-only
 
 Usage: python3 scripts/check_a11y.py [_site] [--strict]
 Exit code is 1 with --strict when anything is found, else always 0.
@@ -21,6 +23,7 @@ so each one carries the count and the first few examples) and the full list to
 the job summary.
 """
 import os
+import re
 import sys
 from collections import defaultdict
 from html.parser import HTMLParser
@@ -33,6 +36,8 @@ UNLABELLED_INPUT_TYPES = {"hidden", "submit", "button", "reset", "image"}
 # lower-casing and dropping punctuation/arrows
 VAGUE_LINK_TEXT = {"here", "click here", "click", "read more", "more", "link",
                    "this", "this link", "learn more", "go", "details", "continue"}
+# valid datetime for <time>: year, year-month, date, or date + time (+ zone)
+ISO_DATETIME = re.compile(r"^\d{4}(-\d{2}(-\d{2}([T ]\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?)?)?$")
 
 
 def norm(text):
@@ -89,6 +94,8 @@ class Page(HTMLParser):
             self.tables.append([line, False, a.get("role") in ("presentation", "none")])
         if tag == "th" and self.tables:
             self.tables[-1][1] = True
+        if tag == "time" and not self.stack_has("svg") and not ISO_DATETIME.match(a.get("datetime", "").strip()):
+            self.issues.append(("time-datetime", line, f'datetime="{a.get("datetime", "")[:40]}"'))
 
         hidden = a.get("aria-hidden") == "true" or "hidden" in a
         labelled = a.get("aria-label", "").strip() or a.get("title", "").strip()
@@ -201,6 +208,7 @@ RULES = {
     "link-text": "vague link text",
     "blank-noopener": "target=_blank without rel=noopener",
     "table-header": "table without header cells",
+    "time-datetime": "<time> without a valid datetime",
 }
 
 

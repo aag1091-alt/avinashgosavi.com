@@ -7,7 +7,7 @@ description: What Avinash Gosavi is working on, building, reading and attending 
 
 <div class="now-page">
   <h1>Now</h1>
-  <p class="page-lede">What I'm focused on at the moment. Updated {{ site.data.now.updated | date: "%B %-d, %Y" }}. <span class="muted">(Inspired by <a href="https://nownownow.com/about" rel="noopener">nownownow.com</a>.)</span></p>
+  <p class="page-lede">What I'm focused on at the moment. Updated <time datetime="{{ site.data.now.updated | date: '%Y-%m-%d' }}">{{ site.data.now.updated | date: "%B %-d, %Y" }}</time>. <span class="muted">(Inspired by <a href="https://nownownow.com/about" rel="noopener">nownownow.com</a>.)</span></p>
   <dl class="now-list">
     {% for item in site.data.now.items %}
     <div class="now-item">
