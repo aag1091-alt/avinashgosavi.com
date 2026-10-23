@@ -1076,3 +1076,23 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Use `asset_version` for any new local CSS/JS file added later
 - 2026-10-23 04:34 PT — EDITOR→ENGINEER — content-hash cache-busting for style.css + CI check (_plugins/asset_version.rb, _layouts/default.html, all pages) (Actions deploy green).
+
+## Done (Oct 23, 2026, 5:34am PT)
+
+- Designer shift: theme-aware, phone-friendly diagram on the Sentence-BERT
+  TL;DR (`_includes/diagrams/sbert-cross-vs-siamese.html`, placed after "drops
+  to about 5 seconds" so his text is unchanged): plain BERT reads A+B together
+  → one score per pair (10,000 sentences ≈ 50M passes ≈ 65 h, nothing
+  precomputable) vs Sentence-BERT siamese BERT + pooling with shared weights →
+  vectors u, v → cosine similarity (≈ 5 s). Content only from the post (which
+  cites arXiv 1908.10084). viewBox 312 wide. Playwright mock at 375px: body
+  text 11.5/12.4:1, notes 6.3/5.8:1 (sepia/dark), no overflow, no horizontal
+  scroll. Run 39954633197 green.
+- Tip: a double-headed arrow across a <30px gap overlaps its heads — use a
+  plain dashed connector instead.
+- Note: the clone was on a detached HEAD; `git push origin HEAD:main` worked.
+
+Designer backlog additions:
+- [ ] Posts still without a diagram: Modern Hopfield TL;DR, Memory as Asset,
+      daylog security architecture, Rena — only if the post describes a flow
+- 2026-10-23 05:34 PT — DESIGNER — theme-aware plain-BERT vs Sentence-BERT diagram on /post/paper-tldr-sentence-bert/ (Actions deploy green).
