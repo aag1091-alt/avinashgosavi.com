@@ -139,30 +139,46 @@
       if('ResizeObserver' in window){ var ro=new ResizeObserver(fit); imgs.forEach(function(i){ ro.observe(i); }); }
     }
   }
-  // Glossary previews: hovering or focusing a link to a glossary term shows its definition
-  // (fetched once from the glossary page). Touch taps just follow the link as before.
+  // Link previews: hovering or focusing a link to a glossary term shows its definition
+  // (fetched once from the glossary page); a link to another post shows that post's title,
+  // summary and date (from /search.json, fetched once). Touch taps just follow the link.
   (function(){
     var G='/post/agent-memory-glossary/';
-    if(location.pathname===G||!window.fetch||!window.DOMParser) return;
-    var links=[].filter.call(root.querySelectorAll('a[href*="agent-memory-glossary/#"]'),function(a){
-      return a.pathname===G&&a.hash.length>1&&a.origin===location.origin;
+    if(!window.fetch||!window.DOMParser) return;
+    var isTerm=function(a){ return a.pathname===G&&a.hash.length>1; };
+    var links=[].filter.call(root.querySelectorAll('a[href]'),function(a){
+      if(a.origin!==location.origin||a.pathname===location.pathname) return false;
+      return isTerm(a)||(a.pathname.indexOf('/post/')===0&&!(a.pathname===G&&a.hash.length>1));
     });
     if(!links.length) return;
-    var doc=null, loading=null, tip=null, owner=null, want=null, hideT=0;
-    var load=function(){
-      if(!loading) loading=fetch(G,{credentials:'same-origin'}).then(function(r){ return r.ok?r.text():''; })
-        .then(function(t){ doc=new DOMParser().parseFromString(t,'text/html'); return doc; },function(){ return null; });
-      return loading;
+    var gl=null, sl=null, posts=null, tip=null, owner=null, want=null, hideT=0;
+    var get=function(u){ return fetch(u,{credentials:'same-origin'}).then(function(r){ return r.ok?r.text():''; }); };
+    var loadG=function(){
+      if(!gl) gl=get(G).then(function(t){ return new DOMParser().parseFromString(t,'text/html'); },function(){ return null; });
+      return gl;
     };
-    var defOf=function(id){
-      var p=doc&&doc.getElementById(id);
-      if(!p||!p.classList.contains('glossary-term')) return null;
-      var b=p.querySelector('strong'), term=b?b.textContent.trim():'';
-      var text=p.textContent.replace(/\s+/g,' ').trim();
-      if(term&&text.indexOf(term)===0) text=text.slice(term.length).trim();
-      if(text.length>260) text=text.slice(0,260).replace(/\s+\S*$/,'')+'…';
-      return {term:term,text:text};
+    var loadS=function(){
+      if(!sl) sl=get('/search.json').then(function(t){
+        posts={}; (JSON.parse(t||'[]')||[]).forEach(function(i){ if(i.type==='Post') posts[i.url]=i; });
+      }).catch(function(){ posts={}; });
+      return sl;
     };
+    var cut=function(t,n){ t=(t||'').replace(/\s+/g,' ').trim(); return t.length>n?t.slice(0,n).replace(/\s+\S*$/,'')+'\u2026':t; };
+    var resolve=function(a){
+      if(isTerm(a)) return loadG().then(function(doc){
+        var p=doc&&doc.getElementById(decodeURIComponent(a.hash.slice(1)));
+        if(!p||!p.classList.contains('glossary-term')) return null;
+        var b=p.querySelector('strong'), term=b?b.textContent.trim():'';
+        var text=p.textContent.replace(/\s+/g,' ').trim();
+        if(term&&text.indexOf(term)===0) text=text.slice(term.length).trim();
+        return {term:term,text:cut(text,260)};
+      });
+      return loadS().then(function(){
+        var i=posts[a.pathname]||posts[a.pathname+'/']; if(!i) return null;
+        return {term:i.title,text:cut(i.desc,200),meta:i.date};
+      });
+    };
+    var prime=function(a){ if(isTerm(a)) loadG(); else loadS(); };
     var place=function(a){
       var r=a.getBoundingClientRect(), vw=document.documentElement.clientWidth;
       var w=Math.min(352,vw-32); tip.style.width=w+'px';
@@ -178,10 +194,9 @@
     };
     var show=function(a){
       clearTimeout(hideT); want=a;
-      load().then(function(){
+      resolve(a).then(function(d){
         if(want!==a) return;
-        var d=defOf(decodeURIComponent(a.hash.slice(1)));
-        if(!d){ hide(); return; }
+        if(!d||!d.term){ hide(); return; }
         if(owner&&owner!==a) owner.removeAttribute('aria-describedby');
         if(!tip){
           tip=document.createElement('div'); tip.id='term-preview'; tip.className='term-preview'; tip.setAttribute('role','tooltip');
@@ -190,16 +205,17 @@
           document.body.appendChild(tip);
         }
         tip.textContent='';
-        var t=document.createElement('strong'); t.textContent=d.term;
-        var s=document.createElement('span'); s.textContent=' '+d.text;
-        tip.appendChild(t); tip.appendChild(s); tip.hidden=false;
+        var t=document.createElement('strong'); t.textContent=d.term; tip.appendChild(t);
+        if(d.text){ var s=document.createElement('span'); s.textContent=' '+d.text; tip.appendChild(s); }
+        if(d.meta){ var m=document.createElement('span'); m.className='term-preview-meta'; m.textContent=d.meta; tip.appendChild(m); }
+        tip.hidden=false;
         owner=a; a.setAttribute('aria-describedby','term-preview');
         place(a);
       });
     };
     var hover=window.matchMedia('(hover: hover) and (pointer: fine)');
     links.forEach(function(a){
-      a.addEventListener('mouseenter',function(){ if(hover.matches){ load(); hideT=setTimeout(function(){ show(a); },250); } });
+      a.addEventListener('mouseenter',function(){ if(hover.matches){ prime(a); hideT=setTimeout(function(){ show(a); },250); } });
       a.addEventListener('mouseleave',function(){ clearTimeout(hideT); hideT=setTimeout(hide,150); });
       a.addEventListener('focus',function(){ if(a.matches(':focus-visible')) show(a); });
       a.addEventListener('blur',function(){ hideT=setTimeout(hide,150); });

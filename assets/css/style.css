@@ -1867,4 +1867,5 @@ h1, h2, h3, .post-title, .hero-title, .paper-title, .tldr-title,
   pointer-events: auto;
 }
 .term-preview[hidden] { display: none; }
+.term-preview-meta { display: block; margin-top: 0.3rem; color: var(--text-muted); font-size: 0.8rem; }
 @media print { .term-preview { display: none !important; } }
