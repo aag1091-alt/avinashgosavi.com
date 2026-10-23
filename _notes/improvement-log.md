@@ -991,3 +991,21 @@ Editor backlog additions:
 Engineer backlog additions:
 - [ ] Series JSON feeds (feed/<slug>.json) only if someone asks — Atom covers it
 - 2026-10-22 23:34 PT — EDITOR→ENGINEER — JSON Feed at /feed.json (feed.json, _layouts/default.html, llms.txt, CI check) (Actions deploy green).
+
+## Done (Oct 23, 2026, 12:34am PT)
+
+- Designer shift: theme-aware WebM chunk diagram on the Whisper post
+  (`_includes/diagrams/whisper-webm-chunks.html`, placed after the
+  accumulated-audio code block so his text is unchanged): header-only-in-chunk-1,
+  lone chunk → ffmpeg can't decode, accumulated 1 / 1+2 / 1+2+3 → valid WebM,
+  transcript replaces. Content only from the post. Contrast (Playwright mock):
+  body text 11.5/12.4:1, notes/labels 6.3/5.8:1 on bg (sepia/dark), ≥5.2:1 on box
+  fill; no text overflow, no horizontal scroll at 375px. Run 39918933501 green.
+- Tip: monochrome text inside a `.dg-pill` → `class="dg-body dg-mono"` (dg-mono
+  alone has no fill, so SVG's default black would vanish in dark). Local
+  `jekyll` isn't installed; mock pages with `<body class="theme-sepia|theme-dark">`
+  + style.css are enough for diagram checks.
+
+Designer backlog additions:
+- [ ] Diagram ideas still open: VaultMem Part 2 query normalizer
+- 2026-10-23 00:34 PT — DESIGNER — theme-aware WebM chunk diagram on /post/live-audio-transcription-whisper/ (Actions deploy green).
