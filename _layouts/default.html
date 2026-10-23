@@ -25,6 +25,7 @@
   <link rel="preload" href="{{ '/assets/fonts/dm-sans-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {% feed_meta %}
+  <link rel="alternate" type="application/feed+json" title="{{ site.title | escape }} (JSON Feed)" href="{{ '/feed.json' | relative_url }}">
   {%- if page.series %}{% assign fs = site.data.series | where: "slug", page.series | first %}
   <link rel="alternate" type="application/atom+xml" title="{{ fs.title | default: page.series | escape }} series" href="{{ '/feed/' | append: page.series | append: '.xml' | relative_url }}">
   {%- elsif page.url == '/series/' %}{% for fs in site.data.series %}

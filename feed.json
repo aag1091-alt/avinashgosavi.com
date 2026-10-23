@@ -1,0 +1,43 @@
+---
+layout: null
+permalink: /feed.json
+sitemap: false
+---
+{%- comment -%}
+  JSON Feed 1.1 (https://jsonfeed.org/version/1.1) of the latest posts — the
+  same posts as /feed.xml, for readers that prefer JSON. Root-relative links
+  and images in post bodies are made absolute, since JSON Feed has no xml:base.
+{%- endcomment -%}
+{%- assign root = '/' | absolute_url -%}
+{%- assign root_href = 'href="' | append: root -%}
+{%- assign root_src = 'src="' | append: root -%}
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": {{ site.title | jsonify }},
+  "home_page_url": {{ root | jsonify }},
+  "feed_url": {{ page.url | absolute_url | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "icon": {{ '/assets/icons/icon-512.png' | absolute_url | jsonify }},
+  "favicon": {{ '/favicon.svg' | absolute_url | jsonify }},
+  "language": "en",
+  "authors": [{ "name": {{ site.author.name | jsonify }}, "url": {{ root | jsonify }} }],
+  "items": [
+    {%- for post in site.posts limit: 20 %}
+    {
+      "id": {{ post.url | absolute_url | jsonify }},
+      "url": {{ post.url | absolute_url | jsonify }},
+      "title": {{ post.title | jsonify }},
+      {%- if post.description %}
+      "summary": {{ post.description | strip | jsonify }},
+      {%- endif %}
+      {%- if post.image and post.image != site.defaults.first.values.image %}
+      "image": {{ post.image | absolute_url | jsonify }},
+      {%- endif %}
+      "date_published": {{ post.date | date_to_xmlschema | jsonify }},
+      "date_modified": {{ post.last_modified_at | default: post.date | date_to_xmlschema | jsonify }},
+      "tags": {{ post.tags | jsonify }},
+      "content_html": {{ post.content | replace: 'href="/', root_href | replace: 'src="/', root_src | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}

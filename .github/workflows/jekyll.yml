@@ -43,6 +43,9 @@ jobs:
       - name: Check feeds are well-formed Atom
         run: python3 -c "import glob,xml.etree.ElementTree as E; fs=['_site/feed.xml']+sorted(glob.glob('_site/feed/*.xml')); [print(f, len(E.parse(f).getroot().findall('{http://www.w3.org/2005/Atom}entry')), 'entries') for f in fs]"
 
+      - name: Check JSON Feed is valid with absolute links
+        run: python3 -c "import json; f=json.load(open('_site/feed.json')); assert f['version'].endswith('/1.1'); it=f['items']; assert it and all(i['id'] and i['url'].startswith('https://') and i['content_html'] for i in it); bad=[i['url'] for i in it if 'href=\"/' in i['content_html'] or 'src=\"/' in i['content_html']]; assert not bad, bad; print(len(it), 'items')"
+
       - name: Check web app manifest and its icons exist
         run: python3 -c "import json,os; m=json.load(open('_site/site.webmanifest')); [print(i['src'], i['sizes']) or os.stat('_site'+i['src']) for i in m['icons']]"
 
