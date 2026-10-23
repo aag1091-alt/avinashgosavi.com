@@ -15,6 +15,8 @@ description: "Plain-language summaries of research papers on AI memory, retrieva
     <li class="tldr-item">
       <a class="tldr-title" href="{{ p.url | relative_url }}">{{ p.title | remove_first: "Paper TL;DR: " }}</a>
       {% if p.description %}<p class="tldr-desc">{{ p.description }}</p>{% endif %}
+      {% assign pa = site.data.papers | where: "tldr_post", p.url | first %}
+      {% if pa %}<p class="tldr-paper"><span class="visually-hidden">Paper: </span>{{ pa.authors | escape }} · {{ pa.year }} · <a href="{{ pa.url }}" aria-label="{{ pa.venue }}: read the original paper">{{ pa.venue }}</a></p>{% endif %}
       <div class="post-list-meta">
         <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %d, %Y" }}</time>
         <span>{% include read-time.html content=p.content %}</span>

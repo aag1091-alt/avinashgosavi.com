@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
   desk: Engineering
+  text: Each summary on the Paper TL;DR page now names the original paper's authors and year, with a direct link to the paper itself.
+  link: /paper-tldr/
+- date: 2026-10-23
+  desk: Engineering
   text: Searches on the Writing list now stay in the address (like /blog/?q=hopfield), so a search can be shared or bookmarked, and "no matches" hands the words over to site-wide search.
   link: /blog/?q=hopfield
 - date: 2026-10-23

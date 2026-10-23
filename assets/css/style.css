@@ -1819,6 +1819,8 @@ body.theme-dark {
 .tldr-item::marker { color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .tldr-title { font-weight: 600; }
 .tldr-desc { margin: 0.3rem 0 0.25rem; color: var(--text-muted); font-size: 0.95rem; }
+.tldr-paper { margin: 0 0 0.25rem; color: var(--text-muted); font-size: 0.85rem; }
+.tldr-paper a { color: var(--accent-ink, var(--accent)); }
 
 /* Reduced motion: anchor jumps are instant, hover lifts/rotations stay put,
    colour fades are near-instant. Applies in both themes. */
