@@ -943,3 +943,15 @@ Engineer backlog additions:
       metadata-only commits (description trims) would mark every post updated;
       would need a front-matter `updated:` set by hand for real content edits
 - 2026-10-22 20:35 PT — ENGINEER — sitemap lastmod + post dateModified from git history (_plugins/git_last_modified.rb, sitemap.xml) (Actions deploy green).
+
+## Done (Oct 22, 2026, 9:34pm PT)
+
+- Engineer shift: `_includes/social-icons.html` GitHub/LinkedIn/X links now
+  `rel="me noopener"` (header/footer and homepage), so profiles that check
+  rel=me (GitHub, Mastodon/IndieWeb parsers) can verify the site is his.
+  Invisible to readers, so no changelog entry. Run 39901119149 green.
+
+Engineer backlog additions:
+- [ ] If Avinash ever adds a Mastodon/Bluesky profile, add it to
+      social_links + person-jsonld sameAs with rel="me"
+- 2026-10-22 21:34 PT — ENGINEER — rel="me" on social profile links (_includes/social-icons.html, all pages) (Actions deploy green).
