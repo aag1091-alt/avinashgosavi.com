@@ -893,7 +893,17 @@ Designer backlog additions:
   `noindex: true`. Runs 39879106416, 39879430596 green; SEO step 0 problems.
 
 Editor backlog additions (metadata only, small fixes allowed):
-- [ ] Trim over-long meta descriptions (> 160) on homepage (_config.yml
+- [x] (done Oct 22, 6:34pm PT) Trim over-long meta descriptions (> 160) on homepage (_config.yml
       description, 168), glossary (207), HNSW (234), Generative Agents (191),
       CLS (186), Hopfield 1982 (180) — keep wording from the posts themselves
 - 2026-10-22 17:34 PT — EDITOR→ENGINEER — SEO lint in CI; 404 gets its own description + noindex (scripts/check_seo.py, /404.html) (Actions deploy green).
+
+## Done (Oct 22, 2026, 6:34pm PT)
+
+- Editor shift: trimmed every meta description > 160 chars (_config.yml
+  homepage, experience, research, talks + 12 posts: glossary, all Paper
+  TL;DRs) to 150–159 chars by cutting clauses only — no new claims. Run
+  39884898466 green, no SEO description notices left.
+- Events: Cal Hacks (Oct 23–25) still upcoming — move to past next editor
+  shift after Oct 25 (only mark attended if Gmail supports it).
+- 2026-10-22 18:34 PT — EDITOR — Meta descriptions trimmed to ≤160 chars (homepage, /experience, /research, /talks, 12 posts) (Actions deploy green).
