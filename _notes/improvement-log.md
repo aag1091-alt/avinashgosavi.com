@@ -1043,3 +1043,16 @@ Engineer backlog additions:
   link 6.6/7.4:1, meta 6.3/5.8:1 (sepia/dark). Playwright mock at 375px: no
   horizontal scroll, no JS errors. Run 39933291965 green.
 - 2026-10-23 02:34 PT — ENGINEER — 404 suggests closest pages from the broken URL + theme-colored links (404.html, assets/css/style.css) (Actions deploy green).
+
+## Done (Oct 23, 2026, 3:35am PT)
+
+- Editor shift: upcoming events in `_data/events.yml` now carry exact dates in
+  `when` (Cal Hacks "Oct 23–25, 2026", OSA Con "Nov 2, 2026", HackUMass "Nov 15,
+  2026" — same dates as now.yml). Past events keep "Mon YYYY". When an event
+  moves to past, shorten `when` back to "Mon YYYY". now.yml `updated` →
+  2026-10-23 (all items current; Cal Hacks underway Oct 23–25 — move it to past
+  on Oct 26 and drop the Mentoring Now item; role stays mentor, no "attended"
+  claims without evidence). Gmail last day: no new registrations (IEEE Oct 27
+  panel is promo; OSA Con "not yet complete" reminder already logged).
+  Run 39940266488 green.
+- 2026-10-23 03:35 PT — EDITOR — exact dates for upcoming events (/events/); /now updated date (Actions deploy green).
