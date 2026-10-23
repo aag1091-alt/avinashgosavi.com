@@ -1244,5 +1244,23 @@ Backlog notes:
   expected. Run 40028011958 green.
 
 Designer backlog additions:
-- [ ] Same color-only link cue may exist on /about prose and footer inline links (`.site-footer a` has no underline) — check contrast vs surrounding text
+- [x] Same color-only link cue may exist on /about prose and footer inline links (done Oct 23, 3:34pm PT)
 - 2026-10-23 14:34 PT — EDITOR→DESIGNER — soft underline on links in post prose so they're not marked by color alone (assets/css/style.css, all /post/*) (Actions deploy green).
+
+## Done (Oct 23, 2026, 3:34pm PT)
+
+- Designer shift (UTC 22): plain links outside post prose had NO CSS rule, so
+  /about, page ledes (blog, events, now, talks, series, changelog, paper-tldr),
+  /uses, /research lists, read-next/series-box lists, changelog "See" links etc.
+  showed the browser default blue #0000EE / visited purple (dark: #9e9eff).
+  Added `:where(.main :is(p, li, dd, blockquote, td) a:not([class]))` (zero
+  specificity, so every component rule like `.post-list-item a` still wins):
+  accent-ink color + the 55% soft underline from post prose, full on
+  hover/focus. Footer inline "Jekyll" link (`.site-footer p a`) underlined too;
+  footer nav stays plain. Playwright mock sepia + dark at 375px: about/lede/
+  footer links teal #0a5f58 (≈6.7:1 on bg) / gold #d4b078 (≈7.9:1); post-list,
+  project-links, all-posts-link, footer nav unchanged. Run 40034846618 green.
+
+Designer backlog additions:
+- [ ] Lone "→" link on /now items now gets an underline — consider `text-decoration: none` for arrow-only links if it looks odd
+- 2026-10-23 15:34 PT — DESIGNER — theme-colored soft underline for plain links in page text and footer instead of browser blue (assets/css/style.css; /about/, /uses/, /research/, page ledes) (Actions deploy green).
