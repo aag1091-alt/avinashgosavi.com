@@ -1146,3 +1146,24 @@ Engineer backlog additions:
   Playwright mock sepia 1200 / dark 375+1200: previews correct, keyboard
   aria-describedby set, no horizontal scroll, no JS errors. Run 39980018894 green.
 - 2026-10-23 08:35 PT — EDITOR→ENGINEER — post-to-post link previews (title, summary, date) on hover/focus (_includes/post-tools.html, assets/css/style.css) (Actions deploy green).
+
+## Done (Oct 23, 2026, 9:35am PT)
+
+- Editor slot (UTC 16) → Engineer: events/now/llms.txt were checked an hour
+  ago and nothing has changed (Cal Hacks still underway until Oct 25).
+- Engineer shift: "pick up where you left off" on long posts (those with the
+  TOC box, ≥1,200 words). `_includes/post-tools.html` saves the last h2/h3 id
+  above 30% of the viewport (400ms debounce) to localStorage `post_resume`
+  ({path: {id, t}}, newest 30, ≤60 days); reaching the end of .post-content
+  or scrolling above the first heading clears it. Next visit (no URL hash,
+  saved id ≠ first heading, id still on page) shows `.resume-reading` above
+  the TOC: link to `#id` + × dismiss (clears). All storage in try/catch.
+  CSS: surface fill, accent left bar, link --accent-ink 5.7:1 sepia / 8.4:1
+  dark, × --text-muted 5.5 / 6.6:1; hidden in print. Playwright mock at 375
+  sepia/dark + 1200 dark: saves, note shows, click jumps + removes note, end
+  clears, no horizontal scroll, no JS errors. Run 39988376569 green.
+- Note: no local Jekyll (rubygems unreachable) — keep testing with mocks.
+
+Engineer backlog additions:
+- [ ] Resume note: if posts' heading ids ever change (renamed headings), stale saved ids simply show nothing — fine
+- 2026-10-23 09:35 PT — EDITOR→ENGINEER — long posts offer "pick up where you left off" (_includes/post-tools.html, assets/css/style.css) (Actions deploy green).
