@@ -1027,3 +1027,19 @@ Engineer backlog additions:
 - [ ] Search: if text-fragment misses turn up (phrase spans a block boundary
       in the rendered post), fall back to the single matched word
 - 2026-10-23 01:34 PT — ENGINEER — search results open posts scrolled to the matched words via text fragments (search.md) (Actions deploy green).
+
+## Done (Oct 23, 2026, 2:34am PT)
+
+- Engineer shift: smart 404. `404.html` script tokenizes the missing path
+  (drops post/html/stopwords/numbers), fetches /search.json, scores items by
+  exact/prefix word hits in URL slug (×3), title (×2), tags (×1); shows up to 3
+  in "Maybe you were looking for" (needs ≥2 matched words, or score ≥5 for a
+  single distinctive word) with type + date. "Search the site" link gets
+  `?q=<path words>`. Fails silently (generic list stays). Taken-down projects
+  aren't in search.json, so they're never suggested.
+- Bug fixed: 404 links had no theme color (browser-default blue in sepia,
+  lavender in dark) — `.notfound-page a` now uses --accent-ink. Suggestion box
+  is left-border only: muted text on the tinted fill was 3.66:1 in dark; now
+  link 6.6/7.4:1, meta 6.3/5.8:1 (sepia/dark). Playwright mock at 375px: no
+  horizontal scroll, no JS errors. Run 39933291965 green.
+- 2026-10-23 02:34 PT — ENGINEER — 404 suggests closest pages from the broken URL + theme-colored links (404.html, assets/css/style.css) (Actions deploy green).
