@@ -1107,3 +1107,24 @@ Designer backlog additions:
   1 → tab 2 flips to dark and back; toggle on page B then Back → page A dark;
   no JS errors. Run 39962571648 green.
 - 2026-10-23 06:35 PT — ENGINEER — theme toggle syncs across open tabs and back/forward-cache restores (_includes/theme-toggle.html) (Actions deploy green).
+
+## Done (Oct 23, 2026, 7:35am PT)
+
+- Engineer shift: glossary term previews. `_includes/post-tools.html` finds
+  post links to `/post/agent-memory-glossary/#<id>` (not on the glossary
+  itself); on mouse hover (250ms delay, `(hover: hover) and (pointer: fine)`
+  only) or keyboard `:focus-visible` it fetches the glossary page once
+  (DOMParser), and if the target is a `.glossary-term` paragraph shows a
+  `role=tooltip` card (#term-preview, `aria-describedby` on the link) with the
+  bold term + definition text (≤260 chars, plain text, no links inside).
+  Hoverable (moving into the card keeps it), Esc / blur / scroll dismiss;
+  heading anchors (#storing-and-finding-memories) and missing ids show nothing.
+  Touch taps unchanged. CSS `.term-preview` (surface bg, accent left border,
+  hidden in print). Playwright mock at 375/1200 sepia+dark: card inside
+  viewport (16px gutters), no horizontal scroll, no JS errors; text/surface
+  ≈11:1 sepia, ≈14:1 dark. Run 39971371306 green.
+
+Engineer backlog additions:
+- [ ] Term previews only cover glossary links — could extend to other in-site
+      post links (title + description from search.json) if it feels useful
+- 2026-10-23 07:35 PT — ENGINEER — glossary term definitions on hover/focus in posts (_includes/post-tools.html, assets/css/style.css) (Actions deploy green).
