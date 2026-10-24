@@ -1262,7 +1262,7 @@ Designer backlog additions:
   project-links, all-posts-link, footer nav unchanged. Run 40034846618 green.
 
 Designer backlog additions:
-- [ ] Lone "→" link on /now items now gets an underline — consider `text-decoration: none` for arrow-only links if it looks odd
+- [x] Lone "→" link on /now items now gets an underline (done Oct 23, 5:35pm PT)
 - 2026-10-23 15:34 PT — DESIGNER — theme-colored soft underline for plain links in page text and footer instead of browser blue (assets/css/style.css; /about/, /uses/, /research/, page ledes) (Actions deploy green).
 
 ## Done (Oct 23, 2026, 4:34pm PT)
@@ -1277,3 +1277,15 @@ Designer backlog additions:
   Invisible to readers, so no changelog entry.
 - Events: Cal Hacks (Oct 23–25) still upcoming/underway — move to past Oct 26.
 - 2026-10-23 16:34 PT — ENGINEER — machine-readable <time> dates on /changelog/, /now/, /series/ + a11y lint rule (scripts/check_a11y.py) (Actions deploy green).
+
+## Done (Oct 23, 2026, 5:35pm PT)
+
+- Editor slot (UTC 00) → Designer: events/now still current (Cal Hacks Oct
+  23–25 underway — move to past and drop the Mentoring Now item on Oct 26);
+  Gmail last 2 days: no new event registrations; llms.txt pages complete.
+  /now arrow-only "→" links picked up the new soft underline (looked like a
+  stray dash). Added `.now-more` class (now.md): no underline, 24×24px tap
+  target (WCAG 2.5.8), accent-ink color, 3px nudge on hover (off under
+  prefers-reduced-motion), focus-visible outline. Homepage Now has no arrows.
+  Run 40045786265 green.
+- 2026-10-23 17:35 PT — EDITOR→DESIGNER — /now arrow links: no underline, 24px tap target, hover nudge (now.md, assets/css/style.css) (Actions deploy green).
