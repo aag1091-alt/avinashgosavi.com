@@ -1119,31 +1119,31 @@ input:focus-visible {
   line-height: 1.5;
 }
 
-/* Rouge theme – light background */
-.highlight .c { color: #6b7280; font-style: italic; }
-.highlight .k { color: #0d9488; }
+/* Rouge theme – light background (every token ≥4.5:1 on the sepia and white --code-bg; CI browser check measures it) */
+.highlight .c { color: #4b5563; font-style: italic; }
+.highlight .k { color: #115e59; }
 .highlight .n { color: #1d1d1f; }
-.highlight .s { color: #059669; }
-.highlight .s2 { color: #059669; }
-.highlight .nb { color: #2563eb; }
-.highlight .nf { color: #2563eb; }
+.highlight .s { color: #065f46; }
+.highlight .s2 { color: #065f46; }
+.highlight .nb { color: #1d4ed8; }
+.highlight .nf { color: #1d4ed8; }
 .highlight .o { color: #525150; }
 .highlight .p { color: #1d1d1f; }
-.highlight .na { color: #2563eb; }
-.highlight .nv { color: #7c3aed; }
-.highlight .vi { color: #7c3aed; }
-.highlight .ow { color: #0d9488; }
-.highlight .nn { color: #2563eb; }
+.highlight .na { color: #1d4ed8; }
+.highlight .nv { color: #6d28d9; }
+.highlight .vi { color: #6d28d9; }
+.highlight .ow { color: #115e59; }
+.highlight .nn { color: #1d4ed8; }
 
 /* Rouge theme – dark (theme-dark only) */
-body.theme-dark .highlight .c { color: #8b949e; font-style: italic; }
+body.theme-dark .highlight .c { color: #a0a8b2; font-style: italic; }
 body.theme-dark .highlight .k { color: #7ee787; }
 body.theme-dark .highlight .n { color: #e6edf3; }
 body.theme-dark .highlight .s { color: #a5d6ff; }
 body.theme-dark .highlight .s2 { color: #a5d6ff; }
 body.theme-dark .highlight .nb { color: #79c0ff; }
 body.theme-dark .highlight .nf { color: #d2a8ff; }
-body.theme-dark .highlight .o { color: #8b949e; }
+body.theme-dark .highlight .o { color: #a0a8b2; }
 body.theme-dark .highlight .p { color: #e6edf3; }
 body.theme-dark .highlight .na { color: #79c0ff; }
 body.theme-dark .highlight .nv { color: #ffa657; }
@@ -1556,7 +1556,8 @@ h1[tabindex="-1"]:focus { outline: none; }
 }
 .tag-chip:hover { border-color: var(--accent); }
 .tag-chip.is-active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-.tag-count { opacity: 0.6; font-size: 0.75rem; margin-left: 0.15rem; }
+.tag-count { opacity: 0.8; font-size: 0.75rem; margin-left: 0.15rem; }
+.tag-chip.is-active .tag-count { opacity: 1; }  /* faded count on the accent fill fell below 4.5:1 */
 .post-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0.6rem 0 0; }
 .post-tags a {
   font-size: 0.78rem;

@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
   desk: Engineering
+  text: Code samples in posts are easier to read — comments, strings and keywords now meet WCAG contrast on the sepia and dark code backgrounds, and so do the tag counts on the Writing filters. Every deploy now measures text contrast in both themes.
+  link: /post/ai-history-blog-generator/
+- date: 2026-10-24
+  desk: Engineering
   text: The hobby project stack post no longer scrolls sideways on phones while its architecture diagram loads; until then the diagram source shows in a tidy code box. A new browser check on every deploy now catches pages like this.
   link: /post/hobby-project-stack/
 - date: 2026-10-24
