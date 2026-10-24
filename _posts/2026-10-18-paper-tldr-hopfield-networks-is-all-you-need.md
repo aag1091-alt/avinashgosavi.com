@@ -76,6 +76,8 @@ print("overlap after: ", int(np.sign(out) @ target), "/", d) # 64 / 64
 
 One step takes a pattern that's only loosely related to the target back to a perfect copy. The softmax weights tell the story: about 0.97 on the right memory and crumbs on the rest — exactly what an attention map looks like.
 
+{% include diagrams/modern-hopfield-one-step.html %}
+
 ## Why I care, as someone building agent memory
 
 Most agent memory today is "embed everything, return the top-k nearest neighbors" (usually through an index like [HNSW](/post/paper-tldr-hnsw/)). This paper reframes that: nearest-neighbor search is a crude, non-differentiable cousin of what attention already does well. It nudged me to build [Attractor](/post/attractor-memory-engine/) around retrieval by partial cues and context, and to think of memory as something that *settles* rather than something you *look up*.

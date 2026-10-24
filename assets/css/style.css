@@ -998,6 +998,7 @@ input:focus-visible {
 .diagram .dg-axis { fill: none; stroke: var(--text-muted); stroke-width: 1.25; }
 .diagram .dg-dot { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
 .diagram .dg-head { fill: var(--accent); }
+.diagram .dg-bar { fill: var(--accent); }
 .diagram .dg-node { fill: var(--code-bg); stroke: var(--text-muted); stroke-width: 1.5; }
 .diagram .dg-edge { stroke: var(--text-muted); stroke-width: 1; }
 .diagram .dg-query { fill: none; stroke: var(--text); stroke-width: 2.5; stroke-linecap: round; }

@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
+  desk: Design
+  text: The Modern Hopfield TL;DR now has a step-by-step diagram of its one-update recall — compare, softmax, blend — showing why it's the same equation as attention.
+  link: /post/paper-tldr-hopfield-networks-is-all-you-need/
+- date: 2026-10-23
   desk: Engineering
   text: Search is calmer with a screen reader — the result count is read out once you pause typing instead of after every letter, and the "On this page" list in long posts now announces the section you're reading as your current location.
   link: /search/

@@ -1,0 +1,61 @@
+<figure class="diagram">
+<svg viewBox="0 0 312 508" role="img" aria-labelledby="mhop-dg-title mhop-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="mhop-dg-title">One modern Hopfield update, step by step</title>
+  <desc id="mhop-dg-desc">A noisy state, the query, starts with 40 percent of its bits flipped and an overlap of 14 out of 64 with stored pattern x3. It is compared against all five stored patterns x1 to x5, which act as the keys. A softmax with sharpness beta turns the similarities into weights: about 0.97 on x3 and crumbs on the rest. The output blends the stored patterns, which act as the values, by those weights. After this single step the new state matches x3 with an overlap of 64 out of 64. This is the same equation as transformer attention with the query set to the state, keys and values set to the stored patterns, and beta equal to one over the square root of d.</desc>
+  <defs>
+    <marker id="mhop-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="22" y="10" width="268" height="46" rx="23"/>
+  <text class="dg-body" x="156" y="29" text-anchor="middle">noisy state ξ = query q</text>
+  <text class="dg-note dg-ink" x="156" y="46" text-anchor="middle">40% of bits flipped · overlap 14 / 64</text>
+  <line class="dg-line" x1="156" y1="56" x2="156" y2="76" marker-end="url(#mhop-dg-arrow)"/>
+
+  <rect class="dg-group" x="10" y="78" width="292" height="100" rx="12"/>
+  <text class="dg-label" x="22" y="98">Compare with every memory</text>
+  <rect class="dg-box" x="24" y="108" width="44" height="34" rx="6"/>
+  <text class="dg-body dg-mono" x="46" y="130" text-anchor="middle">x₁</text>
+  <rect class="dg-box" x="79" y="108" width="44" height="34" rx="6"/>
+  <text class="dg-body dg-mono" x="101" y="130" text-anchor="middle">x₂</text>
+  <rect class="dg-pill" x="134" y="108" width="44" height="34" rx="6"/>
+  <text class="dg-body dg-mono" x="156" y="130" text-anchor="middle">x₃</text>
+  <rect class="dg-box" x="189" y="108" width="44" height="34" rx="6"/>
+  <text class="dg-body dg-mono" x="211" y="130" text-anchor="middle">x₄</text>
+  <rect class="dg-box" x="244" y="108" width="44" height="34" rx="6"/>
+  <text class="dg-body dg-mono" x="266" y="130" text-anchor="middle">x₅</text>
+  <text class="dg-note" x="156" y="164" text-anchor="middle">similarities Xᵀξ · patterns = keys K</text>
+  <line class="dg-line" x1="156" y1="178" x2="156" y2="198" marker-end="url(#mhop-dg-arrow)"/>
+
+  <rect class="dg-group" x="10" y="200" width="292" height="118" rx="12"/>
+  <text class="dg-label" x="22" y="220">Softmax turns them into weights</text>
+  <rect class="dg-bar" x="32" y="285" width="28" height="3"/>
+  <rect class="dg-bar" x="87" y="285" width="28" height="3"/>
+  <rect class="dg-bar" x="142" y="234" width="28" height="54"/>
+  <rect class="dg-bar" x="197" y="285" width="28" height="3"/>
+  <rect class="dg-bar" x="252" y="285" width="28" height="3"/>
+  <line class="dg-axis" x1="24" y1="288" x2="288" y2="288"/>
+  <text class="dg-body" x="178" y="252">≈ 0.97</text>
+  <text class="dg-note" x="226" y="276" text-anchor="middle">crumbs</text>
+  <text class="dg-note dg-mono" x="46" y="306" text-anchor="middle">x₁</text>
+  <text class="dg-note dg-mono" x="101" y="306" text-anchor="middle">x₂</text>
+  <text class="dg-note dg-mono" x="156" y="306" text-anchor="middle">x₃</text>
+  <text class="dg-note dg-mono" x="211" y="306" text-anchor="middle">x₄</text>
+  <text class="dg-note dg-mono" x="266" y="306" text-anchor="middle">x₅</text>
+  <line class="dg-line" x1="156" y1="318" x2="156" y2="338" marker-end="url(#mhop-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="340" width="268" height="48" rx="8"/>
+  <text class="dg-strong" x="156" y="361" text-anchor="middle">blend memories by weight</text>
+  <text class="dg-note" x="156" y="379" text-anchor="middle">X · weights · patterns = values V</text>
+  <line class="dg-line" x1="156" y1="388" x2="156" y2="408" marker-end="url(#mhop-dg-arrow)"/>
+
+  <rect class="dg-pill" x="22" y="410" width="268" height="46" rx="23"/>
+  <text class="dg-body" x="156" y="429" text-anchor="middle">new state ≈ x₃</text>
+  <text class="dg-note dg-ink" x="156" y="446" text-anchor="middle">overlap 64 / 64 after one step</text>
+
+  <text class="dg-note" x="156" y="480" text-anchor="middle">same equation as attention, with β = 1/√d</text>
+  <text class="dg-note" x="156" y="498" text-anchor="middle">q = the state · K = V = the stored patterns</text>
+</svg>
+<figcaption>The twenty-line demo as a picture: one comparison, one softmax, one blend — and the noisy pattern snaps back to the memory it came from.</figcaption>
+</figure>
