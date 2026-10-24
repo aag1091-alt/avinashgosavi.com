@@ -885,6 +885,8 @@ input:focus-visible {
 
 /* Printed copies carry their source URL under the title (hidden on screen) */
 .post-print-source { display: none; }
+/* microformats2 values (h-entry / h-card) are for feed readers, not for display */
+.h-entry > data, .h-card > data { display: none; }
 .post-meta .post-author::after {
   content: " · ";
 }

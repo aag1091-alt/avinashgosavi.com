@@ -75,6 +75,12 @@ jobs:
         run: python3 scripts/check_llms.py _site
         continue-on-error: true
 
+      - name: Microformats (h-entry on posts, h-card on homepage) check (warnings only, never blocks deploy)
+        run: |
+          python3 -m pip install --quiet --break-system-packages mf2py
+          python3 scripts/check_mf2.py _site
+        continue-on-error: true
+
       - name: Browser check — JS errors, sideways scroll at 375px, keyboard-reachable wide code, text contrast (warnings only, never blocks deploy)
         run: |
           python3 -m pip install --quiet --break-system-packages playwright
