@@ -1714,3 +1714,21 @@ Engineer backlog additions:
   dark. Now opacity 1: 6.31:1 sepia, 5.82:1 dark (0.85 would only reach
   4.46/4.64). Run 40134953371 green.
 - 2026-10-24 14:35 PT — EDITOR→DESIGNER — heading # links on touch screens shown at full muted colour, sepia 2.7 → 6.3:1 (assets/css/style.css, all /post/* and pages with section anchors) (Actions deploy green).
+
+## Done (Oct 24, 2026, 3:35pm PT)
+
+- Designer shift (UTC 22): project cards (homepage + /projects). The hover
+  lift/accent border/shadow is now inside `@media (hover: hover)` — on
+  phones a tap used to leave the card stuck raised. New
+  `.project-card:focus-within { border-color: var(--accent) }` so keyboard
+  users see which card the focused Code/Live/Write-up link belongs to (no
+  lift on focus). Accent border vs surface: sepia ~4.4:1, dark ~8:1 (≥3:1
+  non-text). Playwright localhost mock at 375px: desktop context hover →
+  teal border + -2px; touch context hover → unchanged; Tab → border in both.
+  Run 40139300662 green.
+
+Designer backlog:
+- [ ] Other hover-only container states (tag chips, share buttons) are
+      border-only, no lift — fine on touch; revisit only if a new card
+      with a transform hover is added (wrap it in `@media (hover: hover)`)
+- 2026-10-24 15:35 PT — DESIGNER — project cards: no stuck hover lift on touch, accent border on keyboard focus-within (assets/css/style.css, /, /projects/) (Actions deploy green).
