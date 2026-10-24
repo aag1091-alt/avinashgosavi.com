@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
   desk: Design
+  text: The Rena post's voice-session flow is now a phone-friendly diagram that follows the sepia and dark themes — tap, load context, stream audio, call a tool, reply — instead of a wide text block that scrolled sideways.
+  link: /post/building-rena-ai-health-companion-gemini-live/
+- date: 2026-10-23
+  desk: Design
   text: The Memory as Asset TL;DR now has a diagram of the paper's design — what every memory object carries (including its owner and access policy) and the three layers that store, evolve and exchange it.
   link: /post/paper-tldr-memory-as-asset/
 - date: 2026-10-23

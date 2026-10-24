@@ -1,0 +1,44 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 420" role="img" aria-labelledby="rena-vs-title rena-vs-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="rena-vs-title">One Rena voice session, from tap to reply</title>
+  <desc id="rena-vs-desc">The user taps Rena, which opens a WebSocket to /ws/{user_id} with the current tab as context and the user's timezone. The backend fetches the RENA MEMORY block and the prompt for that tab. Microphone audio is streamed as 16 kHz PCM over the WebSocket into Google ADK and Gemini Live, which works out the intent and calls a tool such as log_meal, log_workout or scan_image. Before the tool runs, a tool_status message such as "Logging your meal…" shows a live save indicator, and the tool writes to Firestore. Rena's reply is streamed back as 24 kHz audio chunks and played via AVAudioEngine.</desc>
+  <defs>
+    <marker id="rena-vs-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="20" y="10" width="296" height="54" rx="27"/>
+  <text class="dg-strong" x="168" y="33" text-anchor="middle">You tap Rena</text>
+  <text class="dg-note dg-mono dg-ink" x="168" y="52" text-anchor="middle">/ws/{user_id}?context={tab}&amp;tz=…</text>
+  <line class="dg-line" x1="168" y1="64" x2="168" y2="84" marker-end="url(#rena-vs-arrow)"/>
+
+  <rect class="dg-box" x="20" y="86" width="296" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="108" text-anchor="middle">Backend loads context</text>
+  <text class="dg-note" x="168" y="128" text-anchor="middle">[RENA MEMORY] + that tab's prompt</text>
+  <line class="dg-line" x1="168" y1="140" x2="168" y2="164" marker-end="url(#rena-vs-arrow)"/>
+  <text class="dg-note" x="178" y="157">PCM audio · 16 kHz</text>
+
+  <rect class="dg-group" x="10" y="166" width="316" height="78" rx="12"/>
+  <text class="dg-label" x="22" y="186">ADK → Gemini Live</text>
+  <text class="dg-body" x="168" y="210" text-anchor="middle">intent → tool called</text>
+  <text class="dg-note dg-mono" x="168" y="230" text-anchor="middle">log_meal · log_workout · scan_image</text>
+  <line class="dg-line" x1="88" y1="244" x2="88" y2="264" marker-end="url(#rena-vs-arrow)"/>
+  <line class="dg-line" x1="248" y1="244" x2="248" y2="264" marker-end="url(#rena-vs-arrow)"/>
+
+  <rect class="dg-box" x="14" y="266" width="148" height="62" rx="8"/>
+  <text class="dg-body dg-mono" x="88" y="288" text-anchor="middle">tool_status</text>
+  <text class="dg-note" x="88" y="306" text-anchor="middle">“Logging your meal…”</text>
+  <text class="dg-note" x="88" y="321" text-anchor="middle">live save indicator</text>
+
+  <rect class="dg-box" x="174" y="266" width="148" height="62" rx="8"/>
+  <text class="dg-body" x="248" y="292" text-anchor="middle">Tool writes</text>
+  <text class="dg-note" x="248" y="312" text-anchor="middle">to Firestore</text>
+  <line class="dg-line" x1="168" y1="328" x2="168" y2="352" marker-end="url(#rena-vs-arrow)"/>
+
+  <rect class="dg-pill" x="20" y="354" width="296" height="56" rx="28"/>
+  <text class="dg-strong" x="168" y="377" text-anchor="middle">Rena replies out loud</text>
+  <text class="dg-note dg-ink" x="168" y="397" text-anchor="middle">24 kHz audio chunks · AVAudioEngine</text>
+</svg>
+<figcaption>One tap, one round trip: the context is loaded before you speak, and the save indicator shows up before the tool runs.</figcaption>
+</figure>

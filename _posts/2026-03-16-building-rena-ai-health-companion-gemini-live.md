@@ -106,16 +106,8 @@ Four tabs, each with a dedicated voice context:
 ```
 
 **Voice session data flow:**
-```
-User taps Rena →
-WebSocket /ws/{user_id}?context={tab}&tz={timezone} →
-Backend fetches [RENA MEMORY] + prompt →
-PCM audio (16 kHz) streamed over WebSocket →
-ADK → Gemini Live → intent → tool called →
-tool_status message → live save indicator shown →
-Tool writes to Firestore →
-Audio chunks (24 kHz) streamed back → played via AVAudioEngine
-```
+
+{% include diagrams/rena-voice-session.html %}
 
 ---
 
