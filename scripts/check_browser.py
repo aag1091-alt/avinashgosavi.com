@@ -7,6 +7,10 @@ For each HTML page in the built site, at a 375px phone viewport and a 1280px des
   - h-scroll:    the page scrolls sideways (document wider than the viewport)
   - scroll-focus: a wide code block or table that scrolls sideways but can't be reached
                  by keyboard (post-tools.html should give it tabindex=0 + an aria-label)
+  - a11y-dom:    after scripts ran: a visible link, button, form field or focusable widget
+                 with no accessible name, or an id used twice — covers what JS builds
+                 (TOC, search results, copy buttons) that the static a11y lint never sees.
+                 /search/ and /blog/ are also opened with ?q=memory so results render.
 Then once more per theme (sepia and dark, 1280px):
   - contrast:    visible text below WCAG AA (4.5:1, or 3:1 for large text) against the
                  background it actually sits on (semi-transparent fills composited; text
@@ -26,6 +30,7 @@ strict = "--strict" in sys.argv
 only = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--only=")), None)
 SKIP = {"/404.html", "/offline/"}  # 404 is served at any path; offline page reloads itself
 WIDTHS = (375, 1280)
+EXTRA = ("/search/?q=memory", "/blog/?q=memory")  # pages whose content only exists after JS runs
 THEMES = ("sepia", "dark")  # contrast pass, via the theme switch's localStorage key
 
 
@@ -94,6 +99,58 @@ PROBE = r"""() => {
       }
     }
   }
+  return out;
+}"""
+
+
+NAMES = r"""() => {
+  const out = [];
+  const hiddenAnc = el => el.closest('[aria-hidden="true"], [hidden], [inert], template');
+  const visible = el => { if (hiddenAnc(el) || !el.getClientRects().length) return false;
+    const cs = getComputedStyle(el); return cs.visibility === 'visible' && cs.display !== 'none'; };
+  const textOf = root => {  // text a screen reader would read: skips aria-hidden parts, counts img alt / svg title
+    let t = '';
+    const walk = n => {
+      if (n.nodeType === 3) { t += n.textContent; return; }
+      if (n.nodeType !== 1 || n.getAttribute('aria-hidden') === 'true' || n.hidden) return;
+      const tag = n.tagName.toLowerCase();
+      if (tag === 'img') { t += n.getAttribute('alt') || ''; return; }
+      if (tag === 'svg') { const ti = n.querySelector('title'); t += (n.getAttribute('aria-label') || (ti && ti.textContent) || ''); return; }
+      if (n.getAttribute('aria-label')) { t += ' ' + n.getAttribute('aria-label'); return; }
+      for (const c of n.childNodes) walk(c);
+    };
+    walk(root);
+    return t.trim();
+  };
+  const named = el => {
+    if ((el.getAttribute('aria-label') || '').trim()) return true;
+    const lb = el.getAttribute('aria-labelledby');
+    if (lb && lb.split(/\s+/).some(id => { const r = document.getElementById(id); return r && textOf(r); })) return true;
+    if (el.labels && [...el.labels].some(l => textOf(l))) return true;
+    if ((el.getAttribute('title') || '').trim()) return true;
+    const tag = el.tagName.toLowerCase();
+    if (tag === 'input') {
+      const ty = (el.type || '').toLowerCase();
+      if (/^(submit|reset|button)$/.test(ty)) return !!(el.value || ty !== 'button');
+      if (ty === 'image') return !!el.alt;
+      return !!(el.placeholder || '').trim();
+    }
+    if (tag === 'select' || tag === 'textarea') return false;
+    return !!textOf(el);
+  };
+  const desc = el => el.tagName.toLowerCase() + (typeof el.className === 'string' && el.className.trim() ? '.' + el.className.trim().split(/\s+/).join('.') : '') +
+    (el.getAttribute('href') ? ' href=' + el.getAttribute('href').slice(0, 50) : '');
+  const sel = 'a[href], button, input:not([type="hidden"]), select, textarea, summary, [role="button"], [role="link"], [role="tab"], [role="switch"], [role="checkbox"], [role="menuitem"], [tabindex]:not([tabindex="-1"])';
+  for (const el of document.body.querySelectorAll(sel)) {
+    if (out.length >= 10) break;
+    if (!visible(el) || named(el)) continue;
+    // A plain [tabindex] container (e.g. a scrolling region) with readable text inside is fine.
+    if (!el.matches('a, button, input, select, textarea, summary, [role]') && textOf(el)) continue;
+    out.push('no accessible name: ' + desc(el));
+  }
+  const ids = new Map();
+  for (const el of document.querySelectorAll('[id]')) if (el.id) ids.set(el.id, (ids.get(el.id) || 0) + 1);
+  for (const [id, n] of ids) if (n > 1 && out.length < 14) out.push('id "' + id + '" used ' + n + ' times');
   return out;
 }"""
 
@@ -205,8 +262,9 @@ def main():
     srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(Handler, directory=root))
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     base = "http://127.0.0.1:%d" % srv.server_address[1]
-    urls = only or pages()
+    urls = only or (pages() + list(EXTRA))
     problems = defaultdict(list)  # rule -> [(url, msg)]
+    seen_dom = set()
 
     with sync_playwright() as pw:
         browser = None
@@ -231,6 +289,7 @@ def main():
                     page.goto(base + url, wait_until="load", timeout=20000)
                     page.wait_for_timeout(300)  # let ResizeObserver / deferred scripts run
                     r = page.evaluate(PROBE)
+                    named = page.evaluate(NAMES)
                 except Exception as e:
                     problems["load"].append((url, "%dpx: %s" % (width, str(e).splitlines()[0][:160])))
                     page.close()
@@ -241,6 +300,10 @@ def main():
                 if r["sw"] > r["vw"] + 1:
                     problems["h-scroll"].append((url, "%dpx: page is %dpx wide%s" % (
                         width, r["sw"], (" — " + ", ".join(r.get("wide", []))) if r.get("wide") else "")))
+                for m in named:
+                    if (url, m) not in seen_dom:  # same issue at both widths: report once
+                        seen_dom.add((url, m))
+                        problems["a11y-dom"].append((url, "%dpx: %s" % (width, m)))
                 for s in r["stuck"]:
                     problems["scroll-focus"].append((url, "%dpx: %s scrolls but isn't focusable" % (width, s)))
                 page.close()
