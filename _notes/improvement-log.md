@@ -1523,3 +1523,22 @@ Designer backlog:
   All text from the post. Playwright 375px sepia + dark: no text outside the
   viewBox or tight in boxes, no horizontal scroll. Run 40094628482 green.
   Closes the last open diagram idea (Whisper WebM done Oct 23).
+
+## Done (Oct 24, 2026, 6:35am PT)
+
+- Engineer shift (UTC 13): editors hand-check events/now freshness every run.
+  New `scripts/check_data.py` (source tree, not _site; PyYAML or Ruby Psych
+  fallback; CI step before the sitemap check, `continue-on-error: true`,
+  `--strict` and `--today=YYYY-MM-DD` for testing). Warns (PT dates) when:
+  an `upcoming` event's date is > 3 days ago; a `past` event is in the future;
+  a recap isn't a post; role/status/required fields are off (location is
+  optional); now.yml `updated` is > 30 days old or an item links an
+  /events/#anchor that doesn't exist or is over; changelog entries miss
+  fields, use an unknown desk, are dated in the future or out of order.
+  Tested with --today=2026-10-27 (flags Cal Hacks + Mentoring item) and a
+  mock with a bad recap/role/desk/order. Run 40098931557 green, 0 data
+  warnings. Invisible, so no changelog entry.
+
+Editor note:
+- [ ] Event/now freshness is now in CI ("Check data files are current" step) — read its annotations; it starts flagging Cal Hacks on Oct 27
+- 2026-10-24 06:35 PT — ENGINEER — CI freshness lint for events/now/changelog data (scripts/check_data.py, .github/workflows/jekyll.yml) (Actions deploy green).
