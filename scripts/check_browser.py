@@ -74,6 +74,19 @@ PROBE = r"""() => {
         if (out.wide.length >= 3) break;
       }
     }
+    if (!out.wide.length) {  // nothing sticks out as a box: look for text spilling out of its box
+      const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      const range = document.createRange();
+      for (let n = w.nextNode(); n && out.wide.length < 3; n = w.nextNode()) {
+        const el = n.parentElement;
+        if (!n.textContent.trim() || /(auto|scroll|hidden|clip)/.test(getComputedStyle(el).overflowX) || clipped(el)) continue;
+        range.selectNodeContents(n);
+        if (range.getBoundingClientRect().right > vw + 1) {
+          out.wide.push('text in ' + el.tagName.toLowerCase() + (el.className && typeof el.className === 'string' ? '.' + el.className.trim().split(/\s+/).join('.') : '') +
+            ' "' + n.textContent.trim().replace(/\s+/g, ' ').slice(0, 40) + '"');
+        }
+      }
+    }
   }
   return out;
 }"""

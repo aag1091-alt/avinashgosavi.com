@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Engineering
+  text: The hobby project stack post no longer scrolls sideways on phones while its architecture diagram loads; until then the diagram source shows in a tidy code box. A new browser check on every deploy now catches pages like this.
+  link: /post/hobby-project-stack/
+- date: 2026-10-24
   desk: Design
   text: VaultMem Part 2's query normalizer section now has a diagram in the sepia and dark themes showing how a question like "What do I know about Sarah Chen?" is trimmed to "Sarah Chen" before it is embedded.
   link: /post/vaultmem-part-2-multimodal-temporal-backends/

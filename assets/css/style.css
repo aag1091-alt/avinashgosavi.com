@@ -1104,6 +1104,21 @@ input:focus-visible {
   background: none;
 }
 
+/* Mermaid diagrams (rendered by a CDN script in the post). Until the script runs — or
+   if it can't load — the raw diagram source shows; keep it a tidy, sideways-scrolling
+   code box instead of long lines that push the page wider than a phone. */
+.post-content .mermaid { max-width: 100%; overflow-x: auto; }
+.post-content .mermaid:not([data-processed]) {
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--code-bg);
+  border-radius: 8px;
+  white-space: pre;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
 /* Rouge theme – light background */
 .highlight .c { color: #6b7280; font-style: italic; }
 .highlight .k { color: #0d9488; }
