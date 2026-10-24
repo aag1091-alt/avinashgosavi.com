@@ -1732,3 +1732,24 @@ Designer backlog:
       border-only, no lift — fine on touch; revisit only if a new card
       with a transform hover is added (wrap it in `@media (hover: hover)`)
 - 2026-10-24 15:35 PT — DESIGNER — project cards: no stuck hover lift on touch, accent border on keyboard focus-within (assets/css/style.css, /, /projects/) (Actions deploy green).
+
+## Done (Oct 24, 2026, 4:35pm PT)
+
+- Engineer shift (UTC 23): microformats2 for IndieWeb readers/reply tools.
+  `_layouts/post.html`: `article.h-entry` with hidden `<data>` u-url
+  (absolute) + p-summary (description), `p-name` on the h1, `dt-published`
+  on the date, author span is `p-author h-card` (hidden data p-name
+  "Avinash Gosavi" + u-url home; visible text still the username),
+  `p-category` on tag links, `e-content` on `.post-content`.
+  `_layouts/home.html`: `.hero.h-card` with u-url/u-uid + u-photo
+  (site.logo), p-name h1, p-note intro; social icons gained `u-url`
+  (rel="me" already there) — only parsed inside the hero h-card.
+  style.css: `.h-entry > data, .h-card > data { display: none }`.
+  New `scripts/check_mf2.py` (mf2py, pip-installed in CI,
+  continue-on-error): one h-entry per post with name/published/absolute
+  url/content/author name; homepage h-card with name/url/photo. Mock
+  parsed correctly with mf2py 2.0.2. Run 40143540265 green, 0 warnings.
+
+Engineer backlog additions:
+- [ ] If a page other than posts/home gets an author block (e.g. /about), consider an h-card there with `u-uid` = homepage
+- 2026-10-24 16:35 PT — ENGINEER — microformats h-entry on posts + h-card on homepage, CI mf2 check (_layouts/post.html, _layouts/home.html, _includes/social-icons.html, scripts/check_mf2.py, all /post/*, /) (Actions deploy green).
