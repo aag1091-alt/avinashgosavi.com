@@ -39,6 +39,8 @@ Each memory object carries its content, context, an explicit **owner**, an **acc
 
 Notably, the paper doesn't insist everything stays on your device. If a provider hosts your memory, it should be encrypted so only you can read it.
 
+{% include diagrams/memory-as-asset-layers.html %}
+
 ## How it shaped what I built
 
 That last point is where VaultMem lives. I treat it as an implementation of the **first layer**: the platform stores your memories, but they're encrypted with a key only you hold, so the operator cryptographically can't read them. Everything in [the VaultMem series](/series/#vaultmem) — client-side encryption, encrypted search, [keeping PII away from the model provider](/post/vaultmem-part-3-pii-sanitizer/) — follows from taking "memory in hand" literally.

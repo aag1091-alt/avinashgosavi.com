@@ -1,0 +1,50 @@
+<figure class="diagram">
+<svg viewBox="0 0 312 476" role="img" aria-labelledby="maa-dg-title maa-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="maa-dg-title">Memory as Asset: memory objects and the three layers</title>
+  <desc id="maa-dg-desc">Each memory object carries its content, its context and a version, plus an explicit owner and an access policy, so ownership travels with the data. Memory objects are kept in layer 1, personal storage: each person's private memory objects. VaultMem implements this layer, encrypted with a key only the user holds. Layer 2, evolution, updates memory from interactions: it records experiences, merges related memories and abstracts knowledge, and can run locally or remotely. Layer 3, the memory exchange network, discovers, authenticates and exchanges memory assets; the paper sketches it rather than solving it. Overall: owned by you, shared only through your permissions.</desc>
+  <defs>
+    <marker id="maa-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-group" x="10" y="10" width="292" height="136" rx="12"/>
+  <text class="dg-label" x="22" y="30">Every memory object carries</text>
+  <rect class="dg-box" x="24" y="42" width="82" height="30" rx="6"/>
+  <text class="dg-body" x="65" y="62" text-anchor="middle">content</text>
+  <rect class="dg-box" x="115" y="42" width="82" height="30" rx="6"/>
+  <text class="dg-body" x="156" y="62" text-anchor="middle">context</text>
+  <rect class="dg-box" x="206" y="42" width="82" height="30" rx="6"/>
+  <text class="dg-body" x="247" y="62" text-anchor="middle">version</text>
+  <rect class="dg-pill" x="24" y="80" width="128" height="30" rx="6"/>
+  <text class="dg-body" x="88" y="100" text-anchor="middle">owner</text>
+  <rect class="dg-pill" x="160" y="80" width="128" height="30" rx="6"/>
+  <text class="dg-body" x="224" y="100" text-anchor="middle">access policy</text>
+  <text class="dg-note" x="156" y="132" text-anchor="middle">ownership travels with the data</text>
+
+  <line class="dg-line" x1="156" y1="146" x2="156" y2="168" marker-end="url(#maa-dg-arrow)"/>
+  <text class="dg-note" x="166" y="162">kept in</text>
+
+  <rect class="dg-pill" x="22" y="170" width="268" height="72" rx="12"/>
+  <text class="dg-strong" x="156" y="195" text-anchor="middle">1 · Personal storage</text>
+  <text class="dg-note dg-ink" x="156" y="214" text-anchor="middle">your private memory objects</text>
+  <text class="dg-note dg-ink" x="156" y="231" text-anchor="middle">VaultMem: encrypted with your key</text>
+
+  <line class="dg-line" x1="156" y1="244" x2="156" y2="264" marker-start="url(#maa-dg-arrow)" marker-end="url(#maa-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="266" width="268" height="72" rx="12"/>
+  <text class="dg-strong" x="156" y="290" text-anchor="middle">2 · Evolution</text>
+  <text class="dg-note" x="156" y="309" text-anchor="middle">record · merge · abstract</text>
+  <text class="dg-note" x="156" y="326" text-anchor="middle">runs locally or remotely</text>
+
+  <line class="dg-line" x1="156" y1="340" x2="156" y2="360" marker-start="url(#maa-dg-arrow)" marker-end="url(#maa-dg-arrow)"/>
+
+  <rect class="dg-box dg-muted" x="22" y="362" width="268" height="72" rx="12"/>
+  <text class="dg-strong" x="156" y="386" text-anchor="middle">3 · Memory exchange network</text>
+  <text class="dg-note" x="156" y="405" text-anchor="middle">discover · authenticate · exchange</text>
+  <text class="dg-note" x="156" y="422" text-anchor="middle">sketched in the paper, not solved</text>
+
+  <text class="dg-note" x="156" y="462" text-anchor="middle">owned by you · shared on your terms</text>
+</svg>
+<figcaption>The paper's design in one picture: owner and access policy live inside every memory object, and three layers store, evolve and exchange those objects. VaultMem is the first layer.</figcaption>
+</figure>
