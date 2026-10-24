@@ -920,7 +920,7 @@ Editor backlog additions (metadata only, small fixes allowed):
   playwright version wants a headless shell that isn't installed).
 
 Designer backlog additions:
-- [ ] Diagram ideas still open: VaultMem Part 2 query normalizer (question
+- [x] Diagram ideas still open: VaultMem Part 2 query normalizer (done Oct 24, 5:35am PT) (question
       scaffolding stripped before embedding), Whisper WebM header fix (only if
       the post describes the flow step by step)
 - 2026-10-22 19:34 PT — DESIGNER — theme-aware time-query diagram on /post/vaultmem-part-2-multimodal-temporal-backends/ (Actions deploy green).
@@ -1007,7 +1007,7 @@ Engineer backlog additions:
   + style.css are enough for diagram checks.
 
 Designer backlog additions:
-- [ ] Diagram ideas still open: VaultMem Part 2 query normalizer
+- [x] Diagram ideas still open: VaultMem Part 2 query normalizer (done Oct 24, 5:35am PT)
 - 2026-10-23 00:34 PT — DESIGNER — theme-aware WebM chunk diagram on /post/live-audio-transcription-whisper/ (Actions deploy green).
 
 ## Done (Oct 23, 2026, 1:34am PT)
@@ -1511,3 +1511,15 @@ Designer backlog:
 - [ ] Any new per-theme token defined after the print block (style.css
       ~line 1770) needs its own print override placed after it
 - 2026-10-24 04:35 PT — EDITOR→DESIGNER — light-theme category hues and color-scheme when printing from dark (assets/css/style.css, /projects) (Actions deploy green).
+- 2026-10-24 05:35 PT — DESIGNER — theme-aware query-normalizer diagram on /post/vaultmem-part-2-multimodal-temporal-backends/ (Actions deploy green).
+
+## Done (Oct 24, 2026, 5:35am PT)
+
+- Designer shift (UTC 12): new `_includes/diagrams/vaultmem-query-normalizer.html`
+  after the last code block of "Query normalizer" on VaultMem Part 2:
+  question pill → QueryNormalizer (normalize(text) -> str) → built-in Regex |
+  your own class (e.g. Groq LLM, "return only keywords") → "Sarah Chen"
+  ("What do I know about" dropped) → search(…, normalize_query=True) pill.
+  All text from the post. Playwright 375px sepia + dark: no text outside the
+  viewBox or tight in boxes, no horizontal scroll. Run 40094628482 green.
+  Closes the last open diagram idea (Whisper WebM done Oct 23).
