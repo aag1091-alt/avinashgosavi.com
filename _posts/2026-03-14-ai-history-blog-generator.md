@@ -39,40 +39,7 @@ It tracks everything in a `state.json` file so you can stop it mid-run, restart 
 
 Each post goes through a four-stage LangGraph pipeline:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Claude / OpenAI                           │
-│           "What's the next milestone to cover?"              │
-└───────────────────────────┬─────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Research Node                                               │
-│  ├─ Wikipedia lookup                                         │
-│  ├─ arXiv lookup (for science/tech topics)                   │
-│  └─ Wikimedia image fetch (relevance + NSFW filtered)        │
-└───────────────────────────┬─────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Write Node (Ollama — local LLM)                             │
-│  ├─ WriterAgent with tool calling                            │
-│  │   Tools: search_wikipedia, search_arxiv, write_post       │
-│  └─ Runs multi-turn until write_post tool is called          │
-└───────────────────────────┬─────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Critique Node (Ollama — structured output via Pydantic)     │
-│  Checks: year mentioned · people named · section format      │
-│          word count · no hallucinated URLs                   │
-│  Returns: approved (bool) + issues list                      │
-└───────────┬───────────────────────────┬─────────────────────┘
-            │ approved                  │ issues found (max 2x)
-            ▼                           ▼
-          Publish                  Rewrite Node
-          & Push                  (fixes issues, loops back)
-```
+{% include diagrams/ai-history-pipeline.html %}
 
 **Milestone selection** uses Claude (or OpenAI as fallback) via API — this is the "thinking" layer that picks what to write about. **Post writing** is entirely local via Ollama, so you're not paying per token for every paragraph.
 

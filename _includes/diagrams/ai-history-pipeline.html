@@ -1,0 +1,54 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 632" role="img" aria-labelledby="aihist-dg-title aihist-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="aihist-dg-title">The four-stage LangGraph pipeline behind each generated post</title>
+  <desc id="aihist-dg-desc">Claude or OpenAI picks the next milestone to cover. The research node looks it up on Wikipedia, on arXiv for science and tech topics, and fetches a Wikimedia image filtered for relevance and NSFW content. The write node runs a local LLM through Ollama: a WriterAgent with tool calling, using search_wikipedia, search_arxiv and write_post, runs multi-turn until write_post is called. The critique node, also on Ollama with structured output via Pydantic, checks that a year is mentioned, people are named, the section format and word count are right and there are no hallucinated URLs, and returns approved plus a list of issues. If approved, the post is published and pushed. If issues are found, a rewrite node fixes them and loops back, at most twice.</desc>
+  <defs>
+    <marker id="aihist-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="20" y="10" width="296" height="58" rx="29"/>
+  <text class="dg-strong" x="168" y="35" text-anchor="middle">Claude / OpenAI</text>
+  <text class="dg-note dg-ink" x="168" y="55" text-anchor="middle">“What’s the next milestone to cover?”</text>
+  <line class="dg-line" x1="168" y1="68" x2="168" y2="96" marker-end="url(#aihist-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="98" width="292" height="92" rx="8"/>
+  <text class="dg-strong" x="36" y="120">Research node</text>
+  <text class="dg-note" x="36" y="142">Wikipedia lookup</text>
+  <text class="dg-note" x="36" y="160">arXiv lookup (science/tech topics)</text>
+  <text class="dg-note" x="36" y="178">Wikimedia image (relevance + NSFW filtered)</text>
+  <line class="dg-line" x1="168" y1="190" x2="168" y2="216" marker-end="url(#aihist-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="218" width="292" height="130" rx="8"/>
+  <text class="dg-strong" x="36" y="240">Write node</text>
+  <text class="dg-note" x="300" y="240" text-anchor="end">Ollama · local LLM</text>
+  <text class="dg-note" x="36" y="264">WriterAgent with tool calling</text>
+  <text class="dg-note dg-mono" x="36" y="284">search_wikipedia · search_arxiv</text>
+  <text class="dg-note dg-mono" x="36" y="302">write_post</text>
+  <text class="dg-note" x="36" y="326">Multi-turn until <tspan class="dg-mono">write_post</tspan> is called</text>
+  <line class="dg-line" x1="168" y1="348" x2="168" y2="374" marker-end="url(#aihist-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="376" width="292" height="136" rx="8"/>
+  <text class="dg-strong" x="36" y="398">Critique node</text>
+  <text class="dg-note" x="36" y="418">Ollama, structured output via Pydantic</text>
+  <text class="dg-note" x="36" y="442">Checks: year mentioned · people named</text>
+  <text class="dg-note" x="36" y="460">section format · word count</text>
+  <text class="dg-note" x="36" y="478">no hallucinated URLs</text>
+  <text class="dg-body" x="36" y="500">→ approved + issues list</text>
+
+  <line class="dg-line" x1="90" y1="512" x2="90" y2="560" marker-end="url(#aihist-dg-arrow)"/>
+  <text class="dg-note" x="82" y="541" text-anchor="end">approved</text>
+  <line class="dg-line" x1="246" y1="512" x2="246" y2="560" marker-end="url(#aihist-dg-arrow)"/>
+  <text class="dg-note" x="238" y="541" text-anchor="end">issues (max 2×)</text>
+
+  <rect class="dg-pill" x="16" y="562" width="148" height="56" rx="28"/>
+  <text class="dg-strong" x="90" y="595" text-anchor="middle">Publish &amp; push</text>
+
+  <rect class="dg-box" x="172" y="562" width="144" height="56" rx="8"/>
+  <text class="dg-strong" x="244" y="585" text-anchor="middle">Rewrite node</text>
+  <text class="dg-note" x="244" y="605" text-anchor="middle">fixes issues</text>
+  <path class="dg-line dg-dash" d="M316 590 H328 V444 H316" marker-end="url(#aihist-dg-arrow)"/>
+</svg>
+<figcaption>A cloud model only picks the milestone; local models write and critique each post, and a draft with issues gets up to two rewrites.</figcaption>
+</figure>
