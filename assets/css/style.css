@@ -1777,6 +1777,7 @@ h2.has-anchor .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
     --border: #cccccc;
     --border-header: #cccccc;
     --code-bg: #f4f4f4;
+    color-scheme: light;
     background: #fff;
     color: #111;
     font-size: 11pt;
@@ -1829,6 +1830,10 @@ body.theme-dark {
   --cat-agents: #e39472;
   --cat-tools: #b5c47e;
   --cat-fun: #c9a3dc;
+}
+@media print {
+  /* paper is white: use the light-theme hues (dark-theme pastels drop under 3:1 on white) */
+  body[class] { --cat-agents: #a3462a; --cat-tools: #6f5f12; --cat-fun: #7a4688; }
 }
 .project-card { position: relative; overflow: hidden; }
 .project-card, .project-category { --cat: var(--accent); } /* memory = theme accent */
