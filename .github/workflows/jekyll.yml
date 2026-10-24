@@ -78,7 +78,7 @@ jobs:
       - name: Browser check — JS errors, sideways scroll at 375px, keyboard-reachable wide code (warnings only, never blocks deploy)
         run: |
           python3 -m pip install --quiet --break-system-packages playwright
-          python3 scripts/check_browser.py _site  # uses the runner's preinstalled Google Chrome; offline, other hosts blocked
+          python3 scripts/check_browser.py _site  # + WCAG contrast pass in sepia and dark; uses the runner's preinstalled Google Chrome; offline, other hosts blocked
         continue-on-error: true
         timeout-minutes: 8
 

@@ -7,6 +7,10 @@ For each HTML page in the built site, at a 375px phone viewport and a 1280px des
   - h-scroll:    the page scrolls sideways (document wider than the viewport)
   - scroll-focus: a wide code block or table that scrolls sideways but can't be reached
                  by keyboard (post-tools.html should give it tabindex=0 + an aria-label)
+Then once more per theme (sepia and dark, 1280px):
+  - contrast:    visible text below WCAG AA (4.5:1, or 3:1 for large text) against the
+                 background it actually sits on (semi-transparent fills composited; text
+                 over images/gradients and inside SVG diagrams is skipped)
 
 The site is served from a local http.server; every request to another host (analytics,
 external images) is blocked, so the run is offline and never counts as a visit.
@@ -21,6 +25,7 @@ strict = "--strict" in sys.argv
 only = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--only=")), None)
 SKIP = {"/404.html", "/offline/"}  # 404 is served at any path; offline page reloads itself
 WIDTHS = (375, 1280)
+THEMES = ("sepia", "dark")  # contrast pass, via the theme switch's localStorage key
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -92,6 +97,63 @@ PROBE = r"""() => {
 }"""
 
 
+CONTRAST = r"""() => {
+  const parse = c => {
+    let m = c.match(/^rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)$/);
+    if (m) return [+m[1], +m[2], +m[3], m[4] === undefined ? 1 : +m[4]];
+    m = c.match(/^color\(srgb ([\d.]+) ([\d.]+) ([\d.]+)(?: \/ ([\d.]+))?\)$/);
+    if (m) return [m[1] * 255, m[2] * 255, m[3] * 255, m[4] === undefined ? 1 : +m[4]];
+    return null;  // other color spaces: skip
+  };
+  const over = (top, base) => { const a = top[3];
+    return [top[0] * a + base[0] * (1 - a), top[1] * a + base[1] * (1 - a), top[2] * a + base[2] * (1 - a), 1]; };
+  const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+    return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
+  const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+  const hex = c => '#' + c.slice(0, 3).map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+  // Background the element's text is drawn on: composite ancestor fills from the canvas up.
+  const bgOf = el => {
+    const layers = [];
+    for (let a = el; a; a = a.parentElement) {
+      const cs = getComputedStyle(a);
+      if (cs.backgroundImage !== 'none') return null;  // image/gradient: can't know
+      const c = parse(cs.backgroundColor);
+      if (c === null) return null;
+      if (c[3] > 0) layers.push(c);
+      if (c[3] >= 1) break;
+    }
+    let bg = [255, 255, 255, 1];
+    for (let i = layers.length - 1; i >= 0; i--) bg = over(layers[i], bg);
+    return bg;
+  };
+  const out = [], seen = new Set();
+  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let n = w.nextNode(); n && out.length < 8; n = w.nextNode()) {
+    const el = n.parentElement;
+    if (!n.textContent.trim() || !el || el.closest('svg, script, style, noscript, [aria-hidden="true"], [hidden]')) continue;
+    const r = el.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) continue;  // visually-hidden helpers
+    const cs = getComputedStyle(el);
+    if (cs.visibility !== 'visible' || cs.display === 'none') continue;
+    let op = 1; for (let a = el; a; a = a.parentElement) op *= +getComputedStyle(a).opacity;
+    if (op < 0.1) continue;  // faded-out widgets (e.g. back-to-top before scrolling)
+    let fg = parse(cs.color), bg = bgOf(el);
+    if (!fg || !bg) continue;
+    fg = over([fg[0], fg[1], fg[2], fg[3] * op], bg);
+    const px = parseFloat(cs.fontSize), bold = parseInt(cs.fontWeight, 10) >= 700;
+    const need = (px >= 24 || (bold && px >= 18.66)) ? 3 : 4.5;
+    const cr = ratio(fg, bg);
+    if (cr + 0.005 >= need) continue;
+    const name = el.tagName.toLowerCase() + (typeof el.className === 'string' && el.className.trim() ? '.' + el.className.trim().split(/\s+/).join('.') : '');
+    const key = name + hex(fg) + hex(bg);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(name + ' "' + n.textContent.trim().replace(/\s+/g, ' ').slice(0, 30) + '" ' + hex(fg) + ' on ' + hex(bg) + ' = ' + cr.toFixed(2) + ':1 (needs ' + need + ')');
+  }
+  return out;
+}"""
+
+
 def main():
     try:
         from playwright.sync_api import sync_playwright
@@ -142,6 +204,22 @@ def main():
                     problems["scroll-focus"].append((url, "%dpx: %s scrolls but isn't focusable" % (width, s)))
                 page.close()
             ctx.close()
+        for theme in THEMES:
+            ctx = browser.new_context(viewport={"width": 1280, "height": 800}, service_workers="block",
+                                      reduced_motion="reduce")
+            ctx.route("**/*", lambda r: r.continue_() if r.request.url.startswith(base) else r.abort())
+            ctx.add_init_script("try { localStorage.setItem('blog_color_theme', '%s'); } catch (e) {}" % theme)
+            for url in urls:
+                page = ctx.new_page()
+                try:
+                    page.goto(base + url, wait_until="load", timeout=20000)
+                    page.wait_for_timeout(300)
+                    for m in page.evaluate(CONTRAST):
+                        problems["contrast"].append((url, "%s: %s" % (theme, m)))
+                except Exception as e:
+                    problems["load"].append((url, "%s: %s" % (theme, str(e).splitlines()[0][:160])))
+                page.close()
+            ctx.close()
         browser.close()
     srv.shutdown()
 
@@ -149,7 +227,7 @@ def main():
     for rule, items in sorted(problems.items()):
         ex = "; ".join("%s (%s)" % (u, m) for u, m in items[:4])
         print("::warning title=browser %s::%d issue(s), e.g. %s" % (rule, len(items), ex))
-    lines = ["### Browser check", "", "%d pages × %s px: %d issue(s)" % (len(urls), "/".join(map(str, WIDTHS)), total), ""]
+    lines = ["### Browser check", "", "%d pages × %s px, contrast in %s: %d issue(s)" % (len(urls), "/".join(map(str, WIDTHS)), "/".join(THEMES), total), ""]
     for rule, items in sorted(problems.items()):
         lines += ["- **%s** %s — %s" % (rule, u, m) for u, m in items]
     summary = os.environ.get("GITHUB_STEP_SUMMARY")
