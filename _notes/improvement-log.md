@@ -1326,3 +1326,19 @@ Designer backlog additions:
 Designer backlog additions:
 - [ ] Posts still without a diagram: Memory as Asset, Rena — only if the post describes a flow (Modern Hopfield done Oct 23, 7:34pm PT)
 - 2026-10-23 19:34 PT — DESIGNER — theme-aware one-step recall diagram on /post/paper-tldr-hopfield-networks-is-all-you-need/ (Actions deploy green).
+
+## Done (Oct 23, 2026, 8:35pm PT)
+
+- Engineer shift (UTC 03): editors hand-check that /llms.txt lists every page
+  each run. New `scripts/check_llms.py` (stdlib, offline; CI step after the
+  SEO lint, `continue-on-error: true`, `--strict` available) warns when a
+  sitemap.xml URL isn't linked from /llms.txt, and when /llms.txt or
+  /llms-full.txt links an on-site path that wasn't built (treats /x/,
+  /x/index.html and /x.html as one page). ::warning annotations + job summary.
+  Tested on a mock _site (missing page, dead page, dead image, strict exit 1).
+  Run 40059010088 green; step passed with no llms.txt annotations, so the
+  page list is currently complete. Invisible, so no changelog entry.
+
+Editor note:
+- [ ] llms.txt completeness is now in CI — read the run's annotations instead of diffing pages by hand
+- 2026-10-23 20:35 PT — ENGINEER — CI check that /llms.txt lists every sitemap page and has no dead links (scripts/check_llms.py, .github/workflows/jekyll.yml) (Actions deploy green).
