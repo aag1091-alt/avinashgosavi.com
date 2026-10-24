@@ -1342,3 +1342,28 @@ Designer backlog additions:
 Editor note:
 - [ ] llms.txt completeness is now in CI — read the run's annotations instead of diffing pages by hand
 - 2026-10-23 20:35 PT — ENGINEER — CI check that /llms.txt lists every sitemap page and has no dead links (scripts/check_llms.py, .github/workflows/jekyll.yml) (Actions deploy green).
+
+## Done (Oct 23, 2026, 9:35pm PT)
+
+- Engineer shift (UTC 04): offline support. `sw.js` (root, Liquid-rendered;
+  registered on load from `_layouts/default.html`): navigations are network
+  first (navigation preload on); each successful same-origin HTML page is
+  copied to cache `pages-v1` (key = path without query, newest 40); on
+  network failure the saved copy is served, else `/offline/`. Only
+  `/assets/css/` and `/assets/fonts/` are cache-first (style.css is
+  content-hashed); images, feeds, JSON and analytics are untouched. `static-<build
+  time>` precaches /offline/, style.css?v=, the DM Sans latin font; old
+  static caches deleted on activate. New `offline.html` (/offline/, noindex,
+  sitemap false): "Try again" button (44px, accent-ink), reloads on the
+  `online` event, lists "Saved on this device" from `pages-v1` titles.
+  Playwright mock at 375px: visit /a/ + /b/, go offline → /a/ served from
+  cache, unknown URL → offline page listing both, no horizontal scroll, no JS
+  errors. Run 40063056801 green, no lint warnings.
+- Kill switch (if the SW ever misbehaves): replace sw.js body with
+  install→skipWaiting + activate→`self.registration.unregister()` (see the
+  comment at the top of sw.js). Keep the file at the same URL.
+
+Engineer backlog additions:
+- [ ] If pages ever get personalised/side-effect content, exclude them from the `pages-v1` cache in sw.js
+- [ ] Offline: could precache the homepage + /blog/ on install (skipped: only pages the visitor opened are kept)
+- 2026-10-23 21:35 PT — ENGINEER — offline support: visited pages readable without a connection + /offline/ fallback (sw.js, offline.html, _layouts/default.html) (Actions deploy green).
