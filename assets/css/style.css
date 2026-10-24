@@ -428,10 +428,13 @@ input:focus-visible {
   color: var(--bg);
 }
 
+/* Hover nudges the fill toward --text (darker in sepia, lighter in dark), so
+   contrast goes UP on hover. The old opacity: .88 fade dropped the sepia label
+   to 3.9:1; this is 5.8:1 (sepia) / 8.2:1 (dark). */
 .hero-btn-primary:hover {
-  background: var(--accent);
+  background: color-mix(in srgb, var(--accent) 80%, var(--text));
+  border-color: color-mix(in srgb, var(--accent) 80%, var(--text));
   color: var(--bg);
-  opacity: 0.88;
 }
 
 /* Projects */

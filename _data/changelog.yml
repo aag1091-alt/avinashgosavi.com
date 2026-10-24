@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Design
+  text: The "View Projects" button on the homepage now gets darker on hover in sepia (and lighter in dark) instead of fading, so its label stays easy to read while you point at it.
+  link: /
+- date: 2026-10-24
   desk: Engineering
   text: Code samples in posts are easier to read — comments, strings and keywords now meet WCAG contrast on the sepia and dark code backgrounds, and so do the tag counts on the Writing filters. Every deploy now measures text contrast in both themes.
   link: /post/ai-history-blog-generator/
