@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
   desk: Engineering
+  text: Quote links now land on the passage you actually selected, even when its opening words also appear earlier in the post.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- date: 2026-10-24
+  desk: Engineering
   text: Select a passage in any post with a mouse or trackpad and a "Copy link to quote" button appears — the link opens the post scrolled to that passage with it highlighted.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
 - date: 2026-10-24

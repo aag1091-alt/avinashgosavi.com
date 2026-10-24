@@ -318,7 +318,24 @@
     if(!root.contains(c)||c.closest('pre, code, svg, .diagram, .post-toc, button')) return;
     var w=sel.toString().replace(/\s+/g,' ').trim().split(' ');
     if(w.join(' ').length<3||w.length>300) return;
-    frag=w.length<=8 ? enc(w.join(' ')) : enc(w.slice(0,4).join(' '))+','+enc(w.slice(-4).join(' '));
+    var start=w.length<=8 ? w.join(' ') : w.slice(0,4).join(' ');
+    frag=w.length<=8 ? enc(start) : enc(start)+','+enc(w.slice(-4).join(' '));
+    // Browsers highlight the first match, so if the quote's opening words appear earlier in the post,
+    // add up to 3 words that precede it in the same paragraph as a prefix (`prefix-,start`).
+    try{
+      var pre=document.createRange(); pre.setStart(root,0); pre.setEnd(r.startContainer,r.startOffset);
+      var before=pre.toString().replace(/\s+/g,' ').toLowerCase();
+      if(before.indexOf(start.toLowerCase())>-1){
+        var sc=r.startContainer.nodeType===1 ? r.startContainer : r.startContainer.parentNode;
+        var blk=sc.closest('p, li, h2, h3, h4, h5, h6, blockquote, td, th, dd, dt, figcaption')||root;
+        var bp=document.createRange(); bp.setStart(blk,0); bp.setEnd(r.startContainer,r.startOffset);
+        var bt=bp.toString().replace(/\s+/g,' ');
+        if(/ $/.test(bt)||/^\s/.test(sel.toString())){
+          var pw=bt.trim().split(' ').filter(Boolean).slice(-3);
+          if(pw.length) frag=enc(pw.join(' '))+'-,'+frag;
+        }
+      }
+    }catch(err){}
     var rects=r.getClientRects(), b=rects[rects.length-1]||r.getBoundingClientRect();
     ql.hidden=false;
     var x=Math.min(Math.max(8,b.right-ql.offsetWidth/2),document.documentElement.clientWidth-ql.offsetWidth-8);
