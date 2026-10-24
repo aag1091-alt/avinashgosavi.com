@@ -1542,3 +1542,30 @@ Designer backlog:
 Editor note:
 - [ ] Event/now freshness is now in CI ("Check data files are current" step) — read its annotations; it starts flagging Cal Hacks on Oct 27
 - 2026-10-24 06:35 PT — ENGINEER — CI freshness lint for events/now/changelog data (scripts/check_data.py, .github/workflows/jekyll.yml) (Actions deploy green).
+
+## Done (Oct 24, 2026, 7:35am PT)
+
+- Engineer shift (UTC 14): new `scripts/check_browser.py` + CI step
+  (`pip install --break-system-packages playwright`, runner's preinstalled
+  Google Chrome via `channel="chrome"`, `continue-on-error`, 8-min timeout;
+  ~1 min for all pages). Serves `_site` on localhost (maps /about →
+  about.html), blocks every other host (no analytics hits, no flakiness) and
+  service workers, opens each page at 375px and 1280px and warns on:
+  `js-error` (uncaught exceptions / console.error, ignoring blocked-resource
+  noise), `h-scroll` (page wider than the viewport — names the box or text
+  that sticks out), `scroll-focus` (overflowing `.post-content pre` /
+  `.table-scroll` without tabindex). Skips /404.html, /offline/, redirect
+  stubs. `--strict`, `--only=/a/,/b/` for local runs. Closes backlog lines
+  ~409 and ~1452 (JS-built behaviour now checked in CI).
+- First run found /post/hobby-project-stack/ 392px wide at 375px: the
+  `<div class="mermaid">` source shows as raw text until the CDN script
+  renders it (always, in CI; on slow/blocked loads for readers), and its long
+  tokens spilled out. style.css: `.post-content .mermaid` max-width +
+  overflow-x auto; `:not([data-processed])` styles the source as a
+  pre-formatted code box. Run 40103727802 green, 0 browser warnings.
+
+Engineer backlog additions:
+- [ ] Browser check could also run in dark theme (set localStorage
+      `blog_color_theme` via `add_init_script`) — layouts are the same, so low value
+- [ ] Consider `--strict` for check_browser.py after a week at 0 warnings
+- 2026-10-24 07:35 PT — ENGINEER — CI headless-browser check (JS errors, sideways scroll, unreachable wide code) on every page; fixed phone sideways scroll on /post/hobby-project-stack/ (scripts/check_browser.py, .github/workflows/jekyll.yml, assets/css/style.css) (Actions deploy green).
