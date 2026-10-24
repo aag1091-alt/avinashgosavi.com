@@ -53,13 +53,26 @@ def pages():
     return sorted(out)
 
 
-PROBE = """() => {
+PROBE = r"""() => {
   const vw = document.documentElement.clientWidth;
   const out = {sw: document.documentElement.scrollWidth, vw, stuck: []};
   for (const el of document.querySelectorAll('.post-content pre, .table-scroll')) {
     if (el.scrollWidth > el.clientWidth + 1 && el.tabIndex < 0 &&
         !el.querySelector('a, button, input, [tabindex]')) {
       out.stuck.push((el.className || el.tagName).toString().slice(0, 40));
+    }
+  }
+  if (out.sw > vw + 1) {  // name the elements that stick out (topmost ones, not inside a scroller)
+    out.wide = [];
+    const clipped = el => { for (let a = el.parentElement; a && a !== document.body; a = a.parentElement)
+      if (/(auto|scroll|hidden|clip)/.test(getComputedStyle(a).overflowX)) return true; return false; };
+    for (const el of document.body.querySelectorAll('*')) {
+      const r = el.getBoundingClientRect(), pr = el.parentElement.getBoundingClientRect();
+      if (r.right > vw + 1 && pr.right <= vw + 1 && getComputedStyle(el).position !== 'fixed' && !clipped(el)) {
+        const name = el.tagName.toLowerCase() + (el.className && typeof el.className === 'string' ? '.' + el.className.trim().split(/\s+/).join('.') : '');
+        out.wide.push(name + ' "' + (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 40) + '"');
+        if (out.wide.length >= 3) break;
+      }
     }
   }
   return out;
@@ -110,7 +123,8 @@ def main():
                 for e in dict.fromkeys(x for x in errs if "net::ERR_FAILED" not in x and "Failed to load resource" not in x):
                     problems["js-error"].append((url, "%dpx: %s" % (width, e)))
                 if r["sw"] > r["vw"] + 1:
-                    problems["h-scroll"].append((url, "%dpx: page is %dpx wide" % (width, r["sw"])))
+                    problems["h-scroll"].append((url, "%dpx: page is %dpx wide%s" % (
+                        width, r["sw"], (" — " + ", ".join(r.get("wide", []))) if r.get("wide") else "")))
                 for s in r["stuck"]:
                     problems["scroll-focus"].append((url, "%dpx: %s scrolls but isn't focusable" % (width, s)))
                 page.close()
