@@ -75,35 +75,7 @@ Four tabs, each with a dedicated voice context:
 
 ## Architecture
 
-```
-┌──────────────────────────────────────────────────────────────────┐
-│                     iOS App / Web PWA                            │
-│  Home  │  History  │  Plan (Workout + Meals)  │  Scan/Camera    │
-└──────┬──────────────────────────────────────────────────────────-┘
-       │ WebSocket (audio) + REST (data)
-┌──────▼───────────────────────────────────────────────────────────┐
-│                    Rena Agent (Cloud Run)                         │
-│                                                                   │
-│  Google ADK — Agent Core                                          │
-│  • log_meal / log_water / log_workout / log_weight               │
-│  • scan_image                                                     │
-│  • generate_workout_plan / generate_meal_plan                    │
-│  • save_tomorrow_plan_note / get_recent_workouts                 │
-│                                                                   │
-│  Context prompt system                                            │
-│  • Prompts in Firestore — live-editable, no redeploy             │
-│  • [RENA MEMORY] block injected at every session start           │
-│  • Per-tab contexts: home, history, scan, plan, goal             │
-│  • tool_status WS messages → live save indicators                │
-└──────────────────────┬───────────────────────────────────────────┘
-                       │
-       ┌───────────────┼────────────────────┐
-       ▼               ▼                    ▼
-  Firestore      Gemini APIs          Cloud Storage
-  (all data)     Live · Flash         exercise_videos/
-                 Vision · Veo 2       vision_journey/
-                 Imagen · TTS
-```
+{% include diagrams/rena-architecture.html %}
 
 **Voice session data flow:**
 

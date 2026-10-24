@@ -1,0 +1,58 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 634" role="img" aria-labelledby="rena-arch-title rena-arch-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="rena-arch-title">Rena's architecture: app, agent on Cloud Run, and the services behind it</title>
+  <desc id="rena-arch-desc">The iOS app or web PWA, with Home, History, Plan and Scan tabs, talks to the Rena agent on Cloud Run over a WebSocket for audio and REST for data. Inside the agent, the Google ADK agent core exposes tools: log_meal, log_water, log_workout, log_weight, scan_image, generate_workout_plan, generate_meal_plan, save_tomorrow_plan_note and get_recent_workouts. A context prompt system keeps prompts in Firestore so they can be edited without a redeploy, injects the RENA MEMORY block at every session start, has per-tab contexts for home, history, scan, plan and goal, and sends tool_status WebSocket messages for live save indicators. The agent uses three services: Firestore for all data; Gemini APIs (Live, Flash, Vision, Veo 2, Imagen and TTS); and Cloud Storage with exercise_videos/ and vision_journey/ folders.</desc>
+  <defs>
+    <marker id="rena-arch-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="20" y="10" width="296" height="54" rx="27"/>
+  <text class="dg-strong" x="168" y="33" text-anchor="middle">iOS app / web PWA</text>
+  <text class="dg-note dg-ink" x="168" y="52" text-anchor="middle">Home · History · Plan · Scan</text>
+  <line class="dg-line" x1="168" y1="64" x2="168" y2="102" marker-start="url(#rena-arch-arrow)" marker-end="url(#rena-arch-arrow)"/>
+  <text class="dg-note" x="158" y="88" text-anchor="end">WebSocket audio</text>
+  <text class="dg-note" x="178" y="88">REST data</text>
+
+  <rect class="dg-group" x="10" y="104" width="316" height="324" rx="12"/>
+  <text class="dg-label" x="22" y="124">Rena agent · Cloud Run</text>
+
+  <rect class="dg-box" x="22" y="134" width="292" height="160" rx="8"/>
+  <text class="dg-strong" x="36" y="156">Google ADK agent core</text>
+  <text class="dg-note dg-mono" x="36" y="178">log_meal · log_water</text>
+  <text class="dg-note dg-mono" x="36" y="195">log_workout · log_weight</text>
+  <text class="dg-note dg-mono" x="36" y="212">scan_image</text>
+  <text class="dg-note dg-mono" x="36" y="229">generate_workout_plan</text>
+  <text class="dg-note dg-mono" x="36" y="246">generate_meal_plan</text>
+  <text class="dg-note dg-mono" x="36" y="263">save_tomorrow_plan_note</text>
+  <text class="dg-note dg-mono" x="36" y="280">get_recent_workouts</text>
+
+  <rect class="dg-box" x="22" y="306" width="292" height="110" rx="8"/>
+  <text class="dg-strong" x="36" y="328">Context prompt system</text>
+  <text class="dg-note" x="36" y="350">Prompts in Firestore, editable, no redeploy</text>
+  <text class="dg-note" x="36" y="368">[RENA MEMORY] injected at session start</text>
+  <text class="dg-note" x="36" y="386">Per-tab: home, history, scan, plan, goal</text>
+  <text class="dg-note" x="36" y="404"><tspan class="dg-mono">tool_status</tspan> → live save indicators</text>
+
+  <line class="dg-line" x1="30" y1="428" x2="30" y2="596"/>
+  <line class="dg-line" x1="30" y1="470" x2="48" y2="470" marker-end="url(#rena-arch-arrow)"/>
+  <line class="dg-line" x1="30" y1="530" x2="48" y2="530" marker-end="url(#rena-arch-arrow)"/>
+  <line class="dg-line" x1="30" y1="596" x2="48" y2="596" marker-end="url(#rena-arch-arrow)"/>
+
+  <rect class="dg-box" x="50" y="448" width="272" height="44" rx="8"/>
+  <text class="dg-body" x="62" y="475">Firestore</text>
+  <text class="dg-note" x="166" y="475">all data</text>
+
+  <rect class="dg-box" x="50" y="502" width="272" height="56" rx="8"/>
+  <text class="dg-body" x="62" y="535">Gemini APIs</text>
+  <text class="dg-note" x="166" y="526">Live · Flash · Vision</text>
+  <text class="dg-note" x="166" y="543">Veo 2 · Imagen · TTS</text>
+
+  <rect class="dg-box" x="50" y="568" width="272" height="56" rx="8"/>
+  <text class="dg-body" x="62" y="601">Cloud Storage</text>
+  <text class="dg-note dg-mono" x="166" y="592">exercise_videos/</text>
+  <text class="dg-note dg-mono" x="166" y="609">vision_journey/</text>
+</svg>
+<figcaption>One agent on Cloud Run holds the tools and the prompts; everything it stores or generates lives in three services behind it.</figcaption>
+</figure>

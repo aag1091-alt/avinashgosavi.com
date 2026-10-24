@@ -1,5 +1,9 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
+- date: 2026-10-24
+  desk: Design
+  text: The Rena post's architecture is now a phone-friendly diagram that follows the sepia and dark themes — app, agent on Cloud Run, and Firestore, Gemini and Cloud Storage behind it — instead of a wide text box that scrolled sideways.
+  link: /post/building-rena-ai-health-companion-gemini-live/
 - date: 2026-10-23
   desk: Design
   text: The Rena post's voice-session flow is now a phone-friendly diagram that follows the sepia and dark themes — tap, load context, stream audio, call a tool, reply — instead of a wide text block that scrolled sideways.
