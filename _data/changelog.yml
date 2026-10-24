@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Engineering
+  text: Code blocks in posts that are wider than the screen can now be scrolled with the keyboard — Tab to the block, then use the arrow keys — and screen readers announce them as sideways-scrolling code.
+  link: /post/vaultmem-part-2-multimodal-temporal-backends/
+- date: 2026-10-24
   desk: Design
   text: The Rena post's architecture is now a phone-friendly diagram that follows the sepia and dark themes — app, agent on Cloud Run, and Firestore, Gemini and Cloud Storage behind it — instead of a wide text box that scrolled sideways.
   link: /post/building-rena-ai-health-companion-gemini-live/

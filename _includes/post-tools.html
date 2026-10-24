@@ -134,6 +134,17 @@
     box.insertBefore(tag,box.firstChild);
     box.classList.add('has-lang');
   });
+  // Code blocks wider than the screen scroll sideways: make those reachable by keyboard
+  // (Tab to the block, then arrow keys) and name them for screen readers, like wide tables
+  root.querySelectorAll('pre').forEach(function(pre){
+    var box=pre.closest('.highlighter-rouge'), lang=box?langOf(box):'';
+    var fit=function(){
+      if(pre.scrollWidth>pre.clientWidth+1){ pre.tabIndex=0; pre.setAttribute('role','region'); pre.setAttribute('aria-label',(lang?lang+' code':'Code')+', scrolls sideways'); }
+      else { pre.removeAttribute('tabindex'); pre.removeAttribute('role'); pre.removeAttribute('aria-label'); }
+    };
+    fit();
+    if('ResizeObserver' in window) new ResizeObserver(fit).observe(pre);
+  });
   // Tap/click a post image to see it full size (only when it's shown noticeably smaller than its file)
   if(window.HTMLDialogElement){
     var biggest=function(img){
