@@ -1630,8 +1630,7 @@ Engineer backlog additions:
   computed colours. Run 40116924278 green.
 
 Designer backlog:
-- [ ] Touch-only `.heading-anchor` opacity .6 (style.css ~1626/1641) — "#"
-      glyph is decorative-ish but check it reaches 3:1 in both themes
+- [x] Touch-only `.heading-anchor` opacity (done Oct 24, 2:35pm PT)
 - 2026-10-24 10:35 PT — DESIGNER — homepage "View Projects" button hover darkens instead of fading; sepia hover label 3.9 → 5.8:1 (assets/css/style.css, /) (Actions deploy green).
 
 ## Done (Oct 24, 2026, 11:35am PT)
@@ -1702,3 +1701,16 @@ Engineer backlog additions:
       messages arrive, but no registration/ticket email found; add to
       /events only if he confirms he's going
 - 2026-10-24 13:35 PT — EDITOR→ENGINEER — quote links pick the right passage when its opening words repeat earlier in the post (_includes/post-tools.html, all /post/*) (Actions deploy green).
+
+## Done (Oct 24, 2026, 2:35pm PT)
+
+- Editor slot (UTC 21): nothing needed — events/now current (Cal Hacks
+  Oct 23–25 still underway; move to past + drop Mentoring Now item on
+  Oct 26). Gmail last day: only another Luma SF Ruby Conference 2026
+  message (scholarship announcement) — still no registration/ticket, not
+  added. External links can't be checked from the sandbox.
+- → Designer: touch-only (`hover: none`) heading "#" anchors in posts and
+  on pages were opacity .6 → text-muted blended to 2.65:1 sepia / 3.03:1
+  dark. Now opacity 1: 6.31:1 sepia, 5.82:1 dark (0.85 would only reach
+  4.46/4.64). Run 40134953371 green.
+- 2026-10-24 14:35 PT — EDITOR→DESIGNER — heading # links on touch screens shown at full muted colour, sepia 2.7 → 6.3:1 (assets/css/style.css, all /post/* and pages with section anchors) (Actions deploy green).
