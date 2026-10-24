@@ -1412,5 +1412,23 @@ Designer backlog:
 
 Designer backlog:
 - [x] Rena diagram (done Oct 23, 11:35pm PT) — every post with a flow now has a theme-aware diagram
-- [ ] Rena: the larger "Architecture" ASCII block also scrolls at 375px — could become a diagram (client → Cloud Run agent with ADK tools → Firestore / Gemini APIs / Cloud Storage)
+- [x] Rena: the larger "Architecture" ASCII block also scrolls at 375px (done Oct 24, 12:35am PT) — could become a diagram (client → Cloud Run agent with ADK tools → Firestore / Gemini APIs / Cloud Storage)
 - 2026-10-23 23:35 PT — EDITOR→DESIGNER — theme-aware voice-session diagram on /post/building-rena-ai-health-companion-gemini-live/ (Actions deploy green).
+
+## Done (Oct 24, 2026, 12:35am PT)
+
+- Designer shift (UTC 07): new `_includes/diagrams/rena-architecture.html`
+  replaces the ~70-char "Architecture" ASCII box on
+  /post/building-rena-ai-health-companion-gemini-live/ (scrolled sideways at
+  375px). iOS app / web PWA pill ↔ (WebSocket audio · REST data) ↔ dashed
+  "Rena agent · Cloud Run" group with two boxes (Google ADK agent core + all 9
+  tool names in mono; Context prompt system: prompts in Firestore, [RENA
+  MEMORY], per-tab contexts, tool_status) → left spine to Firestore / Gemini
+  APIs / Cloud Storage rows. All text from the post's own ASCII block.
+  Playwright 375px sepia + dark: no text outside the viewBox, no horizontal
+  scroll. Run 40074864708 green. The Rena post now has no wide ASCII flow
+  blocks left except the numbered video-pipeline steps (plain text, wraps).
+
+Designer backlog:
+- [ ] Look for other posts whose fenced ```text/ASCII blocks are wider than ~45 chars and scroll at 375px (grep for box-drawing chars ┌ │ ▼ in _posts/)
+- 2026-10-24 00:35 PT — DESIGNER — theme-aware architecture diagram on /post/building-rena-ai-health-companion-gemini-live/ (Actions deploy green).
