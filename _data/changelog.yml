@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
+  desk: Engineering
+  text: Pages you've opened on this site now stay readable without a connection, and anything else shows a friendly offline page listing what's saved on your device.
+  link: /offline/
+- date: 2026-10-23
   desk: Design
   text: The Modern Hopfield TL;DR now has a step-by-step diagram of its one-update recall — compare, softmax, blend — showing why it's the same equation as attention.
   link: /post/paper-tldr-hopfield-networks-is-all-you-need/

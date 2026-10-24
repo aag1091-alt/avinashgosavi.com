@@ -73,6 +73,12 @@
     if (box) box.focus(); else location.href = '{{ "/search/" | relative_url }}';
   });
   </script>
+  <script>
+  /* Offline support: keeps pages you've opened readable without a connection (sw.js). */
+  if ('serviceWorker' in navigator) addEventListener('load', function () {
+    navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}').catch(function () {});
+  });
+  </script>
   <script type="speculationrules">
   {"prefetch": [{"where": {"and": [
     {"href_matches": "/*"},

@@ -1,0 +1,51 @@
+---
+layout: default
+title: You're offline
+permalink: /offline/
+sitemap: false
+noindex: true
+description: "Shown when avinashgosavi.com can't reach the network — lists the pages already saved on this device."
+---
+
+<div class="offline-page">
+  <h1>You're offline</h1>
+  <p class="page-lede">This page couldn't load because there's no connection right now. Pages you've opened here before are kept on this device, so they still work.</p>
+  <p><button type="button" class="offline-retry" id="offline-retry">Try again</button></p>
+  <section class="nf-suggest" id="offline-saved" aria-labelledby="offline-saved-title" hidden>
+    <h2 id="offline-saved-title">Saved on this device</h2>
+    <ul id="offline-saved-list"></ul>
+  </section>
+</div>
+
+<script>
+(function () {
+  document.getElementById('offline-retry').addEventListener('click', function () { location.reload(); });
+  addEventListener('online', function () { location.reload(); });
+  if (!('caches' in window)) return;
+  var here = location.pathname;
+  caches.open('pages-v1').then(function (c) {
+    return c.keys().then(function (keys) {
+      keys = keys.slice(-40).reverse();
+      return Promise.all(keys.map(function (k) {
+        return c.match(k).then(function (r) { return r.text(); }).then(function (t) {
+          var m = t.match(/<title>([^<]*)<\/title>/i);
+          var d = document.createElement('div');
+          d.innerHTML = m ? m[1] : '';
+          return { url: new URL(k.url).pathname, title: (d.textContent || '').replace(/\s*\|\s*Avinash Gosavi\s*$/, '').trim() };
+        });
+      }));
+    });
+  }).then(function (pages) {
+    var list = document.getElementById('offline-saved-list');
+    pages.forEach(function (p) {
+      if (p.url === here) return;
+      var li = document.createElement('li'), a = document.createElement('a');
+      a.href = p.url;
+      a.textContent = p.title || p.url;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    if (list.children.length) document.getElementById('offline-saved').hidden = false;
+  }).catch(function () {});
+})();
+</script>
