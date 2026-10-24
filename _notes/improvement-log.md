@@ -1565,7 +1565,34 @@ Editor note:
   pre-formatted code box. Run 40103727802 green, 0 browser warnings.
 
 Engineer backlog additions:
-- [ ] Browser check could also run in dark theme (set localStorage
+- [x] (done Oct 24, 8:34am PT — contrast pass) Browser check could also run in dark theme (set localStorage
       `blog_color_theme` via `add_init_script`) — layouts are the same, so low value
 - [ ] Consider `--strict` for check_browser.py after a week at 0 warnings
 - 2026-10-24 07:35 PT — ENGINEER — CI headless-browser check (JS errors, sideways scroll, unreachable wide code) on every page; fixed phone sideways scroll on /post/hobby-project-stack/ (scripts/check_browser.py, .github/workflows/jekyll.yml, assets/css/style.css) (Actions deploy green).
+
+## Done (Oct 24, 2026, 8:34am PT)
+
+- Editor slot (UTC 15): nothing needed — events/now current (Cal Hacks
+  Oct 23–25 still underway; move it to past + drop the Mentoring Now item on
+  Oct 26), Gmail last day had no event registrations, llms.txt Pages in step
+  → Engineer.
+- Engineer: `scripts/check_browser.py` gained a `contrast` rule — a third and
+  fourth pass at 1280px with the theme set via `add_init_script`
+  (localStorage `blog_color_theme` = sepia, dark; reduced motion). Walks every
+  visible text node (skips SVG, aria-hidden, <2px visually-hidden helpers,
+  opacity <0.1), composites ancestor background fills (skips text over
+  background images/gradients), folds ancestor opacity into the text color,
+  and warns below 4.5:1 (3:1 for ≥24px or bold ≥18.66px). Closes the dark-theme
+  browser-check item (~line 1568) and line ~376 (contrast now measured in CI).
+- First run (40107767770): 73 issues — sepia/white Rouge tokens tuned for
+  white (comment #6b7280 3.8:1, keyword/string teal/green ~2.9:1, blue 4.1,
+  violet 4.4 on #ebe4d2), dark comment/operator #8b949e 4.39:1 on #322e26,
+  and /blog tag counts (opacity .6 → 3.4:1). Fixed in style.css: light Rouge
+  c #4b5563, k/ow #115e59, s/s2 #065f46, nb/nf/na/nn #1d4ed8, nv/vi #6d28d9
+  (all ≥5.8:1 on every light code-bg); dark c/o #a0a8b2 (5.6:1); tag count
+  opacity .8 and 1 on the active chip. Run 40108110610 green, 0 browser
+  warnings.
+
+Engineer backlog additions:
+- [ ] Contrast pass doesn't see hover/focus states or SVG diagram text — designer shifts still check those by hand
+- 2026-10-24 08:34 PT — EDITOR→ENGINEER — CI text-contrast check in sepia and dark; code highlighting + /blog tag counts fixed to WCAG AA (scripts/check_browser.py, assets/css/style.css, /blog/, all posts with code) (Actions deploy green).
