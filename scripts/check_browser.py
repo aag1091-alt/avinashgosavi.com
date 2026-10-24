@@ -10,7 +10,8 @@ For each HTML page in the built site, at a 375px phone viewport and a 1280px des
 Then once more per theme (sepia and dark, 1280px):
   - contrast:    visible text below WCAG AA (4.5:1, or 3:1 for large text) against the
                  background it actually sits on (semi-transparent fills composited; text
-                 over images/gradients and inside SVG diagrams is skipped)
+                 over images/gradients is skipped; .diagram SVG text is measured against the
+                 filled shape it sits on)
 
 The site is served from a local http.server; every request to another host (analytics,
 external images) is blocked, so the run is offline and never counts as a visit.
@@ -149,6 +150,46 @@ CONTRAST = r"""() => {
     if (seen.has(key)) continue;
     seen.add(key);
     out.push(name + ' "' + n.textContent.trim().replace(/\s+/g, ' ').slice(0, 30) + '" ' + hex(fg) + ' on ' + hex(bg) + ' = ' + cr.toFixed(2) + ':1 (needs ' + need + ')');
+  }
+  // SVG diagram text: fill vs. the topmost filled shape under the text's centre (or the
+  // HTML background behind the figure). Rendered px size decides the large-text threshold.
+  const fillOf = (s, cs) => { const c = parse(cs.fill || ''); if (!c) return null;
+    let op = (+cs.fillOpacity) * (+cs.opacity); for (let a = s.parentElement; a && a.tagName.toLowerCase() !== 'svg'; a = a.parentElement) op *= +getComputedStyle(a).opacity;
+    return [c[0], c[1], c[2], c[3] * op]; };
+  for (const t of document.querySelectorAll('.diagram svg text')) {
+    if (out.length >= 16 || !t.textContent.trim() || t.closest('defs, [aria-hidden="true"]')) continue;
+    t.scrollIntoView({block: 'center', behavior: 'instant'});
+    const r = t.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) continue;
+    const tcs = getComputedStyle(t);
+    if (tcs.visibility !== 'visible' || tcs.display === 'none') continue;
+    let fg = fillOf(t, tcs);
+    if (!fg) continue;
+    const layers = []; let base = null;
+    for (const e of document.elementsFromPoint(r.left + r.width / 2, r.top + r.height / 2)) {
+      if (e === t || t.contains(e)) continue;
+      if (!(e instanceof SVGElement) || e.tagName.toLowerCase() === 'svg') { base = bgOf(e); break; }
+      const tag = e.tagName.toLowerCase();
+      if (!/^(rect|circle|ellipse|path|polygon)$/.test(tag)) continue;
+      const c = fillOf(e, getComputedStyle(e));
+      if (!c || c[3] <= 0) continue;
+      layers.push(c);
+      if (c[3] >= 1) { base = [255, 255, 255, 1]; break; }
+    }
+    if (!base) continue;
+    let bg = base;
+    for (let i = layers.length - 1; i >= 0; i--) bg = over(layers[i], bg);
+    fg = over(fg, bg);
+    const scale = r.height / (t.getBBox().height || r.height);
+    const px = parseFloat(tcs.fontSize) * scale, bold = parseInt(tcs.fontWeight, 10) >= 700;
+    const need = (px >= 24 || (bold && px >= 18.66)) ? 3 : 4.5;
+    const cr = ratio(fg, bg);
+    if (cr + 0.005 >= need) continue;
+    const name = 'svg text.' + (t.getAttribute('class') || '').trim().split(/\s+/).join('.');
+    const key = name + hex(fg) + hex(bg);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(name + ' "' + t.textContent.trim().replace(/\s+/g, ' ').slice(0, 30) + '" ' + hex(fg) + ' on ' + hex(bg) + ' = ' + cr.toFixed(2) + ':1 (needs ' + need + ')');
   }
   return out;
 }"""
