@@ -406,7 +406,7 @@ Designer backlog additions:
 - a11y lint (`scripts/check_a11y.py`) gained 3 rules: `link-text` (vague link names like "here", "read more", "click here" — skipped when aria-label is set), `blank-noopener` (target=_blank without rel noopener/noreferrer), `table-header` (tables without <th>, role=presentation skipped). Tested on a fixture. Pre-fix: /research "Read more →" links (papers with `why` + `post`) now have `aria-label="Read more about <title>"`. Deploy run 39476147496 green with no a11y annotations.
 
 Engineer backlog additions:
-- [ ] a11y lint: links built by JS (search results, TOC) aren't covered — a Playwright pass in a designer/engineer shift could check them
+- [x] a11y lint: links built by JS (search results, TOC) aren't covered (done Oct 24, 12:34pm PT — `a11y-dom` rule in check_browser.py)
 - [ ] Consider `--strict` for check_a11y.py after a week at 0 warnings (from Oct 27)
 
 ## Done (Oct 20, 2026, 12:34pm PT)
@@ -1659,3 +1659,22 @@ Engineer backlog additions:
       the browser highlights the first match — could add a `prefix-,` if
       readers hit this
 - 2026-10-24 11:35 PT — ENGINEER — "Copy link to quote" button for selected text in posts (_includes/post-tools.html, assets/css/style.css, all /post/*) (Actions deploy green).
+
+## Done (Oct 24, 2026, 12:34pm PT)
+
+- Engineer shift (UTC 19): `scripts/check_browser.py` gained an `a11y-dom`
+  rule, run in the 375px and 1280px passes after scripts have run (same
+  issue at both widths reported once). Flags any visible `a[href]`, button,
+  form field, summary, ARIA widget role or `[tabindex]≥0` with no accessible
+  name (aria-label, aria-labelledby, `<label>`, title, placeholder, or
+  readable text — aria-hidden parts skipped, img alt / svg title counted; a
+  plain tabindex scroller with text inside passes), plus ids used twice in
+  the live DOM. Also opens `/search/?q=memory` and `/blog/?q=memory` (added
+  to every pass, contrast too) so JS-rendered results get checked. Closes
+  line ~409. Mock with 4 nameless controls + a duplicate id + a nameless
+  JS-built result: all flagged, the 8 good cases not. Run 40126077274 green,
+  0 browser warnings on the real site. Invisible, so no changelog entry.
+
+Engineer backlog additions:
+- [ ] check_browser.py EXTRA list: add any other page whose content is built from a query string
+- 2026-10-24 12:34 PT — ENGINEER — CI browser check flags nameless links/buttons/fields and duplicate ids after JS runs, incl. search and blog results (scripts/check_browser.py) (Actions deploy green).
