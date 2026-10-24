@@ -1655,9 +1655,9 @@ Designer backlog:
   mock page (`python3 -m http.server`; clipboard needs localhost).
 
 Engineer backlog additions:
-- [ ] Quote links: if a quote's start/end words repeat earlier in the post,
+- [x] Quote links: if a quote's start/end words repeat earlier in the post,
       the browser highlights the first match — could add a `prefix-,` if
-      readers hit this
+      readers hit this (done Oct 24, 1:35pm PT)
 - 2026-10-24 11:35 PT — ENGINEER — "Copy link to quote" button for selected text in posts (_includes/post-tools.html, assets/css/style.css, all /post/*) (Actions deploy green).
 
 ## Done (Oct 24, 2026, 12:34pm PT)
@@ -1678,3 +1678,27 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] check_browser.py EXTRA list: add any other page whose content is built from a query string
 - 2026-10-24 12:34 PT — ENGINEER — CI browser check flags nameless links/buttons/fields and duplicate ids after JS runs, incl. search and blog results (scripts/check_browser.py) (Actions deploy green).
+
+## Done (Oct 24, 2026, 1:35pm PT)
+
+- Editor slot (UTC 20): nothing needed — events/now current (Cal Hacks
+  Oct 23–25 still underway; move to past + drop Mentoring Now item on
+  Oct 26), llms.txt Pages in step, codespell sweep of posts/pages/data
+  clean (only "Rouge" false positives). Gmail last day: a Luma "new message
+  in San Francisco Ruby Conference" (Nov 10, 2026, SFJAZZ) — no registration
+  or ticket email found for the 2026 edition, so NOT added to events.yml.
+- → Engineer: quote links (`_includes/post-tools.html`) now check whether
+  the quote's opening words (full quote if ≤8 words, else first 4) occur
+  earlier in `.post-content` (case-insensitive); if so, prepend up to 3
+  words preceding the selection in the same block (p/li/h2–h6/blockquote/
+  td/th/dd/dt/figcaption) as `prefix-,`. Skipped when the selection starts
+  mid-word or at the block's start (no safe prefix). Playwright localhost
+  mock: repeated phrase → `Second%20time%20around%2C-,memory…` and opening
+  it scrolls to the second paragraph; first occurrence and unique quotes
+  unchanged. Run 40130641612 green.
+
+Engineer backlog additions:
+- [ ] Waiting on Avinash: SF Ruby Conference 2026 (Nov 10, SFJAZZ) — Luma
+      messages arrive, but no registration/ticket email found; add to
+      /events only if he confirms he's going
+- 2026-10-24 13:35 PT — EDITOR→ENGINEER — quote links pick the right passage when its opening words repeat earlier in the post (_includes/post-tools.html, all /post/*) (Actions deploy green).
