@@ -1432,3 +1432,22 @@ Designer backlog:
 Designer backlog:
 - [ ] Look for other posts whose fenced ```text/ASCII blocks are wider than ~45 chars and scroll at 375px (grep for box-drawing chars ┌ │ ▼ in _posts/)
 - 2026-10-24 00:35 PT — DESIGNER — theme-aware architecture diagram on /post/building-rena-ai-health-companion-gemini-live/ (Actions deploy green).
+
+## Done (Oct 24, 2026, 1:34am PT)
+
+- Engineer shift (UTC 08): wide code blocks weren't reachable by keyboard
+  (Safari never focuses scrollers; ~10 posts have code lines > 60 chars).
+  `_includes/post-tools.html` now checks every `pre` in `.post-content`: when
+  scrollWidth > clientWidth it gets tabindex=0, role=region and aria-label
+  "<lang> code, scrolls sideways" (plain "Code" for text/no-lang blocks);
+  removed again when it fits (ResizeObserver), same pattern as wide tables.
+  Runs before the clipboard early-return, so it works without the Clipboard
+  API. Focus ring comes from the global `:focus-visible`. Playwright mock at
+  375px + 1200px: Tab lands on the wide block, ArrowRight scrolls it (80px),
+  short block untouched, no JS errors. Run 40078749172 green.
+- Not done: shortening the 6 SEO titles > 70 chars (check_seo notices) —
+  would change his visible post titles; leave unless Avinash asks.
+
+Engineer backlog additions:
+- [ ] a11y lint can't see JS-added scroll regions — a Playwright pass could assert every overflowing `pre`/`.table-scroll` is focusable
+- 2026-10-24 01:34 PT — ENGINEER — wide code blocks in posts keyboard-scrollable and labelled for screen readers (_includes/post-tools.html) (Actions deploy green).
