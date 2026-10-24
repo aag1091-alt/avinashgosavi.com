@@ -1614,3 +1614,22 @@ Engineer backlog additions:
   flagged with the right composited colors. Run 40112453492 green, 0 browser
   warnings. Invisible, so no changelog entry.
 - 2026-10-24 09:34 PT — EDITOR→ENGINEER — CI contrast check now covers text in SVG diagrams (scripts/check_browser.py) (Actions deploy green).
+
+## Done (Oct 24, 2026, 10:35am PT)
+
+- Designer shift (UTC 17): hover/focus contrast audit by hand (the CI
+  contrast pass can't see hover). Computed every hover rule that changes
+  text or fill colour in sepia + dark: `.hero-btn` (accent-ink on
+  accent-soft 5.1 / 4.6), header search, offline retry, footer/links — all
+  ≥4.5 except `.hero-btn-primary:hover` ("View Projects" on the homepage):
+  `opacity: .88` faded the teal fill into the page, label #f5efe0 dropped to
+  3.88:1 in sepia. Hover now uses `color-mix(in srgb, var(--accent) 80%,
+  var(--text))` for background + border (#176860 sepia 5.8:1, #d9bb8d dark
+  8.2:1 — contrast rises on hover in both themes); browsers without
+  color-mix keep the rest-state accent. Playwright 375px hover mock confirmed
+  computed colours. Run 40116924278 green.
+
+Designer backlog:
+- [ ] Touch-only `.heading-anchor` opacity .6 (style.css ~1626/1641) — "#"
+      glyph is decorative-ish but check it reaches 3:1 in both themes
+- 2026-10-24 10:35 PT — DESIGNER — homepage "View Projects" button hover darkens instead of fading; sepia hover label 3.9 → 5.8:1 (assets/css/style.css, /) (Actions deploy green).
