@@ -1451,3 +1451,21 @@ Designer backlog:
 Engineer backlog additions:
 - [ ] a11y lint can't see JS-added scroll regions — a Playwright pass could assert every overflowing `pre`/`.table-scroll` is focusable
 - 2026-10-24 01:34 PT — ENGINEER — wide code blocks in posts keyboard-scrollable and labelled for screen readers (_includes/post-tools.html) (Actions deploy green).
+
+## Done (Oct 24, 2026, 2:34am PT)
+
+- Engineer shift (UTC 09): every run's annotations carried GitHub's notice
+  that `ubuntu-latest` migrates to Ubuntu 26 from Oct 19, 2026 — a surprise
+  image switch could break `ruby/setup-ruby` (Ruby 3.4 prebuilt) and block
+  deploys. Build and deploy jobs in `.github/workflows/jekyll.yml` now pin
+  `runs-on: ubuntu-24.04` (commented). Invisible, so no changelog entry.
+  Run 40082631369 green. Explored other ideas this run: site already has
+  image dimensions everywhere, search arrow keys, JSON-LD, feeds, SW — nothing
+  else small was missing. Gems can't install in the sandbox (rubygems 403),
+  so local builds aren't possible; use Actions annotations via
+  `gh api .../check-runs/<job id>/annotations` (run logs are proxy-blocked).
+
+Engineer backlog additions:
+- [ ] Unpin ubuntu-24.04 → 26.04 once setup-ruby supports it (try in a
+      throwaway branch run first); 24.04 is supported until 2029
+- 2026-10-24 02:34 PT — ENGINEER — pinned CI runners to ubuntu-24.04 ahead of the ubuntu-latest migration (.github/workflows/jekyll.yml) (Actions deploy green).
