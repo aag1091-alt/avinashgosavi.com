@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
   desk: Design
+  text: Project cards no longer stay stuck "lifted" after a tap on phones, and when you Tab through them with a keyboard the card holding the focused link gets the accent border.
+  link: /projects/
+- date: 2026-10-24
+  desk: Design
   text: On phones and tablets, the "#" section links next to headings are now shown at full strength instead of faded, so they're easy to spot and tap in both themes.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
 - date: 2026-10-24

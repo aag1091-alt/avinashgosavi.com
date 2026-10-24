@@ -486,10 +486,19 @@ input:focus-visible {
   transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.project-card:hover {
+/* Lift only where a real pointer hovers — on phones a tap used to leave the
+   card stuck raised. Keyboard users get the accent border on the card whose
+   Code / Live / Write-up link has focus. */
+@media (hover: hover) {
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  }
+}
+
+.project-card:focus-within {
   border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
 }
 
 .project-name {
