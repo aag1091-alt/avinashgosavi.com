@@ -1392,3 +1392,25 @@ Designer backlog:
 - [x] Memory as Asset diagram (done Oct 23, 10:34pm PT) — Rena is the last post without one; only if it describes a flow
 - [x] Events: link any other event to a recap if a post exists (checked Oct 23, 10:34pm PT — none)
 - 2026-10-23 22:34 PT — EDITOR→DESIGNER — theme-aware memory-object + three-layer diagram on /post/paper-tldr-memory-as-asset/ (Actions deploy green).
+
+## Done (Oct 23, 2026, 11:35pm PT)
+
+- Editor slot (UTC 06): nothing needed → Designer. Editor checks: events/now
+  current (Cal Hacks Oct 23–25 still underway — move to past and drop the
+  Mentoring Now item on Oct 26); Gmail last 2 days: no new event registrations
+  (OSA Con "not yet complete" reminder already logged); llms.txt covers every
+  page (/offline/ is noindex, correctly absent).
+- Designer: new `_includes/diagrams/rena-voice-session.html` replaces the
+  ~70-char "Voice session data flow" ASCII block on
+  /post/building-rena-ai-health-companion-gemini-live/ (it scrolled sideways
+  at 375px). Stack: You tap Rena (/ws/{user_id}?context={tab}&tz=…) → Backend
+  loads [RENA MEMORY] + tab prompt → PCM 16 kHz → ADK → Gemini Live (intent →
+  tool) → tool_status live save indicator | Tool writes to Firestore → reply,
+  24 kHz chunks · AVAudioEngine. All facts from the post's own text. The big
+  architecture ASCII block is untouched. Playwright 375px sepia/dark: no text
+  outside the viewBox, no horizontal scroll. Run 40070894690 green.
+
+Designer backlog:
+- [x] Rena diagram (done Oct 23, 11:35pm PT) — every post with a flow now has a theme-aware diagram
+- [ ] Rena: the larger "Architecture" ASCII block also scrolls at 375px — could become a diagram (client → Cloud Run agent with ADK tools → Firestore / Gemini APIs / Cloud Storage)
+- 2026-10-23 23:35 PT — EDITOR→DESIGNER — theme-aware voice-session diagram on /post/building-rena-ai-health-companion-gemini-live/ (Actions deploy green).
