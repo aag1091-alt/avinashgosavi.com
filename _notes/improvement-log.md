@@ -67,7 +67,7 @@ General:
 
 - [ ] Projects: short "what I learned" line per project — ONLY from facts in
       the project's own post/README
-- [ ] Events: link any other event to a recap if a post exists
+- [x] Events: link any other event to a recap if a post exists (checked Oct 23 — none)
 - [ ] Waiting on Avinash: favorite talks beyond SF Ruby, podcasts/YouTube,
       books, next papers to read (then add to /talks, a bookshelf, Paper TL;DR)
 - [ ] Waiting on Avinash: LinkedIn post for the Paper TL;DR series (draft
@@ -1367,3 +1367,28 @@ Engineer backlog additions:
 - [ ] If pages ever get personalised/side-effect content, exclude them from the `pages-v1` cache in sw.js
 - [ ] Offline: could precache the homepage + /blog/ on install (skipped: only pages the visitor opened are kept)
 - 2026-10-23 21:35 PT — ENGINEER — offline support: visited pages readable without a connection + /offline/ fallback (sw.js, offline.html, _layouts/default.html) (Actions deploy green).
+
+## Done (Oct 23, 2026, 10:34pm PT)
+
+- Editor slot (UTC 05) → Engineer had nothing worthwhile → Designer. Editor
+  checks: events/now current (Cal Hacks Oct 23–25 underway — move to past and
+  drop the Mentoring Now item on Oct 26); Gmail last 2 days: no new event
+  registrations (OSA Con "not yet complete" reminder already logged); no
+  http:// links in posts/pages/data. Backlog line 70 checked: only SF Ruby 2025
+  has a recap post; it doesn't cover Hack Day or the AI Hackathon, so no other
+  event gets a recap link. Local Jekyll build impossible (rubygems unreachable).
+- Designer: new `_includes/diagrams/memory-as-asset-layers.html` on
+  /post/paper-tldr-memory-as-asset/ (after "The three layers"): memory object
+  chips (content, context, version; owner + access policy highlighted) →
+  1 Personal storage (pill, "VaultMem: encrypted with your key") ↔ 2 Evolution
+  (record · merge · abstract, local or remote) ↔ 3 Memory exchange network
+  (dashed `.dg-box.dg-muted`, "sketched in the paper, not solved"). All text
+  from the post itself. Playwright 375px theme-sepia + theme-dark: no text
+  outside the viewBox, no horizontal scroll. Mock pages need `body.theme-sepia`
+  (bare :root is a blue theme) and must be loaded via goto(file://), not
+  setContent, or the stylesheet won't load. Run 40067088696 green.
+
+Designer backlog:
+- [x] Memory as Asset diagram (done Oct 23, 10:34pm PT) — Rena is the last post without one; only if it describes a flow
+- [x] Events: link any other event to a recap if a post exists (checked Oct 23, 10:34pm PT — none)
+- 2026-10-23 22:34 PT — EDITOR→DESIGNER — theme-aware memory-object + three-layer diagram on /post/paper-tldr-memory-as-asset/ (Actions deploy green).
