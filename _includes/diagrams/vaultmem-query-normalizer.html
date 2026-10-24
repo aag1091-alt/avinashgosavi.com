@@ -1,0 +1,40 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 436" role="img" aria-labelledby="vm-qn-title vm-qn-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="vm-qn-title">How VaultMem's query normalizer strips question framing before search</title>
+  <desc id="vm-qn-desc">The question "What do I know about Sarah Chen?" goes to a QueryNormalizer, any object with normalize(text) returning a string. Two kinds plug in: the built-in RegexQueryNormalizer, which strips common English question preamble, or your own class, such as the demo's Groq-backed normalizer that asks an LLM to return only keywords. Either way the result is "Sarah Chen"; the question scaffolding "What do I know about" is dropped. search with normalize_query=True then embeds only those key terms.</desc>
+  <defs>
+    <marker id="vm-qn-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-pill" x="24" y="8" width="288" height="40" rx="20"/>
+  <text class="dg-body dg-mono" x="168" y="33" text-anchor="middle">"What do I know about Sarah Chen?"</text>
+  <line class="dg-line" x1="168" y1="48" x2="168" y2="70" marker-end="url(#vm-qn-arrow)"/>
+  <rect class="dg-box" x="24" y="72" width="288" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="94" text-anchor="middle">QueryNormalizer</text>
+  <text class="dg-note dg-mono" x="168" y="115" text-anchor="middle">normalize(text) -&gt; str</text>
+  <line class="dg-line" x1="90" y1="126" x2="90" y2="166" marker-end="url(#vm-qn-arrow)"/>
+  <line class="dg-line" x1="246" y1="126" x2="246" y2="166" marker-end="url(#vm-qn-arrow)"/>
+  <text class="dg-note" x="168" y="151" text-anchor="middle">or</text>
+  <rect class="dg-box" x="16" y="168" width="148" height="90" rx="8"/>
+  <text class="dg-note" x="90" y="188" text-anchor="middle">built-in</text>
+  <text class="dg-strong" x="90" y="212" text-anchor="middle">Regex</text>
+  <text class="dg-note" x="90" y="232" text-anchor="middle">strips English</text>
+  <text class="dg-note" x="90" y="248" text-anchor="middle">question preamble</text>
+  <rect class="dg-box" x="172" y="168" width="148" height="90" rx="8"/>
+  <text class="dg-note" x="246" y="188" text-anchor="middle">your own class</text>
+  <text class="dg-strong" x="246" y="212" text-anchor="middle">e.g. Groq LLM</text>
+  <text class="dg-note" x="246" y="232" text-anchor="middle">"return only</text>
+  <text class="dg-note" x="246" y="248" text-anchor="middle">keywords"</text>
+  <line class="dg-line" x1="90" y1="258" x2="90" y2="296" marker-end="url(#vm-qn-arrow)"/>
+  <line class="dg-line" x1="246" y1="258" x2="246" y2="296" marker-end="url(#vm-qn-arrow)"/>
+  <rect class="dg-box" x="24" y="298" width="288" height="54" rx="8"/>
+  <text class="dg-strong" x="168" y="320" text-anchor="middle">"Sarah Chen"</text>
+  <text class="dg-note" x="168" y="341" text-anchor="middle">"What do I know about" is dropped</text>
+  <line class="dg-line" x1="168" y1="352" x2="168" y2="372" marker-end="url(#vm-qn-arrow)"/>
+  <rect class="dg-pill" x="24" y="374" width="288" height="54" rx="27"/>
+  <text class="dg-body dg-mono" x="168" y="396" text-anchor="middle">search(…, normalize_query=True)</text>
+  <text class="dg-body" x="168" y="417" text-anchor="middle">embeds only the key terms</text>
+</svg>
+<figcaption>The normalizer runs before embedding, so the question's scaffolding words don't drown out the names that matter.</figcaption>
+</figure>

@@ -237,6 +237,8 @@ with VaultSession.open("./vault", passphrase,
     results = s.search("What do I know about Sarah?", normalize_query=True)
 ```
 
+{% include diagrams/vaultmem-query-normalizer.html %}
+
 ---
 
 ## Data classes

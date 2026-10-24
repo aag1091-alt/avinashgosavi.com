@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
   desk: Design
+  text: VaultMem Part 2's query normalizer section now has a diagram in the sepia and dark themes showing how a question like "What do I know about Sarah Chen?" is trimmed to "Sarah Chen" before it is embedded.
+  link: /post/vaultmem-part-2-multimodal-temporal-backends/
+- date: 2026-10-24
+  desk: Design
   text: Printing the Projects page while in the dark theme now gives each category its readable light-theme color on white paper instead of faint pastels.
   link: /projects/
 - date: 2026-10-24
