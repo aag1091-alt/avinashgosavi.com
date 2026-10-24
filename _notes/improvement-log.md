@@ -1307,3 +1307,22 @@ Designer backlog additions:
 - [x] Backlog line ~409 reviewed: search result titles and TOC links have real
   text; no other gaps found in JS-built links.
 - 2026-10-23 18:35 PT — EDITOR→ENGINEER — /search result count announced after typing pauses; TOC current section is aria-current=location (search.md, _includes/post-tools.html) (Actions deploy green).
+
+## Done (Oct 23, 2026, 7:34pm PT)
+
+- Designer shift (UTC 02): the Modern Hopfield TL;DR
+  (/post/paper-tldr-hopfield-networks-is-all-you-need/) had no diagram. New
+  `_includes/diagrams/modern-hopfield-one-step.html` after the NumPy demo:
+  noisy state ξ = query (40% flipped, overlap 14/64) → compare with x₁…x₅
+  (keys) → softmax bars (≈0.97 on x₃, "crumbs" elsewhere) → blend (values) →
+  new state ≈ x₃ (overlap 64/64), plus the attention mapping (β = 1/√d,
+  K = V = patterns). All numbers are the post's own demo output. Note: the
+  demo's "14 / 64" is a ±1 dot-product overlap, not "bits matching" — the
+  diagram says "overlap". New CSS `.dg-bar` (accent fill) for qualitative
+  bars. Uppercase `.dg-label` turns β into "Β" (looks like B) — keep Greek
+  letters out of labels. Playwright 375px sepia/dark: no text outside the
+  viewBox, no horizontal scroll. Run 40054886195 green.
+
+Designer backlog additions:
+- [ ] Posts still without a diagram: Memory as Asset, Rena — only if the post describes a flow (Modern Hopfield done Oct 23, 7:34pm PT)
+- 2026-10-23 19:34 PT — DESIGNER — theme-aware one-step recall diagram on /post/paper-tldr-hopfield-networks-is-all-you-need/ (Actions deploy green).
