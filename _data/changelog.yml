@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
+  desk: Engineering
+  text: Search is calmer with a screen reader — the result count is read out once you pause typing instead of after every letter, and the "On this page" list in long posts now announces the section you're reading as your current location.
+  link: /search/
+- date: 2026-10-23
   desk: Design
   text: The little "→" links on the Now page drop the underline that made them look like a stray dash, get a bigger tap target, and nudge right on hover.
   link: /now/

@@ -29,7 +29,15 @@ sitemap: false
   var status = document.getElementById('search-status');
   var form = input.form;
   var filter = document.getElementById('search-filter');
-  var index = null, timer = null;
+  var index = null, timer = null, sayTimer = null;
+
+  /* The status line is a live region: while someone is typing, wait 400ms so
+     screen readers hear the settled result count, not one per keystroke. */
+  function say(msg, wait) {
+    clearTimeout(sayTimer);
+    if (!wait) { status.textContent = msg; return; }
+    sayTimer = setTimeout(function() { status.textContent = msg; }, 400);
+  }
   var W = { title: 10, tags: 5, desc: 3, text: 1 };
   var TYPES = ['Post', 'Project', 'Paper', 'Event', 'Page'];
   var PLURAL = { Post: 'Posts', Project: 'Projects', Paper: 'Papers', Event: 'Events', Page: 'Pages' };
@@ -127,7 +135,7 @@ sitemap: false
     }
   }
 
-  function render(refocus) {
+  function render(refocus, typing) {
     var q = input.value.trim();
     var qs = [];
     if (q) qs.push('q=' + encodeURIComponent(q));
@@ -135,10 +143,10 @@ sitemap: false
     history.replaceState(null, '', qs.length ? '?' + qs.join('&') : location.pathname);
     list.innerHTML = '';
     filter.hidden = true;
-    if (!q) { status.textContent = ''; return; }
-    if (!index) { status.textContent = 'Loading…'; return; }
+    if (!q) { say(''); return; }
+    if (!index) { say('Loading…', typing); return; }
     var ts = terms(q);
-    if (!ts.length) { status.textContent = 'Type at least two letters.'; return; }
+    if (!ts.length) { say('Type at least two letters.', typing); return; }
     var all = index.map(function(it) { return { it: it, s: score(it, ts) }; })
       .filter(function(h) { return h.s > 0; })
       .sort(function(a, b) { return b.s - a.s; });
@@ -147,9 +155,9 @@ sitemap: false
     if (activeType && !counts[activeType]) activeType = '';
     renderFilter(all.length, counts, refocus);
     var hits = all.filter(function(h) { return !activeType || h.it.type === activeType; }).slice(0, 30);
-    status.textContent = hits.length
+    say(hits.length
       ? hits.length + (hits.length === 1 ? ' result' : ' results') + (activeType ? ' (' + PLURAL[activeType].toLowerCase() + ')' : '') + ' for “' + q + '”'
-      : 'Nothing matches “' + q + '”. Try a shorter or different word.';
+      : 'Nothing matches “' + q + '”. Try a shorter or different word.', typing);
     hits.forEach(function(h) {
       var it = h.it;
       var li = document.createElement('li');
@@ -200,7 +208,7 @@ sitemap: false
   });
 
   form.addEventListener('submit', function(e) { e.preventDefault(); render(); });
-  input.addEventListener('input', function() { clearTimeout(timer); timer = setTimeout(render, 120); });
+  input.addEventListener('input', function() { clearTimeout(timer); timer = setTimeout(function() { render(false, true); }, 120); });
 
   var initial = params.get('q');
   if (initial) input.value = initial;
@@ -215,6 +223,6 @@ sitemap: false
       });
       render();
     })
-    .catch(function() { status.textContent = 'Search index failed to load. Try the post list on the Writing page.'; });
+    .catch(function() { say('Search index failed to load. Try the post list on the Writing page.'); });
 })();
 </script>

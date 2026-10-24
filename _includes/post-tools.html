@@ -20,7 +20,7 @@
         var mark=function(id){
           if(cur===id||!links[id]) return;
           if(cur&&links[cur]) links[cur].removeAttribute('aria-current');
-          links[id].setAttribute('aria-current','true'); cur=id;
+          links[id].setAttribute('aria-current','location'); cur=id;
         };
         var io=new IntersectionObserver(function(){
           // current = last h2 whose top is above 30% of the viewport
