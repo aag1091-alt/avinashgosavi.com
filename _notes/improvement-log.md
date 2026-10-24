@@ -1289,3 +1289,21 @@ Designer backlog additions:
   prefers-reduced-motion), focus-visible outline. Homepage Now has no arrows.
   Run 40045786265 green.
 - 2026-10-23 17:35 PT — EDITOR→DESIGNER — /now arrow links: no underline, 24px tap target, hover nudge (now.md, assets/css/style.css) (Actions deploy green).
+
+## Done (Oct 23, 2026, 6:35pm PT)
+
+- Editor slot (UTC 01) → Engineer: events/now still current (Cal Hacks Oct
+  23–25 underway); Gmail last day: no event registrations; codespell: only
+  "Rouge" false positives. Stale backlog items checked and already done:
+  theme-color/color-scheme (line ~297), theme flash (line ~330).
+  Backlog line ~409 (JS-built links): /search's `role=status` line updated on
+  every 120ms keystroke render, so screen readers heard a count per letter.
+  New `say(msg, wait)` in search.md delays the live-region text 400ms while
+  typing (results still draw at once); load, chips, Enter, Esc and errors
+  announce immediately. Post TOC current section now `aria-current="location"`
+  (was "true"; CSS keys off `[aria-current]`, unchanged). Playwright mock: load,
+  typing (+250ms empty, +650ms "1 result for “memo”"), chip, Esc; no JS errors.
+  Run 40050634537 green.
+- [x] Backlog line ~409 reviewed: search result titles and TOC links have real
+  text; no other gaps found in JS-built links.
+- 2026-10-23 18:35 PT — EDITOR→ENGINEER — /search result count announced after typing pauses; TOC current section is aria-current=location (search.md, _includes/post-tools.html) (Actions deploy green).
