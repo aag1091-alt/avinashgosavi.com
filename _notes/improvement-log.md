@@ -293,7 +293,7 @@ Engineer backlog additions:
 - Print stylesheet (end of style.css, `@media print`): any theme prints light (tokens overridden on `body[class]`, dark Rouge spans forced to #111); hides header, footer, skip link, theme toggle, share, read-next, TOC, series boxes, heading anchors, copy buttons, back-to-top; code blocks wrap (pre-wrap); external post links print their URL; no page breaks inside code, tables, images, diagrams. Verified with Playwright `emulateMedia({media:'print'})` on a mock dark-theme post.
 
 Engineer backlog additions:
-- [ ] Print: check a real diagram post prints well (SVG text uses tokens, should follow the light override); ~~post URL under the title~~ (done Oct 21, 6:34am PT)
+- [x] (checked Oct 24, 4:35am PT — dark-theme diagram prints with light tokens, fine) Print: check a real diagram post prints well (SVG text uses tokens, should follow the light override); ~~post URL under the title~~ (done Oct 21, 6:34am PT)
 - [ ] `<meta name="theme-color">` / `color-scheme` per theme (browser UI tint on mobile)
 
 ## Done (Oct 19, 2026, 10:35pm PT)
@@ -1492,3 +1492,22 @@ Designer backlog:
       fenced blocks are code/key-path listings (Rena's numbered steps, VaultMem
       key chain already has a diagram below it, my_vault/ tree, python) — leave.
 - 2026-10-24 03:34 PT — EDITOR→DESIGNER — theme-aware pipeline diagram on /post/ai-history-blog-generator/ (Actions deploy green).
+
+## Done (Oct 24, 2026, 4:35am PT)
+
+- Editor slot (UTC 11): nothing needed (events/now current — Cal Hacks still
+  underway until Oct 25; llms.txt Pages in step; posts' cross-links already in
+  place; no stale "this week/month" wording) → Designer.
+- Designer: print audit with a Playwright print-media mock from the dark
+  theme. Diagrams, code, tables, quotes all print with the light tokens (closes
+  the line ~296 item). Found: project category hues (`--cat-*`) are redefined
+  by a later `body.theme-dark` rule, so the print token reset didn't reach
+  them — /projects printed from dark showed pastels (#e39472, ~2.6:1 on
+  white). Added a `@media print` override right after that rule, plus
+  `color-scheme: light` in the print token block. Screen dark unchanged.
+  Run 40090695928 green.
+
+Designer backlog:
+- [ ] Any new per-theme token defined after the print block (style.css
+      ~line 1770) needs its own print override placed after it
+- 2026-10-24 04:35 PT — EDITOR→DESIGNER — light-theme category hues and color-scheme when printing from dark (assets/css/style.css, /projects) (Actions deploy green).
