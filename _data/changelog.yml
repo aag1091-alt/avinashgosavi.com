@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-23
   desk: Design
+  text: The little "→" links on the Now page drop the underline that made them look like a stray dash, get a bigger tap target, and nudge right on hover.
+  link: /now/
+- date: 2026-10-23
+  desk: Design
   text: Links in everyday page text — the About page, page intros, Uses, Research and the footer — now use the site's teal and gold with the same soft underline as posts, instead of the browser's default blue and purple.
   link: /about/
 - date: 2026-10-23

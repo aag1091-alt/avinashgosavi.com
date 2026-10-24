@@ -1469,6 +1469,22 @@ h1[tabindex="-1"]:focus { outline: none; }
 }
 .now-item dt { font-weight: 600; color: var(--text-muted); font-size: 0.9rem; }
 .now-item dd { margin: 0; }
+/* Arrow-only "more" link: an underline under a lone → looked like a stray
+   dash, so no underline; a 24px tap target and a small nudge on hover instead. */
+.now-more {
+  display: inline-block;
+  min-width: 24px;
+  min-height: 24px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--accent-ink, var(--accent));
+  text-decoration: none;
+  border-radius: 4px;
+  transition: transform 0.15s ease;
+}
+.now-more:hover { transform: translateX(3px); }
+.now-more:focus-visible { outline: 2px solid currentColor; outline-offset: 1px; }
+@media (prefers-reduced-motion: reduce) { .now-more { transition: none; } .now-more:hover { transform: none; } }
 .muted { color: var(--text-muted); }
 @media (max-width: 480px) { .now-item { grid-template-columns: 1fr; gap: 0.15rem; } }
 

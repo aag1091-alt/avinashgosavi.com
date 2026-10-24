@@ -12,7 +12,7 @@ description: What Avinash Gosavi is working on, building, reading and attending 
     {% for item in site.data.now.items %}
     <div class="now-item">
       <dt>{{ item.label }}</dt>
-      <dd>{{ item.text }}{% if item.link %} <a href="{{ item.link | relative_url }}" aria-label="More about {{ item.label | downcase }}">→</a>{% endif %}</dd>
+      <dd>{{ item.text }}{% if item.link %} <a class="now-more" href="{{ item.link | relative_url }}" aria-label="More about {{ item.label | downcase }}">→</a>{% endif %}</dd>
     </div>
     {% endfor %}
   </dl>
