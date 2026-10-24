@@ -1633,3 +1633,29 @@ Designer backlog:
 - [ ] Touch-only `.heading-anchor` opacity .6 (style.css ~1626/1641) — "#"
       glyph is decorative-ish but check it reaches 3:1 in both themes
 - 2026-10-24 10:35 PT — DESIGNER — homepage "View Projects" button hover darkens instead of fading; sepia hover label 3.9 → 5.8:1 (assets/css/style.css, /) (Actions deploy green).
+
+## Done (Oct 24, 2026, 11:35am PT)
+
+- Engineer shift (UTC 18): "Copy link to quote" in posts
+  (`_includes/post-tools.html`, `.quote-link` in style.css). On
+  fine-pointer devices only (phones have native "link to highlight"),
+  selecting text inside `.post-content` (mouse or Shift+arrows) shows a
+  small button under the selection's last line; it copies
+  `<post url>#:~:text=<text>` (≤8 words) or `start,end` (first/last 4
+  words) with `-`/`,` percent-encoded. Ignores selections in pre/code,
+  SVG diagrams, TOC, buttons; hides on outside mousedown / Escape; the
+  "Link copied" reset timer is cleared on a new selection (bug caught in
+  test). Live status message via the existing `say()`. Hidden in print.
+  Playwright mock (localhost, sepia + dark at 1200px): button shows with
+  theme colours, clipboard URL opens scrolled to the passage; no button on
+  code selections or on a touch/mobile context. Run 40121748287 green,
+  0 warnings.
+- Sandbox notes: www.avinashgosavi.com is blocked by the egress proxy and
+  rubygems is unreachable (no local Jekyll) — test JS/CSS on a localhost
+  mock page (`python3 -m http.server`; clipboard needs localhost).
+
+Engineer backlog additions:
+- [ ] Quote links: if a quote's start/end words repeat earlier in the post,
+      the browser highlights the first match — could add a `prefix-,` if
+      readers hit this
+- 2026-10-24 11:35 PT — ENGINEER — "Copy link to quote" button for selected text in posts (_includes/post-tools.html, assets/css/style.css, all /post/*) (Actions deploy green).
