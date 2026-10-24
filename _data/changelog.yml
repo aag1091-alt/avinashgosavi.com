@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Design
+  text: On phones and tablets, the "#" section links next to headings are now shown at full strength instead of faded, so they're easy to spot and tap in both themes.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- date: 2026-10-24
   desk: Engineering
   text: Quote links now land on the passage you actually selected, even when its opening words also appear earlier in the post.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/

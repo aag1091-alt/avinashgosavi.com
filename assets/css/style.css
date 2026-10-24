@@ -1626,7 +1626,8 @@ h1[tabindex="-1"]:focus { outline: none; }
 .post-content h3:hover .heading-anchor,
 .post-content .heading-anchor:focus-visible { opacity: 1; }
 .post-content .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
-@media (hover: none) { .post-content .heading-anchor { opacity: 0.6; } }
+/* Touch screens: always shown at full muted colour (0.6 opacity was 2.7:1 in sepia) */
+@media (hover: none) { .post-content .heading-anchor { opacity: 1; } }
 .post-content h2[id], .post-content h3[id] { scroll-margin-top: 5rem; }
 /* Same "#" section links on regular pages (_includes/page-anchors.html) */
 h2.has-anchor { scroll-margin-top: 5rem; }
@@ -1641,7 +1642,7 @@ h2.has-anchor .heading-anchor {
 h2.has-anchor:hover .heading-anchor,
 h2.has-anchor .heading-anchor:focus-visible { opacity: 1; }
 h2.has-anchor .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
-@media (hover: none) { h2.has-anchor .heading-anchor { opacity: 0.6; } }
+@media (hover: none) { h2.has-anchor .heading-anchor { opacity: 1; } }
 .post-content .has-copy { position: relative; }
 .code-copy {
   position: absolute;
