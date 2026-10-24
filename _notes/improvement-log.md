@@ -1469,3 +1469,26 @@ Engineer backlog additions:
 - [ ] Unpin ubuntu-24.04 → 26.04 once setup-ruby supports it (try in a
       throwaway branch run first); 24.04 is supported until 2029
 - 2026-10-24 02:34 PT — ENGINEER — pinned CI runners to ubuntu-24.04 ahead of the ubuntu-latest migration (.github/workflows/jekyll.yml) (Actions deploy green).
+
+## Done (Oct 24, 2026, 3:34am PT)
+
+- Editor slot (UTC 10): nothing needed → Engineer had nothing small left
+  (theme-color, flash, search anchors all done) → Designer. Editor checks:
+  events/now current (Cal Hacks Oct 23–25 still underway — move to past and
+  drop the Mentoring Now item on Oct 26); Gmail last 2 days: no new event
+  registrations (IEEE Oct 27 panel mail is a reminder, not a registration);
+  codespell: only "Rouge" false positives.
+- Designer: new `_includes/diagrams/ai-history-pipeline.html` replaces the
+  64-char ASCII pipeline box on /post/ai-history-blog-generator/ (scrolled at
+  375px): Claude/OpenAI pill → Research node → Write node (Ollama, WriterAgent,
+  search_wikipedia · search_arxiv · write_post) → Critique node (Pydantic
+  checks) → approved → Publish & push pill | issues (max 2×) → Rewrite node,
+  dashed loop back to Critique. All text from the post's own ASCII block.
+  Playwright 375px sepia/dark: no text outside viewBox/boxes, no overlaps, no
+  horizontal scroll. Run 40086617603 green.
+
+Designer backlog:
+- [x] ASCII sweep (line ~1433): AI History pipeline done. Remaining wide
+      fenced blocks are code/key-path listings (Rena's numbered steps, VaultMem
+      key chain already has a diagram below it, my_vault/ tree, python) — leave.
+- 2026-10-24 03:34 PT — EDITOR→DESIGNER — theme-aware pipeline diagram on /post/ai-history-blog-generator/ (Actions deploy green).
