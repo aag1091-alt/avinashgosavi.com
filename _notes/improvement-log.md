@@ -1594,5 +1594,23 @@ Engineer backlog additions:
   warnings.
 
 Engineer backlog additions:
-- [ ] Contrast pass doesn't see hover/focus states or SVG diagram text — designer shifts still check those by hand
+- [ ] Contrast pass doesn't see hover/focus states — designer shifts still check those by hand (SVG diagram text now covered, Oct 24 9:34am PT)
 - 2026-10-24 08:34 PT — EDITOR→ENGINEER — CI text-contrast check in sepia and dark; code highlighting + /blog tag counts fixed to WCAG AA (scripts/check_browser.py, assets/css/style.css, /blog/, all posts with code) (Actions deploy green).
+
+## Done (Oct 24, 2026, 9:34am PT)
+
+- Editor slot (UTC 16): nothing needed — events/now current (Cal Hacks
+  Oct 23–25 still underway; move to past + drop the Mentoring Now item on
+  Oct 26), Gmail last day: no event registrations → Engineer.
+- Engineer: `scripts/check_browser.py` contrast pass now measures `.diagram
+  svg text` too: text fill (× fill-opacity/opacity) vs. the topmost filled
+  rect/circle/ellipse/path/polygon under the text's centre
+  (`elementsFromPoint` after an instant `scrollIntoView` — the page's smooth
+  scroll otherwise leaves the text off-screen), composited down to the HTML
+  background behind the figure; large-text threshold uses the rendered px
+  size. Mock with all 24 diagram includes × sepia/dark/white at 375px: all
+  421 texts measured, lowest 5.71 (sepia) / 5.23 (dark) / 7.20 (white); an
+  injected muted-on-pill (3.66), grey-on-page and 50%-white overlay case were
+  flagged with the right composited colors. Run 40112453492 green, 0 browser
+  warnings. Invisible, so no changelog entry.
+- 2026-10-24 09:34 PT — EDITOR→ENGINEER — CI contrast check now covers text in SVG diagrams (scripts/check_browser.py) (Actions deploy green).
