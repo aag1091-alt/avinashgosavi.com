@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Engineering
+  text: Select a passage in any post with a mouse or trackpad and a "Copy link to quote" button appears — the link opens the post scrolled to that passage with it highlighted.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- date: 2026-10-24
   desk: Design
   text: The "View Projects" button on the homepage now gets darker on hover in sepia (and lighter in dark) instead of fading, so its label stays easy to read while you point at it.
   link: /

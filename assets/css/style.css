@@ -1660,6 +1660,23 @@ h2.has-anchor .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
 .has-copy:hover .code-copy, .code-copy:focus-visible { opacity: 1; }
 @media (hover: none) { .code-copy { opacity: 1; } }
 .code-copy:hover { color: var(--accent-ink, var(--accent)); border-color: var(--accent); }
+/* "Copy link to quote" button under a text selection in posts (_includes/post-tools.html) */
+.quote-link {
+  position: absolute;
+  z-index: 30;
+  padding: 0.3rem 0.65rem;
+  font: 500 0.8rem var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.quote-link[hidden] { display: none; }
+.quote-link:hover { color: var(--accent-ink, var(--accent)); }
+.quote-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media print { .quote-link { display: none !important; } }
 /* Language tab on fenced code blocks (set by _includes/post-tools.html) */
 .post-content .highlighter-rouge.has-lang { position: relative; }
 .post-content .highlighter-rouge.has-lang > .highlight { margin-top: 1.9rem; }

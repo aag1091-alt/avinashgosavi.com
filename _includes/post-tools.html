@@ -301,5 +301,42 @@
     box.classList.add('has-copy');
     box.appendChild(b);
   });
+  // "Copy link to quote": select text in a post (mouse/trackpad) to get a link that opens the post
+  // scrolled to and highlighting that passage (URL text fragment). Phones have this built in.
+  if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var ql=document.createElement('button');
+  ql.type='button'; ql.className='quote-link'; ql.hidden=true; ql.textContent='Copy link to quote';
+  document.body.appendChild(ql);
+  var frag='', qt;
+  var enc=function(t){ return encodeURIComponent(t).replace(/-/g,'%2D').replace(/,/g,'%2C'); };
+  var hideQ=function(){ clearTimeout(qt); ql.hidden=true; frag=''; ql.textContent='Copy link to quote'; };
+  var check=function(){
+    var sel=window.getSelection(); hideQ();
+    if(!sel||sel.isCollapsed||!sel.rangeCount) return;
+    var r=sel.getRangeAt(0), c=r.commonAncestorContainer;
+    if(c.nodeType!==1) c=c.parentNode;
+    if(!root.contains(c)||c.closest('pre, code, svg, .diagram, .post-toc, button')) return;
+    var w=sel.toString().replace(/\s+/g,' ').trim().split(' ');
+    if(w.join(' ').length<3||w.length>300) return;
+    frag=w.length<=8 ? enc(w.join(' ')) : enc(w.slice(0,4).join(' '))+','+enc(w.slice(-4).join(' '));
+    var rects=r.getClientRects(), b=rects[rects.length-1]||r.getBoundingClientRect();
+    ql.hidden=false;
+    var x=Math.min(Math.max(8,b.right-ql.offsetWidth/2),document.documentElement.clientWidth-ql.offsetWidth-8);
+    ql.style.left=(x+window.scrollX)+'px';
+    ql.style.top=(b.bottom+window.scrollY+8)+'px';
+  };
+  document.addEventListener('mouseup',function(e){ if(e.target!==ql) setTimeout(check,10); });
+  document.addEventListener('keyup',function(e){ if(e.key==='Shift'||e.shiftKey) check(); });
+  document.addEventListener('mousedown',function(e){ if(e.target!==ql) hideQ(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hideQ(); });
+  ql.addEventListener('mousedown',function(e){ e.preventDefault(); });
+  ql.addEventListener('click',function(){
+    if(!frag) return;
+    var u=location.origin+location.pathname+'#:~:text='+frag;
+    navigator.clipboard.writeText(u).then(function(){
+      ql.textContent='Link copied'; say('Link to quote copied');
+      qt=setTimeout(hideQ,1200);
+    },function(){ window.prompt('Copy this link:',u); });
+  });
 })();
 </script>
