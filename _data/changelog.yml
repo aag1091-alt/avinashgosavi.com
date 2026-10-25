@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
   desk: Engineering
+  text: Posts that were revised a week or more after publishing now show an "Updated" date next to the original one.
+  link: /blog/
+- date: 2026-10-25
+  desk: Engineering
   text: Every build now also checks the links that point to other sites and flags any that have gone dead, so readers hit fewer 404s.
   link: /changelog/
 - date: 2026-10-25

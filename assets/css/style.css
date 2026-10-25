@@ -898,9 +898,12 @@ input:focus-visible {
   content: " · ";
 }
 
-.post-meta .post-read-time::before {
+.post-meta .post-read-time::before,
+.post-meta .post-updated::before {
   content: " · ";
 }
+/* "Updated <date>" only appears when a post changed a week or more after publishing */
+.post-meta .post-updated { white-space: nowrap; }
 
 .post-content {
   font-size: 1rem;

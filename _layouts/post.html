@@ -9,6 +9,9 @@ layout: default
     <div class="post-meta">
       <span class="post-author p-author h-card"><data class="p-name" value="{{ site.author.name | escape }}"></data><data class="u-url" value="{{ '/' | absolute_url }}"></data>{{ site.author.username }}</span>
       <time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %d, %Y" }}</time>
+      {%- if page.last_modified_at %}{% assign pub_s = page.date | date: "%s" | plus: 0 %}{% assign mod_s = page.last_modified_at | date: "%s" | plus: 0 %}{% assign mod_gap = mod_s | minus: pub_s %}{% if mod_gap >= 604800 %}
+      <span class="post-updated">Updated <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %d, %Y" }}</time></span>
+      {%- endif %}{% endif %}
        <span class="post-read-time">{% include read-time.html content=content %}</span>
     </div>
     <p class="post-print-source">{{ page.url | absolute_url }}</p>
