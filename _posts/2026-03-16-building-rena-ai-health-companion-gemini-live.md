@@ -178,8 +178,6 @@ Fix: use Rena's own TTS voice (`en-US-Neural2-F`) for the coaching audio. Unexpe
 
 ---
 
----
-
 ## App screenshots
 
 <div style="display:flex; gap:12px; justify-content:center; align-items:flex-start; flex-wrap:nowrap; overflow-x:auto;">
@@ -218,3 +216,5 @@ Fix: use Rena's own TTS voice (`en-US-Neural2-F`) for the coaching audio. Unexpe
 *Built with Google Cloud, Gemini Live API, Veo 2, Imagen, and Google ADK for the Gemini Live Agent Challenge 2026.*
 
 *Another take on streaming live audio from a phone: [near real-time transcription with faster-whisper on my own server]({% post_url 2026-04-12-live-audio-transcription-whisper %}).*
+
+*Rena's need to remember users across sessions is where [VaultMem]({% post_url 2026-03-21-vaultmem-encrypted-memory-for-ai-agents %}) started — an encrypted memory library for AI agents.*

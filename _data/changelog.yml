@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Writing
+  text: The Rena post now ends with a link to VaultMem, the encrypted memory library that grew out of Rena's need to remember users between sessions.
+  link: /post/building-rena-ai-health-companion-gemini-live/
+- date: 2026-10-25
   desk: Engineering
   text: Each Paper TL;DR post now tells search engines and AI assistants, in structured data, which paper it summarises — its title, authors, year and a link to the original.
   link: /paper-tldr/
