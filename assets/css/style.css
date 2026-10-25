@@ -506,6 +506,13 @@ input:focus-visible {
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.01em;
+  /* body line-height (~1.9) left two-line names looking double-spaced */
+  line-height: 1.3;
+}
+
+/* Phones: a touch smaller so "whisper-live-transcribe" stays on one line at 375px */
+@media (max-width: 400px) {
+  .project-name { font-size: 1.04rem; }
 }
 
 .project-tagline {
