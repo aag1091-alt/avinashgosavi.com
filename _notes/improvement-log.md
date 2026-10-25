@@ -1934,3 +1934,22 @@ Engineer backlog additions:
 Editor backlog additions:
 - [ ] Add `end_date` to any new multi-day event (drives "Happening now" and the CI freshness check)
 - 2026-10-25 03:35 PT — EDITOR→ENGINEER — "Happening now" tag + <time> dates + end_date on /events (_data/events.yml, _includes/event-row.html, events.md, assets/css/style.css, scripts/check_data.py) (Actions deploy green).
+
+## Done (Oct 25, 2026, 4:34am PT)
+
+- Editor slot (UTC 11): nothing needed — Cal Hacks 13.0 (Oct 23–25) still
+  running today; /now accurate; no http:// links, doubled words or stray
+  punctuation in posts; llms.txt lists every page. Gmail (for the next
+  editor after Oct 25): Cal Hacks emails are only Slack-workspace joins/
+  mentions (Oct 15–16) — no mentor shift, check-in or QR email, so they
+  don't prove attendance on their own. → Engineer had nothing open that
+  wasn't done or waiting on Avinash → Designer.
+- Search fields (#site-search, #post-search): accent `caret-color` and a
+  themed WebKit/Blink clear (×) button — SVG mask filled with --text-muted,
+  accent-ink on hover, CanvasText in forced colors (Firefox has no native
+  clear button). Playwright file mock at 375px, sepia + dark: icon visible,
+  no overflow. Run 40189673958 green, 0 warnings.
+
+Designer backlog additions:
+- [ ] Any new `<input type="search">` needs its id added to the clear-button rule in style.css
+- 2026-10-25 04:34 PT — EDITOR→DESIGNER — themed clear (×) button + accent caret on search fields (assets/css/style.css; /search/, /blog/) (Actions deploy green).
