@@ -23,6 +23,7 @@ sitemap: false
   "authors": [{ "name": {{ site.author.name | jsonify }}, "url": {{ root | jsonify }} }],
   "items": [
     {%- for post in site.posts limit: 20 %}
+    {%- assign post_abs = post.url | absolute_url %}
     {
       "id": {{ post.url | absolute_url | jsonify }},
       "url": {{ post.url | absolute_url | jsonify }},
@@ -36,7 +37,7 @@ sitemap: false
       "date_published": {{ post.date | date_to_xmlschema | jsonify }},
       "date_modified": {{ post.last_modified_at | default: post.date | date_to_xmlschema | jsonify }},
       "tags": {{ post.tags | jsonify }},
-      "content_html": {{ post.content | replace: 'href="/', root_href | replace: 'src="/', root_src | jsonify }}
+      "content_html": {{ post.content | feed_diagrams: post_abs | replace: 'href="/', root_href | replace: 'src="/', root_src | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {%- endfor %}
   ]

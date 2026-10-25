@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Engineering
+  text: In RSS/Atom and JSON feed readers, the diagrams in posts now arrive as a short text description with a link back to the post, instead of SVG that readers drew as solid black shapes.
+  link: /feed.xml
+- date: 2026-10-25
   desk: Design
   text: Project names on cards sit closer together when they wrap to two lines, and long names like whisper-live-transcribe now fit on one line on phones.
   link: /projects/
