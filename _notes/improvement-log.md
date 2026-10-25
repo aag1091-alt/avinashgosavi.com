@@ -1430,7 +1430,7 @@ Designer backlog:
   blocks left except the numbered video-pipeline steps (plain text, wraps).
 
 Designer backlog:
-- [ ] Look for other posts whose fenced ```text/ASCII blocks are wider than ~45 chars and scroll at 375px (grep for box-drawing chars ┌ │ ▼ in _posts/)
+- [x] Look for other posts whose fenced ```text/ASCII blocks are wider than ~45 chars and scroll at 375px (checked Oct 24, 5:35pm PT: only the VaultMem key chain — already diagrammed below it — and the .vmem file tree remain; both are his own text, left as is)
 - 2026-10-24 00:35 PT — DESIGNER — theme-aware architecture diagram on /post/building-rena-ai-health-companion-gemini-live/ (Actions deploy green).
 
 ## Done (Oct 24, 2026, 1:34am PT)
@@ -1449,7 +1449,7 @@ Designer backlog:
   would change his visible post titles; leave unless Avinash asks.
 
 Engineer backlog additions:
-- [ ] a11y lint can't see JS-added scroll regions — a Playwright pass could assert every overflowing `pre`/`.table-scroll` is focusable
+- [x] a11y lint can't see JS-added scroll regions — covered by check_browser.py `scroll-focus` rule
 - 2026-10-24 01:34 PT — ENGINEER — wide code blocks in posts keyboard-scrollable and labelled for screen readers (_includes/post-tools.html) (Actions deploy green).
 
 ## Done (Oct 24, 2026, 2:34am PT)
@@ -1753,3 +1753,12 @@ Designer backlog:
 Engineer backlog additions:
 - [ ] If a page other than posts/home gets an author block (e.g. /about), consider an h-card there with `u-uid` = homepage
 - 2026-10-24 16:35 PT — ENGINEER — microformats h-entry on posts + h-card on homepage, CI mf2 check (_layouts/post.html, _layouts/home.html, _includes/social-icons.html, scripts/check_mf2.py, all /post/*, /) (Actions deploy green).
+
+## Done (Oct 24, 2026, 5:35pm PT)
+
+- Editor shift (UTC 00): events/now still current (Cal Hacks Oct 23–25 underway;
+  move it to past + drop its /now item after Oct 25). Cross-link sweep of
+  project names in posts: only gap was the first VaultMem post linking Rena
+  to GitHub alone — now links the Rena write-up with the code link beside it.
+  Closed two stale backlog items (ASCII-block sweep, scroll-focus check).
+- 2026-10-24 17:35 PT — EDITOR — VaultMem post links the Rena write-up (/post/vaultmem-encrypted-memory-for-ai-agents/) (Actions deploy green).
