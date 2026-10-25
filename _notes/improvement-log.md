@@ -1790,3 +1790,22 @@ Engineer backlog additions:
   mock sepia + dark: no overflow, all text inside its box. Run 40155178678
   green, 0 warnings. Site now loads no Mermaid/jsdelivr script anywhere.
 - 2026-10-24 19:35 PT — DESIGNER — theme-aware architecture diagram replaces CDN Mermaid chart (/post/hobby-project-stack/, _includes/diagrams/daylog-stack-architecture.html) (Actions deploy green).
+
+## Done (Oct 24, 2026, 8:34pm PT)
+
+- Engineer shift (UTC 03): search.json cut each post's text at 8,000 chars,
+  so the tails of ~10 long posts (VaultMem Part 2 ~13.8k source chars,
+  hobby stack, VaultMem intro, Rena, Attractor, Codex skills, glossary…)
+  weren't searchable — and /search/'s text-fragment jump never reached them.
+  Cap raised to 30,000 (longest post well under it; adds ~25 KB raw /
+  a few KB gzipped to search.json, which /search/, 404 and link previews
+  fetch once). CI "Check search index is valid JSON" step now prints the
+  index size and a ::notice for any post that hits the 30k cap.
+  Run 40158874493 green, no cap notices. (Local Jekyll build impossible:
+  rubygems.org unreachable from sandbox — CI is the build check.)
+- Changelog wording kept generic ("a long post") — exact rendered-text
+  lengths weren't measured.
+
+Engineer backlog additions:
+- [ ] If search.json ever passes ~400 KB, consider splitting post text into a lazily fetched second file (links previews only need title/desc/date)
+- 2026-10-24 20:34 PT — ENGINEER — /search/ now searches the full text of long posts (cap 8k → 30k chars) + CI size/cap notice (search.json, .github/workflows/jekyll.yml) (Actions deploy green).
