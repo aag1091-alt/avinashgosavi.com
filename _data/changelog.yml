@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
   desk: Design
+  text: The Doing the Right Thing, Fast post now has a diagram of the cycle every cleanup stream went through, from identifying what to remove to review and testing.
+  link: /post/doing-the-right-thing-fast/
+- date: 2026-10-25
+  desk: Design
   text: The Codex Skills post now has a diagram of the git housekeeping flow, showing four small skills (branch, update, commit, push) chained into one combined skill.
   link: /post/codex-skills-baking-your-workflow-into-the-tool/
 - date: 2026-10-25

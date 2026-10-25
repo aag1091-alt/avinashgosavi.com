@@ -1,0 +1,44 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 560" role="img" aria-labelledby="rtf-dg-title rtf-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="rtf-dg-title">The cleanup split into 20 to 25 work streams, each run through the same cycle</title>
+  <desc id="rtf-dg-desc">The cleanup was split into 20 to 25 focused work streams. Every stream went through the same four steps. Identify what to remove, with Codex finding the call sites. Make the change, with Codex generating the deletions and the ripple effects across the codebase. Review it carefully, diff by diff in VS Code. Test it manually. Then move on to the next stream. Every stream ran through this cycle over two weeks, and all of it is now deployed to production.</desc>
+  <defs>
+    <marker id="rtf-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="73" y="10" width="190" height="44" rx="22"/>
+  <text class="dg-strong" x="168" y="38" text-anchor="middle">20–25 work streams</text>
+  <line class="dg-line" x1="168" y1="54" x2="168" y2="80" marker-end="url(#rtf-dg-arrow)"/>
+
+  <rect class="dg-group" x="10" y="84" width="316" height="396" rx="10"/>
+  <text class="dg-label" x="24" y="106">Each stream, same cycle</text>
+
+  <rect class="dg-box" x="22" y="118" width="262" height="64" rx="8"/>
+  <text class="dg-strong" x="36" y="143">1 · Identify</text>
+  <text class="dg-note" x="36" y="167">what to remove; Codex finds call sites</text>
+  <line class="dg-line" x1="153" y1="182" x2="153" y2="208" marker-end="url(#rtf-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="210" width="262" height="64" rx="8"/>
+  <text class="dg-strong" x="36" y="235">2 · Change</text>
+  <text class="dg-note" x="36" y="259">Codex: deletions + ripple effects</text>
+  <line class="dg-line" x1="153" y1="274" x2="153" y2="300" marker-end="url(#rtf-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="302" width="262" height="64" rx="8"/>
+  <text class="dg-strong" x="36" y="327">3 · Review</text>
+  <text class="dg-note" x="36" y="351">carefully, diff by diff in VS Code</text>
+  <line class="dg-line" x1="153" y1="366" x2="153" y2="392" marker-end="url(#rtf-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="394" width="262" height="64" rx="8"/>
+  <text class="dg-strong" x="36" y="419">4 · Test</text>
+  <text class="dg-note" x="36" y="443">manually, then move on</text>
+
+  <path class="dg-line dg-dash" d="M284 426 H306 V150 H288" marker-end="url(#rtf-dg-arrow)"/>
+  <text class="dg-note" x="0" y="0" transform="translate(318 288) rotate(-90)" text-anchor="middle">next stream</text>
+
+  <text class="dg-body" x="168" y="512" text-anchor="middle">All streams done in two weeks,</text>
+  <text class="dg-body" x="168" y="534" text-anchor="middle">now fully in production.</text>
+</svg>
+<figcaption>Same four steps, 20–25 times over.</figcaption>
+</figure>

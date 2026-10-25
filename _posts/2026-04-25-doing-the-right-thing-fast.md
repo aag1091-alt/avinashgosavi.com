@@ -18,6 +18,8 @@ This time was different.
 
 I split the cleanup into 20-25 focused work streams. A few people helped with specific areas, but most of it was mine. Over two weeks, every stream went through the same cycle: identify what to remove, make the change, review it carefully, test, and move on.
 
+{% include diagrams/right-thing-fast-cycle.html %}
+
 The Meraki developer tools team's **jira-to-PR skill** made the pipeline from ticket to code review almost frictionless. I wasn't fighting process — I was just doing the work.
 
 That work is now fully deployed to production. No errors. The legacy load is gone.
