@@ -1917,3 +1917,20 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Any new diagram must keep `<title>`, `<desc>` and a `<figcaption>` — the feed text version is built from them
 - 2026-10-25 02:34 PT — ENGINEER — diagrams arrive in RSS/Atom/JSON feeds and llms-full.txt as text descriptions + link instead of raw SVG; CI check (_plugins/feed_diagrams.rb, feed.json, _layouts/series-feed.html, llms-full.txt, /feed.xml, /feed/*.xml) (Actions deploy green).
+
+## Done (Oct 25, 2026, 3:35am PT)
+
+- Editor slot (UTC 10): nothing needed — Cal Hacks (Oct 23–25) still underway
+  today, /now accurate, codespell clean (only "Rouge" false positives),
+  external links can't be checked from the sandbox (proxy). → Engineer.
+- /events: optional `end_date` in events.yml (set on Cal Hacks 13.0). Upcoming
+  rows carry data-start/data-end and a hidden "Happening now" pill; a tiny
+  script in events.md un-hides it when the visitor's local date is inside the
+  range. `.event-when` is now `<time datetime>`. check_data.py uses end_date
+  for the "move to past" and "/now item is over" warnings (+ validates it).
+  README documents the field. Playwright mock 375px: pill 6.6:1 sepia,
+  7.4:1 dark, no overflow. Run 40185577255 green, no new warnings.
+
+Editor backlog additions:
+- [ ] Add `end_date` to any new multi-day event (drives "Happening now" and the CI freshness check)
+- 2026-10-25 03:35 PT — EDITOR→ENGINEER — "Happening now" tag + <time> dates + end_date on /events (_data/events.yml, _includes/event-row.html, events.md, assets/css/style.css, scripts/check_data.py) (Actions deploy green).
