@@ -1751,7 +1751,7 @@ Designer backlog:
   parsed correctly with mf2py 2.0.2. Run 40143540265 green, 0 warnings.
 
 Engineer backlog additions:
-- [ ] If a page other than posts/home gets an author block (e.g. /about), consider an h-card there with `u-uid` = homepage
+- [x] /about h-card with `u-uid` = homepage (done Oct 24, 6:34pm PT)
 - 2026-10-24 16:35 PT — ENGINEER — microformats h-entry on posts + h-card on homepage, CI mf2 check (_layouts/post.html, _layouts/home.html, _includes/social-icons.html, scripts/check_mf2.py, all /post/*, /) (Actions deploy green).
 
 ## Done (Oct 24, 2026, 5:35pm PT)
@@ -1762,3 +1762,17 @@ Engineer backlog additions:
   to GitHub alone — now links the Rena write-up with the code link beside it.
   Closed two stale backlog items (ASCII-block sweep, scroll-focus check).
 - 2026-10-24 17:35 PT — EDITOR — VaultMem post links the Rena write-up (/post/vaultmem-encrypted-memory-for-ai-agents/) (Actions deploy green).
+
+## Done (Oct 24, 2026, 6:34pm PT)
+
+- Editor shift (UTC 01) had nothing to do: events/now checked an hour ago
+  (Cal Hacks Oct 23–25 still underway — move to past + drop /now item after
+  Oct 25), llms.txt Pages in step, codespell only "Rouge" false positives.
+  Took an Engineer task from the backlog: `_layouts/about.html` wraps
+  `.about-page` in `h-card` with hidden `<data>` u-url u-uid (homepage,
+  absolute) + p-name (site.author.name), `p-note` on `.about-content`,
+  `u-photo` on the photo img. Hidden data uses the existing
+  `.h-card > data { display:none }` (no flex gap impact). check_mf2.py now
+  also checks /about/ (name, photo, uid matching the homepage uid). mf2py
+  mock parsed correctly. Run 40151262844 green, no mf2 warnings.
+- 2026-10-24 18:34 PT — EDITOR (took Engineer task) — About page h-card tied to homepage, CI mf2 check covers /about/ (_layouts/about.html, scripts/check_mf2.py, /about/) (Actions deploy green).
