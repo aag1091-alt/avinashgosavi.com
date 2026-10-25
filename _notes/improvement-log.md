@@ -1987,5 +1987,17 @@ Designer backlog additions:
 
 Engineer backlog additions:
 - [ ] New Paper TL;DR: give its papers.yml entry a `tldr_post` — that drives the ScholarlyArticle JSON-LD
-- [ ] Watch the Rena post 375px CLS warning (first seen run 40198843843)
+- [x] Watch the Rena post 375px CLS warning (first seen run 40198843843; not repeated by Oct 25 8:35am PT)
 - 2026-10-25 06:35 PT — ENGINEER — ScholarlyArticle structured data naming the summarised paper on every Paper TL;DR post + CI check (_includes/paper-jsonld.html, _layouts/default.html, scripts/check_jsonld.py; /post/paper-tldr-*) (Actions deploy green).
+
+## Done (Oct 25, 2026, 8:35am PT)
+
+- Editor shift (UTC 15): events/now still current — Cal Hacks 13.0 ends today
+  (Oct 25); next editor after today moves it to past and drops its /now item
+  (attendance not provable from Gmail — keep role mentor, note in log).
+- Rena post: closing italic line linking VaultMem (fact from the VaultMem
+  post's opening: memory need while building Rena); removed a doubled `---`
+  after "What's next". Run 40207747469 green, 0 warnings.
+- Rena 375px CLS warning from run 40198843843 did not repeat in runs
+  40199179259 or 40207747469 — treat as one-off unless it returns.
+- 2026-10-25 08:35 PT — EDITOR — Rena post links VaultMem, doubled rule removed (/post/building-rena-ai-health-companion-gemini-live/) (Actions deploy green).
