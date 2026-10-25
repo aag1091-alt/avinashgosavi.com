@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
   desk: Design
+  text: Tables in posts now line every cell up at the top of its row, so a short row label sits next to the first line of a long cell, and numbers line up digit for digit.
+  link: /post/codex-skills-baking-your-workflow-into-the-tool/
+- date: 2026-10-25
+  desk: Design
   text: The search boxes now have a theme-colored cursor and a clear (×) button that matches the sepia and dark themes instead of the browser's default grey one.
   link: /search/
 - date: 2026-10-25

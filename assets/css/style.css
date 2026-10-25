@@ -1055,14 +1055,22 @@ input:focus-visible {
   border-collapse: collapse;
   margin: 1rem 0;
   font-size: 0.95rem;
+  line-height: 1.5;
+  /* figures like "~15ms" / "~0.3ms" line up digit-for-digit down a column */
+  font-variant-numeric: tabular-nums;
 }
 
+/* Cells start at the top: with the browser default (middle) a short row label
+   floated halfway down next to a wrapped multi-line cell, so a row's first
+   lines didn't share a baseline. Header cells sit on the bottom edge. */
 .post-content th,
 .post-content td {
   padding: 0.5rem 0.75rem;
   text-align: left;
+  vertical-align: top;
   border: 1px solid var(--border);
 }
+.post-content thead th { vertical-align: bottom; }
 
 .post-content th {
   background: var(--surface);
