@@ -1,0 +1,66 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 836" role="img" aria-labelledby="aitest-dg-title aitest-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="aitest-dg-title">The eight-step review of AI-generated tests in a pull request</title>
+  <desc id="aitest-dg-desc">Step 1: collect all new and changed tests in the PR. Steps 2 and 3: classify each test by ISTQB test level, a group of activities organized and managed together, and by ISTQB test type, a group of activities aimed at specific characteristics. Step 4: map the tests to Jira acceptance criteria. Step 5: cross-check requirement docs for edge cases and failure paths. Step 6: check external impact coverage: API contracts, downstream consumers, DB side effects, jobs and events, and third-party boundaries. Step 7: weight confidence. Highest for system, acceptance and functional tests; medium for integration and change-related regression; lower for component-only checks; lowest for smoke, startup or load-only checks. Step 8: publish a short gap summary in the PR.</desc>
+  <defs>
+    <marker id="aitest-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="20" y="10" width="296" height="56" rx="28"/>
+  <text class="dg-strong" x="168" y="34" text-anchor="middle">1 · Collect</text>
+  <text class="dg-note dg-ink" x="168" y="54" text-anchor="middle">new and changed tests in the PR</text>
+  <line class="dg-line" x1="168" y1="66" x2="168" y2="92" marker-end="url(#aitest-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="94" width="292" height="96" rx="8"/>
+  <text class="dg-strong" x="36" y="116">2–3 · Classify each test</text>
+  <text class="dg-note" x="300" y="116" text-anchor="end">ISTQB</text>
+  <rect class="dg-node" x="36" y="128" width="126" height="48" rx="6"/>
+  <text class="dg-body" x="99" y="148" text-anchor="middle">Test level</text>
+  <text class="dg-note" x="99" y="166" text-anchor="middle">how it’s organized</text>
+  <rect class="dg-node" x="174" y="128" width="126" height="48" rx="6"/>
+  <text class="dg-body" x="237" y="148" text-anchor="middle">Test type</text>
+  <text class="dg-note" x="237" y="166" text-anchor="middle">what it checks</text>
+  <line class="dg-line" x1="168" y1="190" x2="168" y2="216" marker-end="url(#aitest-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="218" width="292" height="58" rx="8"/>
+  <text class="dg-strong" x="36" y="240">4 · Map</text>
+  <text class="dg-note" x="36" y="262">tests to Jira acceptance criteria</text>
+  <line class="dg-line" x1="168" y1="276" x2="168" y2="302" marker-end="url(#aitest-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="304" width="292" height="76" rx="8"/>
+  <text class="dg-strong" x="36" y="326">5 · Cross-check</text>
+  <text class="dg-note" x="36" y="348">requirement docs for edge cases</text>
+  <text class="dg-note" x="36" y="366">and failure paths</text>
+  <line class="dg-line" x1="168" y1="380" x2="168" y2="406" marker-end="url(#aitest-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="408" width="292" height="100" rx="8"/>
+  <text class="dg-strong" x="36" y="430">6 · Check external impact</text>
+  <text class="dg-note" x="36" y="452">API contracts · downstream consumers</text>
+  <text class="dg-note" x="36" y="470">DB side effects · jobs and events</text>
+  <text class="dg-note" x="36" y="488">third-party boundaries</text>
+  <line class="dg-line" x1="168" y1="508" x2="168" y2="534" marker-end="url(#aitest-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="536" width="292" height="206" rx="8"/>
+  <text class="dg-strong" x="36" y="558">7 · Weight confidence</text>
+  <text class="dg-body" x="36" y="584">Highest</text>
+  <rect class="dg-bar" x="100" y="574" width="200" height="10" rx="2"/>
+  <text class="dg-note" x="36" y="602">system + acceptance + functional</text>
+  <text class="dg-body" x="36" y="626">Medium</text>
+  <rect class="dg-bar" x="100" y="616" width="150" height="10" rx="2"/>
+  <text class="dg-note" x="36" y="644">integration + change-related regression</text>
+  <text class="dg-body" x="36" y="668">Lower</text>
+  <rect class="dg-bar" x="100" y="658" width="100" height="10" rx="2"/>
+  <text class="dg-note" x="36" y="686">component-only checks</text>
+  <text class="dg-body" x="36" y="710">Lowest</text>
+  <rect class="dg-bar" x="100" y="700" width="50" height="10" rx="2"/>
+  <text class="dg-note" x="36" y="728">smoke / startup / load-only checks</text>
+  <line class="dg-line" x1="168" y1="742" x2="168" y2="768" marker-end="url(#aitest-dg-arrow)"/>
+
+  <rect class="dg-pill" x="20" y="770" width="296" height="56" rx="28"/>
+  <text class="dg-strong" x="168" y="794" text-anchor="middle">8 · Publish</text>
+  <text class="dg-note dg-ink" x="168" y="814" text-anchor="middle">a short gap summary in the PR</text>
+</svg>
+<figcaption>The same eight steps as a flow: classify, compare against what was asked for, then weigh what the tests actually prove.</figcaption>
+</figure>

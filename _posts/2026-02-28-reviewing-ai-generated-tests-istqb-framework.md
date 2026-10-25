@@ -97,6 +97,8 @@ When I review a PR with AI-generated tests, I run through this sequence:
    - *Lowest:* smoke/startup/load-only checks
 8. **Publish** a short gap summary in the PR.
 
+{% include diagrams/ai-test-review-flow.html %}
+
 ---
 
 ## Scoring Example

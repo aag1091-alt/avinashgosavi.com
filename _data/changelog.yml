@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Design
+  text: The post on reviewing AI-generated tests now has a diagram of its eight-step review, from collecting the tests to weighting confidence and posting a gap summary.
+  link: /post/reviewing-ai-generated-tests-istqb-framework/
+- date: 2026-10-25
   desk: Engineering
   text: Posts that were revised a week or more after publishing now show an "Updated" date next to the original one.
   link: /blog/
