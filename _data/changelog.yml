@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Engineering
+  text: Search results now still jump to the matched word in a post when the surrounding phrase runs across a heading or list item.
+  link: /search/
+- date: 2026-10-25
   desk: Writing
   text: The Rena post now ends with a link to VaultMem, the encrypted memory library that grew out of Rena's need to remember users between sessions.
   link: /post/building-rena-ai-health-companion-gemini-live/

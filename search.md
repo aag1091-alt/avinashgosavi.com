@@ -92,8 +92,11 @@ sitemap: false
       while (s > 0 && WORD.test(src.charAt(s - 1))) s--;
       while (e < src.length && WORD.test(src.charAt(e))) e++;
       var more = src.slice(e, e + 50).match(/^(?: [0-9A-Za-z_\u00C0-\u024F]+){0,2}/);
-      var phrase = src.slice(s, e) + (more ? more[0] : '');
-      return '#:~:text=' + encodeURIComponent(phrase).replace(/-/g, '%2D');
+      var word = src.slice(s, e), phrase = word + (more ? more[0] : '');
+      var enc = function(t) { return encodeURIComponent(t).replace(/-/g, '%2D'); };
+      // If the phrase spans a block boundary in the rendered post (heading → paragraph,
+      // list items) it won't match; the second directive falls back to the word alone.
+      return '#:~:text=' + enc(phrase) + (phrase !== word ? '&text=' + enc(word) : '');
     }
     return '';
   }
