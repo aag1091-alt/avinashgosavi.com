@@ -42,6 +42,9 @@ sitemap: false
   var TYPES = ['Post', 'Project', 'Paper', 'Event', 'Page'];
   var PLURAL = { Post: 'Posts', Project: 'Projects', Paper: 'Papers', Event: 'Events', Page: 'Pages' };
   var params = new URLSearchParams(location.search);
+  /* A ?q= link only shows results once search.json arrives — hold the space now so
+     the footer doesn't jump up the screen and back (layout shift) when they land. */
+  if ((params.get('q') || '').trim()) list.style.minHeight = '100vh';
   var activeType = TYPES.indexOf(params.get('type')) !== -1 ? params.get('type') : '';
 
   function terms(q) {
@@ -143,7 +146,7 @@ sitemap: false
     history.replaceState(null, '', qs.length ? '?' + qs.join('&') : location.pathname);
     list.innerHTML = '';
     filter.hidden = true;
-    if (!q) { say(''); return; }
+    if (!q) { list.style.minHeight = ''; say(''); return; }
     if (!index) { say('Loading…', typing); return; }
     var ts = terms(q);
     if (!ts.length) { say('Type at least two letters.', typing); return; }
