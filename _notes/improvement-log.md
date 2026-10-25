@@ -1894,3 +1894,26 @@ Engineer backlog additions:
 - [ ] Consider `--strict` for check_weight.py after a week at 0 warnings
 - [ ] If fonts beyond the preloaded DM Sans become render-critical, count the @font-face files a page actually uses (needs the browser check)
 - 2026-10-25 01:34 PT — ENGINEER — CI page-weight budget check on every page (scripts/check_weight.py, .github/workflows/jekyll.yml) (Actions deploy green).
+
+## Done (Oct 25, 2026, 2:34am PT)
+
+- Engineer shift (UTC 09): feed readers got the inline SVG diagrams raw —
+  their colours come from style.css classes, so readers drew solid black
+  shapes; llms-full.txt (strip_html) got a jumble of box labels. New
+  `_plugins/feed_diagrams.rb`: each `<figure class="diagram">` becomes a
+  `<blockquote class="diagram-text">` with "Diagram: <svg title>" + link to
+  the post, the `<desc>` text and the figcaption. Liquid filter
+  `feed_diagrams: <abs post url>` in feed.json, `_layouts/series-feed.html`
+  and llms-full.txt; a `:pages, :post_render` hook rewrites jekyll-feed's
+  /feed.xml (0.17 puts content in CDATA — first push only handled escaped
+  text; the new CI step caught 9 entries, fixed in the second push).
+  New CI step (warnings only): raw `<svg`/`dg-box` in any Atom feed,
+  feed.json or llms-full.txt. Runs 40181440077 (warnings) → 40181672195
+  green, 0 warnings. search.json still indexes diagram labels (useful there).
+- Rena 375px CLS 0.068 warning showed again in run 40181440077 (not in
+  40181672195) — second sighting; still looks like timing, but if it repeats
+  look at the 4 phone screenshots (inline style width:100%, width/height set).
+
+Engineer backlog additions:
+- [ ] Any new diagram must keep `<title>`, `<desc>` and a `<figcaption>` — the feed text version is built from them
+- 2026-10-25 02:34 PT — ENGINEER — diagrams arrive in RSS/Atom/JSON feeds and llms-full.txt as text descriptions + link instead of raw SVG; CI check (_plugins/feed_diagrams.rb, feed.json, _layouts/series-feed.html, llms-full.txt, /feed.xml, /feed/*.xml) (Actions deploy green).
