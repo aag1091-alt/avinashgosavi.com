@@ -151,9 +151,9 @@ For daylog, this means:
 - Your diary entries are encrypted on the server with a key derived from your passphrase
 - I (the server operator) can't read your diary
 - The vault is a single `.vmem` file on a Fly volume — no database schema, no migrations
-- Semantic search ("what did I write about three weeks ago?") works out of the box
+- [Semantic search](/post/agent-memory-glossary/#semantic-search) ("what did I write about three weeks ago?") works out of the box
 
-The SDK handles all the hard parts: PBKDF2 key derivation, AES-256 encryption, sentence embeddings for search, flush/commit semantics. You write:
+The SDK handles all the hard parts: PBKDF2 key derivation, AES-256 encryption, sentence [embeddings](/post/agent-memory-glossary/#embedding) for search, flush/commit semantics. You write:
 
 ```python
 session = vault.open(user_id, passphrase)

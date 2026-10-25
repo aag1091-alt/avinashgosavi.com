@@ -73,7 +73,7 @@ The same principle applies to a therapist AI, a relationship coach, a financial 
 
 The library handles the full memory lifecycle — not just encryption:
 
-- **Four memory types** auto-classified from content: episodic (events), semantic (facts), persona (preferences), procedural (how-tos)
+- **Four memory types** auto-classified from content: [episodic](/post/agent-memory-glossary/#episodic-memory) (events), [semantic](/post/agent-memory-glossary/#semantic-memory) (facts), [persona](/post/agent-memory-glossary/#persona-memory) (preferences), [procedural](/post/agent-memory-glossary/#procedural-memory) (how-tos)
 - **Smart retrieval** that surfaces recurring habits and patterns above one-off mentions — so "my morning coffee" surfaces a pattern summary, not just the last time you mentioned coffee
 - **Time-aware search** — ask "what was I doing last summer?" and it searches by when events actually happened, not when you typed them in
 - **Multi-modal** — photos, voice notes, PDFs ingested as encrypted memory atoms with EXIF dates and GPS stripped from metadata

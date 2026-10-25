@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Writing
+  text: The VaultMem diary explainer and the hobby-stack post now link their memory terms (episodic, semantic, persona, procedural, semantic search, embeddings) to short definitions in the agent memory glossary.
+  link: /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/
+- date: 2026-10-24
   desk: Engineering
   text: Every deploy now also checks that link and button text stays readable while you hover over it or move to it with the keyboard, in both sepia and dark.
   link: /changelog/
