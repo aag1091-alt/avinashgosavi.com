@@ -36,19 +36,27 @@ module FeedDiagrams
     end
   end
 
-  # Same swap inside jekyll-feed's Atom output, where post HTML is escaped
-  # inside <content type="html">. The post URL comes from the entry's
-  # rel="alternate" link.
+  # Same swap inside jekyll-feed's Atom output, where post HTML sits inside
+  # <content type="html"> either as CDATA (jekyll-feed 0.17) or escaped. The
+  # post URL comes from the entry's rel="alternate" link.
   def self.rewrite_atom(xml)
-    return xml unless xml.include?("figure class=&quot;diagram&quot;")
+    return xml unless xml.include?('figure class="diagram"') || xml.include?("figure class=&quot;diagram&quot;")
 
-    xml.gsub(%r{<entry>.*?</entry>}m) do |entry|
-      next entry unless entry.include?("figure class=&quot;diagram&quot;")
-
+    xml.gsub(%r{<entry\b[^>]*>.*?</entry>}m) do |entry|
       url = entry[/<link href="([^"]+)" rel="alternate"/, 1]
+      url &&= CGI.unescapeHTML(url)
       entry.sub(%r{(<content type="html"[^>]*>)(.*?)(</content>)}m) do
         open_tag, body, close_tag = Regexp.last_match(1), Regexp.last_match(2), Regexp.last_match(3)
-        open_tag + CGI.escapeHTML(replace(CGI.unescapeHTML(body), url && CGI.unescapeHTML(url))) + close_tag
+        cdata = body.match(/\A\s*<!\[CDATA\[(.*)\]\]>\s*\z/m)
+        body =
+          if cdata
+            "<![CDATA[#{replace(cdata[1], url)}]]>"
+          elsif body.include?("figure class=&quot;diagram&quot;")
+            CGI.escapeHTML(replace(CGI.unescapeHTML(body), url))
+          else
+            body
+          end
+        open_tag + body + close_tag
       end
     end
   end
