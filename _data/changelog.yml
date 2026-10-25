@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
   desk: Engineering
+  text: On the events page, an upcoming event that is going on today now shows a "Happening now" tag, and event dates are marked up as machine-readable dates.
+  link: /events/
+- date: 2026-10-25
+  desk: Engineering
   text: In RSS/Atom and JSON feed readers, the diagrams in posts now arrive as a short text description with a link back to the post, instead of SVG that readers drew as solid black shapes.
   link: /feed.xml
 - date: 2026-10-25

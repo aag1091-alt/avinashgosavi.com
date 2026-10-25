@@ -25,3 +25,17 @@ description: Conferences, hackathons and community events Avinash Gosavi has att
     {% for e in past %}{% include event-row.html e=e %}{% endfor %}
   </ul>
 </div>
+
+<script>
+/* Upcoming events whose dates include today (visitor's local date) get a "Happening now" tag. */
+(function () {
+  var d = new Date(), p = function (n) { return (n < 10 ? "0" : "") + n; };
+  var today = d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+  document.querySelectorAll(".event-row[data-start]").forEach(function (row) {
+    if (row.dataset.start <= today && today <= row.dataset.end) {
+      var tag = row.querySelector(".event-live");
+      if (tag) tag.hidden = false;
+    }
+  });
+})();
+</script>

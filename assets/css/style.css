@@ -1462,6 +1462,19 @@ h1[tabindex="-1"]:focus { outline: none; }
   color: var(--accent-ink, var(--accent));
   vertical-align: middle;
 }
+/* "Happening now" tag on upcoming events whose dates include today (JS in events.md) */
+.event-live:not([hidden]) {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-ink, var(--accent));
+  vertical-align: middle;
+}
+.event-live::before { content: ""; display: inline-block; width: 0.45em; height: 0.45em; margin-right: 0.35em; border-radius: 50%; background: currentColor; vertical-align: 0.1em; }
 /* Deep links from search (/events/#slug): accent bar only, no tinted fill behind the role pill */
 .event-row[id] { scroll-margin-top: 5rem; }
 .event-row:target { box-shadow: inset 3px 0 0 var(--accent); padding-left: 0.85rem; }

@@ -3,7 +3,7 @@
 
 Checks the source tree (not _site) for:
   _data/events.yml   - required fields (location is optional), known role/status values, valid dates;
-                       an "upcoming" event whose date is more than 3 days ago
+                       an "upcoming" event whose end_date (or date) is more than 3 days ago
                        (time to move it to past), a "past" event dated in the
                        future, and a recap path that isn't a real post
   _data/now.yml      - `updated` older than 30 days; an item that links to an
@@ -106,8 +106,14 @@ for i, ev in enumerate(events):
     d = as_date(ev.get("date"))
     if ev.get("date") and d is None:
         warn(EV, "%s: date `%s` is not YYYY-MM-DD" % (name, ev["date"]))
-    if d and ev.get("status") == "upcoming" and (today - d).days > GRACE_DAYS:
-        warn(EV, "%s: still `upcoming` but started %s (%d days ago) - move it to past" % (name, d, (today - d).days))
+    end = as_date(ev.get("end_date")) if ev.get("end_date") else d
+    if ev.get("end_date") and end is None:
+        warn(EV, "%s: end_date `%s` is not YYYY-MM-DD" % (name, ev["end_date"]))
+        end = d
+    if d and end and end < d:
+        warn(EV, "%s: end_date %s is before date %s" % (name, end, d))
+    if end and ev.get("status") == "upcoming" and (today - end).days > GRACE_DAYS:
+        warn(EV, "%s: still `upcoming` but ended %s (%d days ago) - move it to past" % (name, end, (today - end).days))
     if d and ev.get("status") == "past" and d > today:
         warn(EV, "%s: marked `past` but dated %s, in the future" % (name, d))
     rc = ev.get("recap")
@@ -135,7 +141,7 @@ for it in now.get("items") or []:
         if ev is None:
             warn(NW, "%s item links /events/#%s, but no event has that anchor" % (it.get("label"), m.group(1)))
         else:
-            d = as_date(ev.get("date"))
+            d = as_date(ev.get("end_date")) or as_date(ev.get("date"))
             if ev.get("status") == "past" or (d and (today - d).days > GRACE_DAYS):
                 warn(NW, "%s item points at %s, which is over - drop or reword it" % (it.get("label"), ev.get("name")))
 

@@ -1,8 +1,11 @@
-<li class="event-row" id="{{ include.e.name | slugify }}">
-  <span class="event-when">{{ include.e.when }}</span>
+{%- assign ev_start = include.e.date | date: "%Y-%m-%d" -%}
+{%- assign ev_end = include.e.end_date | default: include.e.date | date: "%Y-%m-%d" -%}
+<li class="event-row" id="{{ include.e.name | slugify }}"{% if include.e.status == "upcoming" %} data-start="{{ ev_start }}" data-end="{{ ev_end }}"{% endif %}>
+  <time class="event-when" datetime="{{ ev_start }}">{{ include.e.when }}</time>
   <div class="event-main">
     <span class="event-name">{{ include.e.name }}</span>
     {% if include.e.role != "attended" %}<span class="event-role event-role-{{ include.e.role }}">{{ include.e.role | capitalize }}</span>{% endif %}
+    {% if include.e.status == "upcoming" %}<span class="event-live" hidden>Happening now</span>{% endif %}
     {% if include.e.location %}<div class="event-location">{{ include.e.location }}</div>{% endif %}
     {% if include.e.recap %}<a class="event-recap" href="{{ include.e.recap | relative_url }}">Read my recap →</a>{% endif %}
   </div>
