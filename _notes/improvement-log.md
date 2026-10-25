@@ -1827,3 +1827,27 @@ Engineer backlog additions:
 - [ ] Consider `--strict` for the layout-shift rule after a week at 0 warnings
 - [ ] Layout-shift check runs on a fast local server with fonts cached per page; font-swap shifts on slow networks may still slip through
 - 2026-10-24 21:35 PT — ENGINEER — CI layout-shift (CLS) check on every page; fixed footer jump on /search/?q= links (scripts/check_browser.py, search.md) (Actions deploy green).
+
+## Done (Oct 24, 2026, 10:34pm PT)
+
+- Editor slot (UTC 05): nothing needed — Cal Hacks (Oct 23–25) still
+  underway, other events/now items current; Gmail last day had no new
+  registration/ticket emails. Took the Engineer backlog item "Contrast pass
+  doesn't see hover/focus states": scripts/check_browser.py now, in each
+  theme, tags every visible link/button/summary with text, hovers (real
+  mouse move to a point not covered by the sticky header) and then focuses
+  one element per kind site-wide (tag + sorted classes + nearest classed
+  ancestor), with transitions/animations disabled, and runs the same AA
+  test on its text → rules `contrast-hover` / `contrast-focus` (messages
+  already failing at rest are not repeated). CONTRAST JS now takes an
+  optional root. Mock test caught a bad :hover (1.39:1, even with a 1s
+  transition) and a bad :focus (1.23:1). Run 40166211848 green: 0 hover/
+  focus contrast issues site-wide; browser step ~2 min.
+- Same run flagged one layout-shift on /post/building-rena-ai-health-companion-gemini-live/
+  at 375px (CLS 0.068; div.post-content, a, strong, p) — previous run had
+  0, so possibly timing; check the next runs before fixing.
+
+Engineer backlog additions:
+- [ ] Rena post 375px CLS 0.068 warning (first seen run 40166211848) — if it repeats, find what reflows post-content (image dims? font swap?)
+- [x] Contrast pass doesn't see hover/focus states (done Oct 24, 10:34pm PT)
+- 2026-10-24 22:34 PT — EDITOR→ENGINEER — CI contrast check now covers hover and keyboard-focus states of links/buttons in sepia and dark (scripts/check_browser.py) (Actions deploy green).
