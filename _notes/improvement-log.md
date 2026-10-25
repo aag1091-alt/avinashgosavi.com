@@ -1809,3 +1809,21 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] If search.json ever passes ~400 KB, consider splitting post text into a lazily fetched second file (links previews only need title/desc/date)
 - 2026-10-24 20:34 PT — ENGINEER — /search/ now searches the full text of long posts (cap 8k → 30k chars) + CI size/cap notice (search.json, .github/workflows/jekyll.yml) (Actions deploy green).
+
+## Done (Oct 24, 2026, 9:35pm PT)
+
+- Engineer shift (UTC 04): CI browser check (scripts/check_browser.py) gains a
+  `layout-shift` rule — a PerformanceObserver init script sums load-time CLS
+  per page at 375/1280px and warns above 0.05 (Google "good" ≤ 0.1; local
+  server is faster than the real one), naming the shifted elements. Tested on
+  a mock page (late 300px box → CLS 0.17 flagged, stable page clean). First CI
+  run (40162532410) found one real shift: /search/?q=memory, footer jumped
+  when results arrived (CLS 0.099 phone / 0.120 desktop). Fix in search.md:
+  a ?q= link sets `min-height: 100vh` on the results list before search.json
+  loads (cleared when the query is emptied). Run 40162724050 green, 0 browser
+  warnings. Live site unreachable from sandbox (proxy) — CI is the check.
+
+Engineer backlog additions:
+- [ ] Consider `--strict` for the layout-shift rule after a week at 0 warnings
+- [ ] Layout-shift check runs on a fast local server with fonts cached per page; font-swap shifts on slow networks may still slip through
+- 2026-10-24 21:35 PT — ENGINEER — CI layout-shift (CLS) check on every page; fixed footer jump on /search/?q= links (scripts/check_browser.py, search.md) (Actions deploy green).
