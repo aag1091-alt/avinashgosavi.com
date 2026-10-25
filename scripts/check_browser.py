@@ -11,6 +11,10 @@ For each HTML page in the built site, at a 375px phone viewport and a 1280px des
                  with no accessible name, or an id used twice — covers what JS builds
                  (TOC, search results, copy buttons) that the static a11y lint never sees.
                  /search/ and /blog/ are also opened with ?q=memory so results render.
+  - layout-shift: Cumulative Layout Shift during load above 0.05 (Google's "good" is
+                 <=0.1; a local server is faster than the real one, so the bar is tighter),
+                 naming the elements that moved — e.g. an image without width/height, a
+                 font swap, or a script inserting a box above content.
 Then once more per theme (sepia and dark, 1280px):
   - contrast:    visible text below WCAG AA (4.5:1, or 3:1 for large text) against the
                  background it actually sits on (semi-transparent fills composited; text
@@ -31,7 +35,23 @@ only = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--
 SKIP = {"/404.html", "/offline/"}  # 404 is served at any path; offline page reloads itself
 WIDTHS = (375, 1280)
 EXTRA = ("/search/?q=memory", "/blog/?q=memory")  # pages whose content only exists after JS runs
-THEMES = ("sepia", "dark")  # contrast pass, via the theme switch's localStorage key
+THEMES = ("sepia", "dark")
+CLS_MAX = 0.05
+SHIFTS = r"""window.__shifts = [];
+try {
+  new PerformanceObserver(list => {
+    for (const e of list.getEntries()) {
+      if (e.hadRecentInput) continue;
+      const who = (e.sources || []).map(s => {
+        const n = s.node, el = n && (n.nodeType === 1 ? n : n.parentElement);
+        if (!el) return '?';
+        const c = typeof el.className === 'string' && el.className.trim() ? '.' + el.className.trim().split(/\s+/)[0] : '';
+        return el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + c;
+      });
+      window.__shifts.push([e.value, who]);
+    }
+  }).observe({type: 'layout-shift', buffered: true});
+} catch (e) {}"""  # contrast pass, via the theme switch's localStorage key
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -280,6 +300,7 @@ def main():
         for width in WIDTHS:
             ctx = browser.new_context(viewport={"width": width, "height": 800}, service_workers="block")
             ctx.route("**/*", lambda r: r.continue_() if r.request.url.startswith(base) else r.abort())
+            ctx.add_init_script(SHIFTS)
             for url in urls:
                 page = ctx.new_page()
                 errs = []
@@ -290,6 +311,7 @@ def main():
                     page.wait_for_timeout(300)  # let ResizeObserver / deferred scripts run
                     r = page.evaluate(PROBE)
                     named = page.evaluate(NAMES)
+                    shifts = page.evaluate("window.__shifts || []")
                 except Exception as e:
                     problems["load"].append((url, "%dpx: %s" % (width, str(e).splitlines()[0][:160])))
                     page.close()
@@ -304,6 +326,10 @@ def main():
                     if (url, m) not in seen_dom:  # same issue at both widths: report once
                         seen_dom.add((url, m))
                         problems["a11y-dom"].append((url, "%dpx: %s" % (width, m)))
+                cls = sum(v for v, _ in shifts)
+                if cls > CLS_MAX:
+                    movers = ", ".join(dict.fromkeys(w for _, ws in sorted(shifts, key=lambda x: -x[0]) for w in ws))
+                    problems["layout-shift"].append((url, "%dpx: CLS %.3f (%s)" % (width, cls, movers[:120] or "no source reported")))
                 for s in r["stuck"]:
                     problems["scroll-focus"].append((url, "%dpx: %s scrolls but isn't focusable" % (width, s)))
                 page.close()
