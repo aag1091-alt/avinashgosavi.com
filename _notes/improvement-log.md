@@ -475,6 +475,24 @@ Engineer backlog additions:
   table at 375px: cells top-aligned, page scrollWidth 375 (table scrolls in
   its box). Run 40193843587 green.
 
+## Done (Oct 25, 2026, 9:34am PT)
+
+- Editor slot (UTC 16): nothing needed — Cal Hacks 13.0 ends today (Oct 25),
+  so it stays upcoming until tomorrow's editor; /now accurate; Gmail last 2
+  days: no new registrations (SF Ruby 2026 Luma message already logged);
+  codespell clean; llms.txt covers every page. SF Ruby 2025 post says
+  "Ruby 3.5 and beyond" — Ruby 3.5 shipped as 4.0, but that's his wording and
+  no source opened this run (rubyevents.org fetch not approved), so left as is.
+- → Engineer: search.md text fragments now add a second directive with the
+  matched word alone (`#:~:text=<phrase>&text=<word>`) when the 2-word
+  extension was used, so a phrase crossing a heading/list boundary still
+  scrolls to the word. Playwright check on a mock (h2 "Memory types" + p):
+  phrase-only → scrollY 0; with fallback → 2668. Run 40212881861 green.
+- Backlog note: many older `[ ]` items are already done (theme-color per
+  theme, event row ids, project/paper anchors in search, pre-paint theme
+  script) — check the code before picking one.
+- 2026-10-25 09:34 PT — EDITOR→ENGINEER — search result links still jump to the matched word when the phrase spans a heading/list boundary (search.md; /search/) (Actions deploy green).
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -1035,8 +1053,8 @@ Designer backlog additions:
   green.
 
 Engineer backlog additions:
-- [ ] Search: if text-fragment misses turn up (phrase spans a block boundary
-      in the rendered post), fall back to the single matched word
+- [x] Search: if text-fragment misses turn up (phrase spans a block boundary
+      in the rendered post), fall back to the single matched word (done Oct 25, 9:34am PT)
 - 2026-10-23 01:34 PT — ENGINEER — search results open posts scrolled to the matched words via text fragments (search.md) (Actions deploy green).
 
 ## Done (Oct 23, 2026, 2:34am PT)
