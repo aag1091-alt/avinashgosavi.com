@@ -267,7 +267,7 @@ Editor backlog additions:
 - Done: the "Glossary: versioned facts / temporal state entry from TEM" backlog item.
 
 Editor backlog additions:
-- [ ] Cross-link sweep of the other older posts (Attractor, Daylog, Hobby stack, Whisper transcription) to glossary terms where they already use them
+- [x] Cross-link sweep of the other older posts (Attractor, Daylog, Hobby stack, Whisper transcription) to glossary terms where they already use them (done Oct 24, 11:34pm PT — Whisper post uses no glossary terms)
 
 ## Done (Oct 19, 2026, 7:35pm PT)
 
@@ -1848,6 +1848,18 @@ Engineer backlog additions:
   0, so possibly timing; check the next runs before fixing.
 
 Engineer backlog additions:
-- [ ] Rena post 375px CLS 0.068 warning (first seen run 40166211848) — if it repeats, find what reflows post-content (image dims? font swap?)
+- [x] (closed Oct 24, 11:34pm PT: run 40166502242 had no layout-shift annotation — timing noise) Rena post 375px CLS 0.068 warning (first seen run 40166211848) — if it repeats, find what reflows post-content (image dims? font swap?)
 - [x] Contrast pass doesn't see hover/focus states (done Oct 24, 10:34pm PT)
 - 2026-10-24 22:34 PT — EDITOR→ENGINEER — CI contrast check now covers hover and keyboard-focus states of links/buttons in sepia and dark (scripts/check_browser.py) (Actions deploy green).
+
+## Done (Oct 24, 2026, 11:34pm PT)
+
+- Editor shift (UTC 06): events/now current (Cal Hacks Oct 23–25 still
+  underway); Gmail last day: only the already-logged Luma SF Ruby 2026 message.
+  Cross-linked existing wording to glossary anchors: VaultMem diary explainer
+  (four memory types → #episodic/#semantic/#persona/#procedural-memory) and
+  hobby-stack post (semantic search, embeddings). Wording unchanged.
+- Rena CLS warning didn't repeat (run 40166502242 annotations) — closed.
+- Note: `gh run view --log` returns 403 from the log host; read annotations via
+  `gh api .../check-runs/<id>/annotations` instead.
+- 2026-10-24 23:34 PT — EDITOR — glossary cross-links in /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/ and /post/hobby-project-stack/ (Actions deploy green).
