@@ -23,6 +23,11 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
                 if pos != list(range(1, len(pos) + 1)):
                     bad += 1
                     print(f"::warning file={os.path.relpath(path, root)}::breadcrumb positions {pos}")
+            if t == "ScholarlyArticle":
+                if not d.get("name") or not str(d.get("url", "")).startswith("http") \
+                        or not re.fullmatch(r"\d{4}", str(d.get("datePublished", ""))):
+                    bad += 1
+                    print(f"::warning file={os.path.relpath(path, root)}::ScholarlyArticle needs name, http url and a 4-digit datePublished")
             if t == "ProfilePage":
                 me = d.get("mainEntity") or {}
                 if me.get("@type") != "Person" or not me.get("name"):

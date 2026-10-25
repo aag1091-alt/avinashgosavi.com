@@ -1,0 +1,7 @@
+{% comment %} ScholarlyArticle structured data on Paper TL;DR posts: names the paper the post summarises (title, authors, year, original link) and points back to the post's WebPage node from jekyll-seo-tag. Data comes from _data/papers.yml (entry whose tldr_post is this post's URL); the six-papers roundup has no entry, so nothing is emitted there. {% endcomment %}
+{%- assign paper = site.data.papers | where: "tldr_post", page.url | first -%}
+{%- if paper %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ScholarlyArticle","@id":{{ page.url | absolute_url | append: '#paper' | jsonify }},"name":{{ paper.title | jsonify }},"url":{{ paper.url | jsonify }},"datePublished":{{ paper.year | append: '' | jsonify }},"creditText":{{ paper.authors | jsonify }},"subjectOf":{"@type":"WebPage","@id":{{ page.url | absolute_url | jsonify }},"name":{{ page.title | strip_html | jsonify }}}}
+</script>
+{%- endif -%}

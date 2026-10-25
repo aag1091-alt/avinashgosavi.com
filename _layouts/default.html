@@ -39,6 +39,7 @@
   {%- endif %}
   {% if page.layout == "home" %}{% include person-jsonld.html %}{% elsif page.layout == "about" %}{% include person-jsonld.html profile=true %}{% endif %}
   {% include breadcrumb-jsonld.html %}
+  {% if page.series == 'paper-tldr' %}{% include paper-jsonld.html %}{% endif %}
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLR5GMVQKW"></script>
   <script>
