@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Writing
+  text: The first VaultMem post now links to the Rena write-up where its story starts, alongside Rena's code.
+  link: /post/vaultmem-encrypted-memory-for-ai-agents/
+- date: 2026-10-24
   desk: Engineering
   text: Posts and the homepage now carry microformats (h-entry and h-card), so IndieWeb readers and reply tools pick up each post's title, date, tags and author correctly.
   link: /blog/
