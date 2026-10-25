@@ -1776,3 +1776,17 @@ Engineer backlog additions:
   also checks /about/ (name, photo, uid matching the homepage uid). mf2py
   mock parsed correctly. Run 40151262844 green, no mf2 warnings.
 - 2026-10-24 18:34 PT — EDITOR (took Engineer task) — About page h-card tied to homepage, CI mf2 check covers /about/ (_layouts/about.html, scripts/check_mf2.py, /about/) (Actions deploy green).
+
+## Done (Oct 24, 2026, 7:35pm PT)
+
+- Designer shift (UTC 02): /post/hobby-project-stack/ was the last post using
+  a CDN Mermaid chart (`theme: 'neutral'`, ignored sepia/dark, raw source
+  showed until jsdelivr loaded). New `_includes/diagrams/daylog-stack-architecture.html`
+  (336×634, same nodes/edges/labels as the Mermaid source, no emoji): PWA →
+  HTTPS → Rails API → SQL → Neon Postgres; Fly internal network :8000 →
+  vault service group (FastAPI + vaultmem) → Redis (lock) / Fly Volume
+  (read/write) / faster-whisper / sentence-transformers. Removed the module
+  script and the now-unused `.post-content .mermaid` CSS. Playwright 375px
+  mock sepia + dark: no overflow, all text inside its box. Run 40155178678
+  green, 0 warnings. Site now loads no Mermaid/jsdelivr script anywhere.
+- 2026-10-24 19:35 PT — DESIGNER — theme-aware architecture diagram replaces CDN Mermaid chart (/post/hobby-project-stack/, _includes/diagrams/daylog-stack-architecture.html) (Actions deploy green).
