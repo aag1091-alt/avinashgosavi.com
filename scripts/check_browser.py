@@ -20,6 +20,9 @@ Then once more per theme (sepia and dark, 1280px):
                  background it actually sits on (semi-transparent fills composited; text
                  over images/gradients is skipped; .diagram SVG text is measured against the
                  filled shape it sits on)
+  - contrast-hover / contrast-focus: the same AA test on a link or button's text while
+                 hovered by the mouse and while focused, once per kind of element site-wide
+                 (tag + classes + nearest classed ancestor); transitions are switched off
 
 The site is served from a local http.server; every request to another host (analytics,
 external images) is blocked, so the run is offline and never counts as a visit.
@@ -175,7 +178,8 @@ NAMES = r"""() => {
 }"""
 
 
-CONTRAST = r"""() => {
+CONTRAST = r"""(root) => {
+  root = root || document.body;
   const parse = c => {
     let m = c.match(/^rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?\)$/);
     if (m) return [+m[1], +m[2], +m[3], m[4] === undefined ? 1 : +m[4]];
@@ -205,7 +209,7 @@ CONTRAST = r"""() => {
     return bg;
   };
   const out = [], seen = new Set();
-  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
   for (let n = w.nextNode(); n && out.length < 8; n = w.nextNode()) {
     const el = n.parentElement;
     if (!n.textContent.trim() || !el || el.closest('svg, script, style, noscript, [aria-hidden="true"], [hidden]')) continue;
@@ -233,7 +237,7 @@ CONTRAST = r"""() => {
   const fillOf = (s, cs) => { const c = parse(cs.fill || ''); if (!c) return null;
     let op = (+cs.fillOpacity) * (+cs.opacity); for (let a = s.parentElement; a && a.tagName.toLowerCase() !== 'svg'; a = a.parentElement) op *= +getComputedStyle(a).opacity;
     return [c[0], c[1], c[2], c[3] * op]; };
-  for (const t of document.querySelectorAll('.diagram svg text')) {
+  for (const t of (root === document.body ? document : root).querySelectorAll('.diagram svg text')) {
     if (out.length >= 16 || !t.textContent.trim() || t.closest('defs, [aria-hidden="true"]')) continue;
     t.scrollIntoView({block: 'center', behavior: 'instant'});
     const r = t.getBoundingClientRect();
@@ -272,6 +276,33 @@ CONTRAST = r"""() => {
 }"""
 
 
+# Hover/focus pass: tag one visible element per kind (tag + classes + nearest classed
+# ancestor) so each kind is measured once site-wide, not once per page.
+STATES = r"""(limit) => {
+  const sel = 'a[href], button, summary, [role="button"], [role="tab"], [role="switch"]';
+  const cls = el => typeof el.className === 'string' && el.className.trim() ? '.' + el.className.trim().split(/\s+/).sort().join('.') : '';
+  const out = [];
+  for (const el of document.body.querySelectorAll(sel)) {
+    if (out.length >= limit) break;
+    if (el.closest('[aria-hidden="true"], [hidden], svg')) continue;
+    const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+    if (r.width < 4 || r.height < 4 || cs.visibility !== 'visible' || !el.textContent.trim()) continue;
+    let ctx = el.parentElement; while (ctx && ctx !== document.body && !cls(ctx)) ctx = ctx.parentElement;
+    const sig = el.tagName.toLowerCase() + cls(el) + ' in ' + (ctx ? ctx.tagName.toLowerCase() + cls(ctx).split('.').slice(0, 2).join('.') : '');
+    el.setAttribute('data-hc', out.length);
+    out.push(sig);
+  }
+  return out;
+}"""
+AT = r"""(i) => { const el = document.querySelector('[data-hc="' + i + '"]'); if (!el) return null;
+  el.scrollIntoView({block: 'center', behavior: 'instant'});
+  const r = el.getClientRects()[0] || el.getBoundingClientRect();
+  const x = r.left + Math.min(r.width / 2, 8), y = r.top + r.height / 2;
+  const hit = document.elementFromPoint(x, y);
+  return hit && (hit === el || el.contains(hit)) ? [x, y] : null; }"""
+NO_MOTION = "*, *::before, *::after { transition: none !important; animation: none !important; }"
+
+
 def main():
     try:
         from playwright.sync_api import sync_playwright
@@ -285,6 +316,7 @@ def main():
     urls = only or (pages() + list(EXTRA))
     problems = defaultdict(list)  # rule -> [(url, msg)]
     seen_dom = set()
+    seen_state = set()  # (theme, element kind) already hovered/focused
 
     with sync_playwright() as pw:
         browser = None
@@ -344,8 +376,31 @@ def main():
                 try:
                     page.goto(base + url, wait_until="load", timeout=20000)
                     page.wait_for_timeout(300)
-                    for m in page.evaluate(CONTRAST):
+                    base_msgs = set(page.evaluate(CONTRAST))
+                    for m in base_msgs:
                         problems["contrast"].append((url, "%s: %s" % (theme, m)))
+                    page.add_style_tag(content=NO_MOTION)
+                    for i, sig in enumerate(page.evaluate(STATES, 400)):
+                        if (theme, sig) in seen_state:
+                            continue
+                        seen_state.add((theme, sig))
+                        el = '[data-hc="%d"]' % i
+                        for state in ("hover", "focus"):
+                            if state == "hover":
+                                xy = page.evaluate(AT, i)
+                                if not xy:
+                                    continue
+                                page.mouse.move(*xy)
+                            else:
+                                page.mouse.move(0, 0)
+                                page.focus(el)
+                            page.wait_for_timeout(20)
+                            for m in page.evaluate("s => (%s)(document.querySelector(s))" % CONTRAST, el):
+                                if m in base_msgs:
+                                    continue  # already failing at rest; reported once under "contrast"
+                                problems["contrast-" + state].append((url, "%s: %s" % (theme, m)))
+                            page.evaluate("() => document.activeElement && document.activeElement.blur()")
+                        page.mouse.move(0, 0)
                 except Exception as e:
                     problems["load"].append((url, "%s: %s" % (theme, str(e).splitlines()[0][:160])))
                 page.close()
