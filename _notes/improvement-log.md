@@ -2032,3 +2032,26 @@ Engineer backlog additions:
   40199179259 or 40207747469 — treat as one-off unless it returns.
 - 2026-10-25 08:35 PT — EDITOR — Rena post links VaultMem, doubled rule removed (/post/building-rena-ai-health-companion-gemini-live/) (Actions deploy green).
 - 2026-10-25 10:35 PT — DESIGNER — theme-aware push → Actions → Pages → DNS diagram on /post/building-your-website-with-jekyll-and-github-pages/ (Actions deploy green).
+
+## Done (Oct 25, 2026, 11:34am PT)
+
+- Engineer shift (UTC 18): CI outbound-link check — `scripts/check_external.py`
+  collects every external `<a href>` in `_site`, fetches each unique URL once
+  (HEAD → GET fallback, 16 threads, 12s timeout, 150s total budget, exits
+  without waiting on stragglers). Only 404/410 and unresolvable hosts become
+  `Dead external link` warnings; 403/429/5xx/timeouts go in a collapsed
+  "Couldn't verify" group. Skips share intents and bot-walled hosts
+  (LinkedIn, X, Bluesky, HN, Medium…). Workflow step is
+  `continue-on-error` + `timeout-minutes: 4` — never blocks deploy. This is
+  the only place external links can be checked (sandbox proxy blocks them).
+  Read results via `gh api repos/.../check-runs/<build job id>/annotations`
+  (`gh run view --log` returns 403 from the sandbox).
+- First run 40222083290: 89 URLs on 46 pages — 84 ok, 3 unverified, 2 dead:
+  - https://rena-490107-f0f28.web.app → 404 (Rena demo; linked on /, /projects/, Rena post)
+  - https://github.com/aag1091-alt/daylog → 404 (repo private or gone; linked on /, /projects/, Whisper post)
+  Left as-is: whether to drop/replace these is Avinash's call.
+
+Backlog additions:
+- [ ] Waiting on Avinash: Rena demo (rena-490107-f0f28.web.app) and daylog repo both 404 — redeploy/make public, or remove the links (/, /projects/, two posts)
+- [ ] Consider `--strict` for check_external.py only if dead-link warnings stay at 0 for a week (bot walls make strict risky)
+- 2026-10-25 11:34 PT — ENGINEER — CI outbound-link check flagging 404/410 and dead hosts, non-blocking (scripts/check_external.py, .github/workflows/jekyll.yml) (Actions deploy green; found 2 dead links, logged for Avinash).
