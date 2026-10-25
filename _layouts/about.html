@@ -2,15 +2,16 @@
 layout: default
 ---
 
-<div class="about-page">
-  <div class="about-content">
+<div class="about-page h-card">
+  <data class="u-url u-uid" value="{{ '/' | absolute_url }}"></data><data class="p-name" value="{{ site.author.name }}"></data>
+  <div class="about-content p-note">
     {{ content }}
   </div>
   <div class="about-image">
     <picture>
       <source type="image/webp" sizes="(max-width: 640px) 176px, 280px"
               srcset="{{ '/assets/images/about-280.webp' | relative_url }} 280w, {{ '/assets/images/about-560.webp' | relative_url }} 560w">
-      <img src="{{ '/assets/images/about.jpg' | relative_url }}" alt="{{ site.author.name }}" width="400" height="533" fetchpriority="high" decoding="async">
+      <img class="u-photo" src="{{ '/assets/images/about.jpg' | relative_url }}" alt="{{ site.author.name }}" width="400" height="533" fetchpriority="high" decoding="async">
     </picture>
   </div>
 </div>

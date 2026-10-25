@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Engineering
+  text: The About page now carries an h-card tied to the homepage, so IndieWeb tools reading /about/ find the same name, photo and profile link.
+  link: /about/
+- date: 2026-10-24
   desk: Writing
   text: The first VaultMem post now links to the Rena write-up where its story starts, alongside Rena's code.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/
