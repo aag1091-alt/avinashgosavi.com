@@ -1,0 +1,60 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 634" role="img" aria-labelledby="dl-stack-title dl-stack-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="dl-stack-title">daylog's hobby stack: how the pieces connect</title>
+  <desc id="dl-stack-desc">The phone or browser runs the Cloudflare Pages PWA and talks over HTTPS to the Rails API at daylog-rails-api.fly.dev, which handles auth, routing and proxying. Rails talks SQL to Neon Postgres, which holds users, sessions and tokens. Rails forwards requests to the vault service over Fly's internal network on port 8000, which is never public. The vault service, FastAPI plus vaultmem, handles transcription, search and storage. It takes a distributed lock in Upstash Redis for vault locks, reads and writes AES-256 .vmem files on a Fly Volume, and runs faster-whisper (tiny, int8, on CPU) and sentence-transformers for semantic search.</desc>
+  <defs>
+    <marker id="dl-stack-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="20" y="10" width="296" height="54" rx="27"/>
+  <text class="dg-strong" x="168" y="33" text-anchor="middle">Phone / browser</text>
+  <text class="dg-note dg-ink" x="168" y="52" text-anchor="middle">Cloudflare Pages PWA</text>
+  <line class="dg-line" x1="168" y1="64" x2="168" y2="98" marker-end="url(#dl-stack-arrow)"/>
+  <text class="dg-note" x="178" y="86">HTTPS</text>
+
+  <rect class="dg-box" x="20" y="100" width="296" height="76" rx="8"/>
+  <text class="dg-strong" x="168" y="122" text-anchor="middle">Rails API</text>
+  <text class="dg-note dg-mono" x="168" y="142" text-anchor="middle">daylog-rails-api.fly.dev</text>
+  <text class="dg-note" x="168" y="162" text-anchor="middle">auth · routing · proxy</text>
+
+  <line class="dg-line" x1="40" y1="176" x2="40" y2="318" marker-end="url(#dl-stack-arrow)"/>
+  <line class="dg-line" x1="40" y1="232" x2="118" y2="232" marker-end="url(#dl-stack-arrow)"/>
+  <text class="dg-note" x="80" y="224" text-anchor="middle">SQL</text>
+  <rect class="dg-box" x="120" y="204" width="196" height="56" rx="8"/>
+  <text class="dg-body" x="134" y="227">Neon Postgres</text>
+  <text class="dg-note" x="134" y="246">users · sessions · tokens</text>
+
+  <text class="dg-note" x="52" y="288">Fly internal network</text>
+  <text class="dg-note" x="52" y="305"><tspan class="dg-mono">:8000</tspan> — never public</text>
+
+  <rect class="dg-group" x="10" y="320" width="316" height="304" rx="12"/>
+  <text class="dg-label" x="22" y="340">Vault service</text>
+  <text class="dg-note" x="22" y="358">FastAPI + vaultmem</text>
+  <text class="dg-note" x="22" y="375">transcription · search · storage</text>
+
+  <line class="dg-line" x1="30" y1="384" x2="30" y2="588"/>
+  <line class="dg-line" x1="30" y1="414" x2="48" y2="414" marker-end="url(#dl-stack-arrow)"/>
+  <line class="dg-line" x1="30" y1="472" x2="48" y2="472" marker-end="url(#dl-stack-arrow)"/>
+  <line class="dg-line" x1="30" y1="530" x2="50" y2="530"/>
+  <line class="dg-line" x1="30" y1="588" x2="50" y2="588"/>
+
+  <rect class="dg-box" x="50" y="390" width="266" height="48" rx="8"/>
+  <text class="dg-body" x="62" y="410">Upstash Redis</text>
+  <text class="dg-note" x="62" y="428">vault locks · distributed lock</text>
+
+  <rect class="dg-box" x="50" y="448" width="266" height="48" rx="8"/>
+  <text class="dg-body" x="62" y="468">Fly Volume</text>
+  <text class="dg-note" x="62" y="486">AES-256 <tspan class="dg-mono">.vmem</tspan> files · read / write</text>
+
+  <rect class="dg-box" x="50" y="506" width="266" height="48" rx="8"/>
+  <text class="dg-body" x="62" y="526">faster-whisper</text>
+  <text class="dg-note" x="62" y="544">tiny · int8 · CPU</text>
+
+  <rect class="dg-box" x="50" y="564" width="266" height="48" rx="8"/>
+  <text class="dg-body" x="62" y="584">sentence-transformers</text>
+  <text class="dg-note" x="62" y="602">semantic search</text>
+</svg>
+<figcaption>Only Rails faces the internet: it checks auth, then forwards to the vault service over Fly's private network.</figcaption>
+</figure>
