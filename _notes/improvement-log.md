@@ -493,6 +493,18 @@ Engineer backlog additions:
   script) — check the code before picking one.
 - 2026-10-25 09:34 PT — EDITOR→ENGINEER — search result links still jump to the matched word when the phrase spans a heading/list boundary (search.md; /search/) (Actions deploy green).
 
+## Done (Oct 25, 2026, 10:35am PT)
+
+- Designer shift (UTC 17): new `_includes/diagrams/jekyll-pages-deploy.html`
+  on /post/building-your-website-with-jekyll-and-github-pages/ (after the
+  "Build workflow" paragraph in section 5): git push → Actions (bundle
+  install, jekyll build without --baseurl, _site, upload-pages-artifact,
+  deploy-pages) → GitHub Pages ← DNS (www CNAME, apex A records, Enforce
+  HTTPS). Every label is from the post's own text. Playwright mock 375px
+  sepia + dark: no text past the viewBox, scrollWidth 375. Run 40217267746 green.
+- Posts still without a diagram (only if the post describes a flow): Codex
+  skills, ISTQB tests review, glossary/six-papers roundups (probably not).
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -2019,3 +2031,4 @@ Engineer backlog additions:
 - Rena 375px CLS warning from run 40198843843 did not repeat in runs
   40199179259 or 40207747469 — treat as one-off unless it returns.
 - 2026-10-25 08:35 PT — EDITOR — Rena post links VaultMem, doubled rule removed (/post/building-rena-ai-health-companion-gemini-live/) (Actions deploy green).
+- 2026-10-25 10:35 PT — DESIGNER — theme-aware push → Actions → Pages → DNS diagram on /post/building-your-website-with-jekyll-and-github-pages/ (Actions deploy green).
