@@ -2091,3 +2091,19 @@ Backlog additions:
 - Diagram ideas still open: Codex Skills (agent vs. skill), Doing the Right
   Thing Fast (ticket → PR pipeline) — only if the post describes the flow.
 - 2026-10-25 13:34 PT — EDITOR→DESIGNER — eight-step review flow diagram (/post/reviewing-ai-generated-tests-istqb-framework/) (Actions deploy green).
+
+## Done (Oct 25, 2026, 2:34pm PT)
+
+- Editor shift (UTC 21): nothing editorial needed — Cal Hacks 13.0 still
+  runs today (move to past tomorrow); Gmail last day: only the HackUMass XIV
+  judge next-steps email (event already listed as upcoming/judge). No new
+  registrations.
+- Took a Designer task: theme-aware git housekeeping flow diagram on
+  /post/codex-skills-baking-your-workflow-into-the-tool/
+  (`_includes/diagrams/codex-git-housekeeping.html`): One prompt → combined
+  skill chaining New branch → Update from origin → Commit → Push, each step
+  noted from the post's own table. Checked at 375px in sepia + dark, no
+  overflow. Run 40236264205 green.
+- Diagram idea still open: Doing the Right Thing Fast (stream cycle:
+  identify → change → review → test) — the post describes it in one line.
+- 2026-10-25 14:34 PT — EDITOR→DESIGNER — git housekeeping flow diagram (/post/codex-skills-baking-your-workflow-into-the-tool/) (Actions deploy green).
