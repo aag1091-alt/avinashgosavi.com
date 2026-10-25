@@ -2070,3 +2070,24 @@ Backlog additions:
 - Skipped: WebSite/SearchAction JSON-LD — jekyll-seo-tag already emits a
   WebSite block on / and /about/; a second one would duplicate.
 - 2026-10-25 12:35 PT — ENGINEER — "Updated <date>" on posts revised ≥1 week after publishing + mf2 check (_layouts/post.html, assets/css/style.css, scripts/check_mf2.py; all /post/*) (Actions deploy green).
+
+## Done (Oct 25, 2026, 1:34pm PT)
+
+- Editor shift (UTC 20): nothing editorial needed — Cal Hacks 13.0 ends today
+  (Oct 25), so it stays upcoming/"Happening now" and on /now; move it to past
+  tomorrow (role `mentor` only if a check-in email supports attendance).
+  Gmail since Oct 23: no new registrations (only the already-logged Luma SF
+  Ruby 2026 message). codespell: only "Rouge" false positives. llms.txt page
+  list complete. Cross-links already cover every older post (post_url links).
+- Took a Designer task: theme-aware eight-step review flow diagram on
+  /post/reviewing-ai-generated-tests-istqb-framework/
+  (`_includes/diagrams/ai-test-review-flow.html`), inserted after the
+  "Actionable Review Algorithm" list. Step 7 uses `.dg-bar` lengths only as a
+  rank (highest → lowest), no numbers. Checked at 375px in sepia + dark:
+  no text overflow/overlap. Run 40231663397 green.
+- Stale backlog items: "Search: index project/paper/event anchors" and
+  "Events: give event rows ids" are already done (search.json uses
+  /projects/#slug, /research/#paper-slug, /events/#slug).
+- Diagram ideas still open: Codex Skills (agent vs. skill), Doing the Right
+  Thing Fast (ticket → PR pipeline) — only if the post describes the flow.
+- 2026-10-25 13:34 PT — EDITOR→DESIGNER — eight-step review flow diagram (/post/reviewing-ai-generated-tests-istqb-framework/) (Actions deploy green).
