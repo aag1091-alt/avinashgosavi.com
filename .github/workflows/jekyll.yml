@@ -65,6 +65,11 @@ jobs:
         run: python3 scripts/check_links.py _site
         continue-on-error: true
 
+      - name: Check outbound links — flags only 404/410 and dead hosts (warnings only, never blocks deploy)
+        run: python3 scripts/check_external.py _site --budget 150
+        continue-on-error: true
+        timeout-minutes: 4
+
       - name: Accessibility lint (warnings only, never blocks deploy)
         run: python3 scripts/check_a11y.py _site
         continue-on-error: true

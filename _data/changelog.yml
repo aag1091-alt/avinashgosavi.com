@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Engineering
+  text: Every build now also checks the links that point to other sites and flags any that have gone dead, so readers hit fewer 404s.
+  link: /changelog/
+- date: 2026-10-25
   desk: Design
   text: The Jekyll and GitHub Pages guide now has a diagram of the path from git push through the Actions build to GitHub Pages and your custom domain.
   link: /post/building-your-website-with-jekyll-and-github-pages/
