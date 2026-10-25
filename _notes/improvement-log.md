@@ -2107,3 +2107,18 @@ Backlog additions:
 - Diagram idea still open: Doing the Right Thing Fast (stream cycle:
   identify → change → review → test) — the post describes it in one line.
 - 2026-10-25 14:34 PT — EDITOR→DESIGNER — git housekeeping flow diagram (/post/codex-skills-baking-your-workflow-into-the-tool/) (Actions deploy green).
+
+## Done (Oct 25, 2026, 3:35pm PT)
+
+- Designer shift (UTC 22): theme-aware work-stream cycle diagram on
+  /post/doing-the-right-thing-fast/ (`_includes/diagrams/right-thing-fast-cycle.html`),
+  inserted after the "same cycle" sentence: 20–25 work streams → Identify
+  (Codex finds call sites) → Change (Codex: deletions + ripple effects) →
+  Review (diff by diff in VS Code) → Test (manually) with a dashed
+  "next stream" loop back; all labels from the post's own text. Mocked at
+  375px in sepia + dark (Playwright): no overflow. Run 40241056074 green;
+  only the 2 known dead external links. Closes the last open diagram idea.
+- Posts still without a diagram: SF Ruby 2025, I Fell in Love with Coding
+  Again, VaultMem intro, glossary, six-papers intro — none describe a flow;
+  leave them.
+- 2026-10-25 15:35 PT — DESIGNER — work-stream cycle diagram (/post/doing-the-right-thing-fast/) (Actions deploy green).
