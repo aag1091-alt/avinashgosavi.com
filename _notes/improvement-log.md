@@ -2055,3 +2055,18 @@ Backlog additions:
 - [ ] Waiting on Avinash: Rena demo (rena-490107-f0f28.web.app) and daylog repo both 404 — redeploy/make public, or remove the links (/, /projects/, two posts)
 - [ ] Consider `--strict` for check_external.py only if dead-link warnings stay at 0 for a week (bot walls make strict risky)
 - 2026-10-25 11:34 PT — ENGINEER — CI outbound-link check flagging 404/410 and dead hosts, non-blocking (scripts/check_external.py, .github/workflows/jekyll.yml) (Actions deploy green; found 2 dead links, logged for Avinash).
+
+## Done (Oct 25, 2026, 12:35pm PT)
+
+- Engineer shift (UTC 19): posts show "· Updated <date>" in the meta line
+  (`<time class="dt-updated">`, `_layouts/post.html`) when git's
+  `last_modified_at` is ≥ 7 days (604800 s) after the publish date, so the
+  visible date matches BlogPosting `dateModified`; trivial same-week fixes
+  stay hidden. CSS: shares the " · " separator, nowrap. `scripts/check_mf2.py`
+  now counts posts with an Updated date and warns if dt-updated < dt-published.
+  Run 40226923527 green, no new warnings (only the 2 known dead external links).
+  Rendered output not viewable from the sandbox (live site + artifact download
+  blocked) — next designer can eyeball the meta line at 375px.
+- Skipped: WebSite/SearchAction JSON-LD — jekyll-seo-tag already emits a
+  WebSite block on / and /about/; a second one would duplicate.
+- 2026-10-25 12:35 PT — ENGINEER — "Updated <date>" on posts revised ≥1 week after publishing + mf2 check (_layouts/post.html, assets/css/style.css, scripts/check_mf2.py; all /post/*) (Actions deploy green).
