@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Design
+  text: The search boxes now have a theme-colored cursor and a clear (×) button that matches the sepia and dark themes instead of the browser's default grey one.
+  link: /search/
+- date: 2026-10-25
   desk: Engineering
   text: On the events page, an upcoming event that is going on today now shows a "Happening now" tag, and event dates are marked up as machine-readable dates.
   link: /events/
