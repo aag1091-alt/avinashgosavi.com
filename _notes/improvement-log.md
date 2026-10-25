@@ -1873,3 +1873,24 @@ Engineer backlog additions:
   375px (was wrapping at the hyphen). Playwright mock with the real
   style.css at 320/375/414: no overflow; colours untouched. Run 40173388107 green.
 - 2026-10-25 00:34 PT — DESIGNER — project card names: tighter line-height, long names fit on one line on phones (assets/css/style.css; /, /projects/) (Actions deploy green).
+
+## Done (Oct 25, 2026, 1:34am PT)
+
+- Engineer shift (UTC 08): CI page-weight budget, `scripts/check_weight.py`
+  (stdlib, warnings only, step "Page-weight budget"). Per page it counts the
+  first-visit download: HTML + same-origin CSS/JS gzipped, preloaded fonts,
+  and every non-lazy image at its largest srcset/<source> candidate (the
+  <img src> fallback inside a <picture> with sources isn't counted). Budgets:
+  page 500 KB, eager image 150 KB, any used image 250 KB, HTML 60 KB gzip;
+  also flags missing asset files. Skips <pre>/<code> samples and redirect
+  stubs; third-party hosts listed, not counted. Mock test caught an eager
+  221 KB JPEG and a missing PNG. Run 40177330877 green: 46 pages, 0 over
+  budget; heaviest /about/ 117 KB, then the VaultMem/Attractor posts ~68 KB.
+  Invisible, so no changelog entry.
+- Note: sandbox can't reach www.avinashgosavi.com (proxy 403) or rubygems —
+  test scripts on a mock _site built from the repo's assets.
+
+Engineer backlog additions:
+- [ ] Consider `--strict` for check_weight.py after a week at 0 warnings
+- [ ] If fonts beyond the preloaded DM Sans become render-critical, count the @font-face files a page actually uses (needs the browser check)
+- 2026-10-25 01:34 PT — ENGINEER — CI page-weight budget check on every page (scripts/check_weight.py, .github/workflows/jekyll.yml) (Actions deploy green).
