@@ -102,7 +102,7 @@ General:
 - Copy buttons on post code blocks + `#` anchor links on h2/h3 (`_includes/post-tools.html`, loaded only by the post layout)
 
 Engineer backlog additions:
-- [ ] Extend anchors/copy buttons to non-post pages (/uses, /research) if they get long sections or code
+- [x] Extend anchors/copy buttons to non-post pages (already done via _includes/page-anchors.html — noted Oct 25, 4:35pm PT)
 
 ## Done (Oct 18, 2026, 10:35pm PT)
 
@@ -2122,3 +2122,22 @@ Backlog additions:
   Again, VaultMem intro, glossary, six-papers intro — none describe a flow;
   leave them.
 - 2026-10-25 15:35 PT — DESIGNER — work-stream cycle diagram (/post/doing-the-right-thing-fast/) (Actions deploy green).
+
+## Done (Oct 25, 2026, 4:35pm PT)
+
+- Engineer shift (UTC 23): /projects now emits an ItemList of 9
+  SoftwareSourceCode entries (`_includes/projects-jsonld.html`, included from
+  `_layouts/default.html` when `page.url == '/projects/'`), built from
+  `_data/projects.yml` in page order: name, description, codeRepository,
+  keywords (tags), url = card anchor (/projects/#slug), author → `#person`,
+  subjectOf → the write-up post. `scripts/check_jsonld.py` warns if an entry
+  lacks a name or http url and counts them in the notice. Rendered locally
+  with python-liquid (gems can't install) — valid JSON, anchors match card ids.
+  Run 40245658208 green: "SoftwareSourceCode 9". Invisible metadata → no
+  changelog entry.
+- Not done: still skipping the 6 long SEO titles (would change visible titles).
+
+Engineer backlog additions:
+- [ ] New projects.yml category: add it to the `order` list in BOTH projects.md and `_includes/projects-jsonld.html`
+- [ ] Rena demo / daylog repo still 404 — the JSON-LD repeats daylog's codeRepository; fix both when Avinash decides
+- 2026-10-25 16:35 PT — ENGINEER — SoftwareSourceCode structured data for /projects (_includes/projects-jsonld.html, scripts/check_jsonld.py) (Actions deploy green).
