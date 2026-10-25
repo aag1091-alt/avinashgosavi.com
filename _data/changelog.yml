@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Design
+  text: The Jekyll and GitHub Pages guide now has a diagram of the path from git push through the Actions build to GitHub Pages and your custom domain.
+  link: /post/building-your-website-with-jekyll-and-github-pages/
+- date: 2026-10-25
   desk: Engineering
   text: Search results now still jump to the matched word in a post when the surrounding phrase runs across a heading or list item.
   link: /search/

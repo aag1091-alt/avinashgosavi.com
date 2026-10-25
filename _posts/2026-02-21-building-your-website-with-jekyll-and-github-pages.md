@@ -90,6 +90,8 @@ read_time: 4
 
 **Build workflow:** You need a workflow that runs `bundle install` and `bundle exec jekyll build`, then uploads `_site` with `actions/upload-pages-artifact` and deploys with `actions/deploy-pages`. GitHub’s own “Jekyll” template under Actions is a good start; if you use a **custom domain at the root**, build **without** `--baseurl` so links and assets work (e.g. `run: bundle exec jekyll build`).
 
+{% include diagrams/jekyll-pages-deploy.html %}
+
 **Docs (use these instead of re-explaining everything):**
 
 - [GitHub Pages: Configuring a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)

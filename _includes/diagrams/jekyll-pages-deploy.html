@@ -1,0 +1,41 @@
+<figure class="diagram">
+<svg viewBox="0 0 336 560" role="img" aria-labelledby="jkdeploy-dg-title jkdeploy-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="jkdeploy-dg-title">How a Jekyll site gets from a git push to your custom domain</title>
+  <desc id="jkdeploy-dg-desc">A push to the repository starts a GitHub Actions workflow. It runs bundle install, then bundle exec jekyll build, without --baseurl when the site is on a custom domain at the root, which produces the _site folder. actions/upload-pages-artifact uploads _site and actions/deploy-pages publishes it to GitHub Pages at username.github.io. In your DNS, a CNAME record points www at username.github.io and A records point the apex domain at GitHub's IPs. After DNS and verification, turn on Enforce HTTPS.</desc>
+  <defs>
+    <marker id="jkdeploy-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="dg-pill" x="68" y="10" width="200" height="48" rx="24"/>
+  <text class="dg-strong" x="168" y="40" text-anchor="middle">git push</text>
+  <line class="dg-line" x1="168" y1="58" x2="168" y2="86" marker-end="url(#jkdeploy-dg-arrow)"/>
+
+  <rect class="dg-box" x="22" y="88" width="292" height="200" rx="8"/>
+  <text class="dg-strong" x="36" y="110">GitHub Actions workflow</text>
+  <text class="dg-note dg-mono" x="36" y="138">bundle install</text>
+  <text class="dg-note dg-mono" x="36" y="160">bundle exec jekyll build</text>
+  <text class="dg-note" x="36" y="180">no --baseurl on a custom domain</text>
+  <text class="dg-body" x="36" y="204">→ <tspan class="dg-mono">_site/</tspan></text>
+  <text class="dg-note dg-mono" x="36" y="234">actions/upload-pages-artifact</text>
+  <text class="dg-note dg-mono" x="36" y="256">actions/deploy-pages</text>
+  <text class="dg-note" x="36" y="276">Settings → Pages → source: GitHub Actions</text>
+  <line class="dg-line" x1="168" y1="288" x2="168" y2="316" marker-end="url(#jkdeploy-dg-arrow)"/>
+
+  <rect class="dg-pill" x="40" y="318" width="256" height="58" rx="29"/>
+  <text class="dg-strong" x="168" y="343" text-anchor="middle">GitHub Pages</text>
+  <text class="dg-note dg-ink dg-mono" x="168" y="363" text-anchor="middle">username.github.io</text>
+
+  <line class="dg-line dg-dash" x1="168" y1="410" x2="168" y2="380" marker-end="url(#jkdeploy-dg-arrow)"/>
+  <text class="dg-note" x="178" y="400">points to</text>
+
+  <rect class="dg-box" x="22" y="412" width="292" height="134" rx="8"/>
+  <text class="dg-strong" x="36" y="434">Your DNS</text>
+  <text class="dg-note" x="36" y="460"><tspan class="dg-mono">www</tspan> → CNAME → <tspan class="dg-mono">username.github.io</tspan></text>
+  <text class="dg-note" x="36" y="484">apex (<tspan class="dg-mono">yoursite.com</tspan>) → A records</text>
+  <text class="dg-note" x="36" y="502">to GitHub’s IPs (see the docs)</text>
+  <text class="dg-body" x="36" y="530">Then: Enforce HTTPS</text>
+</svg>
+<figcaption>Push, let the workflow build and deploy, and point your domain at Pages once.</figcaption>
+</figure>
