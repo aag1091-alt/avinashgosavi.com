@@ -38,7 +38,8 @@ jobs:
         continue-on-error: true
 
       - name: Check search index is valid JSON
-        run: python3 -c "import json,collections; d=json.load(open('_site/search.json')); print(len(d), 'entries', dict(collections.Counter(x['type'] for x in d)))"
+        run: |
+          python3 -c "import json,collections,os; d=json.load(open('_site/search.json')); print(len(d), 'entries', dict(collections.Counter(x['type'] for x in d)), os.path.getsize('_site/search.json')//1024, 'KB'); [print('::notice::search index cuts off', x['url'], 'at 30,000 chars - later text is not searchable') for x in d if x['type'] == 'Post' and len(x['text']) >= 29990]"
 
       - name: Check feeds are well-formed Atom
         run: python3 -c "import glob,xml.etree.ElementTree as E; fs=['_site/feed.xml']+sorted(glob.glob('_site/feed/*.xml')); [print(f, len(E.parse(f).getroot().findall('{http://www.w3.org/2005/Atom}entry')), 'entries') for f in fs]"

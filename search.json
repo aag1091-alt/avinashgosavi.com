@@ -12,7 +12,7 @@ sitemap: false
     "date": {{ p.date | date: "%b %d, %Y" | jsonify }},
     "tags": {{ p.tags | join: " " | jsonify }},
     "desc": {{ p.description | default: p.excerpt | strip_html | normalize_whitespace | jsonify }},
-    "text": {{ p.content | strip_html | normalize_whitespace | truncate: 8000, "" | jsonify }}
+    "text": {{ p.content | strip_html | normalize_whitespace | truncate: 30000, "" | jsonify }}
   },
 {%- endfor -%}
 {%- for pg in site.pages -%}

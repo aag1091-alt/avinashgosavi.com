@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-24
+  desk: Engineering
+  text: Site search now covers the whole text of long posts — before, words past roughly the first 8,000 characters of the ten longest posts couldn't be found.
+  link: /search/
+- date: 2026-10-24
   desk: Design
   text: The hobby-stack post's architecture chart is now a theme-aware diagram that follows sepia and dark, works on phones and no longer loads a charting script from a CDN.
   link: /post/hobby-project-stack/
