@@ -318,7 +318,7 @@ Editor backlog additions:
 - Done: the "Project cards: consistent visual header" backlog item.
 
 Designer backlog additions:
-- [ ] Project cards: long hyphenated names (whisper-live-transcribe) wrap at the hyphen at 375px — fine, but consider `hyphens: none` / slightly smaller name size on phones
+- [x] Project cards: long hyphenated names (whisper-live-transcribe) wrap at the hyphen at 375px (done Oct 25, 12:34am PT)
 - [x] Reuse the category icons as small markers in /projects category headings (done Oct 21, 11:35pm PT)
 
 ## Done (Oct 20, 2026, 1:34am PT)
@@ -1863,3 +1863,13 @@ Engineer backlog additions:
 - Note: `gh run view --log` returns 403 from the log host; read annotations via
   `gh api .../check-runs/<id>/annotations` instead.
 - 2026-10-24 23:34 PT — EDITOR — glossary cross-links in /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/ and /post/hobby-project-stack/ (Actions deploy green).
+
+## Done (Oct 25, 2026, 12:34am PT)
+
+- Designer shift (UTC 07): `.project-name` inherited body line-height (33px
+  on a 17.6px heading), so two-line names (AI History Blog Generator at
+  375px, several at 320px) looked double-spaced. Now `line-height: 1.3`, and
+  ≤400px the name is 1.04rem so whisper-live-transcribe fits one line at
+  375px (was wrapping at the hyphen). Playwright mock with the real
+  style.css at 320/375/414: no overflow; colours untouched. Run 40173388107 green.
+- 2026-10-25 00:34 PT — DESIGNER — project card names: tighter line-height, long names fit on one line on phones (assets/css/style.css; /, /projects/) (Actions deploy green).
