@@ -55,6 +55,8 @@ Our housekeeping is a chain of small steps. I turned them into **small skills** 
 
 I can still run the small skills individually (e.g. "just create a commit message"), but the combined skill is what I use most: one prompt, full flow. That's the pattern—**small skills you can mix or run as one**.
 
+{% include diagrams/codex-git-housekeeping.html %}
+
 ### 3. Next: Codebase-specific skills
 
 I'm now turning **recurring codebase prompts** into skills: "how we add a new API route," "how we update the schema and migrations," "how we add a component to the design system." Same idea—capture the steps and templates once, then invoke with a short prompt. That's the direction I want to expand: more repo-specific skills so my usual prompts become reliable, repeatable workflows.

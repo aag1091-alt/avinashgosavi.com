@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
   desk: Design
+  text: The Codex Skills post now has a diagram of the git housekeeping flow, showing four small skills (branch, update, commit, push) chained into one combined skill.
+  link: /post/codex-skills-baking-your-workflow-into-the-tool/
+- date: 2026-10-25
+  desk: Design
   text: The post on reviewing AI-generated tests now has a diagram of its eight-step review, from collecting the tests to weighting confidence and posting a gap summary.
   link: /post/reviewing-ai-generated-tests-istqb-framework/
 - date: 2026-10-25
