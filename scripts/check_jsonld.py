@@ -28,6 +28,14 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
                         or not re.fullmatch(r"\d{4}", str(d.get("datePublished", ""))):
                     bad += 1
                     print(f"::warning file={os.path.relpath(path, root)}::ScholarlyArticle needs name, http url and a 4-digit datePublished")
+            if t == "ItemList":
+                for li in d.get("itemListElement", []):
+                    it = li.get("item") or {}
+                    if it.get("@type") == "SoftwareSourceCode":
+                        types["SoftwareSourceCode"] += 1
+                        if not it.get("name") or not str(it.get("url", "")).startswith("http"):
+                            bad += 1
+                            print(f"::warning file={os.path.relpath(path, root)}::SoftwareSourceCode needs a name and an http url")
             if t == "ProfilePage":
                 me = d.get("mainEntity") or {}
                 if me.get("@type") != "Person" or not me.get("name"):
@@ -46,6 +54,6 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
             print(f"::warning file={os.path.relpath(path, root)}::invalid speculation rules: {e!r}")
 print("Pages with speculation rules:", nspec)
 print("JSON-LD types:", dict(types))
-print(f"::notice title=JSON-LD::{types['ScholarlyArticle']} Paper TL;DR posts name their paper (ScholarlyArticle); BlogPosting {types['BlogPosting']}, BreadcrumbList {types['BreadcrumbList']}")
+print(f"::notice title=JSON-LD::{types['ScholarlyArticle']} Paper TL;DR posts name their paper (ScholarlyArticle); BlogPosting {types['BlogPosting']}, BreadcrumbList {types['BreadcrumbList']}, SoftwareSourceCode {types['SoftwareSourceCode']}")
 print(f"{bad} problem(s)")
 sys.exit(1 if bad else 0)

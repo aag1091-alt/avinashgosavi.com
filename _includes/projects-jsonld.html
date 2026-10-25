@@ -1,0 +1,10 @@
+{% comment %} Structured data on /projects: an ItemList of SoftwareSourceCode entries built from _data/projects.yml (name, description, repo, tags) — each points at its card anchor, its write-up when there is one, and the Person node from the homepage. Same order as the page. {% endcomment %}
+{%- assign order = "Memory & privacy for AI|Agents & voice|Tools I wanted for myself|Just for fun" | split: "|" -%}
+{%- assign n = 0 -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","@id":{{ page.url | absolute_url | append: '#projects' | jsonify }},"name":"Hobby projects by Avinash Gosavi","itemListElement":[
+{%- for cat in order -%}{%- assign group = site.data.projects | where: "category", cat -%}{%- for p in group -%}{%- assign n = n | plus: 1 -%}{%- assign slug = p.name | slugify -%}
+{%- if n > 1 %},{% endif %}{"@type":"ListItem","position":{{ n }},"item":{"@type":"SoftwareSourceCode","name":{{ p.name | jsonify }},"description":{{ p.description | normalize_whitespace | strip | jsonify }},"url":{{ page.url | absolute_url | append: '#' | append: slug | jsonify }}{% if p.github %},"codeRepository":{{ p.github | jsonify }}{% endif %},"keywords":{{ p.tags | join: ', ' | jsonify }},"author":{"@id":{{ site.url | append: '/#person' | jsonify }}}{% if p.post %},"subjectOf":{"@type":"BlogPosting","url":{{ p.post | absolute_url | jsonify }}}{% endif %}}}
+{%- endfor -%}{%- endfor -%}
+]}
+</script>
