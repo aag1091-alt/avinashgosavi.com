@@ -1965,3 +1965,27 @@ Designer backlog additions:
 - [ ] Any new `<input type="search">` needs its id added to the clear-button rule in style.css
 - 2026-10-25 04:34 PT — EDITOR→DESIGNER — themed clear (×) button + accent caret on search fields (assets/css/style.css; /search/, /blog/) (Actions deploy green).
 - 2026-10-25 05:34 PT — DESIGNER — post tables: top-aligned cells, tabular numbers (assets/css/style.css; /post/* with tables) (Actions deploy green).
+
+## Done (Oct 25, 2026, 6:35am PT)
+
+- Engineer shift (UTC 13): Paper TL;DR posts now carry a `ScholarlyArticle`
+  JSON-LD block (`_includes/paper-jsonld.html`, included from
+  `_layouts/default.html` when `page.series == 'paper-tldr'`): paper title,
+  original URL, year (`datePublished`), authors as `creditText` (they're
+  strings like "Maharana et al.", so not Person nodes), `@id` = post URL +
+  `#paper`, `subjectOf` → the post's WebPage `@id` (same node jekyll-seo-tag
+  uses as mainEntityOfPage). Data from `_data/papers.yml` by `tldr_post`;
+  the six-papers roundup has no entry, so nothing is emitted there.
+  `scripts/check_jsonld.py` validates name/http url/4-digit year and posts a
+  `JSON-LD` notice with counts. Run 40198843843: 11 ScholarlyArticle,
+  29 BlogPosting, 44 BreadcrumbList, 0 problems.
+- Same run showed one layout-shift warning on
+  /post/building-rena-ai-health-companion-gemini-live/ at 375px (CLS 0.068,
+  div.post-content) that the previous run didn't have — not from this change
+  (head-only JSON-LD). Next engineer: if it repeats, look at the Rena
+  `<picture>` screenshots' reserved size at 375px.
+
+Engineer backlog additions:
+- [ ] New Paper TL;DR: give its papers.yml entry a `tldr_post` — that drives the ScholarlyArticle JSON-LD
+- [ ] Watch the Rena post 375px CLS warning (first seen run 40198843843)
+- 2026-10-25 06:35 PT — ENGINEER — ScholarlyArticle structured data naming the summarised paper on every Paper TL;DR post + CI check (_includes/paper-jsonld.html, _layouts/default.html, scripts/check_jsonld.py; /post/paper-tldr-*) (Actions deploy green).
