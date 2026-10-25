@@ -464,6 +464,17 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] New post images: keep `width`/`height` attrs = the full file size — the viewer uses them to decide zoomability
 
+## Done (Oct 25, 2026, 5:34am PT)
+
+- Designer shift (UTC 12): post tables. Cells used the browser default
+  `vertical-align: middle`, so short row labels (Codex skills "What it is",
+  VaultMem ABC table) floated mid-row beside wrapped multi-line cells. Now
+  td/th `vertical-align: top`, thead th bottom, table `line-height: 1.5`
+  (was body 1.65) and `font-variant-numeric: tabular-nums` (VaultMem Part 2
+  latency columns). Colours untouched. Playwright file mock of the Codex
+  table at 375px: cells top-aligned, page scrollWidth 375 (table scrolls in
+  its box). Run 40193843587 green.
+
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -1953,3 +1964,4 @@ Editor backlog additions:
 Designer backlog additions:
 - [ ] Any new `<input type="search">` needs its id added to the clear-button rule in style.css
 - 2026-10-25 04:34 PT — EDITOR→DESIGNER — themed clear (×) button + accent caret on search fields (assets/css/style.css; /search/, /blog/) (Actions deploy green).
+- 2026-10-25 05:34 PT — DESIGNER — post tables: top-aligned cells, tabular numbers (assets/css/style.css; /post/* with tables) (Actions deploy green).
