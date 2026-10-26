@@ -58,6 +58,8 @@ with VaultSession.open("./alice_vault", passphrase="alice_secret",
 
 You — the developer — receive an encrypted blob you cannot open. Alice holds the key. Her memories are hers.
 
+{% include diagrams/vaultmem-who-can-read.html %}
+
 The same principle applies to a therapist AI, a relationship coach, a financial planner, a personal journal. Anywhere the content is deeply personal and the user has good reason not to trust a third party with it.
 
 ---

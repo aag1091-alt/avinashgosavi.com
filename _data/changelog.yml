@@ -1,5 +1,9 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
+- date: 2026-10-26
+  desk: Design
+  text: The "Your AI Agent Shouldn't Be Able to Read Your Diary" post now has a diagram comparing who can read an agent's memory in a typical setup and with VaultMem.
+  link: /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/
 - date: 2026-10-25
   desk: Writing
   text: Cal Hacks 13.0 has moved to past events now that the weekend is over, and the Now list looks ahead to OSA Con and HackUMass XIV.

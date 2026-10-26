@@ -1,0 +1,43 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 592" role="img" aria-labelledby="vmwho-dg-title vmwho-dg-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="vmwho-dg-title">Who can read an agent's memory, with and without VaultMem</title>
+  <desc id="vmwho-dg-desc">Typical agent memory: what you tell the agent is stored in the platform's database, readable by the platform, so the developer, anyone who breaches it, a subpoena or a future acquirer can read every memory. With VaultMem: you hold the key, the VaultSession encrypts in your session, and the platform stores only an encrypted blob, so the developer, a breach, a subpoena or an acquirer see only encrypted bytes.</desc>
+  <defs>
+    <marker id="vmwho-dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-group" x="6" y="6" width="348" height="244" rx="12"/>
+  <text class="dg-label" x="22" y="27">Typical agent memory</text>
+  <rect class="dg-pill" x="90" y="38" width="180" height="40" rx="20"/>
+  <text class="dg-body" x="180" y="63" text-anchor="middle">You tell the agent</text>
+  <line class="dg-line" x1="180" y1="78" x2="180" y2="100" marker-end="url(#vmwho-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="104" width="316" height="52" rx="8"/>
+  <text class="dg-strong" x="180" y="126" text-anchor="middle">Platform database</text>
+  <text class="dg-note" x="180" y="146" text-anchor="middle">readable by the platform</text>
+  <line class="dg-line" x1="180" y1="156" x2="180" y2="178" marker-end="url(#vmwho-dg-arrow)"/>
+  <text class="dg-note" x="192" y="172">who can read it</text>
+  <rect class="dg-box" x="22" y="182" width="316" height="56" rx="8"/>
+  <text class="dg-body" x="180" y="205" text-anchor="middle">Developer, breach, subpoena, acquirer</text>
+  <text class="dg-note" x="180" y="225" text-anchor="middle">can read every memory</text>
+
+  <rect class="dg-group" x="6" y="266" width="348" height="320" rx="12"/>
+  <text class="dg-label" x="22" y="287">With VaultMem</text>
+  <rect class="dg-pill" x="90" y="298" width="180" height="40" rx="20"/>
+  <text class="dg-body" x="180" y="323" text-anchor="middle">You hold the key</text>
+  <line class="dg-line" x1="180" y1="338" x2="180" y2="360" marker-end="url(#vmwho-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="364" width="316" height="52" rx="8"/>
+  <text class="dg-strong" x="180" y="386" text-anchor="middle">VaultSession</text>
+  <text class="dg-note" x="180" y="406" text-anchor="middle">encrypts inside your session</text>
+  <line class="dg-line" x1="180" y1="416" x2="180" y2="438" marker-end="url(#vmwho-dg-arrow)"/>
+  <rect class="dg-box" x="22" y="442" width="316" height="52" rx="8"/>
+  <text class="dg-strong" x="180" y="464" text-anchor="middle">Platform storage</text>
+  <text class="dg-note" x="180" y="484" text-anchor="middle">an encrypted blob only</text>
+  <line class="dg-line" x1="180" y1="494" x2="180" y2="516" marker-end="url(#vmwho-dg-arrow)"/>
+  <text class="dg-note" x="192" y="510">who can read it</text>
+  <rect class="dg-box dg-muted" x="22" y="520" width="316" height="56" rx="8"/>
+  <text class="dg-body" x="180" y="543" text-anchor="middle">Developer, breach, subpoena, acquirer</text>
+  <text class="dg-note" x="180" y="563" text-anchor="middle">see only encrypted bytes</text>
+</svg>
+<figcaption>Same app, same people around it. The difference is where the key lives: with VaultMem it never leaves your session.</figcaption>
+</figure>
