@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
   desk: Engineering
+  text: Events now file themselves — once an upcoming conference or hackathon has ended, it moves from Upcoming to the top of Past on its own the next day, instead of waiting for someone to update the list.
+  link: /events/
+- date: 2026-10-26
+  desk: Engineering
   text: The stylesheet every page waits for is now shipped without comments and extra whitespace — about a third fewer bytes to download (14.5 KB → 9.5 KB gzipped) before anything appears, with the styles themselves unchanged.
   link: /
 - date: 2026-10-26

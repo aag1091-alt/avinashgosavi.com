@@ -62,7 +62,7 @@ Most pages are driven by YAML files in `_data/`. Edit the file, push, and the pa
 | --- | --- | --- |
 | `/projects` and homepage cards | `_data/projects.yml` | `category` groups cards; `featured: true` puts it on the homepage (first 4); `demo`, `post`, `github` add links |
 | `/experience` and homepage list | `_data/experience.yml` | One entry per company, `roles` with `highlights` |
-| `/events` | `_data/events.yml` | `role`: attended / hacker / judge / mentor / speaker; `status`: upcoming / past; optional `recap` post URL; optional `end_date` (last day) shows a "Happening now" tag while the event runs |
+| `/events` | `_data/events.yml` | `role`: attended / hacker / judge / mentor / speaker; `status`: upcoming / past; optional `recap` post URL; optional `end_date` (last day) shows a "Happening now" tag while the event runs; an `upcoming` event moves under Past by itself the day after it ends (still flip `status` to `past` — CI warns after 3 days) |
 | `/achievements` | `_data/achievements.yml` | Grouped by `section`; items take `title`, `year`, `detail`, `links` |
 | `/research` papershelf | `_data/papers.yml` | `tldr`, `why`, `post` (related project post), `tldr_post` (full Paper TL;DR write-up) |
 | `/talks` | `_data/talks.yml` | `take` is a one-line reason to watch, grouped by `topic` |
