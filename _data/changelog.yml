@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
   desk: Design
+  text: Links in posts that lead off the site now end in a small ↗ arrow, so you can tell before clicking whether you are leaving for a paper, a repo or a talk recording.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- date: 2026-10-26
+  desk: Design
   text: Callouts in posts (the "Install · Code · Live demo" lines on the VaultMem posts, the "My pick" lines in the hobby stack post) are now soft cards in normal text color instead of faded italics, so their links and commands are easier to read.
   link: /post/hobby-project-stack/
 - date: 2026-10-26

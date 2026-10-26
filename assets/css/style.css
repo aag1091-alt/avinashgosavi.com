@@ -970,6 +970,22 @@ input:focus-visible {
   text-decoration-color: currentColor;
 }
 
+/* Links that leave the site get a small ↗ so readers know before clicking.
+   Screen only (print already appends the URL); no arrow on image links or
+   classed component links. Empty alt text keeps screen readers quiet. */
+@media screen {
+  .post-content a[href^="http"]:not([class]):not([href*="avinashgosavi.com"]):not(:has(img, picture, svg))::after {
+    content: "\2197";
+    content: "\2197" / "";
+    display: inline-block;
+    margin-left: 0.12em;
+    font-size: 0.72em;
+    line-height: 1;
+    vertical-align: 0.35em;
+    text-decoration: none;
+  }
+}
+
 /* Plain links in page text (About, page ledes, Uses, Research, lists) had no
    rule, so they showed the browser's default blue/purple. Same soft underline
    as post prose. Zero specificity (:where) so every component link rule wins. */
