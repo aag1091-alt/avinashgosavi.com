@@ -2,5 +2,5 @@
 # Words below are real names/abbreviations codespell mistakes for typos:
 #   rouge — the Rouge syntax highlighter; pres — <pre> elements in scripts/check_a11y.py
 [codespell]
-skip = ./.git,./_site,./.jekyll-cache,./assets/fonts,./assets/images,./assets/og,./assets/icons,*.png,*.jpg,*.jpeg,*.webp,*.woff2,*.ico,*.pdf,Gemfile.lock,./_notes,*/__pycache__
+skip = ./.git,./_site,./vendor,./node_modules,./.jekyll-cache,./assets/fonts,./assets/images,./assets/og,./assets/icons,*.png,*.jpg,*.jpeg,*.webp,*.woff2,*.ico,*.pdf,Gemfile.lock,./_notes,*/__pycache__
 ignore-words-list = rouge,pres
