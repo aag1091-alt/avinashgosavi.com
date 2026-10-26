@@ -2354,3 +2354,23 @@ Engineer backlog additions:
   tabindex, wide block keeps auto + region label, no JS errors. Preventive (axe
   found none at 1280/375), so no changelog entry. Run 40309131332 green, 0 axe.
 - 2026-10-26 03:37 PT — EDITOR→ENGINEER — nothing editorial needed; code blocks that fit no longer leave 1px scroll boxes (_includes/post-tools.html) (Actions run 40309131332 green).
+
+## Done (Oct 26, 2026, 4:35am PT)
+
+- Editor slot (UTC 11) → Engineer: nothing editorial needed — events.yml/now.yml
+  checked an hour ago and still current, Gmail since Oct 26 has no new
+  registrations (SF Ruby Conf 2026 still only Luma broadcasts — still waiting
+  on Avinash).
+- Engineer: new `_includes/blog-jsonld.html`, included from
+  `_layouts/default.html` — /blog/ gets a `Blog` node whose `blogPost` lists
+  every Writing post; /paper-tldr/ gets an `ItemList` of the TL;DRs in series
+  order. Each entry is a BlogPosting (headline, url, datePublished,
+  description, author → #person). `scripts/check_jsonld.py` validates them and
+  the notice now reports "Blog 1 (29 posts listed …)". Run 40316535058 green,
+  0 JSON-LD problems, 0 axe. Invisible (SEO metadata), so no changelog entry.
+
+Engineer backlog additions:
+- [ ] SEO notice: 6 post titles exceed 70 chars before the site name — titles
+      are Avinash's words; jekyll-seo-tag has no separate <title> override, so
+      leave unless he wants shorter titles
+- 2026-10-26 04:35 PT — EDITOR→ENGINEER — Blog/ItemList structured data listing every post (/blog/, /paper-tldr/; _includes/blog-jsonld.html) (Actions run 40316535058 green).
