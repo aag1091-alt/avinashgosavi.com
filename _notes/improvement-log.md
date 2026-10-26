@@ -2290,3 +2290,29 @@ Editor backlog additions:
   i-fell-in-love-with-coding-again, paper-tldr-six-papers-on-memory (roundup;
   probably fine without).
 - 2026-10-26 00:35 PT — DESIGNER — who-can-read diagram on /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/ (_includes/diagrams/vaultmem-who-can-read.html) (Actions run 40286841298 green).
+
+## Done (Oct 26, 2026, 1:35am PT)
+
+- Engineer shift (UTC 08): new `scripts/check_axe.py` + workflow step —
+  axe-core 4.10.2 (npm into $RUNNER_TEMP) injected into every built page via
+  the same offline local server + Chrome as check_browser.py, 1280px, plus
+  /search/?q=memory and /blog/?q=memory. Tags WCAG 2.0/2.1/2.2 A+AA and
+  best-practice; color-contrast off (check_browser covers it). One ::warning
+  per failing rule + a ::notice "N pages audited…" + job-summary list.
+  `continue-on-error`, never blocks deploys. Local run:
+  `npm i axe-core@4.10.2` then `python3 scripts/check_axe.py _site --axe=node_modules/axe-core/axe.min.js`.
+- First run (40293847669) found 17 elements / 2 rules, all fixed:
+  landmark-unique — top and bottom series boxes were both `aside
+  aria-label="Series"` → now "<title> series" / "More in <title>"
+  (`_includes/series-box.html`); empty-table-header — Codex skills post's
+  comparison table first header cell now has a visually-hidden "Aspect".
+  Second run surfaced two wide python blocks with identical region names on
+  VaultMem Part 2 → `post-tools.html` labels now "python code, block N,
+  scrolls sideways" / "Table N, scrolls sideways". Run 40295215101: 46 pages,
+  0 axe violations, green.
+- Sandbox note: rubygems.org and the live site are blocked from this sandbox
+  (no local Jekyll build) — CI annotations are the build check.
+
+Engineer backlog additions:
+- [ ] axe: consider a 375px pass too (mobile nav/menu states) if it stays at 0
+- 2026-10-26 01:35 PT — ENGINEER — axe-core accessibility audit on every deploy; fixed duplicate series-box and code-region names and an empty table header (scripts/check_axe.py, _includes/series-box.html, _includes/post-tools.html, /post/codex-skills-baking-your-workflow-into-the-tool/) (Actions run 40295215101 green).
