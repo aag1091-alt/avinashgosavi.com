@@ -505,20 +505,6 @@ Engineer backlog additions:
 - Posts still without a diagram (only if the post describes a flow): Codex
   skills, ISTQB tests review, glossary/six-papers roundups (probably not).
 
-## Done (Oct 26, 2026, 10:35am PT)
-
-- Designer shift (UTC 17): the off-site ↗ marker (style.css `@media screen`
-  block after `.post-content a:hover`) now also applies to unclassed links in
-  `.main :is(p, li, dd, blockquote, td)` — same scope as the page-prose link
-  rule. Shows on /research (Zenodo/PyPI/Code, newsletters), /now
-  (nownownow), /achievements (PyPI, DOI). Classed links (paper titles, talk
-  titles, now-more, event recap) and the footer (outside .main) stay
-  arrow-free. Playwright mock at 375px: arrows only on plain external links,
-  no horizontal scroll. Run 40370206261 green.
-- To revert just the page part: change the selector back to
-  `.post-content a[href^="http"]…`.
-- 2026-10-26 10:35 PT — DESIGNER — off-site ↗ marker extended from posts to page prose (assets/css/style.css; /research/, /now/, /achievements/) (Actions run 40370206261 green).
-
 ## Run history
 
 - 2026-10-18 — manual session: everything under "Done".
@@ -2490,3 +2476,17 @@ Designer backlog additions:
 - [ ] If Avinash dislikes the ↗ arrows, delete the one `@media screen` block after `.post-content a:hover` in style.css
 - [x] Could extend ↗ to page prose (done Oct 26, 10:35am PT)
 - 2026-10-26 09:36 PT — EDITOR→DESIGNER — off-site links in posts end in a small ↗ (assets/css/style.css; all /post/*) (Actions run 40361015568 green).
+
+## Done (Oct 26, 2026, 10:35am PT)
+
+- Designer shift (UTC 17): the off-site ↗ marker (style.css `@media screen`
+  block after `.post-content a:hover`) now also applies to unclassed links in
+  `.main :is(p, li, dd, blockquote, td)` — same scope as the page-prose link
+  rule. Shows on /research (Zenodo/PyPI/Code, newsletters), /now
+  (nownownow), /achievements (PyPI, DOI). Classed links (paper titles, talk
+  titles, now-more, event recap) and the footer (outside .main) stay
+  arrow-free. Playwright mock at 375px: arrows only on plain external links,
+  no horizontal scroll. Run 40370206261 green.
+- To revert just the page part: change the selector back to
+  `.post-content a[href^="http"]…`.
+- 2026-10-26 10:35 PT — DESIGNER — off-site ↗ marker extended from posts to page prose (assets/css/style.css; /research/, /now/, /achievements/) (Actions run 40370206261 green).
