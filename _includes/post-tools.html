@@ -142,12 +142,20 @@
   // numbered ("block 3") so two wide python blocks aren't identically named regions
   root.querySelectorAll('pre').forEach(function(pre,pi){
     var box=pre.closest('.highlighter-rouge'), lang=box?langOf(box):'';
+    // Rouge wraps pre in div.highlight, which also has overflow-x:auto — let a fitting block spill into it too
+    var wrap=pre.parentNode&&pre.parentNode.classList&&pre.parentNode.classList.contains('highlight')?pre.parentNode:null;
     var fit=function(){
-      if(pre.scrollWidth>pre.clientWidth+1){ pre.tabIndex=0; pre.setAttribute('role','region'); pre.setAttribute('aria-label',(lang?lang+' code':'Code')+', block '+(pi+1)+', scrolls sideways'); }
+      var wide=pre.scrollWidth>pre.clientWidth+1;
+      // A block that fits (or overflows by a rounding pixel) shouldn't leave a scrollable box keyboard users can't reach
+      pre.style.overflowX=wide?'':'visible';
+      if(wrap) wrap.style.overflowX=wide?'':'visible';
+      if(wide){ pre.tabIndex=0; pre.setAttribute('role','region'); pre.setAttribute('aria-label',(lang?lang+' code':'Code')+', block '+(pi+1)+', scrolls sideways'); }
       else { pre.removeAttribute('tabindex'); pre.removeAttribute('role'); pre.removeAttribute('aria-label'); }
     };
     fit();
     if('ResizeObserver' in window) new ResizeObserver(fit).observe(pre);
+    // Re-check once web fonts land: a late font swap can widen the code without the block changing size
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
   });
   // Tap/click a post image to see it full size (only when it's shown noticeably smaller than its file)
   if(window.HTMLDialogElement){
