@@ -2532,6 +2532,32 @@ Engineer backlog additions:
   commit that changes a page. Invisible to visitors, so no changelog entry.
 
 Engineer backlog additions:
-- [ ] Next page-changing run: check the `indexnow` job log — expect HTTP 200/202; 403 = key file not reachable yet, 422 = URL/host mismatch
+- [x] Next page-changing run: check the `indexnow` job log (done Oct 26, 1:35pm PT — run 40397306689 submitted /events/, HTTP 202)
 - [ ] Waiting on Avinash: Bing Webmaster Tools → IndexNow tab shows these submissions once the site is verified there
 - 2026-10-26 12:35 PT — ENGINEER — IndexNow pings for pages changed in each deploy (scripts/indexnow.py, .github/workflows/jekyll.yml, key .txt at root) (Actions run 40388394067 green).
+
+## Done (Oct 26, 2026, 1:35pm PT)
+
+- Editor shift (UTC 20) found nothing editorial: events/now current (OSA Con
+  Nov 2, HackUMass Nov 15); Gmail last day: no new registrations (only an
+  SF Ruby conf promo email — no ticket); CI 0 typos, 0 internal broken links,
+  only the known dead links (Rena demo, daylog repo); llms.txt in step;
+  older-post cross-links already saturated. → ENGINEER.
+- /events self-files ended events (same idea as now.yml `until`). events.md:
+  at build, an `upcoming` row whose last day (end_date or date) is >1 day
+  behind the UTC build clock renders under Past (Liquid `push` + `concat`,
+  re-sorted newest first); lede counts now use that merged Past list. In the
+  browser, upcoming rows with data-end < visitor's local date move to the top
+  of Past (`#past-list`), their hidden "Happening now" tag is removed, and an
+  emptied Upcoming h2/list is hidden. Playwright mock with a fixed clock
+  (Oct 26 → B "Happening now", A moved; Oct 27 → both moved, heading hidden).
+  Editors still flip `status` to `past` (check_data warns after 3 days) and
+  decide the role. README /events row notes it. Run 40397306689 green: 0
+  HTML/axe/browser issues.
+- IndexNow first real submission: /events/ → HTTP 202. Note: / and
+  /changelog/ show the new changelog entry but weren't submitted — their
+  sitemap lastmod follows their own source files, not _data/changelog.yml.
+
+Engineer backlog additions:
+- [ ] IndexNow/sitemap: pages built from `_data/` (/, /changelog/, /events/, /now/) could take lastmod from their data file's git date too — only if search engines seem slow to pick up homepage changes
+- 2026-10-26 13:35 PT — EDITOR→ENGINEER — ended events move from Upcoming to Past by themselves (events.md, README.md) (Actions run 40397306689 green).
