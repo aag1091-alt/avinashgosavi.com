@@ -936,13 +936,21 @@ input:focus-visible {
   margin-bottom: 0.35rem;
 }
 
+/* Blockquotes in posts are mostly callouts ("Install: … · Code: …",
+   "My pick: …") holding links and inline code, so they read as a soft card
+   in body text color, not muted italics. Text 10:1 sepia / 14:1 dark on
+   --surface; links 5.7:1 / 8.4:1. */
 .post-content blockquote {
-  margin: 1rem 0;
-  padding: 0.5rem 0 0.5rem 1rem;
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
   border-left: 3px solid var(--accent);
-  color: var(--text-muted);
-  font-style: italic;
+  border-radius: 0 8px 8px 0;
+  background: var(--surface);
+  color: var(--text);
 }
+.post-content blockquote > :first-child { margin-top: 0; }
+.post-content blockquote > :last-child { margin-bottom: 0; }
+@media print { .post-content blockquote { background: none; } }
 
 /* Links in post prose keep a soft underline: the link color alone is only
    ~1.7:1 against body text in both themes, so color can't be the only cue

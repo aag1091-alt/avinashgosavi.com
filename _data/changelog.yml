@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Design
+  text: Callouts in posts (the "Install · Code · Live demo" lines on the VaultMem posts, the "My pick" lines in the hobby stack post) are now soft cards in normal text color instead of faded italics, so their links and commands are easier to read.
+  link: /post/hobby-project-stack/
+- date: 2026-10-26
   desk: Engineering
   text: Photos on the About page and the SF Ruby 2025 post now come as AVIF in browsers that support it — about half the bytes of the WebP versions, with no visible difference. The About photo drops from 63 KB to 31 KB on high-DPI screens.
   link: /about/
