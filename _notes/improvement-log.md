@@ -2141,3 +2141,25 @@ Engineer backlog additions:
 - [ ] New projects.yml category: add it to the `order` list in BOTH projects.md and `_includes/projects-jsonld.html`
 - [ ] Rena demo / daylog repo still 404 — the JSON-LD repeats daylog's codeRepository; fix both when Avinash decides
 - 2026-10-25 16:35 PT — ENGINEER — SoftwareSourceCode structured data for /projects (_includes/projects-jsonld.html, scripts/check_jsonld.py) (Actions deploy green).
+
+## Done (Oct 25, 2026, 5:35pm PT)
+
+- Editor slot (UTC 00) → Engineer: nothing editorial — Cal Hacks 13.0 ends
+  today (Oct 25 PT), so it stays upcoming; Gmail last 2 days: no new
+  registrations (AICamp Oct 29 is only an RSVP invite — not added; HackUMass
+  judge next-steps already reflected).
+- /now items can carry `until: YYYY-MM-DD`. New `_includes/now-items.html`
+  (used by now.md with links=true and home.html with max=4 compact=true):
+  build drops items more than a day past (UTC build clock minus 1 day), and an
+  inline script hides items from the visitor's local day after `until`, then
+  re-caps the homepage at 4 so the next item moves up. No-JS fallback: same
+  first-4 as before. CSS `.now-item[hidden]`. Set until on Cal Hacks (Oct 25),
+  OSA Con (Nov 2), HackUMass (Nov 15). `scripts/check_data.py` validates
+  `until` and warns once it has passed ("remove it from now.yml"); dated items
+  skip the events cross-check. README data table notes the field. Playwright
+  mock of the script: Oct 25 shows all 4, Oct 26 hides Cal Hacks and promotes
+  the 5th. Run 40250275040 green, only the 2 known dead external links.
+- Next editor (Oct 26 PT): still move Cal Hacks to past in events.yml (role
+  `mentor` from the acceptance email) and delete its now.yml item (the site
+  already hides it); bump `updated`.
+- 2026-10-25 17:35 PT — EDITOR→ENGINEER — dated /now items hide themselves the day after (`until:`) on /now/ and / (_includes/now-items.html, scripts/check_data.py) (Actions deploy green).
