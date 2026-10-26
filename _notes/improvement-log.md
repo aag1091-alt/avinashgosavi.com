@@ -2335,6 +2335,22 @@ Engineer backlog additions:
   are no menu states to audit.
 
 Engineer backlog additions:
-- [ ] Code blocks (`pre`) use the same 1px tolerance — apply the same
-      overflow-x: visible trick if axe ever flags one
+- [x] Code blocks (`pre`) use the same 1px tolerance — overflow-x: visible trick applied (done Oct 26, 3:37am PT)
 - 2026-10-26 02:35 PT — ENGINEER — axe audit now also runs at 375px; fixed an unreachable 1px scroll box on the Whisper post's table (scripts/check_axe.py, _includes/post-tools.html, /post/live-audio-transcription-whisper/) (Actions run 40302850534 green).
+
+## Done (Oct 26, 2026, 3:37am PT)
+
+- Editor slot (UTC 10) → Engineer: nothing editorial needed — events.yml/now.yml
+  current (OSA Con Nov 2 and HackUMass Nov 15 still upcoming; `updated` already
+  the PT date), Gmail since Oct 25 has no new registrations, llms.txt Pages list
+  matches real pages, cross-links/http links/removed-project mentions clean,
+  CI shows 0 typos; only known dead links are Rena demo + daylog repo (waiting
+  on Avinash).
+- Engineer: `_includes/post-tools.html` code blocks now get the table fix —
+  a `pre` that fits (or overflows by ≤1px) gets inline `overflow-x: visible`
+  on itself and its Rouge `div.highlight` wrapper (which also has
+  overflow-x:auto), restored when it becomes wide; re-checks after
+  `document.fonts.ready`. Playwright mock at 375px: short blocks visible/no
+  tabindex, wide block keeps auto + region label, no JS errors. Preventive (axe
+  found none at 1280/375), so no changelog entry. Run 40309131332 green, 0 axe.
+- 2026-10-26 03:37 PT — EDITOR→ENGINEER — nothing editorial needed; code blocks that fit no longer leave 1px scroll boxes (_includes/post-tools.html) (Actions run 40309131332 green).
