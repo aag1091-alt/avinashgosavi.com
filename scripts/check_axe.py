@@ -39,7 +39,13 @@ RUN_OPTS = {
 AUDIT = """async (opts) => {
   const r = await axe.run(document, opts);
   return r.violations.map(v => ({id: v.id, impact: v.impact || 'minor', help: v.help, url: v.helpUrl,
-    nodes: v.nodes.map(n => n.target.map(t => Array.isArray(t) ? t.join(' >> ') : t).join(' '))}));
+    nodes: v.nodes.map(n => {
+      const sel = n.target.map(t => Array.isArray(t) ? t.join(' >> ') : t).join(' ');
+      if (v.id !== 'scrollable-region-focusable') return sel;
+      const el = document.querySelector(sel);  // say how far it overflows and whether it is focusable
+      return el ? sel + ' [scroll ' + el.scrollWidth + 'x' + el.scrollHeight + ' in ' + el.clientWidth + 'x' +
+        el.clientHeight + ', tabindex=' + el.getAttribute('tabindex') + ']' : sel;
+    })}));
 }"""
 
 
