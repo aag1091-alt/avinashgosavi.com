@@ -2187,3 +2187,15 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] New changelog desks: add them to the `desks` list in changelog.md or they get no chip (entries still show under All)
 - 2026-10-25 18:34 PT — EDITOR→ENGINEER — desk filter chips on /changelog/ (changelog.md, assets/css/style.css) (Actions deploy green).
+
+## Done (Oct 25, 2026, 7:35pm PT)
+
+- Designer shift (UTC 02): headings reached by URL hash (post TOC, # links,
+  shared links; `.post-content h2/h3[id]:target` and `h2.has-anchor:target`
+  on pages) get an inset 3px accent bar + 0.6rem padding, and a 2.4s
+  --accent-soft tint that fades to transparent (only with
+  prefers-reduced-motion: no-preference). Text stays --text, so contrast is
+  unchanged. Forced-colors: Highlight outline like the other :target rules.
+  Also `.post-content li::marker` uses --text-muted; ol numbers tabular.
+  Playwright mock at 375px in sepia + dark: no sideways scroll.
+- 2026-10-25 19:35 PT — DESIGNER — accent bar + fading tint on deep-linked headings, muted list markers (assets/css/style.css; all /post/*, pages with # anchors) (Actions deploy green).
