@@ -7,8 +7,7 @@
 # assets/css stays readable and commented; only the deployed copy is small
 # (~35% fewer gzipped bytes of render-blocking CSS).
 #
-# The `asset_version` hash is taken from the source file, so it still changes
-# whenever the stylesheet changes. Set CSS_MINIFY=0 to skip (local debugging).
+# `asset_version` hashes this minified output, so ?v= matches the served bytes. Set CSS_MINIFY=0 to skip (local debugging).
 
 module CssMinify
   TOKEN = %r{(/\*.*?\*/)|("(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*')|([^"'/]+|.)}m
