@@ -2275,3 +2275,18 @@ Engineer backlog additions:
 Editor backlog additions:
 - [ ] Set now.yml `updated` from the PT date, not UTC
 - 2026-10-25 23:35 PT — EDITOR — /events meta description no longer ends at SF Ruby 2025 (events.md) (Actions run 40281006387 green).
+
+## Done (Oct 26, 2026, 12:35am PT)
+
+- Designer shift (UTC 07): new `_includes/diagrams/vaultmem-who-can-read.html`
+  on /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/ (after the "Alice
+  holds the key" paragraph) — two stacked panels, "Typical agent memory" vs
+  "With VaultMem": you → platform database / VaultSession → encrypted blob →
+  developer, breach, subpoena, acquirer (read everything vs. see only
+  encrypted bytes; dashed box). Every label comes from the post's own text.
+  Existing dg-* classes only; Playwright at 375px: no text overflow, no
+  sideways scroll. Run 40286841298 green.
+- Posts still without a diagram: sf-ruby-2025, agent-memory-glossary,
+  i-fell-in-love-with-coding-again, paper-tldr-six-papers-on-memory (roundup;
+  probably fine without).
+- 2026-10-26 00:35 PT — DESIGNER — who-can-read diagram on /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/ (_includes/diagrams/vaultmem-who-can-read.html) (Actions run 40286841298 green).
