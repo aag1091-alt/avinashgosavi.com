@@ -103,6 +103,16 @@ jobs:
         continue-on-error: true
         timeout-minutes: 8
 
+      - name: Spelling — common typos in posts, pages, data and templates (warnings only, never blocks deploy)
+        run: |
+          python3 -m pip install --quiet --break-system-packages codespell
+          # settings + known false positives live in .codespellrc; each hit becomes a file/line annotation
+          out=$(codespell . 2>&1 || true)
+          n=$(printf '%s' "$out" | grep -c ' ==> ' || true)
+          printf '%s\n' "$out" | sed -n 's|^\./\([^:]*\):\([0-9]*\): \(.*\)$|::warning file=\1,line=\2,title=spelling::\3|p'
+          echo "::notice title=spelling::$n possible typo(s) (add real words to ignore-words-list in .codespellrc)"
+        continue-on-error: true
+
       - name: Check data files are current — events, now, changelog (warnings only, never blocks deploy)
         run: python3 scripts/check_data.py .
         continue-on-error: true
