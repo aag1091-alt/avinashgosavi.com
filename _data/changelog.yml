@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
   desk: Engineering
+  text: The changelog can now be filtered by desk, so you can see just the writing, design or engineering changes, and a link like /changelog/#design opens that view.
+  link: /changelog/
+- date: 2026-10-25
+  desk: Engineering
   text: Dated items on the Now page, like an upcoming hackathon or conference, now step aside on their own the day after the event, on both /now and the homepage.
   link: /now/
 - date: 2026-10-25

@@ -1606,6 +1606,9 @@ h1[tabindex="-1"]:focus { outline: none; }
 
 /* ---------- Changelog ---------- */
 .changelog-day { margin-bottom: 2rem; }
+/* Desk filter chips (reuse .tag-chip); the bar only appears once its script runs */
+.changelog-filter { margin-bottom: 1rem; }
+.changelog-filter[hidden], .changelog-day[hidden], .changelog-list li[hidden] { display: none; }
 .changelog-date { font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem; }
 .changelog-list { list-style: none; padding: 0; margin: 0; }
 .changelog-list li { padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
