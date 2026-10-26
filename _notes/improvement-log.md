@@ -2411,3 +2411,23 @@ Engineer backlog additions:
 - [ ] Consider `--strict` for check_html.py after a week at 0 errors (from Nov 2)
 - [ ] Drop the speculationrules IGNORE once a newer vnu accepts it
 - 2026-10-26 06:43 PT — ENGINEER — CI HTML validity check (Nu Html Checker); fixed obsolete iframe/anchor markup (scripts/check_html.py, .github/workflows/jekyll.yml, /post/building-rena-ai-health-companion-gemini-live/, /post/attractor-memory-engine/) (Actions run 40334343793 green).
+
+## Done (Oct 26, 2026, 7:39am PT)
+
+- Engineer shift (UTC 14): AVIF photos. Pillow (has AVIF built in) made
+  about-280/560.avif and sf-ruby-1-720/1086, sf-ruby-2-540/768.avif at
+  quality 50, speed 4, from the original JPGs — about half the WebP bytes
+  (about-560 63 → 31 KB), side-by-side crops looked identical. Each is a
+  `<source type="image/avif">` before the WebP one in `_layouts/about.html`
+  and the SF Ruby post. The post image viewer (`_includes/post-tools.html`
+  biggest()) now keeps only the srcset holding `img.currentSrc`, so it zooms
+  in the format the browser picked (no AVIF request in a WebP-only browser).
+  `scripts/check_weight.py` counts only the first `<picture>` source (still
+  checks every candidate exists). Playwright (Chromium, 2x): picks the .avif
+  files; viewer → 1086/768/560 avif. Run 40342093804 green; /about first
+  load 119 → 87 KB; 0 axe / 0 HTML errors.
+
+Engineer backlog additions:
+- [ ] New photos: ship AVIF (q50) + WebP sources, AVIF first; other posts'
+      images (Rena screenshots, VaultMem explainer) are already ≤35 KB WebP — not worth it
+- 2026-10-26 07:39 PT — ENGINEER — AVIF photos on /about and the SF Ruby 2025 post, viewer keeps the browser's chosen format, page-weight check counts the first <picture> source (_layouts/about.html, /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/, _includes/post-tools.html, scripts/check_weight.py) (Actions run 40342093804 green).
