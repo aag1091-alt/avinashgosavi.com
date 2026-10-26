@@ -1,0 +1,20 @@
+{% comment %} Structured data on /blog/ (a Blog with every Writing post) and /paper-tldr/ (an ItemList of the TL;DRs in series order). Each entry is a BlogPosting with its headline, URL, publish date, description and the Person node from the homepage, so search engines see the archive as one collection by one author. Built from site.posts — the same lists the pages show. Usage: include blog-jsonld.html kind="blog" | kind="tldr" {% endcomment %}
+{%- if include.kind == 'tldr' -%}
+{%- assign jl_posts = site.posts | where: "series", "paper-tldr" | sort: "series_order" -%}
+{%- else -%}
+{%- assign jl_posts = site.posts | where_exp: "p", "p.series != 'paper-tldr'" -%}
+{%- endif -%}
+{%- assign jl_author = site.url | append: '/#person' | jsonify -%}
+<script type="application/ld+json">
+{%- if include.kind == 'tldr' %}
+{"@context":"https://schema.org","@type":"ItemList","@id":{{ page.url | absolute_url | append: '#tldrs' | jsonify }},"name":"Paper TL;DR — plain-language summaries of research papers","itemListElement":[
+{%- else %}
+{"@context":"https://schema.org","@type":"Blog","@id":{{ page.url | absolute_url | append: '#blog' | jsonify }},"name":{{ site.title | append: ' — Writing' | jsonify }},"url":{{ page.url | absolute_url | jsonify }},"author":{"@id":{{ jl_author }}},"blogPost":[
+{%- endif -%}
+{%- for p in jl_posts -%}
+{%- capture jl_post -%}{"@type":"BlogPosting","headline":{{ p.title | strip_html | jsonify }},"url":{{ p.url | absolute_url | jsonify }},"datePublished":{{ p.date | date_to_xmlschema | jsonify }}{% if p.description %},"description":{{ p.description | strip_html | normalize_whitespace | strip | jsonify }}{% endif %},"author":{"@id":{{ jl_author }}}}{%- endcapture -%}
+{%- if forloop.index > 1 %},{% endif -%}
+{%- if include.kind == 'tldr' -%}{"@type":"ListItem","position":{{ forloop.index }},"item":{{ jl_post }}}{%- else -%}{{ jl_post }}{%- endif -%}
+{%- endfor -%}
+]}
+</script>

@@ -28,6 +28,16 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
                         or not re.fullmatch(r"\d{4}", str(d.get("datePublished", ""))):
                     bad += 1
                     print(f"::warning file={os.path.relpath(path, root)}::ScholarlyArticle needs name, http url and a 4-digit datePublished")
+            posts = list(d.get("blogPost", [])) if t == "Blog" else []
+            if t == "ItemList":
+                posts += [(li.get("item") or {}) for li in d.get("itemListElement", [])
+                          if (li.get("item") or {}).get("@type") == "BlogPosting"]
+            for bp in posts:
+                types["listed BlogPosting"] += 1
+                if not bp.get("headline") or not str(bp.get("url", "")).startswith("http") \
+                        or not re.match(r"\d{4}-\d\d-\d\d", str(bp.get("datePublished", ""))):
+                    bad += 1
+                    print(f"::warning file={os.path.relpath(path, root)}::listed BlogPosting needs a headline, http url and datePublished")
             if t == "ItemList":
                 for li in d.get("itemListElement", []):
                     it = li.get("item") or {}
@@ -54,6 +64,6 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
             print(f"::warning file={os.path.relpath(path, root)}::invalid speculation rules: {e!r}")
 print("Pages with speculation rules:", nspec)
 print("JSON-LD types:", dict(types))
-print(f"::notice title=JSON-LD::{types['ScholarlyArticle']} Paper TL;DR posts name their paper (ScholarlyArticle); BlogPosting {types['BlogPosting']}, BreadcrumbList {types['BreadcrumbList']}, SoftwareSourceCode {types['SoftwareSourceCode']}")
+print(f"::notice title=JSON-LD::{types['ScholarlyArticle']} Paper TL;DR posts name their paper (ScholarlyArticle); BlogPosting {types['BlogPosting']}, BreadcrumbList {types['BreadcrumbList']}, SoftwareSourceCode {types['SoftwareSourceCode']}, Blog {types['Blog']} ({types['listed BlogPosting']} posts listed on /blog/ and /paper-tldr/)")
 print(f"{bad} problem(s)")
 sys.exit(1 if bad else 0)
