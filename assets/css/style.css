@@ -1674,6 +1674,28 @@ h2.has-anchor:hover .heading-anchor,
 h2.has-anchor .heading-anchor:focus-visible { opacity: 1; }
 h2.has-anchor .heading-anchor:hover { color: var(--accent-ink, var(--accent)); }
 @media (hover: none) { h2.has-anchor .heading-anchor { opacity: 1; } }
+/* Section reached from the contents list, a # link or a shared URL: an accent
+   bar marks where you landed, and a soft tint fades out so the eye finds it.
+   Text stays --text, so contrast is unchanged in both themes. */
+.post-content h2[id]:target,
+.post-content h3[id]:target,
+h2.has-anchor:target {
+  box-shadow: inset 3px 0 0 var(--accent);
+  padding-left: 0.6rem;
+  border-radius: 2px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .post-content h2[id]:target,
+  .post-content h3[id]:target,
+  h2.has-anchor:target { animation: target-tint 2.4s ease-out 0.15s both; }
+}
+@keyframes target-tint {
+  from { background-color: var(--accent-soft); }
+  to { background-color: transparent; }
+}
+/* List markers in posts: muted, so bullets and numbers sit behind the text */
+.post-content li::marker { color: var(--text-muted); }
+.post-content ol > li::marker { font-variant-numeric: tabular-nums; }
 .post-content .has-copy { position: relative; }
 .code-copy {
   position: absolute;
@@ -2031,7 +2053,9 @@ h1, h2, h3, .post-title, .hero-title, .paper-title, .tldr-title,
   .event-row:target,
   .post-content .glossary-term:target,
   .paper:target,
-  .project-card:target { outline: 2px solid Highlight; outline-offset: 2px; }
+  .project-card:target,
+  .post-content :is(h2, h3)[id]:target,
+  h2.has-anchor:target { outline: 2px solid Highlight; outline-offset: 2px; }
 
   /* Diagrams and the 404 sketch: map theme tokens to system colors */
   .diagram svg,
