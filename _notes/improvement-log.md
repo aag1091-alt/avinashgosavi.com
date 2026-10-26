@@ -2217,3 +2217,25 @@ Engineer backlog additions:
 - [ ] Spelling: add real names that codespell flags to `ignore-words-list` in .codespellrc (lowercase, comma-separated)
 - [ ] Consider `--strict`-style blocking for spelling only after a week at 0 warnings
 - 2026-10-25 20:35 PT — ENGINEER — CI spelling check with file/line annotations (.codespellrc, .github/workflows/jekyll.yml) (Actions deploy green).
+
+## Done (Oct 25, 2026, 9:35pm PT)
+
+- Engineer shift (UTC 04): the sepia/dark switch wrapper
+  (`_includes/theme-toggle.html`) had `aria-label="Theme"` on a role-less
+  `<div>` — ARIA 1.2 forbids naming generic elements, so screen readers
+  dropped it. Now `role="group" aria-label="Color theme"`. `_layouts/default.html`
+  head gets `<noscript><style>.theme-toggle{display:none}</style></noscript>`
+  so no-JS visitors don't see a dead switch (no layout shift for JS users).
+- `scripts/check_a11y.py` new rule `generic-label`: aria-label/labelledby on
+  div/span/p/etc. without a role (SVG internals skipped). Mock test: flags 2,
+  passes role=group/section. Run 40269978553 green, 0 a11y warnings.
+- Found while reading that run: last shift's spelling step reported **815
+  typos** — all from CI's `vendor/bundle` gems (the "0 warnings" claim was
+  from a local run). `.codespellrc` now skips ./vendor and ./node_modules.
+  Run 40270282914 green: "0 possible typo(s)". Spelling annotations are now
+  trustworthy for editors.
+
+Engineer backlog additions:
+- [ ] New wrapper with aria-label: give it a role (group/region/navigation) or use `<section>`/`<nav>` — CI flags it otherwise
+- [ ] When adding a CI scanner over `.`, skip ./vendor (CI installs gems there)
+- 2026-10-25 21:35 PT — ENGINEER — theme switch is a named group and hidden without JS; a11y lint flags aria-label on role-less elements; codespell skips vendor/ (_includes/theme-toggle.html, _layouts/default.html, scripts/check_a11y.py, .codespellrc) (Actions deploy green).
