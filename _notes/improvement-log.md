@@ -2599,3 +2599,21 @@ Designer backlog additions:
 - [ ] If Avinash dislikes the desk dots, delete the `.changelog-desk::before` block and the four `--desk` lines after `.changelog-desk` in style.css
 - [ ] New changelog desk: give it a `.changelog-desk-<slug> { --desk: … }` hue (≥3:1 on --code-bg in both themes)
 - 2026-10-26 15:35 PT — DESIGNER — changelog desk labels get a colored dot per desk (assets/css/style.css; /, /changelog/) (Actions run 40413747752 green).
+
+## Done (Oct 26, 2026, 4:35pm PT)
+
+- Engineer shift (UTC 23): offline pages kept their text but lost images
+  (sw.js sent /assets/images/ straight to the network). sw.js now serves
+  `/assets/images/*` stale-while-revalidate from a new `images-v1` cache
+  (newest 60, LRU by re-insert, Range requests skipped, only 200 basic
+  responses stored; cache writes in waitUntil so first loads aren't delayed).
+  Header comment updated. Playwright mock (localhost, rendered sw.js): image
+  cached on 2nd load, page reload with context offline → image naturalWidth
+  360. Changelog entry links the SF Ruby post (has photos).
+- Kill switch unchanged; to drop just this: delete the `/assets/images/`
+  branch in the fetch listener (and `caches.delete('images-v1')` in activate).
+
+Engineer backlog additions:
+- [ ] If images ever get replaced in place under the same filename, offline
+      visitors see the old one once (refreshed in the background) — fine
+- 2026-10-26 16:35 PT — ENGINEER — offline-saved pages keep their photos and diagrams (sw.js images-v1 cache) (Actions run 40421061246 green).
