@@ -18,7 +18,7 @@ Before diving in, it helps to be clear on the difference between the **agent** a
 
 ## Agent vs. Skill: When to Use What
 
-| | **Agent (Codex)** | **Skill** |
+| <span class="visually-hidden">Aspect</span> | **Agent (Codex)** | **Skill** |
 |---|-------------------|-----------|
 | **What it is** | The general-purpose AI. You give it intent and context; it plans, reads code, edits, runs commands. | A packaged playbook: instructions, templates, optional scripts. One focused workflow. |
 | **Use when** | Open-ended work: "explain this codebase," "implement this feature," "fix this bug," "refactor X." | You do the *same* workflow over and over and want it consistent and one-tap. |

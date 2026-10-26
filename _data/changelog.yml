@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Engineering
+  text: Every deploy now also runs the axe-core accessibility audit on each page. Its first two catches are fixed — the two series boxes on a series post now have distinct names for screen readers, and the comparison table in the Codex skills post no longer has an empty header cell.
+  link: /post/codex-skills-baking-your-workflow-into-the-tool/
+- date: 2026-10-26
   desk: Design
   text: The "Your AI Agent Shouldn't Be Able to Read Your Diary" post now has a diagram comparing who can read an agent's memory in a typical setup and with VaultMem.
   link: /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/

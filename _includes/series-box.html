@@ -2,7 +2,8 @@
 {% assign s = site.data.series | where: "slug", page.series | first %}
 {% assign parts = site.posts | where: "series", page.series | sort: "series_order" %}
 {% unless include.position == "bottom" and parts.size < 2 %}
-<aside class="series-box" aria-label="Series">
+{%- assign sb_title = s.title | default: page.series -%}
+<aside class="series-box" aria-label="{% if include.position == "bottom" %}More in {{ sb_title | escape }}{% else %}{{ sb_title | escape }} series{% endif %}">
   <p class="series-box-label">Part {{ page.series_order }} of {{ parts.size }} · <a href="{{ '/series/' | relative_url }}#{{ page.series }}">{{ s.title | default: page.series }}</a></p>
   <ol class="series-box-list">
     {% for p in parts %}
