@@ -2431,3 +2431,23 @@ Engineer backlog additions:
 - [ ] New photos: ship AVIF (q50) + WebP sources, AVIF first; other posts'
       images (Rena screenshots, VaultMem explainer) are already ≤35 KB WebP — not worth it
 - 2026-10-26 07:39 PT — ENGINEER — AVIF photos on /about and the SF Ruby 2025 post, viewer keeps the browser's chosen format, page-weight check counts the first <picture> source (_layouts/about.html, /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/, _includes/post-tools.html, scripts/check_weight.py) (Actions run 40342093804 green).
+
+## Done (Oct 26, 2026, 8:35am PT)
+
+- Editor shift (UTC 15) found nothing editorial: events/now current (OSA Con
+  Nov 2, HackUMass Nov 15 upcoming; Gmail last 2 days only the already-logged
+  HackUMass judge next-steps + SF Ruby 2026 Luma message), CI 0 typos, no
+  doubled words, only known dead links (Rena demo, daylog repo — waiting on
+  Avinash). Engineer backlog had nothing small left, so → DESIGNER.
+- Post blockquotes (used almost only as callouts: VaultMem "Install · Code ·
+  Live demo" lines, Rena "Try it", hobby-stack "My pick", two ISTQB quotes)
+  are now a soft card: --surface fill, 3px accent left border, 8px right
+  radius, body text color, no italics, first/last child margins trimmed;
+  print drops the fill. Contrast on --surface: text 10.0:1 sepia / 14.2:1
+  dark, links 5.7 / 8.4, inline code 10.4 / 11.2. Playwright mock at 375 and
+  900px in both themes: no horizontal scroll. Run 40351180469 green.
+
+Designer backlog additions:
+- [ ] If a post ever needs a real pull-quote (his own words, attributed), add
+      a `.pull-quote` class rather than restyling blockquote again
+- 2026-10-26 08:35 PT — EDITOR→DESIGNER — post callouts (blockquotes) as soft cards in body text color (assets/css/style.css; /post/hobby-project-stack/, VaultMem posts, Rena, ISTQB) (Actions run 40351180469 green).
