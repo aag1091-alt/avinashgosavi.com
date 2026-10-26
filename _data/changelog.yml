@@ -2,7 +2,7 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
   desk: Engineering
-  text: The accessibility audit now also checks every page on a phone-sized screen. Its first catch is fixed — the Whisper model table in the live-transcription post can again be scrolled sideways with the keyboard on narrow screens after the web font loads.
+  text: The accessibility audit now also checks every page on a phone-sized screen. Its first catch is fixed — on phones, the Whisper model table in the live-transcription post no longer sits in a scroll box that keyboard users couldn't reach (it only overflowed by a rounding pixel).
   link: /post/live-audio-transcription-whisper/
 - date: 2026-10-26
   desk: Engineering

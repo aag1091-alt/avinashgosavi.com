@@ -110,6 +110,8 @@
     var fit=function(){
       var wide=w.scrollWidth>w.clientWidth+1;
       w.classList.toggle('is-wide',wide);
+      // A table that fits (or overflows by a rounding pixel) shouldn't leave a scrollable box keyboard users can't reach
+      w.style.overflowX=wide?'':'visible';
       if(wide){ w.tabIndex=0; w.setAttribute('role','region'); w.setAttribute('aria-label','Table '+(ti+1)+', scrolls sideways'); }
       else { w.removeAttribute('tabindex'); w.removeAttribute('role'); w.removeAttribute('aria-label'); }
     };
