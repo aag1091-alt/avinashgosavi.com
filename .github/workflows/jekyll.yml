@@ -16,6 +16,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-24.04  # pinned: ubuntu-latest moves to 26.04 from Oct 19, 2026; bump deliberately after a test run
+    outputs:
+      indexnow: ${{ steps.indexnow.outputs.urls }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -135,6 +137,13 @@ jobs:
         run: python3 -c "import xml.etree.ElementTree as E; n='{http://www.sitemaps.org/schemas/sitemap/0.9}'; u=E.parse('_site/sitemap.xml').getroot().findall(n+'url'); m=[x for x in u if x.find(n+'lastmod') is None]; print('::notice title=sitemap::%d urls, %d without lastmod' % (len(u), len(m))); [print('  ', x.find(n+'loc').text) for x in m]"
         continue-on-error: true
 
+      - name: List pages changed since the live deploy, for IndexNow (never blocks deploy)
+        id: indexnow
+        run: |
+          python3 scripts/indexnow.py diff _site > "$RUNNER_TEMP/indexnow-urls.txt" || true
+          { echo 'urls<<EOF_INDEXNOW_URLS'; cat "$RUNNER_TEMP/indexnow-urls.txt"; echo 'EOF_INDEXNOW_URLS'; } >> "$GITHUB_OUTPUT"
+        continue-on-error: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
@@ -150,3 +159,26 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  # After the deploy is live, ask IndexNow engines (Bing, Yandex, Seznam, Naver)
+  # to recrawl only the pages whose sitemap <lastmod> changed. Never fails the run.
+  indexnow:
+    runs-on: ubuntu-24.04  # pinned, same as above
+    needs: [build, deploy]
+    if: needs.build.outputs.indexnow != ''
+    continue-on-error: true
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout the submit script
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: scripts/indexnow.py
+          sparse-checkout-cone-mode: false
+
+      - name: Submit changed URLs to IndexNow
+        env:
+          URLS: ${{ needs.build.outputs.indexnow }}
+        run: |
+          printf '%s\n' "$URLS" > "$RUNNER_TEMP/urls.txt"
+          python3 scripts/indexnow.py submit "$RUNNER_TEMP/urls.txt"

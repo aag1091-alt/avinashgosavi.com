@@ -19,6 +19,11 @@ bundle exec jekyll build
 
 Output is in `_site/`. Deploy that folder to GitHub Pages, Netlify, Vercel, or any static host.
 
+After each deploy, the workflow's `indexnow` job sends the pages whose sitemap
+`<lastmod>` changed to IndexNow (Bing, Yandex, Seznam, Naver) via
+`scripts/indexnow.py`. The root file `cd4471ebd9b322f9b4bc4d7adab382c5.txt` is
+the IndexNow ownership key — keep it, or submissions are rejected.
+
 ## Structure
 
 - **Home** (`/`) – Hero + recent posts
