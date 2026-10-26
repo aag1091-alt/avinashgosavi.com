@@ -2239,3 +2239,18 @@ Engineer backlog additions:
 - [ ] New wrapper with aria-label: give it a role (group/region/navigation) or use `<section>`/`<nav>` — CI flags it otherwise
 - [ ] When adding a CI scanner over `.`, skip ./vendor (CI installs gems there)
 - 2026-10-25 21:35 PT — ENGINEER — theme switch is a named group and hidden without JS; a11y lint flags aria-label on role-less elements; codespell skips vendor/ (_includes/theme-toggle.html, _layouts/default.html, scripts/check_a11y.py, .codespellrc) (Actions deploy green).
+
+## Done (Oct 25, 2026, 10:34pm PT)
+
+- Editor shift (UTC 05): Cal Hacks 13.0 (Oct 23–25) moved upcoming → past in
+  `_data/events.yml`, role stays `mentor` (from the Oct 14 mentor-acceptance
+  email). Its expired "Mentoring" item removed from `_data/now.yml`;
+  `updated` → 2026-10-26. Changelog entry added.
+- Attendance: Gmail since Oct 14 has only the acceptance + Slack workspace
+  emails (no check-in/QR/shift email), so attendance isn't email-confirmed.
+  Row says "Mentor" only — no recap or "mentored" claim added. Waiting on
+  Avinash if he wants a different label.
+- Next editor: OSA Con 2026 (Nov 2) → past after Nov 2 (role `attended` is
+  from registration only; keep unless he says he didn't go); its Now item has
+  `until: 2026-11-02` and auto-hides.
+- 2026-10-25 22:34 PT — EDITOR — Cal Hacks 13.0 moved to past events; expired Now item removed (_data/events.yml, _data/now.yml) (Actions run 40275047595 green).
