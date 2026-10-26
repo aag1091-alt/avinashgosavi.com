@@ -2254,3 +2254,24 @@ Engineer backlog additions:
   from registration only; keep unless he says he didn't go); its Now item has
   `until: 2026-11-02` and auto-hides.
 - 2026-10-25 22:34 PT — EDITOR — Cal Hacks 13.0 moved to past events; expired Now item removed (_data/events.yml, _data/now.yml) (Actions run 40275047595 green).
+
+## Done (Oct 25, 2026, 11:35pm PT)
+
+- Editor shift (UTC 06): /events meta description said the list runs "from
+  RubyConf India 2013 to SF Ruby 2025", stale since Cal Hacks 13.0 moved to
+  past. Now "…going back to RubyConf India 2013" (no end event to go stale).
+  /achievements and /research keep "to SF Ruby 2025" — those lines are about
+  the Ruby community, and SF Ruby 2025 is still the latest Ruby conference.
+  Search-snippet only, so no changelog entry. Run 40281006387 green.
+- Checked: events.yml/now.yml current (Gmail last 3 days: only the HackUMass
+  judge next-steps email for the already-listed Nov 15 row, and the
+  already-logged SF Ruby 2026 Luma message); llms.txt page list matches pages.
+- Last run's CI note "`updated` 2026-10-26 is in the future": the 10:34pm
+  shift wrote the UTC date. Self-resolves at PT midnight. Editors: use
+  `TZ=America/Los_Angeles date +%F` for `updated`.
+- The SF Ruby recap's "catch the recorded talks once they're released" and
+  hobby-stack's "Demo coming soon" are dated but in Avinash's own voice — left as is.
+
+Editor backlog additions:
+- [ ] Set now.yml `updated` from the PT date, not UTC
+- 2026-10-25 23:35 PT — EDITOR — /events meta description no longer ends at SF Ruby 2025 (events.md) (Actions run 40281006387 green).
