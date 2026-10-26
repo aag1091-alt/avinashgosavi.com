@@ -15,6 +15,9 @@ Offline, stdlib only, runs in a second or two. For every HTML page it checks:
   - data tables have header cells (<th>); role="presentation" tables skipped
   - <time> elements carry a machine-readable datetime (ISO date, e.g.
     2026-10-23 or 2026-10-23T00:00:00-07:00), so dates aren't text-only
+  - aria-label/aria-labelledby only on elements that can be named: not on a
+    plain <div>, <span>, <p> etc. without a role (ARIA 1.2 forbids naming
+    generic elements, and screen readers drop the label) — add role="group"
 
 Usage: python3 scripts/check_a11y.py [_site] [--strict]
 Exit code is 1 with --strict when anything is found, else always 0.
@@ -37,6 +40,10 @@ UNLABELLED_INPUT_TYPES = {"hidden", "submit", "button", "reset", "image"}
 VAGUE_LINK_TEXT = {"here", "click here", "click", "read more", "more", "link",
                    "this", "this link", "learn more", "go", "details", "continue"}
 # valid datetime for <time>: year, year-month, date, or date + time (+ zone)
+# elements whose implicit role is generic/text, so aria-label is ignored unless
+# they also carry an explicit role
+GENERIC_TAGS = {"div", "span", "p", "b", "i", "em", "strong", "small", "code",
+                "pre", "label", "legend", "caption", "del", "ins", "sub", "sup"}
 ISO_DATETIME = re.compile(r"^\d{4}(-\d{2}(-\d{2}([T ]\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?)?)?$")
 
 
@@ -96,6 +103,10 @@ class Page(HTMLParser):
             self.tables[-1][1] = True
         if tag == "time" and not self.stack_has("svg") and not ISO_DATETIME.match(a.get("datetime", "").strip()):
             self.issues.append(("time-datetime", line, f'datetime="{a.get("datetime", "")[:40]}"'))
+
+        if tag in GENERIC_TAGS and not a.get("role") and not self.stack_has("svg") \
+                and (a.get("aria-label", "").strip() or a.get("aria-labelledby", "").strip()):
+            self.issues.append(("generic-label", line, f"<{tag}" + (f" .{a['class'].split()[0]}" if a.get("class") else "") + ">"))
 
         hidden = a.get("aria-hidden") == "true" or "hidden" in a
         labelled = a.get("aria-label", "").strip() or a.get("title", "").strip()
@@ -209,6 +220,7 @@ RULES = {
     "blank-noopener": "target=_blank without rel=noopener",
     "table-header": "table without header cells",
     "time-datetime": "<time> without a valid datetime",
+    "generic-label": "aria-label on an element without a role (ignored)",
 }
 
 

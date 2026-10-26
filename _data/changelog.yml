@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Engineering
+  text: Screen readers now announce the sepia/dark switch as a "Color theme" group, and the switch is hidden for visitors with JavaScript turned off, where it couldn't work anyway.
+  link: /
+- date: 2026-10-25
   desk: Design
   text: Jumping to a section from a post's contents list or a shared link now marks the heading with an accent bar and a brief soft glow, and list bullets and numbers in posts are quieter.
   link: /post/doing-the-right-thing-fast/
