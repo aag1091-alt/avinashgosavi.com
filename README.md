@@ -94,4 +94,7 @@ python3 scripts/og_cards.py
 
 `_plugins/git_last_modified.rb` sets `last_modified_at` from each file's last
 git commit (sitemap `<lastmod>`, post `dateModified`); a `last_modified_at`
-in front matter overrides it. CI checks out full history for this.
+in front matter overrides it. Pages that read `site.data.<name>` (in their
+source, non-default layout or includes) also count the last commit to that
+`_data/` file, so / and /changelog/ get a fresh `<lastmod>` (and an IndexNow
+ping) when the changelog grows. CI checks out full history for this.
