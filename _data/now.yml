@@ -1,11 +1,7 @@
 # Shown on /now and (first 4) on the homepage. Update `updated` when editing.
 # until: YYYY-MM-DD (optional) - the item disappears the day after (dated events).
-updated: 2026-10-23
+updated: 2026-10-26
 items:
-  - label: Mentoring
-    text: Mentoring hackers at Cal Hacks 13.0 in San Francisco, Oct 23–25.
-    link: /events/#cal-hacks-13-0
-    until: 2026-10-25
   - label: Judging
     text: Judging student projects at HackUMass XIV (UMass Amherst) on Nov 15.
     link: /events/#hackumass-xiv

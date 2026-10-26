@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Writing
+  text: Cal Hacks 13.0 has moved to past events now that the weekend is over, and the Now list looks ahead to OSA Con and HackUMass XIV.
+  link: /events/#cal-hacks-13-0
+- date: 2026-10-25
   desk: Engineering
   text: Screen readers now announce the sepia/dark switch as a "Color theme" group, and the switch is hidden for visitors with JavaScript turned off, where it couldn't work anyway.
   link: /
