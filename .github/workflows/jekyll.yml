@@ -110,6 +110,13 @@ jobs:
         continue-on-error: true
         timeout-minutes: 10
 
+      - name: HTML validity — Nu Html Checker over every built page (warnings only, never blocks deploy)
+        run: |
+          npm install --no-save --no-audit --no-fund --prefix "$RUNNER_TEMP/vnu" vnu-jar@25.11.25 >/dev/null
+          python3 scripts/check_html.py _site --vnu="$RUNNER_TEMP/vnu/node_modules/vnu-jar/build/dist/vnu.jar"  # Java, offline; errors only
+        continue-on-error: true
+        timeout-minutes: 6
+
       - name: Spelling — common typos in posts, pages, data and templates (warnings only, never blocks deploy)
         run: |
           python3 -m pip install --quiet --break-system-packages codespell
