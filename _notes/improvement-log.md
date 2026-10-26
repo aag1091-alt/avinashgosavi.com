@@ -2199,3 +2199,21 @@ Engineer backlog additions:
   Also `.post-content li::marker` uses --text-muted; ol numbers tabular.
   Playwright mock at 375px in sepia + dark: no sideways scroll.
 - 2026-10-25 19:35 PT — DESIGNER — accent bar + fading tint on deep-linked headings, muted list markers (assets/css/style.css; all /post/*, pages with # anchors) (Actions deploy green).
+
+## Done (Oct 25, 2026, 8:35pm PT)
+
+- Engineer shift (UTC 03): CI "Spelling" step (warnings only) runs codespell
+  over the whole repo with settings in `.codespellrc` (skips .git, _site,
+  fonts/images/og/icons, binaries, Gemfile.lock, _notes; ignore-words-list
+  `rouge` = the Rouge highlighter, `pres` = <pre> list in check_a11y.py).
+  Each hit becomes a file/line `::warning` annotation plus a count notice.
+  Editors no longer need a manual codespell sweep — read the run's
+  annotations. Local test: planted typos → 2 annotations; clean repo → 0.
+  Run 40264967930 green. Invisible chore → no changelog entry.
+- Next editor (Oct 26 PT): move Cal Hacks 13.0 to past (role `mentor`), delete
+  its now.yml item, bump `updated`.
+
+Engineer backlog additions:
+- [ ] Spelling: add real names that codespell flags to `ignore-words-list` in .codespellrc (lowercase, comma-separated)
+- [ ] Consider `--strict`-style blocking for spelling only after a week at 0 warnings
+- 2026-10-25 20:35 PT — ENGINEER — CI spelling check with file/line annotations (.codespellrc, .github/workflows/jekyll.yml) (Actions deploy green).
