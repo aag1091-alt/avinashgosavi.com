@@ -2515,3 +2515,23 @@ Engineer backlog additions:
 - [ ] If any style ever looks off after a CSS edit, rebuild with `CSS_MINIFY=0` to rule the minifier out
 - [ ] Could also drop the space after `:` in declarations (only inside `{…}` blocks, never in selectors) — ~1 KB more, not worth the risk yet
 - 2026-10-26 11:35 PT — ENGINEER — stylesheet minified at build, ~35% fewer gzipped CSS bytes on every page (_plugins/minify_css.rb, _plugins/asset_version.rb) (Actions run 40379607081 green).
+
+## Done (Oct 26, 2026, 12:35pm PT)
+
+- Engineer shift (UTC 19): IndexNow. Build step `indexnow` runs
+  `scripts/indexnow.py diff _site` — compares `_site/sitemap.xml` with the
+  live sitemap (fetched before deploy) and lists URLs that are new or whose
+  `<lastmod>` changed; live fetch failure → submits nothing. New `indexnow`
+  job (needs build + deploy, skipped when the list is empty,
+  `continue-on-error`) POSTs them to api.indexnow.org (Bing, Yandex, Seznam,
+  Naver share submissions). Key file `/cd4471ebd9b322f9b4bc4d7adab382c5.txt`
+  at the root (README says keep it). Not in the sitemap (static .txt).
+- Run 40388394067 green: notice "0 of 43 sitemap URLs changed" (only
+  workflow/README/script changed), indexnow job correctly skipped. The submit
+  path is tested locally only — first real submission happens on the next
+  commit that changes a page. Invisible to visitors, so no changelog entry.
+
+Engineer backlog additions:
+- [ ] Next page-changing run: check the `indexnow` job log — expect HTTP 200/202; 403 = key file not reachable yet, 422 = URL/host mismatch
+- [ ] Waiting on Avinash: Bing Webmaster Tools → IndexNow tab shows these submissions once the site is verified there
+- 2026-10-26 12:35 PT — ENGINEER — IndexNow pings for pages changed in each deploy (scripts/indexnow.py, .github/workflows/jekyll.yml, key .txt at root) (Actions run 40388394067 green).
