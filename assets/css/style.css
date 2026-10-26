@@ -978,10 +978,21 @@ input:focus-visible {
   text-decoration-color: currentColor;
 }
 
+/* Section breaks: a small centered three-dot ornament instead of a full-width
+   rule — many posts put `---` before every heading, and a row of hairlines read
+   like a form. Drawn with a gradient (no text for screen readers to announce);
+   forced-colors and print fall back to a plain line. */
 .post-content hr {
   border: none;
-  border-top: 1px solid var(--border);
-  margin: 2rem 0;
+  width: 3.75rem;
+  height: 5px;
+  margin: 2.25rem auto;
+  color: var(--text-muted);
+  background: radial-gradient(circle closest-side, currentColor 85%, transparent 100%) 0 0 / 1.25rem 5px repeat-x;
+  opacity: 0.75;
+}
+@media (forced-colors: active) {
+  .post-content hr { width: auto; height: 0; background: none; border-top: 1px solid CanvasText; opacity: 1; }
 }
 
 .post-content img,
@@ -1925,6 +1936,7 @@ h2.has-anchor:target {
     word-break: break-all;
   }
   .post-tags { display: none; }
+  .post-content hr { width: auto; height: 0; background: none; border-top: 1px solid #ccc; opacity: 1; margin: 1.5rem 0; }
   .post-content a[href^="/"]::after {
     content: " (avinashgosavi.com" attr(href) ")";
     font-size: 0.8em;

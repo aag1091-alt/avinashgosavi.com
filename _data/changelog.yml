@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Design
+  text: Section breaks in posts are now a small centered row of three dots instead of a full-width line, so posts that split every section read less like a form.
+  link: /post/hobby-project-stack/
+- date: 2026-10-26
   desk: Engineering
   text: The accessibility audit now also checks every page on a phone-sized screen. Its first catch is fixed — on phones, the Whisper model table in the live-transcription post no longer sits in a scroll box that keyboard users couldn't reach (it only overflowed by a rounding pixel).
   link: /post/live-audio-transcription-whisper/
