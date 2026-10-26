@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
   desk: Engineering
+  text: The accessibility audit now also checks every page on a phone-sized screen. Its first catch is fixed — the Whisper model table in the live-transcription post can again be scrolled sideways with the keyboard on narrow screens after the web font loads.
+  link: /post/live-audio-transcription-whisper/
+- date: 2026-10-26
+  desk: Engineering
   text: Every deploy now also runs the axe-core accessibility audit on each page. Its first two catches are fixed — the two series boxes on a series post now have distinct names for screen readers, and the comparison table in the Codex skills post no longer has an empty header cell.
   link: /post/codex-skills-baking-your-workflow-into-the-tool/
 - date: 2026-10-26

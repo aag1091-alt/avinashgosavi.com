@@ -114,7 +114,8 @@
       else { w.removeAttribute('tabindex'); w.removeAttribute('role'); w.removeAttribute('aria-label'); }
     };
     fit();
-    if('ResizeObserver' in window) new ResizeObserver(fit).observe(w);
+    // Watch the table too: a late font swap can widen it without the box changing size
+    if('ResizeObserver' in window){ var ro=new ResizeObserver(fit); ro.observe(w); ro.observe(t); }
   });
   // GFM task-list checkboxes (kramdown) have no label: name each one after its list item text
   root.querySelectorAll('input.task-list-item-checkbox, li.task-list-item > input[type=checkbox]').forEach(function(c){
