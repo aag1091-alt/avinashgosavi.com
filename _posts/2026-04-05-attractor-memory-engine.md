@@ -130,8 +130,6 @@ The interesting phases are coming.
 
 ## References
 
-<a name="references"></a>
-
 1. Hopfield, J.J. (1982). [Neural networks and physical systems with emergent collective computational abilities](https://www.pnas.org/doi/10.1073/pnas.79.8.2554). *Proceedings of the National Academy of Sciences*, 79(8), 2554–2558. Plain-language summary: [Paper TL;DR](/post/paper-tldr-hopfield-1982/).
 
 2. Ramsauer, H., Schäfl, B., Lehner, J., et al. (2020). [Hopfield Networks is All You Need](https://arxiv.org/abs/2008.02217). *arXiv:2008.02217*. *(Shows modern Hopfield networks have exponential capacity and that transformer attention is a Hopfield update.)* Plain-language summary: [Paper TL;DR](/post/paper-tldr-hopfield-networks-is-all-you-need/).

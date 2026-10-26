@@ -25,6 +25,9 @@ opt = lambda name: next((a.split("=", 1)[1] for a in sys.argv if a.startswith("-
 vnu = opt("vnu") or os.environ.get("VNU_JAR", "node_modules/vnu-jar/build/dist/vnu.jar")
 strict = "--strict" in sys.argv
 SKIP = re.compile(r"^google[0-9a-f]+\.html$")  # search-console verification stubs, not pages
+# Known vnu false positives (valid in today's HTML spec, not yet in the checker):
+# <script type="speculationrules"> (the prefetch rules in _layouts/default.html).
+IGNORE = re.compile(r"Bad value “speculationrules” for attribute “type” on element “script”")
 
 
 def page_url(path):
@@ -56,7 +59,7 @@ except (ValueError, KeyError):
 
 groups = defaultdict(list)  # message text -> [(page, line, extract)]
 for m in messages:
-    if m.get("type") != "error":
+    if m.get("type") != "error" or IGNORE.search(m.get("message", "")):
         continue
     path = (m.get("url") or "").replace("file:", "", 1)
     path = re.sub(r"^/+", "/", path)
