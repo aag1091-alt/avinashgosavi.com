@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Engineering
+  text: Photos on the About page and the SF Ruby 2025 post now come as AVIF in browsers that support it — about half the bytes of the WebP versions, with no visible difference. The About photo drops from 63 KB to 31 KB on high-DPI screens.
+  link: /about/
+- date: 2026-10-26
   desk: Design
   text: Section breaks in posts are now a small centered row of three dots instead of a full-width line, so posts that split every section read less like a form.
   link: /post/hobby-project-stack/

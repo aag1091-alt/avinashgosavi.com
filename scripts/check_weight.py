@@ -5,8 +5,10 @@ For every HTML page, estimate what a first visit downloads before the reader
 scrolls: the page itself, its same-origin stylesheets and scripts, preloaded
 fonts, and every image that is NOT loading="lazy". Text files are counted
 gzipped (GitHub Pages compresses them); images and fonts as-is. For an image
-with a srcset (or a <picture> with <source>s) the largest candidate is
-counted, so the number is a worst case (wide, high-DPI screen).
+with a srcset the largest candidate is counted, so the number is a worst
+case (wide, high-DPI screen). In a <picture>, only the first <source> is
+counted (browsers take the first type they support — AVIF before WebP);
+later sources and the <img> fallback are still checked for existence.
 
 Warnings (::warning):
   - a page's first-load weight is over PAGE_BUDGET
@@ -69,8 +71,8 @@ class Page(html.parser.HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.css, self.js, self.fonts = [], [], []
-        self.images = []  # (candidate urls, eager?)
-        self.sources = []  # <source> srcsets inside the current <picture>
+        self.images = []  # (all candidate urls, eager?, urls a modern browser picks from)
+        self.sources = []  # one list of urls per <source> inside the current <picture>
         self.in_picture = False
         self.in_pre = 0  # skip code samples that quote HTML
 
@@ -93,14 +95,14 @@ class Page(html.parser.HTMLParser):
         elif tag == "picture":
             self.in_picture, self.sources = True, []
         elif tag == "source" and self.in_picture:
-            self.sources += srcset_urls(a.get("srcset"))
+            self.sources.append(srcset_urls(a.get("srcset")))
         elif tag == "img":
-            cands = list(self.sources) if self.in_picture else []
-            cands += srcset_urls(a.get("srcset"))
-            if a.get("src"):
-                cands.append(a["src"])
+            own = srcset_urls(a.get("srcset")) + ([a["src"]] if a.get("src") else [])
+            groups = [g for g in self.sources if g] if self.in_picture else []
+            cands = [u for g in groups for u in g] + own
             if cands:
-                self.images.append((cands, a.get("loading", "").lower() != "lazy", bool(self.in_picture and self.sources)))
+                # Browsers take the first <picture> <source> whose type they support (all ours do), so later sources and the <img> fallback aren't fetched.
+                self.images.append((cands, a.get("loading", "").lower() != "lazy", groups[0] if groups else own))
 
     def handle_endtag(self, tag):
         if tag in ("pre", "code") and self.in_pre:
@@ -150,11 +152,9 @@ for path in pages:
         total += add(u, "script")
     for u in p.fonts:
         total += add(u, "preloaded file")
-    for cands, eager, picture_sources in p.images:
-        # Browsers take a <picture> <source> when one exists, so the <img src> fallback isn't fetched.
-        fetched = cands[:-1] if picture_sources and len(cands) > 1 else cands
+    for cands, eager, fetched in p.images:
         sizes = []
-        for u in fetched:
+        for u in cands:
             f = local_path(u, page_dir)
             if f is None or f.startswith("EXTERNAL:"):
                 if f:
@@ -164,7 +164,8 @@ for path in pages:
                 problems += 1
                 warn(rel, f"image {u} is missing from the built site")
                 continue
-            sizes.append((wire_size(f), u, f))
+            if u in fetched:
+                sizes.append((wire_size(f), u, f))
         if not sizes:
             continue
         biggest = max(sizes)

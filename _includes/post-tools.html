@@ -163,6 +163,9 @@
       var best={w:+img.getAttribute('width')||0,src:img.src}, pic=img.closest('picture');
       var sets=[img.getAttribute('srcset')||''];
       if(pic) pic.querySelectorAll('source').forEach(function(s){ sets.push(s.getAttribute('srcset')||''); });
+      // Stay in the format the browser already picked (AVIF or WebP): keep only the set holding currentSrc
+      var cur=img.currentSrc||'', mine=sets.filter(function(set){ return set.split(',').some(function(c){ var u=c.trim().split(/\s+/)[0]; return u&&cur.slice(-u.length)===u; }); });
+      if(mine.length) sets=mine;
       sets.forEach(function(set){
         set.split(',').forEach(function(c){
           var p=c.trim().split(/\s+/), m=/^(\d+)w$/.exec(p[1]||'');
