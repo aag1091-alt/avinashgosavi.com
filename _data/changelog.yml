@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Engineering
+  text: The stylesheet every page waits for is now shipped without comments and extra whitespace — about a third fewer bytes to download (14.5 KB → 9.5 KB gzipped) before anything appears, with the styles themselves unchanged.
+  link: /
+- date: 2026-10-26
   desk: Design
   text: The small ↗ on off-site links now shows on pages too, not just posts, so the paper, PyPI and newsletter links on Research (and the links on Now and Achievements) say up front that they leave the site.
   link: /research/
