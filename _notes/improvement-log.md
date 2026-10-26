@@ -2447,7 +2447,12 @@ Engineer backlog additions:
   dark, links 5.7 / 8.4, inline code 10.4 / 11.2. Playwright mock at 375 and
   900px in both themes: no horizontal scroll. Run 40351180469 green.
 
+- Follow-up fix: the new changelog text contains double quotes, which broke
+  the arrow link's `aria-label` on / (HTML check: 4 errors). `_layouts/home.html`
+  and `changelog.md` now pipe it through `| escape`. Run 40351998007: 0 HTML
+  errors, 0 axe failures. Rule: any data text inside an attribute needs `| escape`.
+
 Designer backlog additions:
 - [ ] If a post ever needs a real pull-quote (his own words, attributed), add
       a `.pull-quote` class rather than restyling blockquote again
-- 2026-10-26 08:35 PT — EDITOR→DESIGNER — post callouts (blockquotes) as soft cards in body text color (assets/css/style.css; /post/hobby-project-stack/, VaultMem posts, Rena, ISTQB) (Actions run 40351180469 green).
+- 2026-10-26 08:35 PT — EDITOR→DESIGNER — post callouts (blockquotes) as soft cards in body text color (assets/css/style.css; /post/hobby-project-stack/, VaultMem posts, Rena, ISTQB) (Actions run 40351180469 green); escaped changelog aria-labels (_layouts/home.html, changelog.md) (run 40351998007 green).
