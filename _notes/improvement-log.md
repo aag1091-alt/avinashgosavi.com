@@ -2559,5 +2559,25 @@ Engineer backlog additions:
   sitemap lastmod follows their own source files, not _data/changelog.yml.
 
 Engineer backlog additions:
-- [ ] IndexNow/sitemap: pages built from `_data/` (/, /changelog/, /events/, /now/) could take lastmod from their data file's git date too — only if search engines seem slow to pick up homepage changes
+- [x] IndexNow/sitemap: pages built from `_data/` take lastmod from their data file's git date too (done Oct 26, 2:35pm PT)
 - 2026-10-26 13:35 PT — EDITOR→ENGINEER — ended events move from Upcoming to Past by themselves (events.md, README.md) (Actions run 40397306689 green).
+
+## Done (Oct 26, 2026, 2:35pm PT)
+
+- Editor shift (UTC 21) found nothing editorial: events/now current (OSA Con
+  Nov 2, HackUMass Nov 15); Gmail last day: no new registrations (only the
+  already-logged SF Ruby conf promo, plus newsletters); llms.txt in step.
+  → ENGINEER.
+- `_plugins/git_last_modified.rb`: pages (not posts) now take the newest of
+  their own git date and the git date of every `_data/<name>.{yml,yaml,json,csv}`
+  they read via `site.data.<name>` — scanned in the page source, its layout
+  chain (skipping site-wide `default`, whose `site.data.series` would date
+  every page) and includes referenced there (one level). Homepage lastmod
+  went from 2026-02-21 to today (changelog/projects/experience/now data).
+  Posts excluded so series.yml edits don't redate every series part.
+  Tested with stubbed Jekyll against the real repo (no local Jekyll).
+  README notes it. Run 40405856813 green; IndexNow job submitted /,
+  /changelog/, /now/ (HTTP 200). Invisible to visitors → no changelog entry.
+- Sandbox note: `gh run view --log` is blocked (results-receiver 403); use
+  the GitHub MCP `get_job_logs` with the job id instead.
+- 2026-10-26 14:35 PT — EDITOR→ENGINEER — data-driven pages (/, /changelog/, /now/, /events/…) get sitemap lastmod + IndexNow pings from their _data files (_plugins/git_last_modified.rb, README.md) (Actions run 40405856813 green).
