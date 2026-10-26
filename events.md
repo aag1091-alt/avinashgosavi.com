@@ -2,7 +2,7 @@
 layout: default
 title: Conferences & Community
 permalink: /events/
-description: Conferences, hackathons and community events Avinash Gosavi has attended, hacked at, judged or mentored at — from RubyConf India 2013 to SF Ruby 2025.
+description: Conferences, hackathons and community events Avinash Gosavi has attended, hacked at, judged or mentored at, going back to RubyConf India 2013.
 ---
 
 {% assign upcoming = site.data.events | where: "status", "upcoming" | sort: "date" %}
