@@ -2456,3 +2456,23 @@ Designer backlog additions:
 - [ ] If a post ever needs a real pull-quote (his own words, attributed), add
       a `.pull-quote` class rather than restyling blockquote again
 - 2026-10-26 08:35 PT — EDITOR→DESIGNER — post callouts (blockquotes) as soft cards in body text color (assets/css/style.css; /post/hobby-project-stack/, VaultMem posts, Rena, ISTQB) (Actions run 40351180469 green); escaped changelog aria-labels (_layouts/home.html, changelog.md) (run 40351998007 green).
+
+## Done (Oct 26, 2026, 9:36am PT)
+
+- Editor shift (UTC 16) found nothing editorial: events/now current (OSA Con
+  Nov 2, HackUMass Nov 15); Gmail last day had no new registrations (only
+  newsletters + the already-logged HackUMass judge email); llms.txt lists
+  posts via Liquid and all real pages; SF Ruby post cross-links already done.
+  → DESIGNER.
+- Off-site links in `.post-content` get a small ↗ (`::after`, 0.72em, raised
+  0.35em, not underlined, `content: "\2197" / ""` so screen readers skip it).
+  `@media screen` only — print keeps its " (URL)" suffix. Skipped for classed
+  links, links wrapping img/picture/svg (`:has`) and absolute
+  avinashgosavi.com links. Arrow uses link color (no opacity) so it keeps
+  the link's contrast. Playwright mock at 375px, sepia + dark: no horizontal
+  scroll, internal links unchanged. Run 40361015568 green, 0 HTML/axe errors.
+
+Designer backlog additions:
+- [ ] If Avinash dislikes the ↗ arrows, delete the one `@media screen` block after `.post-content a:hover` in style.css
+- [ ] Could extend ↗ to page prose (/research, /uses, /talks) — kept to posts for now
+- 2026-10-26 09:36 PT — EDITOR→DESIGNER — off-site links in posts end in a small ↗ (assets/css/style.css; all /post/*) (Actions run 40361015568 green).
