@@ -970,11 +970,13 @@ input:focus-visible {
   text-decoration-color: currentColor;
 }
 
-/* Links that leave the site get a small ↗ so readers know before clicking.
-   Screen only (print already appends the URL); no arrow on image links or
-   classed component links. Empty alt text keeps screen readers quiet. */
+/* Links that leave the site get a small ↗ so readers know before clicking —
+   in posts and in page prose (Research, Now, Achievements…). Screen only
+   (print already appends the URL); no arrow on image links or classed
+   component links (paper titles, nav, cards). Empty alt text keeps screen
+   readers quiet. */
 @media screen {
-  .post-content a[href^="http"]:not([class]):not([href*="avinashgosavi.com"]):not(:has(img, picture, svg))::after {
+  :is(.post-content, .main :is(p, li, dd, blockquote, td)) a[href^="http"]:not([class]):not([href*="avinashgosavi.com"]):not(:has(img, picture, svg))::after {
     content: "\2197";
     content: "\2197" / "";
     display: inline-block;

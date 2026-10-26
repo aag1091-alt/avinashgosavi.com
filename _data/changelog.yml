@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
   desk: Design
+  text: The small ↗ on off-site links now shows on pages too, not just posts, so the paper, PyPI and newsletter links on Research (and the links on Now and Achievements) say up front that they leave the site.
+  link: /research/
+- date: 2026-10-26
+  desk: Design
   text: Links in posts that lead off the site now end in a small ↗ arrow, so you can tell before clicking whether you are leaving for a paper, a repo or a talk recording.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
 - date: 2026-10-26
