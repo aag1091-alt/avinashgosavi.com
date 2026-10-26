@@ -7,8 +7,10 @@ Lighthouse's accessibility score) on top: ARIA roles/attributes used correctly,
 landmarks, list and definition-list structure, duplicate ids that ARIA points at,
 nested interactive controls, and so on.
 
-Each page is served from a local http.server and opened in headless Chromium at 1280px
-(plus /search/?q=memory and /blog/?q=memory so script-built results are audited);
+Each page is served from a local http.server and opened in headless Chromium twice: at
+1280px, and as a 375px touch phone (is_mobile + has_touch, so hover:none states such as
+always-visible copy buttons and heading anchors are audited too), plus /search/?q=memory
+and /blog/?q=memory so script-built results are audited;
 requests to other hosts are blocked, so the run is offline and never counts as a visit.
 Rules: WCAG 2.0/2.1/2.2 A and AA plus axe "best-practice". color-contrast is switched
 off here because check_browser.py measures contrast in both themes with composited
@@ -16,7 +18,7 @@ backgrounds.
 
 Output: one ::warning per failing rule (impact, how many elements on how many pages,
 a few examples, the axe help link), then a full list in the job summary.
-Usage: check_axe.py _site --axe=path/to/axe.min.js [--strict] [--only=/post/x/,/about/]"""
+Usage: check_axe.py _site --axe=path/to/axe.min.js [--strict] [--only=/post/x/,/about/] [--widths=1280,375]"""
 import functools, http.server, os, sys, threading
 from collections import defaultdict
 
@@ -26,6 +28,7 @@ opt = lambda name: next((a.split("=", 1)[1] for a in sys.argv if a.startswith("-
 axe_path = opt("axe") or os.environ.get("AXE_JS", "node_modules/axe-core/axe.min.js")
 only = opt("only").split(",") if opt("only") else None
 strict = "--strict" in sys.argv
+widths = [int(w) for w in (opt("widths") or "1280,375").split(",") if w.strip()]
 SKIP = {"/404.html", "/offline/", "/offline.html"}  # 404 is served at any path; offline page reloads itself
 EXTRA = ("/search/?q=memory", "/blog/?q=memory")
 RUN_OPTS = {
@@ -96,21 +99,26 @@ def main():
         if not browser:
             print("::warning title=axe::no Chromium/Chrome available; skipped")
             return 0
-        ctx = browser.new_context(viewport={"width": 1280, "height": 800}, service_workers="block")
-        ctx.route("**/*", lambda r: r.continue_() if r.request.url.startswith(base) else r.abort())
-        for url in urls:
-            page = ctx.new_page()
-            try:
-                page.goto(base + url, wait_until="load", timeout=20000)
-                page.wait_for_timeout(300)  # let deferred scripts build TOC, results, copy buttons
-                page.add_script_tag(path=axe_path)
-                for v in page.evaluate(AUDIT, RUN_OPTS):
-                    info = found[v["id"]]
-                    info.update(impact=v["impact"], help=v["help"], url=v["url"])
-                    info["pages"][url].extend(v["nodes"])
-            except Exception as e:
-                failed.append((url, str(e).splitlines()[0][:160]))
-            page.close()
+        for w in widths:
+            phone = w < 640
+            ctx = browser.new_context(viewport={"width": w, "height": 812 if phone else 800}, is_mobile=phone,
+                                      has_touch=phone, service_workers="block")
+            ctx.route("**/*", lambda r: r.continue_() if r.request.url.startswith(base) else r.abort())
+            tag = "" if w == widths[0] else " @%dpx" % w  # first width unmarked; others tagged per page
+            for url in urls:
+                page = ctx.new_page()
+                try:
+                    page.goto(base + url, wait_until="load", timeout=20000)
+                    page.wait_for_timeout(300)  # let deferred scripts build TOC, results, copy buttons
+                    page.add_script_tag(path=axe_path)
+                    for v in page.evaluate(AUDIT, RUN_OPTS):
+                        info = found[v["id"]]
+                        info.update(impact=v["impact"], help=v["help"], url=v["url"])
+                        info["pages"][url + tag].extend(v["nodes"])
+                except Exception as e:
+                    failed.append((url + tag, str(e).splitlines()[0][:160]))
+                page.close()
+            ctx.close()
         browser.close()
     srv.shutdown()
 
@@ -124,8 +132,9 @@ def main():
             rid, i["impact"], i["help"], n, len(i["pages"]), ex, i["url"]))
     for u, m in failed:
         print("::warning title=axe load::%s: %s" % (u, m))
-    print("::notice title=axe::%d pages audited, %d rule(s) failing, %d element(s)" % (len(urls), len(rules), total))
-    lines = ["### axe-core audit", "", "%d pages at 1280px: %d rule(s) failing on %d element(s)" % (len(urls), len(rules), total), ""]
+    at = " and ".join("%dpx" % w for w in widths)
+    print("::notice title=axe::%d pages audited at %s, %d rule(s) failing, %d element(s)" % (len(urls), at, len(rules), total))
+    lines = ["### axe-core audit", "", "%d pages at %s: %d rule(s) failing on %d element(s)" % (len(urls), at, len(rules), total), ""]
     for rid, i in rules:
         lines.append("- **%s** (%s) — %s ([help](%s))" % (rid, i["impact"], i["help"], i["url"]))
         lines += ["  - %s: `%s`" % (u, "`, `".join(nodes[:5])) for u, nodes in i["pages"].items()]
