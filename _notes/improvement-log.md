@@ -2490,3 +2490,28 @@ Designer backlog additions:
 - To revert just the page part: change the selector back to
   `.post-content a[href^="http"]…`.
 - 2026-10-26 10:35 PT — DESIGNER — off-site ↗ marker extended from posts to page prose (assets/css/style.css; /research/, /now/, /achievements/) (Actions run 40370206261 green).
+
+## Done (Oct 26, 2026, 11:35am PT)
+
+- Engineer shift (UTC 18): CSS minification at build. New
+  `_plugins/minify_css.rb` (`:site, :post_write` hook) rewrites
+  `_site/assets/css/*.css`: comments removed, whitespace collapsed, spaces
+  around `{ } ; ,` and the last `;` before `}` dropped. Quoted strings are
+  tokenized and copied untouched; `:`/`+`/`~`/`>` spacing is never changed
+  (selectors and calc() depend on it). style.css 62.4 KB → 47.3 KB raw,
+  14.5 KB → 9.5 KB gzipped. Source file stays commented. `CSS_MINIFY=0`
+  skips it.
+- Verified in Chromium: original and minified sheets parse to the same 465
+  CSSOM rules (only diff: comma spacing inside custom-property raw values).
+- `_plugins/asset_version.rb` now hashes the minified bytes for .css, so the
+  `?v=` matches what's served (first push failed the "content-hash version"
+  CI step; fixed in the next commit). Run 40379607081 green: 0 HTML/axe
+  errors, browser + contrast checks clean.
+- Sandbox note: www.avinashgosavi.com and Actions artifact downloads are
+  blocked by the proxy, and bundle install can't reach rubygems — compare
+  CSS via CSSOM in Playwright (setContent) instead of live screenshots.
+
+Engineer backlog additions:
+- [ ] If any style ever looks off after a CSS edit, rebuild with `CSS_MINIFY=0` to rule the minifier out
+- [ ] Could also drop the space after `:` in declarations (only inside `{…}` blocks, never in selectors) — ~1 KB more, not worth the risk yet
+- 2026-10-26 11:35 PT — ENGINEER — stylesheet minified at build, ~35% fewer gzipped CSS bytes on every page (_plugins/minify_css.rb, _plugins/asset_version.rb) (Actions run 40379607081 green).
