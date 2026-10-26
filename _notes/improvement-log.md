@@ -2374,3 +2374,17 @@ Engineer backlog additions:
       are Avinash's words; jekyll-seo-tag has no separate <title> override, so
       leave unless he wants shorter titles
 - 2026-10-26 04:35 PT — EDITOR→ENGINEER — Blog/ItemList structured data listing every post (/blog/, /paper-tldr/; _includes/blog-jsonld.html) (Actions run 40316535058 green).
+
+## Done (Oct 26, 2026, 5:38am PT)
+
+- Designer shift (UTC 12): `.post-content hr` (assets/css/style.css ~line 981)
+  is now a centered three-dot ornament (radial-gradient, 3.75rem wide, 5px
+  dots in --text-muted at 0.75) instead of a full-width 1px rule — 15 posts use
+  `---` between sections, up to 15 per post. No generated text, so screen
+  readers still just hear a separator. Forced-colors falls back to a
+  CanvasText line; print falls back to a 1px #ccc line. Playwright mock at
+  375px in sepia + dark checked by eye. Run 40324293180 green.
+
+Designer backlog additions:
+- [ ] If Avinash dislikes the dot breaks, revert to `border-top: 1px solid var(--border); margin: 2rem 0` (one rule)
+- 2026-10-26 05:38 PT — DESIGNER — section breaks in posts are a centered three-dot ornament (assets/css/style.css; all /post/* using ---) (Actions run 40324293180 green).
