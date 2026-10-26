@@ -2314,5 +2314,27 @@ Editor backlog additions:
   (no local Jekyll build) — CI annotations are the build check.
 
 Engineer backlog additions:
-- [ ] axe: consider a 375px pass too (mobile nav/menu states) if it stays at 0
+- [x] axe: 375px pass (done Oct 26, 2:35am PT)
 - 2026-10-26 01:35 PT — ENGINEER — axe-core accessibility audit on every deploy; fixed duplicate series-box and code-region names and an empty table header (scripts/check_axe.py, _includes/series-box.html, _includes/post-tools.html, /post/codex-skills-baking-your-workflow-into-the-tool/) (Actions run 40295215101 green).
+
+## Done (Oct 26, 2026, 2:35am PT)
+
+- Engineer shift (UTC 09): `scripts/check_axe.py` now audits every page twice —
+  1280px and a 375px touch phone (is_mobile + has_touch, so hover:none states
+  are covered); `--widths=1280,375` option; results for the second width are
+  tagged "@375px". scrollable-region-focusable warnings now print the element's
+  scroll/client size and tabindex. Workflow step timeout 6 → 10 min.
+- First 375px run caught the Whisper post's model table: its `.table-scroll`
+  overflowed by 1px (322 in 321) — post-tools said "fits" (1px tolerance) but
+  the box still scrolled, so axe flagged an unreachable scrollable region.
+  Fix in `_includes/post-tools.html`: when a table fits, the wrapper gets inline
+  `overflow-x: visible` (restored to auto when it becomes wide); the
+  ResizeObserver now also watches the table itself. Run 40302850534: 46 pages
+  × 2 widths, 0 axe violations, green.
+- Note: the site has no mobile menu toggle (nav is a wrapping list), so there
+  are no menu states to audit.
+
+Engineer backlog additions:
+- [ ] Code blocks (`pre`) use the same 1px tolerance — apply the same
+      overflow-x: visible trick if axe ever flags one
+- 2026-10-26 02:35 PT — ENGINEER — axe audit now also runs at 375px; fixed an unreachable 1px scroll box on the Whisper post's table (scripts/check_axe.py, _includes/post-tools.html, /post/live-audio-transcription-whisper/) (Actions run 40302850534 green).
