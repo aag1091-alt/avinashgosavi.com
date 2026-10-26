@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Engineering
+  text: Posts you've already read offline now keep their photos and diagrams too — the images you've seen are saved on your device alongside the page.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- date: 2026-10-26
   desk: Design
   text: Each changelog entry's desk label now carries a small colored dot — rust for Writing, purple for Design, teal for Engineering — so you can tell the three desks apart at a glance.
   link: /changelog/

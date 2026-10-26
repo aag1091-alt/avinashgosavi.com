@@ -7,7 +7,10 @@ sitemap: false
      device (newest 40) and shown only when the network fails; otherwise /offline/.
    - Stylesheet + fonts: served from cache when present (style.css is
      content-hashed, fonts never change), fetched and cached otherwise.
-   - Nothing else is touched: images, feeds, JSON, analytics go straight to the network.
+   - Post images (/assets/images/): the copy on this device is shown at once and
+     refreshed in the background (newest 60 kept), so saved posts keep their
+     photos and diagrams offline.
+   - Nothing else is touched: feeds, JSON, analytics go straight to the network.
    Kill switch: replace this file's body with
      self.addEventListener('install', () => self.skipWaiting());
      self.addEventListener('activate', () => self.registration.unregister());
@@ -16,6 +19,8 @@ const BUILD = '{{ site.time | date: "%s" }}';
 const STATIC = 'static-' + BUILD;
 const PAGES = 'pages-v1';
 const MAX_PAGES = 40;
+const IMAGES = 'images-v1';
+const MAX_IMAGES = 60;
 const OFFLINE = '{{ "/offline/" | relative_url }}';
 const PRECACHE = [
   OFFLINE,
@@ -46,10 +51,14 @@ function pageKey(url) {
   return new Request(url.origin + url.pathname);
 }
 
-async function trimPages() {
-  const c = await caches.open(PAGES);
+async function trim(name, max) {
+  const c = await caches.open(name);
   const keys = await c.keys();
-  for (let i = 0; i < keys.length - MAX_PAGES; i++) await c.delete(keys[i]);
+  for (let i = 0; i < keys.length - max; i++) await c.delete(keys[i]);
+}
+
+async function trimPages() {
+  await trim(PAGES, MAX_PAGES);
 }
 
 async function handlePage(event, url) {
@@ -87,6 +96,28 @@ async function handleStatic(request) {
   return res;
 }
 
+async function handleImage(event, request) {
+  const key = new Request(request.url.split('#')[0]);
+  const hit = await caches.match(key, { cacheName: IMAGES });
+  const refresh = fetch(request).then((res) => {
+    if (res.ok && res.type === 'basic' && res.status === 200) {
+      const copy = res.clone();
+      event.waitUntil((async () => {
+        const c = await caches.open(IMAGES);
+        await c.delete(key); // re-insert so recently used images sit at the end
+        await c.put(key, copy);
+        await trim(IMAGES, MAX_IMAGES);
+      })().catch(() => {}));
+    }
+    return res;
+  });
+  if (hit) {
+    event.waitUntil(refresh.catch(() => {}));
+    return hit;
+  }
+  return refresh;
+}
+
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
@@ -96,5 +127,7 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(handlePage(event, url));
   } else if (/^\/assets\/(css|fonts)\//.test(url.pathname)) {
     event.respondWith(handleStatic(req));
+  } else if (url.pathname.startsWith('/assets/images/') && !req.headers.has('range')) {
+    event.respondWith(handleImage(event, req));
   }
 });
