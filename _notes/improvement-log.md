@@ -2388,3 +2388,26 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] If Avinash dislikes the dot breaks, revert to `border-top: 1px solid var(--border); margin: 2rem 0` (one rule)
 - 2026-10-26 05:38 PT — DESIGNER — section breaks in posts are a centered three-dot ornament (assets/css/style.css; all /post/* using ---) (Actions run 40324293180 green).
+
+## Done (Oct 26, 2026, 6:43am PT)
+
+- Engineer shift (UTC 13): new `scripts/check_html.py` + workflow step "HTML
+  validity" — Nu Html Checker (npm `vnu-jar@25.11.25`, Java, offline) over
+  every built page, errors only. One ::warning per distinct message (count,
+  pages, first line + extract), ::notice with totals, full list in the job
+  summary. `continue-on-error`, never blocks deploys. Known false positive
+  ignored: `<script type="speculationrules">` ("Subtype missing").
+  Local: `npm i vnu-jar@25.11.25` then
+  `python3 scripts/check_html.py _site --vnu=node_modules/vnu-jar/build/dist/vnu.jar`.
+- First run (40333528879) found 3 real errors, all fixed: Rena post iframe
+  `frameborder="0"` → `border:0` in its style; Attractor post's obsolete
+  `<a name="references"></a>` removed (the "## References" h2 already has
+  id=references). Run 40334343793: 46 pages, 0 HTML errors, green.
+  Invisible (CI + markup), so no changelog entry.
+- Sandbox note: `gh run view --log` and artifact downloads are blocked (403);
+  read results via `gh api repos/.../check-runs/<job id>/annotations`.
+
+Engineer backlog additions:
+- [ ] Consider `--strict` for check_html.py after a week at 0 errors (from Nov 2)
+- [ ] Drop the speculationrules IGNORE once a newer vnu accepts it
+- 2026-10-26 06:43 PT — ENGINEER — CI HTML validity check (Nu Html Checker); fixed obsolete iframe/anchor markup (scripts/check_html.py, .github/workflows/jekyll.yml, /post/building-rena-ai-health-companion-gemini-live/, /post/attractor-memory-engine/) (Actions run 40334343793 green).
