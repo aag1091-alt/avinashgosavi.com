@@ -103,14 +103,14 @@
     h.appendChild(a);
   });
   // Wide tables scroll sideways inside their own box instead of pushing the page wider on phones
-  root.querySelectorAll('table').forEach(function(t){
+  root.querySelectorAll('table').forEach(function(t,ti){
     // The post layout already wraps tables server-side (works without JS); wrap any stragglers here
     var w=t.parentNode;
     if(!w.classList.contains('table-scroll')){ w=document.createElement('div'); w.className='table-scroll'; t.parentNode.insertBefore(w,t); w.appendChild(t); }
     var fit=function(){
       var wide=w.scrollWidth>w.clientWidth+1;
       w.classList.toggle('is-wide',wide);
-      if(wide){ w.tabIndex=0; w.setAttribute('role','region'); w.setAttribute('aria-label','Table, scrolls sideways'); }
+      if(wide){ w.tabIndex=0; w.setAttribute('role','region'); w.setAttribute('aria-label','Table '+(ti+1)+', scrolls sideways'); }
       else { w.removeAttribute('tabindex'); w.removeAttribute('role'); w.removeAttribute('aria-label'); }
     };
     fit();
@@ -135,11 +135,12 @@
     box.classList.add('has-lang');
   });
   // Code blocks wider than the screen scroll sideways: make those reachable by keyboard
-  // (Tab to the block, then arrow keys) and name them for screen readers, like wide tables
-  root.querySelectorAll('pre').forEach(function(pre){
+  // (Tab to the block, then arrow keys) and name them for screen readers, like wide tables;
+  // numbered ("block 3") so two wide python blocks aren't identically named regions
+  root.querySelectorAll('pre').forEach(function(pre,pi){
     var box=pre.closest('.highlighter-rouge'), lang=box?langOf(box):'';
     var fit=function(){
-      if(pre.scrollWidth>pre.clientWidth+1){ pre.tabIndex=0; pre.setAttribute('role','region'); pre.setAttribute('aria-label',(lang?lang+' code':'Code')+', scrolls sideways'); }
+      if(pre.scrollWidth>pre.clientWidth+1){ pre.tabIndex=0; pre.setAttribute('role','region'); pre.setAttribute('aria-label',(lang?lang+' code':'Code')+', block '+(pi+1)+', scrolls sideways'); }
       else { pre.removeAttribute('tabindex'); pre.removeAttribute('role'); pre.removeAttribute('aria-label'); }
     };
     fit();
