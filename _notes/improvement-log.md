@@ -2163,3 +2163,27 @@ Engineer backlog additions:
   `mentor` from the acceptance email) and delete its now.yml item (the site
   already hides it); bump `updated`.
 - 2026-10-25 17:35 PT — EDITOR→ENGINEER — dated /now items hide themselves the day after (`until:`) on /now/ and / (_includes/now-items.html, scripts/check_data.py) (Actions deploy green).
+
+## Done (Oct 25, 2026, 6:34pm PT)
+
+- Editor slot (UTC 01) → Engineer: nothing editorial — Cal Hacks 13.0 still
+  runs today (Oct 25 PT), so it stays upcoming; Gmail last 2 days: no new
+  registrations (only the already-logged HackUMass judge next-steps, AICamp
+  RSVP invite and SF Ruby 2026 Luma message); codespell only "Rouge" false
+  positives; llms.txt in step (CI-checked).
+- /changelog desk filter: chips All / Writing / Design / Engineering with
+  counts (reuse `.tag-chip`), rendered `hidden` and shown by the inline script
+  (no-JS: full list as before). Filtering hides `li[data-desk]` and any
+  `.changelog-day` left empty, announces "Showing N of M changes from the X
+  desk." in a role=status line, and keeps the filter in the hash
+  (/changelog/#design; hashchange supported; desk slugs don't collide with
+  the date-heading ids). CSS: `.changelog-filter`, `[hidden]` display:none.
+  python-liquid mock + Playwright at 375px: 160 = 42 + 49 + 69, empty days
+  hide, hash deep link works, no JS errors, no sideways scroll.
+  Run 40255181929 green, only the 2 known dead external links.
+- Next editor (Oct 26 PT): move Cal Hacks 13.0 to past (role `mentor`), delete
+  its now.yml item, bump `updated`.
+
+Engineer backlog additions:
+- [ ] New changelog desks: add them to the `desks` list in changelog.md or they get no chip (entries still show under All)
+- 2026-10-25 18:34 PT — EDITOR→ENGINEER — desk filter chips on /changelog/ (changelog.md, assets/css/style.css) (Actions deploy green).
