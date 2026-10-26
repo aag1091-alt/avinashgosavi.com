@@ -103,6 +103,13 @@ jobs:
         continue-on-error: true
         timeout-minutes: 8
 
+      - name: axe-core accessibility audit — ARIA, landmarks, list structure and more (warnings only, never blocks deploy)
+        run: |
+          npm install --no-save --no-audit --no-fund --prefix "$RUNNER_TEMP/axe" axe-core@4.10.2 >/dev/null
+          python3 scripts/check_axe.py _site --axe="$RUNNER_TEMP/axe/node_modules/axe-core/axe.min.js"  # same offline local server + Chrome as the browser check
+        continue-on-error: true
+        timeout-minutes: 6
+
       - name: Spelling — common typos in posts, pages, data and templates (warnings only, never blocks deploy)
         run: |
           python3 -m pip install --quiet --break-system-packages codespell
