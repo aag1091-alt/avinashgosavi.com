@@ -28,7 +28,7 @@ layout: default
     <h2>Recently on the site</h2>
     <ul class="changelog-list">
       {% for c in site.data.changelog limit: 3 %}
-      <li><span class="changelog-desk changelog-desk-{{ c.desk | slugify }}">{{ c.desk }}</span> {{ c.text }}{% if c.link %} <a href="{{ c.link | relative_url }}" aria-label="See: {{ c.text | truncatewords: 6 }}">→</a>{% endif %}</li>
+      <li><span class="changelog-desk changelog-desk-{{ c.desk | slugify }}">{{ c.desk }}</span> {{ c.text }}{% if c.link %} <a href="{{ c.link | relative_url }}" aria-label="See: {{ c.text | truncatewords: 6 | escape }}">→</a>{% endif %}</li>
       {% endfor %}
     </ul>
     <p class="all-posts-link"><a href="{{ '/changelog/' | relative_url }}">Full changelog →</a></p>

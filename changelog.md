@@ -21,7 +21,7 @@ description: What's new on avinashgosavi.com — new writing, design changes and
     <h2 class="changelog-date" id="{{ day.name | date: '%B %-d, %Y' | slugify }}"><time datetime="{{ day.name | date: '%Y-%m-%d' }}">{{ day.name | date: "%B %-d, %Y" }}</time></h2>
     <ul class="changelog-list">
       {% for c in day.items %}
-      <li data-desk="{{ c.desk | slugify }}"><span class="changelog-desk changelog-desk-{{ c.desk | slugify }}">{{ c.desk }}</span> {{ c.text }}{% if c.link %} <a href="{{ c.link | relative_url }}" aria-label="See: {{ c.text | truncatewords: 6 }}">→</a>{% endif %}</li>
+      <li data-desk="{{ c.desk | slugify }}"><span class="changelog-desk changelog-desk-{{ c.desk | slugify }}">{{ c.desk }}</span> {{ c.text }}{% if c.link %} <a href="{{ c.link | relative_url }}" aria-label="See: {{ c.text | truncatewords: 6 | escape }}">→</a>{% endif %}</li>
       {% endfor %}
     </ul>
   </section>
