@@ -1663,6 +1663,23 @@ h1[tabindex="-1"]:focus { outline: none; }
   background: var(--code-bg);
   color: var(--text-muted);
 }
+/* A small colored dot tells the three desks apart at a glance (decorative; the
+   label text stays --text-muted). Hues reuse the project-card set, each ≥4.3:1
+   on --code-bg in sepia and dark. Unknown desks fall back to the muted dot. */
+.changelog-desk { --desk: var(--text-muted); min-width: 7rem; }
+.changelog-desk-writing { --desk: var(--cat-agents); }
+.changelog-desk-design { --desk: var(--cat-fun); }
+.changelog-desk-engineering { --desk: var(--accent); }
+.changelog-desk::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.4em;
+  border-radius: 50%;
+  background: var(--desk);
+  vertical-align: 0.08em;
+}
 .home-updates { margin-bottom: 2.5rem; }
 
 /* ---------- Share ---------- */
