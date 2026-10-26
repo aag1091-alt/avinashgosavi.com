@@ -61,7 +61,7 @@ Most pages are driven by YAML files in `_data/`. Edit the file, push, and the pa
 | `/achievements` | `_data/achievements.yml` | Grouped by `section`; items take `title`, `year`, `detail`, `links` |
 | `/research` papershelf | `_data/papers.yml` | `tldr`, `why`, `post` (related project post), `tldr_post` (full Paper TL;DR write-up) |
 | `/talks` | `_data/talks.yml` | `take` is a one-line reason to watch, grouped by `topic` |
-| `/now` and homepage Now | `_data/now.yml` | Bump `updated` when you edit; first 4 items show on the homepage |
+| `/now` and homepage Now | `_data/now.yml` | Bump `updated` when you edit; first 4 items show on the homepage; optional `until: YYYY-MM-DD` hides a dated item the day after |
 | `/series` | `_data/series.yml` | Define a series slug, then add `series: <slug>` and `series_order: <n>` to posts |
 
 Hand-written pages: `about.md`, `research.md` (topics + newsletters), `uses.md`.

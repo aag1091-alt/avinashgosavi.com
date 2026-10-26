@@ -36,11 +36,7 @@ layout: default
 
   <section class="home-now">
     <h2>Now</h2>
-    <dl class="now-list now-list-compact">
-      {% for item in site.data.now.items limit: 4 %}
-      <div class="now-item"><dt>{{ item.label }}</dt><dd>{{ item.text }}</dd></div>
-      {% endfor %}
-    </dl>
+    {% include now-items.html max=4 compact=true %}
     <p class="all-posts-link"><a href="{{ '/now' | relative_url }}">What else I'm up to →</a></p>
   </section>
 

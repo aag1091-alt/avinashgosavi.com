@@ -1,0 +1,32 @@
+{%- comment -%}
+Now items for /now and the homepage. include.max (optional) caps how many show.
+An item with `until: YYYY-MM-DD` is dropped at build time once it is more than a day
+past (build clock is UTC), and hidden in the browser from the day after `until`
+(visitor's local date), so a finished event leaves /now and the homepage on time
+even if nobody pushes. The next visible item moves up to keep the homepage at max.
+{%- endcomment -%}
+{%- assign now_cutoff = site.time | date: "%s" | minus: 86400 | date: "%Y-%m-%d" -%}
+{%- assign now_max = include.max | default: 999 -%}
+{%- assign now_shown = 0 -%}
+<dl class="now-list{% if include.compact %} now-list-compact{% endif %}" data-max="{{ now_max }}">
+  {%- for item in site.data.now.items -%}
+  {%- if item.until -%}{%- assign now_until = item.until | date: "%Y-%m-%d" -%}{%- if now_until < now_cutoff -%}{%- continue -%}{%- endif -%}{%- endif %}
+  <div class="now-item"{% if item.until %} data-until="{{ now_until }}"{% endif %}{% if now_shown >= now_max %} hidden{% endif %}>
+    <dt>{{ item.label }}</dt>
+    <dd>{{ item.text }}{% if item.link and include.links %} <a class="now-more" href="{{ item.link | relative_url }}" aria-label="More about {{ item.label | downcase }}">→</a>{% endif %}</dd>
+  </div>
+  {%- assign now_shown = now_shown | plus: 1 -%}
+  {%- endfor %}
+</dl>
+<script>
+(function () {
+  var d = new Date(), p = function (n) { return (n < 10 ? "0" : "") + n; };
+  var today = d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+  var list = document.currentScript.previousElementSibling, max = +list.dataset.max || 999, n = 0;
+  list.querySelectorAll(".now-item").forEach(function (it) {
+    var keep = !(it.dataset.until && it.dataset.until < today) && n < max;
+    if (keep) n++;
+    it.hidden = !keep;
+  });
+})();
+</script>

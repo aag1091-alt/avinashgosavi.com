@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-25
+  desk: Engineering
+  text: Dated items on the Now page, like an upcoming hackathon or conference, now step aside on their own the day after the event, on both /now and the homepage.
+  link: /now/
+- date: 2026-10-25
   desk: Design
   text: The Doing the Right Thing, Fast post now has a diagram of the cycle every cleanup stream went through, from identifying what to remove to review and testing.
   link: /post/doing-the-right-thing-fast/

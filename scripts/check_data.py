@@ -6,7 +6,8 @@ Checks the source tree (not _site) for:
                        an "upcoming" event whose end_date (or date) is more than 3 days ago
                        (time to move it to past), a "past" event dated in the
                        future, and a recap path that isn't a real post
-  _data/now.yml      - `updated` older than 30 days; an item that links to an
+  _data/now.yml      - `updated` older than 30 days; an item whose `until` date has
+                       passed or isn't YYYY-MM-DD; an undated item that links to an
                        /events/#anchor that no event produces, or to a past event
   _data/changelog.yml - required fields, known desk values, newest-first order,
                        dates in the future
@@ -135,6 +136,13 @@ for it in now.get("items") or []:
     link = str(it.get("link") or "")
     if not it.get("label") or not it.get("text"):
         warn(NW, "an item is missing `label` or `text` (%s)" % (it.get("label") or link or "?"))
+    if it.get("until"):
+        u = as_date(it["until"])
+        if u is None:
+            warn(NW, "%s item: until `%s` is not YYYY-MM-DD" % (it.get("label"), it["until"]))
+        elif u < today:
+            warn(NW, "%s item expired %s (hidden on the site now) - remove it from now.yml" % (it.get("label"), u))
+        continue  # dated items hide themselves, so the events cross-check below is moot
     m = re.match(r"^/events/#(.+)$", link)
     if m:
         ev = anchors.get(m.group(1))

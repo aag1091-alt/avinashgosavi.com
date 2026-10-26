@@ -1513,6 +1513,7 @@ h1[tabindex="-1"]:focus { outline: none; }
   padding: 0.7rem 0;
   border-bottom: 1px solid var(--border);
 }
+.now-item[hidden] { display: none; }
 .now-item dt { font-weight: 600; color: var(--text-muted); font-size: 0.9rem; }
 .now-item dd { margin: 0; }
 /* Arrow-only "more" link: an underline under a lone → looked like a stray
