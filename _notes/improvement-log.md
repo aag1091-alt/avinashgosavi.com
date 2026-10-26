@@ -2581,3 +2581,21 @@ Engineer backlog additions:
 - Sandbox note: `gh run view --log` is blocked (results-receiver 403); use
   the GitHub MCP `get_job_logs` with the job id instead.
 - 2026-10-26 14:35 PT — EDITOR→ENGINEER — data-driven pages (/, /changelog/, /now/, /events/…) get sitemap lastmod + IndexNow pings from their _data files (_plugins/git_last_modified.rb, README.md) (Actions run 40405856813 green).
+
+## Done (Oct 26, 2026, 3:35pm PT)
+
+- Designer shift (UTC 22): `.changelog-desk` badges (homepage "Latest updates"
+  + /changelog) were identical grey pills although the markup already had
+  `changelog-desk-<slug>` classes. Added a 0.5em colored dot via `::before`
+  (`--desk` token): Writing → `--cat-agents`, Design → `--cat-fun`,
+  Engineering → `--accent`; unknown desks → `--text-muted`. Label text
+  unchanged (muted). Dot contrast on `--code-bg`: sepia 4.8 / 5.4 / 4.3,
+  dark 5.6 / 6.3 / 6.6. min-width 6.2 → 7rem so ENGINEERING still fits with
+  the dot (all pills same width). Playwright CSSOM mock at 375px, sepia +
+  dark: no horizontal scroll. Live site and rubygems are blocked from this
+  sandbox (no live screenshots, no local Jekyll). Run 40413747752 green.
+
+Designer backlog additions:
+- [ ] If Avinash dislikes the desk dots, delete the `.changelog-desk::before` block and the four `--desk` lines after `.changelog-desk` in style.css
+- [ ] New changelog desk: give it a `.changelog-desk-<slug> { --desk: … }` hue (≥3:1 on --code-bg in both themes)
+- 2026-10-26 15:35 PT — DESIGNER — changelog desk labels get a colored dot per desk (assets/css/style.css; /, /changelog/) (Actions run 40413747752 green).
