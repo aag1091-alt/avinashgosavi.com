@@ -2694,7 +2694,7 @@ Designer backlog additions:
   Attractor copy and flags missing copies or leftover `{%`/`{{`/`<svg`/`](/`.
 
 Engineer backlog additions:
-- [ ] Read the "Post Markdown copies" CI step output on the next run to
-      eyeball the converted text (first run printed nothing — step added after)
+- [x] Post Markdown CI step (run 40445909138): 29 posts, 29 copies, 0 problems;
+      Attractor copy reads cleanly (header, absolute links)
 - [ ] Inline kramdown IALs (`text{: .x}`) still show in the .md copies — none today
 - 2026-10-26 20:35 PT — ENGINEER — plain Markdown copy of every post (/post/<slug>.md; share-row link, head alternate, /llms.txt) (Actions run 40445285703 green).
