@@ -60,7 +60,7 @@ Designer:
 
 Engineer:
 - [x] CI internal link check (done Oct 19, 6:35am PT — see below)
-- [ ] CI link check: consider `--strict` (blocks deploy) after a week of zero-warning runs
+- [x] CI link check: `--strict` (blocks deploy) — done Oct 27, 11:35am PT
 - [x] Related posts: exclude same-series posts (done Oct 19, 11:35am PT)
 
 General:
@@ -2904,3 +2904,19 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] If --bg/--code-bg change, re-check --scroll-thumb stays >= 3:1
 - 2026-10-27 10:35 PT — DESIGNER — warm theme-matched scrollbars on page, code blocks and wide tables (assets/css/style.css; all pages) (Actions run 40552283685 green).
+
+## Done (Oct 27, 2026, 11:35am PT)
+
+- Engineer shift (UTC 18): CI annotations showed 2 broken internal links on
+  /changelog/ — the 01:35 and 02:34 PT entries linked `/post/sf-ruby-2025/`
+  (the post's permalink is the long slug). Fixed in _data/changelog.yml
+  (run 40561462778 green, no broken-link annotations). They sat unnoticed for
+  ~10 hours because the internal check was warnings-only, so
+  `scripts/check_links.py _site --strict` now fails the build (no
+  continue-on-error). Outbound checks stay warnings-only. Run 40562292776 green.
+
+Engineer backlog additions:
+- [ ] A red "Check internal links" step means a page or #anchor link is wrong —
+      fix the link (or the changelog `link:`), never drop `--strict`
+- [ ] Changelog `link:` must be a real permalink (post front matter `permalink:`), not the file name
+- 2026-10-27 11:35 PT — ENGINEER — fixed two broken changelog links to the SF Ruby post (/changelog/); broken internal links now fail CI (.github/workflows/jekyll.yml) (Actions runs 40561462778, 40562292776 green).
