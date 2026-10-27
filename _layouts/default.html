@@ -36,6 +36,10 @@
   {%- endfor %}{% elsif page.url == '/changelog/' %}
   <link rel="alternate" type="application/atom+xml" title="Changelog" href="{{ '/feed/changelog.xml' | relative_url }}">
   {%- endif %}
+  {%- comment %} Topic feeds (_plugins/topic_feeds.rb): a post advertises the feeds of its own tags, /blog/ all of them, so feed readers offer "follow this topic". {% endcomment %}
+  {%- if page.collection == "posts" or page.url == '/blog/' %}{% assign topic_feeds = site.pages | where: "layout", "topic-feed" | sort: "tag" %}{% for tf in topic_feeds %}{% if page.url == '/blog/' or page.tags contains tf.tag %}
+  <link rel="alternate" type="application/atom+xml" title="{{ tf.tag | escape }} topic" href="{{ tf.url | relative_url }}">
+  {%- endif %}{% endfor %}{% endif %}
   {% seo %}
   {% include og-image-meta.html %}
   {%- if page.noindex %}

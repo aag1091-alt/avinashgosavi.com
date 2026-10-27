@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
+  desk: Engineering
+  text: Paste a post's address (or the Writing page's) into a feed reader and it now offers to follow just that topic — Agent memory, Privacy, Research and the rest — not only the whole blog.
+  link: /blog/
+- date: 2026-10-27
   desk: Design
   text: Paragraphs on About, Now, Research, Uses, Achievements and Experience now wrap like post text does — no single word stranded on the last line.
   link: /about/
