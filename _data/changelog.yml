@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
+  desk: Writing
+  text: The search page, browser search shortcut and llms.txt now say that recommended talks are searchable too, matching what search actually covers.
+  link: /search/
+- date: 2026-10-27
   desk: Engineering
   text: Site search now finds each recommended talk by title, speaker or topic (try "Valim" or "ZJIT") and jumps straight to it on the Talks page, with a new Talks filter.
   link: /search/?q=zjit

@@ -2,13 +2,13 @@
 layout: default
 title: Search
 permalink: /search/
-description: Search every post, page, project and paper on avinashgosavi.com.
+description: Search every post, page, project, paper, talk and event on avinashgosavi.com.
 sitemap: false
 ---
 
 <div class="search-page">
   <h1>Search</h1>
-  <p class="page-lede">Posts, projects, papers, events and pages — all in one place.</p>
+  <p class="page-lede">Posts, projects, papers, talks, events and pages — all in one place.</p>
 
   <form class="site-search-form" role="search" action="{{ '/search/' | relative_url }}" method="get">
     <label for="site-search" class="visually-hidden">Search the site</label>
