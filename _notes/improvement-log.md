@@ -2837,3 +2837,19 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] New pages using `<code>`: give the wrapper `prose-page` (or add the selector) so inline code gets the chip
 - 2026-10-27 05:36 PT — DESIGNER — inline code chip on prose pages (assets/css/style.css; /uses/) (Actions run 40505274184 green).
+
+## Done (Oct 27, 2026, 6:36am PT)
+
+- Engineer shift (UTC 13): achievements in site search. achievements.md rows
+  get `id="ach-<title|slugify>"` (10 titles, all unique); search.json adds an
+  `Achievement` entry per achievements.yml item (url /achievements/#ach-…,
+  date = year, tags = section + year, desc = detail); search.md TYPES/PLURAL
+  gain Achievement (chip "Achievements"). `.achievement:target` = accent bar
+  only (no tint), scroll-margin 5rem. Search copy updated in search.md lede +
+  description, llms.txt Search line, opensearch.xml Description.
+  Run 40513685233 green (all checks + deploy).
+
+Engineer backlog additions:
+- [ ] New achievements.yml items need unique titles (slug = anchor + search URL)
+- [ ] Experience roles (experience.yml) still not in search — candidate next
+- 2026-10-27 06:36 PT — ENGINEER — achievements searchable with deep links + "Achievements" filter chip (/search/, /achievements/, search.json) (Actions run 40513685233 green).
