@@ -1,6 +1,6 @@
 # Shown on /now and (first 4) on the homepage. Update `updated` when editing.
 # until: YYYY-MM-DD (optional) - the item disappears the day after (dated events).
-updated: 2026-10-26
+updated: 2026-10-27
 items:
   - label: Judging
     text: Judging student projects at HackUMass XIV (UMass Amherst) on Nov 15.

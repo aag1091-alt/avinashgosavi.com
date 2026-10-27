@@ -13,7 +13,7 @@ description: "Conference talks Avinash Gosavi recommends — engineering in the 
   <h2 class="paper-topic" id="{{ g.name | replace: '&', ' and ' | slugify }}">{{ g.name }}</h2>
   <ul class="paper-list">
     {% for t in g.items %}
-    <li class="paper">
+    <li class="paper" id="talk-{{ t.title | slugify }}">
       <a class="paper-title" href="{{ t.url }}" rel="noopener">{{ t.title }}</a>
       <div class="paper-meta">{{ t.speaker }} · {{ t.event }}</div>
       <p class="paper-why">{{ t.take }}</p>

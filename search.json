@@ -54,6 +54,17 @@ sitemap: false
     "text": ""
   },
 {%- endfor -%}
+{%- for tk in site.data.talks -%}
+  {
+    "type": "Talk",
+    "title": {{ tk.title | jsonify }},
+    "url": {{ tk.title | slugify | prepend: "/talks/#talk-" | relative_url | jsonify }},
+    "date": "",
+    "tags": {{ tk.speaker | append: " " | append: tk.event | append: " " | append: tk.topic | jsonify }},
+    "desc": {{ tk.speaker | append: " · " | append: tk.event | append: " — " | append: tk.take | normalize_whitespace | jsonify }},
+    "text": ""
+  },
+{%- endfor -%}
 {%- for ev in site.data.events -%}
   {%- assign ev_anchor = ev.name | slugify | prepend: "/events/#" -%}
   {

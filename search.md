@@ -39,8 +39,8 @@ sitemap: false
     sayTimer = setTimeout(function() { status.textContent = msg; }, 400);
   }
   var W = { title: 10, tags: 5, desc: 3, text: 1 };
-  var TYPES = ['Post', 'Project', 'Paper', 'Event', 'Page'];
-  var PLURAL = { Post: 'Posts', Project: 'Projects', Paper: 'Papers', Event: 'Events', Page: 'Pages' };
+  var TYPES = ['Post', 'Project', 'Paper', 'Talk', 'Event', 'Page'];
+  var PLURAL = { Post: 'Posts', Project: 'Projects', Paper: 'Papers', Talk: 'Talks', Event: 'Events', Page: 'Pages' };
   var params = new URLSearchParams(location.search);
   /* A ?q= link only shows results once search.json arrives — hold the space now so
      the footer doesn't jump up the screen and back (layout shift) when they land. */
