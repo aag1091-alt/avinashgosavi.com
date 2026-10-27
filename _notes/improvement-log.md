@@ -2972,3 +2972,17 @@ Engineer backlog additions:
   /post/ai-history-blog-generator/ (each post names that tool). Run
   40588156992 green.
 - 2026-10-27 14:35 PT — EDITOR — /uses AI-tooling list links faster-whisper, sentence-transformers and LangGraph to the posts that use them (/uses/) (Actions run 40588156992 green).
+
+## Done (Oct 27, 2026, 3:35pm PT)
+
+- Designer shift (UTC 22): `text-wrap: pretty` (typography-rhythm block near
+  the end of style.css) extended from post prose to page prose — .page-lede,
+  .hero-intro, .about-content p, .prose-page p/li, .interest-list li,
+  .now-list dd, .achievement-detail, .paper-tldr, .timeline-highlights li,
+  .experience-lede. Progressive enhancement; no color/size changes, so
+  contrast unchanged. Live site unreachable from sandbox (proxy 403), so no
+  screenshots; CI was the build check. Run 40596070835 green.
+
+Designer backlog additions:
+- [ ] New page paragraph classes: add them to the `text-wrap: pretty` list in style.css
+- 2026-10-27 15:35 PT — DESIGNER — orphan-free wrapping for page prose (assets/css/style.css; /about/, /now/, /research/, /uses/, /achievements/, /experience/) (Actions run 40596070835 green).
