@@ -37,6 +37,7 @@
   <link rel="alternate" type="application/atom+xml" title="Changelog" href="{{ '/feed/changelog.xml' | relative_url }}">
   {%- endif %}
   {% seo %}
+  {% include og-image-meta.html %}
   {%- if page.noindex %}
   <meta name="robots" content="noindex">
   {%- endif %}

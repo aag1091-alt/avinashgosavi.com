@@ -6,6 +6,7 @@ For every HTML page that search engines may index, check:
   - a meta description, not shared with another page
   - a <link rel="canonical">
   - exactly one <h1>
+  - share image (og:image) has og:image:alt and twitter:image:alt
 Long titles (> 70 chars, not counting the " | site" suffix) and descriptions (> 160 chars, where search results
 usually cut off) are reported as ::notice lines, not warnings.
 
@@ -63,6 +64,12 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
     if n != 1:
         problems += 1
         warn(rel, f"expected exactly one <h1>, found {n}")
+    # Share image needs alt text (og:image:alt / twitter:image:alt); see _includes/og-image-meta.html.
+    if re.search(r'<meta\s+property="og:image"', head, re.I):
+        for tag in ('property="og:image:alt"', 'name="twitter:image:alt"'):
+            if not re.search(r'<meta\s+' + re.escape(tag) + r'\s+content="[^"]+"', head, re.I):
+                problems += 1
+                warn(rel, f"og:image has no alt text ({tag.split('=')[1]} missing) - set image_alt in front matter")
 
 for kind, seen in (("title", titles), ("meta description", descs)):
     for value, where in seen.items():

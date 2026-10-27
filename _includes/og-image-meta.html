@@ -1,0 +1,28 @@
+{%- comment -%}
+  Alt text (and size, for generated cards) for the share-preview image that
+  jekyll-seo-tag puts in og:image / twitter:image. Screen-reader users on
+  social sites hear this instead of "image".
+  Cards from scripts/og_cards.py are 1200x630 and show the page title.
+  Photos: set `image_alt:` in front matter; the site default is the about photo.
+{%- endcomment -%}
+{%- assign og_img = page.image | default: site.logo -%}
+{%- if og_img -%}
+  {%- if page.image_alt -%}
+    {%- assign og_alt = page.image_alt -%}
+  {%- elsif og_img contains '/assets/og/' -%}
+    {%- assign og_alt = page.title | default: site.title | append: ' — share card from avinashgosavi.com' -%}
+  {%- elsif og_img == '/assets/images/about.jpg' -%}
+    {%- assign og_alt = 'Photo of ' | append: site.author.name -%}
+  {%- else -%}
+    {%- assign og_alt = '' -%}
+  {%- endif %}
+  {%- if og_img contains '/assets/og/' %}
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  {%- endif %}
+  {%- if og_alt != '' %}
+  <meta property="og:image:alt" content="{{ og_alt | strip_html | escape }}">
+  <meta name="twitter:image:alt" content="{{ og_alt | strip_html | escape }}">
+  {%- endif %}
+{%- endif -%}

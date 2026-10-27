@@ -5,6 +5,7 @@ permalink: /post/building-rena-ai-health-companion-gemini-live/
 read_time: 10
 tags: ["Agents", "Voice AI"]
 image: /assets/images/rena-home.jpeg
+image_alt: "Home screen of the Rena app on a phone"
 description: "How I built Rena for the Gemini Live Agent Challenge 2026 — a voice-first health companion using Gemini Live, Veo 2 and Google ADK."
 ---
 
