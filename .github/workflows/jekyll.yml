@@ -54,6 +54,11 @@ jobs:
           python3 -c "import glob,json,xml.etree.ElementTree as E; A='{http://www.w3.org/2005/Atom}'; bodies=[(f+' '+(e.findtext(A+'id') or ''), e.findtext(A+'content') or '') for f in ['_site/feed.xml']+sorted(glob.glob('_site/feed/*.xml')) for e in E.parse(f).getroot().iter(A+'entry')]; bodies+=[('feed.json '+i['url'], i['content_html']) for i in json.load(open('_site/feed.json'))['items']]; bodies.append(('llms-full.txt', open('_site/llms-full.txt').read())); bad=[n for n,b in bodies if '<svg' in b or 'dg-box' in b]; [print('::warning::raw diagram SVG in', n) for n in bad]; print(len(bodies), 'bodies checked,', sum(b.count('Diagram: ') for n,b in bodies), 'diagrams as text,', len(bad), 'with raw SVG')"
         continue-on-error: true
 
+      - name: Post Markdown copies exist and are clean (warnings only, never blocks deploy)
+        run: |
+          python3 -c "import glob,os; ps=sorted(glob.glob('_site/post/*/index.html')); bad=[]; [bad.append(p+' missing') for p in ps if not os.path.isfile(os.path.dirname(p)+'.md')]; ms=sorted(glob.glob('_site/post/*.md')); [bad.append(m+' has '+k) for m in ms for k in ('{%','{{','<svg','](/') if k in open(m).read()]; [print('::warning::Markdown copy', b) for b in bad]; print(open('_site/post/attractor-memory-engine.md').read()[:1500]) if os.path.isfile('_site/post/attractor-memory-engine.md') else None; print(len(ps), 'posts,', len(ms), 'Markdown copies,', len(bad), 'problems')"
+        continue-on-error: true
+
       - name: Check web app manifest and its icons exist
         run: python3 -c "import json,os; m=json.load(open('_site/site.webmanifest')); [print(i['src'], i['sizes']) or os.stat('_site'+i['src']) for i in m['icons']]"
 

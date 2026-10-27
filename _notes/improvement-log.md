@@ -2674,3 +2674,27 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] If nested lists ever need more air, raise only the `li > ul/ol` top margin
 - 2026-10-26 19:35 PT — DESIGNER — nested lists in posts keep the sibling-item spacing (assets/css/style.css; /post/reviewing-ai-generated-tests-istqb-framework/) (Actions run 40439378809 green).
+
+## Done (Oct 26, 2026, 8:35pm PT)
+
+- Engineer shift (UTC 03): new `_plugins/post_markdown.rb` (`:site,
+  :post_write` hook) writes `/post/<slug>.md` for every post (llms.txt
+  convention): the post's own Markdown source with Liquid rendered via
+  `Jekyll::Renderer#render_liquid` (post_url, image paths, diagram includes),
+  `<figure class="diagram">` → blockquote "Diagram: title / desc / caption"
+  with a link to the post, whole-line kramdown IALs dropped, on-site
+  `](/`, `href/src="/` and srcset entries made absolute; header (title, by,
+  date, URL, topics, description) and an "Original post" footer. Errors only
+  warn. `markdown_url` filter. Linked from post `<head>` (rel=alternate
+  type=text/markdown), a "Markdown" link in the share row (posts only), and
+  /llms.txt (note + "[Markdown]" per post). Speculation rules exclude `/*.md`.
+  Run 40445285703 green, "PostMarkdown: wrote 29 Markdown copies", 0 HTML
+  errors, no internal-link warnings. Live site not fetchable from the
+  sandbox (proxy 403), so added a warning-only CI step that prints the
+  Attractor copy and flags missing copies or leftover `{%`/`{{`/`<svg`/`](/`.
+
+Engineer backlog additions:
+- [ ] Read the "Post Markdown copies" CI step output on the next run to
+      eyeball the converted text (first run printed nothing — step added after)
+- [ ] Inline kramdown IALs (`text{: .x}`) still show in the .md copies — none today
+- 2026-10-26 20:35 PT — ENGINEER — plain Markdown copy of every post (/post/<slug>.md; share-row link, head alternate, /llms.txt) (Actions run 40445285703 green).
