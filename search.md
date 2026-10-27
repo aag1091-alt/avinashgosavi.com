@@ -2,13 +2,13 @@
 layout: default
 title: Search
 permalink: /search/
-description: Search every post, page, project, paper, talk, event and achievement on avinashgosavi.com.
+description: Search every post, page, project, paper, talk, event, achievement and work role on avinashgosavi.com.
 sitemap: false
 ---
 
 <div class="search-page">
   <h1>Search</h1>
-  <p class="page-lede">Posts, projects, papers, talks, events, achievements and pages — all in one place.</p>
+  <p class="page-lede">Posts, projects, papers, talks, events, achievements, work roles and pages — all in one place.</p>
 
   <form class="site-search-form" role="search" action="{{ '/search/' | relative_url }}" method="get">
     <label for="site-search" class="visually-hidden">Search the site</label>
@@ -39,8 +39,8 @@ sitemap: false
     sayTimer = setTimeout(function() { status.textContent = msg; }, 400);
   }
   var W = { title: 10, tags: 5, desc: 3, text: 1 };
-  var TYPES = ['Post', 'Project', 'Paper', 'Talk', 'Event', 'Achievement', 'Page'];
-  var PLURAL = { Post: 'Posts', Project: 'Projects', Paper: 'Papers', Talk: 'Talks', Event: 'Events', Achievement: 'Achievements', Page: 'Pages' };
+  var TYPES = ['Post', 'Project', 'Paper', 'Talk', 'Event', 'Achievement', 'Role', 'Page'];
+  var PLURAL = { Post: 'Posts', Project: 'Projects', Paper: 'Papers', Talk: 'Talks', Event: 'Events', Achievement: 'Achievements', Role: 'Roles', Page: 'Pages' };
   var params = new URLSearchParams(location.search);
   /* A ?q= link only shows results once search.json arrives — hold the space now so
      the footer doesn't jump up the screen and back (layout shift) when they land. */

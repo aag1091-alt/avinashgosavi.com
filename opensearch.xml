@@ -6,7 +6,7 @@ sitemap: false
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>Avinash Gosavi</ShortName>
-  <Description>Search posts, projects, papers, talks, events, achievements and pages on avinashgosavi.com</Description>
+  <Description>Search posts, projects, papers, talks, events, achievements, work roles and pages on avinashgosavi.com</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">{{ '/favicon.ico' | absolute_url }}</Image>
   <Image width="192" height="192" type="image/png">{{ '/assets/icons/icon-192.png' | absolute_url }}</Image>

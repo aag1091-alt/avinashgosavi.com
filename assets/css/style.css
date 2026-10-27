@@ -1954,6 +1954,12 @@ h2.has-anchor:target {
   box-shadow: inset 3px 0 0 var(--accent);
   padding-left: 0.85rem;
 }
+/* Experience roles (search results link /experience/#role-…): bar only, no tint */
+.timeline-role[id] { scroll-margin-top: 5rem; }
+.timeline-role:target {
+  box-shadow: inset 3px 0 0 var(--accent);
+  padding-left: 0.85rem;
+}
 .paper:target {
   box-shadow: inset 3px 0 0 var(--accent);
   padding-left: 0.85rem;
@@ -2161,6 +2167,8 @@ h1, h2, h3, .post-title, .hero-title, .paper-title, .tldr-title,
   .event-row:target,
   .post-content .glossary-term:target,
   .paper:target,
+  .achievement:target,
+  .timeline-role:target,
   .project-card:target,
   .post-content :is(h2, h3)[id]:target,
   h2.has-anchor:target { outline: 2px solid Highlight; outline-offset: 2px; }

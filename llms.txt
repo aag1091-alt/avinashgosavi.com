@@ -41,7 +41,7 @@ Every post is also available as plain Markdown: add `.md` to its URL in place of
 - [Upcoming events calendar]({{ "/events.ics" | absolute_url }}): iCalendar feed of upcoming events (subscribe in any calendar app)
 - [Uses]({{ "/uses/" | absolute_url }}): hardware, home inference server, tools and hosting stack
 - [Now]({{ "/now/" | absolute_url }}): current focus
-- [Search]({{ "/search/" | absolute_url }}): search posts, projects, papers, recommended talks, events, achievements and pages (?q=…)
+- [Search]({{ "/search/" | absolute_url }}): search posts, projects, papers, recommended talks, events, achievements, work roles and pages (?q=…)
 - [Search index]({{ "/search.json" | absolute_url }}): JSON list of every post (with text), page, project, paper, recommended talk and event
 - [OpenSearch description]({{ "/opensearch.xml" | absolute_url }}): search the site from a browser address bar (/search/?q=…)
 - [Changelog]({{ "/changelog/" | absolute_url }}): what changed on the site recently

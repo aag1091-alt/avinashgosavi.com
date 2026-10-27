@@ -18,7 +18,8 @@ permalink: /experience/
       </header>
       <p class="timeline-location">{{ job.location }}</p>
       {% for role in job.roles %}
-      <div class="timeline-role">
+      {%- capture role_key %}{{ job.company }} {{ role.title }}{% endcapture %}
+      <div class="timeline-role" id="role-{{ role_key | replace: '&', ' and ' | slugify }}">
         <h3 class="timeline-role-title">{{ role.title }}</h3>
         {% if role.highlights %}
         <ul class="timeline-highlights">

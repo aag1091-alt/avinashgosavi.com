@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
   desk: Engineering
+  text: Site search now covers work history — each role on the Experience page is a result that jumps straight to it, with a new "Roles" filter chip.
+  link: /search/?q=Kafka&type=Role
+- date: 2026-10-27
+  desk: Engineering
   text: Site search now finds achievements too — each result jumps straight to its row on the Achievements page, with a new "Achievements" filter chip.
   link: /search/?q=VaultMem&type=Achievement
 - date: 2026-10-27

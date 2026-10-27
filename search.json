@@ -78,6 +78,20 @@ sitemap: false
   },
 {%- endfor -%}
 {%- endfor -%}
+{%- for job in site.data.experience -%}
+{%- for role in job.roles -%}
+  {%- capture role_key %}{{ job.company }} {{ role.title }}{% endcapture %}
+  {
+    "type": "Role",
+    "title": {{ role.title | append: " — " | append: job.company | jsonify }},
+    "url": {{ role_key | replace: "&", " and " | slugify | prepend: "/experience/#role-" | relative_url | jsonify }},
+    "date": {{ role.period | default: job.span | jsonify }},
+    "tags": {{ job.tags | join: " " | append: " " | append: job.company | append: " " | append: job.location | jsonify }},
+    "desc": {{ job.company | append: " · " | append: job.location | append: " · " | append: role.period | jsonify }},
+    "text": {{ role.highlights | join: " " | normalize_whitespace | jsonify }}
+  },
+{%- endfor -%}
+{%- endfor -%}
 {%- for ev in site.data.events -%}
   {%- assign ev_anchor = ev.name | slugify | prepend: "/events/#" -%}
   {
