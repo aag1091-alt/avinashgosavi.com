@@ -73,9 +73,10 @@ jobs:
       - name: Check stylesheet URL carries a content-hash version
         run: python3 -c "import re,hashlib; h=open('_site/index.html').read(); m=re.search(r'/assets/css/style\.css\?v=([0-9a-f]{10})\"', h); assert m, 'style.css link has no ?v= hash'; d=hashlib.md5(open('_site/assets/css/style.css','rb').read()).hexdigest()[:10]; assert m.group(1)==d, (m.group(1), d); print('style.css?v='+d)"
 
-      - name: Check internal links (warnings only, never blocks deploy)
-        run: python3 scripts/check_links.py _site
-        continue-on-error: true
+      # Internal links are deterministic (no network), so a broken one fails
+      # the build instead of shipping. Outbound links below stay warnings-only.
+      - name: Check internal links (blocks deploy on a broken page or #anchor)
+        run: python3 scripts/check_links.py _site --strict
 
       - name: Check outbound links — flags only 404/410 and dead hosts (warnings only, never blocks deploy)
         run: python3 scripts/check_external.py _site --budget 150
