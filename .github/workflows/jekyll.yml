@@ -44,14 +44,14 @@ jobs:
           python3 -c "import json,collections,os; d=json.load(open('_site/search.json')); print(len(d), 'entries', dict(collections.Counter(x['type'] for x in d)), os.path.getsize('_site/search.json')//1024, 'KB'); [print('::notice::search index cuts off', x['url'], 'at 30,000 chars - later text is not searchable') for x in d if x['type'] == 'Post' and len(x['text']) >= 29990]"
 
       - name: Check feeds are well-formed Atom
-        run: python3 -c "import glob,xml.etree.ElementTree as E; fs=['_site/feed.xml']+sorted(glob.glob('_site/feed/*.xml')); [print(f, len(E.parse(f).getroot().findall('{http://www.w3.org/2005/Atom}entry')), 'entries') for f in fs]"
+        run: python3 -c "import glob,xml.etree.ElementTree as E; fs=['_site/feed.xml']+sorted(glob.glob('_site/feed/**/*.xml', recursive=True)); [print(f, len(E.parse(f).getroot().findall('{http://www.w3.org/2005/Atom}entry')), 'entries') for f in fs]"
 
       - name: Check JSON Feed is valid with absolute links
         run: python3 -c "import json; f=json.load(open('_site/feed.json')); assert f['version'].endswith('/1.1'); it=f['items']; assert it and all(i['id'] and i['url'].startswith('https://') and i['content_html'] for i in it); bad=[i['url'] for i in it if 'href=\"/' in i['content_html'] or 'src=\"/' in i['content_html']]; assert not bad, bad; print(len(it), 'items')"
 
       - name: Feeds and llms-full.txt carry diagram text, not raw SVG (warnings only, never blocks deploy)
         run: |
-          python3 -c "import glob,json,xml.etree.ElementTree as E; A='{http://www.w3.org/2005/Atom}'; bodies=[(f+' '+(e.findtext(A+'id') or ''), e.findtext(A+'content') or '') for f in ['_site/feed.xml']+sorted(glob.glob('_site/feed/*.xml')) for e in E.parse(f).getroot().iter(A+'entry')]; bodies+=[('feed.json '+i['url'], i['content_html']) for i in json.load(open('_site/feed.json'))['items']]; bodies.append(('llms-full.txt', open('_site/llms-full.txt').read())); bad=[n for n,b in bodies if '<svg' in b or 'dg-box' in b]; [print('::warning::raw diagram SVG in', n) for n in bad]; print(len(bodies), 'bodies checked,', sum(b.count('Diagram: ') for n,b in bodies), 'diagrams as text,', len(bad), 'with raw SVG')"
+          python3 -c "import glob,json,xml.etree.ElementTree as E; A='{http://www.w3.org/2005/Atom}'; bodies=[(f+' '+(e.findtext(A+'id') or ''), e.findtext(A+'content') or '') for f in ['_site/feed.xml']+sorted(glob.glob('_site/feed/**/*.xml', recursive=True)) for e in E.parse(f).getroot().iter(A+'entry')]; bodies+=[('feed.json '+i['url'], i['content_html']) for i in json.load(open('_site/feed.json'))['items']]; bodies.append(('llms-full.txt', open('_site/llms-full.txt').read())); bad=[n for n,b in bodies if '<svg' in b or 'dg-box' in b]; [print('::warning::raw diagram SVG in', n) for n in bad]; print(len(bodies), 'bodies checked,', sum(b.count('Diagram: ') for n,b in bodies), 'diagrams as text,', len(bad), 'with raw SVG')"
         continue-on-error: true
 
       - name: Post Markdown copies exist and are clean (warnings only, never blocks deploy)

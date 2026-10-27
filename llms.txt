@@ -49,4 +49,5 @@ Every post is also available as plain Markdown: add `.md` to its URL in place of
 - [JSON Feed]({{ "/feed.json" | absolute_url }}): the same latest posts as JSON Feed 1.1, with full text
 - [Changelog feed]({{ "/feed/changelog.xml" | absolute_url }}): Atom feed of site changes (latest 50)
 {% for s in site.data.series %}- [{{ s.title }} series feed]({{ "/feed/" | append: s.slug | append: ".xml" | absolute_url }}): Atom feed of just this series
-{% endfor %}
+{% endfor %}{% for p in site.pages %}{% if p.layout == "topic-feed" %}- [{{ p.tag }} topic feed]({{ p.url | absolute_url }}): Atom feed of posts tagged "{{ p.tag }}"
+{% endif %}{% endfor %}
