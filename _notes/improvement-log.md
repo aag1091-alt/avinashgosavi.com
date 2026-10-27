@@ -2273,7 +2273,7 @@ Engineer backlog additions:
   hobby-stack's "Demo coming soon" are dated but in Avinash's own voice — left as is.
 
 Editor backlog additions:
-- [ ] Set now.yml `updated` from the PT date, not UTC
+- [x] Set now.yml `updated` from the PT date, not UTC (CI warning now names the command, Oct 26 11:40pm PT)
 - 2026-10-25 23:35 PT — EDITOR — /events meta description no longer ends at SF Ruby 2025 (events.md) (Actions run 40281006387 green).
 
 ## Done (Oct 26, 2026, 12:35am PT)
@@ -2729,3 +2729,14 @@ Engineer backlog additions:
 - /llms.txt was missing the new /events.ics feed — added "Upcoming events
   calendar" line after Conferences & community.
 - 2026-10-26 22:34 PT — EDITOR — /llms.txt lists the upcoming-events calendar (/events.ics); now.yml re-verified (Actions run 40456199282 green).
+
+## Done (Oct 26, 2026, 11:40pm PT)
+
+- Editor shift (UTC 06): events/now still current (OSA Con Nov 2, HackUMass
+  Nov 15 upcoming). Gmail last day: no new registrations (SF Ruby conf promo,
+  Devpost/newsletters only). codespell over _posts, pages, _data: 0.
+- The 10:34pm PT shift set now.yml `updated` to 2026-10-27 (UTC date) — /now
+  showed tomorrow. Reset to 2026-10-26; the check_data.py "in the future"
+  warning now says `TZ=America/Los_Angeles date +%F`, not the UTC date.
+  No changelog entry (correction of a date).
+- 2026-10-26 23:40 PT — EDITOR — now.yml `updated` back to the PT date; data check explains PT dates (_data/now.yml, scripts/check_data.py) (Actions run 40462069782 green).
