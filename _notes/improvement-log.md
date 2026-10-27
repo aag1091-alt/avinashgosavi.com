@@ -2740,3 +2740,18 @@ Engineer backlog additions:
   warning now says `TZ=America/Los_Angeles date +%F`, not the UTC date.
   No changelog entry (correction of a date).
 - 2026-10-26 23:40 PT — EDITOR — now.yml `updated` back to the PT date; data check explains PT dates (_data/now.yml, scripts/check_data.py) (Actions run 40462069782 green).
+
+## Done (Oct 27, 2026, 12:35am PT)
+
+- Designer shift (UTC 07): `.post-content code` gets
+  `box-decoration-break: clone` (+ -webkit-). Long inline code
+  (`http://daylog-vault-service.internal:8000` in hobby-project-stack,
+  `sentence-transformers/all-MiniLM-L6-v2` in daylog-security-architecture)
+  wraps at 375px; each wrapped piece now has its own padding and rounded ends
+  instead of a chip sliced open at the line edge. `pre code` unaffected
+  (no padding/background). Playwright mock at 375px sepia + dark:
+  scrollWidth 375, no overflow (no local Jekyll — rubygems 403).
+
+Designer backlog additions:
+- [ ] Inline code outside posts (uses.md) has no chip style — check whether it should match posts
+- 2026-10-27 00:35 PT — DESIGNER — wrapped inline code in posts keeps rounded, padded ends on each line (assets/css/style.css; /post/hobby-project-stack/, /post/daylog-security-architecture/) (Actions run 40468233919 green).
