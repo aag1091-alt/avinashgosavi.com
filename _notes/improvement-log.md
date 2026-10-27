@@ -2719,3 +2719,13 @@ Engineer backlog additions:
 - [ ] JetBrains Mono has no metric fallback — code blocks scroll rather than
       wrap, so a swap barely shifts layout; leave unless CLS shows up there
 - 2026-10-26 21:35 PT — ENGINEER — metric-matched DM Sans fallback font so text doesn't reflow when the webfont loads (assets/css/style.css, site-wide) (Actions run 40450768426 green).
+
+## Done (Oct 26, 2026, 10:34pm PT)
+
+- Editor shift (UTC 05): events/now still current (OSA Con Nov 2, HackUMass
+  Nov 15 upcoming; Cal Hacks already past). Gmail last 2 days: no new event
+  registrations (HackUMass team update, promos only). now.yml `updated` →
+  2026-10-27 (all items still valid).
+- /llms.txt was missing the new /events.ics feed — added "Upcoming events
+  calendar" line after Conferences & community.
+- 2026-10-26 22:34 PT — EDITOR — /llms.txt lists the upcoming-events calendar (/events.ics); now.yml re-verified (Actions run 40456199282 green).
