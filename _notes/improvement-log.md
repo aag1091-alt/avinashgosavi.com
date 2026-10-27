@@ -2617,3 +2617,22 @@ Engineer backlog additions:
 - [ ] If images ever get replaced in place under the same filename, offline
       visitors see the old one once (refreshed in the background) — fine
 - 2026-10-26 16:35 PT — ENGINEER — offline-saved pages keep their photos and diagrams (sw.js images-v1 cache) (Actions run 40421061246 green).
+
+## Done (Oct 26, 2026, 5:35pm PT)
+
+- Editor slot (UTC 00) → Designer: events/now still current (OSA Con Nov 2,
+  HackUMass Nov 15 upcoming; Gmail last 4 days: no new registrations);
+  codespell 0; llms.txt in step. Only CI warnings are the known dead Rena demo
+  + daylog repo links (still waiting on Avinash).
+- New `_includes/diagrams/six-papers-map.html` on
+  /post/paper-tldr-six-papers-on-memory/ (after the intro): six paper boxes →
+  Attractor / daylog / VaultMem. Edges only where the post's "What I took from
+  it" says so (Hopfield, Modern Hopfield, CLS → Attractor; Sentence-BERT → all
+  three; LoCoMo, Memory as Asset → VaultMem). Existing dg-* classes only.
+  Playwright at 375px sepia + dark: no text overflow, no sideways scroll.
+  Run 40427863415 green.
+- Posts still without a diagram: sf-ruby-2025, agent-memory-glossary,
+  i-fell-in-love-with-coding-again — leave them (no flow described).
+- Stale backlog items re-checked and already done: theme-color/color-scheme
+  (~297), theme flash (~330), search anchors (~176).
+- 2026-10-26 17:35 PT — EDITOR→DESIGNER — paper-to-project map diagram (/post/paper-tldr-six-papers-on-memory/) (Actions run 40427863415 green).
