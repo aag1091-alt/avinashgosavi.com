@@ -2772,3 +2772,21 @@ Engineer backlog additions:
 - [ ] If Avinash doesn't want edit PRs from strangers, drop the include line in post.html (one line) — or keep only the history link
 - [ ] If the repo is renamed or goes private, update the `repo` URL in suggest-edit.html and SKIP_PREFIXES in check_external.py
 - 2026-10-27 01:35 PT — ENGINEER — "Suggest an edit on GitHub" + post history links at the end of every post (_layouts/post.html, _includes/suggest-edit.html; e.g. /post/sf-ruby-2025/) (Actions run 40474835069 green).
+
+## Done (Oct 27, 2026, 2:34am PT)
+
+- Engineer shift (UTC 09): new `_includes/og-image-meta.html`, included right
+  after `{% seo %}` in `_layouts/default.html`. Every page now has
+  `og:image:alt` + `twitter:image:alt` (jekyll-seo-tag emits neither):
+  generated cards (/assets/og/) → "<page title> — share card from
+  avinashgosavi.com" plus og:image:width 1200 / height 630 / type image/png;
+  site default about.jpg → "Photo of Avinash Gosavi"; photo share images use
+  new `image_alt:` front matter (sf-ruby-2025: photo-booth description from
+  looking at sf-ruby-1.jpg, no other names; rena post: "Home screen of the
+  Rena app on a phone"). `scripts/check_seo.py` warns when a page with
+  og:image lacks either alt tag. Run 40482046120 green; build annotations show
+  0 og:image alt warnings (only the known long-title notice + 2 dead links).
+
+Engineer backlog additions:
+- [ ] Any post with a photo `image:` (not /assets/og/) needs `image_alt:` in front matter — CI SEO lint warns otherwise
+- 2026-10-27 02:34 PT — ENGINEER — share-preview images get alt text + card dimensions on every page (_includes/og-image-meta.html, _layouts/default.html; e.g. /post/sf-ruby-2025/) (Actions run 40482046120 green).
