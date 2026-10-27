@@ -2890,3 +2890,17 @@ Engineer backlog additions:
   line now lists achievements and work roles (added to search.json today).
   Run 40542472881 green.
 - 2026-10-27 09:35 PT — EDITOR — llms.txt search-index description lists achievements and work roles (/llms.txt) (Actions run 40542472881 green).
+
+## Done (Oct 27, 2026, 10:35am PT)
+
+- Designer shift (UTC 17): theme-matched scrollbars. `scrollbar-color:
+  var(--scroll-thumb) transparent` on body.theme-sepia / body.theme-dark
+  (inherits to pre, .table-scroll, etc.) and on `html:has(> body.theme-…)`
+  for the page scrollbar (theme class lives on body). Thumb sepia #8c8069
+  (3.39:1 on --bg, 3.06:1 on --code-bg), dark #81776a (3.42 / 3.08:1).
+  Forced-colors resets to `auto`. Playwright mock at 375px: computed values
+  correct in both themes, no overflow. Run 40552283685 green.
+
+Designer backlog additions:
+- [ ] If --bg/--code-bg change, re-check --scroll-thumb stays >= 3:1
+- 2026-10-27 10:35 PT — DESIGNER — warm theme-matched scrollbars on page, code blocks and wide tables (assets/css/style.css; all pages) (Actions run 40552283685 green).
