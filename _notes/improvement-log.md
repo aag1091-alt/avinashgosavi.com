@@ -2753,7 +2753,7 @@ Engineer backlog additions:
   scrollWidth 375, no overflow (no local Jekyll — rubygems 403).
 
 Designer backlog additions:
-- [ ] Inline code outside posts (uses.md) has no chip style — check whether it should match posts
+- [x] Inline code outside posts (uses.md) has no chip style (done Oct 27, 5:36am PT)
 - 2026-10-27 00:35 PT — DESIGNER — wrapped inline code in posts keeps rounded, padded ends on each line (assets/css/style.css; /post/hobby-project-stack/, /post/daylog-security-architecture/) (Actions run 40468233919 green).
 
 ## Done (Oct 27, 2026, 1:35am PT)
@@ -2823,3 +2823,17 @@ Engineer backlog additions:
   blocked by this sandbox's proxy (403/000), so nothing was changed.
   Run 40497348074 green.
 - 2026-10-27 04:34 PT — EDITOR — search copy mentions recommended talks (/search/, /blog/, /llms.txt, /opensearch.xml) (Actions run 40497348074 green).
+
+## Done (Oct 27, 2026, 5:36am PT)
+
+- Designer shift (UTC 12): `.prose-page code` joins `.post-content code`
+  (JetBrains Mono chip on --code-bg, clone decoration) and `.prose-page pre
+  code` joins the pre reset. Only inline code outside posts today is
+  `qwen2.5:14b` on /uses/ (was browser-default monospace, no chip). Data
+  files render no inline code. Playwright mock at 375px: no overflow.
+- Diagram coverage: every post except sf-ruby-2025, i-fell-in-love-with-coding-again
+  and the glossary now has one — those three don't need one.
+
+Designer backlog additions:
+- [ ] New pages using `<code>`: give the wrapper `prose-page` (or add the selector) so inline code gets the chip
+- 2026-10-27 05:36 PT — DESIGNER — inline code chip on prose pages (assets/css/style.css; /uses/) (Actions run 40505274184 green).
