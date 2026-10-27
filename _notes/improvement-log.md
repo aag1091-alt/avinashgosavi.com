@@ -2940,3 +2940,24 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] If sepia/dark --text-muted/--border/--accent change, re-check the prefers-contrast: more overrides still beat them
 - 2026-10-27 12:35 PT — ENGINEER — increase-contrast mode: firmer muted text, borders and link underlines in sepia + dark (assets/css/style.css; all pages) (Actions run 40571011768 green).
+
+## Done (Oct 27, 2026, 1:35pm PT)
+
+- Editor shift (UTC 20) found nothing editorial: events.yml/now.yml current
+  (OSA Con Nov 2, HackUMass Nov 15 upcoming; Cal Hacks past), Gmail last 2
+  days: no new event registrations (HackUMass judge RSVP reminder only),
+  older posts already cross-linked via post_url. Took an Engineer task.
+- Per-topic Atom feeds: `_plugins/topic_feeds.rb` generates
+  `/feed/topic/<slug>.xml` (layout `_layouts/topic-feed.html`, newest 20,
+  full content with feed_diagrams, sitemap false) for every post tag with >= 2
+  posts (all posts, TL;DRs included) — today 7: agent-memory 18, research 13,
+  privacy 6, ai-tools 3, tutorials 3, agents 2, local-first 2. On /blog/,
+  chips whose tag has a feed carry `data-feed`; picking one turns the lede's
+  "Subscribe via RSS" into "Subscribe to “<topic>” via RSS" pointing at the
+  topic feed (All → /feed.xml). llms.txt lists the topic feeds; CI Atom
+  check now globs `_site/feed/**/*.xml` recursively. Local bundle install
+  blocked (rubygems 403), so CI was the build check. Run 40579926772 green.
+
+Engineer backlog additions:
+- [ ] Topic-feed threshold lives in two places: MIN_POSTS in _plugins/topic_feeds.rb and `feed_min` in blog.md — change both
+- 2026-10-27 13:35 PT — EDITOR→ENGINEER — per-topic RSS feeds (/feed/topic/<slug>.xml); /blog/ Subscribe link follows the active topic chip (Actions run 40579926772 green).
