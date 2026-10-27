@@ -13,7 +13,7 @@ description: Engineering impact, open-source work, community roles and education
     <h2 id="{{ group.section | replace: '&', ' and ' | slugify }}">{{ group.section }}</h2>
     <ul class="achievement-list">
       {% for a in group.items %}
-      <li class="achievement">
+      <li class="achievement" id="ach-{{ a.title | slugify }}">
         <div class="achievement-head">
           <span class="achievement-title">{{ a.title }}</span>
           {% if a.year %}<span class="achievement-year">{{ a.year }}</span>{% endif %}

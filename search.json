@@ -65,6 +65,19 @@ sitemap: false
     "text": ""
   },
 {%- endfor -%}
+{%- for group in site.data.achievements -%}
+{%- for ac in group.items -%}
+  {
+    "type": "Achievement",
+    "title": {{ ac.title | jsonify }},
+    "url": {{ ac.title | slugify | prepend: "/achievements/#ach-" | relative_url | jsonify }},
+    "date": {{ ac.year | default: "" | append: "" | jsonify }},
+    "tags": {{ group.section | append: " " | append: ac.year | jsonify }},
+    "desc": {{ ac.detail | default: "" | normalize_whitespace | jsonify }},
+    "text": ""
+  },
+{%- endfor -%}
+{%- endfor -%}
 {%- for ev in site.data.events -%}
   {%- assign ev_anchor = ev.name | slugify | prepend: "/events/#" -%}
   {
