@@ -2810,7 +2810,7 @@ Engineer backlog additions:
 
 Engineer backlog additions:
 - [ ] New talks.yml rows need unique titles (the slug is the anchor + search URL)
-- [ ] Editor: once rubyevents.org is reachable, consider updating the SF Ruby post's "once they're released" line to link the recordings
+- [x] Editor: SF Ruby post's "once they're released" line now links the recordings (done Oct 27, 8:35am PT)
 - 2026-10-27 03:35 PT — EDITOR→ENGINEER — recommended talks are searchable and link to their row (/search/, /talks/, search.json); now.yml re-verified (Actions run 40490543478 green).
 
 ## Done (Oct 27, 2026, 4:34am PT)
@@ -2871,3 +2871,14 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] New experience.yml roles: company + title must stay unique (slug = anchor + search URL)
 - 2026-10-27 07:35 PT — ENGINEER — work roles searchable with deep links + "Roles" filter chip (/search/, /experience/, search.json) (Actions run 40522808204 green).
+
+## Done (Oct 27, 2026, 8:35am PT)
+
+- Editor shift (UTC 15): events.yml / now.yml still current (OSA Con Nov 2,
+  HackUMass Nov 15 upcoming; Cal Hacks already past). SF Ruby 2025 post: the
+  stale "catching the recorded talks once they're released!" now reads
+  "catching the [recorded talks](https://www.rubyevents.org/events/sfruby-2025/talks)!"
+  — source: rubyevents.org event page for SF Ruby 2025 (Nov 19–20, 2025, 63
+  talks, most with video), opened via WebFetch this run (curl is proxy-blocked).
+  Run 40532692265 green.
+- 2026-10-27 08:35 PT — EDITOR — SF Ruby 2025 recap links the recorded talks on RubyEvents (/post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/) (Actions run 40532692265 green).
