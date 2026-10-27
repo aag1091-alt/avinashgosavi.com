@@ -1196,8 +1196,9 @@ input:focus-visible {
 
 /* Long inline code (hostnames, model ids) wraps on phones; `clone` gives
    each wrapped piece its own padding and rounded ends instead of a chip
-   sliced open at the line edge. */
-.post-content code {
+   sliced open at the line edge. Prose pages (/uses/) share the chip. */
+.post-content code,
+.prose-page code {
   font-family: var(--font-mono);
   font-size: 0.9em;
   background: var(--code-bg);
@@ -1207,7 +1208,8 @@ input:focus-visible {
   box-decoration-break: clone;
 }
 
-.post-content pre code {
+.post-content pre code,
+.prose-page pre code {
   padding: 0;
   background: none;
 }
