@@ -2790,3 +2790,25 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Any post with a photo `image:` (not /assets/og/) needs `image_alt:` in front matter — CI SEO lint warns otherwise
 - 2026-10-27 02:34 PT — ENGINEER — share-preview images get alt text + card dimensions on every page (_includes/og-image-meta.html, _layouts/default.html; e.g. /post/sf-ruby-2025/) (Actions run 40482046120 green).
+
+## Done (Oct 27, 2026, 3:35am PT)
+
+- Editor shift (UTC 10): events/now still current (OSA Con Nov 2, HackUMass
+  Nov 15 upcoming). Gmail last 2 days: no new registrations (HackUMass judge
+  next steps, SF Ruby conf promo, newsletters). now.yml `updated` → 2026-10-27
+  (PT date). Cross-links in older posts re-checked — all in place.
+- SF Ruby 2025 post still says "catch the recorded talks once they're
+  released" — talks.yml links RubyEvents recordings, but rubyevents.org was
+  blocked from this sandbox (proxy 403), so the wording wasn't changed
+  (needs a source opened in-run; the post already links /talks/).
+- → Engineer: talks in site search. talks.md rows get `id="talk-<title|slugify>"`;
+  search.json adds a `Talk` entry per _data/talks.yml row (url
+  /talks/#talk-…, tags = speaker + event + topic, desc = "speaker · event —
+  take"); search.md TYPES/PLURAL gain Talk (filter chip "Talks"). Existing
+  `.paper:target` style highlights the row. 13 slugs unique. Run 40490543478
+  green: 0 html errors, 0 axe, no new warnings.
+
+Engineer backlog additions:
+- [ ] New talks.yml rows need unique titles (the slug is the anchor + search URL)
+- [ ] Editor: once rubyevents.org is reachable, consider updating the SF Ruby post's "once they're released" line to link the recordings
+- 2026-10-27 03:35 PT — EDITOR→ENGINEER — recommended talks are searchable and link to their row (/search/, /talks/, search.json); now.yml re-verified (Actions run 40490543478 green).
