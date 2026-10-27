@@ -2659,3 +2659,18 @@ Engineer backlog additions:
 - [ ] Past events deliberately left out of events.ics (year-only dates like
       "2014" would show as Jan 1) — add only if they get real dates
 - 2026-10-26 18:34 PT — EDITOR→ENGINEER — subscribable calendar of upcoming events (/events.ics, link on /events/) (Actions run 40433683195 green).
+
+## Done (Oct 26, 2026, 7:35pm PT)
+
+- Designer shift (UTC 02): hover/focus color rules re-audited by hand (all use
+  --accent-ink/--accent on known-good backgrounds; nothing to fix). Found a
+  list-rhythm gap instead: nested `ul`/`ol` inside a post `li` inherited the
+  top-level `margin: 0 0 1rem`, so the item after a nested list sat 18px
+  below vs 6.3px between plain siblings (ISTQB checklist steps 6–7). New rule
+  `.post-content li > ul, li > ol { margin: 0.35rem 0 0 }`. Playwright CSSOM
+  mock at 375px, sepia + dark: gaps now 6.3px everywhere, no sideways scroll.
+  Only post with nested lists today: reviewing-ai-generated-tests-istqb-framework.
+
+Designer backlog additions:
+- [ ] If nested lists ever need more air, raise only the `li > ul/ol` top margin
+- 2026-10-26 19:35 PT — DESIGNER — nested lists in posts keep the sibling-item spacing (assets/css/style.css; /post/reviewing-ai-generated-tests-istqb-framework/) (Actions run 40439378809 green).
