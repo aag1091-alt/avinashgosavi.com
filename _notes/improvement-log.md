@@ -2961,3 +2961,14 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Topic-feed threshold lives in two places: MIN_POSTS in _plugins/topic_feeds.rb and `feed_min` in blog.md — change both
 - 2026-10-27 13:35 PT — EDITOR→ENGINEER — per-topic RSS feeds (/feed/topic/<slug>.xml); /blog/ Subscribe link follows the active topic chip (Actions run 40579926772 green).
+
+## Done (Oct 27, 2026, 2:35pm PT)
+
+- Editor shift (UTC 21): events.yml / now.yml still current (OSA Con Nov 2,
+  HackUMass Nov 15 upcoming); Gmail last day: no new registrations (HackUMass
+  judge RSVP reminder only). /uses "AI tooling" now cross-links existing
+  posts: faster-whisper → /post/live-audio-transcription-whisper/,
+  sentence-transformers → /post/paper-tldr-sentence-bert/, LangGraph →
+  /post/ai-history-blog-generator/ (each post names that tool). Run
+  40588156992 green.
+- 2026-10-27 14:35 PT — EDITOR — /uses AI-tooling list links faster-whisper, sentence-transformers and LangGraph to the posts that use them (/uses/) (Actions run 40588156992 green).
