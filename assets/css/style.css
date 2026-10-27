@@ -2144,6 +2144,26 @@ h1, h2, h3, .post-title, .hero-title, .paper-title, .tldr-title,
   color: var(--text);
 }
 
+/* Scrollbars (page, code blocks, wide tables) take a warm thumb from the
+   theme instead of the OS gray. Thumb is >= 3:1 on --bg and --code-bg in
+   both themes; the track stays transparent so it shows the surface behind.
+   The theme class is on <body>, so the page scrollbar is styled via :has()
+   on <html>; older browsers just keep their default scrollbar. */
+body.theme-sepia { --scroll-thumb: #8c8069; }
+body.theme-dark { --scroll-thumb: #81776a; }
+body.theme-sepia,
+body.theme-dark,
+html:has(> body.theme-sepia),
+html:has(> body.theme-dark) {
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+html:has(> body.theme-sepia) { --scroll-thumb: #8c8069; }
+html:has(> body.theme-dark) { --scroll-thumb: #81776a; }
+@media (forced-colors: active) {
+  body.theme-sepia, body.theme-dark,
+  html:has(> body.theme-sepia), html:has(> body.theme-dark) { scrollbar-color: auto; }
+}
+
 /* Windows High Contrast / forced colors: the OS replaces our palette, which
    drops backgrounds and box-shadows. Put back the cues that relied on them,
    using system colors so they follow the user's chosen contrast theme. */
