@@ -131,7 +131,7 @@ if not upd:
 elif (today - upd).days > NOW_STALE_DAYS:
     warn(NW, "`updated` is %s (%d days ago) - review the items" % (upd, (today - upd).days))
 elif upd > today:
-    warn(NW, "`updated` %s is in the future" % upd)
+    warn(NW, "`updated` %s is in the future (today is %s PT) - set it with `TZ=America/Los_Angeles date +%%F`, not the UTC date" % (upd, today))
 for it in now.get("items") or []:
     link = str(it.get("link") or "")
     if not it.get("label") or not it.get("text"):
