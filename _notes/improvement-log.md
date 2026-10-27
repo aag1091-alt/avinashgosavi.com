@@ -2698,3 +2698,24 @@ Engineer backlog additions:
       Attractor copy reads cleanly (header, absolute links)
 - [ ] Inline kramdown IALs (`text{: .x}`) still show in the .md copies — none today
 - 2026-10-26 20:35 PT — ENGINEER — plain Markdown copy of every post (/post/<slug>.md; share-row link, head alternate, /llms.txt) (Actions run 40445285703 green).
+
+## Done (Oct 26, 2026, 9:35pm PT)
+
+- Engineer shift (UTC 04): metric-matched fallback font. New
+  `"DM Sans Fallback"` @font-face pair in assets/css/style.css (before
+  `:root`) — local Arial / Liberation Sans / Arimo (regular 400, bold 700)
+  with size-adjust 103.5% / 101% (DM Sans ÷ Arial advance width over the
+  site's own post text, measured with canvas in Playwright: 400→1.035,
+  500→1.054, 600→1.001, 700→1.018) and ascent/descent overrides from DM Sans
+  hhea (992/−310 per 1000) ÷ size-adjust. `--font-sans` is now
+  `"DM Sans", "DM Sans Fallback", system-ui, sans-serif`. Playwright on
+  ~14k chars of post text in `.post-content`: height shift on swap 394px →
+  52px at 375px, 267px → 112px at 1024px (vs. the old system-ui stack in the
+  sandbox). Android has no Arial, so it still falls to system-ui (unchanged).
+
+Engineer backlog additions:
+- [ ] If a new DM Sans weight/axis is added, re-measure size-adjust (scratch
+      script: canvas measureText DM vs Liberation Sans over post text)
+- [ ] JetBrains Mono has no metric fallback — code blocks scroll rather than
+      wrap, so a swap barely shifts layout; leave unless CLS shows up there
+- 2026-10-26 21:35 PT — ENGINEER — metric-matched DM Sans fallback font so text doesn't reflow when the webfont loads (assets/css/style.css, site-wide) (Actions run 40450768426 green).
