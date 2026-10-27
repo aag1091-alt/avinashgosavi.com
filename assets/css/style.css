@@ -1489,6 +1489,8 @@ h1[tabindex="-1"]:focus { outline: none; }
 
 /* ---------- Events ---------- */
 .event-list { list-style: none; padding: 0; margin: 0 0 2.5rem; }
+.events-ics { margin: -1.75rem 0 2.5rem; font-size: 0.9rem; }
+.events-ics span { color: var(--text-muted); }
 .event-row {
   display: grid;
   grid-template-columns: 5.5rem 1fr;

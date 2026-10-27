@@ -29,6 +29,7 @@ leaves Upcoming on time even before an editor flips its status in events.yml.
   <ul class="event-list" id="upcoming-list">
     {% for e in upcoming %}{% include event-row.html e=e %}{% endfor %}
   </ul>
+  <p class="events-ics" id="events-ics"><a href="{{ '/events.ics' | relative_url }}" type="text/calendar">Add upcoming events to your calendar</a> <span>(.ics — subscribe to the link and new ones appear on their own)</span></p>
   {% endif %}
 
   <h2 id="past">Past</h2>
@@ -59,6 +60,8 @@ leaves Upcoming on time even before an editor flips its status in events.yml.
     up.hidden = true;
     var h = document.getElementById("upcoming");
     if (h) h.hidden = true;
+    var ics = document.getElementById("events-ics");
+    if (ics) ics.hidden = true;
   }
 })();
 </script>

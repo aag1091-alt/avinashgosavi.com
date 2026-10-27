@@ -1,0 +1,43 @@
+---
+layout: null
+permalink: /events.ics
+sitemap: false
+---
+{%- comment -%}
+Calendar feed of upcoming events from _data/events.yml (same "ended" cutoff as
+events.md). All-day VEVENTs; DTEND is exclusive, so it is the day after the last
+day. Text is escaped per RFC 5545 (\ ; , and newlines). _plugins/ics_crlf.rb
+turns the line endings into CRLF on write.
+{%- endcomment -%}
+{%- assign ev_cutoff = site.time | date: "%s" | minus: 86400 | date: "%Y-%m-%d" -%}
+{%- assign upcoming_all = site.data.events | where: "status", "upcoming" | sort: "date" -%}
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//avinashgosavi.com//Upcoming events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Avinash Gosavi — upcoming events
+X-WR-CALDESC:Conferences and hackathons from avinashgosavi.com/events
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+{%- for e in upcoming_all -%}
+{%- assign e_end = e.end_date | default: e.date | date: "%Y-%m-%d" -%}
+{%- if e_end >= ev_cutoff -%}
+{%- assign slug = e.name | slugify -%}
+{%- assign e_endx = e.end_date | default: e.date | date: "%s" | plus: 86400 | date: "%Y%m%d" -%}
+{%- assign summary = e.name | replace: "\", "\\" | replace: ";", "\;" | replace: ",", "\," %}
+BEGIN:VEVENT
+UID:{{ slug }}@avinashgosavi.com
+DTSTAMP:{{ site.time | date: "%s" | date: "%Y%m%dT%H%M%SZ" }}
+DTSTART;VALUE=DATE:{{ e.date | date: "%Y%m%d" }}
+DTEND;VALUE=DATE:{{ e_endx }}
+SUMMARY:{{ summary }}{% if e.role != "attended" %} ({{ e.role | capitalize }}){% endif %}
+{%- if e.location %}
+LOCATION:{{ e.location | replace: "\", "\\" | replace: ";", "\;" | replace: ",", "\," }}
+{%- endif %}
+URL:{{ '/events/' | absolute_url }}#{{ slug }}
+TRANSP:TRANSPARENT
+END:VEVENT
+{%- endif -%}
+{%- endfor %}
+END:VCALENDAR
