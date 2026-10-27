@@ -38,6 +38,7 @@ Every post is also available as plain Markdown: add `.md` to its URL in place of
 - [Experience]({{ "/experience/" | absolute_url }}): work history
 - [Talks worth watching]({{ "/talks/" | absolute_url }}): recommended conference talks with one-line reasons
 - [Conferences & community]({{ "/events/" | absolute_url }}): events attended, hacked at, judged or mentored
+- [Upcoming events calendar]({{ "/events.ics" | absolute_url }}): iCalendar feed of upcoming events (subscribe in any calendar app)
 - [Uses]({{ "/uses/" | absolute_url }}): hardware, home inference server, tools and hosting stack
 - [Now]({{ "/now/" | absolute_url }}): current focus
 - [Search]({{ "/search/" | absolute_url }}): search posts, projects, papers, events and pages (?q=…)

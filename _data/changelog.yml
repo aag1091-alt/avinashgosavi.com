@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Writing
+  text: The site guide for AI assistants (llms.txt) now lists the upcoming-events calendar feed alongside the other pages and feeds.
+  link: /llms.txt
+- date: 2026-10-26
   desk: Engineering
   text: Pages no longer jump when the site font finishes loading — the stand-in font shown for that first moment is now sized to match it, so text wraps the same before and after.
   link: /blog/
