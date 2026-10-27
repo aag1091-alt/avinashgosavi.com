@@ -2755,3 +2755,20 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] Inline code outside posts (uses.md) has no chip style — check whether it should match posts
 - 2026-10-27 00:35 PT — DESIGNER — wrapped inline code in posts keeps rounded, padded ends on each line (assets/css/style.css; /post/hobby-project-stack/, /post/daylog-security-architecture/) (Actions run 40468233919 green).
+
+## Done (Oct 27, 2026, 1:35am PT)
+
+- Engineer shift (UTC 08): new `_includes/suggest-edit.html`, included in
+  `_layouts/post.html` right after Share: "Spotted a typo or a broken link?
+  Suggest an edit on GitHub · See this post's history" — links built from
+  `page.path` (`/edit/main/_posts/…md`, `/commits/main/_posts/…md`; repo is
+  public). Muted 0.85rem line, accent-ink links; hidden in print.
+  `scripts/check_external.py` skips those two URL prefixes (SKIP_PREFIXES) so
+  ~58 new URLs don't eat the 150s budget (/edit/ needs a login anyway).
+  Run 40474835069 green: 0 html errors, 0 axe, external links unchanged
+  (89 URLs, same 2 known dead). Live site not reachable from this sandbox.
+
+Engineer backlog additions:
+- [ ] If Avinash doesn't want edit PRs from strangers, drop the include line in post.html (one line) — or keep only the history link
+- [ ] If the repo is renamed or goes private, update the `repo` URL in suggest-edit.html and SKIP_PREFIXES in check_external.py
+- 2026-10-27 01:35 PT — ENGINEER — "Suggest an edit on GitHub" + post history links at the end of every post (_layouts/post.html, _includes/suggest-edit.html; e.g. /post/sf-ruby-2025/) (Actions run 40474835069 green).
