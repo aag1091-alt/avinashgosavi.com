@@ -2882,3 +2882,11 @@ Engineer backlog additions:
   talks, most with video), opened via WebFetch this run (curl is proxy-blocked).
   Run 40532692265 green.
 - 2026-10-27 08:35 PT — EDITOR — SF Ruby 2025 recap links the recorded talks on RubyEvents (/post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/) (Actions run 40532692265 green).
+
+## Done (Oct 27, 2026, 9:35am PT)
+
+- Editor shift (UTC 16): events.yml / now.yml still current (no changes).
+  codespell over _posts, pages and _data: no typos. llms.txt "Search index"
+  line now lists achievements and work roles (added to search.json today).
+  Run 40542472881 green.
+- 2026-10-27 09:35 PT — EDITOR — llms.txt search-index description lists achievements and work roles (/llms.txt) (Actions run 40542472881 green).
