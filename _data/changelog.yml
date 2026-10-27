@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
   desk: Engineering
+  text: Pages no longer jump when the site font finishes loading — the stand-in font shown for that first moment is now sized to match it, so text wraps the same before and after.
+  link: /blog/
+- date: 2026-10-26
+  desk: Engineering
   text: Every post now has a plain Markdown version — add .md to its address, or use the Markdown link next to Share — handy for pasting a post into an AI chat or reading it as clean text.
   link: /post/agent-memory-glossary.md
 - date: 2026-10-26

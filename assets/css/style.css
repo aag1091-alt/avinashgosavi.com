@@ -51,6 +51,32 @@
   unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
+/* Metric-matched fallback: while DM Sans downloads (font-display: swap), text
+   renders in local Arial scaled to DM Sans's width and vertical metrics, so
+   lines wrap the same and nothing jumps when the webfont swaps in.
+   size-adjust = DM Sans / Arial advance width over the site's own post text
+   (400: 1.035, 600–700: ~1.01); overrides = DM Sans hhea (992/310 per 1000) / size-adjust. */
+@font-face {
+  font-family: "DM Sans Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("LiberationSans"), local("Arimo");
+  size-adjust: 103.5%;
+  ascent-override: 95.85%;
+  descent-override: 29.95%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "DM Sans Fallback";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("LiberationSans-Bold"), local("Arimo Bold"), local("Arimo-Bold");
+  size-adjust: 101%;
+  ascent-override: 98.2%;
+  descent-override: 30.7%;
+  line-gap-override: 0%;
+}
+
 :root,
 body.theme-white {
   --bg: #ffffff;
@@ -62,7 +88,7 @@ body.theme-white {
   --border: #e5e7eb;
   --border-header: #e5e7eb;
   --code-bg: #f3f4f6;
-  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-sans: "DM Sans", "DM Sans Fallback", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
   --max-width: 42rem;
   --space: 1.5rem;
