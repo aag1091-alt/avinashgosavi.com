@@ -28,6 +28,13 @@ SKIP_HOSTS = {
     "linkedin.com", "x.com", "twitter.com", "facebook.com", "instagram.com",
     "bsky.app", "news.ycombinator.com", "medium.com", "localhost", "example.com",
 }
+# Per-post "Suggest an edit" / history links (_includes/suggest-edit.html) are
+# built from page.path, so they always point at a real file; /edit/ also needs
+# a login. Skipping them keeps ~60 URLs out of the time budget.
+SKIP_PREFIXES = (
+    "https://github.com/aag1091-alt/avinashgosavi.com/edit/",
+    "https://github.com/aag1091-alt/avinashgosavi.com/commits/",
+)
 UA = ("Mozilla/5.0 (compatible; avinashgosavi.com-linkcheck/1.0; "
       "+https://www.avinashgosavi.com/)")
 TIMEOUT = 12
@@ -65,7 +72,7 @@ def collect(site):
             for href in p.hrefs:
                 url = urldefrag(href)[0]
                 host = urlsplit(url).hostname or ""
-                if not host or skipped(host):
+                if not host or skipped(host) or url.startswith(SKIP_PREFIXES):
                     continue
                 urls.setdefault(url, set()).add(page)
     return urls

@@ -1738,6 +1738,10 @@ h1[tabindex="-1"]:focus { outline: none; }
 }
 .share a:hover, .share-copy:hover, .share-native:hover { border-color: var(--accent); color: var(--accent-ink, var(--accent)); }
 .share-native[hidden] { display: none; }
+/* "Suggest an edit" line under Share (_includes/suggest-edit.html) */
+.suggest-edit { margin: 0.9rem 0 0; font-size: 0.85rem; color: var(--text-muted); }
+.suggest-edit a { color: var(--accent-ink, var(--accent)); text-underline-offset: 0.15em; }
+.suggest-edit a:hover { text-decoration-thickness: 2px; }
 
 /* Heading anchors + code copy buttons (_includes/post-tools.html) */
 .post-content .heading-anchor {
@@ -1991,7 +1995,7 @@ h2.has-anchor:target {
     color: #111;
     font-size: 11pt;
   }
-  .skip-link, .site-header, .site-footer, .theme-toggle, .share, .read-next,
+  .skip-link, .site-header, .site-footer, .theme-toggle, .share, .suggest-edit, .read-next,
   .post-toc, .series-box, .heading-anchor, .code-copy, .back-to-top { display: none !important; }
   .main { max-width: none; padding: 0; margin: 0; }
   .post-content a[href^="http"]::after {

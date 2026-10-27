@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
+  desk: Engineering
+  text: Every post now ends with a "Suggest an edit on GitHub" link that opens that post's source file, plus a link to its change history, so typos and broken links are one click to report.
+  link: /post/sf-ruby-2025/
+- date: 2026-10-27
   desk: Design
   text: Long bits of inline code in posts, like hostnames and model names, now wrap on phones as neat rounded pieces instead of a code box cut open at the edge of the line.
   link: /post/hobby-project-stack/
