@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Design
+  text: Sub-points in post checklists now sit snugly under their parent item instead of leaving a gap before the next step.
+  link: /post/reviewing-ai-generated-tests-istqb-framework/
+- date: 2026-10-26
   desk: Engineering
   text: Upcoming conferences and hackathons can now go straight into your calendar — Events has an .ics link you can subscribe to, so new ones show up on their own.
   link: /events/

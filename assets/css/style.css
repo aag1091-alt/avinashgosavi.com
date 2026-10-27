@@ -936,6 +936,14 @@ input:focus-visible {
   margin-bottom: 0.35rem;
 }
 
+/* Nested lists sit tight under their parent item: same 0.35rem step as
+   sibling items, instead of the top-level 1rem bottom margin that left a
+   1.35rem hole before the next parent item (ISTQB review checklist). */
+.post-content li > ul,
+.post-content li > ol {
+  margin: 0.35rem 0 0;
+}
+
 /* Blockquotes in posts are mostly callouts ("Install: … · Code: …",
    "My pick: …") holding links and inline code, so they read as a soft card
    in body text color, not muted italics. Text 10:1 sepia / 14:1 dark on
