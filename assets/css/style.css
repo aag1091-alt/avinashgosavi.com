@@ -1999,7 +1999,6 @@ h2.has-anchor:target {
     --text: #111111;
     --text-muted: #444444;
     --accent: #0a5f58;
-    --accent-ink: #0a5f58;
     --accent-soft: rgba(10, 95, 88, 0.10);
     --border: #cccccc;
     --border-header: #cccccc;
@@ -2224,3 +2223,27 @@ html:has(> body.theme-dark) { --scroll-thumb: #81776a; }
 .term-preview[hidden] { display: none; }
 .term-preview-meta { display: block; margin-top: 0.3rem; color: var(--text-muted); font-size: 0.8rem; }
 @media print { .term-preview { display: none !important; } }
+
+/* "Increase contrast" (macOS/iOS Accessibility, Windows contrast themes that
+   don't force colors): firmer text, hairlines and link underlines without
+   leaving the sepia/dark look. Muted text >= 9:1 on --bg, borders >= 3:1
+   (WCAG 1.4.11), sepia accent darkened to its ink tone (6.6:1 on --bg,
+   5.7:1 on --surface). Skipped under forced colors (handled above). */
+@media (prefers-contrast: more) and (forced-colors: none) {
+  body.theme-sepia {
+    --text-muted: #3f3934;
+    --accent: #0a5f58;
+    --accent-ink: #0a5f58;
+    --border: #8c8069;
+    --border-header: #8c8069;
+  }
+  body.theme-dark {
+    --text-muted: #cfc8bc;
+    --border: #81776a;
+    --border-header: #81776a;
+  }
+  .post-content a,
+  :where(.main :is(p, li, dd, blockquote, td) a:not([class])) {
+    text-decoration-color: currentColor;
+  }
+}

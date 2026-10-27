@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
+  desk: Engineering
+  text: If your device is set to increase contrast, the site now firms up muted text, borders and link underlines in both the sepia and dark themes.
+  link: /about/
+- date: 2026-10-27
   desk: Design
   text: Scrollbars on the page, code blocks and wide tables now use a warm thumb that matches the sepia and dark themes instead of the default gray.
   link: /post/hobby-project-stack/
