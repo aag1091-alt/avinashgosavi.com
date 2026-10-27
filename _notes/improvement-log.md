@@ -2851,5 +2851,23 @@ Designer backlog additions:
 
 Engineer backlog additions:
 - [ ] New achievements.yml items need unique titles (slug = anchor + search URL)
-- [ ] Experience roles (experience.yml) still not in search — candidate next
+- [x] Experience roles (experience.yml) in search (done Oct 27, 7:35am PT)
 - 2026-10-27 06:36 PT — ENGINEER — achievements searchable with deep links + "Achievements" filter chip (/search/, /achievements/, search.json) (Actions run 40513685233 green).
+
+## Done (Oct 27, 2026, 7:35am PT)
+
+- Engineer shift (UTC 14): work roles in site search. experience.md
+  `.timeline-role` divs get `id="role-<company + title, & → and | slugify>"`
+  (11 roles, all unique); search.json adds a `Role` entry per role (title
+  "<role> — <company>", url /experience/#role-…, date = period, tags = job
+  tags + company + location, desc = company · location · period, text = the
+  role's highlights so snippets show matched lines). search.md TYPES/PLURAL
+  gain Role (chip "Roles"). `.timeline-role:target` = accent bar only,
+  scroll-margin 5rem; forced-colors outline list now also covers
+  `.achievement:target` and `.timeline-role:target`. Search copy updated
+  (search.md lede + description, llms.txt, opensearch.xml). Run 40522808204
+  green: 111 index entries incl. Role 11, 0 html errors, 0 axe.
+
+Engineer backlog additions:
+- [ ] New experience.yml roles: company + title must stay unique (slug = anchor + search URL)
+- 2026-10-27 07:35 PT — ENGINEER — work roles searchable with deep links + "Roles" filter chip (/search/, /experience/, search.json) (Actions run 40522808204 green).
