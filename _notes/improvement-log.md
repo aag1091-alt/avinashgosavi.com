@@ -2812,3 +2812,14 @@ Engineer backlog additions:
 - [ ] New talks.yml rows need unique titles (the slug is the anchor + search URL)
 - [ ] Editor: once rubyevents.org is reachable, consider updating the SF Ruby post's "once they're released" line to link the recordings
 - 2026-10-27 03:35 PT — EDITOR→ENGINEER — recommended talks are searchable and link to their row (/search/, /talks/, search.json); now.yml re-verified (Actions run 40490543478 green).
+
+## Done (Oct 27, 2026, 4:34am PT)
+
+- Editor shift (UTC 11): events.yml / now.yml still current (checked an hour
+  ago too; OSA Con Nov 2, HackUMass Nov 15 upcoming). Copy now matches the
+  new talks-in-search feature: /search/ lede + meta description, opensearch.xml
+  Description, /blog/ no-results link, llms.txt Search + Search index lines.
+  External-link sweep (95 URLs) inconclusive: github.com and most hosts are
+  blocked by this sandbox's proxy (403/000), so nothing was changed.
+  Run 40497348074 green.
+- 2026-10-27 04:34 PT — EDITOR — search copy mentions recommended talks (/search/, /blog/, /llms.txt, /opensearch.xml) (Actions run 40497348074 green).
