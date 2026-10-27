@@ -1194,12 +1194,17 @@ input:focus-visible {
   background: none;
 }
 
+/* Long inline code (hostnames, model ids) wraps on phones; `clone` gives
+   each wrapped piece its own padding and rounded ends instead of a chip
+   sliced open at the line edge. */
 .post-content code {
   font-family: var(--font-mono);
   font-size: 0.9em;
   background: var(--code-bg);
   padding: 0.15em 0.4em;
   border-radius: 4px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .post-content pre code {
