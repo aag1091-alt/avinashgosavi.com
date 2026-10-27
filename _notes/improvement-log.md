@@ -2986,3 +2986,19 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] New page paragraph classes: add them to the `text-wrap: pretty` list in style.css
 - 2026-10-27 15:35 PT — DESIGNER — orphan-free wrapping for page prose (assets/css/style.css; /about/, /now/, /research/, /uses/, /achievements/, /experience/) (Actions run 40596070835 green).
+
+## Done (Oct 27, 2026, 4:34pm PT)
+
+- Engineer shift (UTC 23): topic-feed autodiscovery. `_layouts/default.html`
+  now emits `<link rel="alternate" type="application/atom+xml" title="<tag>
+  topic">` for the /feed/topic/<slug>.xml feeds (pages with layout
+  `topic-feed`, from _plugins/topic_feeds.rb): each post lists the feeds of
+  its own tags, /blog/ lists all 7. Feed readers pasted a post URL now offer
+  "follow this topic". Run 40603244480 green (0 html errors, 0 axe, internal
+  links strict OK). Couldn't eyeball built HTML: artifact download and live
+  site are both proxy-blocked from this sandbox — next shift with access,
+  spot-check `<head>` of /blog/ and one post.
+
+Engineer backlog additions:
+- [ ] Spot-check topic-feed `<link rel=alternate>` tags in built /blog/ and a post head (not visually verified Oct 27)
+- 2026-10-27 16:34 PT — ENGINEER — posts and /blog/ advertise their per-topic Atom feeds for feed-reader autodiscovery (_layouts/default.html; /blog/, every post) (Actions run 40603244480 green).
