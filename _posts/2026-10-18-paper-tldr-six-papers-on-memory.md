@@ -15,6 +15,8 @@ Most of my side projects over the past year have circled one question: **how sho
 
 I didn't start with papers. I started building, got stuck, and went looking for how other people had thought about the problem. These six are the ones that actually changed what I built. Here's each one in a few sentences, in plain language, plus what I took from it. If you only read one, read the first.
 
+{% include diagrams/six-papers-map.html %}
+
 ## 1. Hopfield (1982) — memory as a place you roll into
 
 [*Neural networks and physical systems with emergent collective computational abilities*](https://www.pnas.org/doi/10.1073/pnas.79.8.2554) · PNAS
