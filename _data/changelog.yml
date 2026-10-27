@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
   desk: Writing
+  text: The llms.txt description of the search index now lists achievements and work roles, matching what it actually contains.
+  link: /llms.txt
+- date: 2026-10-27
+  desk: Writing
   text: The SF Ruby 2025 recap now links straight to the conference's recorded talks on RubyEvents.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
 - date: 2026-10-27
