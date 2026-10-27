@@ -27,8 +27,8 @@ description: The hardware, languages, AI tools and hosting stack Avinash Gosavi 
   <h2 id="ai-tooling">AI tooling</h2>
   <ul>
     <li><strong>Claude</strong> and <strong>Codex</strong> for coding — with my workflow baked into <a href="{{ '/post/codex-skills-baking-your-workflow-into-the-tool/' | relative_url }}">skills</a>.</li>
-    <li><strong>Gemini Live API &amp; Google ADK</strong> for voice agents (<a href="{{ '/post/building-rena-ai-health-companion-gemini-live/' | relative_url }}">Rena</a>), <strong>LangGraph</strong> for multi-agent pipelines, <strong>MCP</strong> for tool interfaces.</li>
-    <li><strong>faster-whisper</strong> for transcription and <strong>sentence-transformers</strong> for embeddings, both self-hosted.</li>
+    <li><strong>Gemini Live API &amp; Google ADK</strong> for voice agents (<a href="{{ '/post/building-rena-ai-health-companion-gemini-live/' | relative_url }}">Rena</a>), <strong>LangGraph</strong> for multi-agent pipelines (<a href="{{ '/post/ai-history-blog-generator/' | relative_url }}">AI History Blog Generator</a>), <strong>MCP</strong> for tool interfaces.</li>
+    <li><strong>faster-whisper</strong> for transcription (<a href="{{ '/post/live-audio-transcription-whisper/' | relative_url }}">how I run it on a $0 server</a>) and <strong>sentence-transformers</strong> for embeddings (<a href="{{ '/post/paper-tldr-sentence-bert/' | relative_url }}">the paper behind it</a>), both self-hosted.</li>
   </ul>
 
   <h2 id="hosting-side-projects-for-0">Hosting side projects for ~$0</h2>

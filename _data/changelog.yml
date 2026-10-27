@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
+  desk: Writing
+  text: The Uses page now links each AI tool to where it shows up on the site — faster-whisper to the $0 transcription server post, sentence-transformers to the Sentence-BERT TL;DR, LangGraph to the AI History Blog Generator.
+  link: /uses/#ai-tooling
+- date: 2026-10-27
   desk: Engineering
   text: Every blog topic with two or more posts now has its own RSS feed — pick a topic on the blog and the Subscribe link follows it (e.g. just Agent memory or Privacy).
   link: /blog/#agent-memory
