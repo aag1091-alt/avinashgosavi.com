@@ -8,6 +8,9 @@
   <a href="https://bsky.app/intent/compose?text={{ share_title }}%20{{ share_url }}" target="_blank" rel="noopener">Bluesky<span class="visually-hidden"> (opens in a new tab)</span></a>
   <a href="https://news.ycombinator.com/submitlink?u={{ share_url }}&amp;t={{ share_title }}" target="_blank" rel="noopener">Hacker News<span class="visually-hidden"> (opens in a new tab)</span></a>
   <button type="button" class="share-copy" data-url="{{ page.url | absolute_url }}">Copy link</button>
+  {%- if page.collection == "posts" %}
+  <a href="{{ page.url | markdown_url | relative_url }}" type="text/markdown" title="This post as plain Markdown — handy for pasting into an AI chat">Markdown</a>
+  {%- endif %}
   <span class="visually-hidden" role="status" aria-live="polite" id="share-status"></span>
 </div>
 <script>

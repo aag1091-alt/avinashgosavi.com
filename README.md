@@ -98,3 +98,7 @@ in front matter overrides it. Pages that read `site.data.<name>` (in their
 source, non-default layout or includes) also count the last commit to that
 `_data/` file, so / and /changelog/ get a fresh `<lastmod>` (and an IndexNow
 ping) when the changelog grows. CI checks out full history for this.
+
+`_plugins/post_markdown.rb` writes a plain Markdown copy of every post at
+`/post/<slug>.md` after the build (Liquid rendered, diagrams as text, links
+absolute). Linked from each post's head, its share row and /llms.txt.

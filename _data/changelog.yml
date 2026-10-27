@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-26
+  desk: Engineering
+  text: Every post now has a plain Markdown version — add .md to its address, or use the Markdown link next to Share — handy for pasting a post into an AI chat or reading it as clean text.
+  link: /post/agent-memory-glossary.md
+- date: 2026-10-26
   desk: Design
   text: Sub-points in post checklists now sit snugly under their parent item instead of leaving a gap before the next step.
   link: /post/reviewing-ai-generated-tests-istqb-framework/

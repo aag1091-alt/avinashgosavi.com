@@ -9,6 +9,8 @@ sitemap: false
 
 Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 
+Every post is also available as plain Markdown: add `.md` to its URL in place of the trailing slash (e.g. {{ "/post/agent-memory-glossary.md" | absolute_url }}).
+
 ## Start here
 
 - [Paper TL;DR: Six Papers That Shaped How I Think About AI Memory]({{ "/post/paper-tldr-six-papers-on-memory/" | absolute_url }}): overview of the core papers behind agent memory, each in plain language
@@ -25,7 +27,7 @@ Full text of every post in one file: {{ "/llms-full.txt" | absolute_url }}
 {% endfor %}
 ## All posts
 {% for p in site.posts %}
-- [{{ p.title }}]({{ p.url | absolute_url }}) ({{ p.date | date: "%Y-%m-%d" }}): {{ p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 160 }}{% endfor %}
+- [{{ p.title }}]({{ p.url | absolute_url }}) ({{ p.date | date: "%Y-%m-%d" }}, [Markdown]({{ p.url | markdown_url | absolute_url }})): {{ p.description | default: p.excerpt | strip_html | strip_newlines | truncate: 160 }}{% endfor %}
 
 ## Pages
 

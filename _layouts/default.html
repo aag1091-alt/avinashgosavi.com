@@ -25,6 +25,9 @@
   <link rel="preload" href="{{ '/assets/fonts/dm-sans-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | asset_version | relative_url }}">
   {% feed_meta %}
+  {%- if page.collection == "posts" %}
+  <link rel="alternate" type="text/markdown" title="{{ page.title | escape }} (Markdown)" href="{{ page.url | markdown_url | relative_url }}">
+  {%- endif %}
   <link rel="alternate" type="application/feed+json" title="{{ site.title | escape }} (JSON Feed)" href="{{ '/feed.json' | relative_url }}">
   {%- if page.series %}{% assign fs = site.data.series | where: "slug", page.series | first %}
   <link rel="alternate" type="application/atom+xml" title="{{ fs.title | default: page.series | escape }} series" href="{{ '/feed/' | append: page.series | append: '.xml' | relative_url }}">
@@ -86,7 +89,7 @@
   <script type="speculationrules">
   {"prefetch": [{"where": {"and": [
     {"href_matches": "/*"},
-    {"not": {"href_matches": ["/feed/*", "/*.xml", "/*.txt", "/*.json", "/assets/*"]}},
+    {"not": {"href_matches": ["/feed/*", "/*.xml", "/*.txt", "/*.md", "/*.json", "/assets/*"]}},
     {"not": {"selector_matches": "[download], [rel~=nofollow]"}}
   ]}, "eagerness": "moderate"}]}
   </script>
