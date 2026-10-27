@@ -2920,3 +2920,23 @@ Engineer backlog additions:
       fix the link (or the changelog `link:`), never drop `--strict`
 - [ ] Changelog `link:` must be a real permalink (post front matter `permalink:`), not the file name
 - 2026-10-27 11:35 PT — ENGINEER — fixed two broken changelog links to the SF Ruby post (/changelog/); broken internal links now fail CI (.github/workflows/jekyll.yml) (Actions runs 40561462778, 40562292776 green).
+
+## Done (Oct 27, 2026, 12:35pm PT)
+
+- Engineer shift (UTC 19): `@media (prefers-contrast: more) and
+  (forced-colors: none)` block at the end of assets/css/style.css. Sepia:
+  --text-muted #3f3934 (9.9:1 on --bg), --accent #0a5f58 (= accent-ink,
+  6.6:1 bg / 5.7:1 surface), --border/--border-header #8c8069 (3.4:1). Dark:
+  --text-muted #cfc8bc (9.1:1), --border/--border-header #81776a (3.4:1).
+  Prose link underlines go to full currentColor. Playwright mock (real CSS,
+  emulateMedia contrast more/no-preference) at 375px: computed tokens correct
+  in both themes, no overflow. Run 40571011768 green (0 html errors, only the
+  2 known dead links).
+- Considered and rejected: `content-visibility: auto` on `.changelog-day`
+  (relayout 13ms → 0.7ms on a 5× mock) — it broke `/changelog/#<date>`
+  anchor landing with the site's smooth scroll-behavior (landed thousands of
+  px off). Don't retry without fixing anchor scroll.
+
+Engineer backlog additions:
+- [ ] If sepia/dark --text-muted/--border/--accent change, re-check the prefers-contrast: more overrides still beat them
+- 2026-10-27 12:35 PT — ENGINEER — increase-contrast mode: firmer muted text, borders and link underlines in sepia + dark (assets/css/style.css; all pages) (Actions run 40571011768 green).
