@@ -2636,3 +2636,26 @@ Engineer backlog additions:
 - Stale backlog items re-checked and already done: theme-color/color-scheme
   (~297), theme flash (~330), search anchors (~176).
 - 2026-10-26 17:35 PT — EDITOR→DESIGNER — paper-to-project map diagram (/post/paper-tldr-six-papers-on-memory/) (Actions run 40427863415 green).
+
+## Done (Oct 26, 2026, 6:34pm PT)
+
+- Editor slot (UTC 01) → Engineer: events/now still current (OSA Con Nov 2,
+  HackUMass Nov 15 upcoming); Gmail last day: no new registrations (only
+  another SF Ruby Conf 2026 promo — still waiting on Avinash).
+- New `/events.ics` (events.ics, Liquid, `sitemap: false`): upcoming events
+  from events.yml as all-day VEVENTs (same ended-cutoff as events.md; DTEND
+  exclusive = day after end; SUMMARY gets "(Judge)/(Mentor)…" unless
+  attended; text escaped `\ ; ,`; UID `<slug>@avinashgosavi.com`; URL to the
+  /events/ anchor; REFRESH-INTERVAL P1D). `_plugins/ics_crlf.rb` rewrites any
+  .ics page with CRLF and 75-octet folding (UTF-8 safe). /events/ shows an
+  "Add upcoming events to your calendar" line under Upcoming (`.events-ics`,
+  hidden by the JS when Upcoming empties). New warning-only CI step prints the
+  file and checks envelope/line lengths: run 40433683195 green, "2 events,
+  0 bad lines" (OSA Con, HackUMass).
+- Local Jekyll build impossible in the sandbox (rubygems 403 via proxy); run
+  logs readable via the GitHub MCP get_job_logs (gh --log is 403).
+
+Engineer backlog additions:
+- [ ] Past events deliberately left out of events.ics (year-only dates like
+      "2014" would show as Jan 1) — add only if they get real dates
+- 2026-10-26 18:34 PT — EDITOR→ENGINEER — subscribable calendar of upcoming events (/events.ics, link on /events/) (Actions run 40433683195 green).
