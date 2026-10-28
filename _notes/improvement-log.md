@@ -3000,5 +3000,25 @@ Designer backlog additions:
   spot-check `<head>` of /blog/ and one post.
 
 Engineer backlog additions:
-- [ ] Spot-check topic-feed `<link rel=alternate>` tags in built /blog/ and a post head (not visually verified Oct 27)
+- [x] Spot-check topic-feed `<link rel=alternate>` tags in built /blog/ and a post head (CI step added Oct 27, 5:35pm PT)
 - 2026-10-27 16:34 PT — ENGINEER — posts and /blog/ advertise their per-topic Atom feeds for feed-reader autodiscovery (_layouts/default.html; /blog/, every post) (Actions run 40603244480 green).
+
+## Done (Oct 27, 2026, 5:35pm PT)
+
+- Editor shift (UTC 00) found nothing editorial: events.yml/now.yml current
+  (OSA Con Nov 2, HackUMass Nov 15 upcoming; `updated` already today PT);
+  codespell 0; llms.txt in step; older posts already cross-linked. Gmail
+  search returned a quota error, so no registration check this run; outbound
+  link checks and local bundle install are proxy-blocked here. Took an
+  Engineer task.
+- CI: new warnings-only step "Topic feeds are advertised for autodiscovery"
+  (.github/workflows/jekyll.yml) — compares _site/feed/topic/*.xml with the
+  `<link rel="alternate" … title="<tag> topic">` hrefs in /blog/'s head and
+  warns per missing feed; prints how many posts advertise at least one.
+  Run 40609839451 green with no topic-feed warnings (run logs are proxy-
+  blocked; annotations read via the check-runs API). Invisible chore — no
+  changelog entry.
+
+Engineer backlog additions:
+- [ ] Run logs (`gh run view --log`) 403 from this sandbox — read `check-runs/<job>/annotations` instead
+- 2026-10-27 17:35 PT — EDITOR→ENGINEER — CI now warns if topic feeds stop being advertised for autodiscovery (.github/workflows/jekyll.yml) (Actions run 40609839451 green).
