@@ -3159,3 +3159,22 @@ Designer backlog additions:
 Engineer backlog additions:
 - [ ] TOC Liquid assumes kramdown's bare `<h2 id="…">` — a heading with extra attributes (IAL class) would break its text; none today
 - 2026-10-28 01:35 PT — ENGINEER — post "On this page" box built server-side: no layout shift at load, works without JS (_layouts/post.html, _includes/post-tools.html; long /post/*) (Actions run 40658219790 green).
+
+## Done (Oct 28, 2026, 2:34am PT)
+
+- Engineer shift (UTC 09): each /events row (`_includes/event-row.html`) is
+  now an h-event: `p-name` (event name), `dt-start` (the existing `<time>`),
+  `dt-end` (hidden `<data>`, only when `end_date` is set), `p-location`, and
+  `u-url` (hidden `<data>`, absolute /events/#slug anchor). No visual change
+  (hidden elements drop out of the row grid). `scripts/check_mf2.py` now also
+  checks /events/: one h-event per row, name/start/absolute url, end not
+  before start. Tested with python-liquid + mf2py on a mock of all 14 rows:
+  0 problems. Speculation rules also skip `/*.ics` (the calendar link was
+  being prefetched on hover). Run 40665708644 green: 0 HTML errors, 0 axe,
+  only the 2 known dead links.
+- No Event JSON-LD on purpose: Google's event rich results are for organizers,
+  and he doesn't organize these events.
+
+Engineer backlog additions:
+- [ ] If event rows ever get a recap AND an external event site, a `u-url` to the event's own site would be better than the anchor
+- 2026-10-28 02:34 PT — ENGINEER — /events rows carry h-event microformats + CI mf2 check; .ics link no longer prefetched (_includes/event-row.html, scripts/check_mf2.py, _layouts/default.html; /events/) (Actions run 40665708644 green).
