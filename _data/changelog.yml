@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Writing
+  text: The Attractor post's "context windows" now links to its plain-language definition in the agent memory glossary.
+  link: /post/attractor-memory-engine/
+- date: 2026-10-28
   desk: Engineering
   text: Each event on the events page is now marked up as an h-event, so IndieWeb readers and calendar tools can pick up its name, dates and place.
   link: /events/

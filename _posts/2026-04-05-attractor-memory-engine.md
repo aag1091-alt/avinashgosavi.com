@@ -118,7 +118,7 @@ Theory is cheap. The feedback loop is the thing.
 
 ## Why This Matters for AI Agents
 
-Most AI agents today are stateless between sessions or rely on crude context windows. The ones that do have memory bolt it on as an afterthought — store the last N messages, embed them, retrieve by cosine similarity.
+Most AI agents today are stateless between sessions or rely on crude [context windows](/post/agent-memory-glossary/#context-window). The ones that do have memory bolt it on as an afterthought — store the last N messages, embed them, retrieve by cosine similarity.
 
 Attractor is an attempt to do it properly. Not because the engineering is especially hard, but because the *model* of memory matters. If you treat memory as a lookup table, you get lookup-table behaviour. If you treat it as an energy landscape with context and decay, you get something closer to how intelligence actually works.
 
