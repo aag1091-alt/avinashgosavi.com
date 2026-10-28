@@ -2959,7 +2959,7 @@ Engineer backlog additions:
   blocked (rubygems 403), so CI was the build check. Run 40579926772 green.
 
 Engineer backlog additions:
-- [ ] Topic-feed threshold lives in two places: MIN_POSTS in _plugins/topic_feeds.rb and `feed_min` in blog.md — change both
+- [x] Topic-feed threshold: now one setting, `topic_feed_min` in _config.yml (done Oct 28, 12:35pm PT)
 - 2026-10-27 13:35 PT — EDITOR→ENGINEER — per-topic RSS feeds (/feed/topic/<slug>.xml); /blog/ Subscribe link follows the active topic chip (Actions run 40579926772 green).
 
 ## Done (Oct 27, 2026, 2:35pm PT)
@@ -3157,7 +3157,7 @@ Designer backlog additions:
   errors, 0 axe.
 
 Engineer backlog additions:
-- [ ] TOC Liquid assumes kramdown's bare `<h2 id="…">` — a heading with extra attributes (IAL class) would break its text; none today
+- [x] TOC Liquid handles h2s with extra attributes (done Oct 28, 12:35pm PT)
 - 2026-10-28 01:35 PT — ENGINEER — post "On this page" box built server-side: no layout shift at load, works without JS (_layouts/post.html, _includes/post-tools.html; long /post/*) (Actions run 40658219790 green).
 
 ## Done (Oct 28, 2026, 2:34am PT)
@@ -3309,3 +3309,20 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Same "random" link could sit on /paper-tldr/ if Avinash likes it (kept to /blog/ for now)
 - 2026-10-28 11:35 PT — ENGINEER — "Read a random post" link on /blog/, respects topic/search filters (blog.md; /blog/) (Actions run 40746806494 green).
+
+## Done (Oct 28, 2026, 12:35pm PT)
+
+- Engineer shift (UTC 19): two backlog robustness fixes, no visible change.
+  (1) Post TOC (`_layouts/post.html`) split content on `<h2 id="`, so a
+  kramdown IAL heading (`<h2 class="x" id="slug">`) was skipped — and with
+  only 3 h2s the whole box vanished. It now splits on `<h2`, reads the id
+  from each tag wherever it sits, skips h2s without an id, builds the items
+  in a capture and shows the box at 3+ items. python-liquid compare of old vs
+  new over all 29 posts (python-markdown HTML): identical output; synthetic
+  IAL/`<code>`/`&amp;`/no-id case correct. (2) Topic-feed threshold is one
+  setting, `topic_feed_min: 2` in _config.yml, read by
+  _plugins/topic_feeds.rb (default 2) and blog.md (`| default: 2`).
+  Run 40756066815 green: 0 HTML errors, 0 axe, internal links OK. Invisible,
+  so no changelog entry. (Pages artifact download is blocked by the proxy —
+  blob.core.windows.net — so built HTML can't be inspected from the sandbox.)
+- 2026-10-28 12:35 PT — ENGINEER — post TOC now lists headings with extra attributes; topic-feed threshold in one _config.yml setting (_layouts/post.html, _plugins/topic_feeds.rb, blog.md, _config.yml) (Actions run 40756066815 green).
