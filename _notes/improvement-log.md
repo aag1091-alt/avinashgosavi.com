@@ -3178,3 +3178,11 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] If event rows ever get a recap AND an external event site, a `u-url` to the event's own site would be better than the anchor
 - 2026-10-28 02:34 PT — ENGINEER — /events rows carry h-event microformats + CI mf2 check; .ics link no longer prefetched (_includes/event-row.html, scripts/check_mf2.py, _layouts/default.html; /events/) (Actions run 40665708644 green).
+
+## Done (Oct 28, 2026, 3:35am PT)
+
+- Editor shift (UTC 10): events/now checked — nothing expired (OSA Con Nov 2,
+  HackUMass Nov 15 still upcoming; Cal Hacks already past). Attractor post's
+  "Why This Matters" paragraph now links "context windows" to the glossary's
+  #context-window entry. Wording unchanged. Run 40673431694 green.
+- 2026-10-28 03:35 PT — EDITOR — Attractor post links "context windows" to the glossary (/post/attractor-memory-engine/) (Actions run 40673431694 green).
