@@ -3196,3 +3196,19 @@ Engineer backlog additions:
   (that TL;DR already names the `sentence-transformers` package and links
   back to VaultMem). Wording unchanged. Run 40681200368 green.
 - 2026-10-28 04:35 PT — EDITOR — VaultMem Part 1 links sentence-transformers to the Sentence-BERT TL;DR (/post/vaultmem-encrypted-memory-for-ai-agents/) (Actions run 40681200368 green).
+
+## Done (Oct 28, 2026, 5:41am PT)
+
+- Designer shift (UTC 12): /series/ `ol.series-parts` is now a numbered
+  reading path: list-style none + CSS counter, a 1.6rem circled number per
+  part (accent-ink on --bg: 7:1 sepia, 7.6:1 dark; border currentColor) and a
+  1.5px --border rule joining the circles (not after the last). `role="list"`
+  added in series.md (Safari keeps list semantics); `content: counter() / ""`
+  so screen readers don't hear the number twice. Playwright mock with the real
+  style.css at 375 and 1000px, sepia + dark: no overflow, wrapped titles align.
+  Live site wasn't reachable from the run's browser (tunnel error), so mocks only.
+  Run 40690064615 green.
+
+Designer backlog additions:
+- [ ] Same stepper could suit `.series-box-list` inside posts if Avinash likes it (kept plain for now)
+- 2026-10-28 05:41 PT — DESIGNER — /series/ parts shown as a numbered reading path (assets/css/style.css, series.md; /series/) (Actions run 40690064615 green).
