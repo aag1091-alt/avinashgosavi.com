@@ -3257,3 +3257,16 @@ Engineer backlog additions:
 - [ ] sw.js `markSaved` relies on the literal `<html lang="en"` in default.html — keep them in step if the html tag ever changes
 - [ ] Pages cached before Oct 28 7:37am PT have no notice script; they get it on the next online visit
 - 2026-10-28 07:37 PT — ENGINEER — offline saved pages keep their styling after deploys and show a "saved copy" note (sw.js, _layouts/default.html, assets/css/style.css; every page offline) (Actions run 40708416909 green).
+
+## Done (Oct 28, 2026, 8:36am PT)
+
+- Editor shift (UTC 15): events.yml / now.yml checked — nothing expired (OSA
+  Con Nov 2, HackUMass Nov 15; Cal Hacks already past); now.yml `updated`
+  bumped to 2026-10-28. Cross-link: the "Six Papers" overview cited each paper
+  but only linked one of the six deep-dive TL;DRs (via its footer). Each
+  section's citation line now ends "· [Full TL;DR](/post/paper-tldr-…/)"
+  (Hopfield 1982, Modern Hopfield, CLS, Sentence-BERT, LoCoMo, Memory as
+  Asset). Links only, no wording/facts changed. External link sweep from the
+  sandbox is useless (proxy returns 000/403 for nearly all hosts) — rely on
+  CI's check_external.py annotations. Run 40717992055 green.
+- 2026-10-28 08:36 PT — EDITOR — Six Papers overview links each paper section to its full Paper TL;DR (/post/paper-tldr-six-papers-on-memory/); now.yml re-verified (Actions run 40717992055 green).
