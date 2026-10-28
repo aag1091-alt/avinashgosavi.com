@@ -69,48 +69,24 @@ title: All Posts
      post for the closest word the posts use (1 typo, 2 for 6+ letters; words
      in titles and tags win ties), offered only if that finds a post. Same idea
      as /search/, with a vocabulary from this list. */
+{% include typo-suggest.js %}
   var vocab = null;
   function buildVocab() {
     vocab = {};
     items.forEach(function(item) {
       ['data-title', 'data-tags', 'data-excerpt'].forEach(function(f, n) {
-        (item.getAttribute(f) || '').split(/[^0-9a-z\u00c0-\u024f]+/).forEach(function(w) {
-          if (w.length < 3 || w.length > 24) return;
-          vocab[w] = (vocab[w] || 0) + (n < 2 ? 20 : 1);
-        });
+        typoAdd(vocab, item.getAttribute(f), n < 2 ? 20 : 1);
       });
     });
-  }
-  function dist(a, b, max) {
-    if (Math.abs(a.length - b.length) > max) return max + 1;
-    var prev2 = null, prev = [], cur, i, j;
-    for (j = 0; j <= b.length; j++) prev[j] = j;
-    for (i = 1; i <= a.length; i++) {
-      cur = [i];
-      var low = i;
-      for (j = 1; j <= b.length; j++) {
-        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
-        if (prev2 && i > 1 && j > 1 && a.charAt(i - 1) === b.charAt(j - 2) && a.charAt(i - 2) === b.charAt(j - 1))
-          cur[j] = Math.min(cur[j], prev2[j - 2] + 1);
-        if (cur[j] < low) low = cur[j];
-      }
-      if (low > max) return max + 1;
-      prev2 = prev; prev = cur;
-    }
-    return prev[b.length];
   }
   function didYouMean(ts) {
     if (!vocab) buildVocab();
     var fixed = false;
     var out = ts.map(function(t) {
       if (t.length < 3 || hay.some(function(h) { return h.indexOf(t) !== -1; })) return t;
-      var max = t.length >= 6 ? 2 : 1, best = null, bd = max + 1, bw = 0;
-      for (var w in vocab) {
-        var d = dist(t, w, max);
-        if (d < bd || (d === bd && vocab[w] > bw)) { best = w; bd = d; bw = vocab[w]; }
-      }
-      if (bd <= max) { fixed = true; return best; }
-      return t;
+      var c = typoClosest(vocab, t);
+      if (c) fixed = true;
+      return c || t;
     });
     if (!fixed) return '';
     for (var i = 0; i < items.length; i++) if (tagOk(items[i]) && hit(i, out)) return out.join(' ');

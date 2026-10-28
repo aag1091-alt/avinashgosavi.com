@@ -130,51 +130,22 @@ sitemap: false
      in the index is swapped for the closest word the site actually uses (edit
      distance 1, or 2 for words of 6+ letters; words in titles and tags win ties),
      and the fix is offered only if the corrected query finds something. */
+{% include typo-suggest.js %}
   var vocab = null;
   function buildVocab() {
     vocab = {};
     index.forEach(function(it) {
       ['_title', '_tags', '_desc', '_text'].forEach(function(f, n) {
-        (it[f] || '').split(/[^0-9a-z\u00c0-\u024f]+/).forEach(function(w) {
-          if (w.length < 3 || w.length > 24) return;
-          vocab[w] = (vocab[w] || 0) + (n < 2 ? 20 : 1);
-        });
+        typoAdd(vocab, it[f], n < 2 ? 20 : 1);
       });
     });
-  }
-  function dist(a, b, max) {
-    if (Math.abs(a.length - b.length) > max) return max + 1;
-    var prev2 = null, prev = [], cur, i, j;
-    for (j = 0; j <= b.length; j++) prev[j] = j;
-    for (i = 1; i <= a.length; i++) {
-      cur = [i];
-      var low = i;
-      for (j = 1; j <= b.length; j++) {
-        var c = a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1;
-        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + c);
-        if (prev2 && i > 1 && j > 1 && a.charAt(i - 1) === b.charAt(j - 2) && a.charAt(i - 2) === b.charAt(j - 1))
-          cur[j] = Math.min(cur[j], prev2[j - 2] + 1); // swapped letters count as one typo
-        if (cur[j] < low) low = cur[j];
-      }
-      if (low > max) return max + 1;
-      prev2 = prev; prev = cur;
-    }
-    return prev[b.length];
-  }
-  function closest(t) {
-    var max = t.length >= 6 ? 2 : 1, best = null, bd = max + 1, bw = 0;
-    for (var w in vocab) {
-      var d = dist(t, w, max);
-      if (d < bd || (d === bd && vocab[w] > bw)) { best = w; bd = d; bw = vocab[w]; }
-    }
-    return bd <= max ? best : null;
   }
   function didYouMean(ts) {
     if (!vocab) buildVocab();
     var fixed = false;
     var out = ts.map(function(t) {
       if (t.length < 3 || index.some(function(it) { return score(it, [t]) > 0; })) return t;
-      var c = closest(t);
+      var c = typoClosest(vocab, t);
       if (c) fixed = true;
       return c || t;
     });
