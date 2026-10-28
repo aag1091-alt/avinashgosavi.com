@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Writing
+  text: The "Six Papers" overview now links each of its six short summaries to that paper's full Paper TL;DR.
+  link: /post/paper-tldr-six-papers-on-memory/
+- date: 2026-10-28
   desk: Engineering
   text: Pages you read offline now say they're the copy saved on your device (and when it was saved), and keep their styling after the site updates.
   link: /offline/

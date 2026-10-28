@@ -19,7 +19,7 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 ## 1. Hopfield (1982) — memory as a place you roll into
 
-[*Neural networks and physical systems with emergent collective computational abilities*](https://www.pnas.org/doi/10.1073/pnas.79.8.2554) · PNAS
+[*Neural networks and physical systems with emergent collective computational abilities*](https://www.pnas.org/doi/10.1073/pnas.79.8.2554) · PNAS · [Full TL;DR](/post/paper-tldr-hopfield-1982/)
 
 **TL;DR:** Wire up simple on/off neurons with symmetric connections and the network gets an "energy" that can only go down as it updates. Stored memories sit at the bottoms of valleys in that landscape. Give it a partial or noisy pattern and it slides downhill into the full memory. You don't look memories up by key — you fall into them.
 
@@ -27,7 +27,7 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 ## 2. Ramsauer et al. (2020) — attention is a Hopfield update
 
-[*Hopfield Networks is All You Need*](https://arxiv.org/abs/2008.02217) · arXiv
+[*Hopfield Networks is All You Need*](https://arxiv.org/abs/2008.02217) · arXiv · [Full TL;DR](/post/paper-tldr-hopfield-networks-is-all-you-need/)
 
 **TL;DR:** A "modern" Hopfield network with continuous states can store exponentially many patterns and usually retrieves one in a single step. And that single update step is mathematically the same operation as transformer attention.
 
@@ -35,7 +35,7 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 ## 3. McClelland, McNaughton & O'Reilly (1995) — two learners, not one
 
-[*Why there are complementary learning systems in the hippocampus and neocortex*](https://doi.org/10.1037/0033-295X.102.3.419) · Psychological Review
+[*Why there are complementary learning systems in the hippocampus and neocortex*](https://doi.org/10.1037/0033-295X.102.3.419) · Psychological Review · [Full TL;DR](/post/paper-tldr-complementary-learning-systems/)
 
 **TL;DR:** The brain uses a fast learner that grabs specific episodes (hippocampus) and a slow learner that gradually pulls out general structure (neocortex). Replaying episodes into the slow system lets it learn without overwriting what it already knows.
 
@@ -43,7 +43,7 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 ## 4. Reimers & Gurevych (2019) — embeddings you can actually search
 
-[*Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks*](https://arxiv.org/abs/1908.10084) · arXiv
+[*Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks*](https://arxiv.org/abs/1908.10084) · arXiv · [Full TL;DR](/post/paper-tldr-sentence-bert/)
 
 **TL;DR:** Plain BERT has to compare sentences two at a time, which is painfully slow for search. Training it in a "siamese" setup gives every sentence its own embedding you can compare with cosine similarity, so finding the closest match among thousands takes seconds instead of hours.
 
@@ -51,7 +51,7 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 ## 5. Maharana et al. (2024) — testing memory honestly
 
-[*Evaluating Very Long-Term Conversational Memory of LLM Agents* (LoCoMo)](https://arxiv.org/abs/2402.17753) · arXiv
+[*Evaluating Very Long-Term Conversational Memory of LLM Agents* (LoCoMo)](https://arxiv.org/abs/2402.17753) · arXiv · [Full TL;DR](/post/paper-tldr-locomo-long-term-memory-benchmark/)
 
 **TL;DR:** A benchmark of very long, multi-session conversations with questions that need single facts, multi-step reasoning, time awareness, or the sense to say "that never happened." Even strong long-context models and [RAG](/post/agent-memory-glossary/#rag) setups struggle with it.
 
@@ -59,7 +59,7 @@ I didn't start with papers. I started building, got stuck, and went looking for 
 
 ## 6. Pan, Huang & Yang (2026) — whose memory is it?
 
-[*Memory as Asset: From Agent-centric to Human-centric Memory Management*](https://arxiv.org/abs/2603.14212) · arXiv
+[*Memory as Asset: From Agent-centric to Human-centric Memory Management*](https://arxiv.org/abs/2603.14212) · arXiv · [Full TL;DR](/post/paper-tldr-memory-as-asset/)
 
 **TL;DR:** Argues that agent memory today is built for the agent rather than the person, and proposes treating the memory an AI keeps about you as an asset you own, share under your own permissions, and grow over time.
 
