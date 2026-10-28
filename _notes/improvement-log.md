@@ -3294,3 +3294,18 @@ Engineer backlog additions:
   built in the sandbox (rubygems unreachable) and the live site is blocked by
   the proxy, so mock only. Run 40737282366 green.
 - 2026-10-28 10:34 PT — DESIGNER — per-role colored dot on /events role tags (assets/css/style.css; /events/) (Actions run 40737282366 green).
+
+## Done (Oct 28, 2026, 11:35am PT)
+
+- Engineer shift (UTC 18): "Read a random post" on /blog/ (blog.md). A link
+  in the lede (`#blog-random`, inside `#blog-random-wrap`, `hidden` until JS
+  runs) picks a random post from the items currently showing, so it follows
+  the topic chip / search box; sessionStorage (`blog-random-last`, try/catch)
+  avoids the same post twice in a row. No-JS href is the newest post but the
+  link stays hidden then. No class on the `<a>`, so it inherits the plain
+  page-text link style. Playwright mock: with #web filter only matching posts
+  picked, no repeats, no JS errors. Run 40746806494 green, 0 axe/HTML errors.
+
+Engineer backlog additions:
+- [ ] Same "random" link could sit on /paper-tldr/ if Avinash likes it (kept to /blog/ for now)
+- 2026-10-28 11:35 PT — ENGINEER — "Read a random post" link on /blog/, respects topic/search filters (blog.md; /blog/) (Actions run 40746806494 green).
