@@ -3212,3 +3212,24 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] Same stepper could suit `.series-box-list` inside posts if Avinash likes it (kept plain for now)
 - 2026-10-28 05:41 PT — DESIGNER — /series/ parts shown as a numbered reading path (assets/css/style.css, series.md; /series/) (Actions run 40690064615 green).
+
+## Done (Oct 28, 2026, 6:46am PT)
+
+- Engineer shift (UTC 13): Rouge theme only styled 14 base classes (.c, .k,
+  .s …), but Rouge emits Pygments' subtype classes — Python `# comments` are
+  `.c1` (2nd most common token in the posts), imports `.kn`, True/None `.kc`,
+  numbers `.mi/.mf`, classes `.nc`, decorators `.nd`, f-string parts
+  `.sa/.si`, YAML/markdown headings `.gh/.gu` — so they rendered as plain
+  text. Each colour rule in style.css now lists its whole family (comments,
+  keywords, strings, names, variables) plus new numbers (#9a3412 light /
+  #f2cc60 dark) and bold headings. Measured with pygments-tokenized copies of
+  every fenced block in _posts on a Playwright mock with the real CSS: min
+  token contrast 5.28 sepia, 5.15 light-gray, 5.62 dark; no overflow at
+  375px. Run 40699985411 green, 0 axe / 0 HTML errors.
+- The spelling step then flagged `.nd` (→ "and"); `.codespellrc`
+  ignore-regex now also skips `\.highlight \.nd\b` (only that selector, so a
+  real "nd" typo is still caught). Spelling's 0-warning clock restarts Oct 28.
+
+Engineer backlog additions:
+- [ ] New code languages in posts: tokenize with pygments (same class names as Rouge) and check each class has a rule
+- 2026-10-28 06:46 PT — ENGINEER — code blocks colour comments, imports, numbers, classes, decorators (assets/css/style.css, .codespellrc; every /post/* with code) (Actions run 40699985411 green).
