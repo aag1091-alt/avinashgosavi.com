@@ -3107,3 +3107,22 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Typo-suggest fixes go in _includes/typo-suggest.js (it's JS inside a Liquid include — keep `{{`/`{%` out of it)
 - 2026-10-27 22:35 PT — EDITOR→ENGINEER — typo-suggest code shared between /search/ and /blog/ via _includes/typo-suggest.js (no visible change) (Actions run 40639044543 green).
+
+## Done (Oct 27, 2026, 11:34pm PT)
+
+- Editor shift (UTC 06) found nothing editorial again: events.yml/now.yml
+  current (OSA Con Nov 2, HackUMass Nov 15 upcoming; Now `updated`
+  2026-10-27 PT), no http:// links in posts/pages/data, cross-link backlog
+  items already done, llms.txt in step (CI check). → Engineer chore.
+- Engineer: CI "Spelling" step always showed 2 warnings for the deliberate
+  `privcy` demo in changelog.yml. `.codespellrc` now has
+  `ignore-regex = \?q=[^\s&)\]]+|\(try "[^)]*\)` — skips search-demo URLs
+  and `(try "…")` hints only; a bare "privcy" elsewhere is still flagged
+  (tested locally). Spelling is now at 0 warnings, which starts the
+  "week at 0 warnings before --strict" clock for spelling (from Oct 28).
+  Invisible chore, no changelog entry.
+
+Engineer backlog additions:
+- [ ] Changelog demo typos must sit inside `(try "…")` or a `?q=` link, or the spelling step flags them
+- [ ] Still open from CI annotations: Rena demo + daylog repo 404 (waiting on Avinash)
+- 2026-10-27 23:34 PT — EDITOR→ENGINEER — spelling CI ignores deliberate search-demo typos (.codespellrc; no visible change) (Actions run 40644916734 green).
