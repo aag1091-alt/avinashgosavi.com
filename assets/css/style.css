@@ -1427,6 +1427,22 @@ body.theme-dark .about-image img {
   letter-spacing: 0.04em;
 }
 .post-toc summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+/* Themed chevron instead of the browser's disclosure triangle; turns down when open */
+.post-toc summary { list-style: none; display: flex; align-items: center; gap: 0.55rem; }
+.post-toc summary::-webkit-details-marker { display: none; }
+.post-toc summary::before {
+  content: "";
+  flex: none;
+  width: 0.42em;
+  height: 0.42em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateX(-0.1em) rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+.post-toc[open] summary::before { transform: translateY(-0.12em) rotate(45deg); }
+.post-toc summary:hover { color: var(--text); }
+@media (prefers-reduced-motion: reduce) { .post-toc summary::before { transition: none; } }
 .post-toc-list { margin: 0.5rem 0 0.1rem; padding-left: 1.3rem; }
 .post-toc-list li { margin: 0.25rem 0; }
 .post-toc-list a { color: var(--text); text-decoration: none; }
