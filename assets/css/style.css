@@ -1393,6 +1393,28 @@ body.theme-dark .about-image img {
 }
 .series-box-list { margin: 0; padding-left: 1.3rem; }
 .series-box-list li { margin: 0.2rem 0; }
+/* Part numbers sit back in muted ink; the part being read gets an accent-ink,
+   bold number (5.7:1 sepia, 8.4:1 dark on --surface), and in the bottom box the
+   following part carries a small "Next" tag. Text stays plain for screen
+   readers (aria-current="step" says which part this is). */
+.series-box-list li::marker { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.series-box-list li.is-current::marker { color: var(--accent-ink, var(--accent)); font-weight: 700; }
+.series-next-tag {
+  display: inline-block;
+  margin-left: 0.3rem;
+  padding: 0 0.4rem;
+  border: 1px solid var(--border-header);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  vertical-align: 0.1em;
+  white-space: nowrap;
+}
+@media print { .series-next-tag { display: none; } }
 .series-section { margin-bottom: 2.5rem; }
 .series-section h2 { margin-bottom: 0.3rem; }
 .series-description { color: var(--text-muted); margin-top: 0; }

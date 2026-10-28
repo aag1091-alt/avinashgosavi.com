@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Design
+  text: Series boxes on posts highlight the part you're reading, and the box at the end tags the next part to read.
+  link: /post/vaultmem-part-2-multimodal-temporal-backends/
+- date: 2026-10-28
   desk: Engineering
   text: Upcoming events now show how far off they are ("tomorrow", "in 5 days"), counted from your own calendar date.
   link: /events/

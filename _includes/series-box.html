@@ -5,9 +5,11 @@
 {%- assign sb_title = s.title | default: page.series -%}
 <aside class="series-box" aria-label="{% if include.position == "bottom" %}More in {{ sb_title | escape }}{% else %}{{ sb_title | escape }} series{% endif %}">
   <p class="series-box-label">Part {{ page.series_order }} of {{ parts.size }} · <a href="{{ '/series/' | relative_url }}#{{ page.series }}">{{ s.title | default: page.series }}</a></p>
+  {%- assign sb_next = -1 %}
   <ol class="series-box-list">
     {% for p in parts %}
-    <li>{% if p.url == page.url %}<strong>{{ p.title }}</strong>{% else %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% endif %}</li>
+    {%- if p.url == page.url %}{% assign sb_next = forloop.index | plus: 1 %}{% endif %}
+    <li{% if p.url == page.url %} class="is-current" aria-current="step"{% elsif forloop.index == sb_next and include.position == "bottom" %} class="is-next"{% endif %}>{% if p.url == page.url %}<strong>{{ p.title }}</strong>{% else %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% if forloop.index == sb_next and include.position == "bottom" %} <span class="series-next-tag">Next</span>{% endif %}{% endif %}</li>
     {% endfor %}
   </ol>
   {% if include.position == "bottom" or parts.size < 2 %}<p class="series-box-feed"><a href="{{ '/feed/' | append: page.series | append: '.xml' | relative_url }}" type="application/atom+xml">{% include feed-icon.html %}Follow this series</a> <span>· new parts only, via RSS</span></p>{% endif %}
