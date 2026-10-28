@@ -80,7 +80,7 @@ The library handles the full memory lifecycle — not just encryption:
 - **Time-aware search** — ask "what was I doing last summer?" and it searches by when events actually happened, not when you typed them in
 - **Multi-modal** — photos, voice notes, PDFs ingested as encrypted memory atoms with EXIF dates and GPS stripped from metadata
 - **Portable** — the `.vmem` format is open and self-describing; your vault can move between apps
-- **Production backends** — S3 for storage, Postgres for indexing, HNSW for fast search at scale
+- **Production backends** — S3 for storage, Postgres for indexing, [HNSW](/post/paper-tldr-hnsw/) for fast search at scale
 
 Three core dependencies. No mandatory cloud service. No phone-home.
 

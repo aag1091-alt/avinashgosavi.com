@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
+  desk: Writing
+  text: The VaultMem "your AI agent shouldn't read your diary" post now links HNSW to its Paper TL;DR, so the fast-search backend it mentions is one click from a plain-language explanation.
+  link: /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/
+- date: 2026-10-27
   desk: Engineering
   text: Paste a post's address (or the Writing page's) into a feed reader and it now offers to follow just that topic — Agent memory, Privacy, Research and the rest — not only the whole blog.
   link: /blog/
