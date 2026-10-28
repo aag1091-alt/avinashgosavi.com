@@ -14,7 +14,7 @@ title: All Posts
     <input type="search" id="post-search" placeholder="Search posts…" aria-label="Search posts">
   </div>
 
-  {% assign feed_min = 2 %}{% comment %} keep in step with MIN_POSTS in _plugins/topic_feeds.rb {% endcomment %}
+  {% assign feed_min = site.topic_feed_min | default: 2 %}{% comment %} same setting _plugins/topic_feeds.rb reads {% endcomment %}
   {% assign all_tags = writing_posts | map: "tags" | join: "," | split: "," | uniq | sort %}
   <div class="tag-filter" role="group" aria-label="Filter by topic">
     <button type="button" class="tag-chip is-active" data-tag="" aria-pressed="true">All</button>

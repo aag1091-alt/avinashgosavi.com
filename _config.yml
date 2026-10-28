@@ -46,6 +46,10 @@ highlighter: rouge
 
 future: true
 
+# A blog topic (post tag) gets its own Atom feed at /feed/topic/<slug>.xml once
+# it has this many posts (_plugins/topic_feeds.rb and the /blog/ chips).
+topic_feed_min: 2
+
 permalink: /post/:title/
 
 plugins:

@@ -1,25 +1,27 @@
 # frozen_string_literal: true
 
-# One Atom feed per blog topic (post tag) that has at least MIN_POSTS posts:
+# One Atom feed per blog topic (post tag) that has at least `topic_feed_min`
+# posts (_config.yml, default 2):
 # /feed/topic/<slug>.xml, rendered by _layouts/topic-feed.html. Lets a reader
 # follow just "Agent memory" or "Privacy" instead of every post.
 #
 # The slug is Jekyll's default slugify, the same as `{{ tag | slugify }}` in
 # blog.md, which links the feed from the active topic chip on /blog/.
-# Keep MIN_POSTS in step with the `feed_min` assign in blog.md.
+# blog.md reads the same `site.topic_feed_min`, so chips and feeds agree.
 
 module TopicFeeds
-  MIN_POSTS = 2
+  DEFAULT_MIN_POSTS = 2
 
   class Generator < Jekyll::Generator
     safe true
     priority :low
 
     def generate(site)
+      min_posts = (site.config["topic_feed_min"] || DEFAULT_MIN_POSTS).to_i
       counts = Hash.new(0)
       site.posts.docs.each { |p| Array(p.data["tags"]).each { |t| counts[t.to_s] += 1 } }
       counts.each do |tag, n|
-        next if n < MIN_POSTS || tag.strip.empty?
+        next if n < min_posts || tag.strip.empty?
 
         slug = Jekyll::Utils.slugify(tag)
         page = Jekyll::PageWithoutAFile.new(site, site.source, "feed/topic", "#{slug}.xml")
