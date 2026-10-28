@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
+  desk: Design
+  text: The "Keep reading" links at the end of every post are now a pair of cards, older on the left and newer on the right, and the whole card is clickable.
+  link: /post/doing-the-right-thing-fast/
+- date: 2026-10-27
   desk: Writing
   text: The VaultMem "your AI agent shouldn't read your diary" post now links HNSW to its Paper TL;DR, so the fast-search backend it mentions is one click from a plain-language explanation.
   link: /post/vaultmem-your-ai-agent-shouldnt-read-your-diary/

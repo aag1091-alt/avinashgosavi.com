@@ -33,9 +33,9 @@
 {% endif %}
 <nav class="read-next" aria-label="Read next">
   <h2 class="read-next-title">Keep reading</h2>
-  <ul class="read-next-list">
-    {% if idx > 0 and newer %}<li><span class="read-next-label">Newer</span> <a href="{{ newer.url | relative_url }}">{{ newer.title }}</a></li>{% endif %}
-    {% if older %}<li><span class="read-next-label">Older</span> <a href="{{ older.url | relative_url }}">{{ older.title }}</a></li>{% endif %}
+  <ul class="read-next-list read-next-pair">
+    {% if older %}<li class="read-next-older"><span class="read-next-label"><span aria-hidden="true">← </span>Older</span> <a href="{{ older.url | relative_url }}">{{ older.title }}</a></li>{% endif %}
+    {% if idx > 0 and newer %}<li class="read-next-newer"><span class="read-next-label">Newer<span aria-hidden="true"> →</span></span> <a href="{{ newer.url | relative_url }}">{{ newer.title }}</a></li>{% endif %}
   </ul>
   <p class="read-next-more">More on <a href="{{ '/research/' | relative_url }}">what I research</a>, <a href="{{ '/projects/' | relative_url }}">what I build</a>, or <a href="{{ '/feed.xml' | relative_url }}">subscribe via RSS</a>.</p>
 </nav>
