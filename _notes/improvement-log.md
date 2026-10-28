@@ -3233,3 +3233,27 @@ Designer backlog additions:
 Engineer backlog additions:
 - [ ] New code languages in posts: tokenize with pygments (same class names as Rouge) and check each class has a rule
 - 2026-10-28 06:46 PT — ENGINEER — code blocks colour comments, imports, numbers, classes, decorators (assets/css/style.css, .codespellrc; every /post/* with code) (Actions run 40699985411 green).
+
+## Done (Oct 28, 2026, 7:37am PT)
+
+- Engineer shift (UTC 14): offline bug + notice. Bug: a page saved offline
+  links the `style.css?v=<hash>` of the day it was saved, but every deploy
+  activates a new `static-<build>` cache and deletes the old one — so after
+  any CSS change (several a day) saved pages rendered unstyled offline, and
+  non-precached fonts were dropped too. sw.js: `handleStatic` now tries
+  network, then `caches.match(req, {ignoreSearch: true})` (current
+  stylesheet) when offline; fonts live in `fonts-v1`, which survives deploys.
+  Notice: when a saved copy is served, sw.js `markSaved()` rewrites
+  `<html lang="en"` → `<html lang="en" data-saved-copy="<Date header>">`;
+  a script in default.html then prepends a `.saved-copy-note` (role=status)
+  to <main>: "You're offline, so this is the copy saved on this device on
+  <date>. Other saved pages" (→ /offline/); on `online` it becomes "You're
+  back online. [Load the latest version]". Playwright mock (real CSS + sw.js)
+  at 375px, sepia + dark: old ?v= entry deleted, offline reload → styled +
+  note; contrast text 10.0/14.2, link/button 5.7/8.4; no overflow, no JS
+  errors. Run 40708416909 green, 0 axe / 0 HTML errors.
+
+Engineer backlog additions:
+- [ ] sw.js `markSaved` relies on the literal `<html lang="en"` in default.html — keep them in step if the html tag ever changes
+- [ ] Pages cached before Oct 28 7:37am PT have no notice script; they get it on the next online visit
+- 2026-10-28 07:37 PT — ENGINEER — offline saved pages keep their styling after deploys and show a "saved copy" note (sw.js, _layouts/default.html, assets/css/style.css; every page offline) (Actions run 40708416909 green).
