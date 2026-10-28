@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
   desk: Writing
+  text: VaultMem Part 1 now links "sentence-transformers" to the Sentence-BERT Paper TL;DR, the paper that library came from.
+  link: /post/vaultmem-encrypted-memory-for-ai-agents/
+- date: 2026-10-28
+  desk: Writing
   text: The Attractor post's "context windows" now links to its plain-language definition in the agent memory glossary.
   link: /post/attractor-memory-engine/
 - date: 2026-10-28

@@ -161,7 +161,7 @@ The format is designed to be the interoperability layer for a future where encry
 
 ## What's in the library
 
-About 2,250 lines of Python, 39 unit tests, three core dependencies (`cryptography`, `argon2-cffi`, `numpy`). Sentence-transformers or a local Ollama instance for embeddings — or bring your own.
+About 2,250 lines of Python, 39 unit tests, three core dependencies (`cryptography`, `argon2-cffi`, `numpy`). [Sentence-transformers](/post/paper-tldr-sentence-bert/) or a local Ollama instance for embeddings — or bring your own.
 
 ```python
 # LocalEmbedder — no network, runs on CPU
