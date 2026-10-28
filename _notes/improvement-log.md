@@ -3022,3 +3022,16 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Run logs (`gh run view --log`) 403 from this sandbox — read `check-runs/<job>/annotations` instead
 - 2026-10-27 17:35 PT — EDITOR→ENGINEER — CI now warns if topic feeds stop being advertised for autodiscovery (.github/workflows/jekyll.yml) (Actions run 40609839451 green).
+
+## Done (Oct 27, 2026, 6:34pm PT)
+
+- Editor shift (UTC 01): events.yml/now.yml still current (OSA Con Nov 2,
+  HackUMass Nov 15 upcoming; Cal Hacks past; `updated` is today PT);
+  llms.txt in step; latest CI: 0 spelling, 0 HTML, 0 axe. Gmail search hit
+  the quota error again — no registration check this run.
+- Cross-link scan (project/paper names mentioned in a post without a link to
+  their post): only gap was "HNSW" in the VaultMem diary post's feature list
+  → now links /post/paper-tldr-hnsw/. Run 40616017831 green.
+- Still dead (waiting on Avinash): rena-490107-f0f28.web.app and the daylog
+  repo (404) — linked from /, /projects/, the Rena and Whisper posts.
+- 2026-10-27 18:34 PT — EDITOR — HNSW in the VaultMem diary post links to the HNSW TL;DR (/post/vaultmem-your-ai-agent-shouldnt-read-your-diary/) (Actions run 40616017831 green).
