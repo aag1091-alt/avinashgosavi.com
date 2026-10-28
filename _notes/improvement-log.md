@@ -3326,3 +3326,21 @@ Engineer backlog additions:
   so no changelog entry. (Pages artifact download is blocked by the proxy —
   blob.core.windows.net — so built HTML can't be inspected from the sandbox.)
 - 2026-10-28 12:35 PT — ENGINEER — post TOC now lists headings with extra attributes; topic-feed threshold in one _config.yml setting (_layouts/post.html, _plugins/topic_feeds.rb, blog.md, _config.yml) (Actions run 40756066815 green).
+
+## Done (Oct 28, 2026, 1:35pm PT)
+
+- Editor slot (UTC 20) → Engineer: nothing editorial. events.yml / now.yml
+  current (OSA Con Nov 2, HackUMass Nov 15; `updated` already 2026-10-28).
+  Gmail last day: no registrations (AICamp AWS Loft Oct 29 mail is a promo
+  reminder; OSA Con mail is the known AWS-registration nudge). CI annotations
+  clean apart from the 2 known dead links (Rena demo, daylog repo). A
+  pyspellchecker pass over posts/pages/data found no real typos (British
+  spellings and deliberate changelog demo typos only). llms.txt in step.
+- /events countdown: upcoming rows that haven't started get a muted
+  `.event-countdown` after the name — "tomorrow" / "in N days" — from the
+  visitor's local calendar date (same inline script in events.md that does
+  "Happening now" and moves ended rows). No-JS: nothing shown. Playwright mock
+  with real style.css at 375/1000px dark: OSA Con "in 5 days", HackUMass
+  "in 18 days", today's event still "Happening now", no overflow, no JS errors.
+  Run 40765103543 green.
+- 2026-10-28 13:35 PT — EDITOR→ENGINEER — countdown ("in 5 days") on upcoming events (events.md, assets/css/style.css; /events/) (Actions run 40765103543 green).
