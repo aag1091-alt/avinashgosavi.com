@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Design
+  text: The Series page now shows each series as a numbered reading path, with circled part numbers joined by a thin line.
+  link: /series/
+- date: 2026-10-28
   desk: Writing
   text: VaultMem Part 1 now links "sentence-transformers" to the Sentence-BERT Paper TL;DR, the paper that library came from.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/

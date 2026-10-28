@@ -1403,7 +1403,42 @@ body.theme-dark .about-image img {
 .series-section { margin-bottom: 2.5rem; }
 .series-section h2 { margin-bottom: 0.3rem; }
 .series-description { color: var(--text-muted); margin-top: 0; }
-.series-parts li { margin: 0.4rem 0; }
+/* /series/: parts read as a numbered path, a small circled step number per
+   part joined by a thin rule, so "read in order" is visible at a glance.
+   Number in accent ink (7:1 sepia, 7.6:1 dark on --bg); the rule is decorative.
+   role="list" on the <ol> keeps list semantics in Safari with list-style: none. */
+.series-parts { list-style: none; padding: 0; margin: 0.9rem 0 0; counter-reset: part; }
+.series-parts li { counter-increment: part; position: relative; margin: 0; padding: 0.05rem 0 0.95rem 2.45rem; }
+.series-parts li:last-child { padding-bottom: 0; }
+.series-parts li::before {
+  content: counter(part);
+  content: counter(part) / "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent-ink, var(--accent));
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.series-parts li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: calc(0.8rem - 0.75px);
+  top: 1.75rem;
+  bottom: 0.15rem;
+  width: 1.5px;
+  background: var(--border);
+}
 .series-meta { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }
 .feed-icon { width: 0.85em; height: 0.85em; margin-right: 0.35em; vertical-align: -0.05em; }
 .series-box-feed { margin: 0.6rem 0 0; padding-top: 0.55rem; border-top: 1px dashed var(--border); font-size: 0.85rem; }
