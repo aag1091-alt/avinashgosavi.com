@@ -3067,5 +3067,23 @@ Designer backlog additions:
   retreival→retrieval, nonsense → no suggestion; no JS errors. Run 40627746923 green.
 
 Engineer backlog additions:
-- [ ] Search typo suggestion could also run on /blog/'s inline search (same idea, post-only vocab)
+- [x] Search typo suggestion could also run on /blog/'s inline search (done Oct 27, 9:34pm PT)
 - 2026-10-27 20:35 PT — ENGINEER — search suggests a corrected query ("Did you mean …?") when nothing matches (/search/) (Actions run 40627746923 green).
+
+## Done (Oct 27, 2026, 9:34pm PT)
+
+- Engineer shift (UTC 04): /blog/ inline search (blog.md script). Was a
+  single-substring match on the whole query, so "agent memory" style
+  multi-word queries only worked if the words were adjacent. Now every
+  whitespace term must appear in title + excerpt + tags (tag hyphens as
+  spaces), any order. Zero results → `#blog-suggest` "Did you mean …?"
+  (vocab from data-title/data-tags ×20, data-excerpt ×1; same Damerau
+  distance rule as /search/), offered only if it finds a post under the
+  active topic chip; click fills the box, re-filters and updates `?q=`;
+  screen readers get it in the #post-count status text. Playwright mock with
+  the 17 real non-TL;DR posts: vaultmme→vaultmem, privcy→privacy, nonsense →
+  none, no JS errors. Run 40633247463 green.
+
+Engineer backlog additions:
+- [ ] Typo-suggest code (dist/vocab) is duplicated in search.md and blog.md — fix bugs in both
+- 2026-10-27 21:34 PT — ENGINEER — /blog/ search matches all words in any order and suggests a typo fix (blog.md; /blog/) (Actions run 40633247463 green).
