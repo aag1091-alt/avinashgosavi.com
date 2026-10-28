@@ -46,6 +46,11 @@ jobs:
       - name: Check feeds are well-formed Atom
         run: python3 -c "import glob,xml.etree.ElementTree as E; fs=['_site/feed.xml']+sorted(glob.glob('_site/feed/**/*.xml', recursive=True)); [print(f, len(E.parse(f).getroot().findall('{http://www.w3.org/2005/Atom}entry')), 'entries') for f in fs]"
 
+      - name: Topic feeds are advertised for autodiscovery (warnings only, never blocks deploy)
+        run: |
+          python3 -c "import glob,re; feeds=sorted('/'+f[len('_site/'):] for f in glob.glob('_site/feed/topic/*.xml')); h=lambda p: set(re.findall(r'<link rel=\"alternate\" type=\"application/atom\+xml\" title=\"[^\"]* topic\" href=\"([^\"]+)\"', open(p).read())); blog=h('_site/blog/index.html'); miss=[f for f in feeds if f not in blog]; [print('::warning file=blog/index.html::topic feed not advertised in <head>:', f) for f in miss]; ps=sorted(glob.glob('_site/post/*/index.html')); print(len(feeds), 'topic feeds;', len(blog), 'advertised on /blog/;', sum(1 for p in ps if h(p)), 'of', len(ps), 'posts advertise at least one;', len(miss), 'missing on /blog/')"
+        continue-on-error: true
+
       - name: Check JSON Feed is valid with absolute links
         run: python3 -c "import json; f=json.load(open('_site/feed.json')); assert f['version'].endswith('/1.1'); it=f['items']; assert it and all(i['id'] and i['url'].startswith('https://') and i['content_html'] for i in it); bad=[i['url'] for i in it if 'href=\"/' in i['content_html'] or 'src=\"/' in i['content_html']]; assert not bad, bad; print(len(it), 'items')"
 
