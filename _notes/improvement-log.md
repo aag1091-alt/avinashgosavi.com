@@ -3140,3 +3140,22 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] Any future `<details>` on pages could reuse the same chevron (selector is `.post-toc summary` only today)
 - 2026-10-28 00:34 PT — DESIGNER — post "On this page" box gets a themed chevron that rotates when opened (assets/css/style.css; long /post/*) (Actions run 40651229374 green).
+
+## Done (Oct 28, 2026, 1:35am PT)
+
+- Engineer shift (UTC 08): CI browser check warned of CLS 0.088 at 1280px on
+  /post/building-rena-ai-health-companion-gemini-live/. Cause: the post TOC
+  was `<details hidden>` with an empty list; post-tools.html filled it, opened
+  it (>=700px) and unhid it after first paint, pushing the post down. Now
+  `_layouts/post.html` builds the list in Liquid (split content on
+  `<h2 id="`; shown when >=1,200 words AND 3+ h2s), renders `open`, and a
+  one-line inline script right after it closes it below 700px before paint.
+  JS keeps only the current-section highlight. Works without JS too. All 10
+  long posts have 4+ h2s, so back-to-top/resume (gated on `.post-toc`) still
+  run everywhere they did. Liquid tested with python-liquid (headings with
+  `<code>`/`&amp;`). Run 40658219790 green: layout-shift warning gone, 0 HTML
+  errors, 0 axe.
+
+Engineer backlog additions:
+- [ ] TOC Liquid assumes kramdown's bare `<h2 id="…">` — a heading with extra attributes (IAL class) would break its text; none today
+- 2026-10-28 01:35 PT — ENGINEER — post "On this page" box built server-side: no layout shift at load, works without JS (_layouts/post.html, _includes/post-tools.html; long /post/*) (Actions run 40658219790 green).
