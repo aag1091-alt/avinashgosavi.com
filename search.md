@@ -17,6 +17,7 @@ sitemap: false
 
   <p class="search-hint" aria-hidden="true">Tip: press <kbd>↓</kbd> to move through results, <kbd>Esc</kbd> to clear.</p>
   <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+  <p id="search-suggest" class="search-suggest" hidden></p>
   <div id="search-filter" class="tag-filter search-filter" role="group" aria-label="Show only one kind of result" hidden></div>
   <ol id="search-results" class="search-results"></ol>
   <noscript><p>Search needs JavaScript. You can <a href="{{ '/blog/' | relative_url }}">browse all posts</a> instead.</p></noscript>
@@ -29,14 +30,25 @@ sitemap: false
   var status = document.getElementById('search-status');
   var form = input.form;
   var filter = document.getElementById('search-filter');
+  var suggest = document.getElementById('search-suggest');
   var index = null, timer = null, sayTimer = null;
 
   /* The status line is a live region: while someone is typing, wait 400ms so
      screen readers hear the settled result count, not one per keystroke. */
-  function say(msg, wait) {
+  /* extra: words for screen readers only (the same hint is visible as a link below). */
+  function say(msg, wait, extra) {
     clearTimeout(sayTimer);
-    if (!wait) { status.textContent = msg; return; }
-    sayTimer = setTimeout(function() { status.textContent = msg; }, 400);
+    function put() {
+      status.textContent = msg;
+      if (extra) {
+        var sr = document.createElement('span');
+        sr.className = 'visually-hidden';
+        sr.textContent = ' ' + extra;
+        status.appendChild(sr);
+      }
+    }
+    if (!wait) { put(); return; }
+    sayTimer = setTimeout(put, 400);
   }
   var W = { title: 10, tags: 5, desc: 3, text: 1 };
   var TYPES = ['Post', 'Project', 'Paper', 'Talk', 'Event', 'Achievement', 'Role', 'Page'];
@@ -114,6 +126,79 @@ sitemap: false
     el.appendChild(document.createTextNode(str.slice(last)));
   }
 
+  /* "Did you mean …?" for a query with no results: each term that appears nowhere
+     in the index is swapped for the closest word the site actually uses (edit
+     distance 1, or 2 for words of 6+ letters; words in titles and tags win ties),
+     and the fix is offered only if the corrected query finds something. */
+  var vocab = null;
+  function buildVocab() {
+    vocab = {};
+    index.forEach(function(it) {
+      ['_title', '_tags', '_desc', '_text'].forEach(function(f, n) {
+        (it[f] || '').split(/[^0-9a-z\u00c0-\u024f]+/).forEach(function(w) {
+          if (w.length < 3 || w.length > 24) return;
+          vocab[w] = (vocab[w] || 0) + (n < 2 ? 20 : 1);
+        });
+      });
+    });
+  }
+  function dist(a, b, max) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    var prev2 = null, prev = [], cur, i, j;
+    for (j = 0; j <= b.length; j++) prev[j] = j;
+    for (i = 1; i <= a.length; i++) {
+      cur = [i];
+      var low = i;
+      for (j = 1; j <= b.length; j++) {
+        var c = a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1;
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + c);
+        if (prev2 && i > 1 && j > 1 && a.charAt(i - 1) === b.charAt(j - 2) && a.charAt(i - 2) === b.charAt(j - 1))
+          cur[j] = Math.min(cur[j], prev2[j - 2] + 1); // swapped letters count as one typo
+        if (cur[j] < low) low = cur[j];
+      }
+      if (low > max) return max + 1;
+      prev2 = prev; prev = cur;
+    }
+    return prev[b.length];
+  }
+  function closest(t) {
+    var max = t.length >= 6 ? 2 : 1, best = null, bd = max + 1, bw = 0;
+    for (var w in vocab) {
+      var d = dist(t, w, max);
+      if (d < bd || (d === bd && vocab[w] > bw)) { best = w; bd = d; bw = vocab[w]; }
+    }
+    return bd <= max ? best : null;
+  }
+  function didYouMean(ts) {
+    if (!vocab) buildVocab();
+    var fixed = false;
+    var out = ts.map(function(t) {
+      if (t.length < 3 || index.some(function(it) { return score(it, [t]) > 0; })) return t;
+      var c = closest(t);
+      if (c) fixed = true;
+      return c || t;
+    });
+    if (!fixed || !index.some(function(it) { return score(it, out) > 0; })) return '';
+    return out.join(' ');
+  }
+  function showSuggest(alt) {
+    suggest.innerHTML = '';
+    suggest.hidden = !alt;
+    if (!alt) return;
+    var a = document.createElement('a');
+    a.href = '?q=' + encodeURIComponent(alt);
+    a.textContent = alt;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      input.value = alt;
+      render();
+      input.focus();
+    });
+    suggest.appendChild(document.createTextNode('Did you mean '));
+    suggest.appendChild(a);
+    suggest.appendChild(document.createTextNode('?'));
+  }
+
   function chip(type, label, count) {
     var b = document.createElement('button');
     b.type = 'button';
@@ -149,6 +234,7 @@ sitemap: false
     history.replaceState(null, '', qs.length ? '?' + qs.join('&') : location.pathname);
     list.innerHTML = '';
     filter.hidden = true;
+    showSuggest('');
     if (!q) { list.style.minHeight = ''; say(''); return; }
     if (!index) { say('Loading…', typing); return; }
     var ts = terms(q);
@@ -161,9 +247,12 @@ sitemap: false
     if (activeType && !counts[activeType]) activeType = '';
     renderFilter(all.length, counts, refocus);
     var hits = all.filter(function(h) { return !activeType || h.it.type === activeType; }).slice(0, 30);
+    var alt = hits.length ? '' : didYouMean(ts);
+    showSuggest(alt);
     say(hits.length
       ? hits.length + (hits.length === 1 ? ' result' : ' results') + (activeType ? ' (' + PLURAL[activeType].toLowerCase() + ')' : '') + ' for “' + q + '”'
-      : 'Nothing matches “' + q + '”. Try a shorter or different word.', typing);
+      : 'Nothing matches “' + q + '”.' + (alt ? '' : ' Try a shorter or different word.'), typing,
+      alt ? 'Did you mean “' + alt + '”?' : '');
     hits.forEach(function(h) {
       var it = h.it;
       var li = document.createElement('li');

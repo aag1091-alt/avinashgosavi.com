@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
+  desk: Engineering
+  text: Search now catches typos — when a search finds nothing, it suggests the closest word the site actually uses (try "hopfeild" or "vaultmme") and one tap runs the corrected search.
+  link: /search/?q=hopfeild
+- date: 2026-10-27
   desk: Design
   text: The "Keep reading" links at the end of every post are now a pair of cards, older on the left and newer on the right, and the whole card is clickable.
   link: /post/doing-the-right-thing-fast/
