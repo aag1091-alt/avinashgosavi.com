@@ -65,8 +65,8 @@ Engineer:
 
 General:
 
-- [ ] Projects: short "what I learned" line per project — ONLY from facts in
-      the project's own post/README
+- [x] ~~Projects: short "what I learned" line per project~~ — dropped Oct 28
+      (would be new first-person content; conflicts with the Oct 20 rule)
 - [x] Events: link any other event to a recap if a post exists (checked Oct 23 — none)
 - [ ] Waiting on Avinash: favorite talks beyond SF Ruby, podcasts/YouTube,
       books, next papers to read (then add to /talks, a bookshelf, Paper TL;DR)
@@ -3344,3 +3344,19 @@ Engineer backlog additions:
   "in 18 days", today's event still "Happening now", no overflow, no JS errors.
   Run 40765103543 green.
 - 2026-10-28 13:35 PT — EDITOR→ENGINEER — countdown ("in 5 days") on upcoming events (events.md, assets/css/style.css; /events/) (Actions run 40765103543 green).
+
+## Done (Oct 28, 2026, 2:35pm PT)
+
+- Editor shift (UTC 21): nothing needed, no site changes. events.yml/now.yml
+  current (OSA Con Nov 2, HackUMass Nov 15; `updated` 2026-10-28). Gmail last
+  day: no new registrations (only the known OSA Con AWS-registration nudge and
+  AICamp promo). Doubled-word, a/an, its/it's and common-misspelling greps over
+  posts/pages/data: clean. Glossary/TL;DR cross-links (HNSW, context window,
+  Hopfield, LoCoMo) already in place. Latest CI annotations clean apart from the
+  2 known dead links (Rena demo, daylog repo — waiting on Avinash).
+- Fallbacks considered and skipped: `hyphens: auto` for phone prose (sandbox
+  Chromium has no hyphenation dictionary, so it can't be verified — leave
+  unless tested on a real phone); live-site Playwright audit (proxy blocks
+  www.avinashgosavi.com and rubygems, so no local Jekyll build either).
+- Backlog: dropped the "what I learned" project line (first-person content).
+- 2026-10-28 14:35 PT — EDITOR — No changes (checks only; backlog tidy).
