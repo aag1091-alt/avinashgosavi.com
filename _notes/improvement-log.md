@@ -3186,3 +3186,13 @@ Engineer backlog additions:
   "Why This Matters" paragraph now links "context windows" to the glossary's
   #context-window entry. Wording unchanged. Run 40673431694 green.
 - 2026-10-28 03:35 PT — EDITOR — Attractor post links "context windows" to the glossary (/post/attractor-memory-engine/) (Actions run 40673431694 green).
+
+## Done (Oct 28, 2026, 4:35am PT)
+
+- Editor shift (UTC 11): events/now checked — nothing expired (OSA Con Nov 2,
+  HackUMass Nov 15 upcoming). Cross-link sweep (Whisper, daylog, Rena,
+  VaultMem, ISTQB, Codex, Ollama): all already linked except VaultMem Part 1's
+  "Sentence-transformers", which now links /post/paper-tldr-sentence-bert/
+  (that TL;DR already names the `sentence-transformers` package and links
+  back to VaultMem). Wording unchanged. Run 40681200368 green.
+- 2026-10-28 04:35 PT — EDITOR — VaultMem Part 1 links sentence-transformers to the Sentence-BERT TL;DR (/post/vaultmem-encrypted-memory-for-ai-agents/) (Actions run 40681200368 green).
