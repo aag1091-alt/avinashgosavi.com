@@ -3270,3 +3270,14 @@ Engineer backlog additions:
   sandbox is useless (proxy returns 000/403 for nearly all hosts) — rely on
   CI's check_external.py annotations. Run 40717992055 green.
 - 2026-10-28 08:36 PT — EDITOR — Six Papers overview links each paper section to its full Paper TL;DR (/post/paper-tldr-six-papers-on-memory/); now.yml re-verified (Actions run 40717992055 green).
+
+## Done (Oct 28, 2026, 9:34am PT)
+
+- Editor shift (UTC 16): events.yml / now.yml checked — nothing expired (OSA
+  Con Nov 2, HackUMass Nov 15). Gmail (last 3 days): no new event
+  registrations (SF Ruby Nov 10-11 mail is a promo, not a ticket). llms.txt
+  page list matches real pages. Cross-link: VaultMem Part 1's three-tier
+  benchmark table now links "MRR" to the glossary's #mrr (Part 2 already
+  links Recall@10/MRR). Considered linking Sentence-BERT's inline "re-rank"
+  but its footer already links #re-ranking, so left it. Run 40727486213 green.
+- 2026-10-28 09:34 PT — EDITOR — VaultMem Part 1 benchmark table links MRR to the glossary (/post/vaultmem-encrypted-memory-for-ai-agents/) (Actions run 40727486213 green).
