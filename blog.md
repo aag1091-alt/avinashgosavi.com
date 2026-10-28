@@ -7,7 +7,7 @@ title: All Posts
 <div class="blog-page">
   <h1>All Posts</h1>
   {% assign writing_posts = site.posts | where_exp: "p", "p.series != 'paper-tldr'" %}
-  <p class="page-lede">Paper summaries live in their own section: <a href="{{ '/paper-tldr/' | relative_url }}">Paper TL;DR →</a> · Prefer reading in order? <a href="{{ '/series/' | relative_url }}">Browse the series →</a> · <a id="blog-feed-link" href="{{ '/feed.xml' | relative_url }}" data-default="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a></p>
+  <p class="page-lede">Paper summaries live in their own section: <a href="{{ '/paper-tldr/' | relative_url }}">Paper TL;DR →</a> · Prefer reading in order? <a href="{{ '/series/' | relative_url }}">Browse the series →</a> · <a id="blog-feed-link" href="{{ '/feed.xml' | relative_url }}" data-default="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a><span id="blog-random-wrap" hidden> · <a id="blog-random" href="{{ writing_posts.first.url | relative_url }}" title="Opens one of the posts listed below, at random">Read a random post</a></span></p>
 
   <div id="search" class="search-box" role="search">
     <label for="post-search" class="visually-hidden">Search posts</label>
@@ -187,5 +187,27 @@ title: All Posts
   if (startQ) { input.value = startQ; apply(); }
   if (location.hash) applyHash();
   window.addEventListener('hashchange', applyHash);
+  /* "Read a random post": picks from the posts showing right now, so it
+     respects the topic chip and search box; never the same post twice in a
+     row. Hidden without JS (the link alone would always open one post). */
+  var rnd = document.getElementById('blog-random');
+  if (rnd) {
+    document.getElementById('blog-random-wrap').hidden = false;
+    rnd.addEventListener('click', function(e) {
+      var urls = [];
+      items.forEach(function(item) {
+        var a = item.querySelector('a');
+        if (a && item.style.display !== 'none') urls.push(a.getAttribute('href'));
+      });
+      if (!urls.length) return;
+      var last = null;
+      try { last = sessionStorage.getItem('blog-random-last'); } catch (err) {}
+      if (urls.length > 1) urls = urls.filter(function(u) { return u !== last; });
+      var pick = urls[Math.floor(Math.random() * urls.length)];
+      try { sessionStorage.setItem('blog-random-last', pick); } catch (err) {}
+      e.preventDefault();
+      location.href = pick;
+    });
+  }
 })();
 </script>

@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Engineering
+  text: The writing page has a "Read a random post" link that opens one of the posts currently listed, so it follows the topic chip or search you've picked.
+  link: /blog/
+- date: 2026-10-28
   desk: Design
   text: On the events page, each Hacker, Judge and Mentor tag now has its own small colored dot, so the different kinds of involvement are easier to tell apart at a glance.
   link: /events/
