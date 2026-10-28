@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Engineering
+  text: Code blocks in posts now color comments, imports, numbers, class names and decorators too — Python comments used to show as plain text.
+  link: /post/vaultmem-encrypted-memory-for-ai-agents/
+- date: 2026-10-28
   desk: Design
   text: The Series page now shows each series as a numbered reading path, with circled part numbers joined by a thin line.
   link: /series/

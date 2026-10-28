@@ -1214,37 +1214,30 @@ input:focus-visible {
   background: none;
 }
 
-/* Rouge theme – light background (every token ≥4.5:1 on the sepia and white --code-bg; CI browser check measures it) */
-.highlight .c { color: #4b5563; font-style: italic; }
-.highlight .k { color: #115e59; }
-.highlight .n { color: #1d1d1f; }
-.highlight .s { color: #065f46; }
-.highlight .s2 { color: #065f46; }
-.highlight .nb { color: #1d4ed8; }
-.highlight .nf { color: #1d4ed8; }
+/* Rouge theme – light background (every token ≥4.5:1 on the sepia and white --code-bg; CI browser check measures it).
+   Rouge emits Pygments' short classes for token SUBtypes (.c1 for a # comment, .kn for import, .mi for 42),
+   so each colour covers its whole family; .n / .nx / plain text inherit --text. */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .ch, .highlight .cs, .highlight .cp, .highlight .cpf { color: #4b5563; font-style: italic; }
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt, .highlight .ow, .highlight .nt { color: #115e59; }
+.highlight .n, .highlight .p { color: #1d1d1f; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sr, .highlight .ss, .highlight .sx { color: #065f46; }
+.highlight .nb, .highlight .bp, .highlight .nf, .highlight .fm, .highlight .na, .highlight .nn, .highlight .nc, .highlight .nd, .highlight .ne { color: #1d4ed8; }
 .highlight .o { color: #525150; }
-.highlight .p { color: #1d1d1f; }
-.highlight .na { color: #1d4ed8; }
-.highlight .nv { color: #6d28d9; }
-.highlight .vi { color: #6d28d9; }
-.highlight .ow { color: #115e59; }
-.highlight .nn { color: #1d4ed8; }
+.highlight .nv, .highlight .vi, .highlight .vc, .highlight .vg, .highlight .no { color: #6d28d9; }
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .mb, .highlight .il { color: #9a3412; }
+.highlight .gh, .highlight .gu { color: #115e59; font-weight: 600; }
 
 /* Rouge theme – dark (theme-dark only) */
-body.theme-dark .highlight .c { color: #a0a8b2; font-style: italic; }
-body.theme-dark .highlight .k { color: #7ee787; }
-body.theme-dark .highlight .n { color: #e6edf3; }
-body.theme-dark .highlight .s { color: #a5d6ff; }
-body.theme-dark .highlight .s2 { color: #a5d6ff; }
-body.theme-dark .highlight .nb { color: #79c0ff; }
-body.theme-dark .highlight .nf { color: #d2a8ff; }
+body.theme-dark .highlight .c, body.theme-dark .highlight .c1, body.theme-dark .highlight .cm, body.theme-dark .highlight .ch, body.theme-dark .highlight .cs, body.theme-dark .highlight .cp, body.theme-dark .highlight .cpf { color: #a0a8b2; font-style: italic; }
+body.theme-dark .highlight .k, body.theme-dark .highlight .kc, body.theme-dark .highlight .kd, body.theme-dark .highlight .kn, body.theme-dark .highlight .kp, body.theme-dark .highlight .kr, body.theme-dark .highlight .kt, body.theme-dark .highlight .ow, body.theme-dark .highlight .nt { color: #7ee787; }
+body.theme-dark .highlight .n, body.theme-dark .highlight .p { color: #e6edf3; }
+body.theme-dark .highlight .s, body.theme-dark .highlight .s1, body.theme-dark .highlight .s2, body.theme-dark .highlight .sa, body.theme-dark .highlight .sb, body.theme-dark .highlight .sc, body.theme-dark .highlight .sd, body.theme-dark .highlight .se, body.theme-dark .highlight .sh, body.theme-dark .highlight .si, body.theme-dark .highlight .sr, body.theme-dark .highlight .ss, body.theme-dark .highlight .sx { color: #a5d6ff; }
+body.theme-dark .highlight .nb, body.theme-dark .highlight .bp, body.theme-dark .highlight .na, body.theme-dark .highlight .nn { color: #79c0ff; }
+body.theme-dark .highlight .nf, body.theme-dark .highlight .fm, body.theme-dark .highlight .nc, body.theme-dark .highlight .nd, body.theme-dark .highlight .ne { color: #d2a8ff; }
 body.theme-dark .highlight .o { color: #a0a8b2; }
-body.theme-dark .highlight .p { color: #e6edf3; }
-body.theme-dark .highlight .na { color: #79c0ff; }
-body.theme-dark .highlight .nv { color: #ffa657; }
-body.theme-dark .highlight .vi { color: #ffa657; }
-body.theme-dark .highlight .ow { color: #7ee787; }
-body.theme-dark .highlight .nn { color: #79c0ff; }
+body.theme-dark .highlight .nv, body.theme-dark .highlight .vi, body.theme-dark .highlight .vc, body.theme-dark .highlight .vg, body.theme-dark .highlight .no { color: #ffa657; }
+body.theme-dark .highlight .m, body.theme-dark .highlight .mi, body.theme-dark .highlight .mf, body.theme-dark .highlight .mh, body.theme-dark .highlight .mo, body.theme-dark .highlight .mb, body.theme-dark .highlight .il { color: #f2cc60; }
+body.theme-dark .highlight .gh, body.theme-dark .highlight .gu { color: #7ee787; font-weight: 600; }
 
 /* About page – content left, image right */
 .about-page {
