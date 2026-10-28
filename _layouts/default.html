@@ -91,6 +91,31 @@
     navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}').catch(function () {});
   });
   </script>
+  <script>
+  /* Offline, sw.js serves the copy of this page saved on this device and marks <html data-saved-copy="<date>">. Say so. */
+  (function () {
+    var when = document.documentElement.getAttribute('data-saved-copy');
+    var main = document.getElementById('main');
+    if (when === null || !main) return;
+    var d = new Date(when), note = document.createElement('p');
+    note.className = 'saved-copy-note';
+    note.setAttribute('role', 'status');
+    note.textContent = "You're offline, so this is the copy saved on this device" + (isNaN(d) ? '' : ' on ' + d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })) + '. ';
+    var more = document.createElement('a');
+    more.href = '{{ "/offline/" | relative_url }}';
+    more.textContent = 'Other saved pages';
+    note.appendChild(more);
+    main.insertBefore(note, main.firstChild);
+    addEventListener('online', function () {
+      note.textContent = "You're back online. ";
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = 'Load the latest version';
+      b.addEventListener('click', function () { location.reload(); });
+      note.appendChild(b);
+    });
+  })();
+  </script>
   <script type="speculationrules">
   {"prefetch": [{"where": {"and": [
     {"href_matches": "/*"},

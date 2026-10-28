@@ -6,7 +6,12 @@ sitemap: false
    - Pages: network first, always. A copy of each page you open is kept on this
      device (newest 40) and shown only when the network fails; otherwise /offline/.
    - Stylesheet + fonts: served from cache when present (style.css is
-     content-hashed, fonts never change), fetched and cached otherwise.
+     content-hashed, fonts never change), fetched and cached otherwise. Fonts
+     live in their own cache that survives deploys. A saved page names the
+     style.css?v= of the day it was saved; once a deploy has replaced that
+     file, offline it gets the current stylesheet instead of none.
+   - A saved page served offline is marked <html data-saved-copy="<date>"> so
+     the page can say it's a saved copy (script in _layouts/default.html).
    - Post images (/assets/images/): the copy on this device is shown at once and
      refreshed in the background (newest 60 kept), so saved posts keep their
      photos and diagrams offline.
@@ -17,6 +22,7 @@ sitemap: false
 */
 const BUILD = '{{ site.time | date: "%s" }}';
 const STATIC = 'static-' + BUILD;
+const FONTS = 'fonts-v1';
 const PAGES = 'pages-v1';
 const MAX_PAGES = 40;
 const IMAGES = 'images-v1';
@@ -78,22 +84,42 @@ async function handlePage(event, url) {
     return res;
   } catch (err) {
     const saved = await caches.match(pageKey(url), { cacheName: PAGES });
-    if (saved) return saved;
+    if (saved) return markSaved(saved);
     const fallback = await caches.match(OFFLINE);
     if (fallback) return fallback;
     throw err;
   }
 }
 
-async function handleStatic(request) {
+// Tag a saved page so its own script can show "you're reading the saved copy".
+async function markSaved(res) {
+  try {
+    const when = (res.headers.get('date') || '').replace(/[^\w ,:+-]/g, '');
+    const html = (await res.clone().text()).replace('<html lang="en"', '<html lang="en" data-saved-copy="' + when + '"');
+    const headers = new Headers(res.headers);
+    headers.delete('content-length');
+    return new Response(html, { status: res.status, statusText: res.statusText, headers });
+  } catch (e) {
+    return res;
+  }
+}
+
+async function handleStatic(request, cacheName) {
   const hit = await caches.match(request);
   if (hit) return hit;
-  const res = await fetch(request);
-  if (res.ok && res.type === 'basic') {
-    const copy = res.clone();
-    caches.open(STATIC).then((c) => c.put(request, copy));
+  try {
+    const res = await fetch(request);
+    if (res.ok && res.type === 'basic') {
+      const copy = res.clone();
+      caches.open(cacheName).then((c) => c.put(request, copy));
+    }
+    return res;
+  } catch (err) {
+    // Offline, and this exact ?v= is gone (an older saved page): use the current stylesheet.
+    const any = await caches.match(request, { ignoreSearch: true });
+    if (any) return any;
+    throw err;
   }
-  return res;
 }
 
 async function handleImage(event, request) {
@@ -125,8 +151,10 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== self.location.origin) return;
   if (req.mode === 'navigate') {
     event.respondWith(handlePage(event, url));
-  } else if (/^\/assets\/(css|fonts)\//.test(url.pathname)) {
-    event.respondWith(handleStatic(req));
+  } else if (url.pathname.startsWith('/assets/fonts/')) {
+    event.respondWith(handleStatic(req, FONTS));
+  } else if (url.pathname.startsWith('/assets/css/')) {
+    event.respondWith(handleStatic(req, STATIC));
   } else if (url.pathname.startsWith('/assets/images/') && !req.headers.has('range')) {
     event.respondWith(handleImage(event, req));
   }

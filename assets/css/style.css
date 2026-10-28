@@ -2055,6 +2055,11 @@ h2.has-anchor:target {
 .offline-retry { min-height: 44px; padding: 0.5rem 1.2rem; font: inherit; font-weight: 600; color: var(--accent-ink, var(--accent)); background: transparent; border: 2px solid currentColor; border-radius: 8px; cursor: pointer; }
 .offline-retry:hover { background: var(--accent-soft); }
 .offline-page .nf-suggest li { overflow-wrap: anywhere; }
+.saved-copy-note { margin: 0 0 1.5rem; padding: 0.6rem 0.9rem; font-size: 0.92rem; line-height: 1.5; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent-ink, var(--accent)); border-radius: 6px; overflow-wrap: anywhere; }
+.saved-copy-note a, .saved-copy-note button { color: var(--accent-ink, var(--accent)); font-weight: 600; }
+.saved-copy-note button { min-height: 32px; padding: 0.2rem 0.7rem; font: inherit; background: transparent; border: 1.5px solid currentColor; border-radius: 6px; cursor: pointer; }
+.saved-copy-note button:hover { background: var(--accent-soft); }
+@media print { .saved-copy-note { display: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .notfound-art .nf-trail { animation: nf-walk 2.4s linear infinite; }
   @keyframes nf-walk { to { stroke-dashoffset: -18; } }

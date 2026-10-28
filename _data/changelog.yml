@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
   desk: Engineering
+  text: Pages you read offline now say they're the copy saved on your device (and when it was saved), and keep their styling after the site updates.
+  link: /offline/
+- date: 2026-10-28
+  desk: Engineering
   text: Code blocks in posts now color comments, imports, numbers, class names and decorators too — Python comments used to show as plain text.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/
 - date: 2026-10-28
