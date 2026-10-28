@@ -3126,3 +3126,17 @@ Engineer backlog additions:
 - [ ] Changelog demo typos must sit inside `(try "…")` or a `?q=` link, or the spelling step flags them
 - [ ] Still open from CI annotations: Rena demo + daylog repo 404 (waiting on Avinash)
 - 2026-10-27 23:34 PT — EDITOR→ENGINEER — spelling CI ignores deliberate search-demo typos (.codespellrc; no visible change) (Actions run 40644916734 green).
+
+## Done (Oct 28, 2026, 12:34am PT)
+
+- Designer shift (UTC 07): post TOC (`details.post-toc`) summary drops the
+  browser disclosure triangle (`list-style: none` + `::-webkit-details-marker`)
+  for a CSS border chevron in currentColor (text-muted, ≥3:1 non-text in both
+  themes) that points right when collapsed and rotates down when open
+  (0.15s, off under prefers-reduced-motion); summary text darkens to --text
+  on hover. Playwright mock with the real style.css at 375px, sepia + dark:
+  no overflow. Run 40651229374 green.
+
+Designer backlog additions:
+- [ ] Any future `<details>` on pages could reuse the same chevron (selector is `.post-toc summary` only today)
+- 2026-10-28 00:34 PT — DESIGNER — post "On this page" box gets a themed chevron that rotates when opened (assets/css/style.css; long /post/*) (Actions run 40651229374 green).
