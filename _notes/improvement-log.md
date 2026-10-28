@@ -1250,7 +1250,7 @@ Engineer backlog additions:
   `?q=` fills the box and filters (then `#tag` applies). The no-results
   "Search projects, papers and pages too →" link now carries `?q=<words>` to
   /search/. Playwright mock: `/blog/?q=hopfield#ruby` filters both, typing
-  updates URL, All keeps q, clearing restores `/blog/`, no JS errors.
+  updates URL, All keeps q, clearing restores `/blog/`, no JS errors. Run 40627746923 green.
   Run 40012728937 green.
 - 2026-10-23 12:35 PT — ENGINEER — /blog search kept in the URL (?q=) and handed to /search/ on no results (blog.md) (Actions deploy green).
 
@@ -1343,7 +1343,7 @@ Designer backlog additions:
   typing (results still draw at once); load, chips, Enter, Esc and errors
   announce immediately. Post TOC current section now `aria-current="location"`
   (was "true"; CSS keys off `[aria-current]`, unchanged). Playwright mock: load,
-  typing (+250ms empty, +650ms "1 result for “memo”"), chip, Esc; no JS errors.
+  typing (+250ms empty, +650ms "1 result for “memo”"), chip, Esc; no JS errors. Run 40627746923 green.
   Run 40050634537 green.
 - [x] Backlog line ~409 reviewed: search result titles and TOC links have real
   text; no other gaps found in JS-built links.
@@ -3051,3 +3051,21 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] If Avinash prefers the plain list, delete the `.read-next-pair` block in style.css (markup still reads fine unstyled)
 - 2026-10-27 19:34 PT — DESIGNER — "Keep reading" older/newer links as a pair of clickable cards (_includes/read-next.html, assets/css/style.css; every /post/*) (Actions run 40621955875 green).
+
+## Done (Oct 27, 2026, 8:35pm PT)
+
+- Engineer shift (UTC 03): "Did you mean …?" on /search/. When a query has
+  0 results, each term that matches nothing in the index is replaced by the
+  closest word from a vocabulary built lazily from search.json (title/tag
+  words weigh 20×, desc/body 1×; Damerau edit distance ≤1, ≤2 for 6+
+  letters), offered only if the corrected query finds results. Visible as
+  `#search-suggest` link (click sets the box and re-renders, URL `?q=`
+  updates); screen readers hear it via a visually-hidden span in the
+  status live region. CSS `.search-suggest` after `.search-status`. Tested
+  on a Playwright mock with the real posts at 375px: hopfeild→hopfield,
+  vaultmme→vaultmem, "embedings memory"→"embeddings memory",
+  retreival→retrieval, nonsense → no suggestion; no JS errors. Run 40627746923 green.
+
+Engineer backlog additions:
+- [ ] Search typo suggestion could also run on /blog/'s inline search (same idea, post-only vocab)
+- 2026-10-27 20:35 PT — ENGINEER — search suggests a corrected query ("Did you mean …?") when nothing matches (/search/) (Actions run 40627746923 green).
