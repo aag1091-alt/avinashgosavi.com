@@ -3374,3 +3374,20 @@ Engineer backlog additions:
 - Backlog: the numbered stepper idea for `.series-box-list` stays open (this
   is the lighter version — markers only).
 - 2026-10-28 15:35 PT — DESIGNER — series boxes highlight the current part and tag the next one (_includes/series-box.html, assets/css/style.css; every series /post/*, e.g. /post/vaultmem-part-2-multimodal-temporal-backends/) (Actions run 40781340029 green).
+
+## Done (Oct 28, 2026, 4:34pm PT)
+
+- Engineer shift (UTC 23): ← / → keys on posts. `_includes/read-next.html`:
+  the "Keep reading" Older/Newer links get `rel="prev"` / `rel="next"` and
+  `aria-keyshortcuts="ArrowLeft"/"ArrowRight"`; an inline keydown handler
+  follows them only when focus is on body (a focused code block, table, input
+  or zoomable image keeps its arrows), no text is selected, no `<dialog open>`
+  (image lightbox), no modifier key, not `defaultPrevented`. Screen readers in
+  browse mode keep arrows for themselves. Playwright mock: ←/→ navigate;
+  focused code / Shift / selection / open dialog → no navigation; no JS errors.
+  Run 40788583572 green: 0 HTML errors, 0 axe, internal links OK.
+
+Engineer backlog additions:
+- [ ] Designer: a small `<kbd>←</kbd>`/`<kbd>→</kbd>` hint by the Older/Newer labels on fine-pointer screens (hidden on touch, print) would make the shortcut discoverable
+- [ ] If Avinash dislikes the arrow-key shortcut, delete the `<script>` at the end of _includes/read-next.html (rel/aria-keyshortcuts can stay)
+- 2026-10-28 16:34 PT — ENGINEER — ← / → keys open the older / newer post (_includes/read-next.html; every /post/*) (Actions run 40788583572 green).
