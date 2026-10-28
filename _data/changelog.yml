@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
   desk: Engineering
+  text: Each event on the events page is now marked up as an h-event, so IndieWeb readers and calendar tools can pick up its name, dates and place.
+  link: /events/
+- date: 2026-10-28
+  desk: Engineering
   text: The "On this page" box on long posts is now part of the page itself, so the post no longer jumps down when it appears, and it works with JavaScript off.
   link: /post/building-rena-ai-health-companion-gemini-live/
 - date: 2026-10-28

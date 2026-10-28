@@ -7,6 +7,8 @@ IndieWeb readers and reply tools read h-entry / h-card markup instead of JSON-LD
     a dt-updated, when shown, must not be earlier than dt-published
   - the homepage must expose an h-card with name, url and photo
   - /about/ must expose an h-card with name, photo and u-uid = the homepage URL
+  - every /events/ row must be an h-event with name, start (YYYY-MM-DD) and an
+    absolute url; a dt-end, when present, must not be earlier than dt-start
 Needs mf2py (pip install mf2py). Usage: check_mf2.py _site"""
 import glob, os, sys
 
@@ -74,5 +76,26 @@ if os.path.exists(about):
             problems += 1
             warn("about/index.html", "about h-card missing " + ", ".join(missing))
 
+events_page = os.path.join(root, "events", "index.html")
+events = 0
+if os.path.exists(events_page):
+    rows = open(events_page, encoding="utf-8").read().count('class="event-row')
+    evs = items(events_page, "h-event")
+    events = len(evs)
+    if events != rows:
+        problems += 1
+        warn("events/index.html", f"{rows} event rows but {events} h-event(s)")
+    for e in evs:
+        p = e["properties"]
+        name = (p.get("name") or ["?"])[0]
+        missing = [k for k in ("name", "start", "url") if not p.get(k)]
+        if p.get("url") and not str(p["url"][0]).startswith("http"):
+            missing.append("absolute url")
+        if p.get("end") and p.get("start") and str(p["end"][0]) < str(p["start"][0]):
+            missing.append("dt-end not before dt-start")
+        if missing:
+            problems += 1
+            warn("events/index.html", f"h-event '{name}' missing " + ", ".join(missing))
+
 posts = len(glob.glob(os.path.join(root, "post", "*", "index.html")))
-print(f"microformats: {posts} posts ({updated} with an Updated date) + homepage + about checked, {problems} problem(s)")
+print(f"microformats: {posts} posts ({updated} with an Updated date) + homepage + about + {events} event(s) checked, {problems} problem(s)")

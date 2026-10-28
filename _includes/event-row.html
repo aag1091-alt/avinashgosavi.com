@@ -1,12 +1,13 @@
+{%- comment %} One /events row. Also an h-event (microformats2: p-name, dt-start, dt-end, p-location, u-url = its own anchor) for IndieWeb readers; scripts/check_mf2.py checks it. {% endcomment %}
 {%- assign ev_start = include.e.date | date: "%Y-%m-%d" -%}
 {%- assign ev_end = include.e.end_date | default: include.e.date | date: "%Y-%m-%d" -%}
-<li class="event-row" id="{{ include.e.name | slugify }}"{% if include.e.status == "upcoming" %} data-start="{{ ev_start }}" data-end="{{ ev_end }}"{% endif %}>
-  <time class="event-when" datetime="{{ ev_start }}">{{ include.e.when }}</time>
+<li class="event-row h-event" id="{{ include.e.name | slugify }}"{% if include.e.status == "upcoming" %} data-start="{{ ev_start }}" data-end="{{ ev_end }}"{% endif %}>
+  <time class="event-when dt-start" datetime="{{ ev_start }}">{{ include.e.when }}</time>{% if include.e.end_date %}<data class="dt-end" value="{{ ev_end }}" hidden></data>{% endif %}<data class="u-url" value="{{ '/events/' | absolute_url }}#{{ include.e.name | slugify }}" hidden></data>
   <div class="event-main">
-    <span class="event-name">{{ include.e.name }}</span>
+    <span class="event-name p-name">{{ include.e.name }}</span>
     {% if include.e.role != "attended" %}<span class="event-role event-role-{{ include.e.role }}">{{ include.e.role | capitalize }}</span>{% endif %}
     {% if include.e.status == "upcoming" %}<span class="event-live" hidden>Happening now</span>{% endif %}
-    {% if include.e.location %}<div class="event-location">{{ include.e.location }}</div>{% endif %}
+    {% if include.e.location %}<div class="event-location p-location">{{ include.e.location }}</div>{% endif %}
     {% if include.e.recap %}<a class="event-recap" href="{{ include.e.recap | relative_url }}">Read my recap →</a>{% endif %}
   </div>
 </li>
