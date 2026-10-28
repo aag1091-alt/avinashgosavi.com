@@ -1597,6 +1597,23 @@ h1[tabindex="-1"]:focus { outline: none; }
   color: var(--accent-ink, var(--accent));
   vertical-align: middle;
 }
+/* A small colored dot per role (decorative; the label text keeps accent-ink) so
+   hacker / judge / mentor rows are easy to tell apart when scanning. Hues reuse
+   the project-card set, each >= 3:1 on the pill's tint in sepia and dark. */
+.event-role { --role: var(--accent-ink, var(--accent)); }
+.event-role-hacker { --role: var(--cat-fun); }
+.event-role-judge { --role: var(--cat-agents); }
+.event-role-mentor { --role: var(--cat-tools); }
+.event-role::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.35em;
+  border-radius: 50%;
+  background: var(--role);
+  vertical-align: 0.08em;
+}
 /* "Happening now" tag on upcoming events whose dates include today (JS in events.md) */
 .event-live:not([hidden]) {
   display: inline-block;

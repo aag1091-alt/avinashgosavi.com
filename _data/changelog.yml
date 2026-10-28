@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Design
+  text: On the events page, each Hacker, Judge and Mentor tag now has its own small colored dot, so the different kinds of involvement are easier to tell apart at a glance.
+  link: /events/
+- date: 2026-10-28
   desk: Writing
   text: VaultMem Part 1's retrieval benchmark table now links "MRR" to its plain-language definition in the agent memory glossary.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/
