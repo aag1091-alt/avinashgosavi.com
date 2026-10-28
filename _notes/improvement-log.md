@@ -3281,3 +3281,16 @@ Engineer backlog additions:
   links Recall@10/MRR). Considered linking Sentence-BERT's inline "re-rank"
   but its footer already links #re-ranking, so left it. Run 40727486213 green.
 - 2026-10-28 09:34 PT — EDITOR — VaultMem Part 1 benchmark table links MRR to the glossary (/post/vaultmem-encrypted-memory-for-ai-agents/) (Actions run 40727486213 green).
+
+## Done (Oct 28, 2026, 10:34am PT)
+
+- Designer shift (UTC 17): /events role pills (Hacker, Judge, Mentor, Speaker)
+  all looked identical. Each now carries a 0.5em colored dot (`--role`):
+  hacker = --cat-fun, judge = --cat-agents, mentor = --cat-tools, other roles
+  = accent-ink. Label text unchanged (accent-ink, 5.1:1 sepia / 4.7:1 dark on
+  the pill tint). Dot vs composited pill tint: sepia 4.1–5.1:1, dark
+  4.0–5.1:1 (≥3:1 non-text). Playwright mock with real style.css at 375px,
+  sepia + dark: no overflow; wrapped pill on long names OK. Jekyll can't be
+  built in the sandbox (rubygems unreachable) and the live site is blocked by
+  the proxy, so mock only. Run 40737282366 green.
+- 2026-10-28 10:34 PT — DESIGNER — per-role colored dot on /events role tags (assets/css/style.css; /events/) (Actions run 40737282366 green).
