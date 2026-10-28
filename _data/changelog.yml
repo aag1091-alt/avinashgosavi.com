@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-27
   desk: Engineering
+  text: The search box on All Posts now matches every word in any order ("agent memory", "whisper live") and suggests a fix when a typo finds nothing (try "privcy").
+  link: /blog/?q=privcy
+- date: 2026-10-27
+  desk: Engineering
   text: Search now catches typos — when a search finds nothing, it suggests the closest word the site actually uses (try "hopfeild" or "vaultmme") and one tap runs the corrected search.
   link: /search/?q=hopfeild
 - date: 2026-10-27

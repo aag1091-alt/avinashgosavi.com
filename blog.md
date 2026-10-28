@@ -37,6 +37,7 @@ title: All Posts
     {% endfor %}
   </ul>
 
+  <p id="blog-suggest" class="search-suggest" hidden></p>
   <p id="no-results" class="no-results" hidden>No posts match your search. <a href="{{ '/search/' | relative_url }}">Search projects, papers, talks and pages too →</a></p>
 </div>
 
@@ -52,19 +53,100 @@ title: All Posts
 
   var activeTag = '';
   var chips = document.querySelectorAll('.tag-chip');
+  var suggest = document.getElementById('blog-suggest');
+  /* Every word has to appear somewhere in the title, excerpt or tags, in any
+     order: "memory hopfield" finds the Hopfield posts. */
+  var hay = [];
+  items.forEach(function(item, i) {
+    hay[i] = (item.getAttribute('data-title') || '') + ' ' + (item.getAttribute('data-excerpt') || '') + ' ' + (item.getAttribute('data-tags') || '').replace(/-/g, ' ');
+  });
+  function terms(q) { return q.split(/\s+/).filter(Boolean); }
+  function tagOk(item) {
+    return !activeTag || (' ' + (item.getAttribute('data-tags') || '') + ' ').indexOf(' ' + activeTag + ' ') !== -1;
+  }
+  function hit(i, ts) { return ts.every(function(t) { return hay[i].indexOf(t) !== -1; }); }
+  /* "Did you mean …?" when nothing matches: swap each word that appears in no
+     post for the closest word the posts use (1 typo, 2 for 6+ letters; words
+     in titles and tags win ties), offered only if that finds a post. Same idea
+     as /search/, with a vocabulary from this list. */
+  var vocab = null;
+  function buildVocab() {
+    vocab = {};
+    items.forEach(function(item) {
+      ['data-title', 'data-tags', 'data-excerpt'].forEach(function(f, n) {
+        (item.getAttribute(f) || '').split(/[^0-9a-z\u00c0-\u024f]+/).forEach(function(w) {
+          if (w.length < 3 || w.length > 24) return;
+          vocab[w] = (vocab[w] || 0) + (n < 2 ? 20 : 1);
+        });
+      });
+    });
+  }
+  function dist(a, b, max) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    var prev2 = null, prev = [], cur, i, j;
+    for (j = 0; j <= b.length; j++) prev[j] = j;
+    for (i = 1; i <= a.length; i++) {
+      cur = [i];
+      var low = i;
+      for (j = 1; j <= b.length; j++) {
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
+        if (prev2 && i > 1 && j > 1 && a.charAt(i - 1) === b.charAt(j - 2) && a.charAt(i - 2) === b.charAt(j - 1))
+          cur[j] = Math.min(cur[j], prev2[j - 2] + 1);
+        if (cur[j] < low) low = cur[j];
+      }
+      if (low > max) return max + 1;
+      prev2 = prev; prev = cur;
+    }
+    return prev[b.length];
+  }
+  function didYouMean(ts) {
+    if (!vocab) buildVocab();
+    var fixed = false;
+    var out = ts.map(function(t) {
+      if (t.length < 3 || hay.some(function(h) { return h.indexOf(t) !== -1; })) return t;
+      var max = t.length >= 6 ? 2 : 1, best = null, bd = max + 1, bw = 0;
+      for (var w in vocab) {
+        var d = dist(t, w, max);
+        if (d < bd || (d === bd && vocab[w] > bw)) { best = w; bd = d; bw = vocab[w]; }
+      }
+      if (bd <= max) { fixed = true; return best; }
+      return t;
+    });
+    if (!fixed) return '';
+    for (var i = 0; i < items.length; i++) if (tagOk(items[i]) && hit(i, out)) return out.join(' ');
+    return '';
+  }
+  function showSuggest(alt) {
+    if (!suggest) return;
+    suggest.innerHTML = '';
+    suggest.hidden = !alt;
+    if (!alt) return;
+    var a = document.createElement('a');
+    a.href = '?q=' + encodeURIComponent(alt) + (activeTag ? '#' + activeTag : '');
+    a.textContent = alt;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      input.value = alt;
+      apply();
+      syncUrl();
+      input.focus();
+    });
+    suggest.appendChild(document.createTextNode('Did you mean '));
+    suggest.appendChild(a);
+    suggest.appendChild(document.createTextNode('?'));
+  }
+  var alt = '';
   function apply() {
     var q = (input.value || '').trim().toLowerCase();
+    var ts = terms(q);
     var visible = 0;
-    items.forEach(function(item) {
-      var title = (item.getAttribute('data-title') || '');
-      var excerpt = (item.getAttribute('data-excerpt') || '');
-      var tags = ' ' + (item.getAttribute('data-tags') || '') + ' ';
-      var matchQ = !q || title.indexOf(q) !== -1 || excerpt.indexOf(q) !== -1;
-      var matchT = !activeTag || tags.indexOf(' ' + activeTag + ' ') !== -1;
-      var show = matchQ && matchT;
+    items.forEach(function(item, i) {
+      var show = (!ts.length || hit(i, ts)) && tagOk(item);
       item.style.display = show ? '' : 'none';
       if (show) visible++;
     });
+    alt = visible === 0 && ts.length ? didYouMean(ts) : '';
+    showSuggest(alt);
     if (noResults) {
       noResults.hidden = visible > 0;
       /* Carry the words over to the site-wide search. */
@@ -80,7 +162,7 @@ title: All Posts
       if (!q && !activeTag) { count.textContent = ''; return; }
       var chip = document.querySelector('.tag-chip.is-active');
       var label = activeTag && chip ? chip.firstChild.textContent.trim() : '';
-      count.textContent = visible === 0 ? 'No posts match.' :
+      count.textContent = visible === 0 ? 'No posts match.' + (alt ? ' Did you mean \u201c' + alt + '\u201d?' : '') :
         'Showing ' + visible + ' of ' + items.length + ' posts' + (label ? ' tagged \u201c' + label + '\u201d' : '') + (q ? ' matching \u201c' + input.value.trim() + '\u201d' : '') + '.';
     }, q ? 400 : 0);
   }
