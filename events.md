@@ -39,8 +39,8 @@ leaves Upcoming on time even before an editor flips its status in events.yml.
 </div>
 
 <script>
-/* Upcoming events whose dates include today (visitor's local date) get a "Happening now" tag;
-   ones that have ended move to the top of Past (and Upcoming disappears if it empties). */
+/* Upcoming events whose dates include today (visitor's local date) get a "Happening now" tag,
+   ones still ahead get a countdown, and ones that have ended move to the top of Past (and Upcoming disappears if it empties). */
 (function () {
   var d = new Date(), p = function (n) { return (n < 10 ? "0" : "") + n; };
   var today = d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
@@ -54,6 +54,17 @@ leaves Upcoming on time even before an editor flips its status in events.yml.
     } else if (row.dataset.start <= today && today <= row.dataset.end) {
       var live = row.querySelector(".event-live");
       if (live) live.hidden = false;
+    } else if (today < row.dataset.start) {
+      /* Not started yet: say how far off it is ("tomorrow", "in 5 days"), by calendar days. */
+      var s = row.dataset.start.split("-");
+      var days = Math.round((new Date(+s[0], s[1] - 1, +s[2]) - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5);
+      var name = row.querySelector(".event-name");
+      if (name && days > 0) {
+        var c = document.createElement("span");
+        c.className = "event-countdown";
+        c.textContent = days === 1 ? "tomorrow" : "in " + days + " days";
+        name.parentNode.insertBefore(c, name.nextSibling);
+      }
     }
   });
   if (!up.children.length) {

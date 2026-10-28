@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
   desk: Engineering
+  text: Upcoming events now show how far off they are ("tomorrow", "in 5 days"), counted from your own calendar date.
+  link: /events/
+- date: 2026-10-28
+  desk: Engineering
   text: The writing page has a "Read a random post" link that opens one of the posts currently listed, so it follows the topic chip or search you've picked.
   link: /blog/
 - date: 2026-10-28
