@@ -3360,3 +3360,17 @@ Engineer backlog additions:
   www.avinashgosavi.com and rubygems, so no local Jekyll build either).
 - Backlog: dropped the "what I learned" project line (first-person content).
 - 2026-10-28 14:35 PT — EDITOR — No changes (checks only; backlog tidy).
+
+## Done (Oct 28, 2026, 3:35pm PT)
+
+- Designer shift (UTC 22): in-post series boxes (_includes/series-box.html,
+  top and bottom of every series post). Part numbers are muted like other post
+  list markers; the current part's number is accent-ink and bold (5.7:1 sepia,
+  8.4:1 dark on --surface) with `aria-current="step"` on its `<li>`; in the
+  bottom box the following part gets a small "Next" pill (muted text, 5.5:1
+  sepia / 6.6:1 dark; hidden in print). Last part: no tag. Liquid checked with
+  python-liquid (sb_next reset per include), Playwright mock with real
+  style.css at 375px sepia + dark: no overflow, no JS errors.
+- Backlog: the numbered stepper idea for `.series-box-list` stays open (this
+  is the lighter version — markers only).
+- 2026-10-28 15:35 PT — DESIGNER — series boxes highlight the current part and tag the next one (_includes/series-box.html, assets/css/style.css; every series /post/*, e.g. /post/vaultmem-part-2-multimodal-temporal-backends/) (Actions run 40781340029 green).
