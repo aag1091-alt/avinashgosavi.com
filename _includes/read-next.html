@@ -34,8 +34,19 @@
 <nav class="read-next" aria-label="Read next">
   <h2 class="read-next-title">Keep reading</h2>
   <ul class="read-next-list read-next-pair">
-    {% if older %}<li class="read-next-older"><span class="read-next-label"><span aria-hidden="true">← </span>Older</span> <a href="{{ older.url | relative_url }}">{{ older.title }}</a></li>{% endif %}
-    {% if idx > 0 and newer %}<li class="read-next-newer"><span class="read-next-label">Newer<span aria-hidden="true"> →</span></span> <a href="{{ newer.url | relative_url }}">{{ newer.title }}</a></li>{% endif %}
+    {% if older %}<li class="read-next-older"><span class="read-next-label"><span aria-hidden="true">← </span>Older</span> <a href="{{ older.url | relative_url }}" rel="prev" aria-keyshortcuts="ArrowLeft">{{ older.title }}</a></li>{% endif %}
+    {% if idx > 0 and newer %}<li class="read-next-newer"><span class="read-next-label">Newer<span aria-hidden="true"> →</span></span> <a href="{{ newer.url | relative_url }}" rel="next" aria-keyshortcuts="ArrowRight">{{ newer.title }}</a></li>{% endif %}
   </ul>
   <p class="read-next-more">More on <a href="{{ '/research/' | relative_url }}">what I research</a>, <a href="{{ '/projects/' | relative_url }}">what I build</a>, or <a href="{{ '/feed.xml' | relative_url }}">subscribe via RSS</a>.</p>
 </nav>
+<script>
+/* ← / → open the older / newer post, like the arrows on the links above. Only when nothing has focus (a focused code block, table or form keeps its arrow keys), no text is selected, no dialog is open and no modifier key is held. */
+document.addEventListener('keydown',function(e){
+  var rel=e.key==='ArrowLeft'?'prev':e.key==='ArrowRight'?'next':'';
+  if(!rel||e.defaultPrevented||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey) return;
+  if(e.target!==document.body&&e.target!==document.documentElement) return;
+  if(document.querySelector('dialog[open]')||String(window.getSelection&&getSelection()||'')) return;
+  var a=document.querySelector('.read-next-pair a[rel="'+rel+'"]');
+  if(a){ e.preventDefault(); location.href=a.href; }
+});
+</script>
