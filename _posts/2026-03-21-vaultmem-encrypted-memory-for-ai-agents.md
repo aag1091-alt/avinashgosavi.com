@@ -134,7 +134,7 @@ For the query *"my morning coffee habits"*, flat cosine ranks the decoy atom fir
 
 | Metric | Flat cosine | Three-tier | Δ |
 |--------|:-----------:|:----------:|:---:|
-| MRR (pattern queries) | 0.50 | **1.00** | **+0.50** |
+| [MRR](/post/agent-memory-glossary/#mrr) (pattern queries) | 0.50 | **1.00** | **+0.50** |
 | MRR (specific queries) | 1.00 | 1.00 | 0.00 |
 
 Pattern queries: AFFINITY surfaced first every time. Specific queries: no regression. The significance weight isn't a heuristic — it's a correction for a systematic bias in pure cosine retrieval.

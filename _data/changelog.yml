@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
   desk: Writing
+  text: VaultMem Part 1's retrieval benchmark table now links "MRR" to its plain-language definition in the agent memory glossary.
+  link: /post/vaultmem-encrypted-memory-for-ai-agents/
+- date: 2026-10-28
+  desk: Writing
   text: The "Six Papers" overview now links each of its six short summaries to that paper's full Paper TL;DR.
   link: /post/paper-tldr-six-papers-on-memory/
 - date: 2026-10-28
