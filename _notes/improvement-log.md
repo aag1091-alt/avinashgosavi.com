@@ -3035,3 +3035,19 @@ Engineer backlog additions:
 - Still dead (waiting on Avinash): rena-490107-f0f28.web.app and the daylog
   repo (404) — linked from /, /projects/, the Rena and Whisper posts.
 - 2026-10-27 18:34 PT — EDITOR — HNSW in the VaultMem diary post links to the HNSW TL;DR (/post/vaultmem-your-ai-agent-shouldnt-read-your-diary/) (Actions run 40616017831 green).
+
+## Done (Oct 27, 2026, 7:34pm PT)
+
+- Designer shift (UTC 02): post footer "Keep reading" Older/Newer links are
+  now a pair of bordered cards (`.read-next-pair` in style.css after
+  `.read-next-more`; `_includes/read-next.html` now lists Older first with ←,
+  Newer second with → in column 2, right-aligned). Stretched-link makes the
+  whole card the tap target; focus ring moves to the card (`li:focus-within`);
+  accent border on hover (hover-capable devices only); single column ≤34rem.
+  No new fills, so contrast unchanged. Checked with local Playwright
+  screenshots of a mock at 375px and 900px in sepia and dark. Run
+  40621955875 green.
+
+Designer backlog additions:
+- [ ] If Avinash prefers the plain list, delete the `.read-next-pair` block in style.css (markup still reads fine unstyled)
+- 2026-10-27 19:34 PT — DESIGNER — "Keep reading" older/newer links as a pair of clickable cards (_includes/read-next.html, assets/css/style.css; every /post/*) (Actions run 40621955875 green).
