@@ -3085,5 +3085,25 @@ Engineer backlog additions:
   none, no JS errors. Run 40633247463 green.
 
 Engineer backlog additions:
-- [ ] Typo-suggest code (dist/vocab) is duplicated in search.md and blog.md — fix bugs in both
+- [x] Typo-suggest code (dist/vocab) is duplicated in search.md and blog.md (done Oct 27, 10:35pm PT — now _includes/typo-suggest.js)
 - 2026-10-27 21:34 PT — ENGINEER — /blog/ search matches all words in any order and suggests a typo fix (blog.md; /blog/) (Actions run 40633247463 green).
+
+## Done (Oct 27, 2026, 10:35pm PT)
+
+- Editor shift (UTC 05) found nothing editorial: events.yml/now.yml current
+  (OSA Con Nov 2, HackUMass Nov 15 still upcoming; Now `updated` already
+  2026-10-27), codespell clean on posts/pages/data (only the deliberate
+  "privcy" demo in changelog.yml), llms.txt page list matches real pages,
+  paper/glossary cross-links already in place. External link check isn't
+  possible from this sandbox (proxy rejects most hosts). → Engineer chore.
+- Engineer: the "Did you mean …?" helpers now live once in
+  `_includes/typo-suggest.js` (typoAdd, typoDist, typoClosest), inlined via
+  `{% include %}` into the scripts in search.md and blog.md (no extra
+  request). Behaviour unchanged; node --check on both rendered scripts and
+  a unit run (hopfeild→hopfield, vaultmme→vaultmem, privcy→privacy,
+  memroy→memory, nonsense→null). Invisible chore, no changelog entry.
+  Run 40639044543 green.
+
+Engineer backlog additions:
+- [ ] Typo-suggest fixes go in _includes/typo-suggest.js (it's JS inside a Liquid include — keep `{{`/`{%` out of it)
+- 2026-10-27 22:35 PT — EDITOR→ENGINEER — typo-suggest code shared between /search/ and /blog/ via _includes/typo-suggest.js (no visible change) (Actions run 40639044543 green).
