@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Engineering
+  text: The "On this page" box on long posts is now part of the page itself, so the post no longer jumps down when it appears, and it works with JavaScript off.
+  link: /post/building-rena-ai-health-companion-gemini-live/
+- date: 2026-10-28
   desk: Design
   text: The "On this page" box on long posts has a themed chevron that turns down when it opens, instead of the browser's default triangle.
   link: /post/vaultmem-encrypted-memory-for-ai-agents/

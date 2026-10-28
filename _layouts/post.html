@@ -19,11 +19,14 @@ layout: default
   </header>
   {% include series-box.html %}
   {% assign toc_words = content | strip_html | number_of_words %}
-  {% if toc_words >= 1200 and page.toc != false %}
-  <details class="post-toc" hidden>
+  {%- comment -%} Built here, not by JS, so the box is in place at first paint (no layout shift) and works without JS. kramdown emits <h2 id="slug">. {%- endcomment -%}
+  {% assign toc_parts = content | split: '<h2 id="' %}
+  {% if toc_words >= 1200 and page.toc != false and toc_parts.size > 3 %}
+  <details class="post-toc" open>
     <summary>On this page</summary>
-    <ol class="post-toc-list"></ol>
+    <ol class="post-toc-list">{% for part in toc_parts offset: 1 %}{% assign toc_id = part | split: '"' | first %}{% assign toc_text = part | split: '</h2>' | first | remove_first: toc_id | remove_first: '">' | strip_html | strip %}<li><a href="#{{ toc_id }}">{{ toc_text }}</a></li>{% endfor %}</ol>
   </details>
+  <script>matchMedia('(min-width: 700px)').matches||(document.currentScript.previousElementSibling.open=false)</script>
   {% endif %}
   <div class="post-content e-content">
     {{ content | replace: '<table>', '<div class="table-scroll"><table>' | replace: '</table>', '</table></div>' }}
