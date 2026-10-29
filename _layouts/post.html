@@ -33,7 +33,7 @@ layout: default
   <div class="post-content e-content">
     {{ content | replace: '<table>', '<div class="table-scroll"><table>' | replace: '</table>', '</table></div>' }}
   </div>
-  {% if page.series %}{% include series-box.html position="bottom" %}{% endif %}
+  {% if page.series %}{% include series-box.html position="bottom" %}{% include read-marks.html items=".series-box-list li" meta="self" %}{% endif %}
   {% include share.html %}
   {% include suggest-edit.html %}
   {% include read-next.html %}

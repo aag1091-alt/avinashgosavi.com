@@ -1,12 +1,12 @@
 <script>
 /* Posts you finished in this browser (set by _includes/post-tools.html) get a small
    "Read" tag next to their date. Params: items (list-item selector), meta (optional,
-   default .post-list-meta). Stored only in localStorage; nothing leaves the browser. */
+   default .post-list-meta; "self" appends to the item itself). Stored only in localStorage; nothing leaves the browser. */
 (function(){
   var m; try{ m=JSON.parse(localStorage.getItem('posts_read'))||{}; }catch(e){ return; }
   if(!Object.keys(m).length) return;
   document.querySelectorAll('{{ include.items }}').forEach(function(li){
-    var a=li.querySelector('a[href]'), meta=li.querySelector('{{ include.meta | default: ".post-list-meta" }}');
+    var a=li.querySelector('a[href]'), meta={% if include.meta == "self" %}li{% else %}li.querySelector('{{ include.meta | default: ".post-list-meta" }}'){% endif %};
     if(!a||!meta||meta.querySelector('.read-mark')) return;
     var path=new URL(a.getAttribute('href'),location.href).pathname;
     if(!m[path]) return;
