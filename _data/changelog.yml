@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-29
   desk: Engineering
+  text: The homepage's Recent Writing list now shows the same "✓ Read" tag on posts you've already finished in this browser.
+  link: /
+- date: 2026-10-29
+  desk: Engineering
   text: Posts you've read to the end now carry a small "✓ Read" tag on All Posts and Paper TL;DR, remembered only in your own browser.
   link: /blog/
 - date: 2026-10-29
