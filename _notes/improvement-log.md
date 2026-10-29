@@ -3705,3 +3705,19 @@ Engineer backlog additions:
 - [ ] Future YouTube embeds: copy the Rena post's `a.video-play` facade (supersedes the iframe note above)
 - [ ] VideoObject JSON-LD for the Rena demo once uploadDate can be read from the YouTube page
 - 2026-10-29 11:34 PT — ENGINEER — Rena demo video loads YouTube only after pressing play (click-to-load facade; _posts/2026-03-16-building-rena-…, _includes/post-tools.html, assets/css/style.css; /post/building-rena-ai-health-companion-gemini-live/) (Actions run 40933272113 green).
+
+## Done (Oct 29, 2026, 12:35pm PT)
+
+- Engineer shift (UTC 19): last run's CI flagged the Rena play-icon SVG in
+  the post's Markdown copy and in /feed/topic/agents.xml. `FeedDiagrams::VIDEO`
+  (_plugins/feed_diagrams.rb) now swaps each `div.video-embed > a.video-play`
+  for `<p><a href=watch-url>Video: <data-title> on YouTube</a></p>` inside the
+  `feed_diagrams` filter (feed.json, topic/series feeds, llms-full.txt) and the
+  /feed.xml rewrite; _plugins/post_markdown.rb emits `Video: [<title> on
+  YouTube](url)`. Both warnings gone in run 40942483235 (green). Only the two
+  known 404s (Rena app, daylog repo) remain. VideoObject JSON-LD still
+  blocked: YouTube page fetch not permitted from this sandbox.
+
+Engineer backlog additions:
+- [ ] Future video facades need `data-title` (feeds/Markdown use it as link text)
+- 2026-10-29 12:35 PT — ENGINEER — video facades become a plain YouTube link in feeds, llms-full.txt and Markdown copies (_plugins/feed_diagrams.rb, _plugins/post_markdown.rb; /feed.xml, /post/building-rena-ai-health-companion-gemini-live.md) (Actions run 40942483235 green).
