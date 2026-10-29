@@ -8,7 +8,7 @@ description: "Plain-language summaries of research papers on AI memory, retrieva
 {% assign tldrs = site.posts | where: "series", "paper-tldr" | sort: "series_order" %}
 <div class="tldr-page">
   <h1>Paper TL;DR</h1>
-  <p class="page-lede">Research papers on AI memory, retrieval and search, each boiled down to what it says, why it matters, and where it falls short. {{ tldrs.size }} so far · <a href="{{ '/feed/paper-tldr.xml' | relative_url }}">RSS for this section</a></p>
+  <p class="page-lede">Research papers on AI memory, retrieval and search, each boiled down to what it says, why it matters, and where it falls short. {{ tldrs.size }} so far · <a href="{{ '/feed/paper-tldr.xml' | relative_url }}" type="application/atom+xml">{% include feed-icon.html %}RSS for this section</a></p>
 
   <ol class="tldr-list">
     {% for p in tldrs %}

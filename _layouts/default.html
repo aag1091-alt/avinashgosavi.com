@@ -33,8 +33,12 @@
   <link rel="alternate" type="application/atom+xml" title="{{ fs.title | default: page.series | escape }} series" href="{{ '/feed/' | append: page.series | append: '.xml' | relative_url }}">
   {%- elsif page.url == '/series/' %}{% for fs in site.data.series %}
   <link rel="alternate" type="application/atom+xml" title="{{ fs.title | escape }} series" href="{{ '/feed/' | append: fs.slug | append: '.xml' | relative_url }}">
-  {%- endfor %}{% elsif page.url == '/changelog/' %}
+  {%- endfor %}{% elsif page.url == '/paper-tldr/' %}{% assign fs = site.data.series | where: "slug", "paper-tldr" | first %}
+  <link rel="alternate" type="application/atom+xml" title="{{ fs.title | default: 'Paper TL;DR' | escape }} series" href="{{ '/feed/paper-tldr.xml' | relative_url }}">
+  {%- elsif page.url == '/changelog/' %}
   <link rel="alternate" type="application/atom+xml" title="Changelog" href="{{ '/feed/changelog.xml' | relative_url }}">
+  {%- elsif page.url == '/events/' %}
+  <link rel="alternate" type="text/calendar" title="Upcoming events (iCalendar)" href="{{ '/events.ics' | relative_url }}">
   {%- endif %}
   {%- comment %} Topic feeds (_plugins/topic_feeds.rb): a post advertises the feeds of its own tags, /blog/ all of them, so feed readers offer "follow this topic". {% endcomment %}
   {%- if page.collection == "posts" or page.url == '/blog/' %}{% assign topic_feeds = site.pages | where: "layout", "topic-feed" | sort: "tag" %}{% for tf in topic_feeds %}{% if page.url == '/blog/' or page.tags contains tf.tag %}

@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
   desk: Engineering
+  text: Feed readers now find the Paper TL;DR feed straight from /paper-tldr/, and calendar apps can pick up the events calendar from /events/.
+  link: /paper-tldr/
+- date: 2026-10-28
+  desk: Engineering
   text: Press ? on any page (or use the new footer button on desktop) to see the keyboard shortcuts that work there — search, older/newer post and closing dialogs.
   link: /
 - date: 2026-10-28
