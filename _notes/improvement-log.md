@@ -3625,3 +3625,19 @@ Designer backlog additions:
 Engineer backlog additions:
 - [ ] To always keep the site-name suffix in titles, delete `title_max` from _config.yml
 - 2026-10-29 06:47 PT — ENGINEER — long post titles drop the " | Avinash Gosavi" suffix in tabs/search results (_plugins/title_suffix.rb, _config.yml, scripts/check_seo.py, README.md; every long /post/*) (Actions run 40885722695 green).
+
+## Done (Oct 29, 2026, 7:45am PT)
+
+- Engineer shift (UTC 14): `_plugins/sitemap_images.rb` (site post_write)
+  adds Google image-sitemap tags to /sitemap.xml — every same-site, non-SVG
+  `<img src>` inside `<main>` goes under its page's `<url>` as
+  `<image:image><image:loc>`; xmlns:image added to `<urlset>`; idempotent;
+  errors only warn. CI sitemap notice now also counts images
+  ("43 urls, 0 without lastmod, 8 images"). indexnow.py / check_llms.py use
+  ElementTree by namespace, unaffected. Unit-tested with plain ruby on a fake
+  _site (entities, data:, svg, other hosts, header imgs skipped).
+  Run 40895131960 green.
+
+Engineer backlog additions:
+- [ ] New photos in posts are picked up automatically; to exclude one, it must sit outside `<main>` or be an SVG
+- 2026-10-29 07:45 PT — ENGINEER — image sitemap: in-page photos/screenshots listed in /sitemap.xml (_plugins/sitemap_images.rb, .github/workflows/jekyll.yml, README.md) (Actions run 40895131960 green).
