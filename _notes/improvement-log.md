@@ -3590,3 +3590,21 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] If Avinash dislikes the Read tags, also delete the read-marks include after the bottom series box in _layouts/post.html
 - 2026-10-29 04:35 PT — EDITOR→ENGINEER — "✓ Read" tag on finished parts in the in-post series box (_includes/read-marks.html, _layouts/post.html, assets/css/style.css; series posts) (Actions run 40866711603 green).
+
+## Done (Oct 29, 2026, 5:49am PT)
+
+- Designer shift (UTC 12): Rena post "App screenshots" was an inline-styled
+  flex row (`flex-wrap:nowrap`) — at 375px four phone screens shrank to ~75px
+  each, and the black `rgba(0,0,0,.12)` shadow vanished in the dark theme.
+  Now `<div class="screens">` of `<figure>`/`<figcaption>` (alts "Rena home
+  screen" etc. so captions aren't read twice); CSS `.post-content .screens`
+  grid 2-up, 4-up from 34rem, 1px --border frame, 12px radius, muted 0.8rem
+  captions; `max-height: none` overrides the portrait `picture img` cap.
+  Playwright mock: 146×314 per screen at 375px, 165×355 at 1000px, no
+  overflow; captions rgb(92,86,80) on #f5efe0 / rgb(168,160,149) on #2a2620
+  (≥6:1). Click-to-zoom still applies (360px source > 1.25× display).
+  Run 40876730996 green.
+
+Designer backlog additions:
+- [ ] Reuse `.screens` for any future phone-screenshot rows (markup: div.screens > figure > picture + figcaption)
+- 2026-10-29 05:49 PT — DESIGNER — Rena screenshots as a 2-up (phones) / 4-up framed gallery with captions (assets/css/style.css, _posts/2026-03-16-building-rena-…; /post/building-rena-ai-health-companion-gemini-live/) (Actions run 40876730996 green).
