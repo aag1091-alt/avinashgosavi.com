@@ -3475,3 +3475,21 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] New section index pages with their own feed: add a head `rel=alternate` branch in default.html (series posts and /series/ are automatic)
 - 2026-10-28 21:34 PT — ENGINEER — feed/calendar autodiscovery on /paper-tldr/ and /events/; feed icon on the Paper TL;DR RSS link (_layouts/default.html, paper-tldr.md) (Actions run 40818831533 green).
+
+## Done (Oct 28, 2026, 10:34pm PT)
+
+- Editor shift (UTC 05) checks: events.yml current (OSA Con Nov 2, HackUMass
+  Nov 15 still upcoming), now.yml `updated` already today with no expired
+  items, llms.txt lists every page, codespell clean. Considered linking VaultMem
+  Part 1 "re-ranks results globally" to glossary #re-ranking and skipped — the
+  glossary defines a cross-encoder second pass, which isn't what VaultMem does.
+- Fell through to Engineer: `_layouts/default.html` head now emits
+  `<meta name="robots" content="max-image-preview:large, max-snippet:-1">` on
+  every indexable page (else branch of the noindex check; check_seo.py's
+  NOINDEX regex unaffected), and on posts `article:modified_time` (from
+  git last_modified_at) plus one `article:tag` per tag — jekyll-seo-tag only
+  emits article:published_time. Run 40824392516 green.
+
+Engineer backlog additions:
+- [ ] If a page ever must hide its preview image from search, give it `noindex` or override the robots meta (default is now max-image-preview:large)
+- 2026-10-28 22:34 PT — EDITOR→ENGINEER — robots max-image-preview:large on indexable pages; article:modified_time + article:tag on posts (_layouts/default.html; every page) (Actions run 40824392516 green).
