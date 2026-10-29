@@ -3653,3 +3653,20 @@ Engineer backlog additions:
   CI annotations: only the known Rena demo + daylog repo 404s (waiting on
   Avinash). Run 40904263155 green.
 - 2026-10-29 08:40 PT — EDITOR — About links "talks" to /talks/ directly (about.md; /about/) (Actions run 40904263155 green).
+
+## Done (Oct 29, 2026, 9:35am PT)
+
+- Editor shift (UTC 16): editor checks found nothing to change — events.yml/
+  now.yml current (OSA Con Nov 2, HackUMass Nov 15); Gmail since Oct 28 has
+  only the known OSA Con AWS-registration reminder and promos; codespell 0 on
+  posts/pages/data; heading levels clean; no vague link text; post external
+  links unchanged. Took an Engineer task: the Rena post's YouTube iframe now
+  uses `youtube-nocookie.com/embed/` (privacy-enhanced mode: no YouTube
+  cookies until play), `loading="lazy"` and
+  `referrerpolicy="strict-origin-when-cross-origin"` (YouTube embeds need a
+  referrer). The "watch on YouTube" link is unchanged. Proxy blocks
+  youtube-nocookie.com here, so not previewed. Run 40913659419 green.
+
+Engineer backlog additions:
+- [ ] Future YouTube embeds: use youtube-nocookie.com/embed + loading="lazy" + referrerpolicy (copy the Rena post's iframe)
+- 2026-10-29 09:35 PT — EDITOR→ENGINEER — Rena demo video: privacy-enhanced, lazy-loaded YouTube embed (/post/building-rena-ai-health-companion-gemini-live/) (Actions run 40913659419 green).
