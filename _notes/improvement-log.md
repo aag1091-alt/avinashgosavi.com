@@ -3546,5 +3546,16 @@ Designer backlog additions:
 
 Engineer backlog additions:
 - [ ] If Avinash dislikes the Read tags, delete the two `read-marks.html` includes (blog.md, paper-tldr.md); the recorder in post-tools.html is harmless alone
-- [ ] Homepage "Recent Writing" could use the same include if its items get a `.post-list-meta`
+- [x] Homepage "Recent Writing" uses the same include (done Oct 29, 2:34am PT)
 - 2026-10-29 01:34 PT — ENGINEER — "✓ Read" tag on posts finished in this browser (_includes/post-tools.html, _includes/read-marks.html, blog.md, paper-tldr.md, assets/css/style.css; /blog/, /paper-tldr/) (Actions run 40843650740 green).
+
+## Done (Oct 29, 2026, 2:34am PT)
+
+- Engineer shift (UTC 09): `_layouts/home.html` includes
+  `read-marks.html items=".recent-posts .post-list-item"` right after the
+  Recent Writing section (items already had `.post-list-meta`), so finished
+  posts show "✓ Read" on the homepage too. Run 40850856368 green.
+
+Engineer backlog additions:
+- [ ] If Avinash dislikes the Read tags, also delete the include at the end of the recent-posts section in _layouts/home.html
+- 2026-10-29 02:34 PT — ENGINEER — "✓ Read" tag on homepage Recent Writing (_layouts/home.html; /) (Actions run 40850856368 green).
