@@ -1372,6 +1372,63 @@ body.theme-dark .about-image img {
   text-decoration-color: currentColor;
 }
 
+/* Footer "Keyboard shortcuts ?" button (mouse/trackpad screens only) and the dialog it opens (built in default.html) */
+.footer-kbd { display: none; }
+@media (hover: hover) and (pointer: fine) { .footer-kbd:not([hidden]) { display: block; } }
+.footer-kbd button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-muted);
+  font: inherit;
+  cursor: pointer;
+}
+.footer-kbd button:hover { color: var(--text); }
+.footer-kbd button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.footer-kbd kbd, .kbd-help kbd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0 0.4em;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+}
+.kbd-help {
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 1.1rem 1.25rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+}
+.kbd-help::backdrop { background: rgba(0, 0, 0, 0.5); }
+.kbd-help h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+.kbd-help dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 0.9rem;
+  align-items: baseline;
+  margin: 0 0 1rem;
+}
+.kbd-help dt { margin: 0; text-align: right; }
+.kbd-help dd { margin: 0; font-size: 0.9rem; }
+.kbd-help form { margin: 0; text-align: right; }
+.kbd-help-close {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.kbd-help-close:hover, .kbd-help-close:focus-visible { border-color: var(--accent); }
+.kbd-help-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media print { .kbd-help { display: none !important; } }
+
 /* ---------- Shared page lede ---------- */
 .page-lede {
   color: var(--text-muted);

@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Engineering
+  text: Press ? on any page (or use the new footer button on desktop) to see the keyboard shortcuts that work there — search, older/newer post and closing dialogs.
+  link: /
+- date: 2026-10-28
   desk: Design
   text: Bullets on the Uses page now sit in a softer color behind the text, matching the lists in posts.
   link: /uses/

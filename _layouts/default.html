@@ -76,14 +76,48 @@
   {% include footer.html %}
   {%- if page.layout == 'default' %}{% include page-anchors.html %}{% endif %}
   <script>
-  document.addEventListener('keydown', function(e) {
-    if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
-    var t = e.target, tag = t && t.tagName;
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
-    var box = document.getElementById('site-search') || document.getElementById('post-search');
-    e.preventDefault();
-    if (box) box.focus(); else location.href = '{{ "/search/" | relative_url }}';
-  });
+  /* "/" focuses search; "?" (or the footer button) lists the shortcuts that work on this page in a small dialog. */
+  (function () {
+    var dlg;
+    function help() {
+      if (!window.HTMLDialogElement) return;
+      if (!dlg) {
+        var rows = [['/', 'Search the site']];
+        if (document.querySelector('.read-next-pair a[rel="prev"]')) rows.push(['\u2190', 'Older post']);
+        if (document.querySelector('.read-next-pair a[rel="next"]')) rows.push(['\u2192', 'Newer post']);
+        rows.push(['?', 'Show these shortcuts'], ['Esc', 'Close a dialog or menu']);
+        dlg = document.createElement('dialog');
+        dlg.className = 'kbd-help';
+        dlg.setAttribute('aria-labelledby', 'kbd-help-title');
+        var h = document.createElement('h2'); h.id = 'kbd-help-title'; h.textContent = 'Keyboard shortcuts';
+        var dl = document.createElement('dl');
+        rows.forEach(function (r) {
+          var dt = document.createElement('dt'), k = document.createElement('kbd'), dd = document.createElement('dd');
+          k.textContent = r[0]; dt.appendChild(k); dd.textContent = r[1];
+          dl.appendChild(dt); dl.appendChild(dd);
+        });
+        var f = document.createElement('form'); f.method = 'dialog';
+        var b = document.createElement('button'); b.className = 'kbd-help-close'; b.textContent = 'Close';
+        f.appendChild(b);
+        dlg.appendChild(h); dlg.appendChild(dl); dlg.appendChild(f);
+        dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+        document.body.appendChild(dlg);
+      }
+      if (!dlg.open) dlg.showModal();
+    }
+    document.addEventListener('keydown', function(e) {
+      if ((e.key !== '/' && e.key !== '?') || e.metaKey || e.ctrlKey || e.altKey) return;
+      var t = e.target, tag = t && t.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
+      if (document.querySelector('dialog[open]')) return;
+      e.preventDefault();
+      if (e.key === '?') return help();
+      var box = document.getElementById('site-search') || document.getElementById('post-search');
+      if (box) box.focus(); else location.href = '{{ "/search/" | relative_url }}';
+    });
+    var btn = document.querySelector('.footer-kbd button');
+    if (btn && window.HTMLDialogElement) { btn.addEventListener('click', help); btn.parentNode.hidden = false; }
+  })();
   </script>
   <script>
   /* Offline support: keeps pages you've opened readable without a connection (sw.js). */
