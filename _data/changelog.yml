@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-29
   desk: Engineering
+  text: The sitemap now lists the photos and screenshots on each page (SF Ruby, VaultMem, Rena, the about photo), so they can turn up in image search and lead people back to the post.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
+- date: 2026-10-29
+  desk: Engineering
   text: Long post titles no longer carry " | Avinash Gosavi" in the browser tab and search results, so the end of the title isn't cut off mid-word.
   link: /post/vaultmem-part-2-multimodal-temporal-backends/
 - date: 2026-10-29

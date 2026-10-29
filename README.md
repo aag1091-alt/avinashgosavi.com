@@ -106,3 +106,8 @@ absolute). Linked from each post's head, its share row and /llms.txt.
 `_plugins/title_suffix.rb` drops the " | Avinash Gosavi" suffix from `<title>`
 when the full title would be longer than `title_max` (65) in `_config.yml`,
 so long post titles aren't cut off mid-word in search results.
+
+`_plugins/sitemap_images.rb` adds Google image-sitemap tags to `/sitemap.xml`
+after the build: every same-site, non-SVG `<img>` inside a page's `<main>` is
+listed under that page's `<url>`, so photos and screenshots show up in image
+search. Errors only warn.
