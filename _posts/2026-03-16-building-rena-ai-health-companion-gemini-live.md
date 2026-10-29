@@ -181,35 +181,35 @@ Fix: use Rena's own TTS voice (`en-US-Neural2-F`) for the coaching audio. Unexpe
 
 ## App screenshots
 
-<div style="display:flex; gap:12px; justify-content:center; align-items:flex-start; flex-wrap:nowrap; overflow-x:auto;">
-  <div style="text-align:center; min-width:0; flex:1;">
+<div class="screens">
+  <figure>
     <picture>
       <source type="image/webp" srcset="{{ '/assets/images/rena-home.webp' | relative_url }}">
-      <img width="360" height="778" loading="lazy" decoding="async" src="{{ '/assets/images/rena-home.jpeg' | relative_url }}" alt="Home" style="width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.12);">
+      <img width="360" height="778" loading="lazy" decoding="async" src="{{ '/assets/images/rena-home.jpeg' | relative_url }}" alt="Rena home screen">
     </picture>
-    <p style="margin-top:6px; font-size:0.8rem; color:var(--text-muted);">Home</p>
-  </div>
-  <div style="text-align:center; min-width:0; flex:1;">
+    <figcaption>Home</figcaption>
+  </figure>
+  <figure>
     <picture>
       <source type="image/webp" srcset="{{ '/assets/images/rena-history.webp' | relative_url }}">
-      <img width="360" height="778" loading="lazy" decoding="async" src="{{ '/assets/images/rena-history.jpeg' | relative_url }}" alt="History" style="width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.12);">
+      <img width="360" height="778" loading="lazy" decoding="async" src="{{ '/assets/images/rena-history.jpeg' | relative_url }}" alt="Rena history screen">
     </picture>
-    <p style="margin-top:6px; font-size:0.8rem; color:var(--text-muted);">History</p>
-  </div>
-  <div style="text-align:center; min-width:0; flex:1;">
+    <figcaption>History</figcaption>
+  </figure>
+  <figure>
     <picture>
       <source type="image/webp" srcset="{{ '/assets/images/rena-plan.webp' | relative_url }}">
-      <img width="360" height="778" loading="lazy" decoding="async" src="{{ '/assets/images/rena-plan.jpeg' | relative_url }}" alt="Plan" style="width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.12);">
+      <img width="360" height="778" loading="lazy" decoding="async" src="{{ '/assets/images/rena-plan.jpeg' | relative_url }}" alt="Rena plan screen">
     </picture>
-    <p style="margin-top:6px; font-size:0.8rem; color:var(--text-muted);">Plan</p>
-  </div>
-  <div style="text-align:center; min-width:0; flex:1;">
+    <figcaption>Plan</figcaption>
+  </figure>
+  <figure>
     <picture>
       <source type="image/webp" srcset="{{ '/assets/images/rena-scan.webp' | relative_url }}">
-      <img width="360" height="778" loading="lazy" decoding="async" src="{{ '/assets/images/rena-scan.jpeg' | relative_url }}" alt="Scan" style="width:100%; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.12);">
+      <img width="360" height="778" loading="lazy" decoding="async" src="{{ '/assets/images/rena-scan.jpeg' | relative_url }}" alt="Rena scan screen">
     </picture>
-    <p style="margin-top:6px; font-size:0.8rem; color:var(--text-muted);">Scan</p>
-  </div>
+    <figcaption>Scan</figcaption>
+  </figure>
 </div>
 
 ---

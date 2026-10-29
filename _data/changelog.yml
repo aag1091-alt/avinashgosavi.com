@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-29
+  desk: Design
+  text: The Rena app screenshots now sit two to a row on phones (four on wider screens) with a thin frame that shows in dark mode too, instead of four tiny screens squeezed into one row.
+  link: /post/building-rena-ai-health-companion-gemini-live/#app-screenshots
+- date: 2026-10-29
   desk: Engineering
   text: The "Part X of Y" box inside series posts now marks parts you've already finished in this browser with a small "✓ Read" tag.
   link: /post/vaultmem-part-2-multimodal-temporal-backends/

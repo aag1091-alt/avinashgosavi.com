@@ -1092,6 +1092,33 @@ input:focus-visible {
   margin-inline: auto;
 }
 
+/* Phone-screenshot galleries (Rena "App screenshots"): 2-up on phones so each
+   screen stays readable (~160px, not 4 × 75px), 4-up from 34rem. A hairline
+   --border frame instead of a black shadow keeps the screens' edges visible
+   in the dark theme too; captions are muted (--text-muted, ≥4.5:1). */
+.post-content .screens {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 0.75rem;
+  margin: 1.25rem 0 1.5rem;
+}
+@media (min-width: 34rem) {
+  .post-content .screens { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.post-content .screens figure { margin: 0; text-align: center; }
+.post-content .screens img {
+  width: 100%;
+  max-height: none;
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.post-content .screens figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 /* Inline SVG diagrams in posts (theme-aware via CSS tokens) */
 .diagram {
   margin: 2rem auto;
