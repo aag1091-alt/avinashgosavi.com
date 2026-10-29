@@ -363,6 +363,21 @@
       qt=setTimeout(hideQ,1200);
     },function(){ window.prompt('Copy this link:',u); });
   });
+  // Video facades (.video-embed > a.video-play): swap in the YouTube iframe only on click,
+  // so the page makes no YouTube requests until the reader asks for the video.
+  root.querySelectorAll('a.video-play[data-embed]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button) return;
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src=a.dataset.embed+'?autoplay=1';
+      f.title=a.dataset.title||'Video';
+      f.referrerPolicy='strict-origin-when-cross-origin';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen=true;
+      a.replaceWith(f); f.focus();
+    });
+  });
   // Reaching the end of a post marks it read in this browser only (localStorage, never sent anywhere);
   // /blog/ and /paper-tldr/ then show a small "Read" tag on it (_includes/read-marks.html).
   (function(){

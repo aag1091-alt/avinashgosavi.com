@@ -14,7 +14,7 @@ I built Rena for the **Gemini Live Agent Challenge 2026** — a personal AI heal
 > **Try it:** [rena-490107-f0f28.web.app](https://rena-490107-f0f28.web.app) · **Code:** [github.com/aag1091-alt/Rena](https://github.com/aag1091-alt/Rena) · **Demo:** [Watch on YouTube](https://www.youtube.com/watch?v=f-ZZw0CTivU)
 
 <div class="video-embed">
-  <iframe src="https://www.youtube-nocookie.com/embed/f-ZZw0CTivU" title="Rena demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <a class="video-play" href="https://www.youtube.com/watch?v=f-ZZw0CTivU" data-embed="https://www.youtube-nocookie.com/embed/f-ZZw0CTivU" data-title="Rena demo"><svg viewBox="0 0 68 68" width="68" height="68" aria-hidden="true" focusable="false"><circle cx="34" cy="34" r="34"/><path d="M27 21.5v25L47 34z"/></svg><span>Play the Rena demo <small>loads YouTube</small></span></a>
 </div>
 
 ---

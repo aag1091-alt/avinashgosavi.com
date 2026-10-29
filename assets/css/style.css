@@ -1138,6 +1138,41 @@ input:focus-visible {
   height: 100%;
   border: 0;
 }
+/* Click-to-load facade: nothing is fetched from YouTube until the reader
+   presses play (_includes/post-tools.html swaps in the iframe). Without JS
+   it is a plain link to the video. */
+.post-content .video-embed .video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.post-content .video-embed .video-play small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.post-content .video-embed .video-play circle { fill: var(--accent); }
+.post-content .video-embed .video-play path { fill: var(--bg); }
+.post-content .video-embed .video-play svg { transition: transform 0.15s ease; }
+.post-content .video-embed .video-play:hover svg { transform: scale(1.08); }
+.post-content .video-embed .video-play:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -4px;
+  border-radius: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .post-content .video-embed .video-play svg { transition: none; }
+  .post-content .video-embed .video-play:hover svg { transform: none; }
+}
 
 /* Inline SVG diagrams in posts (theme-aware via CSS tokens) */
 .diagram {
