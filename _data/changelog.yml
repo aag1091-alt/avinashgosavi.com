@@ -1,5 +1,9 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
+- date: 2026-10-29
+  desk: Design
+  text: Tall photos in posts now stop at about a screen's height and sit centered, so the SF Ruby photo-booth picture no longer fills a whole scroll; click to see it full size.
+  link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/
 - date: 2026-10-28
   desk: Engineering
   text: The changelog now shows the latest week up front and folds older days into one "earlier changes" toggle; date links and desk filters open it automatically.

@@ -1067,6 +1067,13 @@ input:focus-visible {
   margin: 1rem 0;
   border-radius: 8px;
 }
+/* Tall (portrait) photos in posts stop at about a screen's height and sit
+   centered, instead of running ~56rem down the column; click still zooms. */
+.post-content picture img {
+  width: auto;
+  max-height: min(80vh, 36rem);
+  margin-inline: auto;
+}
 
 /* Inline SVG diagrams in posts (theme-aware via CSS tokens) */
 .diagram {
