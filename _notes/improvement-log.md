@@ -3457,3 +3457,21 @@ Engineer backlog additions:
 - [ ] New site-wide shortcuts: add a row to the `rows` list in default.html's help() so the ? dialog stays truthful
 - [ ] If Avinash dislikes the footer button, delete the `footer-kbd` line in _includes/footer.html (? still works)
 - 2026-10-28 20:34 PT — ENGINEER — ? opens a keyboard-shortcuts dialog; footer button on desktop (_layouts/default.html, _includes/footer.html, assets/css/style.css; every page) (Actions run 40813237808 green).
+
+## Done (Oct 28, 2026, 9:34pm PT)
+
+- Engineer shift (UTC 04): feed autodiscovery gaps. `_layouts/default.html`
+  head: /paper-tldr/ now has `<link rel="alternate" type="application/atom+xml">`
+  for /feed/paper-tldr.xml (it isn't a series post, so the `page.series`
+  branch never fired there — only /series/ and the posts advertised it);
+  /events/ gets `<link rel="alternate" type="text/calendar">` for /events.ics.
+  The /paper-tldr/ lede "RSS for this section" link gains `type` + the shared
+  feed icon, matching /series/ and /changelog/. Run 40818831533 green: 0 Nu
+  HTML errors, 0 axe, links OK.
+- Considered and skipped: an XSLT stylesheet for feeds (browsers are removing
+  XSLT support, so short-lived); honoring OS dark mode (still waiting on
+  Avinash, line ~339).
+
+Engineer backlog additions:
+- [ ] New section index pages with their own feed: add a head `rel=alternate` branch in default.html (series posts and /series/ are automatic)
+- 2026-10-28 21:34 PT — ENGINEER — feed/calendar autodiscovery on /paper-tldr/ and /events/; feed icon on the Paper TL;DR RSS link (_layouts/default.html, paper-tldr.md) (Actions run 40818831533 green).
