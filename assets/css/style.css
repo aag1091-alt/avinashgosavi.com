@@ -166,6 +166,10 @@ body.theme-dark {
 
 html {
   font-size: 18px;
+  /* Reserve the scrollbar's space on every page, so on screens with classic
+     (non-overlay) scrollbars the header and column don't slide sideways when
+     moving between a short page and a long one. Overlay scrollbars: no-op. */
+  scrollbar-gutter: stable;
 }
 
 @media (prefers-reduced-motion: no-preference) {

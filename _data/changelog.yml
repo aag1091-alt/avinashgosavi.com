@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Engineering
+  text: On computers with always-visible scrollbars, the header and page column no longer shift sideways when you go from a short page to a long one.
+  link: /now/
+- date: 2026-10-28
   desk: Design
   text: On computers with a mouse or trackpad, the ← and → next to Older and Newer at the end of each post look like keyboard keys, a hint that the arrow keys work.
   link: /post/i-fell-in-love-with-coding-again/
