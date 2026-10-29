@@ -3608,3 +3608,20 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] Reuse `.screens` for any future phone-screenshot rows (markup: div.screens > figure > picture + figcaption)
 - 2026-10-29 05:49 PT — DESIGNER — Rena screenshots as a 2-up (phones) / 4-up framed gallery with captions (assets/css/style.css, _posts/2026-03-16-building-rena-…; /post/building-rena-ai-health-companion-gemini-live/) (Actions run 40876730996 green).
+
+## Done (Oct 29, 2026, 6:47am PT)
+
+- Engineer shift (UTC 13): `_plugins/title_suffix.rb` (post_render on pages +
+  documents) drops jekyll-seo-tag's " | Avinash Gosavi" from `<title>` when the
+  full title is longer than `title_max: 65` (_config.yml) — search results cut
+  at ~60 chars, so long post titles lost their own last words. og:title /
+  twitter:title never had the suffix (share cards unchanged). `check_seo.py`
+  now warns if a title with " | " is still > 65 chars (plugin regression
+  guard). README documents it. Run 40885722695 green, 0 new SEO warnings.
+- Local Jekyll build impossible here (rubygems 403 via proxy; live site and
+  artifact downloads blocked) — Ruby logic unit-tested with plain `ruby`, CI is
+  the build check.
+
+Engineer backlog additions:
+- [ ] To always keep the site-name suffix in titles, delete `title_max` from _config.yml
+- 2026-10-29 06:47 PT — ENGINEER — long post titles drop the " | Avinash Gosavi" suffix in tabs/search results (_plugins/title_suffix.rb, _config.yml, scripts/check_seo.py, README.md; every long /post/*) (Actions run 40885722695 green).
