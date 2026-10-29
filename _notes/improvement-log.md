@@ -3527,3 +3527,24 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] If Avinash wants portrait photos full-width again, delete the `.post-content picture img` block in style.css (one rule)
 - 2026-10-29 00:34 PT — DESIGNER — tall post photos capped at about a screen's height and centered (assets/css/style.css; /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/) (Actions run 40836512737 green).
+
+## Done (Oct 29, 2026, 1:34am PT)
+
+- Engineer shift (UTC 08): "✓ Read" tags. `_includes/post-tools.html` (end of
+  script) records a post in localStorage `posts_read` {path: time} once the
+  bottom of `.post-content` is within 40px of the viewport, or after 15s for a
+  post that fits the screen; keeps the 200 newest. New
+  `_includes/read-marks.html` (param `items` = list-item selector) appends
+  `<span class="read-mark">✓ Read</span>` to `.post-list-meta` of matching
+  items; included at the end of blog.md and paper-tldr.md. CSS
+  `.post-list-meta .read-mark` adds the " · " separator (muted colour, same as
+  the date). Playwright check on a local mock: scroll to end → stored → blog
+  mock shows the tag on that item only, no JS errors. Live site and rubygems
+  are blocked by the sandbox proxy (no local Jekyll build); CI is the build
+  check. CI annotations: clean apart from the 2 known dead links.
+  Run 40843650740 green.
+
+Engineer backlog additions:
+- [ ] If Avinash dislikes the Read tags, delete the two `read-marks.html` includes (blog.md, paper-tldr.md); the recorder in post-tools.html is harmless alone
+- [ ] Homepage "Recent Writing" could use the same include if its items get a `.post-list-meta`
+- 2026-10-29 01:34 PT — ENGINEER — "✓ Read" tag on posts finished in this browser (_includes/post-tools.html, _includes/read-marks.html, blog.md, paper-tldr.md, assets/css/style.css; /blog/, /paper-tldr/) (Actions run 40843650740 green).
