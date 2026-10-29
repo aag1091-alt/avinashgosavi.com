@@ -3641,3 +3641,15 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] New photos in posts are picked up automatically; to exclude one, it must sit outside `<main>` or be an SVG
 - 2026-10-29 07:45 PT — ENGINEER — image sitemap: in-page photos/screenshots listed in /sitemap.xml (_plugins/sitemap_images.rb, .github/workflows/jekyll.yml, README.md) (Actions run 40895131960 green).
+
+## Done (Oct 29, 2026, 8:40am PT)
+
+- Editor shift (UTC 15): About page's "papers and talks that shaped my
+  thinking" linked both words to /research/; now "papers" → /research/ and
+  "talks" → /talks/ (his wording unchanged). Checks: events.yml and now.yml
+  current (OSA Con Nov 2 and HackUMass Nov 15 still upcoming; Gmail since
+  Oct 26 has only reminders — HackUMass judge RSVP form, OSA Con AWS
+  registration — nothing new to add); llms.txt page list matches real pages;
+  CI annotations: only the known Rena demo + daylog repo 404s (waiting on
+  Avinash). Run 40904263155 green.
+- 2026-10-29 08:40 PT — EDITOR — About links "talks" to /talks/ directly (about.md; /about/) (Actions run 40904263155 green).
