@@ -27,3 +27,5 @@ description: "Plain-language summaries of research papers on AI memory, retrieva
 
   <p class="page-lede">The papers themselves, with one-line notes, are on the <a href="{{ '/research/#papershelf' | relative_url }}">papershelf</a>.</p>
 </div>
+
+{% include read-marks.html items=".tldr-list .tldr-item" %}

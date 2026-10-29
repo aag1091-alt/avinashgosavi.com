@@ -821,6 +821,14 @@ input:focus-visible {
   content: " · ";
 }
 
+/* "✓ Read" on posts finished in this browser (_includes/read-marks.html) */
+.post-list-meta .read-mark {
+  white-space: nowrap;
+}
+.post-list-meta .read-mark::before {
+  content: " · ";
+}
+
 .post-list-excerpt {
   font-size: 0.95rem;
   color: var(--text-muted);

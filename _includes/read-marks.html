@@ -1,0 +1,18 @@
+<script>
+/* Posts you finished in this browser (set by _includes/post-tools.html) get a small
+   "Read" tag next to their date. Stored only in localStorage; nothing leaves the browser. */
+(function(){
+  var m; try{ m=JSON.parse(localStorage.getItem('posts_read'))||{}; }catch(e){ return; }
+  if(!Object.keys(m).length) return;
+  document.querySelectorAll('{{ include.items }}').forEach(function(li){
+    var a=li.querySelector('a[href]'), meta=li.querySelector('.post-list-meta');
+    if(!a||!meta||meta.querySelector('.read-mark')) return;
+    var path=new URL(a.getAttribute('href'),location.href).pathname;
+    if(!m[path]) return;
+    var s=document.createElement('span'); s.className='read-mark';
+    s.title='You finished this post in this browser';
+    s.innerHTML='<span aria-hidden="true">✓ </span>Read';
+    meta.appendChild(s);
+  });
+})();
+</script>

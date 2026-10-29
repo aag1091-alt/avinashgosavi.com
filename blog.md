@@ -211,3 +211,5 @@ title: All Posts
   }
 })();
 </script>
+
+{% include read-marks.html items="#post-list .blog-list-item" %}

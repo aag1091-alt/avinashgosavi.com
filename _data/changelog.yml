@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-29
+  desk: Engineering
+  text: Posts you've read to the end now carry a small "✓ Read" tag on All Posts and Paper TL;DR, remembered only in your own browser.
+  link: /blog/
+- date: 2026-10-29
   desk: Design
   text: Tall photos in posts now stop at about a screen's height and sit centered, so the SF Ruby photo-booth picture no longer fills a whole scroll; click to see it full size.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/

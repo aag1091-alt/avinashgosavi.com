@@ -363,5 +363,23 @@
       qt=setTimeout(hideQ,1200);
     },function(){ window.prompt('Copy this link:',u); });
   });
+  // Reaching the end of a post marks it read in this browser only (localStorage, never sent anywhere);
+  // /blog/ and /paper-tldr/ then show a small "Read" tag on it (_includes/read-marks.html).
+  (function(){
+    var RD='posts_read', done=false, t=null;
+    var check=function(){
+      if(done||root.getBoundingClientRect().bottom>window.innerHeight+40) return;
+      done=true; window.removeEventListener('scroll',onScroll);
+      try{
+        var m=JSON.parse(localStorage.getItem(RD))||{}; m[location.pathname]=Date.now();
+        var keys=Object.keys(m).sort(function(a,b){ return m[b]-m[a]; }).slice(0,200), k2={};
+        keys.forEach(function(k){ k2[k]=m[k]; });
+        localStorage.setItem(RD,JSON.stringify(k2));
+      }catch(e){}
+    };
+    var onScroll=function(){ clearTimeout(t); t=setTimeout(check,300); };
+    window.addEventListener('scroll',onScroll,{passive:true});
+    setTimeout(check,15000); // a short post that fits the screen counts once it has been open a while
+  })();
 })();
 </script>
