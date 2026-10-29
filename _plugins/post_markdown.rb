@@ -74,6 +74,10 @@ module PostMarkdown
     base = site.config["url"].to_s.chomp("/")
     url = base + post.url
     body = diagrams_to_text(body, url)
+    body = body.gsub(FeedDiagrams::VIDEO) do
+      href, title = FeedDiagrams.video_link(Regexp.last_match(1))
+      "Video: [#{title} on YouTube](#{href})"
+    end
     body = body.gsub(IAL_LINE, "")
     body = absolutize(body, base)
     body = body.gsub(/\n{3,}/, "\n\n").strip

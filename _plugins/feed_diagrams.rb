@@ -14,6 +14,25 @@ require "cgi"
 
 module FeedDiagrams
   FIGURE = %r{<figure class="diagram"[^>]*>(.*?)</figure>}m
+  # Click-to-load video facades (<div class="video-embed"><a class="video-play">
+  # with a play-icon SVG) become a plain link: readers can't run the swap script
+  # and would show a bare black circle.
+  VIDEO = %r{<div class="video-embed">\s*(<a class="video-play"[^>]*>).*?</a>\s*</div>}m
+
+  def self.video_link(tag)
+    href = tag[/\bhref="([^"]+)"/, 1].to_s
+    title = CGI.unescapeHTML(tag[/\bdata-title="([^"]*)"/, 1] || "demo")
+    [href, title]
+  end
+
+  def self.videos(html)
+    return html unless html.include?('class="video-play"')
+
+    html.gsub(VIDEO) do
+      href, title = video_link(Regexp.last_match(1))
+      %(<p><a href="#{href}">Video: #{CGI.escapeHTML(title)} on YouTube</a></p>)
+    end
+  end
 
   def self.inner(html, tag)
     m = html.match(%r{<#{tag}\b[^>]*>(.*?)</#{tag}>}m)
@@ -21,7 +40,10 @@ module FeedDiagrams
   end
 
   def self.replace(html, url = nil)
-    return html unless html.is_a?(String) && html.include?('<figure class="diagram"')
+    return html unless html.is_a?(String)
+
+    html = videos(html)
+    return html unless html.include?('<figure class="diagram"')
 
     html.gsub(FIGURE) do
       fig = Regexp.last_match(1)
@@ -40,7 +62,7 @@ module FeedDiagrams
   # <content type="html"> either as CDATA (jekyll-feed 0.17) or escaped. The
   # post URL comes from the entry's rel="alternate" link.
   def self.rewrite_atom(xml)
-    return xml unless xml.include?('figure class="diagram"') || xml.include?("figure class=&quot;diagram&quot;")
+    return xml unless %w[diagram video-play].any? { |k| xml.include?(%(class="#{k}")) || xml.include?("class=&quot;#{k}&quot;") }
 
     xml.gsub(%r{<entry\b[^>]*>.*?</entry>}m) do |entry|
       url = entry[/<link href="([^"]+)" rel="alternate"/, 1]
@@ -51,7 +73,7 @@ module FeedDiagrams
         body =
           if cdata
             "<![CDATA[#{replace(cdata[1], url)}]]>"
-          elsif body.include?("figure class=&quot;diagram&quot;")
+          elsif body.include?("figure class=&quot;diagram&quot;") || body.include?("class=&quot;video-play&quot;")
             CGI.escapeHTML(replace(CGI.unescapeHTML(body), url))
           else
             body

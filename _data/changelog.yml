@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-29
   desk: Engineering
+  text: In feed readers and the post's Markdown copy, the Rena demo now shows up as a plain YouTube link instead of a stray black play icon.
+  link: /post/building-rena-ai-health-companion-gemini-live/
+- date: 2026-10-29
+  desk: Engineering
   text: The Rena post now shows a play button instead of the YouTube player, so nothing loads from YouTube until you press play — the page opens lighter and faster.
   link: /post/building-rena-ai-health-companion-gemini-live/
 - date: 2026-10-29
