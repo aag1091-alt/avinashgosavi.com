@@ -3512,3 +3512,18 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] To show more/fewer days unfolded on /changelog, change `recent_days` in changelog.md (one number)
 - 2026-10-28 23:34 PT — EDITOR→ENGINEER — changelog folds days older than a week into an "earlier changes" toggle (changelog.md, assets/css/style.css; /changelog/) (Actions run 40830372851 green).
+
+## Done (Oct 29, 2026, 12:34am PT)
+
+- Designer shift (UTC 07): `.post-content picture img` (style.css, right after
+  the `.post-content img, .main img` block) gets `width: auto;
+  max-height: min(80vh, 36rem); margin-inline: auto`. Portrait photos (SF Ruby
+  photo booth, 768×1024) were ~56rem tall at full column width; now ~480×640
+  centered on desktop. Landscape photos and 375px phones unchanged (Playwright
+  check on a local test page: 702×469 / 480×640 centered at 1280px; 306px wide
+  both at 375px). The capped photo now qualifies for click-to-zoom.
+  Run 40836512737 green.
+
+Designer backlog additions:
+- [ ] If Avinash wants portrait photos full-width again, delete the `.post-content picture img` block in style.css (one rule)
+- 2026-10-29 00:34 PT — DESIGNER — tall post photos capped at about a screen's height and centered (assets/css/style.css; /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/) (Actions run 40836512737 green).
