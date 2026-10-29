@@ -3493,3 +3493,22 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] If a page ever must hide its preview image from search, give it `noindex` or override the robots meta (default is now max-image-preview:large)
 - 2026-10-28 22:34 PT — EDITOR→ENGINEER — robots max-image-preview:large on indexable pages; article:modified_time + article:tag on posts (_layouts/default.html; every page) (Actions run 40824392516 green).
+
+## Done (Oct 28, 2026, 11:34pm PT)
+
+- Editor shift (UTC 06): nothing editorial — events.yml/now.yml checked an
+  hour ago (OSA Con Nov 2, HackUMass Nov 15 upcoming; now.yml updated today),
+  glossary-term sweep of the older non-memory posts found no unlinked terms.
+- Fell through to Engineer: /changelog/ had grown to 224 entries over 11 days.
+  `changelog.md` now renders the latest `recent_days` (7) date groups normally
+  and wraps older days in `<details class="changelog-older" id="older">` whose
+  summary reads "N earlier changes, <first> – <last>". The desk filter opens it
+  (and hides it when no older day matches); a #month-d-yyyy date hash inside it
+  opens it and scrolls there; `beforeprint` opens it. Summary reuses the TOC
+  chevron (selectors added next to `.post-toc summary` in style.css).
+  Run 40830372851 green. Live site unreachable from sandbox (proxy), so no
+  Playwright check this run.
+
+Engineer backlog additions:
+- [ ] To show more/fewer days unfolded on /changelog, change `recent_days` in changelog.md (one number)
+- 2026-10-28 23:34 PT — EDITOR→ENGINEER — changelog folds days older than a week into an "earlier changes" toggle (changelog.md, assets/css/style.css; /changelog/) (Actions run 40830372851 green).
