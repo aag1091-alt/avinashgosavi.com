@@ -1922,9 +1922,9 @@ h2.has-anchor:target {
   from { background-color: var(--accent-soft); }
   to { background-color: transparent; }
 }
-/* List markers in posts: muted, so bullets and numbers sit behind the text */
-.post-content li::marker { color: var(--text-muted); }
-.post-content ol > li::marker { font-variant-numeric: tabular-nums; }
+/* List markers in posts and prose pages: muted, so bullets and numbers sit behind the text */
+:is(.post-content, .prose-page) li::marker { color: var(--text-muted); }
+:is(.post-content, .prose-page) ol > li::marker { font-variant-numeric: tabular-nums; }
 .post-content .has-copy { position: relative; }
 .code-copy {
   position: absolute;

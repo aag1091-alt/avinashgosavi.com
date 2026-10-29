@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
+  desk: Design
+  text: Bullets on the Uses page now sit in a softer color behind the text, matching the lists in posts.
+  link: /uses/
+- date: 2026-10-28
   desk: Engineering
   text: On computers with always-visible scrollbars, the header and page column no longer shift sideways when you go from a short page to a long one.
   link: /now/
