@@ -1756,6 +1756,22 @@ h1[tabindex="-1"]:focus { outline: none; }
 .read-next-pair li:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
 .read-next-pair .read-next-newer { grid-column: 2; text-align: right; }
 @media (hover: hover) { .read-next-pair li:hover { border-color: var(--accent); } }
+/* On mouse/trackpad screens the ← / → arrows look like key caps, hinting
+   that the arrow keys open the older / newer post (plain arrows on touch). */
+@media (hover: hover) and (pointer: fine) {
+  .read-next-pair .read-next-arrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    padding: 0 0.35em;
+    border: 1px solid var(--border);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+  }
+}
 @media (max-width: 34rem) {
   .read-next-pair { grid-template-columns: 1fr; }
   .read-next-pair .read-next-newer { grid-column: auto; text-align: left; }
