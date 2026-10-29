@@ -3559,3 +3559,19 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] If Avinash dislikes the Read tags, also delete the include at the end of the recent-posts section in _layouts/home.html
 - 2026-10-29 02:34 PT — ENGINEER — "✓ Read" tag on homepage Recent Writing (_layouts/home.html; /) (Actions run 40850856368 green).
+
+## Done (Oct 29, 2026, 3:35am PT)
+
+- Editor shift (UTC 10): events/now checked — nothing expired (OSA Con Nov 2,
+  HackUMass Nov 15 upcoming; now.yml `until` dates handle removal). llms.txt
+  lists every real page. Cross-links already saturated (older posts use
+  `post_url`). Fell back to Engineer: `_includes/read-marks.html` takes an
+  optional `meta` selector (default `.post-list-meta`); series.md includes it
+  with `items=".series-parts li" meta=".series-meta"`; CSS `.series-meta
+  .read-mark` gets the same nowrap + " · " separator. Playwright mock check:
+  only the finished part gets the tag. Run 40858916945 green.
+
+Engineer backlog additions:
+- [ ] If Avinash dislikes the Read tags, also delete the include at the end of series.md
+- [ ] Same tag could go on the in-post `.series-box-list` (kept plain for now)
+- 2026-10-29 03:35 PT — EDITOR→ENGINEER — "✓ Read" tag on finished parts on /series/ (_includes/read-marks.html, series.md, assets/css/style.css; /series/) (Actions run 40858916945 green).
