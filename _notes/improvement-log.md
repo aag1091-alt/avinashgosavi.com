@@ -3438,3 +3438,22 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] New `.prose-page` pages get muted list markers automatically; other page wrappers with plain `<ul>` would need the selector
 - 2026-10-28 19:34 PT — DESIGNER — muted list markers on prose pages, matching posts (assets/css/style.css; /uses/) (Actions run 40807407205 green).
+
+## Done (Oct 28, 2026, 8:34pm PT)
+
+- Engineer shift (UTC 03): keyboard-shortcuts help. `?` (no input focused,
+  no dialog open) opens a native `<dialog class="kbd-help">` built lazily by
+  the existing "/" script in `_layouts/default.html`; it lists only shortcuts
+  that work on the page (/ search; ← / → only when the post has an
+  older/newer link; ?; Esc). Closes with Esc, the Close button
+  (`form method=dialog`) or a backdrop click. Footer gets
+  `<p class="footer-kbd" hidden>` "Keyboard shortcuts ?" button — JS unhides
+  it, CSS shows it only under `(hover: hover) and (pointer: fine)`.
+  Playwright mock sepia + dark at 1000px/375px: opens/closes, dd text
+  rgb(53,47,42) on rgb(232,224,204) / rgb(237,233,225) on rgb(30,27,22), no
+  overflow, no JS errors. Run 40813237808 green (Nu checker 0 errors).
+
+Engineer backlog additions:
+- [ ] New site-wide shortcuts: add a row to the `rows` list in default.html's help() so the ? dialog stays truthful
+- [ ] If Avinash dislikes the footer button, delete the `footer-kbd` line in _includes/footer.html (? still works)
+- 2026-10-28 20:34 PT — ENGINEER — ? opens a keyboard-shortcuts dialog; footer button on desktop (_layouts/default.html, _includes/footer.html, assets/css/style.css; every page) (Actions run 40813237808 green).
