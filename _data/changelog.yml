@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-29
+  desk: Engineering
+  text: The Rena demo video now uses YouTube's privacy-enhanced player and loads only when you scroll near it, so opening the post no longer sets YouTube cookies before you press play.
+  link: /post/building-rena-ai-health-companion-gemini-live/
+- date: 2026-10-29
   desk: Writing
   text: The About page now links "talks" straight to Talks Worth Watching, instead of sending both papers and talks to the Research page.
   link: /about/
