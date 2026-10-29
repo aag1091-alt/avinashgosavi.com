@@ -3404,3 +3404,22 @@ Engineer backlog additions:
   arrows; .read-next is already hidden in print. Playwright mock at 1000px
   sepia + dark and 375px: no overflow. Run 40795105368 green.
 - 2026-10-28 17:34 PT — EDITOR→DESIGNER — ←/→ by Older/Newer look like key caps on mouse/trackpad screens (_includes/read-next.html, assets/css/style.css; every /post/*) (Actions run 40795105368 green).
+
+## Done (Oct 28, 2026, 6:34pm PT)
+
+- Editor shift (UTC 01) → Engineer: nothing editorial. events.yml/now.yml
+  current (OSA Con Nov 2, HackUMass Nov 15; `updated` 2026-10-28); Gmail last
+  day: no new registrations (only the known OSA Con AWS-registration nudge);
+  codespell 0 on posts/pages/data/includes/layouts.
+- `html { scrollbar-gutter: stable; }` in style.css: on classic-scrollbar
+  screens (Windows, Linux, macOS "always show") the header/column no longer
+  slide sideways between short and long pages (or when the lightbox locks
+  scroll). Gutter shows the body bg (propagated canvas). Playwright mock
+  1000px sepia + dark: clientWidth 985 on both a 1-line and a 200-line page.
+  Run 40801563597 green.
+- Sandbox note: live site and Actions artifact blob downloads are blocked by
+  the egress proxy (403) — test with local mocks only.
+
+Engineer backlog additions:
+- [ ] If a full-bleed element ever needs to reach the true right edge on short pages, note the reserved gutter (`100vw` includes it)
+- 2026-10-28 18:34 PT — EDITOR→ENGINEER — scrollbar space reserved so pages don't shift sideways (assets/css/style.css; every page) (Actions run 40801563597 green).
