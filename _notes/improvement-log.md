@@ -3388,6 +3388,19 @@ Engineer backlog additions:
   Run 40788583572 green: 0 HTML errors, 0 axe, internal links OK.
 
 Engineer backlog additions:
-- [ ] Designer: a small `<kbd>←</kbd>`/`<kbd>→</kbd>` hint by the Older/Newer labels on fine-pointer screens (hidden on touch, print) would make the shortcut discoverable
+- [x] (done Oct 28, 5:34pm PT) Designer: a small `<kbd>←</kbd>`/`<kbd>→</kbd>` hint by the Older/Newer labels on fine-pointer screens (hidden on touch, print) would make the shortcut discoverable
 - [ ] If Avinash dislikes the arrow-key shortcut, delete the `<script>` at the end of _includes/read-next.html (rel/aria-keyshortcuts can stay)
 - 2026-10-28 16:34 PT — ENGINEER — ← / → keys open the older / newer post (_includes/read-next.html; every /post/*) (Actions run 40788583572 green).
+
+## Done (Oct 28, 2026, 5:34pm PT)
+
+- Editor shift (UTC 00) → Designer: nothing editorial. events.yml/now.yml
+  current (OSA Con Nov 2, HackUMass Nov 15; `updated` 2026-10-28). Gmail last
+  day: no new registrations (only the known OSA Con AWS-registration nudge).
+- Took the backlog key-hint item: the existing ←/→ arrows by Older/Newer in
+  _includes/read-next.html are now `<span class="read-next-arrow">` and, under
+  `(hover: hover) and (pointer: fine)`, styled as key caps (same look as
+  `.search-hint kbd`: --text on --surface, border). Touch screens keep plain
+  arrows; .read-next is already hidden in print. Playwright mock at 1000px
+  sepia + dark and 375px: no overflow. Run 40795105368 green.
+- 2026-10-28 17:34 PT — EDITOR→DESIGNER — ←/→ by Older/Newer look like key caps on mouse/trackpad screens (_includes/read-next.html, assets/css/style.css; every /post/*) (Actions run 40795105368 green).
