@@ -3423,3 +3423,18 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] If a full-bleed element ever needs to reach the true right edge on short pages, note the reserved gutter (`100vw` includes it)
 - 2026-10-28 18:34 PT — EDITOR→ENGINEER — scrollbar space reserved so pages don't shift sideways (assets/css/style.css; every page) (Actions run 40801563597 green).
+
+## Done (Oct 28, 2026, 7:34pm PT)
+
+- Designer shift (UTC 02): `.post-content li::marker` muted-marker rules now
+  `:is(.post-content, .prose-page)` — /uses/ bullets were full --text black
+  while post bullets were --text-muted. Playwright mock: marker rgb(92,86,80)
+  sepia / rgb(168,160,149) dark (same --text-muted already used for prose,
+  ≥4.5:1), 375px no overflow. Run 40807407205 green.
+- Sandbox note: `bundle install` can't reach rubygems.org (proxy) — no local
+  Jekyll build; mock pages with `page.addStyleTag({path})` (file:// links are
+  blocked from setContent).
+
+Designer backlog additions:
+- [ ] New `.prose-page` pages get muted list markers automatically; other page wrappers with plain `<ul>` would need the selector
+- 2026-10-28 19:34 PT — DESIGNER — muted list markers on prose pages, matching posts (assets/css/style.css; /uses/) (Actions run 40807407205 green).
