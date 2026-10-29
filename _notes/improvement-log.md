@@ -3573,5 +3573,20 @@ Engineer backlog additions:
 
 Engineer backlog additions:
 - [ ] If Avinash dislikes the Read tags, also delete the include at the end of series.md
-- [ ] Same tag could go on the in-post `.series-box-list` (kept plain for now)
+- [x] Same tag on the in-post `.series-box-list` (done Oct 29, 4:35am PT)
 - 2026-10-29 03:35 PT — EDITOR→ENGINEER — "✓ Read" tag on finished parts on /series/ (_includes/read-marks.html, series.md, assets/css/style.css; /series/) (Actions run 40858916945 green).
+
+## Done (Oct 29, 2026, 4:35am PT)
+
+- Editor shift (UTC 11): events/now unchanged since 3:35am check (nothing
+  expired); editor queue empty, fell back to Engineer. `_includes/read-marks.html`
+  accepts `meta="self"` (tag appended to the item itself); `_layouts/post.html`
+  includes it after the bottom series box with `items=".series-box-list li"`,
+  so finished parts show "✓ Read" in both top and bottom boxes (current part is
+  `<strong>`, never tagged). CSS `.series-box-list .read-mark` muted 0.85rem
+  with " · " separator. Playwright mock: tags only on finished links, no JS
+  errors. Run 40866711603 green.
+
+Engineer backlog additions:
+- [ ] If Avinash dislikes the Read tags, also delete the read-marks include after the bottom series box in _layouts/post.html
+- 2026-10-29 04:35 PT — EDITOR→ENGINEER — "✓ Read" tag on finished parts in the in-post series box (_includes/read-marks.html, _layouts/post.html, assets/css/style.css; series posts) (Actions run 40866711603 green).
