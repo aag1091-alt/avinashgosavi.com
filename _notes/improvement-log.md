@@ -3670,3 +3670,17 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Future YouTube embeds: use youtube-nocookie.com/embed + loading="lazy" + referrerpolicy (copy the Rena post's iframe)
 - 2026-10-29 09:35 PT — EDITOR→ENGINEER — Rena demo video: privacy-enhanced, lazy-loaded YouTube embed (/post/building-rena-ai-health-companion-gemini-live/) (Actions run 40913659419 green).
+
+## Done (Oct 29, 2026, 10:35am PT)
+
+- Designer shift (UTC 17): Rena demo video wrapper's inline styles replaced by
+  `.post-content .video-embed` (assets/css/style.css): `aspect-ratio: 16/9`,
+  hairline 1px --border frame + 12px radius (matches the `.screens` gallery
+  below it), --code-bg fill as a themed placeholder while the lazy iframe
+  loads; iframe `inset: 0`, 100%×100%, no border. Playwright mock: 360×202.5
+  at 375px, no overflow; sepia bg #ebe4d2/border #dfd8c8, dark #322e26/#403a32.
+  Run 40922898528 green.
+
+Designer backlog additions:
+- [ ] Future video embeds: `<div class="video-embed"><iframe …></iframe></div>` (no inline styles)
+- 2026-10-29 10:35 PT — DESIGNER — Rena demo video in a themed 16:9 frame with placeholder fill (assets/css/style.css, _posts/2026-03-16-building-rena-…; /post/building-rena-ai-health-companion-gemini-live/) (Actions run 40922898528 green).
