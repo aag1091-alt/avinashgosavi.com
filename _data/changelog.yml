@@ -1,6 +1,10 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-29
+  desk: Writing
+  text: The About page now links "talks" straight to Talks Worth Watching, instead of sending both papers and talks to the Research page.
+  link: /about/
+- date: 2026-10-29
   desk: Engineering
   text: The sitemap now lists the photos and screenshots on each page (SF Ruby, VaultMem, Rena, the about photo), so they can turn up in image search and lead people back to the post.
   link: /post/my-sf-ruby-2025-experience-talks-side-quests-community-inspiration/

@@ -12,6 +12,6 @@ Outside of work, I'm an avid Arsenal fan and love exploring coffee and food spot
 
 At Cisco Meraki I've spent five years bringing Cisco Catalyst switches, wireless and routers under Meraki cloud management, and building the APIs that pull it all together. Off hours I build privacy-first AI tools — [encrypted memory for agents](/post/vaultmem-encrypted-memory-for-ai-agents/), [local-first voice apps](/post/daylog-security-architecture/) — and [read papers](/paper-tldr/) on how memory works, in brains and in machines.
 
-This site is where I share that work: [projects](/projects/), [writing](/blog/), the [papers and talks](/research/) that shaped my thinking, and the [conferences](/events/) I keep showing up to. There's something about coding that never gets boring for me.
+This site is where I share that work: [projects](/projects/), [writing](/blog/), the [papers](/research/) and [talks](/talks/) that shaped my thinking, and the [conferences](/events/) I keep showing up to. There's something about coding that never gets boring for me.
 
 **Ways to work together:** I'm happy to pair, review a design, judge a hackathon, or talk about agent memory, API design at scale, or Rails architecture. Reach out — you can find me at most places under **@aag1091**.
