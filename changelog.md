@@ -16,7 +16,14 @@ description: What's new on avinashgosavi.com — new writing, design changes and
   </div>
   <p id="changelog-count" class="search-status blog-count" role="status" aria-live="polite"></p>
   {% assign by_date = site.data.changelog | group_by: "date" %}
+  {% assign recent_days = 7 %}{% assign fold_at = recent_days | plus: 1 %}
+  {% assign recent_n = 0 %}{% for day in by_date limit: recent_days %}{% assign recent_n = recent_n | plus: day.items.size %}{% endfor %}
+  {% assign older_n = site.data.changelog.size | minus: recent_n %}
   {% for day in by_date %}
+  {% if forloop.index == fold_at %}
+  <details class="changelog-older" id="older">
+    <summary>{{ older_n }} earlier changes, {{ by_date.last.name | date: "%B %-d" }} – {{ day.name | date: "%B %-d, %Y" }}</summary>
+  {% endif %}
   <section class="changelog-day">
     <h2 class="changelog-date" id="{{ day.name | date: '%B %-d, %Y' | slugify }}"><time datetime="{{ day.name | date: '%Y-%m-%d' }}">{{ day.name | date: "%B %-d, %Y" }}</time></h2>
     <ul class="changelog-list">
@@ -26,6 +33,7 @@ description: What's new on avinashgosavi.com — new writing, design changes and
     </ul>
   </section>
   {% endfor %}
+  {% if by_date.size > recent_days %}</details>{% endif %}
 </div>
 
 <script>
@@ -37,6 +45,7 @@ description: What's new on avinashgosavi.com — new writing, design changes and
   var items = document.querySelectorAll('.changelog-list li[data-desk]');
   var days = document.querySelectorAll('.changelog-day');
   var count = document.getElementById('changelog-count');
+  var older = document.querySelector('.changelog-older');
   bar.hidden = false;
   function apply(desk, fromHash) {
     var shown = 0, label = '';
@@ -52,15 +61,23 @@ description: What's new on avinashgosavi.com — new writing, design changes and
       if (show) shown++;
     });
     days.forEach(function (day) { day.hidden = !day.querySelector('li:not([hidden])'); });
+    if (older) {
+      older.hidden = !older.querySelector('.changelog-day:not([hidden])');
+      if (desk) older.open = true;
+    }
     if (count) count.textContent = desk ? 'Showing ' + shown + ' of ' + items.length + ' changes from the ' + label + ' desk.' : '';
     if (!fromHash && history.replaceState) history.replaceState(null, '', location.pathname + location.search + (desk ? '#' + desk : ''));
   }
   chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.getAttribute('data-desk') || ''); }); });
   function fromHash() {
     var h = decodeURIComponent(location.hash.slice(1));
+    /* A date link like #october-19-2026 inside the folded older days opens them first */
+    var t = h && document.getElementById(h);
+    if (t && older && older.contains(t) && !older.open) { older.open = true; t.scrollIntoView(); }
     for (var i = 0; i < chips.length; i++) if (h && chips[i].getAttribute('data-desk') === h) return apply(h, true);
   }
   fromHash();
   addEventListener('hashchange', fromHash);
+  if (older) addEventListener('beforeprint', function () { older.open = true; });
 })();
 </script>

@@ -1537,11 +1537,11 @@ body.theme-dark .about-image img {
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
-.post-toc summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.post-toc summary:focus-visible, .changelog-older > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 /* Themed chevron instead of the browser's disclosure triangle; turns down when open */
-.post-toc summary { list-style: none; display: flex; align-items: center; gap: 0.55rem; }
-.post-toc summary::-webkit-details-marker { display: none; }
-.post-toc summary::before {
+.post-toc summary, .changelog-older > summary { list-style: none; display: flex; align-items: center; gap: 0.55rem; }
+.post-toc summary::-webkit-details-marker, .changelog-older > summary::-webkit-details-marker { display: none; }
+.post-toc summary::before, .changelog-older > summary::before {
   content: "";
   flex: none;
   width: 0.42em;
@@ -1551,9 +1551,9 @@ body.theme-dark .about-image img {
   transform: translateX(-0.1em) rotate(-45deg);
   transition: transform 0.15s ease;
 }
-.post-toc[open] summary::before { transform: translateY(-0.12em) rotate(45deg); }
+.post-toc[open] summary::before, .changelog-older[open] > summary::before { transform: translateY(-0.12em) rotate(45deg); }
 .post-toc summary:hover { color: var(--text); }
-@media (prefers-reduced-motion: reduce) { .post-toc summary::before { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .post-toc summary::before, .changelog-older > summary::before { transition: none; } }
 .post-toc-list { margin: 0.5rem 0 0.1rem; padding-left: 1.3rem; }
 .post-toc-list li { margin: 0.25rem 0; }
 .post-toc-list a { color: var(--text); text-decoration: none; }
@@ -1875,6 +1875,18 @@ h1[tabindex="-1"]:focus { outline: none; }
 .changelog-filter { margin-bottom: 1rem; }
 .changelog-filter[hidden], .changelog-day[hidden], .changelog-list li[hidden] { display: none; }
 .changelog-date { font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+/* Days older than the latest week fold into one <details> (changelog.md) */
+.changelog-older { margin: 0 0 2rem; }
+.changelog-older > summary {
+  cursor: pointer;
+  padding: 0.6rem 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.changelog-older[open] > summary { margin-bottom: 1.5rem; }
+.changelog-older > summary:hover { color: var(--text); }
 .changelog-list { list-style: none; padding: 0; margin: 0; }
 .changelog-list li { padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
 .changelog-desk {

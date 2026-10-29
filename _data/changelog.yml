@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-28
   desk: Engineering
+  text: The changelog now shows the latest week up front and folds older days into one "earlier changes" toggle; date links and desk filters open it automatically.
+  link: /changelog/
+- date: 2026-10-28
+  desk: Engineering
   text: Search engines may now show the large share image and full snippets for pages, and post link previews carry their topics and last-updated time.
   link: /blog/
 - date: 2026-10-28
