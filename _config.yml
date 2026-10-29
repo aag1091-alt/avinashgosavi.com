@@ -50,6 +50,11 @@ future: true
 # it has this many posts (_plugins/topic_feeds.rb and the /blog/ chips).
 topic_feed_min: 2
 
+# Browser-tab / search-result titles longer than this many characters drop the
+# " | Avinash Gosavi" suffix so the page's own words stay visible
+# (_plugins/title_suffix.rb). Remove the line to always keep the suffix.
+title_max: 65
+
 permalink: /post/:title/
 
 plugins:

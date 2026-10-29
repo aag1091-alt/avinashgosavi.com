@@ -102,3 +102,7 @@ ping) when the changelog grows. CI checks out full history for this.
 `_plugins/post_markdown.rb` writes a plain Markdown copy of every post at
 `/post/<slug>.md` after the build (Liquid rendered, diagrams as text, links
 absolute). Linked from each post's head, its share row and /llms.txt.
+
+`_plugins/title_suffix.rb` drops the " | Avinash Gosavi" suffix from `<title>`
+when the full title would be longer than `title_max` (65) in `_config.yml`,
+so long post titles aren't cut off mid-word in search results.

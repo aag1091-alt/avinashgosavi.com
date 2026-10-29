@@ -7,7 +7,8 @@ For every HTML page that search engines may index, check:
   - a <link rel="canonical">
   - exactly one <h1>
   - share image (og:image) has og:image:alt and twitter:image:alt
-Long titles (> 70 chars, not counting the " | site" suffix) and descriptions (> 160 chars, where search results
+Long titles (> 70 chars, not counting the " | site" suffix, which
+_plugins/title_suffix.rb drops past 65 chars) and descriptions (> 160 chars, where search results
 usually cut off) are reported as ::notice lines, not warnings.
 
 Pages with <meta name="robots" content="noindex..."> or a meta refresh
@@ -44,6 +45,9 @@ for path in sorted(glob.glob(os.path.join(root, "**", "*.html"), recursive=True)
     else:
         titles[t[0]].append(rel)
         bare = t[0].rsplit(" | ", 1)[0]  # ignore the " | Site name" suffix
+        if " | " in t[0] and len(t[0]) > 65:
+            problems += 1
+            warn(rel, f"title is {len(t[0])} chars with the site-name suffix (> 65; _plugins/title_suffix.rb should drop it): {t[0]}")
         if len(bare) > 70:
             note(rel, f"title is {len(bare)} chars before the site name (> 70): {bare}")
     d = DESC.search(head)
