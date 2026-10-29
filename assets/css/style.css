@@ -822,10 +822,12 @@ input:focus-visible {
 }
 
 /* "✓ Read" on posts finished in this browser (_includes/read-marks.html) */
-.post-list-meta .read-mark {
+.post-list-meta .read-mark,
+.series-meta .read-mark {
   white-space: nowrap;
 }
-.post-list-meta .read-mark::before {
+.post-list-meta .read-mark::before,
+.series-meta .read-mark::before {
   content: " · ";
 }
 

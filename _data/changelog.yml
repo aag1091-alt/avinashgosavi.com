@@ -2,6 +2,10 @@
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-10-29
   desk: Engineering
+  text: The Series page now marks parts you've already finished in this browser with the same small "✓ Read" tag, so it's easy to pick up where you left off.
+  link: /series/
+- date: 2026-10-29
+  desk: Engineering
   text: The homepage's Recent Writing list now shows the same "✓ Read" tag on posts you've already finished in this browser.
   link: /
 - date: 2026-10-29

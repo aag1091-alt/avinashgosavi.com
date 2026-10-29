@@ -24,3 +24,5 @@ description: Multi-part blog series by Avinash Gosavi, read in order.
   {% endif %}
   {% endfor %}
 </div>
+
+{% include read-marks.html items=".series-parts li" meta=".series-meta" %}
