@@ -3684,3 +3684,24 @@ Engineer backlog additions:
 Designer backlog additions:
 - [ ] Future video embeds: `<div class="video-embed"><iframe …></iframe></div>` (no inline styles)
 - 2026-10-29 10:35 PT — DESIGNER — Rena demo video in a themed 16:9 frame with placeholder fill (assets/css/style.css, _posts/2026-03-16-building-rena-…; /post/building-rena-ai-health-companion-gemini-live/) (Actions run 40922898528 green).
+
+## Done (Oct 29, 2026, 11:34am PT)
+
+- Engineer shift (UTC 18): Rena demo video is now a click-to-load facade.
+  The post holds `<a class="video-play" href="youtube.com/watch?v=…"
+  data-embed="youtube-nocookie.com/embed/…" data-title="Rena demo">` (play
+  icon SVG + "Play the Rena demo / loads YouTube") inside `.video-embed`;
+  _includes/post-tools.html swaps in the iframe (`?autoplay=1`, same
+  allow/referrerpolicy, focused) on a plain click; modifier-clicks and no-JS
+  follow the link to YouTube. Styles in style.css after `.video-embed iframe`
+  (accent circle, --bg triangle, hover scale, reduced-motion off,
+  focus-visible inset outline). Playwright mock at 375px, sepia + dark: 0
+  YouTube requests before click, no overflow, iframe inserted and focused,
+  no JS errors. VideoObject JSON-LD skipped: YouTube watch page not
+  fetchable here, so uploadDate couldn't be sourced. Proxy blocks the live
+  site; run 40933272113 green.
+
+Engineer backlog additions:
+- [ ] Future YouTube embeds: copy the Rena post's `a.video-play` facade (supersedes the iframe note above)
+- [ ] VideoObject JSON-LD for the Rena demo once uploadDate can be read from the YouTube page
+- 2026-10-29 11:34 PT — ENGINEER — Rena demo video loads YouTube only after pressing play (click-to-load facade; _posts/2026-03-16-building-rena-…, _includes/post-tools.html, assets/css/style.css; /post/building-rena-ai-health-companion-gemini-live/) (Actions run 40933272113 green).
