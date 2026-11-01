@@ -82,7 +82,7 @@
     publishes a daily Jekyll issue. Claude curates the source list weekly.
   tags: [Agents, Qdrant, Ollama, Jekyll]
   github: https://github.com/aag1091-alt/ai-newsletter
-    demo: https://ai-newsletter.aag1091.com
+  demo: https://ai-newsletter.aag1091.com
   
 
 - name: Spanning the Gate
