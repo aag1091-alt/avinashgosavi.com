@@ -3730,3 +3730,15 @@ Engineer backlog additions:
 ## Done (Nov 1, 2026, link cleanup at Avinash's direction)
 - Removed the two dead external links the green build flagged: Rena demo (rena-490107-f0f28.web.app, 404) demo line removed from projects.yml and the dead web-app block removed from the Rena post; daylog github line removed from projects.yml and the daylog link unlinked in the Whisper post (repo is private now, so it 404s for visitors). Resolves the long-standing "waiting on Avinash" backlog item — he chose removal.
 - 2026-11-01 13:16 PT — MANUAL — dead Rena/daylog links removed (CLI commit 8c0a144; Actions run 41351168824 green).
+
+## Done (Nov 1, 2026, 2:30pm PT)
+
+- Designer shift (UTC 22): header theme switch (`.theme-slider` in
+  assets/css/style.css) was 2.5rem x 1.25rem — at the 18px root size its
+  22.5px height fell below the WCAG 2.2 minimum 24px target size. Track is
+  now 2.75rem x 1.5rem (49.5 x 27px), thumb 1.125rem with travel adjusted to
+  1.14rem so its side gaps stay symmetric (~3.4px each side). No colours
+  changed, so sepia/dark contrast is unchanged; width grows 4.5px in a
+  wrapping flex header, fine at 375px. Run 41357911678 green; the new
+  changelog entry verified live on /changelog/.
+- 2026-11-01 14:30 PT — DESIGNER — taller sepia/dark theme switch in the header for an easier tap target (assets/css/style.css; all pages) (Actions run 41357911678 green).
