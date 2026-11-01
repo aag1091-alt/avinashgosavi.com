@@ -67,14 +67,6 @@
   {% if page.url == '/projects/' %}{% include projects-jsonld.html %}{% endif %}
   {% if page.url == '/blog/' %}{% include blog-jsonld.html kind="blog" %}{% elsif page.url == '/paper-tldr/' %}{% include blog-jsonld.html kind="tldr" %}{% endif %}
   <noscript><style>.theme-toggle{display:none}</style></noscript>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLR5GMVQKW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VLR5GMVQKW');
-  </script>
 </head>
 <body class="theme-{{ site.color_theme | default: 'white' }}">
   <script>
