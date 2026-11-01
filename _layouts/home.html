@@ -27,8 +27,17 @@ layout: default
   <section class="home-updates" aria-label="Recently on the site">
     <h2>Recently on the site</h2>
     <ul class="changelog-list">
-      {% for c in site.data.changelog limit: 3 %}
+            {% assign shown_links = "" %}
+            {% assign shown_count = 0 %}
+      {% for c in site.data.changelog %}
+              {% if shown_count >= 3 %}{% break %}{% endif %}
+              {% assign link_key = c.link | default: c.text %}
+              {% assign link_token = link_key | prepend: "|" %}
+              {% unless shown_links contains link_token %}
       <li><span class="changelog-desk changelog-desk-{{ c.desk | slugify }}">{{ c.desk }}</span> {{ c.text }}{% if c.link %} <a href="{{ c.link | relative_url }}" aria-label="See: {{ c.text | truncatewords: 6 | escape }}">→</a>{% endif %}</li>
+                {% assign shown_links = shown_links | append: link_token %}
+                {% assign shown_count = shown_count | plus: 1 %}
+              {% endunless %}
       {% endfor %}
     </ul>
     <p class="all-posts-link"><a href="{{ '/changelog/' | relative_url }}">Full changelog →</a></p>
