@@ -7,7 +7,7 @@
 - date: 2026-11-01
   desk: Engineering
   text: Google Analytics is gone — opening a page no longer loads any third-party tracker.
-link: /
+  link: /
 - date: 2026-11-01
   desk: Writing
   text: The Experience page now tells the Cisco Meraki story without the resume-style device and API counts.
