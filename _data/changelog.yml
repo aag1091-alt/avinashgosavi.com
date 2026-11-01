@@ -1,4 +1,8 @@
 - date: 2026-11-01
+  desk: Design
+  text: "The sepia/dark theme switch in the header is now a little taller, so it is easier to tap on phones."
+  link: /
+- date: 2026-11-01
   desk: Writing
   text: "Removed two dead links: the Rena web demo (offline) and the daylog code link (the repo is private now)."
   link: /projects/

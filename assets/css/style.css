@@ -321,9 +321,11 @@ input:focus-visible {
   color: var(--text-muted);
 }
 
+/* Track is 27px tall at the 18px root size (was 22.5px), so the switch
+   clears the WCAG 2.2 minimum 24px target size and is easier to tap. */
 .theme-slider {
-  width: 2.5rem;
-  height: 1.25rem;
+  width: 2.75rem;
+  height: 1.5rem;
   padding: 0;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -335,19 +337,19 @@ input:focus-visible {
 
 .theme-slider-thumb {
   display: block;
-  width: 1rem;
-  height: 1rem;
+  width: 1.125rem;
+  height: 1.125rem;
   border-radius: 50%;
   background: var(--text-muted);
   position: absolute;
   top: 50%;
-  left: 0.15rem;
+  left: 0.1875rem;
   transform: translateY(-50%);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .theme-slider.is-dark .theme-slider-thumb {
-  transform: translate(1.1rem, -50%);
+  transform: translate(1.14rem, -50%);
   background: var(--accent);
 }
 
