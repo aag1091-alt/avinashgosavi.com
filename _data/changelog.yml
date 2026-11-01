@@ -1,5 +1,21 @@
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
+- date: 2026-11-01
+  desk: Engineering
+    text: The homepage's "Recently on site" list now shows at most one entry per page, so a run of tweaks to one post no longer fills all three slots.
+      link: /
+      - date: 2026-11-01
+        desk: Engineering
+          text: Google Analytics is gone — opening a page no longer loads any third-party tracker.
+            link: /
+            - date: 2026-11-01
+              desk: Writing
+                text: The Experience page now tells the Cisco Meraki story without the resume-style device and API counts.
+                  link: /experience/
+                  - date: 2026-11-01
+                    desk: Writing
+                      text: The What's New in AI project card now links to the live daily newsletter.
+                        link: /projects/
 - date: 2026-10-29
   desk: Engineering
   text: In feed readers and the post's Markdown copy, the Rena demo now shows up as a plain YouTube link instead of a stray black play icon.
