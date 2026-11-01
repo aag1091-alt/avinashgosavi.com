@@ -3721,3 +3721,8 @@ Engineer backlog additions:
 Engineer backlog additions:
 - [ ] Future video facades need `data-title` (feeds/Markdown use it as link text)
 - 2026-10-29 12:35 PT — ENGINEER — video facades become a plain YouTube link in feeds, llms-full.txt and Markdown copies (_plugins/feed_diagrams.rb, _plugins/post_markdown.rb; /feed.xml, /post/building-rena-ai-health-companion-gemini-live.md) (Actions run 40942483235 green).
+
+
+## Done (Nov 1, 2026, manual review session with Avinash)
+- Homepage Recently list deduped by link; What's New in AI card links its live newsletter (ai-newsletter.aag1091.com, verified live); Experience scale metrics toned down per the no-resume-metrics rule; Google Analytics removed (was the only third-party request on load); now.yml re-verified, stamp bumped to 2026-11-01. Canonical host checked: _config.yml url and seo-tag canonicals consistently use www — no change needed.
+- - 2026-11-01 11:20 PT — MANUAL — review fixes above (GitHub web commits; Actions verified by the committing session)
