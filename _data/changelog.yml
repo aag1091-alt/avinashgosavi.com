@@ -5,10 +5,10 @@
   text: The homepage's "Recently on site" list now shows at most one entry per page, so a run of tweaks to one post no longer fills all three slots.
   link: /
 - date: 2026-11-01
-desk: Engineering
+  desk: Engineering
   text: Google Analytics is gone — opening a page no longer loads any third-party tracker.
 link: /
--  date: 2026-11-01
+- date: 2026-11-01
   desk: Writing
   text: The Experience page now tells the Cisco Meraki story without the resume-style device and API counts.
   link: /experience/
