@@ -20,7 +20,7 @@
           path that sends delta-compressed topology changes by webhook.
           Featured at Cisco Live 2026 as Cisco's unified topology platform.
         - Set the API and integration standards for federation services, now
-          followed by 30+ public APIs. Authored design docs for Config
+          followed across their public APIs. Authored design docs for Config
           History, StackWise Virtual formation and the Topology APIs; Config
           History became a shared component adopted by all Network Platform
           teams.
@@ -35,17 +35,17 @@
         - Designed the foundation for moving Cisco Catalyst from on-prem
           management to the Meraki cloud — switches first, then wireless, and
           advised the Meraki MX team on routers. Catalyst switching, wireless
-          and routing are now GA in the Meraki Dashboard, which manages 200K+
-          Catalyst switches and 400K+ Catalyst wireless devices.
+          and routing are now GA in the Meraki Dashboard, which manages
+          Catalyst switches and Catalyst wireless devices.
         - Brought Catalyst wireless to Meraki from scratch — introduced the
           wireless LAN controller as a new Dashboard device type and built
-          the onboarding path that brought 100K+ devices onto the Meraki
+          the onboarding path that brought those devices onto the Meraki
           cloud in its first year.
         - Designed and built the Meraki Global Overview API, a multi-shard
           aggregator combining Catalyst Center and Meraki data for every
-          Meraki customer — launched Dec 2025, now covering 1M+ devices — and
-          cut large-organization response times from 30s+ timeouts to under
-          5s.
+          Meraki customer — launched Dec 2025 — and
+          fixed the large-organization response times that had been timing
+          out.
         - Tech lead and mentor for 6–7 engineers; led cross-team design
           reviews for Catalyst wireless and Global Overview; conducted 40+
           technical interviews.
@@ -64,7 +64,7 @@
   label: Software Engineer II
   span: 2020 – 2021
   summary: >-
-    Scaled the Rails APIs powering mobile clients for millions of students,
+    Scaled the Rails APIs powering Handshake's mobile clients,
     and built the search infrastructure behind them.
   tags: [Ruby on Rails, Elasticsearch, React]
   roles:
@@ -72,7 +72,7 @@
       period: Feb 2020 – Oct 2021
       highlights:
         - Designed, optimized, and versioned high-traffic Rails APIs powering
-          mobile clients for millions of active users.
+          mobile clients.
         - Built Elasticsearch indexing and sync pipelines powering search and
           API-driven experiences across the platform.
         - Shipped Virtual Career Fair infrastructure, resume parser
