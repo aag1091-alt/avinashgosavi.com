@@ -23,7 +23,6 @@
     and Google ADK.
   tags: [Gemini Live, Google ADK, Voice AI]
   github: https://github.com/aag1091-alt/Rena
-  demo: https://rena-490107-f0f28.web.app
   post: /post/building-rena-ai-health-companion-gemini-live/
   featured: true
 
@@ -46,7 +45,6 @@
     A voice diary with semantic search where entries and the search index are
     encrypted at rest, and no content leaves the device to answer a query.
   tags: [Encryption, Semantic Search, Local-first]
-  github: https://github.com/aag1091-alt/daylog
   demo: https://daylog-ds3.pages.dev
   post: /post/daylog-security-architecture/
   featured: true

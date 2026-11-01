@@ -11,7 +11,7 @@ description: "How I built Rena for the Gemini Live Agent Challenge 2026 — a vo
 
 I built Rena for the **Gemini Live Agent Challenge 2026** — a personal AI health companion where you never have to open a logging screen. You just talk.
 
-> **Try it:** [rena-490107-f0f28.web.app](https://rena-490107-f0f28.web.app) · **Code:** [github.com/aag1091-alt/Rena](https://github.com/aag1091-alt/Rena) · **Demo:** [Watch on YouTube](https://www.youtube.com/watch?v=f-ZZw0CTivU)
+> **Code:** [github.com/aag1091-alt/Rena](https://github.com/aag1091-alt/Rena) · **Demo:** [Watch on YouTube](https://www.youtube.com/watch?v=f-ZZw0CTivU)
 
 <div class="video-embed">
   <a class="video-play" href="https://www.youtube.com/watch?v=f-ZZw0CTivU" data-embed="https://www.youtube-nocookie.com/embed/f-ZZw0CTivU" data-title="Rena demo"><svg viewBox="0 0 68 68" width="68" height="68" aria-hidden="true" focusable="false"><circle cx="34" cy="34" r="34"/><path d="M27 21.5v25L47 34z"/></svg><span>Play the Rena demo <small>loads YouTube</small></span></a>
@@ -155,15 +155,6 @@ Fix: use Rena's own TTS voice (`en-US-Neural2-F`) for the coaching audio. Unexpe
 ---
 
 ## Try it yourself
-
-**Web app (instant, no install):** [rena-490107-f0f28.web.app](https://rena-490107-f0f28.web.app)
-
-1. Open in Chrome or Safari on your phone
-2. Sign in with Google and complete the quick onboarding
-3. Tap **⚙ Settings → Seed 7 Days Data** to pre-populate with realistic history
-4. Tap the **Rena orb** (center tab), allow microphone, and start talking
-
-> The web app is optimised for mobile screen sizes. If you're on desktop, open DevTools and switch to iPhone view.
 
 **iOS app:** Clone [github.com/aag1091-alt/Rena](https://github.com/aag1091-alt/Rena), open `ios/Rena/Rena.xcodeproj` in Xcode, run on a physical iPhone. The app connects to the live Cloud Run backend — no local server needed.
 

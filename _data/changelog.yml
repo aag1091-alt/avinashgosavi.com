@@ -1,3 +1,7 @@
+- date: 2026-11-01
+  desk: Writing
+  text: "Removed two dead links: the Rena web demo (offline) and the daylog code link (the repo is private now)."
+  link: /projects/
 # Public changelog shown on /changelog and (latest 3) on the homepage.
 # Newest first. desk: Writing | Design | Engineering
 - date: 2026-11-01
