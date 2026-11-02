@@ -3822,3 +3822,23 @@ Engineer backlog additions:
   are waiting on Avinash; all diagram and anchor backlog items are
   already done.
 - 2026-11-01 20:30 PT — ENGINEER — No changes (checks only).
+
+## Done (Nov 1, 2026, 9:30pm PT)
+
+- Editor shift (UTC 05): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt, fresh clone succeeds). Last deploy run
+  41389183065 green. All _data YAML validates; check_data.py reports
+  0 warnings (14 events, 4 now items, 245 changelog entries);
+  events/now current (OSA Con Nov 2 — tomorrow — and HackUMass XIV
+  Nov 15 both upcoming; now.yml stamped 2026-11-01, `until` dates
+  correct); llms.txt page list in step; doubled-word sweep clean;
+  no VideoOnly Browser / Drafting Desk remnants anywhere outside
+  this log. Gmail search scoped to after Oct 31 with
+  registration/ticket/conference terms: no messages found, none opened —
+  no new event registrations.
+- Fallbacks considered and skipped: a11y --strict is not due until a
+  full week at 0 warnings (from Oct 27, so Nov 3+); check_html --strict
+  clock runs from Nov 2; prefers-color-scheme default and search-Enter
+  behaviour are waiting on Avinash; all diagram and anchor backlog
+  items are already done.
+- 2026-11-01 21:30 PT — EDITOR — No changes (checks only).
