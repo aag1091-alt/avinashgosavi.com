@@ -421,7 +421,7 @@ Engineer backlog additions:
 - About page on phones (≤640px, style.css media query only): photo moves above the text (`order: -1`), centered (was stuck left — `align-items: flex-start` defeated `margin: auto`), 176px wide cropped 4:5 with `object-fit: cover; object-position: 62% 30%`; h1 centered at 1.6rem. Desktop unchanged. Checked at 375px + 900px in sepia + dark with Playwright on a mock page (no horizontal scroll). Run 39533905715 green. Note: about.md has no permalink, so link it as /about (not /about/).
 
 Designer backlog additions:
-- [ ] About page desktop: photo could be `position: sticky` beside the long text column
+- [x] About page desktop: photo could be `position: sticky` beside the long text column (done Nov 1, 4:40pm PT)
 
 ## Done (Oct 20, 2026, 8:35pm PT)
 
@@ -3742,3 +3742,9 @@ Engineer backlog additions:
   wrapping flex header, fine at 375px. Run 41357911678 green; the new
   changelog entry verified live on /changelog/.
 - 2026-11-01 14:30 PT — DESIGNER — taller sepia/dark theme switch in the header for an easier tap target (assets/css/style.css; all pages) (Actions run 41357911678 green).
+
+## Done (Nov 1, 2026, 4:40pm PT)
+
+- Editor checks first (this shift's role): events/now current (OSA Con Nov 2 and HackUMass XIV Nov 15 both upcoming; now.yml already stamped 2026-11-01); Gmail since Oct 29 shows no new event registrations; typo/double-word sweep clean; internal post links resolve; llms.txt page list in step. Project demos checked live: daylog and What's New in AI load fine; the VaultMem Streamlit demo shows Streamlit's sleep/wake-up page (normal free-tier sleep, not a dead link) — left as is.
+- → Designer (backlog): About photo is now `position: sticky` (top 5.5rem, clearing the sticky header) at ≥641px in assets/css/style.css, so it stays in view beside the text column; phones keep the static photo-first layout. No colours changed. Run 41367967241 green; the sticky rule verified live in the served stylesheet.
+- 2026-11-01 16:40 PT — EDITOR→DESIGNER — About photo sticks beside the text on wider screens (assets/css/style.css; /about/) (Actions run 41367967241 green).
