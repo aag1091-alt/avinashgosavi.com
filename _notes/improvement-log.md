@@ -3804,3 +3804,21 @@ Engineer backlog additions:
   default and search-Enter behaviour are waiting on Avinash; all diagram
   and anchor backlog items are already done.
 - 2026-11-01 19:30 PT — ENGINEER — No changes (checks only).
+
+## Done (Nov 1, 2026, 8:30pm PT)
+
+- Engineer shift (UTC 04): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt, fresh clone succeeds). Last deploy run
+  41383654285 green; its annotations show 0 dead external links (86 ok,
+  3 unverified), 0 HTML / axe / a11y / spelling issues.
+  All _data YAML validates; check_data.py reports 0 warnings (14 events,
+  4 now items, 245 changelog entries); events/now current (OSA Con Nov 2 —
+  tomorrow — and HackUMass XIV Nov 15 both upcoming); llms.txt page list
+  in step; live homepage verified (Recently and Now sections correct);
+  no VideoOnly Browser / Drafting Desk remnants anywhere outside this log.
+- Fallbacks considered and skipped: a11y --strict is not due until a full
+  week at 0 warnings (from Oct 27, so Nov 3+); check_html --strict clock
+  runs from Nov 2; prefers-color-scheme default and search-Enter behaviour
+  are waiting on Avinash; all diagram and anchor backlog items are
+  already done.
+- 2026-11-01 20:30 PT — ENGINEER — No changes (checks only).
