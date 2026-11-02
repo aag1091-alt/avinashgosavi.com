@@ -3964,3 +3964,34 @@ Engineer backlog additions:
   items are either done or designer/engineer work not worthwhile to
   force this shift — a quiet shift beats a forced change.
 - 2026-11-02 03:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 2, 2026, 4:30am PT)
+
+- Designer shift (UTC 12): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt, fresh clone succeeds). Last deploy run
+  41437515393 green; its annotations show 0 dead external links (86 ok,
+  3 unverified), 0 spelling, 0 HTML errors, 0 a11y / axe failures.
+  All _data YAML validates; check_data.py reports 0 warnings (14 events,
+  4 now items, 247 changelog entries); events/now current (OSA Con is
+  today, Nov 2, so it correctly stays upcoming and will auto-move after
+  it ends; HackUMass XIV Nov 15 upcoming; now.yml stamped 2026-11-01,
+  `until` dates correct); llms.txt page list in step; doubled-word sweep
+  clean; live homepage verified (Recently and Now sections correct);
+  no VideoOnly Browser / Drafting Desk remnants anywhere outside
+  this log. Gmail search scoped to after 2026/11/01 with
+  registration/ticket/conference/HackUMass/OSA Con/judging/RSVP/event
+  terms: no messages found, none opened — no new event registrations.
+- Designer-specific checks: Refined Paper contrast re-verified
+  numerically after the Nov 1 palette change — every text pairing
+  ≥5.39:1 in both themes (light muted on code-bg 5.58:1 is the lowest
+  light pairing; dark muted on code-bg 5.39:1 the lowest dark one);
+  no leftover pre-refresh hexes in CSS/HTML/data. Posts still without
+  a diagram (SF Ruby recap, I Fell in Love with Coding Again, the
+  glossary) describe no flow, so no diagram is worthwhile.
+- Fallbacks considered and skipped: a11y --strict is not due until a
+  full week at 0 warnings (from Oct 27, so Nov 3+); check_html --strict
+  clock runs a week from Nov 2; prefers-color-scheme default and
+  search-Enter behaviour are waiting on Avinash; all other diagram and
+  anchor backlog items are already done — a quiet shift beats a
+  forced change.
+- 2026-11-02 04:30 PT — DESIGNER — No changes (checks only).
