@@ -1390,6 +1390,16 @@ body.theme-dark .highlight .gh, body.theme-dark .highlight .gu { color: #7ee787;
   flex-shrink: 0;
 }
 
+@media (min-width: 641px) {
+  /* Wider screens: the photo stays in view while the text column scrolls
+     past it (the page is about twice the photo's height). 5.5rem clears
+     the sticky header. Phones keep the static photo-first layout below. */
+  .about-image {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
 .about-image img {
   width: 100%;
   max-width: 280px;

@@ -1,5 +1,9 @@
 - date: 2026-11-01
   desk: Design
+  text: "On wider screens, the photo on the About page now stays in view while you read down the page."
+  link: /about/
+- date: 2026-11-01
+  desk: Design
   text: "The sepia/dark theme switch in the header is now a little taller, so it is easier to tap on phones."
   link: /
 - date: 2026-11-01
