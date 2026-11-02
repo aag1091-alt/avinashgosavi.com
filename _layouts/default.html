@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- assign tc_theme = site.color_theme | default: 'white' -%}
-  {%- if tc_theme == 'dark' -%}{%- assign tc = '#1e1b16' -%}{%- elsif tc_theme == 'sepia' -%}{%- assign tc = '#e8e0cc' -%}{%- else -%}{%- assign tc = '#ffffff' -%}{%- endif %}
+  {%- if tc_theme == 'dark' -%}{%- assign tc = '#262320' -%}{%- elsif tc_theme == 'sepia' -%}{%- assign tc = '#ffffff' -%}{%- else -%}{%- assign tc = '#ffffff' -%}{%- endif %}
   <meta name="theme-color" content="{{ tc }}">
   <meta name="color-scheme" content="{% if tc_theme == 'dark' %}dark{% else %}light{% endif %}">
   <script>
@@ -12,7 +12,7 @@
     (function () { try {
       var t = localStorage.getItem('blog_color_theme');
       if (t === 'dark' || t === 'sepia') {
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#1e1b16' : '#e8e0cc');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#262320' : '#ffffff');
         document.querySelector('meta[name="color-scheme"]').setAttribute('content', t === 'dark' ? 'dark' : 'light');
       }
     } catch (e) {} })();

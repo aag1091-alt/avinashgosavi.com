@@ -118,17 +118,17 @@ body.theme-light-gray {
 
 /* 3. Sepia / cream (read-mode style, WCAG-friendly contrast) */
 body.theme-sepia {
-  --bg: #f5efe0;
-  --surface: #e8e0cc;
-  --text: #352f2a;
-  --text-muted: #5c5650;
+  --bg: #faf8f2;
+  --surface: #ffffff;
+  --text: #292524;
+  --text-muted: #625d55;
   --accent: #0f766e;
-  --accent-soft: rgba(15, 118, 110, 0.18);
-  /* darker teal for accent-colored TEXT: 4.5:1+ on --surface, --code-bg and --accent-soft (plain --accent is 4.2:1 on --surface) */
+  --accent-soft: rgba(15, 118, 110, 0.12);
+  /* darker teal for accent-colored TEXT: 4.5:1+ on --surface, --code-bg and --accent-soft */
   --accent-ink: #0a5f58;
-  --border: #dfd8c8;
-  --border-header: #d5ccb8;
-  --code-bg: #ebe4d2;
+  --border: #e6e0d2;
+  --border-header: #e0d9c6;
+  --code-bg: #f1ede1;
   color-scheme: light;
 }
 
@@ -143,17 +143,17 @@ body.theme-soft-blue {
   --code-bg: #eaeef2;
 }
 
-/* 5. Dark mode (warm dark, body lighter than header, reduced eye strain) */
+/* 5. Dark mode (warm graphite, raised surfaces, reduced eye strain) */
 body.theme-dark {
-  --bg: #2a2620;
-  --surface: #1e1b16;
-  --text: #ede9e1;
-  --text-muted: #a8a095;
-  --accent: #d4b078;
-  --accent-soft: rgba(212, 176, 120, 0.22);
-  --border: #403a32;
-  --border-header: #2d2822;
-  --code-bg: #322e26;
+  --bg: #1c1a17;
+  --surface: #262320;
+  --text: #ece8e1;
+  --text-muted: #a79e92;
+  --accent: #dbb87a;
+  --accent-soft: rgba(219, 184, 122, 0.20);
+  --border: #3a362f;
+  --border-header: #2e2a25;
+  --code-bg: #2e2a25;
   /* native scrollbars, form controls and autofill follow the dark theme */
   color-scheme: dark;
 }

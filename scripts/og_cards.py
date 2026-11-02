@@ -7,7 +7,7 @@ Writes assets/og/<slug>.png and adds `image:` to each post's front matter.
 import glob, os, re, textwrap
 from PIL import Image, ImageDraw, ImageFont
 
-BG, SURFACE, TEXT, MUTED, ACCENT = "#f5efe0", "#e8e0cc", "#352f2a", "#5c5650", "#0f766e"
+BG, SURFACE, TEXT, MUTED, ACCENT = "#faf8f2", "#ffffff", "#292524", "#625d55", "#0f766e"
 BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 REG = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 W, H, PAD = 1200, 630, 80
