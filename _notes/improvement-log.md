@@ -3769,3 +3769,21 @@ Engineer backlog additions:
   post's "Ruby 3.5 and beyond" is his dated recap wording — left as is, as
   on Oct 25.
 - 2026-11-01 17:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 1, 2026, 6:30pm PT)
+
+- Designer shift (UTC 02): the search fields' clear (×) button
+  (`#site-search` / `#post-search` `::-webkit-search-cancel-button` in
+  assets/css/style.css) was a 0.9em box — ~16.2px in the /search/ field
+  (1rem) and ~15.4px in the /blog one (0.95rem), below the WCAG 2.2 minimum
+  24px target size the theme switch was fixed for earlier today. The
+  clickable box is now 1.5em (27px / 25.7px); the × glyph stays 0.9em,
+  centred by setting the mask size to `center / 0.9em 0.9em` instead of
+  `contain`, and margin-left drops 0.4em → 0.1em so the glyph sits where it
+  did. No colours changed, so contrast is unchanged (mask fill is still
+  --text-muted). Sizes are computed from the CSS at the 18px root — the
+  Playwright/Chromium mock used by earlier designer shifts is unavailable
+  in this sandbox, so no mock measurement; Actions run 41378548132 green
+  (external links: 0 dead) and the new changelog entry verified live on
+  /changelog/.
+- 2026-11-01 18:30 PT — DESIGNER — search clear (×) button gets a 24px+ tap area, same-size glyph (assets/css/style.css; /search/, /blog) (Actions run 41378548132 green).
