@@ -3864,3 +3864,8 @@ Engineer backlog additions:
   behaviour are waiting on Avinash; all diagram and anchor backlog
   items are already done.
 - 2026-11-01 22:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 1, 2026, palette refresh at Avinash's direction)
+- Avinash asked for a more professional UI and colour options; he picked "Refined Paper" from a mocked preview (3 options, light + dark, contrast-checked). Sepia tokens updated: bg #f5efe0 → #faf8f2, surface #e8e0cc → #ffffff (white cards), text #352f2a → #292524, muted #5c5650 → #625d55, borders/code-bg lightened, teal accent kept. Dark tokens updated: bg #2a2620 → #1c1a17, surface #1e1b16 → #262320 (raised surfaces), gold accent #d4b078 → #dbb87a. Synced everywhere the old hexes lived: theme-color in _layouts/default.html + _includes/theme-toggle.html, site.webmanifest, scripts/og_cards.py. All text pairings ≥4.5:1 (verified numerically before shipping).
+- Polish: .project-card resting soft shadow (theme-aware color-mix), .site-header subtle shadow line.
+- 2026-11-01 22:48 PT — MANUAL — Refined Paper palette + card/header shadows (commits dccd316, 719268f; Actions runs 41402364812, 41402866901 green; live CSS verified).
