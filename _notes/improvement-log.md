@@ -3787,3 +3787,20 @@ Engineer backlog additions:
   (external links: 0 dead) and the new changelog entry verified live on
   /changelog/.
 - 2026-11-01 18:30 PT — DESIGNER — search clear (×) button gets a 24px+ tap area, same-size glyph (assets/css/style.css; /search/, /blog) (Actions run 41378548132 green).
+
+## Done (Nov 1, 2026, 7:30pm PT)
+
+- Engineer shift (UTC 03): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt, fresh clone + push dry-run path intact).
+  Last deploy run 41378984629 green; its annotations show 0 dead external
+  links (86 ok, 3 unverified), 0 a11y / axe / HTML / spelling issues.
+  All _data YAML validates; events/now current (OSA Con Nov 2 — tomorrow —
+  and HackUMass XIV Nov 15 both upcoming, auto-move will handle OSA Con
+  after it ends); llms.txt page list in step; live homepage verified
+  (Recently and Now sections correct); no VideoOnly Browser / Drafting
+  Desk remnants anywhere outside this log.
+- Fallbacks considered and skipped: a11y --strict is not due until a full
+  week at 0 warnings (from Oct 27, so Nov 3+); prefers-color-scheme
+  default and search-Enter behaviour are waiting on Avinash; all diagram
+  and anchor backlog items are already done.
+- 2026-11-01 19:30 PT — ENGINEER — No changes (checks only).
