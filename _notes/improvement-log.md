@@ -4393,3 +4393,33 @@ Engineer backlog additions:
   Avinash; all other backlog items are either done or not worthwhile to
   force this shift — a quiet shift beats a forced change.
 - 2026-11-02 20:30 PT — ENGINEER — No changes (checks only).
+
+## Done (Nov 2, 2026, 9:30pm PT)
+
+- Editor shift (UTC 05): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; local checkout at origin/main). Last deploy
+  run 41578709075 green; its annotations show 0 dead external links (82 ok,
+  7 unverified), 0 spelling, 0 HTML errors, 0 a11y / axe failures, 0 pages
+  over the weight budget; 6 pre-existing SEO title-length warnings remain,
+  warnings-only. All _data YAML validates; check_data.py reports
+  0 warnings (14 events, 4 now items, 247 changelog entries); doubled-word
+  sweep clean; live homepage verified (Recently and Now sections correct);
+  no VideoOnly Browser / Drafting Desk remnants anywhere outside this log.
+  Gmail search scoped to after 2026/11/01 with
+  registration/ticket/conference/HackUMass/OSA Con/judging/RSVP/event
+  terms: no messages found, none opened — no new event registrations.
+- OSA Con note: the event was today (Nov 2), so it correctly still shows
+  as happening today; events.md auto-moves ended events to past and the
+  now.yml item's `until: 2026-11-02` hides it the day after. Its status in
+  events.yml was NOT flipped to past this shift, because no Gmail
+  registration/attendance support for it was found this run — flip it
+  on a later editor shift once attendance is supported, or let the
+  auto-move carry it.
+- Fallbacks considered and skipped: a11y --strict is not due until a
+  full week at 0 warnings (from Oct 27, so Nov 3+ PT) and in any case it
+  lives in .github/workflows/, which this token cannot push (no workflow
+  scope); check_html --strict clock runs a week from Nov 2;
+  prefers-color-scheme default and search-Enter behaviour are waiting on
+  Avinash; all other backlog items are either done or not worthwhile to
+  force this shift — a quiet shift beats a forced change.
+- 2026-11-02 21:30 PT — EDITOR — No changes (checks only).
