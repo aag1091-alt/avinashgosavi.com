@@ -4451,3 +4451,31 @@ Engineer backlog additions:
   Avinash; all other backlog items are either done or not worthwhile to
   force this shift — a quiet shift beats a forced change.
 - 2026-11-02 22:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 2, 2026, 11:30pm PT)
+
+- Designer shift (UTC 07): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; local checkout at origin/main). Last deploy
+  run 41590426086 green. All _data YAML validates; check_data.py reports
+  0 warnings (14 events, 4 now items, 247 changelog entries); events/now
+  current (OSA Con was today, Nov 2, so it correctly still shows today —
+  events.md auto-moves ended events to past and the now.yml item's
+  `until: 2026-11-02` hides it the day after; HackUMass XIV Nov 15
+  upcoming; now.yml stamped 2026-11-01); doubled-word sweep clean apart
+  from code/number false positives; live homepage verified (Recently and
+  Now sections correct); no VideoOnly Browser / Drafting Desk remnants
+  anywhere outside this log.
+- Designer-specific checks: theme contrast re-verified numerically from
+  the style.css tokens — every text pairing ≥4.68:1 in both themes (sepia
+  accent on code-bg 4.68:1 and dark muted on code-bg 5.39:1 are the
+  lowest). All flow-describing posts already carry a theme-aware diagram
+  (31 diagram includes); the posts still without one describe no flow, so
+  no diagram is worthwhile.
+- Fallbacks considered and skipped: a11y --strict is not due until a
+  full week at 0 warnings (from Oct 27, so Nov 3+ PT) and in any case it
+  lives in .github/workflows/, which this token cannot push (no workflow
+  scope); check_html --strict clock runs a week from Nov 2;
+  prefers-color-scheme default and search-Enter behaviour are waiting on
+  Avinash; all other backlog items are either done or not worthwhile to
+  force this shift — a quiet shift beats a forced change.
+- 2026-11-02 23:30 PT — DESIGNER — No changes (checks only).
