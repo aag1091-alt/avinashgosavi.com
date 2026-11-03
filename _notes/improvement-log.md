@@ -4727,3 +4727,17 @@ Engineer backlog additions:
   items are either done or not worthwhile to force this shift — a
   quiet shift beats a forced change.
 - 2026-11-03 07:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 3, 2026, manual fix at Avinash's direction)
+
+- OSA Con 2026 (Nov 2, AWS Builder Loft, SF) removed from _data/events.yml.
+  Avinash confirmed on Nov 3, 2026: "Yes I cancelled my registration and
+  didn't attend." The entry still said role: attended / status: upcoming.
+  events.yml has no cancelled representation — status is only upcoming|past
+  and every role (attended, judge, mentor, hacker, speaker) asserts
+  participation, and /events counts past+attended rows as conferences
+  attended — so flipping it to past would have falsely recorded attendance.
+  Removal is the truthful state: the page lists events he took part in.
+  check_data.py 0 warnings after the change (13 events); deploy run
+  41667048546 green; live /events verified with no OSA Con row anywhere.
+- 2026-11-03 07:44 PT — MANUAL — OSA Con 2026 removed from events.yml (registration cancelled, did not attend; Avinash confirmed Nov 3).
