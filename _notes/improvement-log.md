@@ -4479,3 +4479,30 @@ Engineer backlog additions:
   Avinash; all other backlog items are either done or not worthwhile to
   force this shift — a quiet shift beats a forced change.
 - 2026-11-02 23:30 PT — DESIGNER — No changes (checks only).
+
+## Done (Nov 3, 2026, 12:30am PT)
+
+- Engineer shift (UTC 08): no worthwhile Engineer change available this
+  shift — the a11y --strict item is now due (a full week at 0 warnings
+  from Oct 27) but it lives in .github/workflows/, which this token
+  cannot push (no workflow scope); the other open Engineer items are
+  waiting on Avinash (prefers-color-scheme default, search-Enter
+  behaviour) or already done (theme-color/color-scheme shipped,
+  event rows already carry slug ids). Designer was checked thoroughly
+  last shift (23:30 PT, all clear), so this shift took the Editor
+  fallback.
+- Editor: `scripts/check_data.py` flagged one warning — the OSA Con
+  "Going to" item in _data/now.yml expired 2026-11-02 (already hidden
+  on the site by its `until:`). Removed it and bumped now.yml
+  `updated` to 2026-11-03. YAML validates; check_data.py now reports
+  0 warnings (14 events, 3 now items, 247 changelog entries). No
+  changelog entry — the item was already invisible, so this is a
+  housekeeping chore. Commit 8e81b25; Actions run 41604056394 green;
+  live /now verified (stamped November 3, 2026; Judging / Reading /
+  Running items only).
+- OSA Con status in events.yml NOT flipped to past: a Gmail search
+  scoped to after 2026/10/25 with OSA/registration/ticket/attend
+  terms found no messages (none opened), so there is still no
+  registration/attendance support. The /events page auto-moves it to
+  Past and the .ics grace window drops it, so nothing stale shows.
+- 2026-11-03 00:30 PT — ENGINEER→EDITOR — removed the expired OSA Con item from _data/now.yml and stamped it Nov 3 (Actions deploy green).
