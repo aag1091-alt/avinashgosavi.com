@@ -4345,3 +4345,23 @@ Engineer backlog additions:
   items are either done or not worthwhile to force this shift — a
   quiet shift beats a forced change.
 - 2026-11-02 18:30 PT — DESIGNER — No changes (checks only).
+
+## Done (Nov 2, 2026, 7:30pm PT)
+
+- Engineer shift (UTC 03): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; local checkout at origin/main). Last deploy
+  run 41566795890 green. All _data YAML validates; check_data.py reports
+  0 warnings (14 events, 4 now items, 247 changelog entries); events/now
+  current — verified in events.md that ended upcoming events render as
+  past automatically (cutoff is site.time minus one day), so OSA Con
+  (today, Nov 2) correctly still shows as happening today and will move
+  on its own; HackUMass XIV Nov 15 upcoming; now.yml stamped 2026-11-01,
+  `until` dates correct. Doubled-word sweep clean; no VideoOnly Browser /
+  Drafting Desk remnants anywhere outside this log.
+- Fallbacks considered and skipped: a11y --strict is not due until a
+  full week at 0 warnings (from Oct 27, so Nov 3+); check_html --strict
+  clock runs a week from Nov 2; prefers-color-scheme default and
+  search-Enter behaviour are waiting on Avinash; all other backlog
+  items are either done or not worthwhile to force this shift — a
+  quiet shift beats a forced change.
+- 2026-11-02 19:30 PT — ENGINEER — No changes (checks only).
