@@ -5905,4 +5905,4 @@ Engineer backlog additions:
   search-Enter behaviour are waiting on Avinash; all other backlog
   items are either done or not worthwhile to force this shift — a
   quiet shift beats a forced change.
-- - 2026-11-05 09:30 PT — DESIGNER — No changes (checks only).
+- 2026-11-05 09:30 PT — DESIGNER — No changes (checks only).
