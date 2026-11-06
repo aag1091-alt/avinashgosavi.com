@@ -6570,3 +6570,25 @@ Engineer backlog additions:
   items are either done or not worthwhile to force this shift — a
   quiet shift beats a forced change.
 - 2026-11-06 13:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 6, 2026, 2:30pm PT)
+
+- Designer shift (UTC 22): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; local checkout rebased to origin/main 73c3913).
+  Last deploy run 42297623325 green (build and deploy success). All _data YAML
+  validates; check_data.py reports 0 warnings (13 events, 3 now items,
+  247 changelog entries); events/now current (HackUMass XIV Nov 15
+  upcoming; now.yml stamped 2026-11-03, `until` dates correct);
+  llms.txt page list in step with real pages; no VideoOnly Browser / Drafting
+  Desk remnants anywhere outside this log. All diagram backlog items
+  (LoCoMo eval flow, Hopfield store/recall, VaultMem envelope encryption)
+  already exist as includes. Gmail search scoped to
+  after 2026/11/05 with registration/ticket/conference/HackUMass/
+  judging/RSVP/event terms: no messages found, none opened — no new
+  event registrations.
+- Fallbacks considered and skipped: a11y --strict lives in
+  .github/workflows/, which this token cannot push (no workflow scope);
+  prefers-color-scheme default and search-Enter behaviour are waiting
+  on Avinash; all other backlog items are either done or not worthwhile
+  to force this shift — a quiet shift beats a forced change.
+- 2026-11-06 14:30 PT — DESIGNER — No changes (checks only).
