@@ -9713,3 +9713,30 @@ Engineer backlog additions:
   on Avinash; all other backlog items are either done or not
   worthwhile to force this shift — a quiet shift beats a forced change.
 - 2026-11-11 13:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 11, 2026, 2:30pm PT)
+
+- Designer shift (UTC 22): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; fresh clone synced to origin/main 52c11b8).
+  Last completed deploy run 43104037475 green (build and deploy success);
+  an older queued run (43096631986, the 12:30pm log commit) was still
+  listed as queued at check time. All _data YAML validates; check_data.py
+  reports 0 warnings (13 events, 3 now items, 247 changelog entries);
+  events/now current (HackUMass XIV Nov 15 upcoming; now.yml stamped
+  2026-11-03, `until` dates correct); llms.txt page list in step with real
+  pages (covers every top-level page); doubled-word sweep clean apart
+  from numeric false positives; live homepage verified (200, HackUMass XIV
+  present in Now, Recently section correct); no VideoOnly Browser /
+  Drafting Desk remnants anywhere outside this log.
+- Designer-specific checks unchanged: all 31 theme-aware diagram includes
+  in place under _includes/diagrams/; focus-visible states covered
+  (29 occurrences in style.css) and prefers-reduced-motion handling in
+  place (7 occurrences), so no new visual change is worthwhile to force
+  this shift.
+- Fallbacks considered and skipped: a11y --strict and check_html
+  --strict both live in .github/workflows/, which this token cannot
+  push (no workflow scope — scopes are gist, read:org, repo);
+  prefers-color-scheme default and search-Enter behaviour are waiting
+  on Avinash; all other backlog items are either done or not
+  worthwhile to force this shift — a quiet shift beats a forced change.
+- 2026-11-11 14:30 PT — DESIGNER — No changes (checks only).
