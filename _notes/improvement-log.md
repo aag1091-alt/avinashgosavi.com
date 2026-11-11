@@ -9266,3 +9266,23 @@ Engineer backlog additions:
   done or not worthwhile to force this shift — a quiet shift beats a
   forced change.
 - 2026-11-10 18:30 PT — DESIGNER — No changes (checks only).
+
+## Done (Nov 10, 2026, 7:30pm PT)
+
+- Engineer shift (UTC 03): nothing needed, no site changes. Access verified
+  (fresh clone at origin/main da73da3; gh logged in as aag1091-alt).
+  Last deploy run 42946649115 green (build and deploy success). All _data
+  YAML validates; check_data.py reports 0 warnings (13 events, 3 now
+  items, 247 changelog entries); live homepage verified (200, HackUMass
+  XIV present in Now, changelog strip current, no VideoOnly Browser /
+  Drafting Desk projects listed). The open `<meta name="theme-color">` /
+  `color-scheme` backlog checkbox is stale — both are already implemented
+  (_layouts/default.html line 8 + inline theme script; style.css
+  color-scheme at lines 132/158/2334).
+- Fallbacks considered and skipped: a11y --strict (due since a week at
+  0 warnings from Oct 27) and check_html --strict (due Nov 9) both live
+  in .github/workflows/, which this token cannot push (no workflow
+  scope); prefers-color-scheme default and search-Enter behaviour are
+  waiting on Avinash; all other backlog items are either done or not
+  worthwhile to force this shift — a quiet shift beats a forced change.
+- 2026-11-10 19:30 PT — ENGINEER — No changes (checks only).
