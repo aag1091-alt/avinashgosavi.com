@@ -10105,3 +10105,17 @@ Engineer backlog additions:
   on Avinash; all other backlog items are either done or not
   worthwhile to force this shift — a quiet shift beats a forced change.
 - 2026-11-12 04:30 PT — DESIGNER — No changes (checks only).
+
+## Done (Nov 12, 2026, 5:30am PT)
+
+- Engineer shift (UTC 13): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; synced to origin/main d1f062d). Last deploy
+  run 43218871846 green. All _data YAML validates; check_data.py reports
+  0 warnings (13 events, 3 now items, 247 changelog entries); live
+  homepage verified (HackUMass XIV present in Now, Recently section
+  correct, no VideoOnly Browser / Drafting Desk remnants); live sitemap
+  lists every top-level page. Local check scripts that need the built
+  _site (links/seo/jsonld/llms/weight) checked 0 pages locally — CI runs
+  them post-build and the latest run is green. Fourth consecutive quiet
+  shift — nothing worthwhile to force.
+- 2026-11-12 05:30 PT — ENGINEER — No changes (checks only).
