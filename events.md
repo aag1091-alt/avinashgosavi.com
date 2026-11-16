@@ -30,6 +30,9 @@ leaves Upcoming on time even before an editor flips its status in events.yml.
     {% for e in upcoming %}{% include event-row.html e=e %}{% endfor %}
   </ul>
   <p class="events-ics" id="events-ics"><a href="{{ '/events.ics' | relative_url }}" type="text/calendar">Add upcoming events to your calendar</a> <span>(.ics — subscribe to the link and new ones appear on their own)</span></p>
+  {% else %}
+  <h2 id="upcoming">Upcoming</h2>
+  <p>No upcoming events are scheduled at the moment.</p>
   {% endif %}
 
   <h2 id="past">Past</h2>
