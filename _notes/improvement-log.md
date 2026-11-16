@@ -12345,3 +12345,38 @@ Engineer backlog additions:
   on Avinash; all other backlog items are either done or not
   worthwhile to force this shift — a quiet shift beats a forced change.
 - 2026-11-15 23:30 PT — DESIGNER — No changes (checks only).
+
+## Done (Nov 16, 2026, 12:30am PT)
+
+- Editor shift via Engineer→Designer→Editor fallback (UTC 08 is
+  Engineer; Engineer/Designer backlogs are blocked or waiting on
+  Avinash, below): HackUMass XIV (Nov 15) moved from upcoming to past
+  in _data/events.yml (role judge kept — he judged there on Nov 15),
+  and the expired Judging item (until: 2026-11-15) removed from
+  _data/now.yml with `updated` bumped to 2026-11-16. Changelog entry
+  added at the top. check_data.py went from 1 warning (the expired
+  Now item) to 0 warnings (13 events, 2 now items, 248 changelog
+  entries). Gmail search scoped to after 2026/11/12 with
+  registration/ticket/conference/HackUMass/judging/RSVP/event terms
+  across both accounts: no new event registrations (hits were
+  newsletters/promos, an OSA Con 2026 recordings notice for an event
+  he did not attend, Hertz mail for the HackUMass trip, and a Tineco
+  ticket notice, none opened beyond triage lines).
+- First deploy of that change (run 43832124842, commit b0e8559)
+  FAILED the blocking internal-link check: with zero upcoming events
+  the /events page dropped its `id="upcoming"` heading, breaking the
+  historical /events/#upcoming link on /changelog. Fixed immediately
+  in events.md (commit 3cdfbbe): when no events are upcoming the page
+  now keeps the Upcoming heading and shows "No upcoming events are
+  scheduled at the moment." Deploy run 43832327062 green; live
+  /events verified (Upcoming empty-state present, HackUMass XIV in
+  Past as Judge) and live homepage verified (200, new changelog entry
+  shown, Judging item gone, no VideoOnly Browser / Drafting Desk
+  remnants outside this log).
+- Fallbacks considered and skipped: a11y --strict and check_html
+  --strict both live in .github/workflows/, which this token cannot
+  push (no workflow scope — scopes are gist, read:org, repo);
+  prefers-color-scheme default and search-Enter behaviour are waiting
+  on Avinash; all other backlog items are either done or not
+  worthwhile to force this shift.
+- 2026-11-16 00:30 PT — EDITOR (via Engineer fallback) — HackUMass XIV moved to past events and off the Now list (/events/#hackumass-xiv, /now/); fixed the zero-upcoming /events/#upcoming anchor break in events.md (Actions deploy green).
