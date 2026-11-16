@@ -1,11 +1,7 @@
 # Shown on /now and (first 4) on the homepage. Update `updated` when editing.
 # until: YYYY-MM-DD (optional) - the item disappears the day after (dated events).
-updated: 2026-11-03
+updated: 2026-11-16
 items:
-  - label: Judging
-    text: Judging student projects at HackUMass XIV (UMass Amherst) on Nov 15.
-    link: /events/#hackumass-xiv
-    until: 2026-11-15
   - label: Reading
     text: >-
       Papers on memory for AI agents — plain-language summaries of them are
