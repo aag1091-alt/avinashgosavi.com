@@ -12315,3 +12315,33 @@ Engineer backlog additions:
   on Avinash; all other backlog items are either done or not
   worthwhile to force this shift — a quiet shift beats a forced change.
 - 2026-11-15 22:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 15, 2026, 11:30pm PT)
+
+- Designer shift (UTC 07): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; fresh clone synced to origin/main c7400a8).
+  Last deploy run 43817471514 green. All _data YAML validates; check_data.py
+  reports 0 warnings (13 events, 3 now items, 247 changelog entries);
+  events/now current (HackUMass XIV Nov 15 is still today PT, so it correctly
+  stays upcoming; its /now item has `until: 2026-11-15` and steps aside on
+  its own tomorrow — the move to past is tomorrow's editor shift);
+  llms.txt page list in step with real pages; doubled-word sweep clean
+  (only code/numeric false positives); live homepage verified (200,
+  HackUMass XIV present in Now, Recently section correct, no
+  VideoOnly Browser / Drafting Desk remnants outside this log). Gmail
+  search scoped to after 2026/11/12 with registration/ticket/conference/
+  HackUMass/judging/RSVP/event terms across both accounts: no new event
+  registrations (hits were newsletters/promos, an OSA Con 2026 recordings
+  notice for an event he did not attend, and a Tineco support ticket
+  notice, none opened beyond triage lines).
+- Designer-specific checks unchanged: all 31 theme-aware diagram
+  includes in place under _includes/diagrams/; focus-visible states
+  covered (29 occurrences in style.css) and prefers-reduced-motion
+  handling in place (7 occurrences).
+- Fallbacks considered and skipped: a11y --strict and check_html
+  --strict both live in .github/workflows/, which this token cannot
+  push (no workflow scope — scopes are gist, read:org, repo);
+  prefers-color-scheme default and search-Enter behaviour are waiting
+  on Avinash; all other backlog items are either done or not
+  worthwhile to force this shift — a quiet shift beats a forced change.
+- 2026-11-15 23:30 PT — DESIGNER — No changes (checks only).
