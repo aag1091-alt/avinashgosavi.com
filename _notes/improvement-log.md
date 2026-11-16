@@ -12380,3 +12380,23 @@ Engineer backlog additions:
   on Avinash; all other backlog items are either done or not
   worthwhile to force this shift.
 - 2026-11-16 00:30 PT — EDITOR (via Engineer fallback) — HackUMass XIV moved to past events and off the Now list (/events/#hackumass-xiv, /now/); fixed the zero-upcoming /events/#upcoming anchor break in events.md (Actions deploy green).
+
+## Done (Nov 16, 2026, 1:30am PT)
+
+- Engineer shift (UTC 09): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; fresh clone synced to origin/main 7d00005).
+  Last deploy run 43833034935 green. All _data YAML validates; check_data.py
+  reports 0 warnings (13 events, 2 now items, 248 changelog entries);
+  events/now current (HackUMass XIV already in past as judge, no upcoming
+  events, Now shows only Reading and Running with `updated` 2026-11-16);
+  llms.txt page list in step with real pages; doubled-word sweep clean;
+  live homepage verified (200, HackUMass XIV changelog entry shown,
+  Judging item gone, Recently section correct); no VideoOnly Browser /
+  Drafting Desk remnants anywhere outside this log.
+- Fallbacks considered and skipped: a11y --strict and check_html
+  --strict both live in .github/workflows/, which this token cannot
+  push (no workflow scope — scopes are gist, read:org, repo);
+  prefers-color-scheme default and search-Enter behaviour are waiting
+  on Avinash; all other backlog items are either done or not
+  worthwhile to force this shift — a quiet shift beats a forced change.
+- 2026-11-16 01:30 PT — ENGINEER — No changes (checks only).
