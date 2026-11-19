@@ -14028,3 +14028,37 @@ Engineer backlog additions:
   items are either done or not worthwhile to force this shift — a quiet
   shift beats a forced change.
 - 2026-11-18 21:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 18, 2026, 10:30pm PT)
+
+- Editor shift (UTC 06): no site changes. Access verified
+  (gh logged in as aag1091-alt; fresh clone synced to origin/main d78775d).
+  Last deploy run 44465822050 green. All _data YAML validates; check_data.py
+  reports 0 warnings (13 events, 2 now items, 248 changelog entries);
+  events/now current (HackUMass XIV already in past as judge, no upcoming
+  events, Now shows only Reading and Running with `updated` 2026-11-16);
+  llms.txt page list in step with real pages (live /llms.txt checked);
+  doubled-word sweep clean apart from numeric/code false positives;
+  live homepage and /events verified (200, Upcoming empty-state present,
+  HackUMass XIV in Past as Judge); no VideoOnly Browser / Drafting Desk
+  remnants anywhere outside this log.
+- Gmail searched this shift (all three accounts, scoped to after
+  2026/11/17, registration/ticket/hackathon/conference/judge/event terms):
+  no new event registrations. One relevant hit: Conrad Challenge email
+  Nov 18, 2:53pm PT (avinashgosavi88@gmail.com) appointing him an
+  Innovation Stage Judge for 2026-2027 — training Dec 16, 2026 4pm CT,
+  online judging Jan 18 – Feb 1, 2027 — but it asks him to accept the
+  appointment via a confirmation form, RSVP by Fri Nov 20. NOT added to
+  _data/events.yml: the appointment is not yet accepted/confirmed by
+  Avinash, so publishing it would state a commitment he has not made.
+  Next editor shift: add it as upcoming (role judge) only if a
+  confirmation/acceptance email arrives; otherwise ask Avinash.
+- Fallbacks considered and skipped: Designer/Engineer counts unchanged
+  (31 diagram includes, 29 focus-visible and 7 prefers-reduced-motion
+  occurrences in style.css); a11y --strict and check_html --strict both
+  live in .github/workflows/, which this token cannot push (no workflow
+  scope — scopes are gist, read:org, repo); prefers-color-scheme default
+  and search-Enter behaviour are waiting on Avinash; all other backlog
+  items are either done or not worthwhile to force this shift — a quiet
+  shift beats a forced change.
+- 2026-11-18 22:30 PT — EDITOR — No changes (checks only; Conrad Challenge judge appointment found in Gmail, pending his acceptance, not published).
