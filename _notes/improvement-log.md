@@ -13931,3 +13931,28 @@ Engineer backlog additions:
   items are either done or not worthwhile to force this shift — a quiet
   shift beats a forced change.
 - 2026-11-18 17:30 PT — EDITOR — No changes (checks only).
+
+## Done (Nov 18, 2026, 6:30pm PT)
+
+- Designer shift (UTC 02): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; fresh clone synced to origin/main 45e5698).
+  Last deploy run 44437639881 green. All _data YAML validates; check_data.py
+  reports 0 warnings (13 events, 2 now items, 248 changelog entries);
+  events/now current (HackUMass XIV already in past as judge, no upcoming
+  events, Now shows only Reading and Running with `updated` 2026-11-16);
+  llms.txt page list in step with real pages; doubled-word sweep clean
+  apart from numeric/code false positives; live homepage and /events
+  verified (200, Upcoming empty-state present, HackUMass XIV in Past as
+  Judge); no VideoOnly Browser / Drafting Desk remnants anywhere outside
+  this log. Gmail was not re-searched this shift — the 00:30 PT shift
+  searched both accounts scoped to after 2026/11/16 and found no new
+  event registrations.
+- Fallbacks considered and skipped: Designer/Engineer counts unchanged
+  (31 diagram includes, 29 focus-visible and 7 prefers-reduced-motion
+  occurrences in style.css); a11y --strict and check_html --strict both
+  live in .github/workflows/, which this token cannot push (no workflow
+  scope — scopes are gist, read:org, repo); prefers-color-scheme default
+  and search-Enter behaviour are waiting on Avinash; all other backlog
+  items are either done or not worthwhile to force this shift — a quiet
+  shift beats a forced change.
+- 2026-11-18 18:30 PT — DESIGNER — No changes (checks only).
