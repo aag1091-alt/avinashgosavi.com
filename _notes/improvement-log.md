@@ -14725,3 +14725,33 @@ Engineer backlog additions:
   on Avinash; all other backlog items are either done or not
   worthwhile to force this shift — a quiet shift beats a forced change.
 - 2026-11-19 23:30 PT — DESIGNER — No changes (checks only).
+
+## Done (Nov 20, 2026, 12:30am PT)
+
+- Engineer shift (UTC 08): nothing needed, no site changes. Access verified
+  (gh logged in as aag1091-alt; fresh clone synced to origin/main 01f2609).
+  Last deploy run 44695566656 green. All _data YAML validates; check_data.py
+  reports 0 warnings (13 events, 2 now items, 248 changelog entries);
+  events/now current (HackUMass XIV already in past as judge, no upcoming
+  events, Now shows only Reading and Running with `updated` 2026-11-16);
+  llms.txt page list in step with real pages; doubled-word sweep clean;
+  live homepage and /events verified (200, Now shows Reading and Running,
+  HackUMass XIV in Past as Judge, Upcoming empty-state present); no
+  VideoOnly Browser / Drafting Desk remnants anywhere outside this log.
+- Engineer-specific checks unchanged: all 31 theme-aware diagram
+  includes in place under _includes/diagrams/; focus-visible states
+  covered (29 occurrences in style.css) and prefers-reduced-motion
+  handling in place (7 occurrences).
+- Gmail searched this shift (the 00:30 PT shift owns the sweep): all
+  three accounts scoped to after 2026/11/19 for registration / ticket /
+  hackathon / conference / judging / mentor terms — no new event
+  registrations (only promos and newsletters); the Conrad Challenge
+  judge appointment found Nov 18 is still pending Avinash's acceptance,
+  so it was not published.
+- Fallbacks considered and skipped: a11y --strict and check_html
+  --strict both live in .github/workflows/, which this token cannot
+  push (no workflow scope — scopes are gist, read:org, repo);
+  prefers-color-scheme default and search-Enter behaviour are waiting
+  on Avinash; all other backlog items are either done or not
+  worthwhile to force this shift — a quiet shift beats a forced change.
+- 2026-11-20 00:30 PT — ENGINEER — No changes (checks only).
