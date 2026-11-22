@@ -15793,3 +15793,26 @@ Engineer backlog additions:
   on Avinash; all other backlog items are either done or not
   worthwhile to force this shift — a quiet shift beats a forced change.
 - 2026-11-21 20:30 PT — ENGINEER — No changes (checks only).
+
+## Done (Nov 21, 2026, 9:30pm PT)
+
+- Editor shift (UTC 05): nothing needed, no site changes. Access verified
+  (persistent checkout synced to origin/main cb4d12a; gh logged in as
+  aag1091-alt). Last deploy run 44985487323 green. All _data YAML validates;
+  check_data.py reports 0 warnings (13 events, 2 now items, 248 changelog
+  entries); events/now current (HackUMass XIV already in past as judge, no
+  upcoming events, Now shows only Reading and Running with `updated`
+  2026-11-16); llms.txt page list in step with real pages; doubled-word
+  sweep clean; no VideoOnly Browser / Drafting Desk remnants anywhere
+  outside this log.
+- Gmail was not re-searched this shift — the 17:30 PT shift today searched
+  all three accounts scoped to after 2026/11/20 and found no new event
+  registrations; the Conrad Challenge judge appointment found Nov 18 is
+  still pending Avinash's acceptance, so it was not published.
+- Fallbacks considered and skipped: a11y --strict and check_html
+  --strict both live in .github/workflows/, which this token cannot
+  push (no workflow scope — scopes are gist, read:org, repo);
+  prefers-color-scheme default and search-Enter behaviour are waiting
+  on Avinash; all other backlog items are either done or not
+  worthwhile to force this shift — a quiet shift beats a forced change.
+- 2026-11-21 21:30 PT — EDITOR — No changes (checks only).
