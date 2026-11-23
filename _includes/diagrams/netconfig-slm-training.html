@@ -1,0 +1,39 @@
+<figure class="diagram">
+<svg viewBox="0 0 360 462" role="img" aria-labelledby="slm-train-title slm-train-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="slm-train-title">How the small network model gets trained</title>
+  <desc id="slm-train-desc">A plain-English intent, such as add VLAN 20 on sw1, starts the pipeline. First, build the dataset: about 5,000 intent-to-config pairs taken from Cisco config guides plus synthetic examples. Second, check every config by parsing it, testing its meaning with Batfish, and booting it in an emulator; failures are thrown out. Third, fine-tune Qwen3-4B with QLoRA on a rented RTX 4090, about 2 to 4 hours and about 2 to 3 dollars. Fourth, test the model on configs it never saw in training and score whether they parse and work. Finally, publish on Hugging Face and Ollama, then repeat the same run with the smaller 1.7B and 0.6B models to find where quality falls off.</desc>
+  <defs>
+    <marker id="slm-train-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+    </marker>
+  </defs>
+  <rect class="dg-pill" x="22" y="8" width="268" height="40" rx="20"/>
+  <text class="dg-body" x="156" y="33" text-anchor="middle">Intent: "Add VLAN 20 on sw1"</text>
+  <line class="dg-line" x1="156" y1="48" x2="156" y2="68" marker-end="url(#slm-train-arrow)"/>
+  <rect class="dg-box" x="22" y="70" width="268" height="64" rx="8"/>
+  <text class="dg-strong" x="156" y="94" text-anchor="middle">1. Build the dataset</text>
+  <text class="dg-note" x="156" y="112" text-anchor="middle">Cisco config guides + synthetic examples</text>
+  <text class="dg-note" x="156" y="127" text-anchor="middle">~5,000 intent → config pairs</text>
+  <line class="dg-line" x1="156" y1="134" x2="156" y2="154" marker-end="url(#slm-train-arrow)"/>
+  <rect class="dg-box" x="22" y="156" width="268" height="64" rx="8"/>
+  <text class="dg-strong" x="156" y="180" text-anchor="middle">2. Check every config</text>
+  <text class="dg-note" x="156" y="198" text-anchor="middle">Parse it → Batfish → emulator</text>
+  <text class="dg-note" x="156" y="213" text-anchor="middle">anything that fails is thrown out</text>
+  <line class="dg-line" x1="156" y1="220" x2="156" y2="240" marker-end="url(#slm-train-arrow)"/>
+  <rect class="dg-box" x="22" y="242" width="268" height="64" rx="8"/>
+  <text class="dg-strong" x="156" y="266" text-anchor="middle">3. Fine-tune Qwen3-4B</text>
+  <text class="dg-note" x="156" y="284" text-anchor="middle">QLoRA on a rented RTX 4090</text>
+  <text class="dg-note" x="156" y="299" text-anchor="middle">2–4 hours · about $2–3</text>
+  <line class="dg-line" x1="156" y1="306" x2="156" y2="326" marker-end="url(#slm-train-arrow)"/>
+  <rect class="dg-box" x="22" y="328" width="268" height="64" rx="8"/>
+  <text class="dg-strong" x="156" y="352" text-anchor="middle">4. Test it</text>
+  <text class="dg-note" x="156" y="370" text-anchor="middle">configs it never saw in training</text>
+  <text class="dg-note" x="156" y="385" text-anchor="middle">score: does it parse, does it work</text>
+  <line class="dg-line" x1="156" y1="392" x2="156" y2="412" marker-end="url(#slm-train-arrow)"/>
+  <rect class="dg-pill" x="22" y="414" width="268" height="40" rx="20"/>
+  <text class="dg-body" x="156" y="439" text-anchor="middle">Publish: Hugging Face + Ollama</text>
+  <path class="dg-line dg-dash" d="M290 434 H326 V274 H294" marker-end="url(#slm-train-arrow)"/>
+  <text class="dg-note" transform="translate(346 354) rotate(-90)" text-anchor="middle">then the same run at 1.7B and 0.6B</text>
+</svg>
+<figcaption>The whole plan: build checked examples, fine-tune a small open model on them, test it on configs it has never seen, publish — then repeat with smaller models to find the floor.</figcaption>
+</figure>
