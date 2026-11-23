@@ -24,7 +24,7 @@ This post is the homework I did before writing any training code. Four questions
 
 {% include diagrams/netconfig-slm-training.html %}
 
-The short version: I need a few thousand examples of "request → correct config". Every example gets checked automatically. Then I fine-tune a small open model on those examples, test it on examples it has never seen, and publish it. Then I do the same with even smaller models, to find out where quality falls off.
+The short version: draft a config for a request, run it in a simulator, and log what happens. Keep the ones that work, drop the rest — that log becomes the dataset. Then fine-tune a small open model on it, test it in the same simulator on requests it has never seen, and publish it. Then do the same with even smaller models, to find out where quality falls off.
 
 ## Where the data comes from
 
