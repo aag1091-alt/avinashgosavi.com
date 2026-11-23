@@ -91,3 +91,7 @@ The dataset and the training scripts get published too, so anyone can repeat the
 Writing this down changed how I see the project. The hard part is not the model. It's the dataset, and the checker that can say, cheaply and automatically, "this config is correct." Build that, and the model almost follows on its own.
 
 First milestone: a few thousand checked request → config pairs for everyday Cisco tasks. Then the Qwen3-4B fine-tune. Then the step down to 1.7B and 0.6B. I'll write up each step here as I go, including the parts that don't work.
+
+## Progress
+
+*Nov 22, 2026:* The checker described above is built and working — the first seed configs pass both the parser and Batfish. The v0 scope is locked (six everyday task families, ~5,000 pairs, Qwen3-4B first), and the seed set is growing from 5 examples to about 100. Every data-generation run gets logged publicly as it happens: [slm.aag1091.com](https://slm.aag1091.com).
