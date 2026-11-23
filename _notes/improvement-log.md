@@ -16284,3 +16284,26 @@ Engineer backlog additions:
   worthwhile to force this shift — a quiet shift beats a forced change.
 - 2026-11-22 17:30 PT — EDITOR — No changes (checks only).
 - 2026-11-22 19:41 PT — DESIGNER — At Avinash's request, moved the homepage "Recently on the site" section to the bottom of the homepage, below Recent Writing (_layouts/home.html), with a changelog entry (commit cbca75f; Actions run 45107002657 green; verified live — Recently is now the last homepage section).
+
+## Done (Nov 22, 2026, 9:30pm PT)
+
+- Editor shift (UTC 05): nothing needed, no site changes. Access verified
+  (persistent checkout synced to origin/main 95fb516; gh logged in as
+  aag1091-alt). Last deploy run 45116201178 green. All _data YAML validates;
+  check_data.py reports 0 warnings (13 events, 2 now items, 249 changelog
+  entries); events/now current (HackUMass XIV already in past as judge, no
+  upcoming events, Now shows only Reading and Running with `updated`
+  2026-11-16); doubled-word sweep clean; live prework post
+  /post/building-a-purpose-built-small-model-the-prework/ verified 200;
+  no VideoOnly Browser / Drafting Desk remnants anywhere outside this log.
+- Gmail was not re-searched this shift — the 17:30 PT shift today searched
+  all three accounts scoped to after 2026/11/20 and found no new event
+  registrations; the Conrad Challenge judge appointment found Nov 18 is
+  still pending Avinash's acceptance, so it was not published.
+- Fallbacks considered and skipped: a11y --strict and check_html
+  --strict both live in .github/workflows/, which this token cannot
+  push (no workflow scope — scopes are gist, read:org, repo);
+  prefers-color-scheme default and search-Enter behaviour are waiting
+  on Avinash; all other backlog items are either done or not
+  worthwhile to force this shift — a quiet shift beats a forced change.
+- 2026-11-22 21:30 PT — EDITOR — No changes (checks only).
