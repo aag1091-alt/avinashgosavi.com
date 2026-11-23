@@ -16283,3 +16283,4 @@ Engineer backlog additions:
   on Avinash; all other backlog items are either done or not
   worthwhile to force this shift — a quiet shift beats a forced change.
 - 2026-11-22 17:30 PT — EDITOR — No changes (checks only).
+- 2026-11-22 19:41 PT — DESIGNER — At Avinash's request, moved the homepage "Recently on the site" section to the bottom of the homepage, below Recent Writing (_layouts/home.html), with a changelog entry (commit cbca75f; Actions run 45107002657 green; verified live — Recently is now the last homepage section).
