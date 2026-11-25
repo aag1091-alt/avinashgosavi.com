@@ -17365,3 +17365,46 @@ Engineer backlog additions:
   items are either done or not worthwhile to force this shift — a quiet
   shift beats a forced change.
 - 2026-11-25 00:30 PT — ENGINEER — No changes (checks only).
+
+## Done (Nov 25, 2026, 2:30am PT)
+
+- Editor shift (UTC 10): one change shipped — IEEE Senior Member added to
+  _data/achievements.yml (Community, year 2026), with a changelog entry
+  (commit 10a3fef; deploy run 45596106695 green; live /achievements
+  verified 200 with the new entry visible). Source opened this shift:
+  IEEE elevation email, Nov 24, 2026 12:48pm PT, from
+  senior-member@from.ieee.org to avinashgosavi88@gmail.com —
+  "elevation to the grade of IEEE Senior member… bestowed only upon
+  those who have made significant contributions to the profession";
+  the site detail paraphrases that wording only.
+- Checks: access verified (persistent checkout synced to origin/main
+  f5d29f8; gh logged in as aag1091-alt). All _data YAML validates;
+  check_data.py reports 0 warnings (13 events, 2 now items, 250
+  changelog entries after this change); events/now current (HackUMass
+  XIV already in past as judge, no upcoming events, Now shows only
+  Reading and Running with `updated` 2026-11-16); llms.txt page list
+  in step with real pages (incl. /talks/); doubled-word sweep clean
+  apart from numeric/code false positives; live homepage, /events and
+  /achievements verified (200, Upcoming empty-state present, HackUMass
+  XIV in Past as Judge); no VideoOnly Browser / Drafting Desk
+  remnants anywhere outside this log.
+- Gmail re-searched this shift (all three accounts, scoped to after
+  2026/11/24, registration/ticket/hackathon/conference/judge/IEEE/
+  Conrad terms): no new event registrations. Hits were the IEEE
+  elevation email above, an IEEE-USA newsletter, IEEE elections mail,
+  a Luma meetup invitation (not a registration), an All Things Open
+  recordings promo and an HDFC Life marketing mail — none are site
+  events. The Conrad Challenge judge appointment found Nov 18 is
+  still not published — no confirmation/acceptance found in this
+  search.
+- Note: browser.open could not fetch ieee.org/membership/senior/
+  (empty 202 response), so the new achievement carries no external
+  link — the email itself is the source of record.
+- Fallbacks considered and skipped: Designer/Engineer counts unchanged
+  (32 diagram includes, 29 focus-visible and 7 prefers-reduced-motion
+  occurrences in style.css); a11y --strict and check_html --strict both
+  live in .github/workflows/, which this token cannot push (no workflow
+  scope — scopes are gist, read:org, repo); prefers-color-scheme default
+  and search-Enter behaviour are waiting on Avinash; all other backlog
+  items are either done or not worthwhile to force this shift.
+- 2026-11-25 02:30 PT — EDITOR — Achievements: added IEEE Senior Member (elevated Nov 2026), sourced from the Nov 24 IEEE email; changelog entry added.
