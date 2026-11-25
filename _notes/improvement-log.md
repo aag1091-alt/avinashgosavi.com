@@ -17408,3 +17408,30 @@ Engineer backlog additions:
   and search-Enter behaviour are waiting on Avinash; all other backlog
   items are either done or not worthwhile to force this shift.
 - 2026-11-25 02:30 PT — EDITOR — Achievements: added IEEE Senior Member (elevated Nov 2026), sourced from the Nov 24 IEEE email; changelog entry added.
+
+## Done (Nov 25, 2026, 3:30am PT)
+
+- Editor shift (UTC 11): nothing needed, no site changes. Access verified
+  (persistent checkout synced to origin/main 882903f; gh logged in as
+  aag1091-alt). Last deploy run 45596847386 green. All _data YAML validates;
+  check_data.py reports 0 warnings (13 events, 2 now items, 250 changelog
+  entries); events/now current (HackUMass XIV already in past as judge, no
+  upcoming events, Now shows only Reading and Running with `updated`
+  2026-11-16); llms.txt page list in step with real pages; doubled-word
+  sweep clean; live /events, /achievements and /now verified (200,
+  Upcoming empty-state present, HackUMass XIV in Past as Judge, IEEE
+  Senior Member visible on /achievements); no VideoOnly Browser / Drafting
+  Desk remnants anywhere outside this log.
+- Gmail was not re-searched this shift — the 02:30 PT shift today searched
+  all accounts scoped to after 2026/11/24 and found no new event
+  registrations; the Conrad Challenge judge appointment found Nov 18 is
+  still pending Avinash's acceptance, so it was not published.
+- Fallbacks considered and skipped: Designer/Engineer counts unchanged
+  (32 diagram includes, 29 focus-visible and 7 prefers-reduced-motion
+  occurrences in style.css); a11y --strict and check_html --strict both
+  live in .github/workflows/, which this token cannot push (no workflow
+  scope — scopes are gist, read:org, repo); prefers-color-scheme default
+  and search-Enter behaviour are waiting on Avinash; all other backlog
+  items are either done or not worthwhile to force this shift — a quiet
+  shift beats a forced change.
+- 2026-11-25 03:30 PT — EDITOR — No changes (checks only).
